@@ -20,18 +20,18 @@ __all__ = ['ThemeArgs', 'Theme']
 class ThemeArgs:
     def __init__(__self__, *,
                  brand_id: pulumi.Input[_builtins.str],
-                 background_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_template_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_dashboard_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 favicon: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_in_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 theme_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 background_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_template_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_dashboard_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_in_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 theme_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Theme resource.
 
@@ -89,169 +89,169 @@ class ThemeArgs:
 
     @_builtins.property
     @pulumi.getter(name="backgroundImage")
-    def background_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def background_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to local file
         """
         return pulumi.get(self, "background_image")
 
     @background_image.setter
-    def background_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def background_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "background_image", value)
 
     @_builtins.property
     @pulumi.getter(name="emailTemplateTouchPointVariant")
-    def email_template_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_template_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         """
         return pulumi.get(self, "email_template_touch_point_variant")
 
     @email_template_touch_point_variant.setter
-    def email_template_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_template_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_template_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
-    def end_user_dashboard_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_user_dashboard_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
     @end_user_dashboard_touch_point_variant.setter
-    def end_user_dashboard_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_user_dashboard_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_user_dashboard_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter(name="errorPageTouchPointVariant")
-    def error_page_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_page_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "error_page_touch_point_variant")
 
     @error_page_touch_point_variant.setter
-    def error_page_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_page_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_page_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter
-    def favicon(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to local file
         """
         return pulumi.get(self, "favicon")
 
     @favicon.setter
-    def favicon(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to local file
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryColorContrastHex")
-    def primary_color_contrast_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_color_contrast_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary color contrast hex code
         """
         return pulumi.get(self, "primary_color_contrast_hex")
 
     @primary_color_contrast_hex.setter
-    def primary_color_contrast_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_color_contrast_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_color_contrast_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryColorHex")
-    def primary_color_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_color_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary color hex code
         """
         return pulumi.get(self, "primary_color_hex")
 
     @primary_color_hex.setter
-    def primary_color_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_color_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_color_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryColorContrastHex")
-    def secondary_color_contrast_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_color_contrast_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
     @secondary_color_contrast_hex.setter
-    def secondary_color_contrast_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_color_contrast_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_color_contrast_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryColorHex")
-    def secondary_color_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_color_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary color hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
     @secondary_color_hex.setter
-    def secondary_color_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_color_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_color_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="signInPageTouchPointVariant")
-    def sign_in_page_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_in_page_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
     @sign_in_page_touch_point_variant.setter
-    def sign_in_page_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_in_page_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_in_page_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter(name="themeId")
-    def theme_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def theme_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         return pulumi.get(self, "theme_id")
 
     @theme_id.setter
-    def theme_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def theme_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "theme_id", value)
 
 
 @pulumi.input_type
 class _ThemeState:
     def __init__(__self__, *,
-                 background_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 background_image_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_template_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_dashboard_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 favicon: Optional[pulumi.Input[_builtins.str]] = None,
-                 favicon_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 links: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_in_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 theme_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 background_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 background_image_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_template_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_dashboard_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 favicon_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 links: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_in_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 theme_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Theme resources.
 
@@ -310,206 +310,206 @@ class _ThemeState:
 
     @_builtins.property
     @pulumi.getter(name="backgroundImage")
-    def background_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def background_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to local file
         """
         return pulumi.get(self, "background_image")
 
     @background_image.setter
-    def background_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def background_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "background_image", value)
 
     @_builtins.property
     @pulumi.getter(name="backgroundImageUrl")
-    def background_image_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def background_image_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Background image URL
         """
         return pulumi.get(self, "background_image_url")
 
     @background_image_url.setter
-    def background_image_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def background_image_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "background_image_url", value)
 
     @_builtins.property
     @pulumi.getter(name="brandId")
-    def brand_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def brand_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Brand ID
         """
         return pulumi.get(self, "brand_id")
 
     @brand_id.setter
-    def brand_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def brand_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
     @pulumi.getter(name="emailTemplateTouchPointVariant")
-    def email_template_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_template_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
         """
         return pulumi.get(self, "email_template_touch_point_variant")
 
     @email_template_touch_point_variant.setter
-    def email_template_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_template_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_template_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter(name="endUserDashboardTouchPointVariant")
-    def end_user_dashboard_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_user_dashboard_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
         """
         return pulumi.get(self, "end_user_dashboard_touch_point_variant")
 
     @end_user_dashboard_touch_point_variant.setter
-    def end_user_dashboard_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_user_dashboard_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_user_dashboard_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter(name="errorPageTouchPointVariant")
-    def error_page_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error_page_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "error_page_touch_point_variant")
 
     @error_page_touch_point_variant.setter
-    def error_page_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error_page_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_page_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter
-    def favicon(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to local file
         """
         return pulumi.get(self, "favicon")
 
     @favicon.setter
-    def favicon(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon", value)
 
     @_builtins.property
     @pulumi.getter(name="faviconUrl")
-    def favicon_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favicon_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Favicon URL
         """
         return pulumi.get(self, "favicon_url")
 
     @favicon_url.setter
-    def favicon_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favicon_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def links(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def links(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Link relations for this object - JSON HAL - Discoverable resources related to the email template
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def links(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "links", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to local file
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUrl")
-    def logo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logo URL
         """
         return pulumi.get(self, "logo_url")
 
     @logo_url.setter
-    def logo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_url", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryColorContrastHex")
-    def primary_color_contrast_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_color_contrast_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary color contrast hex code
         """
         return pulumi.get(self, "primary_color_contrast_hex")
 
     @primary_color_contrast_hex.setter
-    def primary_color_contrast_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_color_contrast_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_color_contrast_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryColorHex")
-    def primary_color_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_color_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary color hex code
         """
         return pulumi.get(self, "primary_color_hex")
 
     @primary_color_hex.setter
-    def primary_color_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_color_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_color_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryColorContrastHex")
-    def secondary_color_contrast_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_color_contrast_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary color contrast hex code
         """
         return pulumi.get(self, "secondary_color_contrast_hex")
 
     @secondary_color_contrast_hex.setter
-    def secondary_color_contrast_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_color_contrast_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_color_contrast_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryColorHex")
-    def secondary_color_hex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secondary_color_hex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary color hex code
         """
         return pulumi.get(self, "secondary_color_hex")
 
     @secondary_color_hex.setter
-    def secondary_color_hex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secondary_color_hex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_color_hex", value)
 
     @_builtins.property
     @pulumi.getter(name="signInPageTouchPointVariant")
-    def sign_in_page_touch_point_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_in_page_touch_point_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
 
     @sign_in_page_touch_point_variant.setter
-    def sign_in_page_touch_point_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_in_page_touch_point_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_in_page_touch_point_variant", value)
 
     @_builtins.property
     @pulumi.getter(name="themeId")
-    def theme_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def theme_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
         """
         return pulumi.get(self, "theme_id")
 
     @theme_id.setter
-    def theme_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def theme_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "theme_id", value)
 
 
@@ -519,19 +519,19 @@ class Theme(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 background_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_template_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_dashboard_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 favicon: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_in_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 theme_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 background_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_template_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_dashboard_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_in_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 theme_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Gets, updates, a single Theme of a Brand of an Okta Organization.
@@ -646,19 +646,19 @@ class Theme(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 background_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_template_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_dashboard_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 favicon: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 secondary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_in_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 theme_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 background_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_template_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_dashboard_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 secondary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_in_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 theme_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -697,23 +697,23 @@ class Theme(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            background_image: Optional[pulumi.Input[_builtins.str]] = None,
-            background_image_url: Optional[pulumi.Input[_builtins.str]] = None,
-            brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-            email_template_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-            end_user_dashboard_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-            error_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-            favicon: Optional[pulumi.Input[_builtins.str]] = None,
-            favicon_url: Optional[pulumi.Input[_builtins.str]] = None,
-            links: Optional[pulumi.Input[_builtins.str]] = None,
-            logo: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_color_contrast_hex: Optional[pulumi.Input[_builtins.str]] = None,
-            secondary_color_hex: Optional[pulumi.Input[_builtins.str]] = None,
-            sign_in_page_touch_point_variant: Optional[pulumi.Input[_builtins.str]] = None,
-            theme_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'Theme':
+            background_image: pulumi.Input[Optional[_builtins.str]] = None,
+            background_image_url: pulumi.Input[Optional[_builtins.str]] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email_template_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            end_user_dashboard_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            error_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            favicon: pulumi.Input[Optional[_builtins.str]] = None,
+            favicon_url: pulumi.Input[Optional[_builtins.str]] = None,
+            links: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_in_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            theme_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Theme':
         """
         Get an existing Theme resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

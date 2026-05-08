@@ -62,5 +62,5 @@ export function getOauthAuthorizationServerOutput(args?: GetOauthAuthorizationSe
  * A collection of arguments for invoking getOauthAuthorizationServer.
  */
 export interface GetOauthAuthorizationServerOutputArgs {
-    baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string | undefined>;
 }

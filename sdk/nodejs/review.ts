@@ -168,48 +168,48 @@ export interface ReviewState {
     /**
      * The id of the campaign.
      */
-    campaignId?: pulumi.Input<string>;
+    campaignId?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 formatted date and time when the resource was created
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The id of user who created the resource.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The decision of the reviewer.
      */
-    decision?: pulumi.Input<string>;
+    decision?: pulumi.Input<string | undefined>;
     /**
      * The ISO 8601 formatted date and time when the object was last updated.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * The id of user who last updated the object.
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * A note to justify the reassignment decision for the specified review.
      */
-    note?: pulumi.Input<string>;
-    resourceId?: pulumi.Input<string>;
+    note?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * A list of reviews (review id values) that are reassigned to the new reviewer.
      */
-    reviewIds?: pulumi.Input<pulumi.Input<string>[]>;
+    reviewIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Okta user id of the new reviewer.
      */
-    reviewerId?: pulumi.Input<string>;
+    reviewerId?: pulumi.Input<string | undefined>;
     /**
      * Identifies the reviewer level of each reviews during access certification. Applicable for multi level campaigns only.
      */
-    reviewerLevel?: pulumi.Input<string>;
+    reviewerLevel?: pulumi.Input<string | undefined>;
     /**
      * The type of reviewer to which the review is assigned.
      */
-    reviewerType?: pulumi.Input<string>;
+    reviewerType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -235,5 +235,5 @@ export interface ReviewArgs {
     /**
      * Identifies the reviewer level of each reviews during access certification. Applicable for multi level campaigns only.
      */
-    reviewerLevel?: pulumi.Input<string>;
+    reviewerLevel?: pulumi.Input<string | undefined>;
 }

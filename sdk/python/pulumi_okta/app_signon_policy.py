@@ -20,9 +20,9 @@ __all__ = ['AppSignonPolicyArgs', 'AppSignonPolicy']
 class AppSignonPolicyArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None):
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a AppSignonPolicy resource.
 
@@ -53,49 +53,49 @@ class AppSignonPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def catch_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def catch_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which this policy is evaluated in relation to the other policies.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
 
 @pulumi.input_type
 class _AppSignonPolicyState:
     def __init__(__self__, *,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None):
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering AppSignonPolicy resources.
 
@@ -118,62 +118,62 @@ class _AppSignonPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="catchAll")
-    def catch_all(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def catch_all(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
         """
         return pulumi.get(self, "catch_all")
 
     @catch_all.setter
-    def catch_all(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def catch_all(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "catch_all", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRuleId")
-    def default_rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default rule (system=true) id of the policy
         """
         return pulumi.get(self, "default_rule_id")
 
     @default_rule_id.setter
-    def default_rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_rule_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the order in which this policy is evaluated in relation to the other policies.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
 
@@ -183,10 +183,10 @@ class AppSignonPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages a sign-on policy.
@@ -272,10 +272,10 @@ class AppSignonPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,11 +302,11 @@ class AppSignonPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catch_all: Optional[pulumi.Input[_builtins.bool]] = None,
-            default_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None) -> 'AppSignonPolicy':
+            catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None) -> 'AppSignonPolicy':
         """
         Get an existing AppSignonPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

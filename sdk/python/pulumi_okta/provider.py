@@ -19,23 +19,23 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 backoff: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_api_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_wait_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_wait_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 org_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 backoff: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_api_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_wait_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_wait_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 org_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -94,206 +94,206 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Bearer token granting privileges to Okta API.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
-    def api_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API Token granting privileges to Okta API.
         """
         return pulumi.get(self, "api_token")
 
     @api_token.setter
-    def api_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def backoff(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backoff(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Use exponential back off strategy for rate limits.
         """
         return pulumi.get(self, "backoff")
 
     @backoff.setter
-    def backoff(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backoff(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backoff", value)
 
     @_builtins.property
     @pulumi.getter(name="baseUrl")
-    def base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Okta url. (Use 'oktapreview.com' for Okta testing)
         """
         return pulumi.get(self, "base_url")
 
     @base_url.setter
-    def base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_url", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API Token granting privileges to Okta API.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="httpProxy")
-    def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Alternate HTTP proxy of scheme://hostname or scheme://hostname:port format
         """
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
-    def http_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         providers log level. Minimum is 1 (TRACE), and maximum is 5 (ERROR)
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="maxApiCapacity")
-    def max_api_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_api_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Sets what percentage of capacity the provider can use of the total rate limit capacity while making calls to the Okta management API endpoints. Okta API operates in one minute buckets. See Okta Management API Rate Limits: https://developer.okta.com/docs/reference/rl-global-mgmt/
         """
         return pulumi.get(self, "max_api_capacity")
 
     @max_api_capacity.setter
-    def max_api_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_api_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_api_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         maximum number of retries to attempt before erroring out.
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter(name="maxWaitSeconds")
-    def max_wait_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_wait_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         maximum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
         """
         return pulumi.get(self, "max_wait_seconds")
 
     @max_wait_seconds.setter
-    def max_wait_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_wait_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_wait_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="minWaitSeconds")
-    def min_wait_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_wait_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         minimum seconds to wait when rate limit is hit. We use exponential backoffs when backoff is enabled.
         """
         return pulumi.get(self, "min_wait_seconds")
 
     @min_wait_seconds.setter
-    def min_wait_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_wait_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_wait_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="orgName")
-    def org_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The organization to manage in Okta.
         """
         return pulumi.get(self, "org_name")
 
     @org_name.setter
-    def org_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parallelism(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def parallelism(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of concurrent requests to make within a resource where bulk operations are not possible. Take note of https://developer.okta.com/docs/api/getting_started/rate-limits.
         """
         return pulumi.get(self, "parallelism")
 
     @parallelism.setter
-    def parallelism(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def parallelism(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "parallelism", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API Token granting privileges to Okta API.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeyId")
-    def private_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         API Token Id granting privileges to Okta API.
         """
         return pulumi.get(self, "private_key_id")
 
     @private_key_id.setter
-    def private_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requestTimeout")
-    def request_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Timeout for single request (in seconds) which is made to Okta, the default is `0` (means no limit is set). The maximum value can be `300`.
         """
         return pulumi.get(self, "request_timeout")
 
     @request_timeout.setter
-    def request_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         API Token granting privileges to Okta API.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -303,23 +303,23 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 backoff: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_api_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_wait_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_wait_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 org_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 backoff: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_api_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_wait_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_wait_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 org_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The provider type for the okta package. By default, resources use package-wide configuration
@@ -376,23 +376,23 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 backoff: Optional[pulumi.Input[_builtins.bool]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_api_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_wait_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_wait_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 org_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parallelism: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 request_timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 backoff: pulumi.Input[Optional[_builtins.bool]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_api_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_wait_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_wait_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 org_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parallelism: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 request_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

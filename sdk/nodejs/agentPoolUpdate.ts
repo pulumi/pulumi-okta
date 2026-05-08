@@ -177,55 +177,55 @@ export interface AgentPoolUpdateState {
     /**
      * Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
      */
-    agentType?: pulumi.Input<string>;
+    agentType?: pulumi.Input<string | undefined>;
     /**
      * The agents associated with the agent pool update.
      */
-    agents?: pulumi.Input<pulumi.Input<inputs.AgentPoolUpdateAgent>[]>;
+    agents?: pulumi.Input<pulumi.Input<inputs.AgentPoolUpdateAgent>[] | undefined>;
     /**
      * The description of the agent pool update.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether auto-update is enabled for the agent pool.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the agent pool update.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to notify admins about the update.
      */
-    notifyAdmins?: pulumi.Input<boolean>;
+    notifyAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to send notifications when the update completes.
      */
-    notifyOnCompletion?: pulumi.Input<boolean>;
+    notifyOnCompletion?: pulumi.Input<boolean | undefined>;
     /**
      * The unique identifier of the agent pool to update.
      */
-    poolId?: pulumi.Input<string>;
+    poolId?: pulumi.Input<string | undefined>;
     /**
      * Reason for the update.
      */
-    reason?: pulumi.Input<string>;
+    reason?: pulumi.Input<string | undefined>;
     /**
      * The schedule configuration for the agent pool update.
      */
-    schedule?: pulumi.Input<inputs.AgentPoolUpdateSchedule>;
+    schedule?: pulumi.Input<inputs.AgentPoolUpdateSchedule | undefined>;
     /**
      * Specifies the sort order.
      */
-    sortOrder?: pulumi.Input<number>;
+    sortOrder?: pulumi.Input<number | undefined>;
     /**
      * The status of the agent pool update (e.g., Scheduled, InProgress, Completed, Failed).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The agent version to update to.
      */
-    targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -235,31 +235,31 @@ export interface AgentPoolUpdateArgs {
     /**
      * Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
      */
-    agentType?: pulumi.Input<string>;
+    agentType?: pulumi.Input<string | undefined>;
     /**
      * The agents associated with the agent pool update.
      */
-    agents?: pulumi.Input<pulumi.Input<inputs.AgentPoolUpdateAgent>[]>;
+    agents?: pulumi.Input<pulumi.Input<inputs.AgentPoolUpdateAgent>[] | undefined>;
     /**
      * The description of the agent pool update.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Whether auto-update is enabled for the agent pool.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the agent pool update.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether to notify admins about the update.
      */
-    notifyAdmins?: pulumi.Input<boolean>;
+    notifyAdmins?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to send notifications when the update completes.
      */
-    notifyOnCompletion?: pulumi.Input<boolean>;
+    notifyOnCompletion?: pulumi.Input<boolean | undefined>;
     /**
      * The unique identifier of the agent pool to update.
      */
@@ -267,17 +267,17 @@ export interface AgentPoolUpdateArgs {
     /**
      * Reason for the update.
      */
-    reason?: pulumi.Input<string>;
+    reason?: pulumi.Input<string | undefined>;
     /**
      * The schedule configuration for the agent pool update.
      */
-    schedule?: pulumi.Input<inputs.AgentPoolUpdateSchedule>;
+    schedule?: pulumi.Input<inputs.AgentPoolUpdateSchedule | undefined>;
     /**
      * Specifies the sort order.
      */
-    sortOrder?: pulumi.Input<number>;
+    sortOrder?: pulumi.Input<number | undefined>;
     /**
      * The agent version to update to.
      */
-    targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string | undefined>;
 }

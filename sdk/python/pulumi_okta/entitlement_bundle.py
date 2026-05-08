@@ -21,12 +21,12 @@ __all__ = ['EntitlementBundleArgs', 'EntitlementBundle']
 @pulumi.input_type
 class EntitlementBundleArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input['EntitlementBundleTargetArgs']] = None,
-                 target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional['EntitlementBundleTargetArgs']] = None,
+                 target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EntitlementBundle resource.
 
@@ -52,86 +52,86 @@ class EntitlementBundleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of an entitlement property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def entitlements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]:
+    def entitlements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]:
         """
         List of entitlements in the bundle
         """
         return pulumi.get(self, "entitlements")
 
     @entitlements.setter
-    def entitlements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]):
+    def entitlements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]):
         pulumi.set(self, "entitlements", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for an entitlement bundle.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the entitlement bundle.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['EntitlementBundleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['EntitlementBundleTargetArgs']]:
         """
         Representation of a resource
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['EntitlementBundleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['EntitlementBundleTargetArgs']]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceOrn")
-    def target_resource_orn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_orn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ORN of the target resource. Required when updating the entitlement bundle.
         """
         return pulumi.get(self, "target_resource_orn")
 
     @target_resource_orn.setter
-    def target_resource_orn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_orn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_orn", value)
 
 
 @pulumi.input_type
 class _EntitlementBundleState:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input['EntitlementBundleTargetArgs']] = None,
-                 target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional['EntitlementBundleTargetArgs']] = None,
+                 target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EntitlementBundle resources.
 
@@ -157,74 +157,74 @@ class _EntitlementBundleState:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of an entitlement property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def entitlements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]:
+    def entitlements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]:
         """
         List of entitlements in the bundle
         """
         return pulumi.get(self, "entitlements")
 
     @entitlements.setter
-    def entitlements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]):
+    def entitlements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementArgs']]]]):
         pulumi.set(self, "entitlements", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for an entitlement bundle.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the entitlement bundle.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['EntitlementBundleTargetArgs']]:
+    def target(self) -> pulumi.Input[Optional['EntitlementBundleTargetArgs']]:
         """
         Representation of a resource
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['EntitlementBundleTargetArgs']]):
+    def target(self, value: pulumi.Input[Optional['EntitlementBundleTargetArgs']]):
         pulumi.set(self, "target", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceOrn")
-    def target_resource_orn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_resource_orn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ORN of the target resource. Required when updating the entitlement bundle.
         """
         return pulumi.get(self, "target_resource_orn")
 
     @target_resource_orn.setter
-    def target_resource_orn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_resource_orn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_resource_orn", value)
 
 
@@ -234,12 +234,12 @@ class EntitlementBundle(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
-                 target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
+                 target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Entitlement Bundles. This resource allows you to create and configure an Okta [Entitlement Bundle](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlement-Bundles/#tag/Entitlement-Bundles).
@@ -309,12 +309,12 @@ class EntitlementBundle(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
-                 target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
+                 target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -340,12 +340,12 @@ class EntitlementBundle(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            entitlements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            target: Optional[pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
-            target_resource_orn: Optional[pulumi.Input[_builtins.str]] = None) -> 'EntitlementBundle':
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
+            target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None) -> 'EntitlementBundle':
         """
         Get an existing EntitlementBundle resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

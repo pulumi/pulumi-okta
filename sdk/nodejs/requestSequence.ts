@@ -124,27 +124,27 @@ export interface RequestSequenceState {
     /**
      * Enum: `APP`, `GROUP`.
      */
-    compatibleResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleResourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the request condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The id of the sequence.Must be of 24 characters length.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * Link to edit the request sequence.
      */
-    link?: pulumi.Input<string>;
+    link?: pulumi.Input<string | undefined>;
     /**
      * The access duration settings for the request condition
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The id of the resource in Okta ID format.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -88,7 +88,7 @@ export interface EmailDomainVerificationState {
     /**
      * Email domain ID
      */
-    emailDomainId?: pulumi.Input<string>;
+    emailDomainId?: pulumi.Input<string | undefined>;
 }
 
 /**

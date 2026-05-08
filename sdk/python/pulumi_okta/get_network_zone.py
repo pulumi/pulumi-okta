@@ -251,11 +251,11 @@ def get_network_zone(dynamic_locations_excludes: Optional[Sequence[_builtins.str
         system=pulumi.get(__ret__, 'system'),
         type=pulumi.get(__ret__, 'type'),
         usage=pulumi.get(__ret__, 'usage'))
-def get_network_zone_output(dynamic_locations_excludes: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                            id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            ip_service_categories_excludes: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                            ip_service_categories_includes: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_zone_output(dynamic_locations_excludes: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            ip_service_categories_excludes: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                            ip_service_categories_includes: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkZoneResult]:
     """
     Gets Okta Network Zone.

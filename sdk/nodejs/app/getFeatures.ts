@@ -168,7 +168,7 @@ export interface GetFeaturesOutputArgs {
     /**
      * A block containing the feature capabilities configuration. See Capabilities below.
      */
-    capabilities?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesArgs>;
+    capabilities?: pulumi.Input<inputs.app.GetFeaturesCapabilitiesArgs | undefined>;
     /**
      * The name of the feature to retrieve. Valid values include:
      * * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.

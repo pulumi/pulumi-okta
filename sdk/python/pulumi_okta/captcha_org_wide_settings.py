@@ -19,8 +19,8 @@ __all__ = ['CaptchaOrgWideSettingsArgs', 'CaptchaOrgWideSettings']
 @pulumi.input_type
 class CaptchaOrgWideSettingsArgs:
     def __init__(__self__, *,
-                 captcha_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 captcha_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CaptchaOrgWideSettings resource.
 
@@ -34,34 +34,34 @@ class CaptchaOrgWideSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="captchaId")
-    def captcha_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def captcha_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         """
         return pulumi.get(self, "captcha_id")
 
     @captcha_id.setter
-    def captcha_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def captcha_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "captcha_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledFors")
-    def enabled_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enabled_fors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of pages that have CAPTCHA enabled
         """
         return pulumi.get(self, "enabled_fors")
 
     @enabled_fors.setter
-    def enabled_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enabled_fors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_fors", value)
 
 
 @pulumi.input_type
 class _CaptchaOrgWideSettingsState:
     def __init__(__self__, *,
-                 captcha_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 captcha_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CaptchaOrgWideSettings resources.
 
@@ -75,26 +75,26 @@ class _CaptchaOrgWideSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="captchaId")
-    def captcha_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def captcha_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
         """
         return pulumi.get(self, "captcha_id")
 
     @captcha_id.setter
-    def captcha_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def captcha_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "captcha_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledFors")
-    def enabled_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enabled_fors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of pages that have CAPTCHA enabled
         """
         return pulumi.get(self, "enabled_fors")
 
     @enabled_fors.setter
-    def enabled_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enabled_fors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_fors", value)
 
 
@@ -104,8 +104,8 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 captcha_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 captcha_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages Org-Wide CAPTCHA settings
@@ -159,8 +159,8 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 captcha_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 captcha_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -182,8 +182,8 @@ class CaptchaOrgWideSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            captcha_id: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled_fors: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CaptchaOrgWideSettings':
+            captcha_id: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'CaptchaOrgWideSettings':
         """
         Get an existing CaptchaOrgWideSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

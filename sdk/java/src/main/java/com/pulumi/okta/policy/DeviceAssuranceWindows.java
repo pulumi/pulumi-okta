@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.policy.DeviceAssuranceWindows;
  * import com.pulumi.okta.policy.DeviceAssuranceWindowsArgs;
  * import com.pulumi.std.StdFunctions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *         var example = new DeviceAssuranceWindows("example", DeviceAssuranceWindowsArgs.builder()
  *             .name("example")
  *             .osVersion("12.4.6")
- *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", "ALL_INTERNAL_VOLUMES")).result())
+ *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", Arrays.asList("ALL_INTERNAL_VOLUMES"))).result())
  *             .secureHardwarePresent(true)
- *             .screenlockTypes(StdFunctions.toset(Map.of("input",             
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList(            
  *                 "BIOMETRIC",
- *                 "PASSCODE")).result())
+ *                 "PASSCODE"))).result())
  *             .thirdPartySignalProviders(true)
  *             .tpspBrowserVersion("15393.27.0")
  *             .tpspBuiltinDnsClientEnabled(true)

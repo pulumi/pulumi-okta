@@ -188,10 +188,10 @@ def get_request_v2(id: Optional[_builtins.str] = None,
         requested_by=pulumi.get(__ret__, 'requested_by'),
         requested_for=pulumi.get(__ret__, 'requested_for'),
         status=pulumi.get(__ret__, 'status'))
-def get_request_v2_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                          requested: Optional[pulumi.Input[Optional[Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict']]]] = None,
-                          requested_by: Optional[pulumi.Input[Optional[Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict']]]] = None,
-                          requested_for: Optional[pulumi.Input[Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict']]]] = None,
+def get_request_v2_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                          requested: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict']]]] = None,
+                          requested_by: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict']]]] = None,
+                          requested_for: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestV2Result]:
     """
     Retrieves the full representation of a specific request.

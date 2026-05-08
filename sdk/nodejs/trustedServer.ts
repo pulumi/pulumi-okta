@@ -115,11 +115,11 @@ export interface TrustedServerState {
     /**
      * Authorization server ID
      */
-    authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string | undefined>;
     /**
      * A list of the authorization server IDs user want to trust
      */
-    trusteds?: pulumi.Input<pulumi.Input<string>[]>;
+    trusteds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

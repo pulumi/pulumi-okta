@@ -96,5 +96,5 @@ export interface GetUiSchemaOutputArgs {
     /**
      * - (Object) Representation of a resource.
      */
-    uiSchema?: pulumi.Input<inputs.GetUiSchemaUiSchemaArgs>;
+    uiSchema?: pulumi.Input<inputs.GetUiSchemaUiSchemaArgs | undefined>;
 }

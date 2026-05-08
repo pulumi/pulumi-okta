@@ -158,19 +158,19 @@ export interface PushProviderState {
     /**
      * Configuration block for the push provider. The configuration structure depends on the provider type.
      */
-    configuration?: pulumi.Input<inputs.PushProviderConfiguration>;
+    configuration?: pulumi.Input<inputs.PushProviderConfiguration | undefined>;
     /**
      * Timestamp when the push provider was last modified. (Computed)
      */
-    lastUpdatedDate?: pulumi.Input<string>;
+    lastUpdatedDate?: pulumi.Input<string | undefined>;
     /**
      * The display name of the push provider.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of push provider. Valid values are `APNS` (Apple Push Notification Service) or `FCM` (Firebase Cloud Messaging).
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -180,11 +180,11 @@ export interface PushProviderArgs {
     /**
      * Configuration block for the push provider. The configuration structure depends on the provider type.
      */
-    configuration?: pulumi.Input<inputs.PushProviderConfiguration>;
+    configuration?: pulumi.Input<inputs.PushProviderConfiguration | undefined>;
     /**
      * The display name of the push provider.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The type of push provider. Valid values are `APNS` (Apple Push Notification Service) or `FCM` (Firebase Cloud Messaging).
      */

@@ -22,7 +22,7 @@ __all__ = ['SignonPolicyRulesArgs', 'SignonPolicyRules']
 class SignonPolicyRulesArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]] = None):
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]] = None):
         """
         The set of arguments for constructing a SignonPolicyRules resource.
 
@@ -47,22 +47,22 @@ class SignonPolicyRulesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]:
         """
         List of policy rules. Rules are processed in priority order (lowest number = highest priority).
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
 class _SignonPolicyRulesState:
     def __init__(__self__, *,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]] = None):
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]] = None):
         """
         Input properties used for looking up and filtering SignonPolicyRules resources.
 
@@ -76,26 +76,26 @@ class _SignonPolicyRulesState:
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the policy to manage rules for.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]:
         """
         List of policy rules. Rules are processed in priority order (lowest number = highest priority).
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -105,8 +105,8 @@ class SignonPolicyRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         ## # app.SignonPolicyRules
@@ -494,8 +494,8 @@ class SignonPolicyRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,8 +519,8 @@ class SignonPolicyRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None) -> 'SignonPolicyRules':
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None) -> 'SignonPolicyRules':
         """
         Get an existing SignonPolicyRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

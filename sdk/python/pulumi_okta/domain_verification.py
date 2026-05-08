@@ -43,7 +43,7 @@ class DomainVerificationArgs:
 @pulumi.input_type
 class _DomainVerificationState:
     def __init__(__self__, *,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainVerification resources.
 
@@ -54,14 +54,14 @@ class _DomainVerificationState:
 
     @_builtins.property
     @pulumi.getter(name="domainId")
-    def domain_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain's ID
         """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
-    def domain_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_id", value)
 
 
@@ -71,7 +71,7 @@ class DomainVerification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Verifies the Domain. This is replacement for the `verify` field from the `Domain` resource. The resource won't be created if the domain could not be verified. The provider will make several requests to verify the domain until the API returns `VERIFIED` verification status.
@@ -126,7 +126,7 @@ class DomainVerification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -149,7 +149,7 @@ class DomainVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            domain_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'DomainVerification':
+            domain_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'DomainVerification':
         """
         Get an existing DomainVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

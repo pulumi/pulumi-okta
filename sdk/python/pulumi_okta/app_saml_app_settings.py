@@ -58,8 +58,8 @@ class AppSamlAppSettingsArgs:
 @pulumi.input_type
 class _AppSamlAppSettingsState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppSamlAppSettings resources.
 
@@ -73,26 +73,26 @@ class _AppSamlAppSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the application.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
 
@@ -102,8 +102,8 @@ class AppSamlAppSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages app settings of the SAML application.
@@ -205,8 +205,8 @@ class AppSamlAppSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,8 +232,8 @@ class AppSamlAppSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[_builtins.str]] = None) -> 'AppSamlAppSettings':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None) -> 'AppSamlAppSettings':
         """
         Get an existing AppSamlAppSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

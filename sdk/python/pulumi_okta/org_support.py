@@ -19,7 +19,7 @@ __all__ = ['OrgSupportArgs', 'OrgSupport']
 @pulumi.input_type
 class OrgSupportArgs:
     def __init__(__self__, *,
-                 extend_by: Optional[pulumi.Input[_builtins.int]] = None):
+                 extend_by: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a OrgSupport resource.
 
@@ -30,23 +30,23 @@ class OrgSupportArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendBy")
-    def extend_by(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def extend_by(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days the support should be extended by
         """
         return pulumi.get(self, "extend_by")
 
     @extend_by.setter
-    def extend_by(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def extend_by(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "extend_by", value)
 
 
 @pulumi.input_type
 class _OrgSupportState:
     def __init__(__self__, *,
-                 expiration: Optional[pulumi.Input[_builtins.str]] = None,
-                 extend_by: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 expiration: pulumi.Input[Optional[_builtins.str]] = None,
+                 extend_by: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrgSupport resources.
 
@@ -63,38 +63,38 @@ class _OrgSupportState:
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expiration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration of Okta Support
         """
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expiration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter(name="extendBy")
-    def extend_by(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def extend_by(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of days the support should be extended by
         """
         return pulumi.get(self, "extend_by")
 
     @extend_by.setter
-    def extend_by(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def extend_by(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "extend_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of Okta Support
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -104,7 +104,7 @@ class OrgSupport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extend_by: Optional[pulumi.Input[_builtins.int]] = None,
+                 extend_by: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Manages Okta Support access your org
@@ -161,7 +161,7 @@ class OrgSupport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extend_by: Optional[pulumi.Input[_builtins.int]] = None,
+                 extend_by: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -184,9 +184,9 @@ class OrgSupport(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            expiration: Optional[pulumi.Input[_builtins.str]] = None,
-            extend_by: Optional[pulumi.Input[_builtins.int]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrgSupport':
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            extend_by: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrgSupport':
         """
         Get an existing OrgSupport resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

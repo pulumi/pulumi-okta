@@ -126,23 +126,23 @@ export interface EmailSenderState {
     /**
      * TXT and CNAME records to be registered for the Domain
      */
-    dnsRecords?: pulumi.Input<pulumi.Input<inputs.EmailSenderDnsRecord>[]>;
+    dnsRecords?: pulumi.Input<pulumi.Input<inputs.EmailSenderDnsRecord>[] | undefined>;
     /**
      * Email address to send from
      */
-    fromAddress?: pulumi.Input<string>;
+    fromAddress?: pulumi.Input<string | undefined>;
     /**
      * Name of sender
      */
-    fromName?: pulumi.Input<string>;
+    fromName?: pulumi.Input<string | undefined>;
     /**
      * Verification status
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Mail domain to send from
      */
-    subdomain?: pulumi.Input<string>;
+    subdomain?: pulumi.Input<string | undefined>;
 }
 
 /**

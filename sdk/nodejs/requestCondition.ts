@@ -191,49 +191,49 @@ export interface RequestConditionState {
     /**
      * The access duration settings for the request condition
      */
-    accessDurationSettings?: pulumi.Input<inputs.RequestConditionAccessDurationSettings>;
-    accessScopeSettings?: pulumi.Input<inputs.RequestConditionAccessScopeSettings>;
+    accessDurationSettings?: pulumi.Input<inputs.RequestConditionAccessDurationSettings | undefined>;
+    accessScopeSettings?: pulumi.Input<inputs.RequestConditionAccessScopeSettings | undefined>;
     /**
      * The ID of the approval sequence.
      */
-    approvalSequenceId?: pulumi.Input<string>;
+    approvalSequenceId?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the request condition was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * The id of the user who created the request condition.
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * The description of the request condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The date and time when the request condition was last updated.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * The id of the user who last updated the request condition.
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * The name of the request condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the request condition. Lower numbers indicate higher priority.
      */
-    priority?: pulumi.Input<number>;
-    requesterSettings?: pulumi.Input<inputs.RequestConditionRequesterSettings>;
+    priority?: pulumi.Input<number | undefined>;
+    requesterSettings?: pulumi.Input<inputs.RequestConditionRequesterSettings | undefined>;
     /**
      * The id of the resource in Okta ID format.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -243,8 +243,8 @@ export interface RequestConditionArgs {
     /**
      * The access duration settings for the request condition
      */
-    accessDurationSettings?: pulumi.Input<inputs.RequestConditionAccessDurationSettings>;
-    accessScopeSettings?: pulumi.Input<inputs.RequestConditionAccessScopeSettings>;
+    accessDurationSettings?: pulumi.Input<inputs.RequestConditionAccessDurationSettings | undefined>;
+    accessScopeSettings?: pulumi.Input<inputs.RequestConditionAccessScopeSettings | undefined>;
     /**
      * The ID of the approval sequence.
      */
@@ -252,16 +252,16 @@ export interface RequestConditionArgs {
     /**
      * The description of the request condition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the request condition.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the request condition. Lower numbers indicate higher priority.
      */
-    priority?: pulumi.Input<number>;
-    requesterSettings?: pulumi.Input<inputs.RequestConditionRequesterSettings>;
+    priority?: pulumi.Input<number | undefined>;
+    requesterSettings?: pulumi.Input<inputs.RequestConditionRequesterSettings | undefined>;
     /**
      * The id of the resource in Okta ID format.
      */
@@ -269,5 +269,5 @@ export interface RequestConditionArgs {
     /**
      * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`. Note: `DELETED` and `INVALID` statuses are system-managed and cannot be set directly.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

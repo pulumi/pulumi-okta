@@ -73,13 +73,13 @@ class OwnerArgs:
 @pulumi.input_type
 class _OwnerState:
     def __init__(__self__, *,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_of_group_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 resolved: Optional[pulumi.Input[_builtins.bool]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_of_group_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolved: pulumi.Input[Optional[_builtins.bool]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Owner resources.
 
@@ -108,86 +108,86 @@ class _OwnerState:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the group owner
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the group
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="idOfGroupOwner")
-    def id_of_group_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_of_group_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user id of the group owner
         """
         return pulumi.get(self, "id_of_group_owner")
 
     @id_of_group_owner.setter
-    def id_of_group_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_of_group_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_of_group_owner", value)
 
     @_builtins.property
     @pulumi.getter(name="originId")
-    def origin_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the app instance if the originType is APPLICATION. This value is NULL if originType is OKTA_DIRECTORY.
         """
         return pulumi.get(self, "origin_id")
 
     @origin_id.setter
-    def origin_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_id", value)
 
     @_builtins.property
     @pulumi.getter(name="originType")
-    def origin_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def origin_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source where group ownership is managed. Enum: "APPLICATION" "OKTA_DIRECTORY"
         """
         return pulumi.get(self, "origin_type")
 
     @origin_type.setter
-    def origin_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def origin_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def resolved(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def resolved(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If originType is APPLICATION, this parameter is set to FALSE until the owner's originId is reconciled with an associated Okta ID.
         """
         return pulumi.get(self, "resolved")
 
     @resolved.setter
-    def resolved(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def resolved(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "resolved", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity type of the owner. Enum: "GROUP" "USER"
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -197,9 +197,9 @@ class Owner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_of_group_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_of_group_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages group owner resource.
@@ -314,9 +314,9 @@ class Owner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_of_group_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_of_group_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -349,13 +349,13 @@ class Owner(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            id_of_group_owner: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_id: Optional[pulumi.Input[_builtins.str]] = None,
-            origin_type: Optional[pulumi.Input[_builtins.str]] = None,
-            resolved: Optional[pulumi.Input[_builtins.bool]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Owner':
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            id_of_group_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resolved: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Owner':
         """
         Get an existing Owner resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

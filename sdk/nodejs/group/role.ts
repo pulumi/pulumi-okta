@@ -172,19 +172,19 @@ export interface RoleState {
     /**
      * When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
-    disableNotifications?: pulumi.Input<boolean>;
+    disableNotifications?: pulumi.Input<boolean | undefined>;
     /**
      * ID of group to attach admin roles to
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Resource Set ID. Required for roleType = `CUSTOM`
      */
-    resourceSetId?: pulumi.Input<string>;
+    resourceSetId?: pulumi.Input<string | undefined>;
     /**
      * Role ID. Required for roleType = `CUSTOM`
      */
-    roleId?: pulumi.Input<string>;
+    roleId?: pulumi.Input<string | undefined>;
     /**
      * Admin role assigned to the group. It can be any one of the following values:
      * 	"API_ADMIN",
@@ -201,15 +201,15 @@ export interface RoleState {
      * 	. See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
      * 	- "USER_ADMIN" is the Group Administrator.
      */
-    roleType?: pulumi.Input<string>;
+    roleType?: pulumi.Input<string | undefined>;
     /**
      * A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only supported when used with the role type `APP_ADMIN`.
      */
-    targetAppLists?: pulumi.Input<pulumi.Input<string>[]>;
+    targetAppLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of group IDs you would like as the targets of the admin role. - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
      */
-    targetGroupLists?: pulumi.Input<pulumi.Input<string>[]>;
+    targetGroupLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -219,7 +219,7 @@ export interface RoleArgs {
     /**
      * When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
      */
-    disableNotifications?: pulumi.Input<boolean>;
+    disableNotifications?: pulumi.Input<boolean | undefined>;
     /**
      * ID of group to attach admin roles to
      */
@@ -227,11 +227,11 @@ export interface RoleArgs {
     /**
      * Resource Set ID. Required for roleType = `CUSTOM`
      */
-    resourceSetId?: pulumi.Input<string>;
+    resourceSetId?: pulumi.Input<string | undefined>;
     /**
      * Role ID. Required for roleType = `CUSTOM`
      */
-    roleId?: pulumi.Input<string>;
+    roleId?: pulumi.Input<string | undefined>;
     /**
      * Admin role assigned to the group. It can be any one of the following values:
      * 	"API_ADMIN",
@@ -252,9 +252,9 @@ export interface RoleArgs {
     /**
      * A list of app names (name represents set of app instances, like 'salesforce' or 'facebook'), or a combination of app name and app instance ID (like 'facebook.0oapsqQ6dv19pqyEo0g3') you would like as the targets of the admin role. - Only supported when used with the role type `APP_ADMIN`.
      */
-    targetAppLists?: pulumi.Input<pulumi.Input<string>[]>;
+    targetAppLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of group IDs you would like as the targets of the admin role. - Only supported when used with the role types: `GROUP_MEMBERSHIP_ADMIN`, `HELP_DESK_ADMIN`, or `USER_ADMIN`.
      */
-    targetGroupLists?: pulumi.Input<pulumi.Input<string>[]>;
+    targetGroupLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

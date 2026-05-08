@@ -107,6 +107,6 @@ export interface GetDeviceOutputArgs {
      * The ID of the device.
      */
     id: pulumi.Input<string>;
-    profile?: pulumi.Input<inputs.GetDeviceProfileArgs>;
-    resourceDisplayName?: pulumi.Input<inputs.GetDeviceResourceDisplayNameArgs>;
+    profile?: pulumi.Input<inputs.GetDeviceProfileArgs | undefined>;
+    resourceDisplayName?: pulumi.Input<inputs.GetDeviceResourceDisplayNameArgs | undefined>;
 }

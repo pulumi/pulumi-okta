@@ -34,15 +34,15 @@ class UserPasswordHashArgsDict(TypedDict):
     """
     For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
     """
-    salt: NotRequired[pulumi.Input[_builtins.str]]
+    salt: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Only required for salted hashes
     """
-    salt_order: NotRequired[pulumi.Input[_builtins.str]]
+    salt_order: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies whether salt was pre- or postfixed to the password before hashing
     """
-    work_factor: NotRequired[pulumi.Input[_builtins.int]]
+    work_factor: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
     """
@@ -52,9 +52,9 @@ class UserPasswordHashArgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 salt: Optional[pulumi.Input[_builtins.str]] = None,
-                 salt_order: Optional[pulumi.Input[_builtins.str]] = None,
-                 work_factor: Optional[pulumi.Input[_builtins.int]] = None):
+                 salt: pulumi.Input[Optional[_builtins.str]] = None,
+                 salt_order: pulumi.Input[Optional[_builtins.str]] = None,
+                 work_factor: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] algorithm: The algorithm used to generate the hash using the password
         :param pulumi.Input[_builtins.str] value: For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded value of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the salt to the password, depending on the saltOrder. If a salt was not used in the source system, then this should just be the the Base64 encoded value of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password.
@@ -97,38 +97,38 @@ class UserPasswordHashArgs:
 
     @_builtins.property
     @pulumi.getter
-    def salt(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def salt(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Only required for salted hashes
         """
         return pulumi.get(self, "salt")
 
     @salt.setter
-    def salt(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def salt(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "salt", value)
 
     @_builtins.property
     @pulumi.getter(name="saltOrder")
-    def salt_order(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def salt_order(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether salt was pre- or postfixed to the password before hashing
         """
         return pulumi.get(self, "salt_order")
 
     @salt_order.setter
-    def salt_order(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def salt_order(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "salt_order", value)
 
     @_builtins.property
     @pulumi.getter(name="workFactor")
-    def work_factor(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def work_factor(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm
         """
         return pulumi.get(self, "work_factor")
 
     @work_factor.setter
-    def work_factor(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def work_factor(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "work_factor", value)
 
 

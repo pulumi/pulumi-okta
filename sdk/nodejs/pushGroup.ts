@@ -155,31 +155,31 @@ export interface PushGroupState {
     /**
      * Additional app configuration for group push mappings. Currently only required for Active Directory.
      */
-    appConfig?: pulumi.Input<inputs.PushGroupAppConfig>;
+    appConfig?: pulumi.Input<inputs.PushGroupAppConfig | undefined>;
     /**
      * The ID of the Okta Application.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Whether to delete the target group when the push group mapping is destroyed. Default is true.
      */
-    deleteTargetGroupOnDestroy?: pulumi.Input<boolean>;
+    deleteTargetGroupOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the source group in Okta.
      */
-    sourceGroupId?: pulumi.Input<string>;
+    sourceGroupId?: pulumi.Input<string | undefined>;
     /**
      * The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The ID of the target group.
      */
-    targetGroupId?: pulumi.Input<string>;
+    targetGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.
      */
-    targetGroupName?: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface PushGroupArgs {
     /**
      * Additional app configuration for group push mappings. Currently only required for Active Directory.
      */
-    appConfig?: pulumi.Input<inputs.PushGroupAppConfig>;
+    appConfig?: pulumi.Input<inputs.PushGroupAppConfig | undefined>;
     /**
      * The ID of the Okta Application.
      */
@@ -197,7 +197,7 @@ export interface PushGroupArgs {
     /**
      * Whether to delete the target group when the push group mapping is destroyed. Default is true.
      */
-    deleteTargetGroupOnDestroy?: pulumi.Input<boolean>;
+    deleteTargetGroupOnDestroy?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the source group in Okta.
      */
@@ -205,13 +205,13 @@ export interface PushGroupArgs {
     /**
      * The status of the push group mapping. Valid values: `ACTIVE` and `INACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The ID of the target group.
      */
-    targetGroupId?: pulumi.Input<string>;
+    targetGroupId?: pulumi.Input<string | undefined>;
     /**
      * The name of the target group for the group push mapping. This is used when creating a new downstream group. If the group already exists, it links to the existing group. If not specified, the name of the source group will be used as the name of the target group. Setting a target group name only works if you have unchecked 'Rename app groups to match group name in Okta' in the push groups settings UI.
      */
-    targetGroupName?: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string | undefined>;
 }

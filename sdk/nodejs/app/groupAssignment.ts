@@ -130,23 +130,23 @@ export interface GroupAssignmentState {
     /**
      * App to associate group with
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Group associated with the application
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Priority of group assignment.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    retainAssignment?: pulumi.Input<boolean>;
+    retainAssignment?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -164,13 +164,13 @@ export interface GroupAssignmentArgs {
     /**
      * Priority of group assignment.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * JSON document containing [application profile](https://developer.okta.com/docs/reference/api/apps/#profile-object)
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * Retain the group assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    retainAssignment?: pulumi.Input<boolean>;
+    retainAssignment?: pulumi.Input<boolean | undefined>;
 }

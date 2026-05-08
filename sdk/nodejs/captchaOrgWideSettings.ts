@@ -85,11 +85,11 @@ export interface CaptchaOrgWideSettingsState {
     /**
      * Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
      */
-    captchaId?: pulumi.Input<string>;
+    captchaId?: pulumi.Input<string | undefined>;
     /**
      * Set of pages that have CAPTCHA enabled
      */
-    enabledFors?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledFors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -99,9 +99,9 @@ export interface CaptchaOrgWideSettingsArgs {
     /**
      * Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
      */
-    captchaId?: pulumi.Input<string>;
+    captchaId?: pulumi.Input<string | undefined>;
     /**
      * Set of pages that have CAPTCHA enabled
      */
-    enabledFors?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledFors?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

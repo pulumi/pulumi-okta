@@ -22,7 +22,7 @@ __all__ = ['EndUserMyRequestsArgs', 'EndUserMyRequests']
 class EndUserMyRequestsArgs:
     def __init__(__self__, *,
                  entry_id: pulumi.Input[_builtins.str],
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]] = None):
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]] = None):
         """
         The set of arguments for constructing a EndUserMyRequests resource.
 
@@ -47,23 +47,23 @@ class EndUserMyRequestsArgs:
 
     @_builtins.property
     @pulumi.getter(name="requesterFieldValues")
-    def requester_field_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]:
+    def requester_field_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]:
         """
         The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
         """
         return pulumi.get(self, "requester_field_values")
 
     @requester_field_values.setter
-    def requester_field_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]):
+    def requester_field_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]):
         pulumi.set(self, "requester_field_values", value)
 
 
 @pulumi.input_type
 class _EndUserMyRequestsState:
     def __init__(__self__, *,
-                 entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndUserMyRequests resources.
 
@@ -80,38 +80,38 @@ class _EndUserMyRequestsState:
 
     @_builtins.property
     @pulumi.getter(name="entryId")
-    def entry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the catalog entry for which the request is being made.
         """
         return pulumi.get(self, "entry_id")
 
     @entry_id.setter
-    def entry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entry_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requesterFieldValues")
-    def requester_field_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]:
+    def requester_field_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]:
         """
         The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
         """
         return pulumi.get(self, "requester_field_values")
 
     @requester_field_values.setter
-    def requester_field_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]):
+    def requester_field_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndUserMyRequestsRequesterFieldValueArgs']]]]):
         pulumi.set(self, "requester_field_values", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the request. Possible values include: `APPROVED`, `CANCELED`, `DENIED`, `EXPIRED`, `PENDING`, `REJECTED`, `SUBMITTED`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -121,8 +121,8 @@ class EndUserMyRequests(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+                 entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an End User Request in Okta Identity Governance. This resource allows you to create access requests on behalf of end users through the Okta Identity Governance system.
@@ -354,8 +354,8 @@ class EndUserMyRequests(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+                 entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,9 +380,9 @@ class EndUserMyRequests(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-            requester_field_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'EndUserMyRequests':
+            entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EndUserMyRequests':
         """
         Get an existing EndUserMyRequests resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

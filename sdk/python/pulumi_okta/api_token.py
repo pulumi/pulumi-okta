@@ -22,11 +22,11 @@ __all__ = ['ApiTokenArgs', 'ApiToken']
 class ApiTokenArgs:
     def __init__(__self__, *,
                  id_property: pulumi.Input[_builtins.str],
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['ApiTokenNetworkArgs']] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['ApiTokenNetworkArgs']] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiToken resource.
 
@@ -63,74 +63,74 @@ class ApiTokenArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientName")
-    def client_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API token client.
         """
         return pulumi.get(self, "client_name")
 
     @client_name.setter
-    def client_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time the API token was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API token.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['ApiTokenNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['ApiTokenNetworkArgs']]:
         """
         The Network Condition of the API Token.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['ApiTokenNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['ApiTokenNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The userId of the user who created the API Token.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
 @pulumi.input_type
 class _ApiTokenState:
     def __init__(__self__, *,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input['ApiTokenNetworkArgs']] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional['ApiTokenNetworkArgs']] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiToken resources.
 
@@ -156,74 +156,74 @@ class _ApiTokenState:
 
     @_builtins.property
     @pulumi.getter(name="clientName")
-    def client_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API token client.
         """
         return pulumi.get(self, "client_name")
 
     @client_name.setter
-    def client_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time the API token was created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="idProperty")
-    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the API token.
         """
         return pulumi.get(self, "id_property")
 
     @id_property.setter
-    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_property", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API token.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['ApiTokenNetworkArgs']]:
+    def network(self) -> pulumi.Input[Optional['ApiTokenNetworkArgs']]:
         """
         The Network Condition of the API Token.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['ApiTokenNetworkArgs']]):
+    def network(self, value: pulumi.Input[Optional['ApiTokenNetworkArgs']]):
         pulumi.set(self, "network", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The userId of the user who created the API Token.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -233,12 +233,12 @@ class ApiToken(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an Okta API token configuration. This resource allows you to import and manage existing API tokens, including their network restrictions. API tokens are used to authenticate API requests to your Okta organization.
@@ -344,12 +344,12 @@ class ApiToken(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network: Optional[pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -377,12 +377,12 @@ class ApiToken(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            client_name: Optional[pulumi.Input[_builtins.str]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            id_property: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network: Optional[pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'ApiToken':
+            client_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiToken':
         """
         Get an existing ApiToken resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

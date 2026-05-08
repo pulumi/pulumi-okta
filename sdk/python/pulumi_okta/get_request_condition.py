@@ -207,10 +207,10 @@ def get_request_condition(access_scope_settings: Optional[Union['GetRequestCondi
         requester_settings=pulumi.get(__ret__, 'requester_settings'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_request_condition_output(access_scope_settings: Optional[pulumi.Input[Optional[Union['GetRequestConditionAccessScopeSettingsArgs', 'GetRequestConditionAccessScopeSettingsArgsDict']]]] = None,
-                                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 requester_settings: Optional[pulumi.Input[Optional[Union['GetRequestConditionRequesterSettingsArgs', 'GetRequestConditionRequesterSettingsArgsDict']]]] = None,
-                                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_request_condition_output(access_scope_settings: pulumi.Input[Optional[Optional[Union['GetRequestConditionAccessScopeSettingsArgs', 'GetRequestConditionAccessScopeSettingsArgsDict']]]] = None,
+                                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 requester_settings: pulumi.Input[Optional[Optional[Union['GetRequestConditionRequesterSettingsArgs', 'GetRequestConditionRequesterSettingsArgsDict']]]] = None,
+                                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestConditionResult]:
     """
     Retrieves a resource request condition

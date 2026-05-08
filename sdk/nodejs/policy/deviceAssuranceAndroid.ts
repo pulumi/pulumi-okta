@@ -160,47 +160,47 @@ export interface DeviceAssuranceAndroidState {
     /**
      * Created by
      */
-    createdBy?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string | undefined>;
     /**
      * Created date
      */
-    createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string | undefined>;
     /**
      * List of disk encryption type, can be `FULL`, `USER`
      */
-    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is the device jailbroken in the device assurance policy.
      */
-    jailbreak?: pulumi.Input<boolean>;
+    jailbreak?: pulumi.Input<boolean | undefined>;
     /**
      * Last update
      */
-    lastUpdate?: pulumi.Input<string>;
+    lastUpdate?: pulumi.Input<string | undefined>;
     /**
      * Last updated by
      */
-    lastUpdatedBy?: pulumi.Input<string>;
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
      * Policy device assurance name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * Policy device assurance platform
      */
-    platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string | undefined>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    screenlockTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates if the device contains a secure hardware functionality
      */
-    secureHardwarePresent?: pulumi.Input<boolean>;
+    secureHardwarePresent?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -210,25 +210,25 @@ export interface DeviceAssuranceAndroidArgs {
     /**
      * List of disk encryption type, can be `FULL`, `USER`
      */
-    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    diskEncryptionTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Is the device jailbroken in the device assurance policy.
      */
-    jailbreak?: pulumi.Input<boolean>;
+    jailbreak?: pulumi.Input<boolean | undefined>;
     /**
      * Policy device assurance name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Minimum os version of the device in the device assurance policy.
      */
-    osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string | undefined>;
     /**
      * List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
      */
-    screenlockTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    screenlockTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates if the device contains a secure hardware functionality
      */
-    secureHardwarePresent?: pulumi.Input<boolean>;
+    secureHardwarePresent?: pulumi.Input<boolean | undefined>;
 }

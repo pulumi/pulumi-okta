@@ -204,71 +204,71 @@ export interface ThemeState {
     /**
      * Path to local file
      */
-    backgroundImage?: pulumi.Input<string>;
+    backgroundImage?: pulumi.Input<string | undefined>;
     /**
      * Background image URL
      */
-    backgroundImageUrl?: pulumi.Input<string>;
+    backgroundImageUrl?: pulumi.Input<string | undefined>;
     /**
      * Brand ID
      */
-    brandId?: pulumi.Input<string>;
+    brandId?: pulumi.Input<string | undefined>;
     /**
      * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      */
-    emailTemplateTouchPointVariant?: pulumi.Input<string>;
+    emailTemplateTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      */
-    endUserDashboardTouchPointVariant?: pulumi.Input<string>;
+    endUserDashboardTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
-    errorPageTouchPointVariant?: pulumi.Input<string>;
+    errorPageTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Path to local file
      */
-    favicon?: pulumi.Input<string>;
+    favicon?: pulumi.Input<string | undefined>;
     /**
      * Favicon URL
      */
-    faviconUrl?: pulumi.Input<string>;
+    faviconUrl?: pulumi.Input<string | undefined>;
     /**
      * Link relations for this object - JSON HAL - Discoverable resources related to the email template
      */
-    links?: pulumi.Input<string>;
+    links?: pulumi.Input<string | undefined>;
     /**
      * Path to local file
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Logo URL
      */
-    logoUrl?: pulumi.Input<string>;
+    logoUrl?: pulumi.Input<string | undefined>;
     /**
      * Primary color contrast hex code
      */
-    primaryColorContrastHex?: pulumi.Input<string>;
+    primaryColorContrastHex?: pulumi.Input<string | undefined>;
     /**
      * Primary color hex code
      */
-    primaryColorHex?: pulumi.Input<string>;
+    primaryColorHex?: pulumi.Input<string | undefined>;
     /**
      * Secondary color contrast hex code
      */
-    secondaryColorContrastHex?: pulumi.Input<string>;
+    secondaryColorContrastHex?: pulumi.Input<string | undefined>;
     /**
      * Secondary color hex code
      */
-    secondaryColorHex?: pulumi.Input<string>;
+    secondaryColorHex?: pulumi.Input<string | undefined>;
     /**
      * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
-    signInPageTouchPointVariant?: pulumi.Input<string>;
+    signInPageTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      */
-    themeId?: pulumi.Input<string>;
+    themeId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -278,7 +278,7 @@ export interface ThemeArgs {
     /**
      * Path to local file
      */
-    backgroundImage?: pulumi.Input<string>;
+    backgroundImage?: pulumi.Input<string | undefined>;
     /**
      * Brand ID
      */
@@ -286,45 +286,45 @@ export interface ThemeArgs {
     /**
      * Variant for email templates (`OKTA_DEFAULT`, `FULL_THEME`)
      */
-    emailTemplateTouchPointVariant?: pulumi.Input<string>;
+    emailTemplateTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Variant for the Okta End-User Dashboard (`OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`)
      */
-    endUserDashboardTouchPointVariant?: pulumi.Input<string>;
+    endUserDashboardTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Variant for the error page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
-    errorPageTouchPointVariant?: pulumi.Input<string>;
+    errorPageTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Path to local file
      */
-    favicon?: pulumi.Input<string>;
+    favicon?: pulumi.Input<string | undefined>;
     /**
      * Path to local file
      */
-    logo?: pulumi.Input<string>;
+    logo?: pulumi.Input<string | undefined>;
     /**
      * Primary color contrast hex code
      */
-    primaryColorContrastHex?: pulumi.Input<string>;
+    primaryColorContrastHex?: pulumi.Input<string | undefined>;
     /**
      * Primary color hex code
      */
-    primaryColorHex?: pulumi.Input<string>;
+    primaryColorHex?: pulumi.Input<string | undefined>;
     /**
      * Secondary color contrast hex code
      */
-    secondaryColorContrastHex?: pulumi.Input<string>;
+    secondaryColorContrastHex?: pulumi.Input<string | undefined>;
     /**
      * Secondary color hex code
      */
-    secondaryColorHex?: pulumi.Input<string>;
+    secondaryColorHex?: pulumi.Input<string | undefined>;
     /**
      * Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
      */
-    signInPageTouchPointVariant?: pulumi.Input<string>;
+    signInPageTouchPointVariant?: pulumi.Input<string | undefined>;
     /**
      * Theme ID - Note: Okta API for theme only reads and updates therefore the okta*theme resource needs to act as a quasi data source. Do this by setting theme*id.
      */
-    themeId?: pulumi.Input<string>;
+    themeId?: pulumi.Input<string | undefined>;
 }

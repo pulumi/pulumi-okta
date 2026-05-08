@@ -112,11 +112,11 @@ export interface OAuthPostLogoutRedirectUriState {
     /**
      * OAuth application ID.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Post Logout Redirect URI to append to Okta OIDC application.
      */
-    uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string | undefined>;
 }
 
 /**

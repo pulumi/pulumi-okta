@@ -112,7 +112,7 @@ def get_admin_role_custom(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'),
         permissions=pulumi.get(__ret__, 'permissions'))
-def get_admin_role_custom_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_admin_role_custom_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdminRoleCustomResult]:
     """
     Use this data source to retrieve a custom admin role from Okta.

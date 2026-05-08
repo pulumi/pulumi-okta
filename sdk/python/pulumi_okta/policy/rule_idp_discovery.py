@@ -21,24 +21,24 @@ __all__ = ['RuleIdpDiscoveryArgs', 'RuleIdpDiscovery']
 @pulumi.input_type
 class RuleIdpDiscoveryArgs:
     def __init__(__self__, *,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
-                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
-                 user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
+                 idp_providers: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 should_fall_back_to_okta: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_patterns: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
+                 user_identifier_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuleIdpDiscovery resource.
 
@@ -107,19 +107,19 @@ class RuleIdpDiscoveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="appExcludes")
-    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]:
+    def app_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]:
         """
         Applications to exclude in discovery. See `app_include` for details.
         """
         return pulumi.get(self, "app_excludes")
 
     @app_excludes.setter
-    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]):
+    def app_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]):
         pulumi.set(self, "app_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="appIncludes")
-    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]:
+    def app_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]:
         """
         Applications to include in discovery rule.
         - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -129,69 +129,69 @@ class RuleIdpDiscoveryArgs:
         return pulumi.get(self, "app_includes")
 
     @app_includes.setter
-    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]):
+    def app_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]):
         pulumi.set(self, "app_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="idpProviders")
-    def idp_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]:
+    def idp_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]:
         return pulumi.get(self, "idp_providers")
 
     @idp_providers.setter
-    def idp_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]):
+    def idp_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]):
         pulumi.set(self, "idp_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="platformIncludes")
-    def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
+    def platform_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
         """
         Platform to include in discovery rule.
         - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
@@ -201,108 +201,108 @@ class RuleIdpDiscoveryArgs:
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
-    def platform_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]):
+    def platform_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]):
         pulumi.set(self, "platform_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
         """
         return pulumi.get(self, "property_name")
 
     @property_name.setter
-    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerExpression")
-    def provider_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
         """
         return pulumi.get(self, "provider_expression")
 
     @provider_expression.setter
-    def provider_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionType")
-    def selection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
         """
         return pulumi.get(self, "selection_type")
 
     @selection_type.setter
-    def selection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="shouldFallBackToOkta")
-    def should_fall_back_to_okta(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def should_fall_back_to_okta(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
         """
         return pulumi.get(self, "should_fall_back_to_okta")
 
     @should_fall_back_to_okta.setter
-    def should_fall_back_to_okta(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def should_fall_back_to_okta(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "should_fall_back_to_okta", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentifierAttribute")
-    def user_identifier_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identifier_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         """
         return pulumi.get(self, "user_identifier_attribute")
 
     @user_identifier_attribute.setter
-    def user_identifier_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identifier_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identifier_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentifierPatterns")
-    def user_identifier_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]:
+    def user_identifier_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]:
         """
         Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
@@ -311,43 +311,43 @@ class RuleIdpDiscoveryArgs:
         return pulumi.get(self, "user_identifier_patterns")
 
     @user_identifier_patterns.setter
-    def user_identifier_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]):
+    def user_identifier_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]):
         pulumi.set(self, "user_identifier_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentifierType")
-    def user_identifier_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identifier_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of: `IDENTIFIER`, `ATTRIBUTE`
         """
         return pulumi.get(self, "user_identifier_type")
 
     @user_identifier_type.setter
-    def user_identifier_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identifier_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identifier_type", value)
 
 
 @pulumi.input_type
 class _RuleIdpDiscoveryState:
     def __init__(__self__, *,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
-                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
-                 user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]] = None,
+                 idp_providers: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 should_fall_back_to_okta: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_patterns: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]] = None,
+                 user_identifier_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RuleIdpDiscovery resources.
 
@@ -416,19 +416,19 @@ class _RuleIdpDiscoveryState:
 
     @_builtins.property
     @pulumi.getter(name="appExcludes")
-    def app_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]:
+    def app_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]:
         """
         Applications to exclude in discovery. See `app_include` for details.
         """
         return pulumi.get(self, "app_excludes")
 
     @app_excludes.setter
-    def app_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]):
+    def app_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppExcludeArgs']]]]):
         pulumi.set(self, "app_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="appIncludes")
-    def app_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]:
+    def app_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]:
         """
         Applications to include in discovery rule.
         - 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
@@ -438,69 +438,69 @@ class _RuleIdpDiscoveryState:
         return pulumi.get(self, "app_includes")
 
     @app_includes.setter
-    def app_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]):
+    def app_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryAppIncludeArgs']]]]):
         pulumi.set(self, "app_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="idpProviders")
-    def idp_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]:
+    def idp_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]:
         return pulumi.get(self, "idp_providers")
 
     @idp_providers.setter
-    def idp_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]):
+    def idp_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryIdpProviderArgs']]]]):
         pulumi.set(self, "idp_providers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConnection")
-    def network_connection(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
         """
         return pulumi.get(self, "network_connection")
 
     @network_connection.setter
-    def network_connection(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
         """
         return pulumi.get(self, "network_excludes")
 
     @network_excludes.setter
-    def network_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_excludes", value)
 
     @_builtins.property
     @pulumi.getter(name="networkIncludes")
-    def network_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Required if `network_connection` = `ZONE`. Indicates the network zones to include.
         """
         return pulumi.get(self, "network_includes")
 
     @network_includes.setter
-    def network_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="platformIncludes")
-    def platform_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
+    def platform_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]:
         """
         Platform to include in discovery rule.
         - 'type' - (Optional) One of: 'ANY', 'MOBILE', 'DESKTOP'
@@ -510,108 +510,108 @@ class _RuleIdpDiscoveryState:
         return pulumi.get(self, "platform_includes")
 
     @platform_includes.setter
-    def platform_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]):
+    def platform_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryPlatformIncludeArgs']]]]):
         pulumi.set(self, "platform_includes", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy ID of the Rule
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IdP property that the evaluated expression should match against when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].propertyName` in the API. If not set, the API default is used and the value is stored in state.
         """
         return pulumi.get(self, "property_name")
 
     @property_name.setter
-    def property_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerExpression")
-    def provider_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Okta Expression Language expression that is evaluated against the Login Context and used to dynamically select an IdP. Only applicable when `selection_type` is `DYNAMIC`. Maps to `actions.idp.matchCriteria[0].providerExpression` in the API. Example: `login.identifier.substringAfter('@')`
         """
         return pulumi.get(self, "provider_expression")
 
     @provider_expression.setter
-    def provider_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionType")
-    def selection_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines how the IdP is selected. One of: `SPECIFIC`, `DYNAMIC`. Default: `SPECIFIC`. When `DYNAMIC`, the IdP is selected based on the evaluated `provider_expression`.
         """
         return pulumi.get(self, "selection_type")
 
     @selection_type.setter
-    def selection_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="shouldFallBackToOkta")
-    def should_fall_back_to_okta(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def should_fall_back_to_okta(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to fall back to Okta if authentication with the matched IdP fails. Only applicable when `selection_type` is `DYNAMIC`. Default: `false`.
         """
         return pulumi.get(self, "should_fall_back_to_okta")
 
     @should_fall_back_to_okta.setter
-    def should_fall_back_to_okta(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def should_fall_back_to_okta(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "should_fall_back_to_okta", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentifierAttribute")
-    def user_identifier_attribute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identifier_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Profile attribute matching can only have a single value that describes the type indicated in `user_identifier_type`. This is the attribute or identifier that the `user_identifier_patterns` are checked against.
         """
         return pulumi.get(self, "user_identifier_attribute")
 
     @user_identifier_attribute.setter
-    def user_identifier_attribute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identifier_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identifier_attribute", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentifierPatterns")
-    def user_identifier_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]:
+    def user_identifier_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]:
         """
         Specifies a User Identifier pattern condition to match against. If 'match_type' of 'EXPRESSION' is used, only a *single* element can be set, otherwise multiple elements of matching patterns may be provided.
         - 'match_type' - (Optional) The kind of pattern. For regex, use 'EXPRESSION'. For simple string matches, use one of the following: 'SUFFIX', 'EQUALS', 'STARTS_WITH', 'CONTAINS'
@@ -620,19 +620,19 @@ class _RuleIdpDiscoveryState:
         return pulumi.get(self, "user_identifier_patterns")
 
     @user_identifier_patterns.setter
-    def user_identifier_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]):
+    def user_identifier_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleIdpDiscoveryUserIdentifierPatternArgs']]]]):
         pulumi.set(self, "user_identifier_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentifierType")
-    def user_identifier_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_identifier_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         One of: `IDENTIFIER`, `ATTRIBUTE`
         """
         return pulumi.get(self, "user_identifier_type")
 
     @user_identifier_type.setter
-    def user_identifier_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_identifier_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_identifier_type", value)
 
 
@@ -642,24 +642,24 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
-                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
-                 user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
+                 idp_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 should_fall_back_to_okta: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
+                 user_identifier_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an IdP Discovery Policy Rule.
@@ -862,24 +862,24 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
-                 app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
-                 idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 property_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
-                 user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
+                 app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
+                 idp_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 property_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 selection_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 should_fall_back_to_okta: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_identifier_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
+                 user_identifier_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -917,24 +917,24 @@ class RuleIdpDiscovery(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
-            app_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
-            idp_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_connection: Optional[pulumi.Input[_builtins.str]] = None,
-            network_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            network_includes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            platform_includes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            priority: Optional[pulumi.Input[_builtins.int]] = None,
-            property_name: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_expression: Optional[pulumi.Input[_builtins.str]] = None,
-            selection_type: Optional[pulumi.Input[_builtins.str]] = None,
-            should_fall_back_to_okta: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_identifier_attribute: Optional[pulumi.Input[_builtins.str]] = None,
-            user_identifier_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
-            user_identifier_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'RuleIdpDiscovery':
+            app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict']]]]] = None,
+            app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict']]]]] = None,
+            idp_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict']]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            property_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            selection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            should_fall_back_to_okta: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identifier_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identifier_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict']]]]] = None,
+            user_identifier_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'RuleIdpDiscovery':
         """
         Get an existing RuleIdpDiscovery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

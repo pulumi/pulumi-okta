@@ -108,17 +108,17 @@ export interface GetDeviceAssurancePolicyOutputArgs {
     /**
      * ID of the user type to retrieve, conflicts with `name`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of user type to retrieve, conflicts with `id`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the device contains a secure hardware functionality
      */
-    secureHardwarePresent?: pulumi.Input<boolean>;
+    secureHardwarePresent?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates if the device contains a secure hardware functionality
      */
-    thirdPartySignalProvider?: pulumi.Input<inputs.GetDeviceAssurancePolicyThirdPartySignalProviderArgs>;
+    thirdPartySignalProvider?: pulumi.Input<inputs.GetDeviceAssurancePolicyThirdPartySignalProviderArgs | undefined>;
 }

@@ -213,57 +213,57 @@ export interface PolicyMfaDefaultState {
     /**
      * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
      */
-    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
+    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[] | undefined>;
     /**
      * Default group ID (always included)
      */
-    defaultIncludedGroupId?: pulumi.Input<string>;
+    defaultIncludedGroupId?: pulumi.Input<string | undefined>;
     /**
      * Default policy description
      */
-    description?: pulumi.Input<string>;
-    duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string | undefined>;
+    duo?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
      */
-    externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    externalIdps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
-    fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    externalIdps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[] | undefined>;
+    fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      */
-    isOie?: pulumi.Input<boolean>;
+    isOie?: pulumi.Input<boolean | undefined>;
     /**
      * Default policy name
      */
-    name?: pulumi.Input<string>;
-    oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string | undefined>;
+    oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Default policy priority
      */
-    priority?: pulumi.Input<number>;
-    rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    priority?: pulumi.Input<number | undefined>;
+    rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Default policy status
      */
-    status?: pulumi.Input<string>;
-    symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string | undefined>;
+    symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -273,35 +273,35 @@ export interface PolicyMfaDefaultArgs {
     /**
      * List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
      */
-    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
-    duo?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customApps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[] | undefined>;
+    duo?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
      */
-    externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    externalIdps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
-    fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    externalIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    externalIdps?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[] | undefined>;
+    fidoU2f?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    fidoWebauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    googleOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
      */
-    isOie?: pulumi.Input<boolean>;
-    oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    isOie?: pulumi.Input<boolean | undefined>;
+    oktaCall?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaEmail?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaOtp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaPassword?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaPush?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaSms?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    oktaVerify?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    onpremMfa?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    phoneNumber?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    rsaToken?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    securityQuestion?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    smartCardIdp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    symantecVip?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    webauthn?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    yubikeyToken?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

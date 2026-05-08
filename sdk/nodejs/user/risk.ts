@@ -100,11 +100,11 @@ export interface RiskState {
     /**
      * Risk level of the user. Valid values: `HIGH`, `LOW`.
      */
-    riskLevel?: pulumi.Input<string>;
+    riskLevel?: pulumi.Input<string | undefined>;
     /**
      * ID of the user.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**

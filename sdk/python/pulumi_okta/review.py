@@ -23,7 +23,7 @@ class ReviewArgs:
                  note: pulumi.Input[_builtins.str],
                  review_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  reviewer_id: pulumi.Input[_builtins.str],
-                 reviewer_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 reviewer_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Review resource.
 
@@ -90,32 +90,32 @@ class ReviewArgs:
 
     @_builtins.property
     @pulumi.getter(name="reviewerLevel")
-    def reviewer_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reviewer_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the reviewer level of each reviews during access certification. Applicable for multi level campaigns only.
         """
         return pulumi.get(self, "reviewer_level")
 
     @reviewer_level.setter
-    def reviewer_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reviewer_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reviewer_level", value)
 
 
 @pulumi.input_type
 class _ReviewState:
     def __init__(__self__, *,
-                 campaign_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 decision: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 review_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reviewer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reviewer_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 reviewer_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 campaign_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 decision: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 review_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reviewer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reviewer_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 reviewer_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Review resources.
 
@@ -158,143 +158,143 @@ class _ReviewState:
 
     @_builtins.property
     @pulumi.getter(name="campaignId")
-    def campaign_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def campaign_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the campaign.
         """
         return pulumi.get(self, "campaign_id")
 
     @campaign_id.setter
-    def campaign_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def campaign_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "campaign_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO 8601 formatted date and time when the resource was created
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of user who created the resource.
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def decision(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def decision(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The decision of the reviewer.
         """
         return pulumi.get(self, "decision")
 
     @decision.setter
-    def decision(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def decision(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "decision", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ISO 8601 formatted date and time when the object was last updated.
         """
         return pulumi.get(self, "last_updated")
 
     @last_updated.setter
-    def last_updated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of user who last updated the object.
         """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
-    def last_updated_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A note to justify the reassignment decision for the specified review.
         """
         return pulumi.get(self, "note")
 
     @note.setter
-    def note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "note", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewIds")
-    def review_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def review_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of reviews (review id values) that are reassigned to the new reviewer.
         """
         return pulumi.get(self, "review_ids")
 
     @review_ids.setter
-    def review_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def review_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "review_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewerId")
-    def reviewer_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reviewer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Okta user id of the new reviewer.
         """
         return pulumi.get(self, "reviewer_id")
 
     @reviewer_id.setter
-    def reviewer_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reviewer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reviewer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewerLevel")
-    def reviewer_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reviewer_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the reviewer level of each reviews during access certification. Applicable for multi level campaigns only.
         """
         return pulumi.get(self, "reviewer_level")
 
     @reviewer_level.setter
-    def reviewer_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reviewer_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reviewer_level", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewerType")
-    def reviewer_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reviewer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of reviewer to which the review is assigned.
         """
         return pulumi.get(self, "reviewer_type")
 
     @reviewer_type.setter
-    def reviewer_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reviewer_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reviewer_type", value)
 
 
@@ -304,11 +304,11 @@ class Review(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 campaign_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 review_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reviewer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reviewer_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 campaign_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 review_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reviewer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reviewer_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages reassignment of review.
@@ -391,11 +391,11 @@ class Review(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 campaign_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 note: Optional[pulumi.Input[_builtins.str]] = None,
-                 review_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 reviewer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 reviewer_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 campaign_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 note: pulumi.Input[Optional[_builtins.str]] = None,
+                 review_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reviewer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 reviewer_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -435,18 +435,18 @@ class Review(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            campaign_id: Optional[pulumi.Input[_builtins.str]] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            decision: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-            note: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-            review_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            reviewer_id: Optional[pulumi.Input[_builtins.str]] = None,
-            reviewer_level: Optional[pulumi.Input[_builtins.str]] = None,
-            reviewer_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Review':
+            campaign_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            decision: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            note: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            review_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reviewer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reviewer_level: pulumi.Input[Optional[_builtins.str]] = None,
+            reviewer_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Review':
         """
         Get an existing Review resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

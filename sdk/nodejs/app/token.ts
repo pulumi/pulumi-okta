@@ -125,19 +125,19 @@ export interface TokenState {
     /**
      * The unique Okta ID of the application associated with this token. This is typically the `clientId` of an refresh application.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * The unique Okta ID of the refresh token.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * The current status of the token (e.g., `ACTIVE`, `REVOKED`).
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The unique Okta ID of the user associated with this token.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**

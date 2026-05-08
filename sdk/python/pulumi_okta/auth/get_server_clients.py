@@ -198,9 +198,9 @@ def get_server_clients(auth_server_id: Optional[_builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         status=pulumi.get(__ret__, 'status'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_server_clients_output(auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_clients_output(auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerClientsResult]:
     """
     Get OAuth 2.0 refresh token information for an authorization server client from Okta.

@@ -130,7 +130,7 @@ export interface GetPushProviderOutputArgs {
     /**
      * Configuration details for the push provider. The structure depends on the provider type.
      */
-    configuration?: pulumi.Input<inputs.GetPushProviderConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.GetPushProviderConfigurationArgs | undefined>;
     /**
      * The unique identifier of the push provider to retrieve.
      */

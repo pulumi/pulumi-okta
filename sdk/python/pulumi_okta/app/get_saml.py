@@ -697,13 +697,13 @@ def get_saml(active_only: Optional[_builtins.bool] = None,
         user_name_template_suffix=pulumi.get(__ret__, 'user_name_template_suffix'),
         user_name_template_type=pulumi.get(__ret__, 'user_name_template_type'),
         users=pulumi.get(__ret__, 'users'))
-def get_saml_output(active_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    label: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    label_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    request_compressed: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    skip_groups: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    skip_users: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_saml_output(active_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    label: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    label_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    request_compressed: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    skip_groups: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    skip_users: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlResult]:
     """
     Get a SAML application from Okta.

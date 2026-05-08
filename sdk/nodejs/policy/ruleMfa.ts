@@ -147,50 +147,50 @@ export interface RuleMfaState {
      * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
      * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[] | undefined>;
     /**
      * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
      * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
      * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
      * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[] | undefined>;
     /**
      * When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
      */
-    enroll?: pulumi.Input<string>;
+    enroll?: pulumi.Input<string | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -203,48 +203,48 @@ export interface RuleMfaArgs {
      * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
      * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[]>;
+    appExcludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppExclude>[] | undefined>;
     /**
      * Applications to include in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
      * 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.
      * 	- 'name' - (Optional) Use if the 'type' is 'APP_TYPE' to indicate the type of application(s) to include in instances where an entire group (i.e. 'yahoo_mail') of applications should be included.
      * 	- 'type' - (Required) One of: 'APP', 'APP_TYPE'
      */
-    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[]>;
+    appIncludes?: pulumi.Input<pulumi.Input<inputs.policy.RuleMfaAppInclude>[] | undefined>;
     /**
      * When a user should be prompted for MFA. It can be `CHALLENGE`, `LOGIN`, or `NEVER`.
      */
-    enroll?: pulumi.Input<string>;
+    enroll?: pulumi.Input<string | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: `ANYWHERE`, `ZONE`, `ON_NETWORK`, or `OFF_NETWORK`. Default: `ANYWHERE`
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to exclude.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Required if `networkConnection` = `ZONE`. Indicates the network zones to include.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy ID of the Rule
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

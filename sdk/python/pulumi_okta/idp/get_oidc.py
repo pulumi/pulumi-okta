@@ -336,9 +336,9 @@ def get_oidc(id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_info_binding=pulumi.get(__ret__, 'user_info_binding'),
         user_info_url=pulumi.get(__ret__, 'user_info_url'))
-def get_oidc_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    slo_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_oidc_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    slo_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOidcResult]:
     """
     Get a OIDC IdP from Okta.

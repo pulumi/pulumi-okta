@@ -40,7 +40,7 @@ import (
 //				Name:            pulumi.String("example"),
 //				OsVersion:       pulumi.String("12.4.5"),
 //				Jailbreak:       pulumi.Bool(false),
-//				ScreenlockTypes: []pulumi.String(invokeToset.Result),
+//				ScreenlockTypes: pulumi.StringArray(invokeToset.Result),
 //			})
 //			if err != nil {
 //				return err

@@ -41,10 +41,10 @@ import (
 //				return err
 //			}
 //			_ = exampleRulePassword.ID().ApplyT(func(id string) (policy.GetRulePasswordResult, error) {
-//				return policy.GetRulePasswordResult(policy.LookupRulePassword(ctx, &policy.LookupRulePasswordArgs{
+//				return policy.GetRulePasswordResult(interface{}(policy.LookupRulePassword(ctx, &policy.LookupRulePasswordArgs{
 //					PolicyId: password.Id,
 //					Id:       id,
-//				}, nil)), nil
+//				}, nil))), nil
 //			}).(policy.GetRulePasswordResultOutput)
 //			return nil
 //		})

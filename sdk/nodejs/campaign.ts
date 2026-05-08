@@ -144,44 +144,44 @@ export interface CampaignState {
     /**
      * Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
      */
-    campaignTier?: pulumi.Input<string>;
+    campaignTier?: pulumi.Input<string | undefined>;
     /**
      * Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
      */
-    campaignType?: pulumi.Input<string>;
+    campaignType?: pulumi.Input<string | undefined>;
     /**
      * Human readable description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the campaign
      */
-    name?: pulumi.Input<string>;
-    notificationSettings?: pulumi.Input<inputs.CampaignNotificationSettings>;
+    name?: pulumi.Input<string | undefined>;
+    notificationSettings?: pulumi.Input<inputs.CampaignNotificationSettings | undefined>;
     /**
      * User scope specific settings
      */
-    principalScopeSettings?: pulumi.Input<inputs.CampaignPrincipalScopeSettings>;
+    principalScopeSettings?: pulumi.Input<inputs.CampaignPrincipalScopeSettings | undefined>;
     /**
      * Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
      */
-    remediationSettings?: pulumi.Input<inputs.CampaignRemediationSettings>;
+    remediationSettings?: pulumi.Input<inputs.CampaignRemediationSettings | undefined>;
     /**
      * Resource specific properties.
      */
-    resourceSettings?: pulumi.Input<inputs.CampaignResourceSettings>;
+    resourceSettings?: pulumi.Input<inputs.CampaignResourceSettings | undefined>;
     /**
      * Identifies the kind of reviewer for Access Certification.
      */
-    reviewerSettings?: pulumi.Input<inputs.CampaignReviewerSettings>;
+    reviewerSettings?: pulumi.Input<inputs.CampaignReviewerSettings | undefined>;
     /**
      * Scheduler specific settings.
      */
-    scheduleSettings?: pulumi.Input<inputs.CampaignScheduleSettings>;
+    scheduleSettings?: pulumi.Input<inputs.CampaignScheduleSettings | undefined>;
     /**
      * If true, skip remediation when ending the campaign (only applicable if remediationSetting.noResponse=DENY).
      */
-    skipRemediation?: pulumi.Input<boolean>;
+    skipRemediation?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -191,42 +191,42 @@ export interface CampaignArgs {
     /**
      * Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
      */
-    campaignTier?: pulumi.Input<string>;
+    campaignTier?: pulumi.Input<string | undefined>;
     /**
      * Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
      */
-    campaignType?: pulumi.Input<string>;
+    campaignType?: pulumi.Input<string | undefined>;
     /**
      * Human readable description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the campaign
      */
-    name?: pulumi.Input<string>;
-    notificationSettings?: pulumi.Input<inputs.CampaignNotificationSettings>;
+    name?: pulumi.Input<string | undefined>;
+    notificationSettings?: pulumi.Input<inputs.CampaignNotificationSettings | undefined>;
     /**
      * User scope specific settings
      */
-    principalScopeSettings?: pulumi.Input<inputs.CampaignPrincipalScopeSettings>;
+    principalScopeSettings?: pulumi.Input<inputs.CampaignPrincipalScopeSettings | undefined>;
     /**
      * Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
      */
-    remediationSettings?: pulumi.Input<inputs.CampaignRemediationSettings>;
+    remediationSettings?: pulumi.Input<inputs.CampaignRemediationSettings | undefined>;
     /**
      * Resource specific properties.
      */
-    resourceSettings?: pulumi.Input<inputs.CampaignResourceSettings>;
+    resourceSettings?: pulumi.Input<inputs.CampaignResourceSettings | undefined>;
     /**
      * Identifies the kind of reviewer for Access Certification.
      */
-    reviewerSettings?: pulumi.Input<inputs.CampaignReviewerSettings>;
+    reviewerSettings?: pulumi.Input<inputs.CampaignReviewerSettings | undefined>;
     /**
      * Scheduler specific settings.
      */
-    scheduleSettings?: pulumi.Input<inputs.CampaignScheduleSettings>;
+    scheduleSettings?: pulumi.Input<inputs.CampaignScheduleSettings | undefined>;
     /**
      * If true, skip remediation when ending the campaign (only applicable if remediationSetting.noResponse=DENY).
      */
-    skipRemediation?: pulumi.Input<boolean>;
+    skipRemediation?: pulumi.Input<boolean | undefined>;
 }

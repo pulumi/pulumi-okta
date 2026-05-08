@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.group.GroupArgs;
  * import com.pulumi.okta.AdminRoleCustomAssignments;
  * import com.pulumi.okta.AdminRoleCustomAssignmentsArgs;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -81,13 +81,13 @@ import javax.annotation.Nullable;
  *             .resources(            
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/users"),
- *                     Map.entry("args", orgUrl)
+ *                     Map.entry("args", Arrays.asList(orgUrl))
  *                 )).result(),
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/apps/%s"),
- *                     Map.entry("args",                     
+ *                     Map.entry("args", Arrays.asList(                    
  *                         orgUrl,
- *                         testSwa.id())
+ *                         testSwa.id()))
  *                 )).result())
  *             .build());
  * 
@@ -112,15 +112,15 @@ import javax.annotation.Nullable;
  *             .members(            
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/users/%s"),
- *                     Map.entry("args",                     
+ *                     Map.entry("args", Arrays.asList(                    
  *                         orgUrl,
- *                         testUser.id())
+ *                         testUser.id()))
  *                 )).result(),
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/groups/%s"),
- *                     Map.entry("args",                     
+ *                     Map.entry("args", Arrays.asList(                    
  *                         orgUrl,
- *                         testGroup.id())
+ *                         testGroup.id()))
  *                 )).result())
  *             .build());
  * 

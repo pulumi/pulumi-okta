@@ -75,11 +75,11 @@ class EmailSenderArgs:
 @pulumi.input_type
 class _EmailSenderState:
     def __init__(__self__, *,
-                 dns_records: Optional[pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdomain: Optional[pulumi.Input[_builtins.str]] = None):
+                 dns_records: pulumi.Input[Optional[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailSender resources.
 
@@ -102,62 +102,62 @@ class _EmailSenderState:
 
     @_builtins.property
     @pulumi.getter(name="dnsRecords")
-    def dns_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]]:
+    def dns_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]]:
         """
         TXT and CNAME records to be registered for the Domain
         """
         return pulumi.get(self, "dns_records")
 
     @dns_records.setter
-    def dns_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]]):
+    def dns_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EmailSenderDnsRecordArgs']]]]):
         pulumi.set(self, "dns_records", value)
 
     @_builtins.property
     @pulumi.getter(name="fromAddress")
-    def from_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address to send from
         """
         return pulumi.get(self, "from_address")
 
     @from_address.setter
-    def from_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_address", value)
 
     @_builtins.property
     @pulumi.getter(name="fromName")
-    def from_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def from_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of sender
         """
         return pulumi.get(self, "from_name")
 
     @from_name.setter
-    def from_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def from_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "from_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Verification status
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdomain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Mail domain to send from
         """
         return pulumi.get(self, "subdomain")
 
     @subdomain.setter
-    def subdomain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdomain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdomain", value)
 
 
@@ -167,9 +167,9 @@ class EmailSender(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdomain: Optional[pulumi.Input[_builtins.str]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates custom email sender. This resource allows you to create and configure a custom email sender.
@@ -246,9 +246,9 @@ class EmailSender(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 from_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdomain: Optional[pulumi.Input[_builtins.str]] = None,
+                 from_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,11 +279,11 @@ class EmailSender(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailSenderDnsRecordArgs', 'EmailSenderDnsRecordArgsDict']]]]] = None,
-            from_address: Optional[pulumi.Input[_builtins.str]] = None,
-            from_name: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            subdomain: Optional[pulumi.Input[_builtins.str]] = None) -> 'EmailSender':
+            dns_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailSenderDnsRecordArgs', 'EmailSenderDnsRecordArgsDict']]]]] = None,
+            from_address: pulumi.Input[Optional[_builtins.str]] = None,
+            from_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailSender':
         """
         Get an existing EmailSender resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

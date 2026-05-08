@@ -177,9 +177,9 @@ def get_device(id: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         status=pulumi.get(__ret__, 'status'))
-def get_device_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                      profile: Optional[pulumi.Input[Optional[Union['GetDeviceProfileArgs', 'GetDeviceProfileArgsDict']]]] = None,
-                      resource_display_name: Optional[pulumi.Input[Optional[Union['GetDeviceResourceDisplayNameArgs', 'GetDeviceResourceDisplayNameArgsDict']]]] = None,
+def get_device_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                      profile: pulumi.Input[Optional[Optional[Union['GetDeviceProfileArgs', 'GetDeviceProfileArgsDict']]]] = None,
+                      resource_display_name: pulumi.Input[Optional[Optional[Union['GetDeviceResourceDisplayNameArgs', 'GetDeviceResourceDisplayNameArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Get information about a device in Okta.

@@ -41,15 +41,15 @@ __all__ = [
 
 class RuleIdpDiscoveryAppExcludeArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryAppExcludeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -67,34 +67,34 @@ class RuleIdpDiscoveryAppExcludeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class RuleIdpDiscoveryAppIncludeArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryAppIncludeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -112,29 +112,29 @@ class RuleIdpDiscoveryAppIncludeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class RuleIdpDiscoveryIdpProviderArgsDict(TypedDict):
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the Idp the rule should route to if all conditions are met.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
     """
@@ -142,8 +142,8 @@ class RuleIdpDiscoveryIdpProviderArgsDict(TypedDict):
 @pulumi.input_type
 class RuleIdpDiscoveryIdpProviderArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: The identifier for the Idp the rule should route to if all conditions are met.
         :param pulumi.Input[_builtins.str] type: Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
@@ -155,43 +155,43 @@ class RuleIdpDiscoveryIdpProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the Idp the rule should route to if all conditions are met.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of IdP. One of: `AMAZON`, `APPLE`, `DISCORD`, `FACEBOOK`, `GITHUB`, `GITLAB`, `GOOGLE`, `IDV_CLEAR`, `IDV_INCODE`, `IDV_PERSONA`, `LINKEDIN`, `LOGINGOV`, `LOGINGOV_SANDBOX`, `MICROSOFT`, `OIDC`, `PAYPAL`, `PAYPAL_SANDBOX`, `SALESFORCE`, `SAML2`, `SPOTIFY`, `X509`, `XERO`, `YAHOO`, `YAHOOJP`, Default: `OKTA`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class RuleIdpDiscoveryPlatformIncludeArgsDict(TypedDict):
-    os_expression: NotRequired[pulumi.Input[_builtins.str]]
+    os_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Only available with OTHER OS type
     """
-    os_type: NotRequired[pulumi.Input[_builtins.str]]
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    os_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryPlatformIncludeArgs:
     def __init__(__self__, *,
-                 os_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 os_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] os_expression: Only available with OTHER OS type
         """
@@ -204,44 +204,44 @@ class RuleIdpDiscoveryPlatformIncludeArgs:
 
     @_builtins.property
     @pulumi.getter(name="osExpression")
-    def os_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Only available with OTHER OS type
         """
         return pulumi.get(self, "os_expression")
 
     @os_expression.setter
-    def os_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_expression", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 class RuleIdpDiscoveryUserIdentifierPatternArgsDict(TypedDict):
-    match_type: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    match_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RuleIdpDiscoveryUserIdentifierPatternArgs:
     def __init__(__self__, *,
-                 match_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 match_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         if match_type is not None:
             pulumi.set(__self__, "match_type", match_type)
         if value is not None:
@@ -249,34 +249,34 @@ class RuleIdpDiscoveryUserIdentifierPatternArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchType")
-    def match_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def match_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "match_type")
 
     @match_type.setter
-    def match_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def match_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "match_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class RuleMfaAppExcludeArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RuleMfaAppExcludeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -294,34 +294,34 @@ class RuleMfaAppExcludeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class RuleMfaAppIncludeArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    id: NotRequired[pulumi.Input[_builtins.str]]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class RuleMfaAppIncludeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "type", type)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -339,37 +339,37 @@ class RuleMfaAppIncludeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class RulePasswordPasswordResetRequirementArgsDict(TypedDict):
-    method_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgsDict']]]]
+    method_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]]
     """
     Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
     """
-    primary_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    primary_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
     """
-    step_up_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    step_up_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
     """
-    step_up_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    step_up_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
     """
@@ -377,10 +377,10 @@ class RulePasswordPasswordResetRequirementArgsDict(TypedDict):
 @pulumi.input_type
 class RulePasswordPasswordResetRequirementArgs:
     def __init__(__self__, *,
-                 method_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]] = None,
-                 primary_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 step_up_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 step_up_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 method_constraints: pulumi.Input[Optional[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]] = None,
+                 primary_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 step_up_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 step_up_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]] method_constraints: Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_methods: Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
@@ -398,50 +398,50 @@ class RulePasswordPasswordResetRequirementArgs:
 
     @_builtins.property
     @pulumi.getter(name="methodConstraints")
-    def method_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]:
+    def method_constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]:
         """
         Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
         """
         return pulumi.get(self, "method_constraints")
 
     @method_constraints.setter
-    def method_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]):
+    def method_constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]):
         pulumi.set(self, "method_constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryMethods")
-    def primary_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def primary_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. Options: `otp`, `push`, `sms`, `email`, `voice`.
         """
         return pulumi.get(self, "primary_methods")
 
     @primary_methods.setter
-    def primary_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def primary_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "primary_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="stepUpEnabled")
-    def step_up_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def step_up_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a secondary authenticator is required for password reset (`stepUp.required`). The following are three valid configurations: `required=false`, `required=true` with no methods to use any SSO authenticator, and `required=true` with `security_question` as the method. Default: `false`.
         """
         return pulumi.get(self, "step_up_enabled")
 
     @step_up_enabled.setter
-    def step_up_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def step_up_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "step_up_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="stepUpMethods")
-    def step_up_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def step_up_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Authenticator methods required for the secondary authentication step of password recovery. Specify only when `step_up_enabled = true` and `security_question` is permitted for the secondary authentication. Items value: `security_question`.
         """
         return pulumi.get(self, "step_up_methods")
 
     @step_up_methods.setter
-    def step_up_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def step_up_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "step_up_methods", value)
 
 
@@ -450,7 +450,7 @@ class RulePasswordPasswordResetRequirementMethodConstraintArgsDict(TypedDict):
     """
     The method to constrain (e.g. `otp`).
     """
-    allowed_authenticators: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_authenticators: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Keys of the authenticators allowed for this method (e.g. `google_otp`).
     """
@@ -459,7 +459,7 @@ class RulePasswordPasswordResetRequirementMethodConstraintArgsDict(TypedDict):
 class RulePasswordPasswordResetRequirementMethodConstraintArgs:
     def __init__(__self__, *,
                  method: pulumi.Input[_builtins.str],
-                 allowed_authenticators: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_authenticators: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] method: The method to constrain (e.g. `otp`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_authenticators: Keys of the authenticators allowed for this method (e.g. `google_otp`).
@@ -482,14 +482,14 @@ class RulePasswordPasswordResetRequirementMethodConstraintArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedAuthenticators")
-    def allowed_authenticators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_authenticators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Keys of the authenticators allowed for this method (e.g. `google_otp`).
         """
         return pulumi.get(self, "allowed_authenticators")
 
     @allowed_authenticators.setter
-    def allowed_authenticators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_authenticators(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_authenticators", value)
 
 
@@ -502,14 +502,14 @@ class RuleSignonFactorSequenceArgsDict(TypedDict):
     """
     Factor provider
     """
-    secondary_criterias: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgsDict']]]]
+    secondary_criterias: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]]
 
 @pulumi.input_type
 class RuleSignonFactorSequenceArgs:
     def __init__(__self__, *,
                  primary_criteria_factor_type: pulumi.Input[_builtins.str],
                  primary_criteria_provider: pulumi.Input[_builtins.str],
-                 secondary_criterias: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]] = None):
+                 secondary_criterias: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] primary_criteria_factor_type: Type of a Factor
         :param pulumi.Input[_builtins.str] primary_criteria_provider: Factor provider
@@ -545,11 +545,11 @@ class RuleSignonFactorSequenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="secondaryCriterias")
-    def secondary_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]:
+    def secondary_criterias(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]:
         return pulumi.get(self, "secondary_criterias")
 
     @secondary_criterias.setter
-    def secondary_criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]):
+    def secondary_criterias(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]):
         pulumi.set(self, "secondary_criterias", value)
 
 

@@ -21,17 +21,17 @@ __all__ = ['CampaignArgs', 'Campaign']
 @pulumi.input_type
 class CampaignArgs:
     def __init__(__self__, *,
-                 campaign_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 campaign_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input['CampaignNotificationSettingsArgs']] = None,
-                 principal_scope_settings: Optional[pulumi.Input['CampaignPrincipalScopeSettingsArgs']] = None,
-                 remediation_settings: Optional[pulumi.Input['CampaignRemediationSettingsArgs']] = None,
-                 resource_settings: Optional[pulumi.Input['CampaignResourceSettingsArgs']] = None,
-                 reviewer_settings: Optional[pulumi.Input['CampaignReviewerSettingsArgs']] = None,
-                 schedule_settings: Optional[pulumi.Input['CampaignScheduleSettingsArgs']] = None,
-                 skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 campaign_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional['CampaignNotificationSettingsArgs']] = None,
+                 principal_scope_settings: pulumi.Input[Optional['CampaignPrincipalScopeSettingsArgs']] = None,
+                 remediation_settings: pulumi.Input[Optional['CampaignRemediationSettingsArgs']] = None,
+                 resource_settings: pulumi.Input[Optional['CampaignResourceSettingsArgs']] = None,
+                 reviewer_settings: pulumi.Input[Optional['CampaignReviewerSettingsArgs']] = None,
+                 schedule_settings: pulumi.Input[Optional['CampaignScheduleSettingsArgs']] = None,
+                 skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Campaign resource.
 
@@ -71,148 +71,148 @@ class CampaignArgs:
 
     @_builtins.property
     @pulumi.getter(name="campaignTier")
-    def campaign_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def campaign_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
         """
         return pulumi.get(self, "campaign_tier")
 
     @campaign_tier.setter
-    def campaign_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def campaign_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "campaign_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="campaignType")
-    def campaign_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def campaign_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
         """
         return pulumi.get(self, "campaign_type")
 
     @campaign_type.setter
-    def campaign_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def campaign_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "campaign_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human readable description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the campaign
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional[pulumi.Input['CampaignNotificationSettingsArgs']]:
+    def notification_settings(self) -> pulumi.Input[Optional['CampaignNotificationSettingsArgs']]:
         return pulumi.get(self, "notification_settings")
 
     @notification_settings.setter
-    def notification_settings(self, value: Optional[pulumi.Input['CampaignNotificationSettingsArgs']]):
+    def notification_settings(self, value: pulumi.Input[Optional['CampaignNotificationSettingsArgs']]):
         pulumi.set(self, "notification_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="principalScopeSettings")
-    def principal_scope_settings(self) -> Optional[pulumi.Input['CampaignPrincipalScopeSettingsArgs']]:
+    def principal_scope_settings(self) -> pulumi.Input[Optional['CampaignPrincipalScopeSettingsArgs']]:
         """
         User scope specific settings
         """
         return pulumi.get(self, "principal_scope_settings")
 
     @principal_scope_settings.setter
-    def principal_scope_settings(self, value: Optional[pulumi.Input['CampaignPrincipalScopeSettingsArgs']]):
+    def principal_scope_settings(self, value: pulumi.Input[Optional['CampaignPrincipalScopeSettingsArgs']]):
         pulumi.set(self, "principal_scope_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationSettings")
-    def remediation_settings(self) -> Optional[pulumi.Input['CampaignRemediationSettingsArgs']]:
+    def remediation_settings(self) -> pulumi.Input[Optional['CampaignRemediationSettingsArgs']]:
         """
         Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
         """
         return pulumi.get(self, "remediation_settings")
 
     @remediation_settings.setter
-    def remediation_settings(self, value: Optional[pulumi.Input['CampaignRemediationSettingsArgs']]):
+    def remediation_settings(self, value: pulumi.Input[Optional['CampaignRemediationSettingsArgs']]):
         pulumi.set(self, "remediation_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSettings")
-    def resource_settings(self) -> Optional[pulumi.Input['CampaignResourceSettingsArgs']]:
+    def resource_settings(self) -> pulumi.Input[Optional['CampaignResourceSettingsArgs']]:
         """
         Resource specific properties.
         """
         return pulumi.get(self, "resource_settings")
 
     @resource_settings.setter
-    def resource_settings(self, value: Optional[pulumi.Input['CampaignResourceSettingsArgs']]):
+    def resource_settings(self, value: pulumi.Input[Optional['CampaignResourceSettingsArgs']]):
         pulumi.set(self, "resource_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewerSettings")
-    def reviewer_settings(self) -> Optional[pulumi.Input['CampaignReviewerSettingsArgs']]:
+    def reviewer_settings(self) -> pulumi.Input[Optional['CampaignReviewerSettingsArgs']]:
         """
         Identifies the kind of reviewer for Access Certification.
         """
         return pulumi.get(self, "reviewer_settings")
 
     @reviewer_settings.setter
-    def reviewer_settings(self, value: Optional[pulumi.Input['CampaignReviewerSettingsArgs']]):
+    def reviewer_settings(self, value: pulumi.Input[Optional['CampaignReviewerSettingsArgs']]):
         pulumi.set(self, "reviewer_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleSettings")
-    def schedule_settings(self) -> Optional[pulumi.Input['CampaignScheduleSettingsArgs']]:
+    def schedule_settings(self) -> pulumi.Input[Optional['CampaignScheduleSettingsArgs']]:
         """
         Scheduler specific settings.
         """
         return pulumi.get(self, "schedule_settings")
 
     @schedule_settings.setter
-    def schedule_settings(self, value: Optional[pulumi.Input['CampaignScheduleSettingsArgs']]):
+    def schedule_settings(self, value: pulumi.Input[Optional['CampaignScheduleSettingsArgs']]):
         pulumi.set(self, "schedule_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRemediation")
-    def skip_remediation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_remediation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, skip remediation when ending the campaign (only applicable if remediationSetting.noResponse=DENY).
         """
         return pulumi.get(self, "skip_remediation")
 
     @skip_remediation.setter
-    def skip_remediation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_remediation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_remediation", value)
 
 
 @pulumi.input_type
 class _CampaignState:
     def __init__(__self__, *,
-                 campaign_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 campaign_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input['CampaignNotificationSettingsArgs']] = None,
-                 principal_scope_settings: Optional[pulumi.Input['CampaignPrincipalScopeSettingsArgs']] = None,
-                 remediation_settings: Optional[pulumi.Input['CampaignRemediationSettingsArgs']] = None,
-                 resource_settings: Optional[pulumi.Input['CampaignResourceSettingsArgs']] = None,
-                 reviewer_settings: Optional[pulumi.Input['CampaignReviewerSettingsArgs']] = None,
-                 schedule_settings: Optional[pulumi.Input['CampaignScheduleSettingsArgs']] = None,
-                 skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None):
+                 campaign_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional['CampaignNotificationSettingsArgs']] = None,
+                 principal_scope_settings: pulumi.Input[Optional['CampaignPrincipalScopeSettingsArgs']] = None,
+                 remediation_settings: pulumi.Input[Optional['CampaignRemediationSettingsArgs']] = None,
+                 resource_settings: pulumi.Input[Optional['CampaignResourceSettingsArgs']] = None,
+                 reviewer_settings: pulumi.Input[Optional['CampaignReviewerSettingsArgs']] = None,
+                 schedule_settings: pulumi.Input[Optional['CampaignScheduleSettingsArgs']] = None,
+                 skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Campaign resources.
 
@@ -252,131 +252,131 @@ class _CampaignState:
 
     @_builtins.property
     @pulumi.getter(name="campaignTier")
-    def campaign_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def campaign_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the minimum required SKU to manage the campaign. Enum: "BASIC", "PREMIUM".
         """
         return pulumi.get(self, "campaign_tier")
 
     @campaign_tier.setter
-    def campaign_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def campaign_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "campaign_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="campaignType")
-    def campaign_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def campaign_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
         """
         return pulumi.get(self, "campaign_type")
 
     @campaign_type.setter
-    def campaign_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def campaign_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "campaign_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Human readable description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the campaign
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional[pulumi.Input['CampaignNotificationSettingsArgs']]:
+    def notification_settings(self) -> pulumi.Input[Optional['CampaignNotificationSettingsArgs']]:
         return pulumi.get(self, "notification_settings")
 
     @notification_settings.setter
-    def notification_settings(self, value: Optional[pulumi.Input['CampaignNotificationSettingsArgs']]):
+    def notification_settings(self, value: pulumi.Input[Optional['CampaignNotificationSettingsArgs']]):
         pulumi.set(self, "notification_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="principalScopeSettings")
-    def principal_scope_settings(self) -> Optional[pulumi.Input['CampaignPrincipalScopeSettingsArgs']]:
+    def principal_scope_settings(self) -> pulumi.Input[Optional['CampaignPrincipalScopeSettingsArgs']]:
         """
         User scope specific settings
         """
         return pulumi.get(self, "principal_scope_settings")
 
     @principal_scope_settings.setter
-    def principal_scope_settings(self, value: Optional[pulumi.Input['CampaignPrincipalScopeSettingsArgs']]):
+    def principal_scope_settings(self, value: pulumi.Input[Optional['CampaignPrincipalScopeSettingsArgs']]):
         pulumi.set(self, "principal_scope_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationSettings")
-    def remediation_settings(self) -> Optional[pulumi.Input['CampaignRemediationSettingsArgs']]:
+    def remediation_settings(self) -> pulumi.Input[Optional['CampaignRemediationSettingsArgs']]:
         """
         Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
         """
         return pulumi.get(self, "remediation_settings")
 
     @remediation_settings.setter
-    def remediation_settings(self, value: Optional[pulumi.Input['CampaignRemediationSettingsArgs']]):
+    def remediation_settings(self, value: pulumi.Input[Optional['CampaignRemediationSettingsArgs']]):
         pulumi.set(self, "remediation_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSettings")
-    def resource_settings(self) -> Optional[pulumi.Input['CampaignResourceSettingsArgs']]:
+    def resource_settings(self) -> pulumi.Input[Optional['CampaignResourceSettingsArgs']]:
         """
         Resource specific properties.
         """
         return pulumi.get(self, "resource_settings")
 
     @resource_settings.setter
-    def resource_settings(self, value: Optional[pulumi.Input['CampaignResourceSettingsArgs']]):
+    def resource_settings(self, value: pulumi.Input[Optional['CampaignResourceSettingsArgs']]):
         pulumi.set(self, "resource_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="reviewerSettings")
-    def reviewer_settings(self) -> Optional[pulumi.Input['CampaignReviewerSettingsArgs']]:
+    def reviewer_settings(self) -> pulumi.Input[Optional['CampaignReviewerSettingsArgs']]:
         """
         Identifies the kind of reviewer for Access Certification.
         """
         return pulumi.get(self, "reviewer_settings")
 
     @reviewer_settings.setter
-    def reviewer_settings(self, value: Optional[pulumi.Input['CampaignReviewerSettingsArgs']]):
+    def reviewer_settings(self, value: pulumi.Input[Optional['CampaignReviewerSettingsArgs']]):
         pulumi.set(self, "reviewer_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleSettings")
-    def schedule_settings(self) -> Optional[pulumi.Input['CampaignScheduleSettingsArgs']]:
+    def schedule_settings(self) -> pulumi.Input[Optional['CampaignScheduleSettingsArgs']]:
         """
         Scheduler specific settings.
         """
         return pulumi.get(self, "schedule_settings")
 
     @schedule_settings.setter
-    def schedule_settings(self, value: Optional[pulumi.Input['CampaignScheduleSettingsArgs']]):
+    def schedule_settings(self, value: pulumi.Input[Optional['CampaignScheduleSettingsArgs']]):
         pulumi.set(self, "schedule_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRemediation")
-    def skip_remediation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_remediation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, skip remediation when ending the campaign (only applicable if remediationSetting.noResponse=DENY).
         """
         return pulumi.get(self, "skip_remediation")
 
     @skip_remediation.setter
-    def skip_remediation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_remediation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_remediation", value)
 
 
@@ -386,17 +386,17 @@ class Campaign(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 campaign_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 campaign_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
-                 principal_scope_settings: Optional[pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
-                 remediation_settings: Optional[pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
-                 resource_settings: Optional[pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
-                 reviewer_settings: Optional[pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
-                 schedule_settings: Optional[pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
-                 skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 campaign_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
+                 principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
+                 remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
+                 resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
+                 reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
+                 schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
+                 skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages Campaign. This resource allows you to create and configure an Okta [Campaign](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/).
@@ -470,17 +470,17 @@ class Campaign(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 campaign_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 campaign_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
-                 principal_scope_settings: Optional[pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
-                 remediation_settings: Optional[pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
-                 resource_settings: Optional[pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
-                 reviewer_settings: Optional[pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
-                 schedule_settings: Optional[pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
-                 skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None,
+                 campaign_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
+                 principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
+                 remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
+                 resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
+                 reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
+                 schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
+                 skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,17 +511,17 @@ class Campaign(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            campaign_tier: Optional[pulumi.Input[_builtins.str]] = None,
-            campaign_type: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_settings: Optional[pulumi.Input[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
-            principal_scope_settings: Optional[pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
-            remediation_settings: Optional[pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
-            resource_settings: Optional[pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
-            reviewer_settings: Optional[pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
-            schedule_settings: Optional[pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
-            skip_remediation: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Campaign':
+            campaign_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
+            principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
+            remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
+            resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
+            reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
+            schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
+            skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Campaign':
         """
         Get an existing Campaign resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

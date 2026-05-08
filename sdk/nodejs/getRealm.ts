@@ -104,13 +104,13 @@ export interface GetRealmOutputArgs {
     /**
      * The id of the Okta Realm.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the Okta Realm.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The realm type. Valid values: `PARTNER` and `DEFAULT`
      */
-    realmType?: pulumi.Input<string>;
+    realmType?: pulumi.Input<string | undefined>;
 }

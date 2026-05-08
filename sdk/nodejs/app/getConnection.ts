@@ -114,11 +114,11 @@ export interface GetConnectionOutputArgs {
     /**
      * A token is used to authenticate with the app. This property is only returned for the TOKEN authentication scheme.
      */
-    authScheme?: pulumi.Input<string>;
+    authScheme?: pulumi.Input<string | undefined>;
     /**
      * The base URL for the provisioning connection.
      */
-    baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string | undefined>;
     /**
      * The application ID for which to retrieve the provisioning connection information.
      */
@@ -126,5 +126,5 @@ export interface GetConnectionOutputArgs {
     /**
      * Profile information for the app connection.
      */
-    profile?: pulumi.Input<inputs.app.GetConnectionProfileArgs>;
+    profile?: pulumi.Input<inputs.app.GetConnectionProfileArgs | undefined>;
 }

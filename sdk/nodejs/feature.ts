@@ -135,35 +135,35 @@ export interface FeatureState {
     /**
      * Name of the feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
      */
-    featureId?: pulumi.Input<string>;
+    featureId?: pulumi.Input<string | undefined>;
     /**
      * Whether to `ENABLE` or `DISABLE` the feature
      */
-    lifeCycle?: pulumi.Input<string>;
+    lifeCycle?: pulumi.Input<string | undefined>;
     /**
      * Indicates if you want to force enable or disable a feature. Value is `true` meaning force
      */
-    mode?: pulumi.Input<boolean>;
+    mode?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the feature.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Current release cycle stage of a feature.
      */
-    stage?: pulumi.Input<inputs.FeatureStage>;
+    stage?: pulumi.Input<inputs.FeatureStage | undefined>;
     /**
      * The feature status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Type of feature.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -177,9 +177,9 @@ export interface FeatureArgs {
     /**
      * Whether to `ENABLE` or `DISABLE` the feature
      */
-    lifeCycle?: pulumi.Input<string>;
+    lifeCycle?: pulumi.Input<string | undefined>;
     /**
      * Indicates if you want to force enable or disable a feature. Value is `true` meaning force
      */
-    mode?: pulumi.Input<boolean>;
+    mode?: pulumi.Input<boolean | undefined>;
 }

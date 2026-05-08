@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.policy.DeviceAssuranceAndroid;
  * import com.pulumi.okta.policy.DeviceAssuranceAndroidArgs;
  * import com.pulumi.std.StdFunctions;
- * import java.util.List;
  * import java.util.ArrayList;
+ * import java.util.Arrays;
  * import java.util.Map;
  * import java.io.File;
  * import java.nio.file.Files;
@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *         var example = new DeviceAssuranceAndroid("example", DeviceAssuranceAndroidArgs.builder()
  *             .name("example")
  *             .osVersion("12")
- *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input",             
+ *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", Arrays.asList(            
  *                 "FULL",
- *                 "USER")).result())
+ *                 "USER"))).result())
  *             .jailbreak(false)
  *             .secureHardwarePresent(true)
- *             .screenlockTypes(StdFunctions.toset(Map.of("input", "BIOMETRIC")).result())
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList("BIOMETRIC"))).result())
  *             .build());
  * 
  *     }

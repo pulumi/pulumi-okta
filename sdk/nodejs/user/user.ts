@@ -408,185 +408,185 @@ export interface UserState {
     /**
      * User city
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * User cost center
      */
-    costCenter?: pulumi.Input<string>;
+    costCenter?: pulumi.Input<string | undefined>;
     /**
      * User country code
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
-    customProfileAttributes?: pulumi.Input<string>;
+    customProfileAttributes?: pulumi.Input<string | undefined>;
     /**
      * List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
      */
-    customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
+    customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User department
      */
-    department?: pulumi.Input<string>;
+    department?: pulumi.Input<string | undefined>;
     /**
      * User display name, suitable to show end users
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * User division
      */
-    division?: pulumi.Input<string>;
+    division?: pulumi.Input<string | undefined>;
     /**
      * User primary email address
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * User employee number
      */
-    employeeNumber?: pulumi.Input<string>;
+    employeeNumber?: pulumi.Input<string | undefined>;
     /**
      * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
      */
-    expirePasswordOnCreate?: pulumi.Input<boolean>;
+    expirePasswordOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * User first name
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * User honorific prefix
      */
-    honorificPrefix?: pulumi.Input<string>;
+    honorificPrefix?: pulumi.Input<string | undefined>;
     /**
      * User honorific suffix
      */
-    honorificSuffix?: pulumi.Input<string>;
+    honorificSuffix?: pulumi.Input<string | undefined>;
     /**
      * User last name
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * User default location
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * User Okta login
      */
-    login?: pulumi.Input<string>;
+    login?: pulumi.Input<string | undefined>;
     /**
      * Manager of User
      */
-    manager?: pulumi.Input<string>;
+    manager?: pulumi.Input<string | undefined>;
     /**
      * Manager ID of User
      */
-    managerId?: pulumi.Input<string>;
+    managerId?: pulumi.Input<string | undefined>;
     /**
      * User middle name
      */
-    middleName?: pulumi.Input<string>;
+    middleName?: pulumi.Input<string | undefined>;
     /**
      * User mobile phone number
      */
-    mobilePhone?: pulumi.Input<string>;
+    mobilePhone?: pulumi.Input<string | undefined>;
     /**
      * User nickname
      */
-    nickName?: pulumi.Input<string>;
+    nickName?: pulumi.Input<string | undefined>;
     /**
      * Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
      */
-    oldPassword?: pulumi.Input<string>;
+    oldPassword?: pulumi.Input<string | undefined>;
     /**
      * User organization
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * User Password
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies a hashed password to import into Okta.
      */
-    passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
+    passwordHash?: pulumi.Input<inputs.user.UserPasswordHash | undefined>;
     /**
      * Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
      */
-    passwordInlineHook?: pulumi.Input<string>;
+    passwordInlineHook?: pulumi.Input<string | undefined>;
     /**
      * User mailing address
      */
-    postalAddress?: pulumi.Input<string>;
+    postalAddress?: pulumi.Input<string | undefined>;
     /**
      * User preferred language
      */
-    preferredLanguage?: pulumi.Input<string>;
+    preferredLanguage?: pulumi.Input<string | undefined>;
     /**
      * User primary phone number
      */
-    primaryPhone?: pulumi.Input<string>;
+    primaryPhone?: pulumi.Input<string | undefined>;
     /**
      * User online profile (web page)
      */
-    profileUrl?: pulumi.Input<string>;
+    profileUrl?: pulumi.Input<string | undefined>;
     /**
      * The raw status of the User in Okta - (status is mapped)
      */
-    rawStatus?: pulumi.Input<string>;
+    rawStatus?: pulumi.Input<string | undefined>;
     /**
      * The Realm ID to associate the user with
      */
-    realmId?: pulumi.Input<string>;
+    realmId?: pulumi.Input<string | undefined>;
     /**
      * User Password Recovery Answer
      */
-    recoveryAnswer?: pulumi.Input<string>;
+    recoveryAnswer?: pulumi.Input<string | undefined>;
     /**
      * User Password Recovery Question
      */
-    recoveryQuestion?: pulumi.Input<string>;
+    recoveryQuestion?: pulumi.Input<string | undefined>;
     /**
      * User secondary email address, used for account recovery
      */
-    secondEmail?: pulumi.Input<string>;
+    secondEmail?: pulumi.Input<string | undefined>;
     /**
      * Do not populate user roles information (prevents additional API call)
      *
      * @deprecated Because adminRoles has been removed, this attribute is a no op and will be removed
      */
-    skipRoles?: pulumi.Input<boolean>;
+    skipRoles?: pulumi.Input<boolean | undefined>;
     /**
      * User state or region
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * User street address
      */
-    streetAddress?: pulumi.Input<string>;
+    streetAddress?: pulumi.Input<string | undefined>;
     /**
      * User default timezone
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * User title
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * Specifies a user type other than the default user type
      */
-    type?: pulumi.Input<inputs.user.UserType>;
+    type?: pulumi.Input<inputs.user.UserType | undefined>;
     /**
      * User employee type
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
     /**
      * User zipcode or postal code
      */
-    zipCode?: pulumi.Input<string>;
+    zipCode?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -596,35 +596,35 @@ export interface UserArgs {
     /**
      * User city
      */
-    city?: pulumi.Input<string>;
+    city?: pulumi.Input<string | undefined>;
     /**
      * User cost center
      */
-    costCenter?: pulumi.Input<string>;
+    costCenter?: pulumi.Input<string | undefined>;
     /**
      * User country code
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
-    customProfileAttributes?: pulumi.Input<string>;
+    customProfileAttributes?: pulumi.Input<string | undefined>;
     /**
      * List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
      */
-    customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[]>;
+    customProfileAttributesToIgnores?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * User department
      */
-    department?: pulumi.Input<string>;
+    department?: pulumi.Input<string | undefined>;
     /**
      * User display name, suitable to show end users
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * User division
      */
-    division?: pulumi.Input<string>;
+    division?: pulumi.Input<string | undefined>;
     /**
      * User primary email address
      */
@@ -632,11 +632,11 @@ export interface UserArgs {
     /**
      * User employee number
      */
-    employeeNumber?: pulumi.Input<string>;
+    employeeNumber?: pulumi.Input<string | undefined>;
     /**
      * If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
      */
-    expirePasswordOnCreate?: pulumi.Input<boolean>;
+    expirePasswordOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * User first name
      */
@@ -644,11 +644,11 @@ export interface UserArgs {
     /**
      * User honorific prefix
      */
-    honorificPrefix?: pulumi.Input<string>;
+    honorificPrefix?: pulumi.Input<string | undefined>;
     /**
      * User honorific suffix
      */
-    honorificSuffix?: pulumi.Input<string>;
+    honorificSuffix?: pulumi.Input<string | undefined>;
     /**
      * User last name
      */
@@ -656,7 +656,7 @@ export interface UserArgs {
     /**
      * User default location
      */
-    locale?: pulumi.Input<string>;
+    locale?: pulumi.Input<string | undefined>;
     /**
      * User Okta login
      */
@@ -664,111 +664,111 @@ export interface UserArgs {
     /**
      * Manager of User
      */
-    manager?: pulumi.Input<string>;
+    manager?: pulumi.Input<string | undefined>;
     /**
      * Manager ID of User
      */
-    managerId?: pulumi.Input<string>;
+    managerId?: pulumi.Input<string | undefined>;
     /**
      * User middle name
      */
-    middleName?: pulumi.Input<string>;
+    middleName?: pulumi.Input<string | undefined>;
     /**
      * User mobile phone number
      */
-    mobilePhone?: pulumi.Input<string>;
+    mobilePhone?: pulumi.Input<string | undefined>;
     /**
      * User nickname
      */
-    nickName?: pulumi.Input<string>;
+    nickName?: pulumi.Input<string | undefined>;
     /**
      * Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
      */
-    oldPassword?: pulumi.Input<string>;
+    oldPassword?: pulumi.Input<string | undefined>;
     /**
      * User organization
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * User Password
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Specifies a hashed password to import into Okta.
      */
-    passwordHash?: pulumi.Input<inputs.user.UserPasswordHash>;
+    passwordHash?: pulumi.Input<inputs.user.UserPasswordHash | undefined>;
     /**
      * Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
      */
-    passwordInlineHook?: pulumi.Input<string>;
+    passwordInlineHook?: pulumi.Input<string | undefined>;
     /**
      * User mailing address
      */
-    postalAddress?: pulumi.Input<string>;
+    postalAddress?: pulumi.Input<string | undefined>;
     /**
      * User preferred language
      */
-    preferredLanguage?: pulumi.Input<string>;
+    preferredLanguage?: pulumi.Input<string | undefined>;
     /**
      * User primary phone number
      */
-    primaryPhone?: pulumi.Input<string>;
+    primaryPhone?: pulumi.Input<string | undefined>;
     /**
      * User online profile (web page)
      */
-    profileUrl?: pulumi.Input<string>;
+    profileUrl?: pulumi.Input<string | undefined>;
     /**
      * The Realm ID to associate the user with
      */
-    realmId?: pulumi.Input<string>;
+    realmId?: pulumi.Input<string | undefined>;
     /**
      * User Password Recovery Answer
      */
-    recoveryAnswer?: pulumi.Input<string>;
+    recoveryAnswer?: pulumi.Input<string | undefined>;
     /**
      * User Password Recovery Question
      */
-    recoveryQuestion?: pulumi.Input<string>;
+    recoveryQuestion?: pulumi.Input<string | undefined>;
     /**
      * User secondary email address, used for account recovery
      */
-    secondEmail?: pulumi.Input<string>;
+    secondEmail?: pulumi.Input<string | undefined>;
     /**
      * Do not populate user roles information (prevents additional API call)
      *
      * @deprecated Because adminRoles has been removed, this attribute is a no op and will be removed
      */
-    skipRoles?: pulumi.Input<boolean>;
+    skipRoles?: pulumi.Input<boolean | undefined>;
     /**
      * User state or region
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<string | undefined>;
     /**
      * User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * User street address
      */
-    streetAddress?: pulumi.Input<string>;
+    streetAddress?: pulumi.Input<string | undefined>;
     /**
      * User default timezone
      */
-    timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string | undefined>;
     /**
      * User title
      */
-    title?: pulumi.Input<string>;
+    title?: pulumi.Input<string | undefined>;
     /**
      * Specifies a user type other than the default user type
      */
-    type?: pulumi.Input<inputs.user.UserType>;
+    type?: pulumi.Input<inputs.user.UserType | undefined>;
     /**
      * User employee type
      */
-    userType?: pulumi.Input<string>;
+    userType?: pulumi.Input<string | undefined>;
     /**
      * User zipcode or postal code
      */
-    zipCode?: pulumi.Input<string>;
+    zipCode?: pulumi.Input<string | undefined>;
 }

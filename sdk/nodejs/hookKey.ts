@@ -113,23 +113,23 @@ export interface HookKeyState {
     /**
      * Timestamp when the key was created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Whether this key is currently in use by other applications.
      */
-    isUsed?: pulumi.Input<boolean>;
+    isUsed?: pulumi.Input<boolean | undefined>;
     /**
      * The alias of the public key.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
     /**
      * Timestamp when the key was updated.
      */
-    lastUpdated?: pulumi.Input<string>;
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * Display name for the key. Must be between 1 and 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -139,5 +139,5 @@ export interface HookKeyArgs {
     /**
      * Display name for the key. Must be between 1 and 255 characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

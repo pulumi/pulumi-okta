@@ -107,7 +107,7 @@ def get_app_signon_policy(app_id: Optional[_builtins.str] = None,
         app_id=pulumi.get(__ret__, 'app_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-def get_app_signon_policy_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_signon_policy_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppSignonPolicyResult]:
     """
     Get a sign-on policy for the application.

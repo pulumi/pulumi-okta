@@ -22,12 +22,12 @@ class ServerClaimArgs:
                  auth_server_id: pulumi.Input[_builtins.str],
                  claim_type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 group_filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 group_filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerClaim resource.
 
@@ -95,89 +95,89 @@ class ServerClaimArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysIncludeInToken")
-    def always_include_in_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_include_in_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to include claims in token, by default it is set to `true`.
         """
         return pulumi.get(self, "always_include_in_token")
 
     @always_include_in_token.setter
-    def always_include_in_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_include_in_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_include_in_token", value)
 
     @_builtins.property
     @pulumi.getter(name="groupFilterType")
-    def group_filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_filter_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         """
         return pulumi.get(self, "group_filter_type")
 
     @group_filter_type.setter
-    def group_filter_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_filter_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_filter_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the claim.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of scopes the auth server claim is tied to.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
         """
         return pulumi.get(self, "value_type")
 
     @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_type", value)
 
 
 @pulumi.input_type
 class _ServerClaimState:
     def __init__(__self__, *,
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerClaim resources.
 
@@ -212,110 +212,110 @@ class _ServerClaimState:
 
     @_builtins.property
     @pulumi.getter(name="alwaysIncludeInToken")
-    def always_include_in_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_include_in_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to include claims in token, by default it is set to `true`.
         """
         return pulumi.get(self, "always_include_in_token")
 
     @always_include_in_token.setter
-    def always_include_in_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_include_in_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_include_in_token", value)
 
     @_builtins.property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the authorization server.
         """
         return pulumi.get(self, "auth_server_id")
 
     @auth_server_id.setter
-    def auth_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="claimType")
-    def claim_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def claim_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         """
         return pulumi.get(self, "claim_type")
 
     @claim_type.setter
-    def claim_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def claim_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "claim_type", value)
 
     @_builtins.property
     @pulumi.getter(name="groupFilterType")
-    def group_filter_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_filter_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of group filter if `value_type` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
         """
         return pulumi.get(self, "group_filter_type")
 
     @group_filter_type.setter
-    def group_filter_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_filter_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_filter_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the claim.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of scopes the auth server claim is tied to.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the claim.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
         """
         return pulumi.get(self, "value_type")
 
     @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_type", value)
 
 
@@ -325,15 +325,15 @@ class ServerClaim(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an Authorization Server Claim. This resource allows you to create and configure an Authorization Server Claim.
@@ -416,15 +416,15 @@ class ServerClaim(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,15 +459,15 @@ class ServerClaim(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-            auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-            group_filter_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'ServerClaim':
+            always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+            group_filter_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerClaim':
         """
         Get an existing ServerClaim resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

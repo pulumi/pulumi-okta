@@ -20,30 +20,30 @@ __all__ = ['SwaArgs', 'Swa']
 class SwaArgs:
     def __init__(__self__, *,
                  label: pulumi.Input[_builtins.str],
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 button_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 checkbox: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 button_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 checkbox: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Swa resource.
 
@@ -137,324 +137,324 @@ class SwaArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_settings_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
         """
         return pulumi.get(self, "app_settings_json")
 
     @app_settings_json.setter
-    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_settings_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="buttonField")
-    def button_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def button_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login button field
         """
         return pulumi.get(self, "button_field")
 
     @button_field.setter
-    def button_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def button_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "button_field", value)
 
     @_builtins.property
     @pulumi.getter
-    def checkbox(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checkbox(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CSS selector for the checkbox
         """
         return pulumi.get(self, "checkbox")
 
     @checkbox.setter
-    def checkbox(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checkbox(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checkbox", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login password field
         """
         return pulumi.get(self, "password_field")
 
     @password_field.setter
-    def password_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_field", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preconfigured_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Preconfigured app name
         """
         return pulumi.get(self, "preconfigured_app")
 
     @preconfigured_app.setter
-    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preconfigured_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preconfigured_app", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If going to the login page URL redirects to another page, then enter that URL here
         """
         return pulumi.get(self, "redirect_url")
 
     @redirect_url.setter
-    def redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="urlRegex")
-    def url_regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regex that further restricts URL to the specified regex
         """
         return pulumi.get(self, "url_regex")
 
     @url_regex.setter
-    def url_regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_regex", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login username field
         """
         return pulumi.get(self, "username_field")
 
     @username_field.setter
-    def username_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_field", value)
 
 
 @pulumi.input_type
 class _SwaState:
     def __init__(__self__, *,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 button_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 checkbox: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 button_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 checkbox: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Swa resources.
 
@@ -546,338 +546,338 @@ class _SwaState:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="appSettingsJson")
-    def app_settings_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_settings_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application settings in JSON format. If `app_settings_json` is defined, the individual fields `button_field`, `password_field`, `username_field`, `url`, `url_regex`, `checkbox`, `redirect_url` will be ignored
         """
         return pulumi.get(self, "app_settings_json")
 
     @app_settings_json.setter
-    def app_settings_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_settings_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_settings_json", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="buttonField")
-    def button_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def button_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login button field
         """
         return pulumi.get(self, "button_field")
 
     @button_field.setter
-    def button_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def button_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "button_field", value)
 
     @_builtins.property
     @pulumi.getter
-    def checkbox(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def checkbox(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CSS selector for the checkbox
         """
         return pulumi.get(self, "checkbox")
 
     @checkbox.setter
-    def checkbox(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def checkbox(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "checkbox", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application's display name.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUrl")
-    def logo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
     @logo_url.setter
-    def logo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login password field
         """
         return pulumi.get(self, "password_field")
 
     @password_field.setter
-    def password_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_field", value)
 
     @_builtins.property
     @pulumi.getter(name="preconfiguredApp")
-    def preconfigured_app(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preconfigured_app(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Preconfigured app name
         """
         return pulumi.get(self, "preconfigured_app")
 
     @preconfigured_app.setter
-    def preconfigured_app(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preconfigured_app(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preconfigured_app", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUrl")
-    def redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If going to the login page URL redirects to another page, then enter that URL here
         """
         return pulumi.get(self, "redirect_url")
 
     @redirect_url.setter
-    def redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_on_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
     @sign_on_mode.setter
-    def sign_on_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_on_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_on_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="urlRegex")
-    def url_regex(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url_regex(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regex that further restricts URL to the specified regex
         """
         return pulumi.get(self, "url_regex")
 
     @url_regex.setter
-    def url_regex(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url_regex(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url_regex", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login username field
         """
         return pulumi.get(self, "username_field")
 
     @username_field.setter
-    def username_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_field", value)
 
 
@@ -887,31 +887,31 @@ class Swa(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 button_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 checkbox: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 button_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 checkbox: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a SWA Application.
@@ -1096,31 +1096,31 @@ class Swa(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 button_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 checkbox: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 url_regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 button_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 checkbox: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 url_regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1170,34 +1170,34 @@ class Swa(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-            admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-            app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-            app_settings_json: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-            button_field: Optional[pulumi.Input[_builtins.str]] = None,
-            checkbox: Optional[pulumi.Input[_builtins.str]] = None,
-            enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-            hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-            hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            logo: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            password_field: Optional[pulumi.Input[_builtins.str]] = None,
-            preconfigured_app: Optional[pulumi.Input[_builtins.str]] = None,
-            redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            url_regex: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-            username_field: Optional[pulumi.Input[_builtins.str]] = None) -> 'Swa':
+            accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+            app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+            app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+            button_field: pulumi.Input[Optional[_builtins.str]] = None,
+            checkbox: pulumi.Input[Optional[_builtins.str]] = None,
+            enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+            hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+            hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password_field: pulumi.Input[Optional[_builtins.str]] = None,
+            preconfigured_app: pulumi.Input[Optional[_builtins.str]] = None,
+            redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            url_regex: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+            username_field: pulumi.Input[Optional[_builtins.str]] = None) -> 'Swa':
         """
         Get an existing Swa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

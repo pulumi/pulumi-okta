@@ -23,14 +23,14 @@ class PolicyRuleProfileEnrollmentArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
                  unknown_user_action: pulumi.Input[_builtins.str],
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
-                 progressive_profiling_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ui_schema_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
+                 progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyRuleProfileEnrollment resource.
 
@@ -93,55 +93,55 @@ class PolicyRuleProfileEnrollmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         """
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access", value)
 
     @_builtins.property
     @pulumi.getter(name="emailVerification")
-    def email_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_verification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether email verification should occur before access is granted. Default: `true`.
         """
         return pulumi.get(self, "email_verification")
 
     @email_verification.setter
-    def email_verification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_verification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_verification", value)
 
     @_builtins.property
     @pulumi.getter(name="enrollAuthenticatorTypes")
-    def enroll_authenticator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enroll_authenticator_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Enrolls authenticator types
         """
         return pulumi.get(self, "enroll_authenticator_types")
 
     @enroll_authenticator_types.setter
-    def enroll_authenticator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enroll_authenticator_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enroll_authenticator_types", value)
 
     @_builtins.property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Registration Inline Hook
         """
         return pulumi.get(self, "inline_hook_id")
 
     @inline_hook_id.setter
-    def inline_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_hook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="profileAttributes")
-    def profile_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
+    def profile_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
         """
         A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         	- 'label' - (Required) A display-friendly label for this property
@@ -151,61 +151,61 @@ class PolicyRuleProfileEnrollmentArgs:
         return pulumi.get(self, "profile_attributes")
 
     @profile_attributes.setter
-    def profile_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]):
+    def profile_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]):
         pulumi.set(self, "profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="progressiveProfilingAction")
-    def progressive_profiling_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def progressive_profiling_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
         """
         return pulumi.get(self, "progressive_profiling_action")
 
     @progressive_profiling_action.setter
-    def progressive_profiling_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def progressive_profiling_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "progressive_profiling_action", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupId")
-    def target_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Group that this User should be added to
         """
         return pulumi.get(self, "target_group_id")
 
     @target_group_id.setter
-    def target_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="uiSchemaId")
-    def ui_schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ui_schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value created by the backend. If present all policy updates must include this attribute/value.
         """
         return pulumi.get(self, "ui_schema_id")
 
     @ui_schema_id.setter
-    def ui_schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ui_schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ui_schema_id", value)
 
 
 @pulumi.input_type
 class _PolicyRuleProfileEnrollmentState:
     def __init__(__self__, *,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
-                 progressive_profiling_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ui_schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unknown_user_action: Optional[pulumi.Input[_builtins.str]] = None):
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]] = None,
+                 progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unknown_user_action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyRuleProfileEnrollment resources.
 
@@ -252,79 +252,79 @@ class _PolicyRuleProfileEnrollmentState:
 
     @_builtins.property
     @pulumi.getter
-    def access(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
         """
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access", value)
 
     @_builtins.property
     @pulumi.getter(name="emailVerification")
-    def email_verification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def email_verification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether email verification should occur before access is granted. Default: `true`.
         """
         return pulumi.get(self, "email_verification")
 
     @email_verification.setter
-    def email_verification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def email_verification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "email_verification", value)
 
     @_builtins.property
     @pulumi.getter(name="enrollAuthenticatorTypes")
-    def enroll_authenticator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enroll_authenticator_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Enrolls authenticator types
         """
         return pulumi.get(self, "enroll_authenticator_types")
 
     @enroll_authenticator_types.setter
-    def enroll_authenticator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enroll_authenticator_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enroll_authenticator_types", value)
 
     @_builtins.property
     @pulumi.getter(name="inlineHookId")
-    def inline_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Registration Inline Hook
         """
         return pulumi.get(self, "inline_hook_id")
 
     @inline_hook_id.setter
-    def inline_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_hook_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the policy
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="profileAttributes")
-    def profile_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
+    def profile_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]:
         """
         A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
         	- 'label' - (Required) A display-friendly label for this property
@@ -334,67 +334,67 @@ class _PolicyRuleProfileEnrollmentState:
         return pulumi.get(self, "profile_attributes")
 
     @profile_attributes.setter
-    def profile_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]):
+    def profile_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyRuleProfileEnrollmentProfileAttributeArgs']]]]):
         pulumi.set(self, "profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="progressiveProfilingAction")
-    def progressive_profiling_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def progressive_profiling_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enabled or disabled progressive profiling action rule conditions: `ENABLED` or `DISABLED`. Default: `DISABLED`
         """
         return pulumi.get(self, "progressive_profiling_action")
 
     @progressive_profiling_action.setter
-    def progressive_profiling_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def progressive_profiling_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "progressive_profiling_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of the rule
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupId")
-    def target_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a Group that this User should be added to
         """
         return pulumi.get(self, "target_group_id")
 
     @target_group_id.setter
-    def target_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="uiSchemaId")
-    def ui_schema_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ui_schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value created by the backend. If present all policy updates must include this attribute/value.
         """
         return pulumi.get(self, "ui_schema_id")
 
     @ui_schema_id.setter
-    def ui_schema_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ui_schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ui_schema_id", value)
 
     @_builtins.property
     @pulumi.getter(name="unknownUserAction")
-    def unknown_user_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unknown_user_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Which action should be taken if this User is new. Valid values are: `DENY`, `REGISTER`
         """
         return pulumi.get(self, "unknown_user_action")
 
     @unknown_user_action.setter
-    def unknown_user_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unknown_user_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unknown_user_action", value)
 
 
@@ -404,16 +404,16 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
-                 progressive_profiling_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ui_schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unknown_user_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
+                 progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unknown_user_action: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a Profile Enrollment Policy Rule.
@@ -578,16 +578,16 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[_builtins.str]] = None,
-                 email_verification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
-                 progressive_profiling_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ui_schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 unknown_user_action: Optional[pulumi.Input[_builtins.str]] = None,
+                 access: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_verification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
+                 progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unknown_user_action: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -623,18 +623,18 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access: Optional[pulumi.Input[_builtins.str]] = None,
-            email_verification: Optional[pulumi.Input[_builtins.bool]] = None,
-            enroll_authenticator_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            inline_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
-            progressive_profiling_action: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            target_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            ui_schema_id: Optional[pulumi.Input[_builtins.str]] = None,
-            unknown_user_action: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicyRuleProfileEnrollment':
+            access: pulumi.Input[Optional[_builtins.str]] = None,
+            email_verification: pulumi.Input[Optional[_builtins.bool]] = None,
+            enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
+            progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+            unknown_user_action: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicyRuleProfileEnrollment':
         """
         Get an existing PolicyRuleProfileEnrollment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

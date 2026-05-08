@@ -22,7 +22,7 @@ __all__ = ['OwnersArgs', 'Owners']
 class OwnersArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input['OwnersOwnerArgs']]]] = None):
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input['OwnersOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a Owners resource.
 
@@ -47,22 +47,22 @@ class OwnersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OwnersOwnerArgs']]]]:
+    def owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OwnersOwnerArgs']]]]:
         """
         Desired owners for the group.
         """
         return pulumi.get(self, "owners")
 
     @owners.setter
-    def owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OwnersOwnerArgs']]]]):
+    def owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OwnersOwnerArgs']]]]):
         pulumi.set(self, "owners", value)
 
 
 @pulumi.input_type
 class _OwnersState:
     def __init__(__self__, *,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input['OwnersOwnerArgs']]]] = None):
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input['OwnersOwnerArgs']]]] = None):
         """
         Input properties used for looking up and filtering Owners resources.
 
@@ -76,26 +76,26 @@ class _OwnersState:
 
     @_builtins.property
     @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Okta group.
         """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
-    def group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OwnersOwnerArgs']]]]:
+    def owners(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OwnersOwnerArgs']]]]:
         """
         Desired owners for the group.
         """
         return pulumi.get(self, "owners")
 
     @owners.setter
-    def owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OwnersOwnerArgs']]]]):
+    def owners(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OwnersOwnerArgs']]]]):
         pulumi.set(self, "owners", value)
 
 
@@ -105,8 +105,8 @@ class Owners(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None,
                  __props__=None):
         """
         Manage owners for a group in bulk. Uses the group_id as the resource ID. The resource is authoritative: any owners on the group not declared in configuration will be removed.
@@ -216,8 +216,8 @@ class Owners(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -241,8 +241,8 @@ class Owners(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            group_id: Optional[pulumi.Input[_builtins.str]] = None,
-            owners: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None) -> 'Owners':
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None) -> 'Owners':
         """
         Get an existing Owners resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

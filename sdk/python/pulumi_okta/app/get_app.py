@@ -236,12 +236,12 @@ def get_app(active_only: Optional[_builtins.bool] = None,
         skip_users=pulumi.get(__ret__, 'skip_users'),
         status=pulumi.get(__ret__, 'status'),
         users=pulumi.get(__ret__, 'users'))
-def get_app_output(active_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                   id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   label: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   label_prefix: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                   skip_groups: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                   skip_users: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_app_output(active_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                   id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   label: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   label_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   skip_groups: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                   skip_users: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Get an application of any kind from Okta.

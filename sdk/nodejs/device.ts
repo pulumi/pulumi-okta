@@ -99,15 +99,15 @@ export interface DeviceState {
     /**
      * The action of the device.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * The resource type of the device.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * The status of the device.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface DeviceArgs {
     /**
      * The action of the device.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
 }

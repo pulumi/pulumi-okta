@@ -22,7 +22,7 @@ __all__ = ['AppGroupAssignmentsArgs', 'AppGroupAssignments']
 class AppGroupAssignmentsArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
         """
         The set of arguments for constructing a AppGroupAssignments resource.
 
@@ -47,22 +47,22 @@ class AppGroupAssignmentsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]:
         """
         A group to assign to this application
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
 
 @pulumi.input_type
 class _AppGroupAssignmentsState:
     def __init__(__self__, *,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]] = None):
         """
         Input properties used for looking up and filtering AppGroupAssignments resources.
 
@@ -76,26 +76,26 @@ class _AppGroupAssignmentsState:
 
     @_builtins.property
     @pulumi.getter(name="appId")
-    def app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the application to assign a group to.
         """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
-    def app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]:
         """
         A group to assign to this application
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppGroupAssignmentsGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
 
@@ -105,8 +105,8 @@ class AppGroupAssignments(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
                  __props__=None):
         """
         Assigns groups to an application. This resource allows you to create multiple App Group assignments.
@@ -122,10 +122,11 @@ class AppGroupAssignments(pulumi.CustomResource):
         **Bad** — creates two conflicting resource instances for the same app:
         ```python
         import pulumi
+        from typing import Any
         import pulumi_okta as okta
         import pulumi_std as std
 
-        this = []
+        this: list[Any] = []
         for range in [{"value": i} for i in range(0, std.toset(input=[
             group-a,
             group-b,
@@ -146,10 +147,10 @@ class AppGroupAssignments(pulumi.CustomResource):
         this = okta.AppGroupAssignments("this",
             groups=[{
                 "id": entry["value"],
-            } for entry in [{"key": k, "value": v} for k, v in std.toset(input=[
+            } for entry in [{"key": k, "value": v} for k, v in sorted(std.toset(input=[
                 "group-a",
                 "group-b",
-            ])["result"].items()]],
+            ])["result"].items())]],
             app_id=this_okta_app_bookmark["id"])
         ```
 
@@ -211,10 +212,11 @@ class AppGroupAssignments(pulumi.CustomResource):
         **Bad** — creates two conflicting resource instances for the same app:
         ```python
         import pulumi
+        from typing import Any
         import pulumi_okta as okta
         import pulumi_std as std
 
-        this = []
+        this: list[Any] = []
         for range in [{"value": i} for i in range(0, std.toset(input=[
             group-a,
             group-b,
@@ -235,10 +237,10 @@ class AppGroupAssignments(pulumi.CustomResource):
         this = okta.AppGroupAssignments("this",
             groups=[{
                 "id": entry["value"],
-            } for entry in [{"key": k, "value": v} for k, v in std.toset(input=[
+            } for entry in [{"key": k, "value": v} for k, v in sorted(std.toset(input=[
                 "group-a",
                 "group-b",
-            ])["result"].items()]],
+            ])["result"].items())]],
             app_id=this_okta_app_bookmark["id"])
         ```
 
@@ -290,8 +292,8 @@ class AppGroupAssignments(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -315,8 +317,8 @@ class AppGroupAssignments(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_id: Optional[pulumi.Input[_builtins.str]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None) -> 'AppGroupAssignments':
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None) -> 'AppGroupAssignments':
         """
         Get an existing AppGroupAssignments resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

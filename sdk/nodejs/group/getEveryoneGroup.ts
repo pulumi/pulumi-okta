@@ -82,5 +82,5 @@ export interface GetEveryoneGroupOutputArgs {
     /**
      * Fetch group users, having default off cuts down on API calls.
      */
-    includeUsers?: pulumi.Input<boolean>;
+    includeUsers?: pulumi.Input<boolean | undefined>;
 }

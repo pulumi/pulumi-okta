@@ -139,10 +139,10 @@ def get_connection(auth_scheme: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         profile=pulumi.get(__ret__, 'profile'),
         status=pulumi.get(__ret__, 'status'))
-def get_connection_output(auth_scheme: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          base_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          id: Optional[pulumi.Input[_builtins.str]] = None,
-                          profile: Optional[pulumi.Input[Optional[Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict']]]] = None,
+def get_connection_output(auth_scheme: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          base_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          id: pulumi.Input[Optional[_builtins.str]] = None,
+                          profile: pulumi.Input[Optional[Optional[Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieves the default provisioning connection for an app.

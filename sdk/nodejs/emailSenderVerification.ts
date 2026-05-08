@@ -89,7 +89,7 @@ export interface EmailSenderVerificationState {
     /**
      * Email sender ID
      */
-    senderId?: pulumi.Input<string>;
+    senderId?: pulumi.Input<string | undefined>;
 }
 
 /**

@@ -19,12 +19,12 @@ __all__ = ['DeviceAssuranceAndroidArgs', 'DeviceAssuranceAndroid']
 @pulumi.input_type
 class DeviceAssuranceAndroidArgs:
     def __init__(__self__, *,
-                 disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jailbreak: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jailbreak: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceAndroid resource.
 
@@ -50,91 +50,91 @@ class DeviceAssuranceAndroidArgs:
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionTypes")
-    def disk_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disk_encryption_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of disk encryption type, can be `FULL`, `USER`
         """
         return pulumi.get(self, "disk_encryption_types")
 
     @disk_encryption_types.setter
-    def disk_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disk_encryption_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disk_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def jailbreak(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def jailbreak(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
     @jailbreak.setter
-    def jailbreak(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def jailbreak(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "jailbreak", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy device assurance name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osVersion")
-    def os_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
     @os_version.setter
-    def os_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_version", value)
 
     @_builtins.property
     @pulumi.getter(name="screenlockTypes")
-    def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def screenlock_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
     @screenlock_types.setter
-    def screenlock_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def screenlock_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "screenlock_types", value)
 
     @_builtins.property
     @pulumi.getter(name="secureHardwarePresent")
-    def secure_hardware_present(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_hardware_present(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the device contains a secure hardware functionality
         """
         return pulumi.get(self, "secure_hardware_present")
 
     @secure_hardware_present.setter
-    def secure_hardware_present(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_hardware_present(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_hardware_present", value)
 
 
 @pulumi.input_type
 class _DeviceAssuranceAndroidState:
     def __init__(__self__, *,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jailbreak: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_update: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None):
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jailbreak: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_update: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DeviceAssuranceAndroid resources.
 
@@ -175,134 +175,134 @@ class _DeviceAssuranceAndroidState:
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created by
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created date
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="diskEncryptionTypes")
-    def disk_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def disk_encryption_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of disk encryption type, can be `FULL`, `USER`
         """
         return pulumi.get(self, "disk_encryption_types")
 
     @disk_encryption_types.setter
-    def disk_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def disk_encryption_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "disk_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def jailbreak(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def jailbreak(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the device jailbroken in the device assurance policy.
         """
         return pulumi.get(self, "jailbreak")
 
     @jailbreak.setter
-    def jailbreak(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def jailbreak(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "jailbreak", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdate")
-    def last_update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update
         """
         return pulumi.get(self, "last_update")
 
     @last_update.setter
-    def last_update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_update", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last updated by
         """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
-    def last_updated_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy device assurance name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osVersion")
-    def os_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def os_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Minimum os version of the device in the device assurance policy.
         """
         return pulumi.get(self, "os_version")
 
     @os_version.setter
-    def os_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def os_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "os_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy device assurance platform
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter(name="screenlockTypes")
-    def screenlock_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def screenlock_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of screenlock type, can be `BIOMETRIC` or `BIOMETRIC, PASSCODE`
         """
         return pulumi.get(self, "screenlock_types")
 
     @screenlock_types.setter
-    def screenlock_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def screenlock_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "screenlock_types", value)
 
     @_builtins.property
     @pulumi.getter(name="secureHardwarePresent")
-    def secure_hardware_present(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def secure_hardware_present(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the device contains a secure hardware functionality
         """
         return pulumi.get(self, "secure_hardware_present")
 
     @secure_hardware_present.setter
-    def secure_hardware_present(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def secure_hardware_present(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "secure_hardware_present", value)
 
 
@@ -312,12 +312,12 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jailbreak: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jailbreak: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a device assurance policy for android.
@@ -407,12 +407,12 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 jailbreak: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 jailbreak: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,17 +443,17 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            disk_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            jailbreak: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_update: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            os_version: Optional[pulumi.Input[_builtins.str]] = None,
-            platform: Optional[pulumi.Input[_builtins.str]] = None,
-            screenlock_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            secure_hardware_present: Optional[pulumi.Input[_builtins.bool]] = None) -> 'DeviceAssuranceAndroid':
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            jailbreak: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_update: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_version: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None) -> 'DeviceAssuranceAndroid':
         """
         Get an existing DeviceAssuranceAndroid resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

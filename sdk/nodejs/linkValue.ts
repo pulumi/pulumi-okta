@@ -136,15 +136,15 @@ export interface LinkValueState {
     /**
      * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      */
-    associatedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedUserIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the `primary` relationship being assigned.
      */
-    primaryName?: pulumi.Input<string>;
+    primaryName?: pulumi.Input<string | undefined>;
     /**
      * User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
      */
-    primaryUserId?: pulumi.Input<string>;
+    primaryUserId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface LinkValueArgs {
     /**
      * Set of User IDs or login values of the users to be assigned the `associated` relationship.
      */
-    associatedUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedUserIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the `primary` relationship being assigned.
      */

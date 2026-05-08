@@ -131,27 +131,27 @@ export interface EmailSmtpServerState {
     /**
      * Human-readable name for your SMTP server
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * If true, routes all email traffic through your SMTP server.Default: `false`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Hostname or IP address of your SMTP server
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * Password used to access your SMTP server
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Port number of your SMTP server
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Username used to access your SMTP server
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -165,7 +165,7 @@ export interface EmailSmtpServerArgs {
     /**
      * If true, routes all email traffic through your SMTP server.Default: `false`
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Hostname or IP address of your SMTP server
      */

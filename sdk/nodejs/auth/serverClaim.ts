@@ -148,39 +148,39 @@ export interface ServerClaimState {
     /**
      * Specifies whether to include claims in token, by default it is set to `true`.
      */
-    alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the authorization server.
      */
-    authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
-    claimType?: pulumi.Input<string>;
+    claimType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      */
-    groupFilterType?: pulumi.Input<string>;
+    groupFilterType?: pulumi.Input<string | undefined>;
     /**
      * The name of the claim.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of scopes the auth server claim is tied to.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The value of the claim.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      */
-    valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -190,7 +190,7 @@ export interface ServerClaimArgs {
     /**
      * Specifies whether to include claims in token, by default it is set to `true`.
      */
-    alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the authorization server.
      */
@@ -202,19 +202,19 @@ export interface ServerClaimArgs {
     /**
      * Specifies the type of group filter if `valueType` is `GROUPS`. Can be set to one of the following `STARTS_WITH`, `EQUALS`, `CONTAINS`, `REGEX`.
      */
-    groupFilterType?: pulumi.Input<string>;
+    groupFilterType?: pulumi.Input<string | undefined>;
     /**
      * The name of the claim.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of scopes the auth server claim is tied to.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The value of the claim.
      */
@@ -222,5 +222,5 @@ export interface ServerClaimArgs {
     /**
      * The type of value of the claim. It can be set to `EXPRESSION` or `GROUPS`. It defaults to `EXPRESSION`.
      */
-    valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string | undefined>;
 }

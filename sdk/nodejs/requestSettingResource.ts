@@ -113,15 +113,15 @@ export interface RequestSettingResourceState {
     /**
      * The id of the resource in Okta ID format.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * Specifies if and for whom a requester may request the resource for.
      */
-    requestOnBehalfOfSettings?: pulumi.Input<inputs.RequestSettingResourceRequestOnBehalfOfSettings>;
+    requestOnBehalfOfSettings?: pulumi.Input<inputs.RequestSettingResourceRequestOnBehalfOfSettings | undefined>;
     /**
      * Risk settings for the resource.
      */
-    riskSettings?: pulumi.Input<inputs.RequestSettingResourceRiskSettings>;
+    riskSettings?: pulumi.Input<inputs.RequestSettingResourceRiskSettings | undefined>;
 }
 
 /**
@@ -135,9 +135,9 @@ export interface RequestSettingResourceArgs {
     /**
      * Specifies if and for whom a requester may request the resource for.
      */
-    requestOnBehalfOfSettings?: pulumi.Input<inputs.RequestSettingResourceRequestOnBehalfOfSettings>;
+    requestOnBehalfOfSettings?: pulumi.Input<inputs.RequestSettingResourceRequestOnBehalfOfSettings | undefined>;
     /**
      * Risk settings for the resource.
      */
-    riskSettings?: pulumi.Input<inputs.RequestSettingResourceRiskSettings>;
+    riskSettings?: pulumi.Input<inputs.RequestSettingResourceRiskSettings | undefined>;
 }

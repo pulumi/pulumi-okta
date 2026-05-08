@@ -122,9 +122,9 @@ export interface GetAuthServerClaimOutputArgs {
     /**
      * Name of the claim. Conflicts with `name`.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the claim. Conflicts with `id`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

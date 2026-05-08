@@ -111,17 +111,17 @@ export interface GetGroupsOutputArgs {
     /**
      * The maximum number of groups returned by the Okta API, between 1 and 10000.
      */
-    limit?: pulumi.Input<number>;
+    limit?: pulumi.Input<number | undefined>;
     /**
      * Searches the name property of groups for matching value
      */
-    q?: pulumi.Input<string>;
+    q?: pulumi.Input<string | undefined>;
     /**
      * Searches for groups with a supported filtering expression for all attributes except for '*embedded', '*links', and 'objectClass'
      */
-    search?: pulumi.Input<string>;
+    search?: pulumi.Input<string | undefined>;
     /**
      * Type of the group. When specified in the terraform resource, will act as a filter when searching for the groups
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

@@ -95,5 +95,5 @@ export interface GetSecurityEventsProviderOutputArgs {
      * The unique identifier of this instance.
      */
     id: pulumi.Input<string>;
-    settings?: pulumi.Input<inputs.GetSecurityEventsProviderSettingsArgs>;
+    settings?: pulumi.Input<inputs.GetSecurityEventsProviderSettingsArgs | undefined>;
 }

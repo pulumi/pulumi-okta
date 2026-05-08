@@ -21,7 +21,7 @@ __all__ = ['UiSchemaArgs', 'UiSchema']
 @pulumi.input_type
 class UiSchemaArgs:
     def __init__(__self__, *,
-                 ui_schema: Optional[pulumi.Input['UiSchemaUiSchemaArgs']] = None):
+                 ui_schema: pulumi.Input[Optional['UiSchemaUiSchemaArgs']] = None):
         """
         The set of arguments for constructing a UiSchema resource.
 
@@ -32,21 +32,21 @@ class UiSchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="uiSchema")
-    def ui_schema(self) -> Optional[pulumi.Input['UiSchemaUiSchemaArgs']]:
+    def ui_schema(self) -> pulumi.Input[Optional['UiSchemaUiSchemaArgs']]:
         """
         Properties of the UI schema.
         """
         return pulumi.get(self, "ui_schema")
 
     @ui_schema.setter
-    def ui_schema(self, value: Optional[pulumi.Input['UiSchemaUiSchemaArgs']]):
+    def ui_schema(self, value: pulumi.Input[Optional['UiSchemaUiSchemaArgs']]):
         pulumi.set(self, "ui_schema", value)
 
 
 @pulumi.input_type
 class _UiSchemaState:
     def __init__(__self__, *,
-                 ui_schema: Optional[pulumi.Input['UiSchemaUiSchemaArgs']] = None):
+                 ui_schema: pulumi.Input[Optional['UiSchemaUiSchemaArgs']] = None):
         """
         Input properties used for looking up and filtering UiSchema resources.
 
@@ -57,14 +57,14 @@ class _UiSchemaState:
 
     @_builtins.property
     @pulumi.getter(name="uiSchema")
-    def ui_schema(self) -> Optional[pulumi.Input['UiSchemaUiSchemaArgs']]:
+    def ui_schema(self) -> pulumi.Input[Optional['UiSchemaUiSchemaArgs']]:
         """
         Properties of the UI schema.
         """
         return pulumi.get(self, "ui_schema")
 
     @ui_schema.setter
-    def ui_schema(self, value: Optional[pulumi.Input['UiSchemaUiSchemaArgs']]):
+    def ui_schema(self, value: pulumi.Input[Optional['UiSchemaUiSchemaArgs']]):
         pulumi.set(self, "ui_schema", value)
 
 
@@ -74,7 +74,7 @@ class UiSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ui_schema: Optional[pulumi.Input[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']]] = None,
+                 ui_schema: pulumi.Input[Optional[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']]] = None,
                  __props__=None):
         """
         Manages UI Schema. This resource allows you to create and configure an Okta [UI Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) for form layouts and controls.
@@ -151,7 +151,7 @@ class UiSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ui_schema: Optional[pulumi.Input[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']]] = None,
+                 ui_schema: pulumi.Input[Optional[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,7 +172,7 @@ class UiSchema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ui_schema: Optional[pulumi.Input[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']]] = None) -> 'UiSchema':
+            ui_schema: pulumi.Input[Optional[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict']]] = None) -> 'UiSchema':
         """
         Get an existing UiSchema resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -20,7 +20,7 @@ __all__ = ['RequestSettingOrganizationArgs', 'RequestSettingOrganization']
 class RequestSettingOrganizationArgs:
     def __init__(__self__, *,
                  id_property: pulumi.Input[_builtins.str],
-                 subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None):
+                 subprocessors_acknowledged: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a RequestSettingOrganization resource.
 
@@ -45,22 +45,22 @@ class RequestSettingOrganizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="subprocessorsAcknowledged")
-    def subprocessors_acknowledged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subprocessors_acknowledged(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a customer has acknowledged Access Requests subprocessors.
         """
         return pulumi.get(self, "subprocessors_acknowledged")
 
     @subprocessors_acknowledged.setter
-    def subprocessors_acknowledged(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subprocessors_acknowledged(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subprocessors_acknowledged", value)
 
 
 @pulumi.input_type
 class _RequestSettingOrganizationState:
     def __init__(__self__, *,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None):
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 subprocessors_acknowledged: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RequestSettingOrganization resources.
 
@@ -74,26 +74,26 @@ class _RequestSettingOrganizationState:
 
     @_builtins.property
     @pulumi.getter(name="idProperty")
-    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Request condition id.
         """
         return pulumi.get(self, "id_property")
 
     @id_property.setter
-    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_property", value)
 
     @_builtins.property
     @pulumi.getter(name="subprocessorsAcknowledged")
-    def subprocessors_acknowledged(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subprocessors_acknowledged(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether a customer has acknowledged Access Requests subprocessors.
         """
         return pulumi.get(self, "subprocessors_acknowledged")
 
     @subprocessors_acknowledged.setter
-    def subprocessors_acknowledged(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subprocessors_acknowledged(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subprocessors_acknowledged", value)
 
 
@@ -103,8 +103,8 @@ class RequestSettingOrganization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 subprocessors_acknowledged: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages request settings. This resource allows you to read and configure an Okta [request-setting](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Settings/#tag/Request-Settings/operation/updateOrgRequestSettingsV2).
@@ -188,8 +188,8 @@ class RequestSettingOrganization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 subprocessors_acknowledged: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -213,8 +213,8 @@ class RequestSettingOrganization(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            id_property: Optional[pulumi.Input[_builtins.str]] = None,
-            subprocessors_acknowledged: Optional[pulumi.Input[_builtins.bool]] = None) -> 'RequestSettingOrganization':
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            subprocessors_acknowledged: pulumi.Input[Optional[_builtins.bool]] = None) -> 'RequestSettingOrganization':
         """
         Get an existing RequestSettingOrganization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

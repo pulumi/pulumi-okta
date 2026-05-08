@@ -21,11 +21,11 @@ class RuleArgs:
     def __init__(__self__, *,
                  expression_value: pulumi.Input[_builtins.str],
                  group_assignments: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 expression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_assigned_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 expression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_assigned_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
 
@@ -76,75 +76,75 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="expressionType")
-    def expression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
         """
         return pulumi.get(self, "expression_type")
 
     @expression_type.setter
-    def expression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Group Rule (min character 1; max characters 50).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="removeAssignedUsers")
-    def remove_assigned_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_assigned_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
         """
         return pulumi.get(self, "remove_assigned_users")
 
     @remove_assigned_users.setter
-    def remove_assigned_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_assigned_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_assigned_users", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user IDs that would be excluded when rules are processed
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
 
 @pulumi.input_type
 class _RuleState:
     def __init__(__self__, *,
-                 expression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_assigned_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 expression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_assigned_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
 
@@ -173,86 +173,86 @@ class _RuleState:
 
     @_builtins.property
     @pulumi.getter(name="expressionType")
-    def expression_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
         """
         return pulumi.get(self, "expression_type")
 
     @expression_type.setter
-    def expression_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression_type", value)
 
     @_builtins.property
     @pulumi.getter(name="expressionValue")
-    def expression_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expression_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The expression value.
         """
         return pulumi.get(self, "expression_value")
 
     @expression_value.setter
-    def expression_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expression_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expression_value", value)
 
     @_builtins.property
     @pulumi.getter(name="groupAssignments")
-    def group_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of group ids to assign the users to.
         """
         return pulumi.get(self, "group_assignments")
 
     @group_assignments.setter
-    def group_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_assignments", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Group Rule (min character 1; max characters 50).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="removeAssignedUsers")
-    def remove_assigned_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_assigned_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Remove users added by this rule from the assigned group after deleting this resource. Default is `false`
         """
         return pulumi.get(self, "remove_assigned_users")
 
     @remove_assigned_users.setter
-    def remove_assigned_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_assigned_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_assigned_users", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Default to `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of user IDs that would be excluded when rules are processed
         """
         return pulumi.get(self, "users_excludeds")
 
     @users_excludeds.setter
-    def users_excludeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_excludeds", value)
 
 
@@ -262,13 +262,13 @@ class Rule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_assigned_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_assigned_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an Okta Group Rule.
@@ -357,13 +357,13 @@ class Rule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expression_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 expression_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 remove_assigned_users: Optional[pulumi.Input[_builtins.bool]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 remove_assigned_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,13 +394,13 @@ class Rule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            expression_type: Optional[pulumi.Input[_builtins.str]] = None,
-            expression_value: Optional[pulumi.Input[_builtins.str]] = None,
-            group_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            remove_assigned_users: Optional[pulumi.Input[_builtins.bool]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            users_excludeds: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Rule':
+            expression_type: pulumi.Input[Optional[_builtins.str]] = None,
+            expression_value: pulumi.Input[Optional[_builtins.str]] = None,
+            group_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remove_assigned_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

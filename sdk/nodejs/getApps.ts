@@ -110,27 +110,27 @@ export interface GetAppsOutputArgs {
     /**
      * Search only active applications.
      */
-    activeOnly?: pulumi.Input<boolean>;
+    activeOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to include non-active, but not deleted apps in the results.
      */
-    includeNonDeleted?: pulumi.Input<boolean>;
+    includeNonDeleted?: pulumi.Input<boolean | undefined>;
     /**
      * Searches for applications whose label or name property matches this value exactly.
      */
-    label?: pulumi.Input<string>;
+    label?: pulumi.Input<string | undefined>;
     /**
      * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      *
      * @deprecated Use `q` instead. This attribute will be removed in a future version.
      */
-    labelPrefix?: pulumi.Input<string>;
+    labelPrefix?: pulumi.Input<string | undefined>;
     /**
      * Searches for apps with name or label properties that starts with the `q` value.
      */
-    q?: pulumi.Input<string>;
+    q?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to use query optimization. If you specify `useOptimization=true` in the request query, the response contains a subset of app instance properties.
      */
-    useOptimization?: pulumi.Input<boolean>;
+    useOptimization?: pulumi.Input<boolean | undefined>;
 }

@@ -97,7 +97,7 @@ def get_trusted_origins(filter: Optional[_builtins.str] = None,
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         trusted_origins=pulumi.get(__ret__, 'trusted_origins'))
-def get_trusted_origins_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_trusted_origins_output(filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedOriginsResult]:
     """
     Get List of Trusted Origins using filters.

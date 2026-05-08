@@ -197,47 +197,47 @@ export interface EntityRiskPolicyRuleState {
     /**
      * List of group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Entity Risk Policy. Use the `okta.getEntityRiskPolicy` data source to get this ID.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Priority of the rule. Rules are evaluated in priority order.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.
      */
-    riskLevel?: pulumi.Input<string>;
+    riskLevel?: pulumi.Input<string | undefined>;
     /**
      * Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
      */
-    terminateAllSessions?: pulumi.Input<boolean>;
+    terminateAllSessions?: pulumi.Input<boolean | undefined>;
     /**
      * List of user IDs to exclude from this rule.
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of user IDs to include from this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a risk event is detected.
      */
-    workflowId?: pulumi.Input<string>;
+    workflowId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -247,15 +247,15 @@ export interface EntityRiskPolicyRuleArgs {
     /**
      * List of group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Entity Risk Policy. Use the `okta.getEntityRiskPolicy` data source to get this ID.
      */
@@ -263,7 +263,7 @@ export interface EntityRiskPolicyRuleArgs {
     /**
      * Priority of the rule. Rules are evaluated in priority order.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.
      */
@@ -271,21 +271,21 @@ export interface EntityRiskPolicyRuleArgs {
     /**
      * Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
      */
-    terminateAllSessions?: pulumi.Input<boolean>;
+    terminateAllSessions?: pulumi.Input<boolean | undefined>;
     /**
      * List of user IDs to exclude from this rule.
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of user IDs to include from this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a risk event is detected.
      */
-    workflowId?: pulumi.Input<string>;
+    workflowId?: pulumi.Input<string | undefined>;
 }

@@ -141,39 +141,39 @@ export interface ServerScopeState {
     /**
      * Auth server ID
      */
-    authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
      */
-    consent?: pulumi.Input<string>;
+    consent?: pulumi.Input<string | undefined>;
     /**
      * A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
      */
-    default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the Auth Server Scope.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the end user displayed in a consent dialog box
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish metadata or not. It can be set to `ALL_CLIENTS` or `NO_CLIENTS`. Default: `ALL_CLIENTS`
      */
-    metadataPublish?: pulumi.Input<string>;
+    metadataPublish?: pulumi.Input<string | undefined>;
     /**
      * Auth server scope name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the scope optional
      */
-    optional?: pulumi.Input<boolean>;
+    optional?: pulumi.Input<boolean | undefined>;
     /**
      * Whether Okta created the Scope
      */
-    system?: pulumi.Input<boolean>;
+    system?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -187,29 +187,29 @@ export interface ServerScopeArgs {
     /**
      * Indicates whether a consent dialog is needed for the scope. It can be set to `REQUIRED` or `IMPLICIT`. Default: `IMPLICIT`
      */
-    consent?: pulumi.Input<string>;
+    consent?: pulumi.Input<string | undefined>;
     /**
      * A default scope will be returned in an access token when the client omits the scope parameter in a token request, provided this scope is allowed as part of the access policy rule.
      */
-    default?: pulumi.Input<boolean>;
+    default?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the Auth Server Scope.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the end user displayed in a consent dialog box
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Whether to publish metadata or not. It can be set to `ALL_CLIENTS` or `NO_CLIENTS`. Default: `ALL_CLIENTS`
      */
-    metadataPublish?: pulumi.Input<string>;
+    metadataPublish?: pulumi.Input<string | undefined>;
     /**
      * Auth server scope name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Whether the scope optional
      */
-    optional?: pulumi.Input<boolean>;
+    optional?: pulumi.Input<boolean | undefined>;
 }

@@ -542,12 +542,12 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
         user_id=pulumi.get(__ret__, 'user_id'),
         user_type=pulumi.get(__ret__, 'user_type'),
         zip_code=pulumi.get(__ret__, 'zip_code'))
-def get_user_output(compound_search_operator: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    delay_read_seconds: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                    searches: Optional[pulumi.Input[Optional[Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']]]]] = None,
-                    skip_groups: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    skip_roles: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                    user_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_user_output(compound_search_operator: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    delay_read_seconds: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    searches: pulumi.Input[Optional[Optional[Sequence[Union['GetUserSearchArgs', 'GetUserSearchArgsDict']]]]] = None,
+                    skip_groups: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    skip_roles: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                    user_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Get a single users from Okta.

@@ -26,9 +26,9 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Okta.Index.GetEntityRiskPolicy.Invoke();
+    ///     var example = Okta.GetEntityRiskPolicy.Invoke();
     /// 
-    ///     var highRisk = new Okta.Index.EntityRiskPolicyRule("high_risk", new()
+    ///     var highRisk = new Okta.EntityRiskPolicyRule("high_risk", new()
     ///     {
     ///         PolicyId = example.Apply(getEntityRiskPolicyResult =&gt; getEntityRiskPolicyResult.Id),
     ///         Name = "High Risk - Terminate Sessions",
@@ -49,14 +49,14 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Okta.Index.GetEntityRiskPolicy.Invoke();
+    ///     var example = Okta.GetEntityRiskPolicy.Invoke();
     /// 
     ///     var privilegedUsers = Okta.Group.GetGroup.Invoke(new()
     ///     {
     ///         Name = "Privileged Users",
     ///     });
     /// 
-    ///     var privilegedHighRisk = new Okta.Index.EntityRiskPolicyRule("privileged_high_risk", new()
+    ///     var privilegedHighRisk = new Okta.EntityRiskPolicyRule("privileged_high_risk", new()
     ///     {
     ///         PolicyId = example.Apply(getEntityRiskPolicyResult =&gt; getEntityRiskPolicyResult.Id),
     ///         Name = "Privileged Users - High Risk",
@@ -81,9 +81,9 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Okta.Index.GetEntityRiskPolicy.Invoke();
+    ///     var example = Okta.GetEntityRiskPolicy.Invoke();
     /// 
-    ///     var workflowRule = new Okta.Index.EntityRiskPolicyRule("workflow_rule", new()
+    ///     var workflowRule = new Okta.EntityRiskPolicyRule("workflow_rule", new()
     ///     {
     ///         PolicyId = example.Apply(getEntityRiskPolicyResult =&gt; getEntityRiskPolicyResult.Id),
     ///         Name = "Low Risk - Run Workflow",

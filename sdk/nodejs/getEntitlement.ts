@@ -88,6 +88,6 @@ export interface GetEntitlementOutputArgs {
      * The ID of this resource.
      */
     id: pulumi.Input<string>;
-    parent?: pulumi.Input<inputs.GetEntitlementParentArgs>;
-    values?: pulumi.Input<pulumi.Input<inputs.GetEntitlementValueArgs>[]>;
+    parent?: pulumi.Input<inputs.GetEntitlementParentArgs | undefined>;
+    values?: pulumi.Input<pulumi.Input<inputs.GetEntitlementValueArgs>[] | undefined>;
 }

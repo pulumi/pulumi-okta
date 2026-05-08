@@ -25,46 +25,46 @@ class UserArgs:
                  first_name: pulumi.Input[_builtins.str],
                  last_name: pulumi.Input[_builtins.str],
                  login: pulumi.Input[_builtins.str],
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_center: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 department: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 division: Optional[pulumi.Input[_builtins.str]] = None,
-                 employee_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_password_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 nick_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 old_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
-                 password_inline_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
-                 second_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_roles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['UserTypeArgs']] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_center: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 department: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 division: pulumi.Input[Optional[_builtins.str]] = None,
+                 employee_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_password_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 nick_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 old_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_hash: pulumi.Input[Optional['UserPasswordHashArgs']] = None,
+                 password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_answer: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_question: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['UserTypeArgs']] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -251,534 +251,534 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User city
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="costCenter")
-    def cost_center(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cost_center(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User cost center
         """
         return pulumi.get(self, "cost_center")
 
     @cost_center.setter
-    def cost_center(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cost_center(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cost_center", value)
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User country code
         """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
-    def custom_profile_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_profile_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
     @custom_profile_attributes.setter
-    def custom_profile_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_profile_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributesToIgnores")
-    def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_profile_attributes_to_ignores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @custom_profile_attributes_to_ignores.setter
-    def custom_profile_attributes_to_ignores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_profile_attributes_to_ignores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_profile_attributes_to_ignores", value)
 
     @_builtins.property
     @pulumi.getter
-    def department(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def department(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User department
         """
         return pulumi.get(self, "department")
 
     @department.setter
-    def department(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def department(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "department", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User display name, suitable to show end users
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def division(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def division(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User division
         """
         return pulumi.get(self, "division")
 
     @division.setter
-    def division(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def division(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "division", value)
 
     @_builtins.property
     @pulumi.getter(name="employeeNumber")
-    def employee_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def employee_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User employee number
         """
         return pulumi.get(self, "employee_number")
 
     @employee_number.setter
-    def employee_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def employee_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "employee_number", value)
 
     @_builtins.property
     @pulumi.getter(name="expirePasswordOnCreate")
-    def expire_password_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expire_password_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
         """
         return pulumi.get(self, "expire_password_on_create")
 
     @expire_password_on_create.setter
-    def expire_password_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expire_password_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expire_password_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
-    def honorific_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def honorific_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User honorific prefix
         """
         return pulumi.get(self, "honorific_prefix")
 
     @honorific_prefix.setter
-    def honorific_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def honorific_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "honorific_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
-    def honorific_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def honorific_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User honorific suffix
         """
         return pulumi.get(self, "honorific_suffix")
 
     @honorific_suffix.setter
-    def honorific_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def honorific_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "honorific_suffix", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User default location
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def manager(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Manager of User
         """
         return pulumi.get(self, "manager")
 
     @manager.setter
-    def manager(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager", value)
 
     @_builtins.property
     @pulumi.getter(name="managerId")
-    def manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Manager ID of User
         """
         return pulumi.get(self, "manager_id")
 
     @manager_id.setter
-    def manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User middle name
         """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "middle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mobilePhone")
-    def mobile_phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User mobile phone number
         """
         return pulumi.get(self, "mobile_phone")
 
     @mobile_phone.setter
-    def mobile_phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile_phone", value)
 
     @_builtins.property
     @pulumi.getter(name="nickName")
-    def nick_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nick_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User nickname
         """
         return pulumi.get(self, "nick_name")
 
     @nick_name.setter
-    def nick_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nick_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nick_name", value)
 
     @_builtins.property
     @pulumi.getter(name="oldPassword")
-    def old_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def old_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         """
         return pulumi.get(self, "old_password")
 
     @old_password.setter
-    def old_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def old_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "old_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User organization
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[pulumi.Input['UserPasswordHashArgs']]:
+    def password_hash(self) -> pulumi.Input[Optional['UserPasswordHashArgs']]:
         """
         Specifies a hashed password to import into Okta.
         """
         return pulumi.get(self, "password_hash")
 
     @password_hash.setter
-    def password_hash(self, value: Optional[pulumi.Input['UserPasswordHashArgs']]):
+    def password_hash(self, value: pulumi.Input[Optional['UserPasswordHashArgs']]):
         pulumi.set(self, "password_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordInlineHook")
-    def password_inline_hook(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_inline_hook(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         """
         return pulumi.get(self, "password_inline_hook")
 
     @password_inline_hook.setter
-    def password_inline_hook(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_inline_hook(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_inline_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="postalAddress")
-    def postal_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User mailing address
         """
         return pulumi.get(self, "postal_address")
 
     @postal_address.setter
-    def postal_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_address", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredLanguage")
-    def preferred_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User preferred language
         """
         return pulumi.get(self, "preferred_language")
 
     @preferred_language.setter
-    def preferred_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_language", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryPhone")
-    def primary_phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User primary phone number
         """
         return pulumi.get(self, "primary_phone")
 
     @primary_phone.setter
-    def primary_phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_phone", value)
 
     @_builtins.property
     @pulumi.getter(name="profileUrl")
-    def profile_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User online profile (web page)
         """
         return pulumi.get(self, "profile_url")
 
     @profile_url.setter
-    def profile_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_url", value)
 
     @_builtins.property
     @pulumi.getter(name="realmId")
-    def realm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Realm ID to associate the user with
         """
         return pulumi.get(self, "realm_id")
 
     @realm_id.setter
-    def realm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryAnswer")
-    def recovery_answer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_answer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password Recovery Answer
         """
         return pulumi.get(self, "recovery_answer")
 
     @recovery_answer.setter
-    def recovery_answer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_answer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_answer", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryQuestion")
-    def recovery_question(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_question(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password Recovery Question
         """
         return pulumi.get(self, "recovery_question")
 
     @recovery_question.setter
-    def recovery_question(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_question(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_question", value)
 
     @_builtins.property
     @pulumi.getter(name="secondEmail")
-    def second_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def second_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User secondary email address, used for account recovery
         """
         return pulumi.get(self, "second_email")
 
     @second_email.setter
-    def second_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def second_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "second_email", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRoles")
     @_utilities.deprecated("""Because admin_roles has been removed, this attribute is a no op and will be removed""")
-    def skip_roles(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_roles(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not populate user roles information (prevents additional API call)
         """
         return pulumi.get(self, "skip_roles")
 
     @skip_roles.setter
-    def skip_roles(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_roles(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User state or region
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
-    def street_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User street address
         """
         return pulumi.get(self, "street_address")
 
     @street_address.setter
-    def street_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User default timezone
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User title
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['UserTypeArgs']]:
+    def type(self) -> pulumi.Input[Optional['UserTypeArgs']]:
         """
         Specifies a user type other than the default user type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['UserTypeArgs']]):
+    def type(self, value: pulumi.Input[Optional['UserTypeArgs']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User employee type
         """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type", value)
 
     @_builtins.property
     @pulumi.getter(name="zipCode")
-    def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User zipcode or postal code
         """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
-    def zip_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_code", value)
 
 
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_center: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 department: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 division: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 employee_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_password_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 nick_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 old_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_hash: Optional[pulumi.Input['UserPasswordHashArgs']] = None,
-                 password_inline_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 raw_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
-                 second_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_roles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['UserTypeArgs']] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_code: Optional[pulumi.Input[_builtins.str]] = None):
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_center: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 department: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 division: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 employee_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_password_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 nick_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 old_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_hash: pulumi.Input[Optional['UserPasswordHashArgs']] = None,
+                 password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 raw_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_answer: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_question: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['UserTypeArgs']] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_code: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering User resources.
 
@@ -924,543 +924,543 @@ class _UserState:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User city
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="costCenter")
-    def cost_center(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cost_center(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User cost center
         """
         return pulumi.get(self, "cost_center")
 
     @cost_center.setter
-    def cost_center(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cost_center(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cost_center", value)
 
     @_builtins.property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User country code
         """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_code", value)
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
-    def custom_profile_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_profile_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
     @custom_profile_attributes.setter
-    def custom_profile_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_profile_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributesToIgnores")
-    def custom_profile_attributes_to_ignores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def custom_profile_attributes_to_ignores(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         """
         return pulumi.get(self, "custom_profile_attributes_to_ignores")
 
     @custom_profile_attributes_to_ignores.setter
-    def custom_profile_attributes_to_ignores(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def custom_profile_attributes_to_ignores(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_profile_attributes_to_ignores", value)
 
     @_builtins.property
     @pulumi.getter
-    def department(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def department(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User department
         """
         return pulumi.get(self, "department")
 
     @department.setter
-    def department(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def department(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "department", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User display name, suitable to show end users
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def division(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def division(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User division
         """
         return pulumi.get(self, "division")
 
     @division.setter
-    def division(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def division(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "division", value)
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User primary email address
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter(name="employeeNumber")
-    def employee_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def employee_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User employee number
         """
         return pulumi.get(self, "employee_number")
 
     @employee_number.setter
-    def employee_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def employee_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "employee_number", value)
 
     @_builtins.property
     @pulumi.getter(name="expirePasswordOnCreate")
-    def expire_password_on_create(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def expire_password_on_create(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to `true`, the user will have to change the password at the next login. This property will be used when user is being created and works only when `password` field is set. Default: `false`
         """
         return pulumi.get(self, "expire_password_on_create")
 
     @expire_password_on_create.setter
-    def expire_password_on_create(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def expire_password_on_create(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "expire_password_on_create", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User first name
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="honorificPrefix")
-    def honorific_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def honorific_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User honorific prefix
         """
         return pulumi.get(self, "honorific_prefix")
 
     @honorific_prefix.setter
-    def honorific_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def honorific_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "honorific_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="honorificSuffix")
-    def honorific_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def honorific_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User honorific suffix
         """
         return pulumi.get(self, "honorific_suffix")
 
     @honorific_suffix.setter
-    def honorific_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def honorific_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "honorific_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User last name
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User default location
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Okta login
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def manager(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Manager of User
         """
         return pulumi.get(self, "manager")
 
     @manager.setter
-    def manager(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager", value)
 
     @_builtins.property
     @pulumi.getter(name="managerId")
-    def manager_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def manager_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Manager ID of User
         """
         return pulumi.get(self, "manager_id")
 
     @manager_id.setter
-    def manager_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def manager_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "manager_id", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def middle_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User middle name
         """
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def middle_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "middle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mobilePhone")
-    def mobile_phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mobile_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User mobile phone number
         """
         return pulumi.get(self, "mobile_phone")
 
     @mobile_phone.setter
-    def mobile_phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mobile_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mobile_phone", value)
 
     @_builtins.property
     @pulumi.getter(name="nickName")
-    def nick_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nick_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User nickname
         """
         return pulumi.get(self, "nick_name")
 
     @nick_name.setter
-    def nick_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nick_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nick_name", value)
 
     @_builtins.property
     @pulumi.getter(name="oldPassword")
-    def old_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def old_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         """
         return pulumi.get(self, "old_password")
 
     @old_password.setter
-    def old_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def old_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "old_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User organization
         """
         return pulumi.get(self, "organization")
 
     @organization.setter
-    def organization(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[pulumi.Input['UserPasswordHashArgs']]:
+    def password_hash(self) -> pulumi.Input[Optional['UserPasswordHashArgs']]:
         """
         Specifies a hashed password to import into Okta.
         """
         return pulumi.get(self, "password_hash")
 
     @password_hash.setter
-    def password_hash(self, value: Optional[pulumi.Input['UserPasswordHashArgs']]):
+    def password_hash(self, value: pulumi.Input[Optional['UserPasswordHashArgs']]):
         pulumi.set(self, "password_hash", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordInlineHook")
-    def password_inline_hook(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_inline_hook(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         """
         return pulumi.get(self, "password_inline_hook")
 
     @password_inline_hook.setter
-    def password_inline_hook(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_inline_hook(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_inline_hook", value)
 
     @_builtins.property
     @pulumi.getter(name="postalAddress")
-    def postal_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User mailing address
         """
         return pulumi.get(self, "postal_address")
 
     @postal_address.setter
-    def postal_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_address", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredLanguage")
-    def preferred_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User preferred language
         """
         return pulumi.get(self, "preferred_language")
 
     @preferred_language.setter
-    def preferred_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_language", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryPhone")
-    def primary_phone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User primary phone number
         """
         return pulumi.get(self, "primary_phone")
 
     @primary_phone.setter
-    def primary_phone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_phone", value)
 
     @_builtins.property
     @pulumi.getter(name="profileUrl")
-    def profile_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User online profile (web page)
         """
         return pulumi.get(self, "profile_url")
 
     @profile_url.setter
-    def profile_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_url", value)
 
     @_builtins.property
     @pulumi.getter(name="rawStatus")
-    def raw_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def raw_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The raw status of the User in Okta - (status is mapped)
         """
         return pulumi.get(self, "raw_status")
 
     @raw_status.setter
-    def raw_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def raw_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "raw_status", value)
 
     @_builtins.property
     @pulumi.getter(name="realmId")
-    def realm_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def realm_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Realm ID to associate the user with
         """
         return pulumi.get(self, "realm_id")
 
     @realm_id.setter
-    def realm_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def realm_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "realm_id", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryAnswer")
-    def recovery_answer(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_answer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password Recovery Answer
         """
         return pulumi.get(self, "recovery_answer")
 
     @recovery_answer.setter
-    def recovery_answer(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_answer(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_answer", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryQuestion")
-    def recovery_question(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_question(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User Password Recovery Question
         """
         return pulumi.get(self, "recovery_question")
 
     @recovery_question.setter
-    def recovery_question(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_question(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_question", value)
 
     @_builtins.property
     @pulumi.getter(name="secondEmail")
-    def second_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def second_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User secondary email address, used for account recovery
         """
         return pulumi.get(self, "second_email")
 
     @second_email.setter
-    def second_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def second_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "second_email", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRoles")
     @_utilities.deprecated("""Because admin_roles has been removed, this attribute is a no op and will be removed""")
-    def skip_roles(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_roles(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not populate user roles information (prevents additional API call)
         """
         return pulumi.get(self, "skip_roles")
 
     @skip_roles.setter
-    def skip_roles(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_roles(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User state or region
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
-    def street_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def street_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User street address
         """
         return pulumi.get(self, "street_address")
 
     @street_address.setter
-    def street_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def street_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "street_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User default timezone
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User title
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['UserTypeArgs']]:
+    def type(self) -> pulumi.Input[Optional['UserTypeArgs']]:
         """
         Specifies a user type other than the default user type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['UserTypeArgs']]):
+    def type(self, value: pulumi.Input[Optional['UserTypeArgs']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="userType")
-    def user_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User employee type
         """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
-    def user_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_type", value)
 
     @_builtins.property
     @pulumi.getter(name="zipCode")
-    def zip_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User zipcode or postal code
         """
         return pulumi.get(self, "zip_code")
 
     @zip_code.setter
-    def zip_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_code", value)
 
 
@@ -1470,50 +1470,50 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_center: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 department: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 division: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 employee_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_password_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 nick_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 old_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_hash: Optional[pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
-                 password_inline_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
-                 second_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_roles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_center: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 department: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 division: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 employee_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_password_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 nick_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 old_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
+                 password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_answer: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_question: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates an Okta User. This resource allows you to create and configure an Okta User.
@@ -1699,50 +1699,50 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 cost_center: Optional[pulumi.Input[_builtins.str]] = None,
-                 country_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 department: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 division: Optional[pulumi.Input[_builtins.str]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 employee_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_password_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 locale: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager: Optional[pulumi.Input[_builtins.str]] = None,
-                 manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mobile_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 nick_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 old_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_hash: Optional[pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
-                 password_inline_hook: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 realm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
-                 recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
-                 second_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_roles: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 street_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
-                 user_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 cost_center: pulumi.Input[Optional[_builtins.str]] = None,
+                 country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 department: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 division: pulumi.Input[Optional[_builtins.str]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 employee_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_password_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 locale: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager: pulumi.Input[Optional[_builtins.str]] = None,
+                 manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 nick_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 old_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
+                 password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 realm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_answer: pulumi.Input[Optional[_builtins.str]] = None,
+                 recovery_question: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 street_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
+                 user_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1817,51 +1817,51 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            city: Optional[pulumi.Input[_builtins.str]] = None,
-            cost_center: Optional[pulumi.Input[_builtins.str]] = None,
-            country_code: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-            custom_profile_attributes_to_ignores: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            department: Optional[pulumi.Input[_builtins.str]] = None,
-            display_name: Optional[pulumi.Input[_builtins.str]] = None,
-            division: Optional[pulumi.Input[_builtins.str]] = None,
-            email: Optional[pulumi.Input[_builtins.str]] = None,
-            employee_number: Optional[pulumi.Input[_builtins.str]] = None,
-            expire_password_on_create: Optional[pulumi.Input[_builtins.bool]] = None,
-            first_name: Optional[pulumi.Input[_builtins.str]] = None,
-            honorific_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-            honorific_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            last_name: Optional[pulumi.Input[_builtins.str]] = None,
-            locale: Optional[pulumi.Input[_builtins.str]] = None,
-            login: Optional[pulumi.Input[_builtins.str]] = None,
-            manager: Optional[pulumi.Input[_builtins.str]] = None,
-            manager_id: Optional[pulumi.Input[_builtins.str]] = None,
-            middle_name: Optional[pulumi.Input[_builtins.str]] = None,
-            mobile_phone: Optional[pulumi.Input[_builtins.str]] = None,
-            nick_name: Optional[pulumi.Input[_builtins.str]] = None,
-            old_password: Optional[pulumi.Input[_builtins.str]] = None,
-            organization: Optional[pulumi.Input[_builtins.str]] = None,
-            password: Optional[pulumi.Input[_builtins.str]] = None,
-            password_hash: Optional[pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
-            password_inline_hook: Optional[pulumi.Input[_builtins.str]] = None,
-            postal_address: Optional[pulumi.Input[_builtins.str]] = None,
-            preferred_language: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_phone: Optional[pulumi.Input[_builtins.str]] = None,
-            profile_url: Optional[pulumi.Input[_builtins.str]] = None,
-            raw_status: Optional[pulumi.Input[_builtins.str]] = None,
-            realm_id: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_answer: Optional[pulumi.Input[_builtins.str]] = None,
-            recovery_question: Optional[pulumi.Input[_builtins.str]] = None,
-            second_email: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_roles: Optional[pulumi.Input[_builtins.bool]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            street_address: Optional[pulumi.Input[_builtins.str]] = None,
-            timezone: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
-            user_type: Optional[pulumi.Input[_builtins.str]] = None,
-            zip_code: Optional[pulumi.Input[_builtins.str]] = None) -> 'User':
+            city: pulumi.Input[Optional[_builtins.str]] = None,
+            cost_center: pulumi.Input[Optional[_builtins.str]] = None,
+            country_code: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            department: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            division: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            employee_number: pulumi.Input[Optional[_builtins.str]] = None,
+            expire_password_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+            honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            login: pulumi.Input[Optional[_builtins.str]] = None,
+            manager: pulumi.Input[Optional[_builtins.str]] = None,
+            manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            middle_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+            nick_name: pulumi.Input[Optional[_builtins.str]] = None,
+            old_password: pulumi.Input[Optional[_builtins.str]] = None,
+            organization: pulumi.Input[Optional[_builtins.str]] = None,
+            password: pulumi.Input[Optional[_builtins.str]] = None,
+            password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
+            password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
+            postal_address: pulumi.Input[Optional[_builtins.str]] = None,
+            preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_phone: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_url: pulumi.Input[Optional[_builtins.str]] = None,
+            raw_status: pulumi.Input[Optional[_builtins.str]] = None,
+            realm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_answer: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_question: pulumi.Input[Optional[_builtins.str]] = None,
+            second_email: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            street_address: pulumi.Input[Optional[_builtins.str]] = None,
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None,
+            zip_code: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

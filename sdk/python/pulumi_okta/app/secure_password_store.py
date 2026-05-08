@@ -23,31 +23,31 @@ class SecurePasswordStoreArgs:
                  password_field: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
                  username_field: pulumi.Input[_builtins.str],
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 credentials_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 reveal_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 shared_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 credentials_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 reveal_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 shared_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurePasswordStore resource.
 
@@ -186,340 +186,340 @@ class SecurePasswordStoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsScheme")
-    def credentials_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         """
         return pulumi.get(self, "credentials_scheme")
 
     @credentials_scheme.setter
-    def credentials_scheme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField1")
-    def optional_field1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field1")
 
     @optional_field1.setter
-    def optional_field1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field1", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField1Value")
-    def optional_field1_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field1_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional value in login form
         """
         return pulumi.get(self, "optional_field1_value")
 
     @optional_field1_value.setter
-    def optional_field1_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field1_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field1_value", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField2")
-    def optional_field2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field2")
 
     @optional_field2.setter
-    def optional_field2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field2", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField2Value")
-    def optional_field2_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field2_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional value in login form
         """
         return pulumi.get(self, "optional_field2_value")
 
     @optional_field2_value.setter
-    def optional_field2_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field2_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field2_value", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField3")
-    def optional_field3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field3")
 
     @optional_field3.setter
-    def optional_field3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field3", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField3Value")
-    def optional_field3_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field3_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional value in login form
         """
         return pulumi.get(self, "optional_field3_value")
 
     @optional_field3_value.setter
-    def optional_field3_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field3_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field3_value", value)
 
     @_builtins.property
     @pulumi.getter(name="revealPassword")
-    def reveal_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reveal_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
         """
         return pulumi.get(self, "reveal_password")
 
     @reveal_password.setter
-    def reveal_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reveal_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reveal_password", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPassword")
-    def shared_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared password, required for certain schemes.
         """
         return pulumi.get(self, "shared_password")
 
     @shared_password.setter
-    def shared_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_password", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedUsername")
-    def shared_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared username, required for certain schemes.
         """
         return pulumi.get(self, "shared_username")
 
     @shared_username.setter
-    def shared_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_username", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
 
 @pulumi.input_type
 class _SecurePasswordStoreState:
     def __init__(__self__, *,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 credentials_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 reveal_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 shared_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 credentials_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 reveal_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 shared_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurePasswordStore resources.
 
@@ -623,386 +623,386 @@ class _SecurePasswordStoreState:
 
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
-    def accessibility_error_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_error_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom error page URL
         """
         return pulumi.get(self, "accessibility_error_redirect_url")
 
     @accessibility_error_redirect_url.setter
-    def accessibility_error_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_error_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_error_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilityLoginRedirectUrl")
-    def accessibility_login_redirect_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accessibility_login_redirect_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom login page URL
         """
         return pulumi.get(self, "accessibility_login_redirect_url")
 
     @accessibility_login_redirect_url.setter
-    def accessibility_login_redirect_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accessibility_login_redirect_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accessibility_login_redirect_url", value)
 
     @_builtins.property
     @pulumi.getter(name="accessibilitySelfService")
-    def accessibility_self_service(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def accessibility_self_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable self service. Default is `false`
         """
         return pulumi.get(self, "accessibility_self_service")
 
     @accessibility_self_service.setter
-    def accessibility_self_service(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def accessibility_self_service(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "accessibility_self_service", value)
 
     @_builtins.property
     @pulumi.getter(name="adminNote")
-    def admin_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def admin_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for admins.
         """
         return pulumi.get(self, "admin_note")
 
     @admin_note.setter
-    def admin_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def admin_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "admin_note", value)
 
     @_builtins.property
     @pulumi.getter(name="appLinksJson")
-    def app_links_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def app_links_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays specific appLinks for the app. The value for each application link should be boolean.
         """
         return pulumi.get(self, "app_links_json")
 
     @app_links_json.setter
-    def app_links_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def app_links_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_links_json", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubmitToolbar")
-    def auto_submit_toolbar(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_submit_toolbar(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
 
     @auto_submit_toolbar.setter
-    def auto_submit_toolbar(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsScheme")
-    def credentials_scheme(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credentials_scheme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application credentials scheme. One of: `EDIT_USERNAME_AND_PASSWORD`, `ADMIN_SETS_CREDENTIALS`, `EDIT_PASSWORD_ONLY`, `EXTERNAL_PASSWORD_SYNC`, or `SHARED_USERNAME_AND_PASSWORD`
         """
         return pulumi.get(self, "credentials_scheme")
 
     @credentials_scheme.setter
-    def credentials_scheme(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credentials_scheme(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credentials_scheme", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
-    def enduser_note(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enduser_note(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application notes for end users.
         """
         return pulumi.get(self, "enduser_note")
 
     @enduser_note.setter
-    def enduser_note(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enduser_note(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enduser_note", value)
 
     @_builtins.property
     @pulumi.getter(name="hideIos")
-    def hide_ios(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_ios(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon on mobile app
         """
         return pulumi.get(self, "hide_ios")
 
     @hide_ios.setter
-    def hide_ios(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_ios(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_ios", value)
 
     @_builtins.property
     @pulumi.getter(name="hideWeb")
-    def hide_web(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def hide_web(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Do not display application icon to users
         """
         return pulumi.get(self, "hide_web")
 
     @hide_web.setter
-    def hide_web(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def hide_web(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "hide_web", value)
 
     @_builtins.property
     @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Application's display name.
         """
         return pulumi.get(self, "label")
 
     @label.setter
-    def label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "label", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="logoUrl")
-    def logo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of the application's logo
         """
         return pulumi.get(self, "logo_url")
 
     @logo_url.setter
-    def logo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the app.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField1")
-    def optional_field1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field1")
 
     @optional_field1.setter
-    def optional_field1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field1", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField1Value")
-    def optional_field1_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field1_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional value in login form
         """
         return pulumi.get(self, "optional_field1_value")
 
     @optional_field1_value.setter
-    def optional_field1_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field1_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field1_value", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField2")
-    def optional_field2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field2")
 
     @optional_field2.setter
-    def optional_field2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field2", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField2Value")
-    def optional_field2_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field2_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional value in login form
         """
         return pulumi.get(self, "optional_field2_value")
 
     @optional_field2_value.setter
-    def optional_field2_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field2_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field2_value", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField3")
-    def optional_field3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field3(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional param in the login form
         """
         return pulumi.get(self, "optional_field3")
 
     @optional_field3.setter
-    def optional_field3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field3", value)
 
     @_builtins.property
     @pulumi.getter(name="optionalField3Value")
-    def optional_field3_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def optional_field3_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of optional value in login form
         """
         return pulumi.get(self, "optional_field3_value")
 
     @optional_field3_value.setter
-    def optional_field3_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def optional_field3_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "optional_field3_value", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordField")
-    def password_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login password field
         """
         return pulumi.get(self, "password_field")
 
     @password_field.setter
-    def password_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_field", value)
 
     @_builtins.property
     @pulumi.getter(name="revealPassword")
-    def reveal_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reveal_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allow user to reveal password. It can not be set to `true` if `credentials_scheme` is `ADMIN_SETS_CREDENTIALS`, `SHARED_USERNAME_AND_PASSWORD` or `EXTERNAL_PASSWORD_SYNC`.
         """
         return pulumi.get(self, "reveal_password")
 
     @reveal_password.setter
-    def reveal_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reveal_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reveal_password", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPassword")
-    def shared_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared password, required for certain schemes.
         """
         return pulumi.get(self, "shared_password")
 
     @shared_password.setter
-    def shared_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_password", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedUsername")
-    def shared_username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Shared username, required for certain schemes.
         """
         return pulumi.get(self, "shared_username")
 
     @shared_username.setter
-    def shared_username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_username", value)
 
     @_builtins.property
     @pulumi.getter(name="signOnMode")
-    def sign_on_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sign_on_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sign on mode of application.
         """
         return pulumi.get(self, "sign_on_mode")
 
     @sign_on_mode.setter
-    def sign_on_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sign_on_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sign_on_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status of application. By default, it is `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login URL
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplate")
-    def user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template. Default: `${source.login}`
         """
         return pulumi.get(self, "user_name_template")
 
     @user_name_template.setter
-    def user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplatePushStatus")
-    def user_name_template_push_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_push_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Push username on update. Valid values: `PUSH` and `DONT_PUSH`
         """
         return pulumi.get(self, "user_name_template_push_status")
 
     @user_name_template_push_status.setter
-    def user_name_template_push_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_push_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_push_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateSuffix")
-    def user_name_template_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template suffix
         """
         return pulumi.get(self, "user_name_template_suffix")
 
     @user_name_template_suffix.setter
-    def user_name_template_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="userNameTemplateType")
-    def user_name_template_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name_template_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template type. Default: `BUILT_IN`
         """
         return pulumi.get(self, "user_name_template_type")
 
     @user_name_template_type.setter
-    def user_name_template_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name_template_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name_template_type", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameField")
-    def username_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login username field
         """
         return pulumi.get(self, "username_field")
 
     @username_field.setter
-    def username_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_field", value)
 
 
@@ -1012,35 +1012,35 @@ class SecurePasswordStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 credentials_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 reveal_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 shared_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 credentials_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 reveal_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 shared_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a Secure Password Store Application.
@@ -1153,35 +1153,35 @@ class SecurePasswordStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-                 admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-                 credentials_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-                 enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-                 hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-                 hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-                 label: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field1_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field2_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3: Optional[pulumi.Input[_builtins.str]] = None,
-                 optional_field3_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 password_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 reveal_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 shared_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_field: Optional[pulumi.Input[_builtins.str]] = None,
+                 accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+                 admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 credentials_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+                 enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+                 hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field1_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field2_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3: pulumi.Input[Optional[_builtins.str]] = None,
+                 optional_field3_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 reveal_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 shared_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_field: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1241,38 +1241,38 @@ class SecurePasswordStore(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accessibility_error_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_login_redirect_url: Optional[pulumi.Input[_builtins.str]] = None,
-            accessibility_self_service: Optional[pulumi.Input[_builtins.bool]] = None,
-            admin_note: Optional[pulumi.Input[_builtins.str]] = None,
-            app_links_json: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_submit_toolbar: Optional[pulumi.Input[_builtins.bool]] = None,
-            credentials_scheme: Optional[pulumi.Input[_builtins.str]] = None,
-            enduser_note: Optional[pulumi.Input[_builtins.str]] = None,
-            hide_ios: Optional[pulumi.Input[_builtins.bool]] = None,
-            hide_web: Optional[pulumi.Input[_builtins.bool]] = None,
-            label: Optional[pulumi.Input[_builtins.str]] = None,
-            logo: Optional[pulumi.Input[_builtins.str]] = None,
-            logo_url: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_field1: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_field1_value: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_field2: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_field2_value: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_field3: Optional[pulumi.Input[_builtins.str]] = None,
-            optional_field3_value: Optional[pulumi.Input[_builtins.str]] = None,
-            password_field: Optional[pulumi.Input[_builtins.str]] = None,
-            reveal_password: Optional[pulumi.Input[_builtins.bool]] = None,
-            shared_password: Optional[pulumi.Input[_builtins.str]] = None,
-            shared_username: Optional[pulumi.Input[_builtins.str]] = None,
-            sign_on_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_push_status: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name_template_type: Optional[pulumi.Input[_builtins.str]] = None,
-            username_field: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecurePasswordStore':
+            accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+            app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+            credentials_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+            hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+            hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field1: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field1_value: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field2: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field2_value: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field3: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field3_value: pulumi.Input[Optional[_builtins.str]] = None,
+            password_field: pulumi.Input[Optional[_builtins.str]] = None,
+            reveal_password: pulumi.Input[Optional[_builtins.bool]] = None,
+            shared_password: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_username: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+            username_field: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurePasswordStore':
         """
         Get an existing SecurePasswordStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

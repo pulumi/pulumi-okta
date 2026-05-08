@@ -121,11 +121,11 @@ export interface OwnersState {
     /**
      * The ID of the Okta group.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Desired owners for the group.
      */
-    owners?: pulumi.Input<pulumi.Input<inputs.group.OwnersOwner>[]>;
+    owners?: pulumi.Input<pulumi.Input<inputs.group.OwnersOwner>[] | undefined>;
 }
 
 /**
@@ -139,5 +139,5 @@ export interface OwnersArgs {
     /**
      * Desired owners for the group.
      */
-    owners?: pulumi.Input<pulumi.Input<inputs.group.OwnersOwner>[]>;
+    owners?: pulumi.Input<pulumi.Input<inputs.group.OwnersOwner>[] | undefined>;
 }

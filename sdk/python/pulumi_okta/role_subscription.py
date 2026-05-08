@@ -21,7 +21,7 @@ class RoleSubscriptionArgs:
     def __init__(__self__, *,
                  notification_type: pulumi.Input[_builtins.str],
                  role_type: pulumi.Input[_builtins.str],
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleSubscription resource.
 
@@ -108,23 +108,23 @@ class RoleSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription status. Valid values: `subscribed`, `unsubscribed`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _RoleSubscriptionState:
     def __init__(__self__, *,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleSubscription resources.
 
@@ -165,7 +165,7 @@ class _RoleSubscriptionState:
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the notification. Valid values: 
         	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
@@ -184,12 +184,12 @@ class _RoleSubscriptionState:
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the role. Valid values:
         	'API_ADMIN',
@@ -208,19 +208,19 @@ class _RoleSubscriptionState:
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subscription status. Valid values: `subscribed`, `unsubscribed`.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -230,9 +230,9 @@ class RoleSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages group subscription.
@@ -337,9 +337,9 @@ class RoleSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,9 +366,9 @@ class RoleSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            notification_type: Optional[pulumi.Input[_builtins.str]] = None,
-            role_type: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'RoleSubscription':
+            notification_type: pulumi.Input[Optional[_builtins.str]] = None,
+            role_type: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoleSubscription':
         """
         Get an existing RoleSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

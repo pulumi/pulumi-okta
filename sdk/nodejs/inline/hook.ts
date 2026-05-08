@@ -178,56 +178,56 @@ export class Hook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Hook resources.
  */
 export interface HookState {
-    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * true channel object for the inline hook API contract
      */
-    channelJson?: pulumi.Input<string>;
+    channelJson?: pulumi.Input<string | undefined>;
     /**
      * Map of headers to send along in inline hook request.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[] | undefined>;
     /**
      * The inline hook display name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The version of the hook. The currently-supported version is `1.0.0`.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }
 
 /**
  * The set of arguments for constructing a Hook resource.
  */
 export interface HookArgs {
-    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    auth?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    channel?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * true channel object for the inline hook API contract
      */
-    channelJson?: pulumi.Input<string>;
+    channelJson?: pulumi.Input<string | undefined>;
     /**
      * Map of headers to send along in inline hook request.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.inline.HookHeader>[] | undefined>;
     /**
      * The inline hook display name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The type of hook to create. [See here for supported types](https://developer.okta.com/docs/reference/api/inline-hooks/#supported-inline-hook-types).
      */

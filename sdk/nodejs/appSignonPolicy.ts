@@ -121,23 +121,23 @@ export interface AppSignonPolicyState {
     /**
      * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      */
-    catchAll?: pulumi.Input<boolean>;
+    catchAll?: pulumi.Input<boolean | undefined>;
     /**
      * Default rule (system=true) id of the policy
      */
-    defaultRuleId?: pulumi.Input<string>;
+    defaultRuleId?: pulumi.Input<string | undefined>;
     /**
      * Description of the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the order in which this policy is evaluated in relation to the other policies.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -147,7 +147,7 @@ export interface AppSignonPolicyArgs {
     /**
      * If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
      */
-    catchAll?: pulumi.Input<boolean>;
+    catchAll?: pulumi.Input<boolean | undefined>;
     /**
      * Description of the policy.
      */
@@ -155,9 +155,9 @@ export interface AppSignonPolicyArgs {
     /**
      * Name of the policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the order in which this policy is evaluated in relation to the other policies.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
 }

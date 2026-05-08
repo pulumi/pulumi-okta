@@ -88,7 +88,7 @@ export interface RateLimitAdminNotificationSettingsState {
     /**
      * Enables or disables admin notifications for rate limiting events.
      */
-    notificationsEnabled?: pulumi.Input<boolean>;
+    notificationsEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**

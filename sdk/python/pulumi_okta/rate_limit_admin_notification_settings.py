@@ -43,7 +43,7 @@ class RateLimitAdminNotificationSettingsArgs:
 @pulumi.input_type
 class _RateLimitAdminNotificationSettingsState:
     def __init__(__self__, *,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering RateLimitAdminNotificationSettings resources.
 
@@ -54,14 +54,14 @@ class _RateLimitAdminNotificationSettingsState:
 
     @_builtins.property
     @pulumi.getter(name="notificationsEnabled")
-    def notifications_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables admin notifications for rate limiting events.
         """
         return pulumi.get(self, "notifications_enabled")
 
     @notifications_enabled.setter
-    def notifications_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notifications_enabled", value)
 
 
@@ -71,7 +71,7 @@ class RateLimitAdminNotificationSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages principal rate limits.
@@ -136,7 +136,7 @@ class RateLimitAdminNotificationSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -159,7 +159,7 @@ class RateLimitAdminNotificationSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            notifications_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'RateLimitAdminNotificationSettings':
+            notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'RateLimitAdminNotificationSettings':
         """
         Get an existing RateLimitAdminNotificationSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

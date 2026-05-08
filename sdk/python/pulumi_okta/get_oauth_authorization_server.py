@@ -308,7 +308,7 @@ def get_oauth_authorization_server(base_url: Optional[_builtins.str] = None,
         subject_types_supporteds=pulumi.get(__ret__, 'subject_types_supporteds'),
         token_endpoint=pulumi.get(__ret__, 'token_endpoint'),
         token_endpoint_auth_methods_supporteds=pulumi.get(__ret__, 'token_endpoint_auth_methods_supporteds'))
-def get_oauth_authorization_server_output(base_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_oauth_authorization_server_output(base_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOauthAuthorizationServerResult]:
     """
     Use this data source to access information about an existing resource.

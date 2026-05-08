@@ -144,13 +144,13 @@ export interface GetAuthenticatorOutputArgs {
     /**
      * ID of the authenticator.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * A human-readable string that identifies the authenticator.
      */
-    key?: pulumi.Input<string>;
+    key?: pulumi.Input<string | undefined>;
     /**
      * Name of the authenticator.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -110,5 +110,5 @@ export interface GetMetadataSamlOutputArgs {
     /**
      * The id of the IdP to retrieve metadata for.
      */
-    idpId?: pulumi.Input<string>;
+    idpId?: pulumi.Input<string | undefined>;
 }

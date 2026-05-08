@@ -20,7 +20,7 @@ __all__ = ['PolicyProfileEnrollmentAppsArgs', 'PolicyProfileEnrollmentApps']
 class PolicyProfileEnrollmentAppsArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
-                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyProfileEnrollmentApps resource.
 
@@ -45,23 +45,23 @@ class PolicyProfileEnrollmentAppsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of app IDs to be added to this policy
         """
         return pulumi.get(self, "apps")
 
     @apps.setter
-    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "apps", value)
 
 
 @pulumi.input_type
 class _PolicyProfileEnrollmentAppsState:
     def __init__(__self__, *,
-                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyProfileEnrollmentApps resources.
 
@@ -78,38 +78,38 @@ class _PolicyProfileEnrollmentAppsState:
 
     @_builtins.property
     @pulumi.getter
-    def apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def apps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of app IDs to be added to this policy
         """
         return pulumi.get(self, "apps")
 
     @apps.setter
-    def apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def apps(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "apps", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPolicyId")
-    def default_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
         """
         return pulumi.get(self, "default_policy_id")
 
     @default_policy_id.setter
-    def default_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="policyId")
-    def policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the enrollment policy.
         """
         return pulumi.get(self, "policy_id")
 
     @policy_id.setter
-    def policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_id", value)
 
 
@@ -119,8 +119,8 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages Profile Enrollment Policy Apps
@@ -208,8 +208,8 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,9 +234,9 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            apps: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-            policy_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'PolicyProfileEnrollmentApps':
+            apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'PolicyProfileEnrollmentApps':
         """
         Get an existing PolicyProfileEnrollmentApps resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

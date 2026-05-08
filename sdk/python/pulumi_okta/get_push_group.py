@@ -134,9 +134,9 @@ def get_push_group(app_id: Optional[_builtins.str] = None,
         source_group_id=pulumi.get(__ret__, 'source_group_id'),
         status=pulumi.get(__ret__, 'status'),
         target_group_id=pulumi.get(__ret__, 'target_group_id'))
-def get_push_group_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          source_group_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_push_group_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          source_group_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPushGroupResult]:
     """
     Get a Push Group assignment for an Application in Okta.

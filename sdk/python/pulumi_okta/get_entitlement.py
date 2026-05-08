@@ -149,9 +149,9 @@ def get_entitlement(id: Optional[_builtins.str] = None,
         parent=pulumi.get(__ret__, 'parent'),
         parent_resource_orn=pulumi.get(__ret__, 'parent_resource_orn'),
         values=pulumi.get(__ret__, 'values'))
-def get_entitlement_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                           parent: Optional[pulumi.Input[Optional[Union['GetEntitlementParentArgs', 'GetEntitlementParentArgsDict']]]] = None,
-                           values: Optional[pulumi.Input[Optional[Sequence[Union['GetEntitlementValueArgs', 'GetEntitlementValueArgsDict']]]]] = None,
+def get_entitlement_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                           parent: pulumi.Input[Optional[Optional[Union['GetEntitlementParentArgs', 'GetEntitlementParentArgsDict']]]] = None,
+                           values: pulumi.Input[Optional[Optional[Sequence[Union['GetEntitlementValueArgs', 'GetEntitlementValueArgsDict']]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitlementResult]:
     """
     Get the entitlement belonging to an Okta organization.

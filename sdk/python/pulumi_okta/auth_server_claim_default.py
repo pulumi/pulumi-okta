@@ -20,9 +20,9 @@ __all__ = ['AuthServerClaimDefaultArgs', 'AuthServerClaimDefault']
 class AuthServerClaimDefaultArgs:
     def __init__(__self__, *,
                  auth_server_id: pulumi.Input[_builtins.str],
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthServerClaimDefault resource.
 
@@ -53,52 +53,52 @@ class AuthServerClaimDefaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="alwaysIncludeInToken")
-    def always_include_in_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_include_in_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to include claims in token.
         """
         return pulumi.get(self, "always_include_in_token")
 
     @always_include_in_token.setter
-    def always_include_in_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_include_in_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_include_in_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the claim. Only required for `sub` claim.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
 class _AuthServerClaimDefaultState:
     def __init__(__self__, *,
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 value_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthServerClaimDefault resources.
 
@@ -130,98 +130,98 @@ class _AuthServerClaimDefaultState:
 
     @_builtins.property
     @pulumi.getter(name="alwaysIncludeInToken")
-    def always_include_in_token(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_include_in_token(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to include claims in token.
         """
         return pulumi.get(self, "always_include_in_token")
 
     @always_include_in_token.setter
-    def always_include_in_token(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_include_in_token(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_include_in_token", value)
 
     @_builtins.property
     @pulumi.getter(name="authServerId")
-    def auth_server_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the authorization server.
         """
         return pulumi.get(self, "auth_server_id")
 
     @auth_server_id.setter
-    def auth_server_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_server_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_server_id", value)
 
     @_builtins.property
     @pulumi.getter(name="claimType")
-    def claim_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def claim_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
         """
         return pulumi.get(self, "claim_type")
 
     @claim_type.setter
-    def claim_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def claim_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "claim_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`email_verified`, `family_name`, `gender`, `given_name`, `locale`, `middle_name`, `name`, `nickname`,`phone_number`, `picture`, `preferred_username`, `profile`, `updated_at`, `website`, `zoneinfo`
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Auth server claim list of scopes
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the application.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the claim. Only required for `sub` claim.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of value of the claim.
         """
         return pulumi.get(self, "value_type")
 
     @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value_type", value)
 
 
@@ -231,10 +231,10 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configures Default Authorization Server Claim.
@@ -310,10 +310,10 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,14 +343,14 @@ class AuthServerClaimDefault(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_include_in_token: Optional[pulumi.Input[_builtins.bool]] = None,
-            auth_server_id: Optional[pulumi.Input[_builtins.str]] = None,
-            claim_type: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            value_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'AuthServerClaimDefault':
+            always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AuthServerClaimDefault':
         """
         Get an existing AuthServerClaimDefault resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

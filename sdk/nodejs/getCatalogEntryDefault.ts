@@ -99,10 +99,10 @@ export function getCatalogEntryDefaultOutput(args: GetCatalogEntryDefaultOutputA
  * A collection of arguments for invoking getCatalogEntryDefault.
  */
 export interface GetCatalogEntryDefaultOutputArgs {
-    counts?: pulumi.Input<inputs.GetCatalogEntryDefaultCountsArgs>;
+    counts?: pulumi.Input<inputs.GetCatalogEntryDefaultCountsArgs | undefined>;
     /**
      * TThe ID of the catalog entry.
      */
     entryId: pulumi.Input<string>;
-    links?: pulumi.Input<inputs.GetCatalogEntryDefaultLinksArgs>;
+    links?: pulumi.Input<inputs.GetCatalogEntryDefaultLinksArgs | undefined>;
 }

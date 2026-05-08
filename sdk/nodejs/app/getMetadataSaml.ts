@@ -116,5 +116,5 @@ export interface GetMetadataSamlOutputArgs {
     /**
      * Certificate Key ID.
      */
-    keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string | undefined>;
 }

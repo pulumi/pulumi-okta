@@ -23,8 +23,8 @@ class SecurityEventsProviderArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['SecurityEventsProviderSettingsArgs']] = None):
         """
         The set of arguments for constructing a SecurityEventsProvider resource.
 
@@ -66,37 +66,37 @@ class SecurityEventsProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Events Provider instance.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['SecurityEventsProviderSettingsArgs']]:
         """
         Information about the Security Events Provider for signal ingestion.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['SecurityEventsProviderSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type
 class _SecurityEventsProviderState:
     def __init__(__self__, *,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional['SecurityEventsProviderSettingsArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecurityEventsProvider resources.
 
@@ -119,62 +119,62 @@ class _SecurityEventsProviderState:
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
-    def is_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Security Events Provider instance.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']]:
+    def settings(self) -> pulumi.Input[Optional['SecurityEventsProviderSettingsArgs']]:
         """
         Information about the Security Events Provider for signal ingestion.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['SecurityEventsProviderSettingsArgs']]):
+    def settings(self, value: pulumi.Input[Optional['SecurityEventsProviderSettingsArgs']]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether the Security Events Provider is active or not.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application type of the Security Events Provider.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -184,10 +184,10 @@ class SecurityEventsProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates and manages Security Events Provider instances for signal ingestion.
@@ -303,10 +303,10 @@ class SecurityEventsProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -335,11 +335,11 @@ class SecurityEventsProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            is_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'SecurityEventsProvider':
+            is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurityEventsProvider':
         """
         Get an existing SecurityEventsProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

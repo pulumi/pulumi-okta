@@ -144,27 +144,27 @@ export interface LinkDefinitionState {
     /**
      * Description of the associated relationship.
      */
-    associatedDescription?: pulumi.Input<string>;
+    associatedDescription?: pulumi.Input<string | undefined>;
     /**
      * API name of the associated link.
      */
-    associatedName?: pulumi.Input<string>;
+    associatedName?: pulumi.Input<string | undefined>;
     /**
      * Display name of the associated link.
      */
-    associatedTitle?: pulumi.Input<string>;
+    associatedTitle?: pulumi.Input<string | undefined>;
     /**
      * Description of the primary relationship.
      */
-    primaryDescription?: pulumi.Input<string>;
+    primaryDescription?: pulumi.Input<string | undefined>;
     /**
      * API name of the primary link.
      */
-    primaryName?: pulumi.Input<string>;
+    primaryName?: pulumi.Input<string | undefined>;
     /**
      * Display name of the primary link.
      */
-    primaryTitle?: pulumi.Input<string>;
+    primaryTitle?: pulumi.Input<string | undefined>;
 }
 
 /**

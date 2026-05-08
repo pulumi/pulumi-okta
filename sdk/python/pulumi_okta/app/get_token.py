@@ -166,8 +166,8 @@ def get_token(client_id: Optional[_builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         status=pulumi.get(__ret__, 'status'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_token_output(client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_token_output(client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTokenResult]:
     """
     Retrieves a refresh token for the specified app.

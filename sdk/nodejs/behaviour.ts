@@ -151,31 +151,31 @@ export interface BehaviourState {
     /**
      * Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
      */
-    locationGranularityType?: pulumi.Input<string>;
+    locationGranularityType?: pulumi.Input<string | undefined>;
     /**
      * Name of the behavior
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
      */
-    numberOfAuthentications?: pulumi.Input<number>;
+    numberOfAuthentications?: pulumi.Input<number | undefined>;
     /**
      * Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      */
-    radiusFromLocation?: pulumi.Input<number>;
+    radiusFromLocation?: pulumi.Input<number | undefined>;
     /**
      * Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
      */
-    velocity?: pulumi.Input<number>;
+    velocity?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -185,23 +185,23 @@ export interface BehaviourArgs {
     /**
      * Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
      */
-    locationGranularityType?: pulumi.Input<string>;
+    locationGranularityType?: pulumi.Input<string | undefined>;
     /**
      * Name of the behavior
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The number of recent authentications used to evaluate the behavior. Required for `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE` and `ANOMALOUS_IP` behavior types.
      */
-    numberOfAuthentications?: pulumi.Input<number>;
+    numberOfAuthentications?: pulumi.Input<number | undefined>;
     /**
      * Radius from location (in kilometers). Should be at least 5. Required when `locationGranularityType` is set to `LAT_LONG`.
      */
-    radiusFromLocation?: pulumi.Input<number>;
+    radiusFromLocation?: pulumi.Input<number | undefined>;
     /**
      * Behavior status: ACTIVE or INACTIVE. Default: `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Type of the behavior. Can be set to `ANOMALOUS_LOCATION`, `ANOMALOUS_DEVICE`, `ANOMALOUS_IP` or `VELOCITY`. Resource will be recreated when the type changes.e
      */
@@ -209,5 +209,5 @@ export interface BehaviourArgs {
     /**
      * Velocity (in kilometers per hour). Should be at least 1. Required for `VELOCITY` behavior
      */
-    velocity?: pulumi.Input<number>;
+    velocity?: pulumi.Input<number | undefined>;
 }

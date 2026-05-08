@@ -145,10 +145,10 @@ def get_groups(limit: Optional[_builtins.int] = None,
         q=pulumi.get(__ret__, 'q'),
         search=pulumi.get(__ret__, 'search'),
         type=pulumi.get(__ret__, 'type'))
-def get_groups_output(limit: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
-                      q: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      search: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_groups_output(limit: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+                      q: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      search: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsResult]:
     """
     Get a list of groups from Okta.

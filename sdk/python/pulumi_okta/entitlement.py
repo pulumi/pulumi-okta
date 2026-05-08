@@ -24,12 +24,12 @@ class EntitlementArgs:
                  data_type: pulumi.Input[_builtins.str],
                  external_value: pulumi.Input[_builtins.str],
                  multi_value: pulumi.Input[_builtins.bool],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input['EntitlementParentArgs']] = None,
-                 parent_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional['EntitlementParentArgs']] = None,
+                 parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementValueArgs']]]] = None):
         """
         The set of arguments for constructing a Entitlement resource.
 
@@ -96,86 +96,86 @@ class EntitlementArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of an entitlement property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for an entitlement property.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input['EntitlementParentArgs']]:
+    def parent(self) -> pulumi.Input[Optional['EntitlementParentArgs']]:
         """
         Representation of a resource
         """
         return pulumi.get(self, "parent")
 
     @parent.setter
-    def parent(self, value: Optional[pulumi.Input['EntitlementParentArgs']]):
+    def parent(self, value: pulumi.Input[Optional['EntitlementParentArgs']]):
         pulumi.set(self, "parent", value)
 
     @_builtins.property
     @pulumi.getter(name="parentResourceOrn")
-    def parent_resource_orn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_resource_orn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Okta app instance, in ORN format.
         """
         return pulumi.get(self, "parent_resource_orn")
 
     @parent_resource_orn.setter
-    def parent_resource_orn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_resource_orn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_resource_orn", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the entitlement property.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementValueArgs']]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementValueArgs']]]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
 class _EntitlementState:
     def __init__(__self__, *,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input['EntitlementParentArgs']] = None,
-                 parent_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]] = None):
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional['EntitlementParentArgs']] = None,
+                 parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementValueArgs']]]] = None):
         """
         Input properties used for looking up and filtering Entitlement resources.
 
@@ -209,107 +209,107 @@ class _EntitlementState:
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data type of the entitlement property. If the entitlement property is multivalued, the data type is replaced with an array. Enum: "array", "string".
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of an entitlement property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalValue")
-    def external_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of an entitlement property.
         """
         return pulumi.get(self, "external_value")
 
     @external_value.setter
-    def external_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_value", value)
 
     @_builtins.property
     @pulumi.getter(name="multiValue")
-    def multi_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def multi_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The property that determines if the entitlement property can hold multiple values.
         """
         return pulumi.get(self, "multi_value")
 
     @multi_value.setter
-    def multi_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def multi_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "multi_value", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for an entitlement property.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parent(self) -> Optional[pulumi.Input['EntitlementParentArgs']]:
+    def parent(self) -> pulumi.Input[Optional['EntitlementParentArgs']]:
         """
         Representation of a resource
         """
         return pulumi.get(self, "parent")
 
     @parent.setter
-    def parent(self, value: Optional[pulumi.Input['EntitlementParentArgs']]):
+    def parent(self, value: pulumi.Input[Optional['EntitlementParentArgs']]):
         pulumi.set(self, "parent", value)
 
     @_builtins.property
     @pulumi.getter(name="parentResourceOrn")
-    def parent_resource_orn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_resource_orn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Okta app instance, in ORN format.
         """
         return pulumi.get(self, "parent_resource_orn")
 
     @parent_resource_orn.setter
-    def parent_resource_orn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_resource_orn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_resource_orn", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the entitlement property.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]]:
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementValueArgs']]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementValueArgs']]]]):
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementValueArgs']]]]):
         pulumi.set(self, "values", value)
 
 
@@ -319,15 +319,15 @@ class Entitlement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
-                 parent_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
+                 parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages Entitlement. This resource allows you to create and configure an Okta [Entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/).
@@ -399,15 +399,15 @@ class Entitlement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent: Optional[pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
-                 parent_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
+                 parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -442,15 +442,15 @@ class Entitlement(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            data_type: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            external_value: Optional[pulumi.Input[_builtins.str]] = None,
-            multi_value: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent: Optional[pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
-            parent_resource_orn: Optional[pulumi.Input[_builtins.str]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None,
-            values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None) -> 'Entitlement':
+            data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_value: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
+            parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None) -> 'Entitlement':
         """
         Get an existing Entitlement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

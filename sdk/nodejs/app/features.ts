@@ -242,25 +242,25 @@ export interface FeaturesState {
     /**
      * The ID of the application to configure features for.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for feature capabilities. See Capabilities below.
      */
-    capabilities?: pulumi.Input<inputs.app.FeaturesCapabilities>;
+    capabilities?: pulumi.Input<inputs.app.FeaturesCapabilities | undefined>;
     /**
      * Description of the feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the feature to configure. Valid values:
      * * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.
      * * `INBOUND_PROVISIONING` - User profiles are imported from the third-party app into Okta.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -274,19 +274,19 @@ export interface FeaturesArgs {
     /**
      * Configuration block for feature capabilities. See Capabilities below.
      */
-    capabilities?: pulumi.Input<inputs.app.FeaturesCapabilities>;
+    capabilities?: pulumi.Input<inputs.app.FeaturesCapabilities | undefined>;
     /**
      * Description of the feature.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the feature to configure. Valid values:
      * * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.
      * * `INBOUND_PROVISIONING` - User profiles are imported from the third-party app into Okta.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the feature. Valid values are `ENABLED` or `DISABLED`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

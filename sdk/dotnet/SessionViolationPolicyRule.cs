@@ -24,9 +24,9 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Okta.Index.GetSessionViolationPolicy.Invoke();
+    ///     var example = Okta.GetSessionViolationPolicy.Invoke();
     /// 
-    ///     var exampleSessionViolationPolicyRule = new Okta.Index.SessionViolationPolicyRule("example", new()
+    ///     var exampleSessionViolationPolicyRule = new Okta.SessionViolationPolicyRule("example", new()
     ///     {
     ///         PolicyId = example.Apply(getSessionViolationPolicyResult =&gt; getSessionViolationPolicyResult.Id),
     ///         Name = "Session Violation Rule",

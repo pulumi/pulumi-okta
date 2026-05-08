@@ -209,71 +209,71 @@ export interface ServerPolicyRuleState {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      */
-    accessTokenLifetimeMinutes?: pulumi.Input<number>;
+    accessTokenLifetimeMinutes?: pulumi.Input<number | undefined>;
     /**
      * Auth server ID
      */
-    authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string | undefined>;
     /**
      * Accepted grant type values, `authorizationCode`, `implicit`, `password`, `clientCredentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer` (*Early Access Property*), `urn:ietf:params:oauth:grant-type:token-exchange` (*Early Access Property*),`urn:ietf:params:oauth:grant-type:device_code` (*Early Access Property*), `interactionCode` (*OIE only*). For `implicit` value either `userWhitelist` or `groupWhitelist` should be set.
      */
-    grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    grantTypeWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a set of Groups whose Users are to be excluded.
      */
-    groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBlacklists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
      */
-    groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the inline token to trigger.
      */
-    inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string | undefined>;
     /**
      * Auth server policy rule name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Auth server policy ID
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Priority of the auth server policy rule
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Lifetime of refresh token.
      */
-    refreshTokenLifetimeMinutes?: pulumi.Input<number>;
+    refreshTokenLifetimeMinutes?: pulumi.Input<number | undefined>;
     /**
      * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      */
-    refreshTokenWindowMinutes?: pulumi.Input<number>;
+    refreshTokenWindowMinutes?: pulumi.Input<number | undefined>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      */
-    scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The rule is the system (default) rule for its associated policy
      */
-    system?: pulumi.Input<boolean>;
+    system?: pulumi.Input<boolean | undefined>;
     /**
      * Auth server policy rule type, unlikely this will be anything other then the default
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies a set of Users to be excluded.
      */
-    userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    userBlacklists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a set of Users to be included.
      */
-    userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -283,7 +283,7 @@ export interface ServerPolicyRuleArgs {
     /**
      * Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
      */
-    accessTokenLifetimeMinutes?: pulumi.Input<number>;
+    accessTokenLifetimeMinutes?: pulumi.Input<number | undefined>;
     /**
      * Auth server ID
      */
@@ -295,19 +295,19 @@ export interface ServerPolicyRuleArgs {
     /**
      * Specifies a set of Groups whose Users are to be excluded.
      */
-    groupBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupBlacklists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a set of Groups whose Users are to be included. Can be set to Group ID or to the following: `EVERYONE`.
      */
-    groupWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    groupWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the inline token to trigger.
      */
-    inlineHookId?: pulumi.Input<string>;
+    inlineHookId?: pulumi.Input<string | undefined>;
     /**
      * Auth server policy rule name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Auth server policy ID
      */
@@ -319,29 +319,29 @@ export interface ServerPolicyRuleArgs {
     /**
      * Lifetime of refresh token.
      */
-    refreshTokenLifetimeMinutes?: pulumi.Input<number>;
+    refreshTokenLifetimeMinutes?: pulumi.Input<number | undefined>;
     /**
      * Window in which a refresh token can be used. It can be a value between 5 and 2628000 (5 years) minutes. Default is `10080` (7 days).`refreshTokenWindowMinutes` must be between `accessTokenLifetimeMinutes` and `refreshTokenLifetimeMinutes`.
      */
-    refreshTokenWindowMinutes?: pulumi.Input<number>;
+    refreshTokenWindowMinutes?: pulumi.Input<number | undefined>;
     /**
      * Scopes allowed for this policy rule. They can be whitelisted by name or all can be whitelisted with `*`
      */
-    scopeWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Auth server policy rule type, unlikely this will be anything other then the default
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies a set of Users to be excluded.
      */
-    userBlacklists?: pulumi.Input<pulumi.Input<string>[]>;
+    userBlacklists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a set of Users to be included.
      */
-    userWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

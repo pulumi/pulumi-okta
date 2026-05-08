@@ -172,23 +172,23 @@ export interface ConnectionState {
     /**
      * The action to perform on the connection. Valid values are `activate` or `deactivate`.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * The base URL for the provisioning connection.
      */
-    baseUrl?: pulumi.Input<string>;
+    baseUrl?: pulumi.Input<string | undefined>;
     /**
      * The application ID.
      */
-    idProperty?: pulumi.Input<string>;
+    idProperty?: pulumi.Input<string | undefined>;
     /**
      * Profile configuration for the app connection.
      */
-    profile?: pulumi.Input<inputs.app.ConnectionProfile>;
+    profile?: pulumi.Input<inputs.app.ConnectionProfile | undefined>;
     /**
      * Provisioning connection status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -210,5 +210,5 @@ export interface ConnectionArgs {
     /**
      * Profile configuration for the app connection.
      */
-    profile?: pulumi.Input<inputs.app.ConnectionProfile>;
+    profile?: pulumi.Input<inputs.app.ConnectionProfile | undefined>;
 }

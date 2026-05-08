@@ -157,7 +157,7 @@ def get_realm_assignment(name: Optional[_builtins.str] = None,
         profile_source_id=pulumi.get(__ret__, 'profile_source_id'),
         realm_id=pulumi.get(__ret__, 'realm_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_realm_assignment_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_realm_assignment_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealmAssignmentResult]:
     """
     Get a realm assignment from Okta.

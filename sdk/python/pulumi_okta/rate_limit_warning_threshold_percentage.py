@@ -43,7 +43,7 @@ class RateLimitWarningThresholdPercentageArgs:
 @pulumi.input_type
 class _RateLimitWarningThresholdPercentageState:
     def __init__(__self__, *,
-                 warning_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 warning_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering RateLimitWarningThresholdPercentage resources.
 
@@ -54,14 +54,14 @@ class _RateLimitWarningThresholdPercentageState:
 
     @_builtins.property
     @pulumi.getter(name="warningThreshold")
-    def warning_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def warning_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.
         """
         return pulumi.get(self, "warning_threshold")
 
     @warning_threshold.setter
-    def warning_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def warning_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "warning_threshold", value)
 
 
@@ -71,7 +71,7 @@ class RateLimitWarningThresholdPercentage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.int]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Rate limit warning threshold percentage provides operations to manage threshold for warning notifications when the API's rate limit is exceeded.
@@ -134,7 +134,7 @@ class RateLimitWarningThresholdPercentage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 warning_threshold: Optional[pulumi.Input[_builtins.int]] = None,
+                 warning_threshold: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -157,7 +157,7 @@ class RateLimitWarningThresholdPercentage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            warning_threshold: Optional[pulumi.Input[_builtins.int]] = None) -> 'RateLimitWarningThresholdPercentage':
+            warning_threshold: pulumi.Input[Optional[_builtins.int]] = None) -> 'RateLimitWarningThresholdPercentage':
         """
         Get an existing RateLimitWarningThresholdPercentage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -414,8 +414,8 @@ def get_social(id: Optional[_builtins.str] = None,
         token_url=pulumi.get(__ret__, 'token_url'),
         type=pulumi.get(__ret__, 'type'),
         username_template=pulumi.get(__ret__, 'username_template'))
-def get_social_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_social_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSocialResult]:
     """
     Get a social IdP from Okta.

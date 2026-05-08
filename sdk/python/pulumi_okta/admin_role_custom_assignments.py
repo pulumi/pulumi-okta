@@ -21,7 +21,7 @@ class AdminRoleCustomAssignmentsArgs:
     def __init__(__self__, *,
                  custom_role_id: pulumi.Input[_builtins.str],
                  resource_set_id: pulumi.Input[_builtins.str],
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AdminRoleCustomAssignments resource.
 
@@ -60,23 +60,23 @@ class AdminRoleCustomAssignmentsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The hrefs that point to User(s) and/or Group(s) that receive the Role
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
 
 
 @pulumi.input_type
 class _AdminRoleCustomAssignmentsState:
     def __init__(__self__, *,
-                 custom_role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AdminRoleCustomAssignments resources.
 
@@ -93,38 +93,38 @@ class _AdminRoleCustomAssignmentsState:
 
     @_builtins.property
     @pulumi.getter(name="customRoleId")
-    def custom_role_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_role_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Custom Role
         """
         return pulumi.get(self, "custom_role_id")
 
     @custom_role_id.setter
-    def custom_role_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_role_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_role_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The hrefs that point to User(s) and/or Group(s) that receive the Role
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetId")
-    def resource_set_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the target Resource Set
         """
         return pulumi.get(self, "resource_set_id")
 
     @resource_set_id.setter
-    def resource_set_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_set_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_set_id", value)
 
 
@@ -134,9 +134,9 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource to manage the assignment and unassignment of Custom Roles
@@ -315,9 +315,9 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_role_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_role_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -344,9 +344,9 @@ class AdminRoleCustomAssignments(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_role_id: Optional[pulumi.Input[_builtins.str]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            resource_set_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AdminRoleCustomAssignments':
+            custom_role_id: pulumi.Input[Optional[_builtins.str]] = None,
+            members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_set_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AdminRoleCustomAssignments':
         """
         Get an existing AdminRoleCustomAssignments resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

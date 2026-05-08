@@ -51,7 +51,7 @@ import * as utilities from "./utilities";
  *             "group-a",
  *             "group-b",
  *         ],
- *     }).result).map(([k, v]) => ({key: k, value: v})).map(entry => ({
+ *     }).result).sort().map(([k, v]) => ({key: k, value: v})).map(entry => ({
  *         id: entry.value,
  *     })),
  *     appId: thisOktaAppBookmark.id,
@@ -162,11 +162,11 @@ export interface AppGroupAssignmentsState {
     /**
      * The ID of the application to assign a group to.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * A group to assign to this application
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[] | undefined>;
 }
 
 /**
@@ -180,5 +180,5 @@ export interface AppGroupAssignmentsArgs {
     /**
      * A group to assign to this application
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.AppGroupAssignmentsGroup>[] | undefined>;
 }

@@ -24,7 +24,7 @@ class ConnectionArgs:
                  action: pulumi.Input[_builtins.str],
                  base_url: pulumi.Input[_builtins.str],
                  id_property: pulumi.Input[_builtins.str],
-                 profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None):
+                 profile: pulumi.Input[Optional['ConnectionProfileArgs']] = None):
         """
         The set of arguments for constructing a Connection resource.
 
@@ -77,25 +77,25 @@ class ConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input['ConnectionProfileArgs']]:
+    def profile(self) -> pulumi.Input[Optional['ConnectionProfileArgs']]:
         """
         Profile configuration for the app connection.
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input['ConnectionProfileArgs']]):
+    def profile(self, value: pulumi.Input[Optional['ConnectionProfileArgs']]):
         pulumi.set(self, "profile", value)
 
 
 @pulumi.input_type
 class _ConnectionState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional['ConnectionProfileArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
 
@@ -118,62 +118,62 @@ class _ConnectionState:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to perform on the connection. Valid values are `activate` or `deactivate`.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="baseUrl")
-    def base_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The base URL for the provisioning connection.
         """
         return pulumi.get(self, "base_url")
 
     @base_url.setter
-    def base_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_url", value)
 
     @_builtins.property
     @pulumi.getter(name="idProperty")
-    def id_property(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application ID.
         """
         return pulumi.get(self, "id_property")
 
     @id_property.setter
-    def id_property(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id_property(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_property", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input['ConnectionProfileArgs']]:
+    def profile(self) -> pulumi.Input[Optional['ConnectionProfileArgs']]:
         """
         Profile configuration for the app connection.
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input['ConnectionProfileArgs']]):
+    def profile(self, value: pulumi.Input[Optional['ConnectionProfileArgs']]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provisioning connection status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -183,10 +183,10 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
                  __props__=None):
         """
         Manages Okta App Connection configurations for provisioning. This resource allows you to configure and manage provisioning connections for applications, including authentication schemes and connection activation/deactivation.
@@ -352,10 +352,10 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 base_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_property: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_property: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,11 +386,11 @@ class Connection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[_builtins.str]] = None,
-            base_url: Optional[pulumi.Input[_builtins.str]] = None,
-            id_property: Optional[pulumi.Input[_builtins.str]] = None,
-            profile: Optional[pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None) -> 'Connection':
+            action: pulumi.Input[Optional[_builtins.str]] = None,
+            base_url: pulumi.Input[Optional[_builtins.str]] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Connection':
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

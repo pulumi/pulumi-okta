@@ -132,28 +132,28 @@ export interface UserState {
     /**
      * App to associate user with
      */
-    appId?: pulumi.Input<string>;
-    hasSharedUsername?: pulumi.Input<boolean>;
+    appId?: pulumi.Input<string | undefined>;
+    hasSharedUsername?: pulumi.Input<boolean | undefined>;
     /**
      * The password to use.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The JSON profile of the App User.
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    retainAssignment?: pulumi.Input<boolean>;
+    retainAssignment?: pulumi.Input<boolean | undefined>;
     /**
      * User associated with the application
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
     /**
      * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -167,15 +167,15 @@ export interface UserArgs {
     /**
      * The password to use.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The JSON profile of the App User.
      */
-    profile?: pulumi.Input<string>;
+    profile?: pulumi.Input<string | undefined>;
     /**
      * Retain the user assignment on destroy. If set to true, the resource will be removed from state but not from the Okta app.
      */
-    retainAssignment?: pulumi.Input<boolean>;
+    retainAssignment?: pulumi.Input<boolean | undefined>;
     /**
      * User associated with the application
      */
@@ -183,5 +183,5 @@ export interface UserArgs {
     /**
      * The username to use for the app user. In case the user is assigned to the app with `SHARED_USERNAME_AND_PASSWORD` credentials scheme, this field will be computed and should not be set.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

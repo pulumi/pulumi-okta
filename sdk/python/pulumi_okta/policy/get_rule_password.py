@@ -284,9 +284,9 @@ def get_rule_password(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         users_excludeds=pulumi.get(__ret__, 'users_excludeds'),
         users_includeds=pulumi.get(__ret__, 'users_includeds'))
-def get_rule_password_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                             name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                             policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rule_password_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                             name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulePasswordResult]:
     """
     Get a Password Policy Rule from Okta.

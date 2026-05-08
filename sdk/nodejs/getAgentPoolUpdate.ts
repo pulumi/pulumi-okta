@@ -138,7 +138,7 @@ export interface GetAgentPoolUpdateOutputArgs {
     /**
      * The agents associated with the agent pool update.
      */
-    agents?: pulumi.Input<pulumi.Input<inputs.GetAgentPoolUpdateAgentArgs>[]>;
+    agents?: pulumi.Input<pulumi.Input<inputs.GetAgentPoolUpdateAgentArgs>[] | undefined>;
     /**
      * The unique identifier of the agent pool update.
      */
@@ -150,5 +150,5 @@ export interface GetAgentPoolUpdateOutputArgs {
     /**
      * The schedule configuration for the agent pool update.
      */
-    schedule?: pulumi.Input<inputs.GetAgentPoolUpdateScheduleArgs>;
+    schedule?: pulumi.Input<inputs.GetAgentPoolUpdateScheduleArgs | undefined>;
 }

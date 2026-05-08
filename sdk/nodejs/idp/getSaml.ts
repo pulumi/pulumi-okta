@@ -133,9 +133,9 @@ export interface GetSamlOutputArgs {
     /**
      * Id of idp.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Name of the idp.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

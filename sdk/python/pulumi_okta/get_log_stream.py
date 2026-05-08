@@ -120,9 +120,9 @@ def get_log_stream(id: Optional[_builtins.str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_log_stream_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          settings: Optional[pulumi.Input[Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict']]]] = None,
+def get_log_stream_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          settings: pulumi.Input[Optional[Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogStreamResult]:
     """
     Log Streams

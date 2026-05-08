@@ -19,10 +19,10 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Group resource.
 
@@ -45,61 +45,61 @@ class GroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
-    def custom_profile_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_profile_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
     @custom_profile_attributes.setter
-    def custom_profile_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_profile_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Okta Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Okta Group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipUsers")
     @_utilities.deprecated("""Because users has been removed, this attribute is a no op and will be removed""")
-    def skip_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         return pulumi.get(self, "skip_users")
 
     @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_users", value)
 
 
 @pulumi.input_type
 class _GroupState:
     def __init__(__self__, *,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_users: Optional[pulumi.Input[_builtins.bool]] = None):
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
 
@@ -122,51 +122,51 @@ class _GroupState:
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
-    def custom_profile_attributes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_profile_attributes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
         """
         return pulumi.get(self, "custom_profile_attributes")
 
     @custom_profile_attributes.setter
-    def custom_profile_attributes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_profile_attributes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_profile_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Okta Group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Okta Group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="skipUsers")
     @_utilities.deprecated("""Because users has been removed, this attribute is a no op and will be removed""")
-    def skip_users(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
         """
         return pulumi.get(self, "skip_users")
 
     @skip_users.setter
-    def skip_users(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_users", value)
 
 
@@ -176,10 +176,10 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_users: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Creates an Okta Group. This resource allows you to create and configure an Okta Group.
@@ -229,10 +229,10 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_users: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,10 +256,10 @@ class Group(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_profile_attributes: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            skip_users: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Group':
+            custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_users: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

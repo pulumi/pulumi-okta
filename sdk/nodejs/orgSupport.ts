@@ -93,15 +93,15 @@ export interface OrgSupportState {
     /**
      * Expiration of Okta Support
      */
-    expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string | undefined>;
     /**
      * Number of days the support should be extended by
      */
-    extendBy?: pulumi.Input<number>;
+    extendBy?: pulumi.Input<number | undefined>;
     /**
      * Status of Okta Support
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface OrgSupportArgs {
     /**
      * Number of days the support should be extended by
      */
-    extendBy?: pulumi.Input<number>;
+    extendBy?: pulumi.Input<number | undefined>;
 }

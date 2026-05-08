@@ -81,5 +81,5 @@ export interface GetBehavioursOutputArgs {
     /**
      * Searches the name property of behaviors for matching value
      */
-    q?: pulumi.Input<string>;
+    q?: pulumi.Input<string | undefined>;
 }

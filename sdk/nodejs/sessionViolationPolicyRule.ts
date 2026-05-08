@@ -155,39 +155,39 @@ export interface SessionViolationPolicyRuleState {
     /**
      * The minimum risk level that triggers the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`.
      */
-    minRiskLevel?: pulumi.Input<string>;
+    minRiskLevel?: pulumi.Input<string | undefined>;
     /**
      * Name of the policy rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode. Valid values: `ANYWHERE`, `ZONE`, `ON_NETWORK`, `OFF_NETWORK`.
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * List of network zone IDs to exclude. Required when `networkConnection` is set to `ZONE`.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of network zone IDs to include. Required when `networkConnection` is set to `ZONE`.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When `true`, the sign-on policies of the session are evaluated when a session violation is detected. Default is `true`.
      */
-    policyEvaluationEnabled?: pulumi.Input<boolean>;
+    policyEvaluationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Session Violation Detection Policy. Use the `okta.getSessionViolationPolicy` data source to get this ID.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Priority of the rule. Rules are evaluated in priority order.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -201,23 +201,23 @@ export interface SessionViolationPolicyRuleArgs {
     /**
      * Name of the policy rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode. Valid values: `ANYWHERE`, `ZONE`, `ON_NETWORK`, `OFF_NETWORK`.
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * List of network zone IDs to exclude. Required when `networkConnection` is set to `ZONE`.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of network zone IDs to include. Required when `networkConnection` is set to `ZONE`.
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * When `true`, the sign-on policies of the session are evaluated when a session violation is detected. Default is `true`.
      */
-    policyEvaluationEnabled?: pulumi.Input<boolean>;
+    policyEvaluationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the Session Violation Detection Policy. Use the `okta.getSessionViolationPolicy` data source to get this ID.
      */
@@ -225,9 +225,9 @@ export interface SessionViolationPolicyRuleArgs {
     /**
      * Priority of the rule. Rules are evaluated in priority order.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

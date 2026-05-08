@@ -86,7 +86,7 @@ def get_app_user_assignments(id: Optional[_builtins.str] = None,
     return AwaitableGetAppUserAssignmentsResult(
         id=pulumi.get(__ret__, 'id'),
         users=pulumi.get(__ret__, 'users'))
-def get_app_user_assignments_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_user_assignments_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppUserAssignmentsResult]:
     """
     Get a set of users assigned to an Okta application.

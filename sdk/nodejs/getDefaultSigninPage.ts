@@ -73,6 +73,6 @@ export interface GetDefaultSigninPageOutputArgs {
      * brand id of the preview signin page
      */
     brandId: pulumi.Input<string>;
-    contentSecurityPolicySetting?: pulumi.Input<inputs.GetDefaultSigninPageContentSecurityPolicySettingArgs>;
-    widgetCustomizations?: pulumi.Input<inputs.GetDefaultSigninPageWidgetCustomizationsArgs>;
+    contentSecurityPolicySetting?: pulumi.Input<inputs.GetDefaultSigninPageContentSecurityPolicySettingArgs | undefined>;
+    widgetCustomizations?: pulumi.Input<inputs.GetDefaultSigninPageWidgetCustomizationsArgs | undefined>;
 }

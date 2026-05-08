@@ -20,19 +20,19 @@ __all__ = ['AuthenticatorArgs', 'Authenticator']
 class AuthenticatorArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_auth_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_integration_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 agree_to_terms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 legacy_ignore_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_auth_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authenticator resource.
 
@@ -93,181 +93,181 @@ class AuthenticatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="agreeToTerms")
-    def agree_to_terms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agree_to_terms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
         """
         return pulumi.get(self, "agree_to_terms")
 
     @agree_to_terms.setter
-    def agree_to_terms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agree_to_terms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agree_to_terms", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyIgnoreName")
-    def legacy_ignore_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def legacy_ignore_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         """
         return pulumi.get(self, "legacy_ignore_name")
 
     @legacy_ignore_name.setter
-    def legacy_ignore_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def legacy_ignore_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "legacy_ignore_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the Authenticator
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerAuthPort")
-    def provider_auth_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provider_auth_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_auth_port")
 
     @provider_auth_port.setter
-    def provider_auth_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provider_auth_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provider_auth_port", value)
 
     @_builtins.property
     @pulumi.getter(name="providerHost")
-    def provider_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_host")
 
     @provider_host.setter
-    def provider_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_host", value)
 
     @_builtins.property
     @pulumi.getter(name="providerHostname")
-    def provider_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_hostname")
 
     @provider_hostname.setter
-    def provider_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="providerIntegrationKey")
-    def provider_integration_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_integration_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_integration_key")
 
     @provider_integration_key.setter
-    def provider_integration_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_integration_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_integration_key", value)
 
     @_builtins.property
     @pulumi.getter(name="providerJson")
-    def provider_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provider JSON allows for expressive providervalues. This argument conflicts with the other 'provider_xxx' arguments. The [CreateProvider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request) illustrates detailed provider values for a Duo authenticator. [Provider values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)are listed in Okta API.
         """
         return pulumi.get(self, "provider_json")
 
     @provider_json.setter
-    def provider_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_json", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSecretKey")
-    def provider_secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_secret_key")
 
     @provider_secret_key.setter
-    def provider_secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSharedSecret")
-    def provider_shared_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_shared_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_shared_secret")
 
     @provider_shared_secret.setter
-    def provider_shared_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_shared_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_shared_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="providerUserNameTemplate")
-    def provider_user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_user_name_template")
 
     @provider_user_name_template.setter
-    def provider_user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_user_name_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class _AuthenticatorState:
     def __init__(__self__, *,
-                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_auth_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_integration_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 agree_to_terms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_ignore_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_auth_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authenticator resources.
 
@@ -326,206 +326,206 @@ class _AuthenticatorState:
 
     @_builtins.property
     @pulumi.getter(name="agreeToTerms")
-    def agree_to_terms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def agree_to_terms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new custom_app authenticator. Other authenticators don't require this field.
         """
         return pulumi.get(self, "agree_to_terms")
 
     @agree_to_terms.setter
-    def agree_to_terms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def agree_to_terms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "agree_to_terms", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable string that identifies the authenticator. Some authenticators are available by feature flag on the organization. Possible values inclue: `custom_app`, `custom_otp`, `duo`, `external_idp`, `google_otp`, `okta_email`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `rsa_token`, `security_question`, `webauthn`
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="legacyIgnoreName")
-    def legacy_ignore_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def legacy_ignore_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Name does not trigger change detection (legacy behavior). Must be set to false for custom_app authenticators.
         """
         return pulumi.get(self, "legacy_ignore_name")
 
     @legacy_ignore_name.setter
-    def legacy_ignore_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def legacy_ignore_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "legacy_ignore_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the Authenticator
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerAuthPort")
-    def provider_auth_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def provider_auth_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The RADIUS server port (for example 1812). This is defined when the On-Prem RADIUS server is configured. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_auth_port")
 
     @provider_auth_port.setter
-    def provider_auth_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def provider_auth_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "provider_auth_port", value)
 
     @_builtins.property
     @pulumi.getter(name="providerHost")
-    def provider_host(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DUO specific) - The Duo Security API hostname. Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_host")
 
     @provider_host.setter
-    def provider_host(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_host(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_host", value)
 
     @_builtins.property
     @pulumi.getter(name="providerHostname")
-    def provider_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Server host name or IP address. Default is `localhost`. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_hostname")
 
     @provider_hostname.setter
-    def provider_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="providerInstanceId")
-    def provider_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         App Instance ID.
         """
         return pulumi.get(self, "provider_instance_id")
 
     @provider_instance_id.setter
-    def provider_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="providerIntegrationKey")
-    def provider_integration_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_integration_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DUO specific) - The Duo Security integration key.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_integration_key")
 
     @provider_integration_key.setter
-    def provider_integration_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_integration_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_integration_key", value)
 
     @_builtins.property
     @pulumi.getter(name="providerJson")
-    def provider_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provider JSON allows for expressive providervalues. This argument conflicts with the other 'provider_xxx' arguments. The [CreateProvider](https://developer.okta.com/docs/reference/api/authenticators-admin/#request) illustrates detailed provider values for a Duo authenticator. [Provider values](https://developer.okta.com/docs/reference/api/authenticators-admin/#authenticators-administration-api-object)are listed in Okta API.
         """
         return pulumi.get(self, "provider_json")
 
     @provider_json.setter
-    def provider_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_json", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSecretKey")
-    def provider_secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (DUO specific) - The Duo Security secret key.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_secret_key")
 
     @provider_secret_key.setter
-    def provider_secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSharedSecret")
-    def provider_shared_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_shared_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An authentication key that must be defined when the RADIUS server is configured, and must be the same on both the RADIUS client and server. Used only for authenticators with type `security_key`. Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_shared_secret")
 
     @provider_shared_secret.setter
-    def provider_shared_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_shared_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_shared_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="providerType")
-    def provider_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH`
         """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
-    def provider_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="providerUserNameTemplate")
-    def provider_user_name_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def provider_user_name_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Username template expected by the provider. Used only for authenticators with type `security_key`.  Conflicts with `provider_json` argument.
         """
         return pulumi.get(self, "provider_user_name_template")
 
     @provider_user_name_template.setter
-    def provider_user_name_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def provider_user_name_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provider_user_name_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Settings for the authenticator. The settings JSON contains values based on Authenticator key. It is not used for authenticators with type `security_key`
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Authenticator status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         he type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -535,20 +535,20 @@ class Authenticator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_auth_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_integration_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 agree_to_terms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_ignore_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_auth_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -738,20 +738,20 @@ class Authenticator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_auth_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 provider_host: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_integration_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_json: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 provider_user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 agree_to_terms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 legacy_ignore_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_auth_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 provider_host: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_json: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider_user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -792,23 +792,23 @@ class Authenticator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agree_to_terms: Optional[pulumi.Input[_builtins.bool]] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            legacy_ignore_name: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_auth_port: Optional[pulumi.Input[_builtins.int]] = None,
-            provider_host: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_integration_key: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_json: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_shared_secret: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_type: Optional[pulumi.Input[_builtins.str]] = None,
-            provider_user_name_template: Optional[pulumi.Input[_builtins.str]] = None,
-            settings: Optional[pulumi.Input[_builtins.str]] = None,
-            status: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Authenticator':
+            agree_to_terms: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            legacy_ignore_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_auth_port: pulumi.Input[Optional[_builtins.int]] = None,
+            provider_host: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_json: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Authenticator':
         """
         Get an existing Authenticator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

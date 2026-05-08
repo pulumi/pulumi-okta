@@ -20,20 +20,20 @@ __all__ = ['OrgConfigurationArgs', 'OrgConfiguration']
 class OrgConfigurationArgs:
     def __init__(__self__, *,
                  company_name: pulumi.Input[_builtins.str],
-                 address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_support_help_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_out_communication_emails: Optional[pulumi.Input[_builtins.bool]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 technical_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 website: Optional[pulumi.Input[_builtins.str]] = None):
+                 address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_support_help_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_out_communication_emails: pulumi.Input[Optional[_builtins.bool]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 technical_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 website: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OrgConfiguration resource.
 
@@ -97,193 +97,193 @@ class OrgConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary address of org
         """
         return pulumi.get(self, "address1")
 
     @address1.setter
-    def address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address1", value)
 
     @_builtins.property
     @pulumi.getter
-    def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary address of org
         """
         return pulumi.get(self, "address2")
 
     @address2.setter
-    def address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address2", value)
 
     @_builtins.property
     @pulumi.getter(name="billingContactUser")
-    def billing_contact_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_contact_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User ID representing the billing contact
         """
         return pulumi.get(self, "billing_contact_user")
 
     @billing_contact_user.setter
-    def billing_contact_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_contact_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_contact_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         City of org
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of org
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="endUserSupportHelpUrl")
-    def end_user_support_help_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_user_support_help_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support link of org
         """
         return pulumi.get(self, "end_user_support_help_url")
 
     @end_user_support_help_url.setter
-    def end_user_support_help_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_user_support_help_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_user_support_help_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="optOutCommunicationEmails")
-    def opt_out_communication_emails(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def opt_out_communication_emails(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the org's users receive Okta Communication emails
         """
         return pulumi.get(self, "opt_out_communication_emails")
 
     @opt_out_communication_emails.setter
-    def opt_out_communication_emails(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def opt_out_communication_emails(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "opt_out_communication_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support help phone of org
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Postal code of org
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of org
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="supportPhoneNumber")
-    def support_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support help phone of org
         """
         return pulumi.get(self, "support_phone_number")
 
     @support_phone_number.setter
-    def support_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="technicalContactUser")
-    def technical_contact_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def technical_contact_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User ID representing the technical contact
         """
         return pulumi.get(self, "technical_contact_user")
 
     @technical_contact_user.setter
-    def technical_contact_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def technical_contact_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "technical_contact_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def website(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The org's website
         """
         return pulumi.get(self, "website")
 
     @website.setter
-    def website(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website", value)
 
 
 @pulumi.input_type
 class _OrgConfigurationState:
     def __init__(__self__, *,
-                 address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_support_help_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_out_communication_emails: Optional[pulumi.Input[_builtins.bool]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdomain: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 technical_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 website: Optional[pulumi.Input[_builtins.str]] = None):
+                 address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_support_help_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_out_communication_emails: pulumi.Input[Optional[_builtins.bool]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 technical_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 website: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrgConfiguration resources.
 
@@ -342,206 +342,206 @@ class _OrgConfigurationState:
 
     @_builtins.property
     @pulumi.getter
-    def address1(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary address of org
         """
         return pulumi.get(self, "address1")
 
     @address1.setter
-    def address1(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address1(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address1", value)
 
     @_builtins.property
     @pulumi.getter
-    def address2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secondary address of org
         """
         return pulumi.get(self, "address2")
 
     @address2.setter
-    def address2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address2", value)
 
     @_builtins.property
     @pulumi.getter(name="billingContactUser")
-    def billing_contact_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_contact_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User ID representing the billing contact
         """
         return pulumi.get(self, "billing_contact_user")
 
     @billing_contact_user.setter
-    def billing_contact_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_contact_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_contact_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def city(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         City of org
         """
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter(name="companyName")
-    def company_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def company_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of org
         """
         return pulumi.get(self, "company_name")
 
     @company_name.setter
-    def company_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def company_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "company_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def country(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Country of org
         """
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def country(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter(name="endUserSupportHelpUrl")
-    def end_user_support_help_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_user_support_help_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support link of org
         """
         return pulumi.get(self, "end_user_support_help_url")
 
     @end_user_support_help_url.setter
-    def end_user_support_help_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_user_support_help_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_user_support_help_url", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Expiration of org
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Logo of org. The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         """
         return pulumi.get(self, "logo")
 
     @logo.setter
-    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logo(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logo", value)
 
     @_builtins.property
     @pulumi.getter(name="optOutCommunicationEmails")
-    def opt_out_communication_emails(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def opt_out_communication_emails(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the org's users receive Okta Communication emails
         """
         return pulumi.get(self, "opt_out_communication_emails")
 
     @opt_out_communication_emails.setter
-    def opt_out_communication_emails(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def opt_out_communication_emails(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "opt_out_communication_emails", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support help phone of org
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def postal_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Postal code of org
         """
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def postal_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         State of org
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdomain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subdomain of org
         """
         return pulumi.get(self, "subdomain")
 
     @subdomain.setter
-    def subdomain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdomain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdomain", value)
 
     @_builtins.property
     @pulumi.getter(name="supportPhoneNumber")
-    def support_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Support help phone of org
         """
         return pulumi.get(self, "support_phone_number")
 
     @support_phone_number.setter
-    def support_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="technicalContactUser")
-    def technical_contact_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def technical_contact_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User ID representing the technical contact
         """
         return pulumi.get(self, "technical_contact_user")
 
     @technical_contact_user.setter
-    def technical_contact_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def technical_contact_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "technical_contact_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def website(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def website(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The org's website
         """
         return pulumi.get(self, "website")
 
     @website.setter
-    def website(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def website(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "website", value)
 
 
@@ -551,21 +551,21 @@ class OrgConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_support_help_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_out_communication_emails: Optional[pulumi.Input[_builtins.bool]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 technical_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 website: Optional[pulumi.Input[_builtins.str]] = None,
+                 address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_support_help_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_out_communication_emails: pulumi.Input[Optional[_builtins.bool]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 technical_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 website: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages org settings, logo, support and communication.
@@ -652,21 +652,21 @@ class OrgConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address1: Optional[pulumi.Input[_builtins.str]] = None,
-                 address2: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 city: Optional[pulumi.Input[_builtins.str]] = None,
-                 company_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 country: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_user_support_help_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 logo: Optional[pulumi.Input[_builtins.str]] = None,
-                 opt_out_communication_emails: Optional[pulumi.Input[_builtins.bool]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 technical_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 website: Optional[pulumi.Input[_builtins.str]] = None,
+                 address1: pulumi.Input[Optional[_builtins.str]] = None,
+                 address2: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 city: pulumi.Input[Optional[_builtins.str]] = None,
+                 company_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 country: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_user_support_help_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 logo: pulumi.Input[Optional[_builtins.str]] = None,
+                 opt_out_communication_emails: pulumi.Input[Optional[_builtins.bool]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 technical_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 website: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -705,23 +705,23 @@ class OrgConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            address1: Optional[pulumi.Input[_builtins.str]] = None,
-            address2: Optional[pulumi.Input[_builtins.str]] = None,
-            billing_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-            city: Optional[pulumi.Input[_builtins.str]] = None,
-            company_name: Optional[pulumi.Input[_builtins.str]] = None,
-            country: Optional[pulumi.Input[_builtins.str]] = None,
-            end_user_support_help_url: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-            logo: Optional[pulumi.Input[_builtins.str]] = None,
-            opt_out_communication_emails: Optional[pulumi.Input[_builtins.bool]] = None,
-            phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            postal_code: Optional[pulumi.Input[_builtins.str]] = None,
-            state: Optional[pulumi.Input[_builtins.str]] = None,
-            subdomain: Optional[pulumi.Input[_builtins.str]] = None,
-            support_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
-            technical_contact_user: Optional[pulumi.Input[_builtins.str]] = None,
-            website: Optional[pulumi.Input[_builtins.str]] = None) -> 'OrgConfiguration':
+            address1: pulumi.Input[Optional[_builtins.str]] = None,
+            address2: pulumi.Input[Optional[_builtins.str]] = None,
+            billing_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+            city: pulumi.Input[Optional[_builtins.str]] = None,
+            company_name: pulumi.Input[Optional[_builtins.str]] = None,
+            country: pulumi.Input[Optional[_builtins.str]] = None,
+            end_user_support_help_url: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            opt_out_communication_emails: pulumi.Input[Optional[_builtins.bool]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+            support_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            technical_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+            website: pulumi.Input[Optional[_builtins.str]] = None) -> 'OrgConfiguration':
         """
         Get an existing OrgConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

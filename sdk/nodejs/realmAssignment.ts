@@ -138,31 +138,31 @@ export interface RealmAssignmentState {
     /**
      * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
      */
-    conditionExpression?: pulumi.Input<string>;
+    conditionExpression?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the realm assignment is the default.
      */
-    isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Okta Realm Assignment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Priority of the Realm Assignment. The lower the number, the higher the priority.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Profile Source.
      */
-    profileSourceId?: pulumi.Input<string>;
+    profileSourceId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Realm asscociated with the Realm Assignment.
      */
-    realmId?: pulumi.Input<string>;
+    realmId?: pulumi.Input<string | undefined>;
     /**
      * Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -172,15 +172,15 @@ export interface RealmAssignmentArgs {
     /**
      * Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
      */
-    conditionExpression?: pulumi.Input<string>;
+    conditionExpression?: pulumi.Input<string | undefined>;
     /**
      * The name of the Okta Realm Assignment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Priority of the Realm Assignment. The lower the number, the higher the priority.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The ID of the Profile Source.
      */
@@ -192,5 +192,5 @@ export interface RealmAssignmentArgs {
     /**
      * Defines whether the Realm Assignment is active or not. Valid values: `ACTIVE` and `INACTIVE`.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }

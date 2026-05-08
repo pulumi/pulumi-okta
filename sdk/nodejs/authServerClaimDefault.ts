@@ -135,35 +135,35 @@ export interface AuthServerClaimDefaultState {
     /**
      * Specifies whether to include claims in token.
      */
-    alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the authorization server.
      */
-    authServerId?: pulumi.Input<string>;
+    authServerId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the claim is for an access token `RESOURCE` or ID token `IDENTITY`.
      */
-    claimType?: pulumi.Input<string>;
+    claimType?: pulumi.Input<string | undefined>;
     /**
      * The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Auth server claim list of scopes
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The status of the application.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The value of the claim. Only required for `sub` claim.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
     /**
      * The type of value of the claim.
      */
-    valueType?: pulumi.Input<string>;
+    valueType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface AuthServerClaimDefaultArgs {
     /**
      * Specifies whether to include claims in token.
      */
-    alwaysIncludeInToken?: pulumi.Input<boolean>;
+    alwaysIncludeInToken?: pulumi.Input<boolean | undefined>;
     /**
      * ID of the authorization server.
      */
@@ -181,9 +181,9 @@ export interface AuthServerClaimDefaultArgs {
     /**
      * The name of the claim. Can be set to `sub`, `address`, `birthdate`, `email`,`emailVerified`, `familyName`, `gender`, `givenName`, `locale`, `middleName`, `name`, `nickname`,`phoneNumber`, `picture`, `preferredUsername`, `profile`, `updatedAt`, `website`, `zoneinfo`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The value of the claim. Only required for `sub` claim.
      */
-    value?: pulumi.Input<string>;
+    value?: pulumi.Input<string | undefined>;
 }

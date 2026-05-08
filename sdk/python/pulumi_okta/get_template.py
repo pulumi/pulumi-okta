@@ -117,8 +117,8 @@ def get_template(brand_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         links=pulumi.get(__ret__, 'links'),
         name=pulumi.get(__ret__, 'name'))
-def get_template_output(brand_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_template_output(brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Get a single Email Template for a Brand belonging to an Okta organization.

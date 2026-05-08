@@ -112,25 +112,25 @@ export interface GetUsersOutputArgs {
     /**
      * Search operator used when joining multiple search clauses
      */
-    compoundSearchOperator?: pulumi.Input<string>;
+    compoundSearchOperator?: pulumi.Input<string | undefined>;
     /**
      * Force delay of the users read by N seconds. Useful when eventual consistency of users information needs to be allowed for.
      */
-    delayReadSeconds?: pulumi.Input<string>;
+    delayReadSeconds?: pulumi.Input<string | undefined>;
     /**
      * Find users based on group membership using the id of the group.
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Fetch group memberships for each user
      */
-    includeGroups?: pulumi.Input<boolean>;
+    includeGroups?: pulumi.Input<boolean | undefined>;
     /**
      * Fetch user roles for each user
      */
-    includeRoles?: pulumi.Input<boolean>;
+    includeRoles?: pulumi.Input<boolean | undefined>;
     /**
      * Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
      */
-    searches?: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[]>;
+    searches?: pulumi.Input<pulumi.Input<inputs.user.GetUsersSearchArgs>[] | undefined>;
 }

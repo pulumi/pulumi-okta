@@ -21,7 +21,7 @@ class UserAdminRolesArgs:
     def __init__(__self__, *,
                  admin_roles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  user_id: pulumi.Input[_builtins.str],
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a UserAdminRoles resource.
 
@@ -60,23 +60,23 @@ class UserAdminRolesArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableNotifications")
-    def disable_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")
 
     @disable_notifications.setter
-    def disable_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_notifications", value)
 
 
 @pulumi.input_type
 class _UserAdminRolesState:
     def __init__(__self__, *,
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 admin_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserAdminRoles resources.
 
@@ -93,38 +93,38 @@ class _UserAdminRolesState:
 
     @_builtins.property
     @pulumi.getter(name="adminRoles")
-    def admin_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
         """
         return pulumi.get(self, "admin_roles")
 
     @admin_roles.setter
-    def admin_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="disableNotifications")
-    def disable_notifications(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_notifications(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
         """
         return pulumi.get(self, "disable_notifications")
 
     @disable_notifications.setter
-    def disable_notifications(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_notifications(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_notifications", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of a Okta User
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -134,9 +134,9 @@ class UserAdminRoles(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource to manage a set of administrator roles for a specific user. This resource allows you to manage admin roles for a single user, independent of the user schema itself.
@@ -217,9 +217,9 @@ class UserAdminRoles(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,9 +246,9 @@ class UserAdminRoles(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            admin_roles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            disable_notifications: Optional[pulumi.Input[_builtins.bool]] = None,
-            user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserAdminRoles':
+            admin_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserAdminRoles':
         """
         Get an existing UserAdminRoles resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

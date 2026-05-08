@@ -96,21 +96,21 @@ export interface GroupState {
     /**
      * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      */
-    customProfileAttributes?: pulumi.Input<string>;
+    customProfileAttributes?: pulumi.Input<string | undefined>;
     /**
      * The description of the Okta Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Okta Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
      *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
-    skipUsers?: pulumi.Input<boolean>;
+    skipUsers?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -120,19 +120,19 @@ export interface GroupArgs {
     /**
      * JSON formatted custom attributes for a group. It must be JSON due to various types Okta allows.
      */
-    customProfileAttributes?: pulumi.Input<string>;
+    customProfileAttributes?: pulumi.Input<string | undefined>;
     /**
      * The description of the Okta Group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Okta Group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Ignore users sync. This is a temporary solution until 'users' field is supported in all the app-like resources
      *
      * @deprecated Because users has been removed, this attribute is a no op and will be removed
      */
-    skipUsers?: pulumi.Input<boolean>;
+    skipUsers?: pulumi.Input<boolean | undefined>;
 }

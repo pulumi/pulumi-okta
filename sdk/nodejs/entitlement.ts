@@ -141,36 +141,36 @@ export interface EntitlementState {
     /**
      * The data type of the entitlement property. If the entitlement property is multivalued, the data type is replaced with an array. Enum: "array", "string".
      */
-    dataType?: pulumi.Input<string>;
+    dataType?: pulumi.Input<string | undefined>;
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property.
      */
-    externalValue?: pulumi.Input<string>;
+    externalValue?: pulumi.Input<string | undefined>;
     /**
      * The property that determines if the entitlement property can hold multiple values.
      */
-    multiValue?: pulumi.Input<boolean>;
+    multiValue?: pulumi.Input<boolean | undefined>;
     /**
      * The display name for an entitlement property.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Representation of a resource
      */
-    parent?: pulumi.Input<inputs.EntitlementParent>;
+    parent?: pulumi.Input<inputs.EntitlementParent | undefined>;
     /**
      * The Okta app instance, in ORN format.
      */
-    parentResourceOrn?: pulumi.Input<string>;
+    parentResourceOrn?: pulumi.Input<string | undefined>;
     /**
      * The value of the entitlement property.
      */
-    value?: pulumi.Input<string>;
-    values?: pulumi.Input<pulumi.Input<inputs.EntitlementValue>[]>;
+    value?: pulumi.Input<string | undefined>;
+    values?: pulumi.Input<pulumi.Input<inputs.EntitlementValue>[] | undefined>;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface EntitlementArgs {
     /**
      * The description of an entitlement property.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The value of an entitlement property.
      */
@@ -196,18 +196,18 @@ export interface EntitlementArgs {
     /**
      * The display name for an entitlement property.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Representation of a resource
      */
-    parent?: pulumi.Input<inputs.EntitlementParent>;
+    parent?: pulumi.Input<inputs.EntitlementParent | undefined>;
     /**
      * The Okta app instance, in ORN format.
      */
-    parentResourceOrn?: pulumi.Input<string>;
+    parentResourceOrn?: pulumi.Input<string | undefined>;
     /**
      * The value of the entitlement property.
      */
-    value?: pulumi.Input<string>;
-    values?: pulumi.Input<pulumi.Input<inputs.EntitlementValue>[]>;
+    value?: pulumi.Input<string | undefined>;
+    values?: pulumi.Input<pulumi.Input<inputs.EntitlementValue>[] | undefined>;
 }

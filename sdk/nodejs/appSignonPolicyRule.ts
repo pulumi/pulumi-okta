@@ -244,108 +244,108 @@ export interface AppSignonPolicyRuleState {
     /**
      * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
-    access?: pulumi.Input<string>;
+    access?: pulumi.Input<string | undefined>;
     /**
      * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      */
-    chains?: pulumi.Input<pulumi.Input<string>[]>;
+    chains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
-    constraints?: pulumi.Input<pulumi.Input<string>[]>;
+    constraints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
-    customExpression?: pulumi.Input<string>;
+    customExpression?: pulumi.Input<string | undefined>;
     /**
      * List of device assurance IDs to include
      */
-    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
-    deviceIsManaged?: pulumi.Input<boolean>;
+    deviceIsManaged?: pulumi.Input<boolean | undefined>;
     /**
      * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      */
-    deviceIsRegistered?: pulumi.Input<boolean>;
+    deviceIsRegistered?: pulumi.Input<boolean | undefined>;
     /**
      * The number of factors required to satisfy this assurance level
      */
-    factorMode?: pulumi.Input<string>;
+    factorMode?: pulumi.Input<string | undefined>;
     /**
      * List of group IDs to exclude
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
-    inactivityPeriod?: pulumi.Input<string>;
+    inactivityPeriod?: pulumi.Input<string | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * The zones to exclude
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The zones to include
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[] | undefined>;
     /**
      * ID of the policy
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      */
-    reAuthenticationFrequency?: pulumi.Input<string>;
+    reAuthenticationFrequency?: pulumi.Input<string | undefined>;
     /**
      * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
-    riskScore?: pulumi.Input<string>;
+    riskScore?: pulumi.Input<string | undefined>;
     /**
      * Status of the rule
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Often the `Catch-all Rule` this rule is the system (default) rule for its associated policy
      */
-    system?: pulumi.Input<boolean>;
+    system?: pulumi.Input<boolean | undefined>;
     /**
      * The Verification Method type
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Set of User Type IDs to exclude
      */
-    userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User Type IDs to include
      */
-    userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -355,64 +355,64 @@ export interface AppSignonPolicyRuleArgs {
     /**
      * Allow or deny access based on the rule conditions: ALLOW or DENY
      */
-    access?: pulumi.Input<string>;
+    access?: pulumi.Input<string | undefined>;
     /**
      * Authentication method chains. Only supports 5 items in the array. Each chain can support maximum 3 steps. To be used only with verification method type `AUTH_METHOD_CHAIN`.
      */
-    chains?: pulumi.Input<pulumi.Input<string>[]>;
+    chains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array that contains nested Authenticator Constraint objects that are organized by the Authenticator class
      */
-    constraints?: pulumi.Input<pulumi.Input<string>[]>;
+    constraints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
      */
-    customExpression?: pulumi.Input<string>;
+    customExpression?: pulumi.Input<string | undefined>;
     /**
      * List of device assurance IDs to include
      */
-    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
-    deviceIsManaged?: pulumi.Input<boolean>;
+    deviceIsManaged?: pulumi.Input<boolean | undefined>;
     /**
      * If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
      */
-    deviceIsRegistered?: pulumi.Input<boolean>;
+    deviceIsRegistered?: pulumi.Input<boolean | undefined>;
     /**
      * The number of factors required to satisfy this assurance level
      */
-    factorMode?: pulumi.Input<string>;
+    factorMode?: pulumi.Input<string | undefined>;
     /**
      * List of group IDs to exclude
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
-    inactivityPeriod?: pulumi.Input<string>;
+    inactivityPeriod?: pulumi.Input<string | undefined>;
     /**
      * Policy Rule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
      */
-    networkConnection?: pulumi.Input<string>;
+    networkConnection?: pulumi.Input<string | undefined>;
     /**
      * The zones to exclude
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The zones to include
      */
-    networkIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[]>;
+    networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[] | undefined>;
     /**
      * ID of the policy
      */
@@ -420,37 +420,37 @@ export interface AppSignonPolicyRuleArgs {
     /**
      * Priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
      */
-    reAuthenticationFrequency?: pulumi.Input<string>;
+    reAuthenticationFrequency?: pulumi.Input<string | undefined>;
     /**
      * The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
      */
-    riskScore?: pulumi.Input<string>;
+    riskScore?: pulumi.Input<string | undefined>;
     /**
      * Status of the rule
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * The Verification Method type
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Set of User Type IDs to exclude
      */
-    userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User Type IDs to include
      */
-    userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[]>;
+    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -115,15 +115,15 @@ export interface AppOauthApiScopeState {
     /**
      * ID of the application.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The issuer of your Org Authorization Server, your Org URL.
      */
-    issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string | undefined>;
     /**
      * Scopes of the application for which consent is granted.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**

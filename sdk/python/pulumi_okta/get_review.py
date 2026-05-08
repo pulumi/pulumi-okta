@@ -318,14 +318,14 @@ def get_review(all_reviewer_levels: Optional[Sequence[Union['GetReviewAllReviewe
         resource_id=pulumi.get(__ret__, 'resource_id'),
         reviewer_profile=pulumi.get(__ret__, 'reviewer_profile'),
         reviewer_type=pulumi.get(__ret__, 'reviewer_type'))
-def get_review_output(all_reviewer_levels: Optional[pulumi.Input[Optional[Sequence[Union['GetReviewAllReviewerLevelArgs', 'GetReviewAllReviewerLevelArgsDict']]]]] = None,
-                      entitlement_bundle: Optional[pulumi.Input[Optional[Union['GetReviewEntitlementBundleArgs', 'GetReviewEntitlementBundleArgsDict']]]] = None,
-                      entitlement_value: Optional[pulumi.Input[Optional[Union['GetReviewEntitlementValueArgs', 'GetReviewEntitlementValueArgsDict']]]] = None,
-                      id: Optional[pulumi.Input[_builtins.str]] = None,
-                      links: Optional[pulumi.Input[Optional[Union['GetReviewLinksArgs', 'GetReviewLinksArgsDict']]]] = None,
-                      note: Optional[pulumi.Input[Optional[Union['GetReviewNoteArgs', 'GetReviewNoteArgsDict']]]] = None,
-                      principal_profile: Optional[pulumi.Input[Optional[Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict']]]] = None,
-                      reviewer_profile: Optional[pulumi.Input[Optional[Union['GetReviewReviewerProfileArgs', 'GetReviewReviewerProfileArgsDict']]]] = None,
+def get_review_output(all_reviewer_levels: pulumi.Input[Optional[Optional[Sequence[Union['GetReviewAllReviewerLevelArgs', 'GetReviewAllReviewerLevelArgsDict']]]]] = None,
+                      entitlement_bundle: pulumi.Input[Optional[Optional[Union['GetReviewEntitlementBundleArgs', 'GetReviewEntitlementBundleArgsDict']]]] = None,
+                      entitlement_value: pulumi.Input[Optional[Optional[Union['GetReviewEntitlementValueArgs', 'GetReviewEntitlementValueArgsDict']]]] = None,
+                      id: pulumi.Input[Optional[_builtins.str]] = None,
+                      links: pulumi.Input[Optional[Optional[Union['GetReviewLinksArgs', 'GetReviewLinksArgsDict']]]] = None,
+                      note: pulumi.Input[Optional[Optional[Union['GetReviewNoteArgs', 'GetReviewNoteArgsDict']]]] = None,
+                      principal_profile: pulumi.Input[Optional[Optional[Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict']]]] = None,
+                      reviewer_profile: pulumi.Input[Optional[Optional[Union['GetReviewReviewerProfileArgs', 'GetReviewReviewerProfileArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReviewResult]:
     """
     Get the reviews belonging to a campaign

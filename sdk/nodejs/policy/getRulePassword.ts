@@ -161,7 +161,7 @@ export interface GetRulePasswordOutputArgs {
     /**
      * Name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * ID of the Policy owning this rule.
      */

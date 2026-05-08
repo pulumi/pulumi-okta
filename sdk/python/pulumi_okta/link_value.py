@@ -21,7 +21,7 @@ class LinkValueArgs:
     def __init__(__self__, *,
                  primary_name: pulumi.Input[_builtins.str],
                  primary_user_id: pulumi.Input[_builtins.str],
-                 associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 associated_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LinkValue resource.
 
@@ -60,23 +60,23 @@ class LinkValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedUserIds")
-    def associated_user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_user_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs or login values of the users to be assigned the `associated` relationship.
         """
         return pulumi.get(self, "associated_user_ids")
 
     @associated_user_ids.setter
-    def associated_user_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_user_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_user_ids", value)
 
 
 @pulumi.input_type
 class _LinkValueState:
     def __init__(__self__, *,
-                 associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 associated_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkValue resources.
 
@@ -93,38 +93,38 @@ class _LinkValueState:
 
     @_builtins.property
     @pulumi.getter(name="associatedUserIds")
-    def associated_user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def associated_user_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs or login values of the users to be assigned the `associated` relationship.
         """
         return pulumi.get(self, "associated_user_ids")
 
     @associated_user_ids.setter
-    def associated_user_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def associated_user_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "associated_user_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryName")
-    def primary_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the `primary` relationship being assigned.
         """
         return pulumi.get(self, "primary_name")
 
     @primary_name.setter
-    def primary_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserId")
-    def primary_user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User ID to be assigned to `primary` for the 'associated' user in the specified relationship.
         """
         return pulumi.get(self, "primary_user_id")
 
     @primary_user_id.setter
-    def primary_user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_user_id", value)
 
 
@@ -134,9 +134,9 @@ class LinkValue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages users relationships. Link value operations allow you to create relationships between primary and associated users.
@@ -145,6 +145,7 @@ class LinkValue(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_okta as okta
 
         padishah = okta.LinkDefinition("padishah",
@@ -159,7 +160,7 @@ class LinkValue(pulumi.CustomResource):
             last_name="Corrino IV",
             login="shaddam.corrino.iv@salusa-secundus.planet",
             email="shaddam.corrino.iv@salusa-secundus.planet")
-        sardaukars = []
+        sardaukars: list[Any] = []
         for range in [{"value": i} for i in range(0, 5)]:
             sardaukars.append(okta.user.User(f"sardaukars-{range['value']}",
                 first_name="Amrit",
@@ -204,6 +205,7 @@ class LinkValue(pulumi.CustomResource):
 
         ```python
         import pulumi
+        from typing import Any
         import pulumi_okta as okta
 
         padishah = okta.LinkDefinition("padishah",
@@ -218,7 +220,7 @@ class LinkValue(pulumi.CustomResource):
             last_name="Corrino IV",
             login="shaddam.corrino.iv@salusa-secundus.planet",
             email="shaddam.corrino.iv@salusa-secundus.planet")
-        sardaukars = []
+        sardaukars: list[Any] = []
         for range in [{"value": i} for i in range(0, 5)]:
             sardaukars.append(okta.user.User(f"sardaukars-{range['value']}",
                 first_name="Amrit",
@@ -259,9 +261,9 @@ class LinkValue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 associated_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -288,9 +290,9 @@ class LinkValue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            associated_user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            primary_name: Optional[pulumi.Input[_builtins.str]] = None,
-            primary_user_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkValue':
+            associated_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkValue':
         """
         Get an existing LinkValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

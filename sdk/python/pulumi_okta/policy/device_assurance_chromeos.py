@@ -19,21 +19,21 @@ __all__ = ['DeviceAssuranceChromeosArgs', 'DeviceAssuranceChromeos']
 @pulumi.input_type
 class DeviceAssuranceChromeosArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_allow_screen_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_browser_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_device_enrollment_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_disk_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_key_trust_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_os_firewall: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_realtime_url_check_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_safe_browsing_protection_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_screen_lock_secured: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_site_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_allow_screen_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_browser_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_builtin_dns_client_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_chrome_remote_desktop_app_blocked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_device_enrollment_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_disk_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_key_trust_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_os_firewall: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_password_proctection_warning_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_realtime_url_check_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_safe_browsing_protection_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_screen_lock_secured: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_site_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DeviceAssuranceChromeos resource.
 
@@ -86,208 +86,208 @@ class DeviceAssuranceChromeosArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspAllowScreenLock")
-    def tpsp_allow_screen_lock(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_allow_screen_lock(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider allow screen lock
         """
         return pulumi.get(self, "tpsp_allow_screen_lock")
 
     @tpsp_allow_screen_lock.setter
-    def tpsp_allow_screen_lock(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_allow_screen_lock(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_allow_screen_lock", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspBrowserVersion")
-    def tpsp_browser_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_browser_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider minimum browser version
         """
         return pulumi.get(self, "tpsp_browser_version")
 
     @tpsp_browser_version.setter
-    def tpsp_browser_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_browser_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_browser_version", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspBuiltinDnsClientEnabled")
-    def tpsp_builtin_dns_client_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_builtin_dns_client_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider builtin dns client enabled
         """
         return pulumi.get(self, "tpsp_builtin_dns_client_enabled")
 
     @tpsp_builtin_dns_client_enabled.setter
-    def tpsp_builtin_dns_client_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_builtin_dns_client_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_builtin_dns_client_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspChromeRemoteDesktopAppBlocked")
-    def tpsp_chrome_remote_desktop_app_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_chrome_remote_desktop_app_blocked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider chrome remote desktop app blocked
         """
         return pulumi.get(self, "tpsp_chrome_remote_desktop_app_blocked")
 
     @tpsp_chrome_remote_desktop_app_blocked.setter
-    def tpsp_chrome_remote_desktop_app_blocked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_chrome_remote_desktop_app_blocked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_chrome_remote_desktop_app_blocked", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspDeviceEnrollmentDomain")
-    def tpsp_device_enrollment_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_device_enrollment_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider device enrollment domain
         """
         return pulumi.get(self, "tpsp_device_enrollment_domain")
 
     @tpsp_device_enrollment_domain.setter
-    def tpsp_device_enrollment_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_device_enrollment_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_device_enrollment_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspDiskEncrypted")
-    def tpsp_disk_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_disk_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider disk encrypted
         """
         return pulumi.get(self, "tpsp_disk_encrypted")
 
     @tpsp_disk_encrypted.setter
-    def tpsp_disk_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_disk_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_disk_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspKeyTrustLevel")
-    def tpsp_key_trust_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_key_trust_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider key trust level
         """
         return pulumi.get(self, "tpsp_key_trust_level")
 
     @tpsp_key_trust_level.setter
-    def tpsp_key_trust_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_key_trust_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_key_trust_level", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspOsFirewall")
-    def tpsp_os_firewall(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_os_firewall(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider os firewall
         """
         return pulumi.get(self, "tpsp_os_firewall")
 
     @tpsp_os_firewall.setter
-    def tpsp_os_firewall(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_os_firewall(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_os_firewall", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspOsVersion")
-    def tpsp_os_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_os_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider minimum os version
         """
         return pulumi.get(self, "tpsp_os_version")
 
     @tpsp_os_version.setter
-    def tpsp_os_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_os_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_os_version", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspPasswordProctectionWarningTrigger")
-    def tpsp_password_proctection_warning_trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_password_proctection_warning_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider password protection warning trigger
         """
         return pulumi.get(self, "tpsp_password_proctection_warning_trigger")
 
     @tpsp_password_proctection_warning_trigger.setter
-    def tpsp_password_proctection_warning_trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_password_proctection_warning_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_password_proctection_warning_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspRealtimeUrlCheckMode")
-    def tpsp_realtime_url_check_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_realtime_url_check_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider realtime url check mode
         """
         return pulumi.get(self, "tpsp_realtime_url_check_mode")
 
     @tpsp_realtime_url_check_mode.setter
-    def tpsp_realtime_url_check_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_realtime_url_check_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_realtime_url_check_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspSafeBrowsingProtectionLevel")
-    def tpsp_safe_browsing_protection_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_safe_browsing_protection_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider safe browsing protection level
         """
         return pulumi.get(self, "tpsp_safe_browsing_protection_level")
 
     @tpsp_safe_browsing_protection_level.setter
-    def tpsp_safe_browsing_protection_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_safe_browsing_protection_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_safe_browsing_protection_level", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspScreenLockSecured")
-    def tpsp_screen_lock_secured(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_screen_lock_secured(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider screen lock secure
         """
         return pulumi.get(self, "tpsp_screen_lock_secured")
 
     @tpsp_screen_lock_secured.setter
-    def tpsp_screen_lock_secured(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_screen_lock_secured(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_screen_lock_secured", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspSiteIsolationEnabled")
-    def tpsp_site_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_site_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider site isolation enabled
         """
         return pulumi.get(self, "tpsp_site_isolation_enabled")
 
     @tpsp_site_isolation_enabled.setter
-    def tpsp_site_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_site_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_site_isolation_enabled", value)
 
 
 @pulumi.input_type
 class _DeviceAssuranceChromeosState:
     def __init__(__self__, *,
-                 created_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_update: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_allow_screen_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_browser_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_device_enrollment_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_disk_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_key_trust_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_os_firewall: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_realtime_url_check_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_safe_browsing_protection_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_screen_lock_secured: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_site_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_update: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_allow_screen_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_browser_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_builtin_dns_client_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_chrome_remote_desktop_app_blocked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_device_enrollment_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_disk_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_key_trust_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_os_firewall: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_password_proctection_warning_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_realtime_url_check_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_safe_browsing_protection_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_screen_lock_secured: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_site_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering DeviceAssuranceChromeos resources.
 
@@ -355,242 +355,242 @@ class _DeviceAssuranceChromeosState:
 
     @_builtins.property
     @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created by
         """
         return pulumi.get(self, "created_by")
 
     @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_by", value)
 
     @_builtins.property
     @pulumi.getter(name="createdDate")
-    def created_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Created date
         """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
-    def created_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdate")
-    def last_update(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_update(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last update
         """
         return pulumi.get(self, "last_update")
 
     @last_update.setter
-    def last_update(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_update", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last updated by
         """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
-    def last_updated_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the device assurance policy.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy device assurance platform
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspAllowScreenLock")
-    def tpsp_allow_screen_lock(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_allow_screen_lock(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider allow screen lock
         """
         return pulumi.get(self, "tpsp_allow_screen_lock")
 
     @tpsp_allow_screen_lock.setter
-    def tpsp_allow_screen_lock(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_allow_screen_lock(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_allow_screen_lock", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspBrowserVersion")
-    def tpsp_browser_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_browser_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider minimum browser version
         """
         return pulumi.get(self, "tpsp_browser_version")
 
     @tpsp_browser_version.setter
-    def tpsp_browser_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_browser_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_browser_version", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspBuiltinDnsClientEnabled")
-    def tpsp_builtin_dns_client_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_builtin_dns_client_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider builtin dns client enabled
         """
         return pulumi.get(self, "tpsp_builtin_dns_client_enabled")
 
     @tpsp_builtin_dns_client_enabled.setter
-    def tpsp_builtin_dns_client_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_builtin_dns_client_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_builtin_dns_client_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspChromeRemoteDesktopAppBlocked")
-    def tpsp_chrome_remote_desktop_app_blocked(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_chrome_remote_desktop_app_blocked(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider chrome remote desktop app blocked
         """
         return pulumi.get(self, "tpsp_chrome_remote_desktop_app_blocked")
 
     @tpsp_chrome_remote_desktop_app_blocked.setter
-    def tpsp_chrome_remote_desktop_app_blocked(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_chrome_remote_desktop_app_blocked(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_chrome_remote_desktop_app_blocked", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspDeviceEnrollmentDomain")
-    def tpsp_device_enrollment_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_device_enrollment_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider device enrollment domain
         """
         return pulumi.get(self, "tpsp_device_enrollment_domain")
 
     @tpsp_device_enrollment_domain.setter
-    def tpsp_device_enrollment_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_device_enrollment_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_device_enrollment_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspDiskEncrypted")
-    def tpsp_disk_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_disk_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider disk encrypted
         """
         return pulumi.get(self, "tpsp_disk_encrypted")
 
     @tpsp_disk_encrypted.setter
-    def tpsp_disk_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_disk_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_disk_encrypted", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspKeyTrustLevel")
-    def tpsp_key_trust_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_key_trust_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider key trust level
         """
         return pulumi.get(self, "tpsp_key_trust_level")
 
     @tpsp_key_trust_level.setter
-    def tpsp_key_trust_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_key_trust_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_key_trust_level", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspOsFirewall")
-    def tpsp_os_firewall(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_os_firewall(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider os firewall
         """
         return pulumi.get(self, "tpsp_os_firewall")
 
     @tpsp_os_firewall.setter
-    def tpsp_os_firewall(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_os_firewall(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_os_firewall", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspOsVersion")
-    def tpsp_os_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_os_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider minimum os version
         """
         return pulumi.get(self, "tpsp_os_version")
 
     @tpsp_os_version.setter
-    def tpsp_os_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_os_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_os_version", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspPasswordProctectionWarningTrigger")
-    def tpsp_password_proctection_warning_trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_password_proctection_warning_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider password protection warning trigger
         """
         return pulumi.get(self, "tpsp_password_proctection_warning_trigger")
 
     @tpsp_password_proctection_warning_trigger.setter
-    def tpsp_password_proctection_warning_trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_password_proctection_warning_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_password_proctection_warning_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspRealtimeUrlCheckMode")
-    def tpsp_realtime_url_check_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_realtime_url_check_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider realtime url check mode
         """
         return pulumi.get(self, "tpsp_realtime_url_check_mode")
 
     @tpsp_realtime_url_check_mode.setter
-    def tpsp_realtime_url_check_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_realtime_url_check_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_realtime_url_check_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspSafeBrowsingProtectionLevel")
-    def tpsp_safe_browsing_protection_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tpsp_safe_browsing_protection_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Third party signal provider safe browsing protection level
         """
         return pulumi.get(self, "tpsp_safe_browsing_protection_level")
 
     @tpsp_safe_browsing_protection_level.setter
-    def tpsp_safe_browsing_protection_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tpsp_safe_browsing_protection_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tpsp_safe_browsing_protection_level", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspScreenLockSecured")
-    def tpsp_screen_lock_secured(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_screen_lock_secured(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider screen lock secure
         """
         return pulumi.get(self, "tpsp_screen_lock_secured")
 
     @tpsp_screen_lock_secured.setter
-    def tpsp_screen_lock_secured(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_screen_lock_secured(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_screen_lock_secured", value)
 
     @_builtins.property
     @pulumi.getter(name="tpspSiteIsolationEnabled")
-    def tpsp_site_isolation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tpsp_site_isolation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Third party signal provider site isolation enabled
         """
         return pulumi.get(self, "tpsp_site_isolation_enabled")
 
     @tpsp_site_isolation_enabled.setter
-    def tpsp_site_isolation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tpsp_site_isolation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tpsp_site_isolation_enabled", value)
 
 
@@ -600,21 +600,21 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_allow_screen_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_browser_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_device_enrollment_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_disk_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_key_trust_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_os_firewall: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_realtime_url_check_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_safe_browsing_protection_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_screen_lock_secured: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_site_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_allow_screen_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_browser_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_builtin_dns_client_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_chrome_remote_desktop_app_blocked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_device_enrollment_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_disk_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_key_trust_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_os_firewall: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_password_proctection_warning_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_realtime_url_check_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_safe_browsing_protection_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_screen_lock_secured: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_site_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a device assurance policy for chromeos.
@@ -723,21 +723,21 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_allow_screen_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_browser_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_device_enrollment_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_disk_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_key_trust_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_os_firewall: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_os_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_realtime_url_check_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_safe_browsing_protection_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 tpsp_screen_lock_secured: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tpsp_site_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_allow_screen_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_browser_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_builtin_dns_client_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_chrome_remote_desktop_app_blocked: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_device_enrollment_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_disk_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_key_trust_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_os_firewall: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_os_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_password_proctection_warning_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_realtime_url_check_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_safe_browsing_protection_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 tpsp_screen_lock_secured: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tpsp_site_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -777,26 +777,26 @@ class DeviceAssuranceChromeos(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created_by: Optional[pulumi.Input[_builtins.str]] = None,
-            created_date: Optional[pulumi.Input[_builtins.str]] = None,
-            last_update: Optional[pulumi.Input[_builtins.str]] = None,
-            last_updated_by: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            platform: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_allow_screen_lock: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_browser_version: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_builtin_dns_client_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_chrome_remote_desktop_app_blocked: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_device_enrollment_domain: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_disk_encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_key_trust_level: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_os_firewall: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_os_version: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_password_proctection_warning_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_realtime_url_check_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_safe_browsing_protection_level: Optional[pulumi.Input[_builtins.str]] = None,
-            tpsp_screen_lock_secured: Optional[pulumi.Input[_builtins.bool]] = None,
-            tpsp_site_isolation_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'DeviceAssuranceChromeos':
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            last_update: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_allow_screen_lock: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_browser_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_builtin_dns_client_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_chrome_remote_desktop_app_blocked: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_device_enrollment_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_disk_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_key_trust_level: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_os_firewall: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_os_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_password_proctection_warning_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_realtime_url_check_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_safe_browsing_protection_level: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_screen_lock_secured: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_site_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'DeviceAssuranceChromeos':
         """
         Get an existing DeviceAssuranceChromeos resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

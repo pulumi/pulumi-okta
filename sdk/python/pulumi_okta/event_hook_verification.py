@@ -43,8 +43,8 @@ class EventHookVerificationArgs:
 @pulumi.input_type
 class _EventHookVerificationState:
     def __init__(__self__, *,
-                 event_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_status: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventHookVerification resources.
 
@@ -58,26 +58,26 @@ class _EventHookVerificationState:
 
     @_builtins.property
     @pulumi.getter(name="eventHookId")
-    def event_hook_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_hook_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event hook ID
         """
         return pulumi.get(self, "event_hook_id")
 
     @event_hook_id.setter
-    def event_hook_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_hook_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_hook_id", value)
 
     @_builtins.property
     @pulumi.getter(name="verificationStatus")
-    def verification_status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def verification_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The verification status of the event hook.
         """
         return pulumi.get(self, "verification_status")
 
     @verification_status.setter
-    def verification_status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def verification_status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "verification_status", value)
 
 
@@ -87,7 +87,7 @@ class EventHookVerification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Verifies the Event Hook. The resource won't be created unless the URI provided in the event hook returns a valid JSON object with verification. See [Event Hooks](https://developer.okta.com/docs/concepts/event-hooks/#one-time-verification-request) documentation for details.
@@ -172,7 +172,7 @@ class EventHookVerification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -196,8 +196,8 @@ class EventHookVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_hook_id: Optional[pulumi.Input[_builtins.str]] = None,
-            verification_status: Optional[pulumi.Input[_builtins.str]] = None) -> 'EventHookVerification':
+            event_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verification_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventHookVerification':
         """
         Get an existing EventHookVerification resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

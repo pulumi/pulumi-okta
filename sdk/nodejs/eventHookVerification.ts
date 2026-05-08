@@ -105,11 +105,11 @@ export interface EventHookVerificationState {
     /**
      * Event hook ID
      */
-    eventHookId?: pulumi.Input<string>;
+    eventHookId?: pulumi.Input<string | undefined>;
     /**
      * The verification status of the event hook.
      */
-    verificationStatus?: pulumi.Input<string>;
+    verificationStatus?: pulumi.Input<string | undefined>;
 }
 
 /**

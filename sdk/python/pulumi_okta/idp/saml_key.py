@@ -43,13 +43,13 @@ class SamlKeyArgs:
 @pulumi.input_type
 class _SamlKeyState:
     def __init__(__self__, *,
-                 created: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 kid: Optional[pulumi.Input[_builtins.str]] = None,
-                 kty: Optional[pulumi.Input[_builtins.str]] = None,
-                 use: Optional[pulumi.Input[_builtins.str]] = None,
-                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 x5t_s256: Optional[pulumi.Input[_builtins.str]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 kid: pulumi.Input[Optional[_builtins.str]] = None,
+                 kty: pulumi.Input[Optional[_builtins.str]] = None,
+                 use: pulumi.Input[Optional[_builtins.str]] = None,
+                 x5cs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x5t_s256: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering SamlKey resources.
 
@@ -78,86 +78,86 @@ class _SamlKeyState:
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date created.
         """
         return pulumi.get(self, "created")
 
     @created.setter
-    def created(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date the cert expires.
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def kid(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key ID.
         """
         return pulumi.get(self, "kid")
 
     @kid.setter
-    def kid(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kid", value)
 
     @_builtins.property
     @pulumi.getter
-    def kty(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kty(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the cryptographic algorithm family used with the key.
         """
         return pulumi.get(self, "kty")
 
     @kty.setter
-    def kty(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kty(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kty", value)
 
     @_builtins.property
     @pulumi.getter
-    def use(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Intended use of the public key.
         """
         return pulumi.get(self, "use")
 
     @use.setter
-    def use(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use", value)
 
     @_builtins.property
     @pulumi.getter
-    def x5cs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def x5cs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         base64-encoded X.509 certificate chain with DER encoding
         """
         return pulumi.get(self, "x5cs")
 
     @x5cs.setter
-    def x5cs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def x5cs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "x5cs", value)
 
     @_builtins.property
     @pulumi.getter(name="x5tS256")
-    def x5t_s256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def x5t_s256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
         """
         return pulumi.get(self, "x5t_s256")
 
     @x5t_s256.setter
-    def x5t_s256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def x5t_s256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "x5t_s256", value)
 
 
@@ -167,7 +167,7 @@ class SamlKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x5cs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         This resource allows you to create and configure a SAML Identity Provider Signing Key.
@@ -282,7 +282,7 @@ class SamlKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 x5cs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -311,13 +311,13 @@ class SamlKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created: Optional[pulumi.Input[_builtins.str]] = None,
-            expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-            kid: Optional[pulumi.Input[_builtins.str]] = None,
-            kty: Optional[pulumi.Input[_builtins.str]] = None,
-            use: Optional[pulumi.Input[_builtins.str]] = None,
-            x5cs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            x5t_s256: Optional[pulumi.Input[_builtins.str]] = None) -> 'SamlKey':
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            kid: pulumi.Input[Optional[_builtins.str]] = None,
+            kty: pulumi.Input[Optional[_builtins.str]] = None,
+            use: pulumi.Input[Optional[_builtins.str]] = None,
+            x5cs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            x5t_s256: pulumi.Input[Optional[_builtins.str]] = None) -> 'SamlKey':
         """
         Get an existing SamlKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

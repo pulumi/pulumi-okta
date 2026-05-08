@@ -100,6 +100,6 @@ export function getApiServiceIntegrationOutput(args: GetApiServiceIntegrationOut
  * A collection of arguments for invoking getApiServiceIntegration.
  */
 export interface GetApiServiceIntegrationOutputArgs {
-    grantedScopes?: pulumi.Input<pulumi.Input<inputs.GetApiServiceIntegrationGrantedScopeArgs>[]>;
+    grantedScopes?: pulumi.Input<pulumi.Input<inputs.GetApiServiceIntegrationGrantedScopeArgs>[] | undefined>;
     id: pulumi.Input<string>;
 }

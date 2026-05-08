@@ -315,148 +315,148 @@ export interface SocialState {
     /**
      * Specifies the account linking action for an IdP user. Default: `AUTO`
      */
-    accountLinkAction?: pulumi.Input<string>;
+    accountLinkAction?: pulumi.Input<string | undefined>;
     /**
      * Group memberships to determine link candidates.
      */
-    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Key ID that you obtained from Apple when you created the private key for the client
      */
-    appleKid?: pulumi.Input<string>;
+    appleKid?: pulumi.Input<string | undefined>;
     /**
      * The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
      */
-    applePrivateKey?: pulumi.Input<string>;
+    applePrivateKey?: pulumi.Input<string | undefined>;
     /**
      * The Team ID associated with your Apple developer account
      */
-    appleTeamId?: pulumi.Input<string>;
+    appleTeamId?: pulumi.Input<string | undefined>;
     /**
      * The method of making an authorization request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      */
-    authorizationBinding?: pulumi.Input<string>;
+    authorizationBinding?: pulumi.Input<string | undefined>;
     /**
      * IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant.
      */
-    authorizationUrl?: pulumi.Input<string>;
+    authorizationUrl?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier issued by AS for the Okta IdP instance.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
      */
-    clientSecretWo?: pulumi.Input<string>;
+    clientSecretWo?: pulumi.Input<string | undefined>;
     /**
      * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
      */
-    clientSecretWoVersion?: pulumi.Input<number>;
+    clientSecretWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    deprovisionedAction?: pulumi.Input<string>;
+    deprovisionedAction?: pulumi.Input<string | undefined>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
-    groupsAction?: pulumi.Input<string>;
+    groupsAction?: pulumi.Input<string | undefined>;
     /**
      * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      */
-    groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsAssignments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      */
-    groupsAttribute?: pulumi.Input<string>;
+    groupsAttribute?: pulumi.Input<string | undefined>;
     /**
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
-    groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      */
-    issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string | undefined>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
-    maxClockSkew?: pulumi.Input<number>;
+    maxClockSkew?: pulumi.Input<number | undefined>;
     /**
      * Name of the IdP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
-    profileMaster?: pulumi.Input<boolean>;
+    profileMaster?: pulumi.Input<boolean | undefined>;
     /**
      * The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      */
-    protocolType?: pulumi.Input<string>;
+    protocolType?: pulumi.Input<string | undefined>;
     /**
      * Provisioning action for an IdP user during authentication. Default: `AUTO`
      */
-    provisioningAction?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string | undefined>;
     /**
      * The scopes of the IdP.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchAttribute?: pulumi.Input<string>;
+    subjectMatchAttribute?: pulumi.Input<string | undefined>;
     /**
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchType?: pulumi.Input<string>;
+    subjectMatchType?: pulumi.Input<string | undefined>;
     /**
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    suspendedAction?: pulumi.Input<string>;
+    suspendedAction?: pulumi.Input<string | undefined>;
     /**
      * The method of making a token request. It can be set to `HTTP-POST` or `HTTP-REDIRECT`.
      */
-    tokenBinding?: pulumi.Input<string>;
+    tokenBinding?: pulumi.Input<string | undefined>;
     /**
      * IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token.
      */
-    tokenUrl?: pulumi.Input<string>;
+    tokenUrl?: pulumi.Input<string | undefined>;
     /**
      * Trust audience for the Okta IdP instance.
      */
-    trustAudience?: pulumi.Input<string>;
+    trustAudience?: pulumi.Input<string | undefined>;
     /**
      * Trust issuer for the Okta IdP instance.
      */
-    trustIssuer?: pulumi.Input<string>;
+    trustIssuer?: pulumi.Input<string | undefined>;
     /**
      * Trust kid for the Okta IdP instance.
      */
-    trustKid?: pulumi.Input<string>;
+    trustKid?: pulumi.Input<string | undefined>;
     /**
      * Trust revocation for the Okta IdP instance.
      */
-    trustRevocation?: pulumi.Input<string>;
+    trustRevocation?: pulumi.Input<string | undefined>;
     /**
      * Trust revocation cache lifetime for the Okta IdP instance.
      */
-    trustRevocationCacheLifetime?: pulumi.Input<number>;
+    trustRevocationCacheLifetime?: pulumi.Input<number | undefined>;
     /**
      * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */
-    usernameTemplate?: pulumi.Input<string>;
+    usernameTemplate?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -466,84 +466,84 @@ export interface SocialArgs {
     /**
      * Specifies the account linking action for an IdP user. Default: `AUTO`
      */
-    accountLinkAction?: pulumi.Input<string>;
+    accountLinkAction?: pulumi.Input<string | undefined>;
     /**
      * Group memberships to determine link candidates.
      */
-    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    accountLinkGroupIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Key ID that you obtained from Apple when you created the private key for the client
      */
-    appleKid?: pulumi.Input<string>;
+    appleKid?: pulumi.Input<string | undefined>;
     /**
      * The Key ID that you obtained from Apple when you created the private key for the client. PrivateKey is required when resource is first created. For all consecutive updates, it can be empty/omitted and keeps the existing value if it is empty/omitted. PrivateKey isn't returned when importing this resource.
      */
-    applePrivateKey?: pulumi.Input<string>;
+    applePrivateKey?: pulumi.Input<string | undefined>;
     /**
      * The Team ID associated with your Apple developer account
      */
-    appleTeamId?: pulumi.Input<string>;
+    appleTeamId?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier issued by AS for the Okta IdP instance.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * Client secret issued by AS for the Okta IdP instance. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientSecretWo` instead to avoid persisting secrets in state. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
      * Write-only client secret issued by AS for the Okta IdP instance for Terraform 1.11+. Unlike `clientSecret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `clientSecret` or `clientSecretWo` can be specified, but not both.
      */
-    clientSecretWo?: pulumi.Input<string>;
+    clientSecretWo?: pulumi.Input<string | undefined>;
     /**
      * Version number for the write-only client secret. Increment this value to trigger an update when changing `clientSecretWo`.
      */
-    clientSecretWoVersion?: pulumi.Input<number>;
+    clientSecretWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Action for a previously deprovisioned IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    deprovisionedAction?: pulumi.Input<string>;
+    deprovisionedAction?: pulumi.Input<string | undefined>;
     /**
      * Provisioning action for IdP user's group memberships. It can be `NONE`, `SYNC`, `APPEND`, or `ASSIGN`. Default: `NONE`
      */
-    groupsAction?: pulumi.Input<string>;
+    groupsAction?: pulumi.Input<string | undefined>;
     /**
      * List of Okta Group IDs to add an IdP user as a member with the `ASSIGN` `groupsAction`.
      */
-    groupsAssignments?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsAssignments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * IdP user profile attribute name (case-insensitive) for an array value that contains group memberships.
      */
-    groupsAttribute?: pulumi.Input<string>;
+    groupsAttribute?: pulumi.Input<string | undefined>;
     /**
      * Whitelist of Okta Group identifiers that are allowed for the `APPEND` or `SYNC` `groupsAction`.
      */
-    groupsFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    groupsFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether Okta uses the original Okta org domain URL, or a custom domain URL. It can be `ORG_URL` or `CUSTOM_URL`. Default: `ORG_URL`
      */
-    issuerMode?: pulumi.Input<string>;
+    issuerMode?: pulumi.Input<string | undefined>;
     /**
      * Maximum allowable clock-skew when processing messages from the IdP.
      */
-    maxClockSkew?: pulumi.Input<number>;
+    maxClockSkew?: pulumi.Input<number | undefined>;
     /**
      * Name of the IdP
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Determines if the IdP should act as a source of truth for user profile attributes.
      */
-    profileMaster?: pulumi.Input<boolean>;
+    profileMaster?: pulumi.Input<boolean | undefined>;
     /**
      * The type of protocol to use. It can be `OIDC` or `OAUTH2`. Default: `OAUTH2`
      */
-    protocolType?: pulumi.Input<string>;
+    protocolType?: pulumi.Input<string | undefined>;
     /**
      * Provisioning action for an IdP user during authentication. Default: `AUTO`
      */
-    provisioningAction?: pulumi.Input<string>;
+    provisioningAction?: pulumi.Input<string | undefined>;
     /**
      * The scopes of the IdP.
      */
@@ -551,19 +551,19 @@ export interface SocialArgs {
     /**
      * Default to `ACTIVE`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchAttribute?: pulumi.Input<string>;
+    subjectMatchAttribute?: pulumi.Input<string | undefined>;
     /**
      * Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username. By default, it is set to `USERNAME`. It can be set to `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`.
      */
-    subjectMatchType?: pulumi.Input<string>;
+    subjectMatchType?: pulumi.Input<string | undefined>;
     /**
      * Action for a previously suspended IdP user during authentication. Can be `NONE` or `REACTIVATE`. Default: `NONE`
      */
-    suspendedAction?: pulumi.Input<string>;
+    suspendedAction?: pulumi.Input<string | undefined>;
     /**
      * Identity Provider Types: https://developer.okta.com/docs/reference/api/idps/#identity-provider-type
      */
@@ -571,5 +571,5 @@ export interface SocialArgs {
     /**
      * Okta EL Expression to generate or transform a unique username for the IdP user. Default: `idpuser.email`
      */
-    usernameTemplate?: pulumi.Input<string>;
+    usernameTemplate?: pulumi.Input<string | undefined>;
 }

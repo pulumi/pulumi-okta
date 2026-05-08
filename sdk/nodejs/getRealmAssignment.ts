@@ -84,5 +84,5 @@ export interface GetRealmAssignmentOutputArgs {
     /**
      * The name of the Okta Realm Assignment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

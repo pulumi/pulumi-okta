@@ -149,31 +149,31 @@ export interface SamlKeyState {
     /**
      * Date created.
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Date the cert expires.
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * Key ID.
      */
-    kid?: pulumi.Input<string>;
+    kid?: pulumi.Input<string | undefined>;
     /**
      * Identifies the cryptographic algorithm family used with the key.
      */
-    kty?: pulumi.Input<string>;
+    kty?: pulumi.Input<string | undefined>;
     /**
      * Intended use of the public key.
      */
-    use?: pulumi.Input<string>;
+    use?: pulumi.Input<string | undefined>;
     /**
      * base64-encoded X.509 certificate chain with DER encoding
      */
-    x5cs?: pulumi.Input<pulumi.Input<string>[]>;
+    x5cs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate.
      */
-    x5tS256?: pulumi.Input<string>;
+    x5tS256?: pulumi.Input<string | undefined>;
 }
 
 /**

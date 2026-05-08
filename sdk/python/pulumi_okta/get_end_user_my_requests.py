@@ -314,13 +314,13 @@ def get_end_user_my_requests(entry_id: Optional[_builtins.str] = None,
         revoked=pulumi.get(__ret__, 'revoked'),
         risk_assessment=pulumi.get(__ret__, 'risk_assessment'),
         status=pulumi.get(__ret__, 'status'))
-def get_end_user_my_requests_output(entry_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    requested: Optional[pulumi.Input[Optional[Union['GetEndUserMyRequestsRequestedArgs', 'GetEndUserMyRequestsRequestedArgsDict']]]] = None,
-                                    requested_by: Optional[pulumi.Input[Optional[Union['GetEndUserMyRequestsRequestedByArgs', 'GetEndUserMyRequestsRequestedByArgsDict']]]] = None,
-                                    requested_for: Optional[pulumi.Input[Optional[Union['GetEndUserMyRequestsRequestedForArgs', 'GetEndUserMyRequestsRequestedForArgsDict']]]] = None,
-                                    requester_field_values: Optional[pulumi.Input[Optional[Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
-                                    risk_assessment: Optional[pulumi.Input[Optional[Union['GetEndUserMyRequestsRiskAssessmentArgs', 'GetEndUserMyRequestsRiskAssessmentArgsDict']]]] = None,
+def get_end_user_my_requests_output(entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    requested: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedArgs', 'GetEndUserMyRequestsRequestedArgsDict']]]] = None,
+                                    requested_by: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedByArgs', 'GetEndUserMyRequestsRequestedByArgsDict']]]] = None,
+                                    requested_for: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedForArgs', 'GetEndUserMyRequestsRequestedForArgsDict']]]] = None,
+                                    requester_field_values: pulumi.Input[Optional[Optional[Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+                                    risk_assessment: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRiskAssessmentArgs', 'GetEndUserMyRequestsRiskAssessmentArgsDict']]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndUserMyRequestsResult]:
     """
     Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.

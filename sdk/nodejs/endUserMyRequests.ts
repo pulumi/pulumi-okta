@@ -187,15 +187,15 @@ export interface EndUserMyRequestsState {
     /**
      * The ID of the catalog entry for which the request is being made.
      */
-    entryId?: pulumi.Input<string>;
+    entryId?: pulumi.Input<string | undefined>;
     /**
      * The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
      */
-    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.EndUserMyRequestsRequesterFieldValue>[]>;
+    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.EndUserMyRequestsRequesterFieldValue>[] | undefined>;
     /**
      * The status of the request. Possible values include: `APPROVED`, `CANCELED`, `DENIED`, `EXPIRED`, `PENDING`, `REJECTED`, `SUBMITTED`
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,5 +209,5 @@ export interface EndUserMyRequestsArgs {
     /**
      * The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
      */
-    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.EndUserMyRequestsRequesterFieldValue>[]>;
+    requesterFieldValues?: pulumi.Input<pulumi.Input<inputs.EndUserMyRequestsRequesterFieldValue>[] | undefined>;
 }

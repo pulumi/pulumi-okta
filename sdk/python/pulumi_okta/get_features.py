@@ -116,8 +116,8 @@ def get_features(label: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'),
         substring=pulumi.get(__ret__, 'substring'))
-def get_features_output(label: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                        substring: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_features_output(label: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        substring: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeaturesResult]:
     """
     Get a list of features from Okta.

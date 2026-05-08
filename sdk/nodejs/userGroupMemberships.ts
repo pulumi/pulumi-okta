@@ -103,11 +103,11 @@ export interface UserGroupMembershipsState {
     /**
      * The list of Okta group IDs which the user should have membership managed for.
      */
-    groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of a Okta User
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }
 
 /**

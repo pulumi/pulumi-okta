@@ -156,31 +156,31 @@ export interface OwnerState {
     /**
      * The display name of the group owner
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The id of the group
      */
-    groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * The user id of the group owner
      */
-    idOfGroupOwner?: pulumi.Input<string>;
+    idOfGroupOwner?: pulumi.Input<string | undefined>;
     /**
      * The ID of the app instance if the originType is APPLICATION. This value is NULL if originType is OKTA_DIRECTORY.
      */
-    originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string | undefined>;
     /**
      * The source where group ownership is managed. Enum: "APPLICATION" "OKTA_DIRECTORY"
      */
-    originType?: pulumi.Input<string>;
+    originType?: pulumi.Input<string | undefined>;
     /**
      * If originType is APPLICATION, this parameter is set to FALSE until the owner's originId is reconciled with an associated Okta ID.
      */
-    resolved?: pulumi.Input<boolean>;
+    resolved?: pulumi.Input<boolean | undefined>;
     /**
      * The entity type of the owner. Enum: "GROUP" "USER"
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**

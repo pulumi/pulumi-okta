@@ -24,22 +24,22 @@ class GroupSchemaPropertyArgs:
                  index: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]] = None,
-                 array_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 master: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 unique: Optional[pulumi.Input[_builtins.str]] = None):
+                 array_enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 array_one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]] = None,
+                 array_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 master: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_override_priorities: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 unique: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GroupSchemaProperty resource.
 
@@ -140,19 +140,19 @@ class GroupSchemaPropertyArgs:
 
     @_builtins.property
     @pulumi.getter(name="arrayEnums")
-    def array_enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def array_enums(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values that an array property's items can be set to.
         """
         return pulumi.get(self, "array_enums")
 
     @array_enums.setter
-    def array_enums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def array_enums(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "array_enums", value)
 
     @_builtins.property
     @pulumi.getter(name="arrayOneOfs")
-    def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]:
+    def array_one_ofs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]:
         """
         Display name and value an enum array can be set to.
         	- 'const' - (Required) value mapping to member of 'enum'.
@@ -161,120 +161,120 @@ class GroupSchemaPropertyArgs:
         return pulumi.get(self, "array_one_ofs")
 
     @array_one_ofs.setter
-    def array_one_ofs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]):
+    def array_one_ofs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]):
         pulumi.set(self, "array_one_ofs", value)
 
     @_builtins.property
     @pulumi.getter(name="arrayType")
-    def array_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def array_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the array elements if `type` is set to `array`
         """
         return pulumi.get(self, "array_type")
 
     @array_type.setter
-    def array_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def array_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "array_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the user schema property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enums(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values a primitive property can be set to. See `array_enum` for arrays.
         """
         return pulumi.get(self, "enums")
 
     @enums.setter
-    def enums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enums(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enums", value)
 
     @_builtins.property
     @pulumi.getter(name="externalName")
-    def external_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External name of the user schema property.
         """
         return pulumi.get(self, "external_name")
 
     @external_name.setter
-    def external_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_name", value)
 
     @_builtins.property
     @pulumi.getter(name="externalNamespace")
-    def external_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External namespace of the user schema property.
         """
         return pulumi.get(self, "external_namespace")
 
     @external_namespace.setter
-    def external_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def master(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
         """
         return pulumi.get(self, "master")
 
     @master.setter
-    def master(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master", value)
 
     @_builtins.property
     @pulumi.getter(name="masterOverridePriorities")
-    def master_override_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]:
+    def master_override_priorities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]:
         """
         Prioritized list of profile sources (required when `master` is `OVERRIDE`).
         """
         return pulumi.get(self, "master_override_priorities")
 
     @master_override_priorities.setter
-    def master_override_priorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]):
+    def master_override_priorities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]):
         pulumi.set(self, "master_override_priorities", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_length", value)
 
     @_builtins.property
     @pulumi.getter(name="minLength")
-    def min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "min_length")
 
     @min_length.setter
-    def min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="oneOfs")
-    def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]:
+    def one_ofs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]:
         """
         Array of maps containing a mapping for display name to enum value.
         	- 'const' - (Required) value mapping to member of 'enum'.
@@ -283,77 +283,77 @@ class GroupSchemaPropertyArgs:
         return pulumi.get(self, "one_ofs")
 
     @one_ofs.setter
-    def one_ofs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]):
+    def one_ofs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]):
         pulumi.set(self, "one_ofs", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def unique(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
     @unique.setter
-    def unique(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique", value)
 
 
 @pulumi.input_type
 class _GroupSchemaPropertyState:
     def __init__(__self__, *,
-                 array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]] = None,
-                 array_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 index: Optional[pulumi.Input[_builtins.str]] = None,
-                 master: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unique: Optional[pulumi.Input[_builtins.str]] = None):
+                 array_enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 array_one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]] = None,
+                 array_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 index: pulumi.Input[Optional[_builtins.str]] = None,
+                 master: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_override_priorities: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unique: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupSchemaProperty resources.
 
@@ -421,19 +421,19 @@ class _GroupSchemaPropertyState:
 
     @_builtins.property
     @pulumi.getter(name="arrayEnums")
-    def array_enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def array_enums(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values that an array property's items can be set to.
         """
         return pulumi.get(self, "array_enums")
 
     @array_enums.setter
-    def array_enums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def array_enums(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "array_enums", value)
 
     @_builtins.property
     @pulumi.getter(name="arrayOneOfs")
-    def array_one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]:
+    def array_one_ofs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]:
         """
         Display name and value an enum array can be set to.
         	- 'const' - (Required) value mapping to member of 'enum'.
@@ -442,132 +442,132 @@ class _GroupSchemaPropertyState:
         return pulumi.get(self, "array_one_ofs")
 
     @array_one_ofs.setter
-    def array_one_ofs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]):
+    def array_one_ofs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyArrayOneOfArgs']]]]):
         pulumi.set(self, "array_one_ofs", value)
 
     @_builtins.property
     @pulumi.getter(name="arrayType")
-    def array_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def array_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the array elements if `type` is set to `array`
         """
         return pulumi.get(self, "array_type")
 
     @array_type.setter
-    def array_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def array_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "array_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the user schema property.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enums(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def enums(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Array of values a primitive property can be set to. See `array_enum` for arrays.
         """
         return pulumi.get(self, "enums")
 
     @enums.setter
-    def enums(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def enums(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enums", value)
 
     @_builtins.property
     @pulumi.getter(name="externalName")
-    def external_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External name of the user schema property.
         """
         return pulumi.get(self, "external_name")
 
     @external_name.setter
-    def external_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_name", value)
 
     @_builtins.property
     @pulumi.getter(name="externalNamespace")
-    def external_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External namespace of the user schema property.
         """
         return pulumi.get(self, "external_namespace")
 
     @external_namespace.setter
-    def external_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def index(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subschema unique string identifier
         """
         return pulumi.get(self, "index")
 
     @index.setter
-    def index(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index", value)
 
     @_builtins.property
     @pulumi.getter
-    def master(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Master priority for the group schema property. It can be set to `PROFILE_MASTER`, `OVERRIDE` or `OKTA`. Default: `PROFILE_MASTER`
         """
         return pulumi.get(self, "master")
 
     @master.setter
-    def master(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master", value)
 
     @_builtins.property
     @pulumi.getter(name="masterOverridePriorities")
-    def master_override_priorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]:
+    def master_override_priorities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]:
         """
         Prioritized list of profile sources (required when `master` is `OVERRIDE`).
         """
         return pulumi.get(self, "master_override_priorities")
 
     @master_override_priorities.setter
-    def master_override_priorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]):
+    def master_override_priorities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyMasterOverridePriorityArgs']]]]):
         pulumi.set(self, "master_override_priorities", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_length", value)
 
     @_builtins.property
     @pulumi.getter(name="minLength")
-    def min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum length of the user property value. Only applies to type `string`
         """
         return pulumi.get(self, "min_length")
 
     @min_length.setter
-    def min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_length", value)
 
     @_builtins.property
     @pulumi.getter(name="oneOfs")
-    def one_ofs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]:
+    def one_ofs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]:
         """
         Array of maps containing a mapping for display name to enum value.
         	- 'const' - (Required) value mapping to member of 'enum'.
@@ -576,76 +576,76 @@ class _GroupSchemaPropertyState:
         return pulumi.get(self, "one_ofs")
 
     @one_ofs.setter
-    def one_ofs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]):
+    def one_ofs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GroupSchemaPropertyOneOfArgs']]]]):
         pulumi.set(self, "one_ofs", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def permissions(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access control permissions for the property. It can be set to `READ_WRITE`, `READ_ONLY`, `HIDE`. Default: `READ_ONLY`
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def permissions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the subschema is required
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subschema title (display name)
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "title", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of the schema property. It can be `string`, `boolean`, `number`, `integer`, `array`, or `object`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def unique(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unique(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether the property should be unique. It can be set to `UNIQUE_VALIDATED` or `NOT_UNIQUE`.
         """
         return pulumi.get(self, "unique")
 
     @unique.setter
-    def unique(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unique(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unique", value)
 
 
@@ -655,25 +655,25 @@ class GroupSchemaProperty(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyArrayOneOfArgs', 'GroupSchemaPropertyArrayOneOfArgsDict']]]]] = None,
-                 array_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 index: Optional[pulumi.Input[_builtins.str]] = None,
-                 master: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyMasterOverridePriorityArgs', 'GroupSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyOneOfArgs', 'GroupSchemaPropertyOneOfArgsDict']]]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unique: Optional[pulumi.Input[_builtins.str]] = None,
+                 array_enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 array_one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyArrayOneOfArgs', 'GroupSchemaPropertyArrayOneOfArgsDict']]]]] = None,
+                 array_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 index: pulumi.Input[Optional[_builtins.str]] = None,
+                 master: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_override_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyMasterOverridePriorityArgs', 'GroupSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyOneOfArgs', 'GroupSchemaPropertyOneOfArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unique: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a Group Schema property.
@@ -783,25 +783,25 @@ class GroupSchemaProperty(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyArrayOneOfArgs', 'GroupSchemaPropertyArrayOneOfArgsDict']]]]] = None,
-                 array_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 index: Optional[pulumi.Input[_builtins.str]] = None,
-                 master: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyMasterOverridePriorityArgs', 'GroupSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyOneOfArgs', 'GroupSchemaPropertyOneOfArgsDict']]]]] = None,
-                 permissions: Optional[pulumi.Input[_builtins.str]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 title: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 unique: Optional[pulumi.Input[_builtins.str]] = None,
+                 array_enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 array_one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyArrayOneOfArgs', 'GroupSchemaPropertyArrayOneOfArgsDict']]]]] = None,
+                 array_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 index: pulumi.Input[Optional[_builtins.str]] = None,
+                 master: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_override_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyMasterOverridePriorityArgs', 'GroupSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyOneOfArgs', 'GroupSchemaPropertyOneOfArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[_builtins.str]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unique: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -846,25 +846,25 @@ class GroupSchemaProperty(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            array_enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            array_one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyArrayOneOfArgs', 'GroupSchemaPropertyArrayOneOfArgsDict']]]]] = None,
-            array_type: Optional[pulumi.Input[_builtins.str]] = None,
-            description: Optional[pulumi.Input[_builtins.str]] = None,
-            enums: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            external_name: Optional[pulumi.Input[_builtins.str]] = None,
-            external_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-            index: Optional[pulumi.Input[_builtins.str]] = None,
-            master: Optional[pulumi.Input[_builtins.str]] = None,
-            master_override_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyMasterOverridePriorityArgs', 'GroupSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
-            max_length: Optional[pulumi.Input[_builtins.int]] = None,
-            min_length: Optional[pulumi.Input[_builtins.int]] = None,
-            one_ofs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupSchemaPropertyOneOfArgs', 'GroupSchemaPropertyOneOfArgsDict']]]]] = None,
-            permissions: Optional[pulumi.Input[_builtins.str]] = None,
-            required: Optional[pulumi.Input[_builtins.bool]] = None,
-            scope: Optional[pulumi.Input[_builtins.str]] = None,
-            title: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            unique: Optional[pulumi.Input[_builtins.str]] = None) -> 'GroupSchemaProperty':
+            array_enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            array_one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyArrayOneOfArgs', 'GroupSchemaPropertyArrayOneOfArgsDict']]]]] = None,
+            array_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_name: pulumi.Input[Optional[_builtins.str]] = None,
+            external_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            index: pulumi.Input[Optional[_builtins.str]] = None,
+            master: pulumi.Input[Optional[_builtins.str]] = None,
+            master_override_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyMasterOverridePriorityArgs', 'GroupSchemaPropertyMasterOverridePriorityArgsDict']]]]] = None,
+            max_length: pulumi.Input[Optional[_builtins.int]] = None,
+            min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupSchemaPropertyOneOfArgs', 'GroupSchemaPropertyOneOfArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            unique: pulumi.Input[Optional[_builtins.str]] = None) -> 'GroupSchemaProperty':
         """
         Get an existing GroupSchemaProperty resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

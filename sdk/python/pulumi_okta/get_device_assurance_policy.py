@@ -192,10 +192,10 @@ def get_device_assurance_policy(id: Optional[_builtins.str] = None,
         screenlock_type=pulumi.get(__ret__, 'screenlock_type'),
         secure_hardware_present=pulumi.get(__ret__, 'secure_hardware_present'),
         third_party_signal_provider=pulumi.get(__ret__, 'third_party_signal_provider'))
-def get_device_assurance_policy_output(id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       secure_hardware_present: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                       third_party_signal_provider: Optional[pulumi.Input[Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict']]]] = None,
+def get_device_assurance_policy_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       secure_hardware_present: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                       third_party_signal_provider: pulumi.Input[Optional[Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict']]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceAssurancePolicyResult]:
     """
     Get a policy assurance from Okta.

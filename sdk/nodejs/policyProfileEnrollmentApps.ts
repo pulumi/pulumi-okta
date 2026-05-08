@@ -116,15 +116,15 @@ export interface PolicyProfileEnrollmentAppsState {
     /**
      * List of app IDs to be added to this policy
      */
-    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Default Enrollment Policy. This policy is used as a policy to re-assign apps to when they are unassigned from this one
      */
-    defaultPolicyId?: pulumi.Input<string>;
+    defaultPolicyId?: pulumi.Input<string | undefined>;
     /**
      * ID of the enrollment policy.
      */
-    policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -134,7 +134,7 @@ export interface PolicyProfileEnrollmentAppsArgs {
     /**
      * List of app IDs to be added to this policy
      */
-    apps?: pulumi.Input<pulumi.Input<string>[]>;
+    apps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the enrollment policy.
      */

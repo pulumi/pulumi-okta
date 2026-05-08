@@ -22,7 +22,7 @@ class CaptchaArgs:
                  secret_key: pulumi.Input[_builtins.str],
                  site_key: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Captcha resource.
 
@@ -75,24 +75,24 @@ class CaptchaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the CAPTCHA
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _CaptchaState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Captcha resources.
 
@@ -112,50 +112,50 @@ class _CaptchaState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the CAPTCHA
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
-    def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
-    def secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="siteKey")
-    def site_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         """
         return pulumi.get(self, "site_key")
 
     @site_key.setter
-    def site_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -165,10 +165,10 @@ class Captcha(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates different types of captcha.
@@ -248,10 +248,10 @@ class Captcha(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,10 +283,10 @@ class Captcha(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-            site_key: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'Captcha':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            site_key: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Captcha':
         """
         Get an existing Captcha resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
