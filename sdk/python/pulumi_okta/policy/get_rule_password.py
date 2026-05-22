@@ -250,8 +250,8 @@ def get_rule_password(id: Optional[_builtins.str] = None,
     example_rule_password = okta.policy.RulePassword("example",
         policy_id=password.id,
         name="My Password Rule")
-    example = example_rule_password.id.apply(lambda id: okta.policy.get_rule_password(policy_id=password.id,
-        id=id))
+    example = okta.policy.get_rule_password_output(policy_id=password.id,
+        id=example_rule_password.id)
     ```
 
 
@@ -301,8 +301,8 @@ def get_rule_password_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     example_rule_password = okta.policy.RulePassword("example",
         policy_id=password.id,
         name="My Password Rule")
-    example = example_rule_password.id.apply(lambda id: okta.policy.get_rule_password(policy_id=password.id,
-        id=id))
+    example = okta.policy.get_rule_password_output(policy_id=password.id,
+        id=example_rule_password.id)
     ```
 
 

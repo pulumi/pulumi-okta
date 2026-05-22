@@ -357,7 +357,7 @@ class RuleMfaAppIncludeArgs:
 
 
 class RulePasswordPasswordResetRequirementArgsDict(TypedDict):
-    method_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgs']]]]]
+    method_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulePasswordPasswordResetRequirementMethodConstraintArgsDict']]]]]
     """
     Constraints on the values specified in the `primary_methods` set. Specifying a constraint limits methods to specific authenticator(s). Currently, Google OTP is the only accepted constraint. The `otp` method requires a constraint.
     """
@@ -502,7 +502,7 @@ class RuleSignonFactorSequenceArgsDict(TypedDict):
     """
     Factor provider
     """
-    secondary_criterias: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgs']]]]]
+    secondary_criterias: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSignonFactorSequenceSecondaryCriteriaArgsDict']]]]]
 
 @pulumi.input_type
 class RuleSignonFactorSequenceArgs:

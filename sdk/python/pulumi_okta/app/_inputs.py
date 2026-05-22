@@ -106,11 +106,11 @@ class ConnectionProfileArgsDict(TypedDict):
     """
     OAuth2 client ID (required for OAUTH2 auth scheme).
     """
-    settings: NotRequired[pulumi.Input[Optional['ConnectionProfileSettingsArgs']]]
+    settings: NotRequired[pulumi.Input[Optional['ConnectionProfileSettingsArgsDict']]]
     """
     Additional settings for OAuth2 authentication.
     """
-    signing: NotRequired[pulumi.Input[Optional['ConnectionProfileSigningArgs']]]
+    signing: NotRequired[pulumi.Input[Optional['ConnectionProfileSigningArgsDict']]]
     """
     Signing configuration.
     """
@@ -284,19 +284,19 @@ class ConnectionProfileSigningArgs:
 
 
 class FeaturesCapabilitiesArgsDict(TypedDict):
-    create: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesCreateArgs']]]
+    create: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesCreateArgsDict']]]
     """
     (Optional) Block for create lifecycle settings:
     """
-    import_rules: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportRulesArgs']]]
+    import_rules: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportRulesArgsDict']]]
     """
     (Optional) Block for import rules configuration:
     """
-    import_settings: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsArgs']]]
+    import_settings: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsArgsDict']]]
     """
     (Optional) Block for import settings configuration:
     """
-    update: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateArgs']]]
+    update: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateArgsDict']]]
     """
     (Optional) Block for update settings:
     """
@@ -373,7 +373,7 @@ class FeaturesCapabilitiesArgs:
 
 
 class FeaturesCapabilitiesCreateArgsDict(TypedDict):
-    lifecycle_create: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesCreateLifecycleCreateArgs']]]
+    lifecycle_create: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesCreateLifecycleCreateArgsDict']]]
     """
     (Optional) Block for create lifecycle configuration:
     """
@@ -431,7 +431,7 @@ class FeaturesCapabilitiesCreateLifecycleCreateArgs:
 
 
 class FeaturesCapabilitiesImportRulesArgsDict(TypedDict):
-    user_create_and_match: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs']]]
+    user_create_and_match: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportRulesUserCreateAndMatchArgsDict']]]
     """
     (Optional) Block for user matching and creation rules:
     """
@@ -589,11 +589,11 @@ class FeaturesCapabilitiesImportRulesUserCreateAndMatchArgs:
 
 
 class FeaturesCapabilitiesImportSettingsArgsDict(TypedDict):
-    schedule: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleArgs']]]
+    schedule: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleArgsDict']]]
     """
     (Optional) Block for import schedule configuration:
     """
-    username: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsUsernameArgs']]]
+    username: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsUsernameArgsDict']]]
     """
     (Optional) Block for username configuration:
     """
@@ -638,11 +638,11 @@ class FeaturesCapabilitiesImportSettingsArgs:
 
 
 class FeaturesCapabilitiesImportSettingsScheduleArgsDict(TypedDict):
-    full_import: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleFullImportArgs']]]
+    full_import: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleFullImportArgsDict']]]
     """
     (Optional) Block for full import schedule:
     """
-    incremental_import: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgs']]]
+    incremental_import: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesImportSettingsScheduleIncrementalImportArgsDict']]]
     """
     (Optional) Block for incremental import schedule:
     """
@@ -854,15 +854,15 @@ class FeaturesCapabilitiesImportSettingsUsernameArgs:
 
 
 class FeaturesCapabilitiesUpdateArgsDict(TypedDict):
-    lifecycle_deactivate: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateLifecycleDeactivateArgs']]]
+    lifecycle_deactivate: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateLifecycleDeactivateArgsDict']]]
     """
     (Optional) Block for deactivation lifecycle configuration:
     """
-    password: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdatePasswordArgs']]]
+    password: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdatePasswordArgsDict']]]
     """
     (Optional) Block for password synchronization settings:
     """
-    profile: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateProfileArgs']]]
+    profile: NotRequired[pulumi.Input[Optional['FeaturesCapabilitiesUpdateProfileArgsDict']]]
     """
     (Optional) Block for profile update settings:
     """
@@ -1776,7 +1776,7 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
     """
     List of network zone IDs to include.
     """
-    platform_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]]]]
+    platform_includes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgsDict']]]]]
     """
     Platform conditions to include.
     """
