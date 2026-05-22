@@ -40,12 +40,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = exampleRulePassword.ID().ApplyT(func(id string) (policy.GetRulePasswordResult, error) {
-//				return policy.GetRulePasswordResult(interface{}(policy.LookupRulePassword(ctx, &policy.LookupRulePasswordArgs{
-//					PolicyId: password.Id,
-//					Id:       id,
-//				}, nil))), nil
-//			}).(policy.GetRulePasswordResultOutput)
+//			_ = policy.LookupRulePasswordOutput(ctx, policy.GetRulePasswordOutputArgs{
+//				PolicyId: pulumi.String(password.Id),
+//				Id:       exampleRulePassword.ID(),
+//			}, nil)
 //			return nil
 //		})
 //	}

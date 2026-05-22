@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  *     policyId: password.then(password => password.id),
  *     name: "My Password Rule",
  * });
- * const example = pulumi.all([password, exampleRulePassword.id]).apply(([password, id]) => okta.policy.getRulePasswordOutput({
- *     policyId: password.id,
- *     id: id,
- * }));
+ * const example = okta.policy.getRulePasswordOutput({
+ *     policyId: password.then(password => password.id),
+ *     id: exampleRulePassword.id,
+ * });
  * ```
  */
 export function getRulePassword(args: GetRulePasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRulePasswordResult> {
@@ -135,10 +135,10 @@ export interface GetRulePasswordResult {
  *     policyId: password.then(password => password.id),
  *     name: "My Password Rule",
  * });
- * const example = pulumi.all([password, exampleRulePassword.id]).apply(([password, id]) => okta.policy.getRulePasswordOutput({
- *     policyId: password.id,
- *     id: id,
- * }));
+ * const example = okta.policy.getRulePasswordOutput({
+ *     policyId: password.then(password => password.id),
+ *     id: exampleRulePassword.id,
+ * });
  * ```
  */
 export function getRulePasswordOutput(args: GetRulePasswordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulePasswordResult> {

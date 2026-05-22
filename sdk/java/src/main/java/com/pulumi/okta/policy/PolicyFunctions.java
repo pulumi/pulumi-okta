@@ -475,10 +475,10 @@ public final class PolicyFunctions {
      *             .name("My Password Rule")
      *             .build());
      * 
-     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *         final var example = PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
      *             .policyId(password.id())
-     *             .id(_id)
-     *             .build()));
+     *             .id(exampleRulePassword.id())
+     *             .build());
      * 
      *     }
      * }
@@ -528,10 +528,10 @@ public final class PolicyFunctions {
      *             .name("My Password Rule")
      *             .build());
      * 
-     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *         final var example = PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
      *             .policyId(password.id())
-     *             .id(_id)
-     *             .build()));
+     *             .id(exampleRulePassword.id())
+     *             .build());
      * 
      *     }
      * }
@@ -581,10 +581,10 @@ public final class PolicyFunctions {
      *             .name("My Password Rule")
      *             .build());
      * 
-     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *         final var example = PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
      *             .policyId(password.id())
-     *             .id(_id)
-     *             .build()));
+     *             .id(exampleRulePassword.id())
+     *             .build());
      * 
      *     }
      * }
@@ -634,10 +634,10 @@ public final class PolicyFunctions {
      *             .name("My Password Rule")
      *             .build());
      * 
-     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *         final var example = PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
      *             .policyId(password.id())
-     *             .id(_id)
-     *             .build()));
+     *             .id(exampleRulePassword.id())
+     *             .build());
      * 
      *     }
      * }
@@ -687,10 +687,10 @@ public final class PolicyFunctions {
      *             .name("My Password Rule")
      *             .build());
      * 
-     *         final var example = exampleRulePassword.id().applyValue(_id -> PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
+     *         final var example = PolicyFunctions.getRulePassword(GetRulePasswordArgs.builder()
      *             .policyId(password.id())
-     *             .id(_id)
-     *             .build()));
+     *             .id(exampleRulePassword.id())
+     *             .build());
      * 
      *     }
      * }

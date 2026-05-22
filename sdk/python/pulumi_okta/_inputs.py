@@ -957,7 +957,7 @@ class CampaignPrincipalScopeSettingsArgsDict(TypedDict):
     """
     If set to true, only includes users that have at least one SOD conflict that was caused due to entitlement(s) within Campaign scope.
     """
-    predefined_inactive_users_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgs']]]]]
+    predefined_inactive_users_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignPrincipalScopeSettingsPredefinedInactiveUsersScopeArgsDict']]]]]
     user_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An array of Okta user IDs included from access certification or the campaign. userIds, groupIds or userScopeExpression is required if campaign type is USER. A maximum of 100 users can be specified in the array.
@@ -1139,7 +1139,7 @@ class CampaignRemediationSettingsArgsDict(TypedDict):
     """
     Specifies the action if the reviewer doesn't respond to the request or if the campaign is closed before an action is taken.
     """
-    auto_remediation_settings: NotRequired[pulumi.Input[Optional['CampaignRemediationSettingsAutoRemediationSettingsArgs']]]
+    auto_remediation_settings: NotRequired[pulumi.Input[Optional['CampaignRemediationSettingsAutoRemediationSettingsArgsDict']]]
 
 @pulumi.input_type
 class CampaignRemediationSettingsArgs:
@@ -1210,7 +1210,7 @@ class CampaignRemediationSettingsAutoRemediationSettingsArgsDict(TypedDict):
     """
     If true, all indirect assignments will be included in the campaign. If false, only direct assignments will be included.
     """
-    include_onlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgs']]]]]
+    include_onlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignRemediationSettingsAutoRemediationSettingsIncludeOnlyArgsDict']]]]]
 
 @pulumi.input_type
 class CampaignRemediationSettingsAutoRemediationSettingsArgs:
@@ -1301,7 +1301,7 @@ class CampaignResourceSettingsArgsDict(TypedDict):
     """
     The type of Okta resource.
     """
-    excluded_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsExcludedResourceArgs']]]]]
+    excluded_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsExcludedResourceArgsDict']]]]]
     """
     An array of resources that are excluded from the review.
     """
@@ -1325,7 +1325,7 @@ class CampaignResourceSettingsArgsDict(TypedDict):
     """
     Only include out-of-policy entitlements. Only applicable if resource_type = APPLICATION and Entitlement Management is enabled.
     """
-    target_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceArgs']]]]]
+    target_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceArgsDict']]]]]
     """
     Represents a resource that will be part of Access certifications. If the app is enabled for Access Certifications, it's possible to review entitlements and entitlement bundles.
     """
@@ -1522,11 +1522,11 @@ class CampaignResourceSettingsTargetResourceArgsDict(TypedDict):
     """
     The type of Okta resource.
     """
-    entitlement_bundles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementBundleArgs']]]]]
+    entitlement_bundles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementBundleArgsDict']]]]]
     """
     An array of entitlement bundles for this application.
     """
-    entitlements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementArgs']]]]]
+    entitlements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementArgsDict']]]]]
     """
     An array of entitlements associated with resourceId that should be chosen as target when creating reviews
     """
@@ -1629,7 +1629,7 @@ class CampaignResourceSettingsTargetResourceEntitlementArgsDict(TypedDict):
     """
     Whether to include all entitlement values. If false we must provide the values property.
     """
-    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementValueArgs']]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignResourceSettingsTargetResourceEntitlementValueArgsDict']]]]]
 
 @pulumi.input_type
 class CampaignResourceSettingsTargetResourceEntitlementArgs:
@@ -1763,7 +1763,7 @@ class CampaignReviewerSettingsArgsDict(TypedDict):
     The ID of the reviewer group to which the reviewer is assigned.
     """
     reviewer_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    reviewer_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelArgs']]]]]
+    reviewer_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelArgsDict']]]]]
     """
     Definition of reviewer level for a given campaign. Each reviewer level defines the kind of reviewer who is going to review.
     """
@@ -1963,7 +1963,7 @@ class CampaignReviewerSettingsReviewerLevelArgsDict(TypedDict):
     """
     This property is used to prevent self review.
     """
-    start_reviews: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelStartReviewArgs']]]]]
+    start_reviews: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignReviewerSettingsReviewerLevelStartReviewArgsDict']]]]]
     """
     The rules for which the reviews can move to that level.
     """
@@ -2153,7 +2153,7 @@ class CampaignScheduleSettingsArgsDict(TypedDict):
     The type of campaign being scheduled.
     """
     end_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    recurrences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignScheduleSettingsRecurrenceArgs']]]]]
+    recurrences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CampaignScheduleSettingsRecurrenceArgsDict']]]]]
 
 @pulumi.input_type
 class CampaignScheduleSettingsArgs:
@@ -3012,7 +3012,7 @@ class EntitlementBundleEntitlementArgsDict(TypedDict):
     """
     The ID of the entitlement.
     """
-    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementValueArgs']]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntitlementBundleEntitlementValueArgsDict']]]]]
 
 @pulumi.input_type
 class EntitlementBundleEntitlementArgs:
@@ -4035,8 +4035,8 @@ class PushGroupAppConfigArgs:
 
 
 class PushProviderConfigurationArgsDict(TypedDict):
-    apns_configuration: NotRequired[pulumi.Input[Optional['PushProviderConfigurationApnsConfigurationArgs']]]
-    fcm_configuration: NotRequired[pulumi.Input[Optional['PushProviderConfigurationFcmConfigurationArgs']]]
+    apns_configuration: NotRequired[pulumi.Input[Optional['PushProviderConfigurationApnsConfigurationArgsDict']]]
+    fcm_configuration: NotRequired[pulumi.Input[Optional['PushProviderConfigurationFcmConfigurationArgsDict']]]
 
 @pulumi.input_type
 class PushProviderConfigurationArgs:
@@ -4157,7 +4157,7 @@ class PushProviderConfigurationApnsConfigurationArgs:
 
 
 class PushProviderConfigurationFcmConfigurationArgsDict(TypedDict):
-    service_account_json: NotRequired[pulumi.Input[Optional['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgs']]]
+    service_account_json: NotRequired[pulumi.Input[Optional['PushProviderConfigurationFcmConfigurationServiceAccountJsonArgsDict']]]
     """
     JSON containing the private service account key and service account details. Required for FCM provider type.
     """
@@ -4527,7 +4527,7 @@ class RequestConditionAccessDurationSettingsArgs:
 
 class RequestConditionAccessScopeSettingsArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgs']]]]]
+    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestConditionAccessScopeSettingsIdArgsDict']]]]]
     """
     Block list of groups/entitlement bundles ids.
     """
@@ -4597,7 +4597,7 @@ class RequestConditionAccessScopeSettingsIdArgs:
 
 class RequestConditionRequesterSettingsArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgs']]]]]
+    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestConditionRequesterSettingsIdArgsDict']]]]]
     """
     Block list of teams/groups ids.
     """
@@ -4670,7 +4670,7 @@ class RequestSettingResourceRequestOnBehalfOfSettingsArgsDict(TypedDict):
     """
     Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
     """
-    only_fors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs']]]]]
+    only_fors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgsDict']]]]]
     """
     Which requesters the resource requester can request on behalf of. Enum: `DIRECT_REPORT`.
     """
@@ -4744,7 +4744,7 @@ class RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs:
 
 
 class RequestSettingResourceRiskSettingsArgsDict(TypedDict):
-    default_setting: NotRequired[pulumi.Input[Optional['RequestSettingResourceRiskSettingsDefaultSettingArgs']]]
+    default_setting: NotRequired[pulumi.Input[Optional['RequestSettingResourceRiskSettingsDefaultSettingArgsDict']]]
     """
     Default risk settings that are valid for an access request when a risk has been detected for the resource and requesting user.
     """
@@ -4773,7 +4773,7 @@ class RequestSettingResourceRiskSettingsArgs:
 
 
 class RequestSettingResourceRiskSettingsDefaultSettingArgsDict(TypedDict):
-    access_duration_settings: NotRequired[pulumi.Input[Optional['RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgs']]]
+    access_duration_settings: NotRequired[pulumi.Input[Optional['RequestSettingResourceRiskSettingsDefaultSettingAccessDurationSettingsArgsDict']]]
     """
     Settings that control who may specify the access duration allowed by this request condition or risk settings, as well as what duration may be requested.
     """
@@ -5087,7 +5087,7 @@ class RequestV2RequesterFieldValueArgsDict(TypedDict):
     """
     The value of requester field, which depends on the type of the field.
     """
-    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueValueArgs']]]]]
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RequestV2RequesterFieldValueValueArgsDict']]]]]
     """
     The values of requester field with the type MULTISELECT. If the field type is MULTISELECT, this property is required.
     """
@@ -5320,7 +5320,7 @@ class UiSchemaUiSchemaArgsDict(TypedDict):
     """
     Specifies the button label for the Submit button at the bottom of the enrollment form.
     """
-    elements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgs']]]]]
+    elements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UiSchemaUiSchemaElementArgsDict']]]]]
     label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the label at the top of the enrollment form under the logo.
@@ -5406,7 +5406,7 @@ class UiSchemaUiSchemaElementArgsDict(TypedDict):
     """
     Label name for the UI element.
     """
-    options: NotRequired[pulumi.Input[Optional['UiSchemaUiSchemaElementOptionsArgs']]]
+    options: NotRequired[pulumi.Input[Optional['UiSchemaUiSchemaElementOptionsArgsDict']]]
     """
     UI Schema element options object.
     """
