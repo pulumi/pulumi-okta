@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.UiSchema;
  * import com.pulumi.okta.UiSchemaArgs;
  * import com.pulumi.okta.inputs.UiSchemaUiSchemaArgs;
+ * import com.pulumi.okta.inputs.UiSchemaUiSchemaElementArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

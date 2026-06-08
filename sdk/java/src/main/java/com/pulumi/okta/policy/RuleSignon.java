@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.policy.RuleSignon;
  * import com.pulumi.okta.policy.RuleSignonArgs;
  * import com.pulumi.okta.policy.inputs.RuleSignonFactorSequenceArgs;
+ * import com.pulumi.okta.policy.inputs.RuleSignonFactorSequenceSecondaryCriteriaArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
