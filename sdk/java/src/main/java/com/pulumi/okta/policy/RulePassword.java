@@ -73,6 +73,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.policy.RulePassword;
  * import com.pulumi.okta.policy.RulePasswordArgs;
  * import com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementArgs;
+ * import com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementMethodConstraintArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
