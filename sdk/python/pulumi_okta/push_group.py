@@ -301,6 +301,7 @@ class PushGroup(pulumi.CustomResource):
             source_group_id=test_group.id,
             status="ACTIVE",
             app_config={
+                "type": "ACTIVE_DIRECTORY",
                 "distinguished_name": "CN=Test,OU=Groups,DC=example,DC=com",
                 "group_scope": "DOMAIN_LOCAL",
                 "group_type": "SECURITY",
@@ -360,6 +361,7 @@ class PushGroup(pulumi.CustomResource):
             source_group_id=test_group.id,
             status="ACTIVE",
             app_config={
+                "type": "ACTIVE_DIRECTORY",
                 "distinguished_name": "CN=Test,OU=Groups,DC=example,DC=com",
                 "group_scope": "DOMAIN_LOCAL",
                 "group_type": "SECURITY",

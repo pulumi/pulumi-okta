@@ -10,7 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta
 {
     /// <summary>
-    /// Configures default password policy. This resource allows you to configure default password policy.
+    /// Configures the default password policy. This resource allows you to configure the default password policy.
+    /// 
+    /// &gt; **Note:** If your configuration also manages other `okta.policy.Password` resources, add
+    /// `DependsOn = [okta_policy_password.&lt;last_policy&gt;]` pointing to the last non-default policy in your
+    /// dependency chain. The default policy's `Priority` is read-only and shifts whenever other password policies
+    /// are created or deleted. Using `DependsOn` ensures all sibling policies are fully created before this
+    /// resource is read or updated, so the provider sees the correct priority value and the Okta API does not
+    /// reject the request with E0000077.
     /// 
     /// ## Example Usage
     /// 
@@ -22,7 +29,27 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Okta.PolicyPasswordDefault("default");
+    ///     var custom = new Okta.Policy.Password("custom", new()
+    ///     {
+    ///         Name = "Custom Password Policy",
+    ///         GroupsIncludeds = new[]
+    ///         {
+    ///             example.Id,
+    ///         },
+    ///         Status = "ACTIVE",
+    ///         Priority = 1,
+    ///     });
+    /// 
+    ///     var @default = new Okta.PolicyPasswordDefault("default", new()
+    ///     {
+    ///         PasswordHistoryCount = 5,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             custom,
+    ///         },
+    ///     });
     /// 
     /// });
     /// ```
@@ -36,6 +63,24 @@ namespace Pulumi.Okta
     [OktaResourceType("okta:index/policyPasswordDefault:PolicyPasswordDefault")]
     public partial class PolicyPasswordDefault : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        /// </summary>
+        [Output("breachedPasswordDelegatedWorkflowId")]
+        public Output<string?> BreachedPasswordDelegatedWorkflowId { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `BreachedPasswordLogoutEnabled` is `True`.
+        /// </summary>
+        [Output("breachedPasswordExpireAfterDays")]
+        public Output<int?> BreachedPasswordExpireAfterDays { get; private set; } = null!;
+
+        /// <summary>
+        /// If `True`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `BreachedPasswordExpireAfterDays` to also be configured. Default: `False`
+        /// </summary>
+        [Output("breachedPasswordLogoutEnabled")]
+        public Output<bool?> BreachedPasswordLogoutEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
         /// </summary>
@@ -263,6 +308,24 @@ namespace Pulumi.Okta
     public sealed class PolicyPasswordDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        /// </summary>
+        [Input("breachedPasswordDelegatedWorkflowId")]
+        public Input<string>? BreachedPasswordDelegatedWorkflowId { get; set; }
+
+        /// <summary>
+        /// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `BreachedPasswordLogoutEnabled` is `True`.
+        /// </summary>
+        [Input("breachedPasswordExpireAfterDays")]
+        public Input<int>? BreachedPasswordExpireAfterDays { get; set; }
+
+        /// <summary>
+        /// If `True`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `BreachedPasswordExpireAfterDays` to also be configured. Default: `False`
+        /// </summary>
+        [Input("breachedPasswordLogoutEnabled")]
+        public Input<bool>? BreachedPasswordLogoutEnabled { get; set; }
+
+        /// <summary>
         /// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
         /// </summary>
         [Input("callRecovery")]
@@ -420,6 +483,24 @@ namespace Pulumi.Okta
 
     public sealed class PolicyPasswordDefaultState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        /// </summary>
+        [Input("breachedPasswordDelegatedWorkflowId")]
+        public Input<string>? BreachedPasswordDelegatedWorkflowId { get; set; }
+
+        /// <summary>
+        /// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `BreachedPasswordLogoutEnabled` is `True`.
+        /// </summary>
+        [Input("breachedPasswordExpireAfterDays")]
+        public Input<int>? BreachedPasswordExpireAfterDays { get; set; }
+
+        /// <summary>
+        /// If `True`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `BreachedPasswordExpireAfterDays` to also be configured. Default: `False`
+        /// </summary>
+        [Input("breachedPasswordLogoutEnabled")]
+        public Input<bool>? BreachedPasswordLogoutEnabled { get; set; }
+
         /// <summary>
         /// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
         /// </summary>

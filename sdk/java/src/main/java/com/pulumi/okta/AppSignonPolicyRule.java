@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.AppSignonPolicyRuleArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.AppSignonPolicyRuleState;
+import com.pulumi.okta.outputs.AppSignonPolicyRuleKeepMeSignedIn;
 import com.pulumi.okta.outputs.AppSignonPolicyRulePlatformInclude;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -193,6 +194,20 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> inactivityPeriod() {
         return Codegen.optional(this.inactivityPeriod);
+    }
+    /**
+     * Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    @Export(name="keepMeSignedIn", refs={AppSignonPolicyRuleKeepMeSignedIn.class}, tree="[0]")
+    private Output<AppSignonPolicyRuleKeepMeSignedIn> keepMeSignedIn;
+
+    /**
+     * @return Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    public Output<AppSignonPolicyRuleKeepMeSignedIn> keepMeSignedIn() {
+        return this.keepMeSignedIn;
     }
     /**
      * Policy Rule Name

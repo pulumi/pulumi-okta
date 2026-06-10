@@ -69,6 +69,7 @@ import (
 //				SourceGroupId: testGroup.ID(),
 //				Status:        pulumi.String("ACTIVE"),
 //				AppConfig: &okta.PushGroupAppConfigArgs{
+//					Type:              pulumi.String("ACTIVE_DIRECTORY"),
 //					DistinguishedName: pulumi.String("CN=Test,OU=Groups,DC=example,DC=com"),
 //					GroupScope:        pulumi.String("DOMAIN_LOCAL"),
 //					GroupType:         pulumi.String("SECURITY"),

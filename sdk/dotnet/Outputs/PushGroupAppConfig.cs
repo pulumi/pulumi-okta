@@ -17,6 +17,7 @@ namespace Pulumi.Okta.Outputs
         public readonly string GroupScope;
         public readonly string GroupType;
         public readonly string SamAccountName;
+        public readonly string Type;
 
         [OutputConstructor]
         private PushGroupAppConfig(
@@ -26,12 +27,15 @@ namespace Pulumi.Okta.Outputs
 
             string groupType,
 
-            string samAccountName)
+            string samAccountName,
+
+            string type)
         {
             DistinguishedName = distinguishedName;
             GroupScope = groupScope;
             GroupType = groupType;
             SamAccountName = samAccountName;
+            Type = type;
         }
     }
 }

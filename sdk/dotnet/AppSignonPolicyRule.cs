@@ -98,6 +98,12 @@ namespace Pulumi.Okta
         public Output<string?> InactivityPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        /// </summary>
+        [Output("keepMeSignedIn")]
+        public Output<Outputs.AppSignonPolicyRuleKeepMeSignedIn> KeepMeSignedIn { get; private set; } = null!;
+
+        /// <summary>
         /// Policy Rule Name
         /// </summary>
         [Output("name")]
@@ -333,6 +339,12 @@ namespace Pulumi.Okta
         public Input<string>? InactivityPeriod { get; set; }
 
         /// <summary>
+        /// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        /// </summary>
+        [Input("keepMeSignedIn")]
+        public Input<Inputs.AppSignonPolicyRuleKeepMeSignedInArgs>? KeepMeSignedIn { get; set; }
+
+        /// <summary>
         /// Policy Rule Name
         /// </summary>
         [Input("name")]
@@ -563,6 +575,12 @@ namespace Pulumi.Okta
         /// </summary>
         [Input("inactivityPeriod")]
         public Input<string>? InactivityPeriod { get; set; }
+
+        /// <summary>
+        /// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        /// </summary>
+        [Input("keepMeSignedIn")]
+        public Input<Inputs.AppSignonPolicyRuleKeepMeSignedInGetArgs>? KeepMeSignedIn { get; set; }
 
         /// <summary>
         /// Policy Rule Name

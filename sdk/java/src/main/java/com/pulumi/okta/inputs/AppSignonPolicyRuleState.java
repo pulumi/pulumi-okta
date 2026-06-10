@@ -5,6 +5,7 @@ package com.pulumi.okta.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.okta.inputs.AppSignonPolicyRuleKeepMeSignedInArgs;
 import com.pulumi.okta.inputs.AppSignonPolicyRulePlatformIncludeArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -182,6 +183,21 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> inactivityPeriod() {
         return Optional.ofNullable(this.inactivityPeriod);
+    }
+
+    /**
+     * Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    @Import(name="keepMeSignedIn")
+    private @Nullable Output<AppSignonPolicyRuleKeepMeSignedInArgs> keepMeSignedIn;
+
+    /**
+     * @return Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    public Optional<Output<AppSignonPolicyRuleKeepMeSignedInArgs>> keepMeSignedIn() {
+        return Optional.ofNullable(this.keepMeSignedIn);
     }
 
     /**
@@ -430,6 +446,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         this.groupsExcludeds = $.groupsExcludeds;
         this.groupsIncludeds = $.groupsIncludeds;
         this.inactivityPeriod = $.inactivityPeriod;
+        this.keepMeSignedIn = $.keepMeSignedIn;
         this.name = $.name;
         this.networkConnection = $.networkConnection;
         this.networkExcludes = $.networkExcludes;
@@ -745,6 +762,27 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
          */
         public Builder inactivityPeriod(String inactivityPeriod) {
             return inactivityPeriod(Output.of(inactivityPeriod));
+        }
+
+        /**
+         * @param keepMeSignedIn Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepMeSignedIn(@Nullable Output<AppSignonPolicyRuleKeepMeSignedInArgs> keepMeSignedIn) {
+            $.keepMeSignedIn = keepMeSignedIn;
+            return this;
+        }
+
+        /**
+         * @param keepMeSignedIn Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepMeSignedIn(AppSignonPolicyRuleKeepMeSignedInArgs keepMeSignedIn) {
+            return keepMeSignedIn(Output.of(keepMeSignedIn));
         }
 
         /**

@@ -23,6 +23,8 @@ from .app_user_schema_property import *
 from .auth_server_claim_default import *
 from .auth_server_default import *
 from .authenticator import *
+from .authenticator_method_webauthn import *
+from .authenticator_webauthn_custom_aaguid import *
 from .behaviour import *
 from .brand import *
 from .campaign import *
@@ -59,6 +61,8 @@ from .get_apps import *
 from .get_auth_server_claim import *
 from .get_auth_server_claims import *
 from .get_authenticator import *
+from .get_authenticator_method_webauthn import *
+from .get_authenticator_webauthn_custom_aaguids import *
 from .get_behaviour import *
 from .get_behaviours import *
 from .get_brand import *
@@ -80,6 +84,10 @@ from .get_entity_risk_policy import *
 from .get_features import *
 from .get_groups import *
 from .get_hook_key import *
+from .get_identity_source_group_memberships import *
+from .get_identity_source_groups import *
+from .get_identity_source_sessions import *
+from .get_identity_source_users import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_oauth_authorization_server import *
@@ -113,6 +121,10 @@ from .get_user_security_questions import *
 from .group_memberships import *
 from .group_schema_property import *
 from .hook_key import *
+from .identity_source_group import *
+from .identity_source_group_membership import *
+from .identity_source_import import *
+from .identity_source_user import *
 from .link_definition import *
 from .link_value import *
 from .log_stream import *
@@ -611,6 +623,22 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/authenticatorMethodWebauthn",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn": "AuthenticatorMethodWebauthn"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/authenticatorWebauthnCustomAaguid",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid": "AuthenticatorWebauthnCustomAaguid"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/behaviour",
   "fqn": "pulumi_okta",
   "classes": {
@@ -831,6 +859,38 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/hookKey:HookKey": "HookKey"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/identitySourceGroup",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/identitySourceGroup:IdentitySourceGroup": "IdentitySourceGroup"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/identitySourceGroupMembership",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership": "IdentitySourceGroupMembership"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/identitySourceImport",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/identitySourceImport:IdentitySourceImport": "IdentitySourceImport"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/identitySourceUser",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/identitySourceUser:IdentitySourceUser": "IdentitySourceUser"
   }
  },
  {
