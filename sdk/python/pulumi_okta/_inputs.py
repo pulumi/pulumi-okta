@@ -25,12 +25,24 @@ __all__ = [
     'ApiTokenNetworkArgsDict',
     'AppGroupAssignmentsGroupArgs',
     'AppGroupAssignmentsGroupArgsDict',
+    'AppSignonPolicyRuleKeepMeSignedInArgs',
+    'AppSignonPolicyRuleKeepMeSignedInArgsDict',
     'AppSignonPolicyRulePlatformIncludeArgs',
     'AppSignonPolicyRulePlatformIncludeArgsDict',
     'AppUserSchemaPropertyArrayOneOfArgs',
     'AppUserSchemaPropertyArrayOneOfArgsDict',
     'AppUserSchemaPropertyOneOfArgs',
     'AppUserSchemaPropertyOneOfArgsDict',
+    'AuthenticatorMethodWebauthnAaguidGroupArgs',
+    'AuthenticatorMethodWebauthnAaguidGroupArgsDict',
+    'AuthenticatorMethodWebauthnRpIdArgs',
+    'AuthenticatorMethodWebauthnRpIdArgsDict',
+    'AuthenticatorMethodWebauthnRpIdDomainArgs',
+    'AuthenticatorMethodWebauthnRpIdDomainArgsDict',
+    'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs',
+    'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict',
+    'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs',
+    'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict',
     'CampaignNotificationSettingsArgs',
     'CampaignNotificationSettingsArgsDict',
     'CampaignPrincipalScopeSettingsArgs',
@@ -97,6 +109,36 @@ __all__ = [
     'GroupSchemaPropertyMasterOverridePriorityArgsDict',
     'GroupSchemaPropertyOneOfArgs',
     'GroupSchemaPropertyOneOfArgsDict',
+    'IdentitySourceGroupProfileArgs',
+    'IdentitySourceGroupProfileArgsDict',
+    'IdentitySourceImportDeleteGroupMembershipsArgs',
+    'IdentitySourceImportDeleteGroupMembershipsArgsDict',
+    'IdentitySourceImportDeleteGroupMembershipsMembershipArgs',
+    'IdentitySourceImportDeleteGroupMembershipsMembershipArgsDict',
+    'IdentitySourceImportDeleteGroupsArgs',
+    'IdentitySourceImportDeleteGroupsArgsDict',
+    'IdentitySourceImportDeleteUsersArgs',
+    'IdentitySourceImportDeleteUsersArgsDict',
+    'IdentitySourceImportDeleteUsersProfileArgs',
+    'IdentitySourceImportDeleteUsersProfileArgsDict',
+    'IdentitySourceImportUpsertGroupMembershipsArgs',
+    'IdentitySourceImportUpsertGroupMembershipsArgsDict',
+    'IdentitySourceImportUpsertGroupMembershipsMembershipArgs',
+    'IdentitySourceImportUpsertGroupMembershipsMembershipArgsDict',
+    'IdentitySourceImportUpsertGroupsArgs',
+    'IdentitySourceImportUpsertGroupsArgsDict',
+    'IdentitySourceImportUpsertGroupsProfileArgs',
+    'IdentitySourceImportUpsertGroupsProfileArgsDict',
+    'IdentitySourceImportUpsertGroupsProfileGroupProfileArgs',
+    'IdentitySourceImportUpsertGroupsProfileGroupProfileArgsDict',
+    'IdentitySourceImportUpsertUsersArgs',
+    'IdentitySourceImportUpsertUsersArgsDict',
+    'IdentitySourceImportUpsertUsersProfileArgs',
+    'IdentitySourceImportUpsertUsersProfileArgsDict',
+    'IdentitySourceImportUpsertUsersProfileProfileArgs',
+    'IdentitySourceImportUpsertUsersProfileProfileArgsDict',
+    'IdentitySourceUserProfileArgs',
+    'IdentitySourceUserProfileArgsDict',
     'LogStreamSettingsArgs',
     'LogStreamSettingsArgsDict',
     'PolicyRuleProfileEnrollmentProfileAttributeArgs',
@@ -169,6 +211,16 @@ __all__ = [
     'GetApiServiceIntegrationGrantedScopeArgsDict',
     'GetApiTokenNetworkArgs',
     'GetApiTokenNetworkArgsDict',
+    'GetAuthenticatorMethodWebauthnAaguidGroupArgs',
+    'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict',
+    'GetAuthenticatorMethodWebauthnRpIdArgs',
+    'GetAuthenticatorMethodWebauthnRpIdArgsDict',
+    'GetAuthenticatorMethodWebauthnRpIdDomainArgs',
+    'GetAuthenticatorMethodWebauthnRpIdDomainArgsDict',
+    'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs',
+    'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict',
+    'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs',
+    'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgsDict',
     'GetCampaignNotificationSettingsArgs',
     'GetCampaignNotificationSettingsArgsDict',
     'GetCampaignPrincipalScopeSettingsArgs',
@@ -253,6 +305,8 @@ __all__ = [
     'GetEntitlementParentArgsDict',
     'GetEntitlementValueArgs',
     'GetEntitlementValueArgsDict',
+    'GetIdentitySourceGroupsProfileArgs',
+    'GetIdentitySourceGroupsProfileArgsDict',
     'GetLogStreamSettingsArgs',
     'GetLogStreamSettingsArgsDict',
     'GetOrgMetadataDomainsArgs',
@@ -663,6 +717,55 @@ class AppGroupAssignmentsGroupArgs:
         pulumi.set(self, "priority", value)
 
 
+class AppSignonPolicyRuleKeepMeSignedInArgsDict(TypedDict):
+    post_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+    """
+    post_auth_prompt_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+    """
+
+@pulumi.input_type
+class AppSignonPolicyRuleKeepMeSignedInArgs:
+    def __init__(__self__, *,
+                 post_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_auth_prompt_frequency: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] post_auth: Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+        :param pulumi.Input[_builtins.str] post_auth_prompt_frequency: How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+        """
+        if post_auth is not None:
+            pulumi.set(__self__, "post_auth", post_auth)
+        if post_auth_prompt_frequency is not None:
+            pulumi.set(__self__, "post_auth_prompt_frequency", post_auth_prompt_frequency)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuth")
+    def post_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+        """
+        return pulumi.get(self, "post_auth")
+
+    @post_auth.setter
+    def post_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "post_auth", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuthPromptFrequency")
+    def post_auth_prompt_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+        """
+        return pulumi.get(self, "post_auth_prompt_frequency")
+
+    @post_auth_prompt_frequency.setter
+    def post_auth_prompt_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "post_auth_prompt_frequency", value)
+
+
 class AppSignonPolicyRulePlatformIncludeArgsDict(TypedDict):
     os_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -810,6 +913,308 @@ class AppUserSchemaPropertyOneOfArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+
+class AuthenticatorMethodWebauthnAaguidGroupArgsDict(TypedDict):
+    aaguids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of FIDO2 AAGUIDs in this group.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    A name to identify the group of FIDO2 AAGUIDs.
+    """
+
+@pulumi.input_type
+class AuthenticatorMethodWebauthnAaguidGroupArgs:
+    def __init__(__self__, *,
+                 aaguids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aaguids: A list of FIDO2 AAGUIDs in this group.
+        :param pulumi.Input[_builtins.str] name: A name to identify the group of FIDO2 AAGUIDs.
+        """
+        pulumi.set(__self__, "aaguids", aaguids)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def aaguids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of FIDO2 AAGUIDs in this group.
+        """
+        return pulumi.get(self, "aaguids")
+
+    @aaguids.setter
+    def aaguids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "aaguids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A name to identify the group of FIDO2 AAGUIDs.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+class AuthenticatorMethodWebauthnRpIdArgsDict(TypedDict):
+    domain: NotRequired[pulumi.Input[Optional['AuthenticatorMethodWebauthnRpIdDomainArgsDict']]]
+    """
+    The RP domain configuration. Contains:
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the RP ID is active and used for WebAuthn operations.
+    """
+
+@pulumi.input_type
+class AuthenticatorMethodWebauthnRpIdArgs:
+    def __init__(__self__, *,
+                 domain: pulumi.Input[Optional['AuthenticatorMethodWebauthnRpIdDomainArgs']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input['AuthenticatorMethodWebauthnRpIdDomainArgs'] domain: The RP domain configuration. Contains:
+        :param pulumi.Input[_builtins.bool] enabled: Whether the RP ID is active and used for WebAuthn operations.
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[Optional['AuthenticatorMethodWebauthnRpIdDomainArgs']]:
+        """
+        The RP domain configuration. Contains:
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[Optional['AuthenticatorMethodWebauthnRpIdDomainArgs']]):
+        pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the RP ID is active and used for WebAuthn operations.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+class AuthenticatorMethodWebauthnRpIdDomainArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The RP ID domain value used for WebAuthn operations.
+    """
+    validation_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The validation status of the domain.
+    """
+
+@pulumi.input_type
+class AuthenticatorMethodWebauthnRpIdDomainArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_status: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The RP ID domain value used for WebAuthn operations.
+        :param pulumi.Input[_builtins.str] validation_status: The validation status of the domain.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if validation_status is not None:
+            pulumi.set(__self__, "validation_status", validation_status)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The RP ID domain value used for WebAuthn operations.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The validation status of the domain.
+        """
+        return pulumi.get(self, "validation_status")
+
+    @validation_status.setter
+    def validation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "validation_status", value)
+
+
+class AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict(TypedDict):
+    x5c: pulumi.Input[_builtins.str]
+    """
+    X.509 certificate chain (base64-encoded).
+    """
+    expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Expiry date of the certificate.
+    """
+    issuer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Issuer of the certificate.
+    """
+    x5t_s256: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SHA-256 hash (thumbprint) of the X.509 certificate.
+    """
+
+@pulumi.input_type
+class AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs:
+    def __init__(__self__, *,
+                 x5c: pulumi.Input[_builtins.str],
+                 expiry: pulumi.Input[Optional[_builtins.str]] = None,
+                 issuer: pulumi.Input[Optional[_builtins.str]] = None,
+                 x5t_s256: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] x5c: X.509 certificate chain (base64-encoded).
+        :param pulumi.Input[_builtins.str] expiry: Expiry date of the certificate.
+        :param pulumi.Input[_builtins.str] issuer: Issuer of the certificate.
+        :param pulumi.Input[_builtins.str] x5t_s256: SHA-256 hash (thumbprint) of the X.509 certificate.
+        """
+        pulumi.set(__self__, "x5c", x5c)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if x5t_s256 is not None:
+            pulumi.set(__self__, "x5t_s256", x5t_s256)
+
+    @_builtins.property
+    @pulumi.getter
+    def x5c(self) -> pulumi.Input[_builtins.str]:
+        """
+        X.509 certificate chain (base64-encoded).
+        """
+        return pulumi.get(self, "x5c")
+
+    @x5c.setter
+    def x5c(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "x5c", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Expiry date of the certificate.
+        """
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expiry", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Issuer of the certificate.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "issuer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="x5tS256")
+    def x5t_s256(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SHA-256 hash (thumbprint) of the X.509 certificate.
+        """
+        return pulumi.get(self, "x5t_s256")
+
+    @x5t_s256.setter
+    def x5t_s256(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "x5t_s256", value)
+
+
+class AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict(TypedDict):
+    fips_compliant: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether the authenticator meets FIPS compliance requirements.
+    """
+    hardware_protected: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether the authenticator stores the private key on a hardware component.
+    """
+    platform_attached: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether the custom AAGUID is built into the authenticator or is external.
+    """
+
+@pulumi.input_type
+class AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs:
+    def __init__(__self__, *,
+                 fips_compliant: pulumi.Input[Optional[_builtins.bool]] = None,
+                 hardware_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 platform_attached: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] fips_compliant: Indicates whether the authenticator meets FIPS compliance requirements.
+        :param pulumi.Input[_builtins.bool] hardware_protected: Indicates whether the authenticator stores the private key on a hardware component.
+        :param pulumi.Input[_builtins.bool] platform_attached: Indicates whether the custom AAGUID is built into the authenticator or is external.
+        """
+        if fips_compliant is not None:
+            pulumi.set(__self__, "fips_compliant", fips_compliant)
+        if hardware_protected is not None:
+            pulumi.set(__self__, "hardware_protected", hardware_protected)
+        if platform_attached is not None:
+            pulumi.set(__self__, "platform_attached", platform_attached)
+
+    @_builtins.property
+    @pulumi.getter(name="fipsCompliant")
+    def fips_compliant(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the authenticator meets FIPS compliance requirements.
+        """
+        return pulumi.get(self, "fips_compliant")
+
+    @fips_compliant.setter
+    def fips_compliant(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fips_compliant", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hardwareProtected")
+    def hardware_protected(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the authenticator stores the private key on a hardware component.
+        """
+        return pulumi.get(self, "hardware_protected")
+
+    @hardware_protected.setter
+    def hardware_protected(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hardware_protected", value)
+
+    @_builtins.property
+    @pulumi.getter(name="platformAttached")
+    def platform_attached(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the custom AAGUID is built into the authenticator or is external.
+        """
+        return pulumi.get(self, "platform_attached")
+
+    @platform_attached.setter
+    def platform_attached(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "platform_attached", value)
 
 
 class CampaignNotificationSettingsArgsDict(TypedDict):
@@ -3449,6 +3854,841 @@ class GroupSchemaPropertyOneOfArgs:
         pulumi.set(self, "title", value)
 
 
+class IdentitySourceGroupProfileArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of the group.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the group.
+    """
+
+@pulumi.input_type
+class IdentitySourceGroupProfileArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of the group.
+        :param pulumi.Input[_builtins.str] display_name: Name of the group.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+class IdentitySourceImportDeleteGroupMembershipsArgsDict(TypedDict):
+    memberships: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteGroupMembershipsMembershipArgsDict']]]]]
+    """
+    Group memberships to delete. (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportDeleteGroupMembershipsArgs:
+    def __init__(__self__, *,
+                 memberships: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteGroupMembershipsMembershipArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceImportDeleteGroupMembershipsMembershipArgs']]] memberships: Group memberships to delete. (see below)
+        """
+        if memberships is not None:
+            pulumi.set(__self__, "memberships", memberships)
+
+    @_builtins.property
+    @pulumi.getter
+    def memberships(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteGroupMembershipsMembershipArgs']]]]:
+        """
+        Group memberships to delete. (see below)
+        """
+        return pulumi.get(self, "memberships")
+
+    @memberships.setter
+    def memberships(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteGroupMembershipsMembershipArgs']]]]):
+        pulumi.set(self, "memberships", value)
+
+
+class IdentitySourceImportDeleteGroupMembershipsMembershipArgsDict(TypedDict):
+    group_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID of the group.
+    """
+    member_external_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    External IDs of the group members to remove.
+    """
+
+@pulumi.input_type
+class IdentitySourceImportDeleteGroupMembershipsMembershipArgs:
+    def __init__(__self__, *,
+                 group_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] group_external_id: External ID of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_external_ids: External IDs of the group members to remove.
+        """
+        if group_external_id is not None:
+            pulumi.set(__self__, "group_external_id", group_external_id)
+        if member_external_ids is not None:
+            pulumi.set(__self__, "member_external_ids", member_external_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="groupExternalId")
+    def group_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID of the group.
+        """
+        return pulumi.get(self, "group_external_id")
+
+    @group_external_id.setter
+    def group_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memberExternalIds")
+    def member_external_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        External IDs of the group members to remove.
+        """
+        return pulumi.get(self, "member_external_ids")
+
+    @member_external_ids.setter
+    def member_external_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "member_external_ids", value)
+
+
+class IdentitySourceImportDeleteGroupsArgsDict(TypedDict):
+    external_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    External IDs of the groups to delete.
+    """
+
+@pulumi.input_type
+class IdentitySourceImportDeleteGroupsArgs:
+    def __init__(__self__, *,
+                 external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_ids: External IDs of the groups to delete.
+        """
+        if external_ids is not None:
+            pulumi.set(__self__, "external_ids", external_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        External IDs of the groups to delete.
+        """
+        return pulumi.get(self, "external_ids")
+
+    @external_ids.setter
+    def external_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "external_ids", value)
+
+
+class IdentitySourceImportDeleteUsersArgsDict(TypedDict):
+    entity_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Entity type. Currently only `USERS` is supported.
+    """
+    profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteUsersProfileArgsDict']]]]]
+    """
+    User profiles to delete (by external ID). (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportDeleteUsersArgs:
+    def __init__(__self__, *,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteUsersProfileArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] entity_type: Entity type. Currently only `USERS` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceImportDeleteUsersProfileArgs']]] profiles: User profiles to delete (by external ID). (see below)
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Entity type. Currently only `USERS` is supported.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "entity_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteUsersProfileArgs']]]]:
+        """
+        User profiles to delete (by external ID). (see below)
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportDeleteUsersProfileArgs']]]]):
+        pulumi.set(self, "profiles", value)
+
+
+class IdentitySourceImportDeleteUsersProfileArgsDict(TypedDict):
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID of the user to delete.
+    """
+
+@pulumi.input_type
+class IdentitySourceImportDeleteUsersProfileArgs:
+    def __init__(__self__, *,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] external_id: External ID of the user to delete.
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID of the user to delete.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+
+class IdentitySourceImportUpsertGroupMembershipsArgsDict(TypedDict):
+    memberships: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupMembershipsMembershipArgsDict']]]]]
+    """
+    Group memberships to upsert. (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertGroupMembershipsArgs:
+    def __init__(__self__, *,
+                 memberships: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupMembershipsMembershipArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupMembershipsMembershipArgs']]] memberships: Group memberships to upsert. (see below)
+        """
+        if memberships is not None:
+            pulumi.set(__self__, "memberships", memberships)
+
+    @_builtins.property
+    @pulumi.getter
+    def memberships(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupMembershipsMembershipArgs']]]]:
+        """
+        Group memberships to upsert. (see below)
+        """
+        return pulumi.get(self, "memberships")
+
+    @memberships.setter
+    def memberships(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupMembershipsMembershipArgs']]]]):
+        pulumi.set(self, "memberships", value)
+
+
+class IdentitySourceImportUpsertGroupMembershipsMembershipArgsDict(TypedDict):
+    group_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID of the group.
+    """
+    member_external_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    External IDs of the group members to add.
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertGroupMembershipsMembershipArgs:
+    def __init__(__self__, *,
+                 group_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] group_external_id: External ID of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_external_ids: External IDs of the group members to add.
+        """
+        if group_external_id is not None:
+            pulumi.set(__self__, "group_external_id", group_external_id)
+        if member_external_ids is not None:
+            pulumi.set(__self__, "member_external_ids", member_external_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="groupExternalId")
+    def group_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID of the group.
+        """
+        return pulumi.get(self, "group_external_id")
+
+    @group_external_id.setter
+    def group_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="memberExternalIds")
+    def member_external_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        External IDs of the group members to add.
+        """
+        return pulumi.get(self, "member_external_ids")
+
+    @member_external_ids.setter
+    def member_external_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "member_external_ids", value)
+
+
+class IdentitySourceImportUpsertGroupsArgsDict(TypedDict):
+    profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupsProfileArgsDict']]]]]
+    """
+    Group profiles to upsert. (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertGroupsArgs:
+    def __init__(__self__, *,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupsProfileArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupsProfileArgs']]] profiles: Group profiles to upsert. (see below)
+        """
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupsProfileArgs']]]]:
+        """
+        Group profiles to upsert. (see below)
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertGroupsProfileArgs']]]]):
+        pulumi.set(self, "profiles", value)
+
+
+class IdentitySourceImportUpsertGroupsProfileArgsDict(TypedDict):
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID of the group.
+    """
+    group_profile: NotRequired[pulumi.Input[Optional['IdentitySourceImportUpsertGroupsProfileGroupProfileArgsDict']]]
+    """
+    Group profile attributes. (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertGroupsProfileArgs:
+    def __init__(__self__, *,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_profile: pulumi.Input[Optional['IdentitySourceImportUpsertGroupsProfileGroupProfileArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] external_id: External ID of the group.
+        :param pulumi.Input['IdentitySourceImportUpsertGroupsProfileGroupProfileArgs'] group_profile: Group profile attributes. (see below)
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if group_profile is not None:
+            pulumi.set(__self__, "group_profile", group_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID of the group.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupProfile")
+    def group_profile(self) -> pulumi.Input[Optional['IdentitySourceImportUpsertGroupsProfileGroupProfileArgs']]:
+        """
+        Group profile attributes. (see below)
+        """
+        return pulumi.get(self, "group_profile")
+
+    @group_profile.setter
+    def group_profile(self, value: pulumi.Input[Optional['IdentitySourceImportUpsertGroupsProfileGroupProfileArgs']]):
+        pulumi.set(self, "group_profile", value)
+
+
+class IdentitySourceImportUpsertGroupsProfileGroupProfileArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of the group.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Display name of the group.
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertGroupsProfileGroupProfileArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of the group.
+        :param pulumi.Input[_builtins.str] display_name: Display name of the group.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Display name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+class IdentitySourceImportUpsertUsersArgsDict(TypedDict):
+    entity_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Entity type. Currently only `USERS` is supported.
+    """
+    profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertUsersProfileArgsDict']]]]]
+    """
+    User profiles to upsert. (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertUsersArgs:
+    def __init__(__self__, *,
+                 entity_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertUsersProfileArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] entity_type: Entity type. Currently only `USERS` is supported.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceImportUpsertUsersProfileArgs']]] profiles: User profiles to upsert. (see below)
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Entity type. Currently only `USERS` is supported.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @entity_type.setter
+    def entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "entity_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertUsersProfileArgs']]]]:
+        """
+        User profiles to upsert. (see below)
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentitySourceImportUpsertUsersProfileArgs']]]]):
+        pulumi.set(self, "profiles", value)
+
+
+class IdentitySourceImportUpsertUsersProfileArgsDict(TypedDict):
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID of the user.
+    """
+    profile: NotRequired[pulumi.Input[Optional['IdentitySourceImportUpsertUsersProfileProfileArgsDict']]]
+    """
+    User profile attributes. (see below)
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertUsersProfileArgs:
+    def __init__(__self__, *,
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile: pulumi.Input[Optional['IdentitySourceImportUpsertUsersProfileProfileArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] external_id: External ID of the user.
+        :param pulumi.Input['IdentitySourceImportUpsertUsersProfileProfileArgs'] profile: User profile attributes. (see below)
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID of the user.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> pulumi.Input[Optional['IdentitySourceImportUpsertUsersProfileProfileArgs']]:
+        """
+        User profile attributes. (see below)
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: pulumi.Input[Optional['IdentitySourceImportUpsertUsersProfileProfileArgs']]):
+        pulumi.set(self, "profile", value)
+
+
+class IdentitySourceImportUpsertUsersProfileProfileArgsDict(TypedDict):
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Email address of the user.
+    """
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    First name of the user.
+    """
+    home_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Home address of the user.
+    """
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Last name of the user.
+    """
+    mobile_phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Mobile phone number of the user.
+    """
+    second_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alternative email address of the user.
+    """
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Username of the user.
+    """
+
+@pulumi.input_type
+class IdentitySourceImportUpsertUsersProfileProfileArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] email: Email address of the user.
+        :param pulumi.Input[_builtins.str] first_name: First name of the user.
+        :param pulumi.Input[_builtins.str] home_address: Home address of the user.
+        :param pulumi.Input[_builtins.str] last_name: Last name of the user.
+        :param pulumi.Input[_builtins.str] mobile_phone: Mobile phone number of the user.
+        :param pulumi.Input[_builtins.str] second_email: Alternative email address of the user.
+        :param pulumi.Input[_builtins.str] user_name: Username of the user.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if home_address is not None:
+            pulumi.set(__self__, "home_address", home_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if mobile_phone is not None:
+            pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if second_email is not None:
+            pulumi.set(__self__, "second_email", second_email)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email address of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        First name of the user.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "first_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="homeAddress")
+    def home_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Home address of the user.
+        """
+        return pulumi.get(self, "home_address")
+
+    @home_address.setter
+    def home_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "home_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Last name of the user.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Mobile phone number of the user.
+        """
+        return pulumi.get(self, "mobile_phone")
+
+    @mobile_phone.setter
+    def mobile_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mobile_phone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alternative email address of the user.
+        """
+        return pulumi.get(self, "second_email")
+
+    @second_email.setter
+    def second_email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "second_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Username of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_name", value)
+
+
+class IdentitySourceUserProfileArgsDict(TypedDict):
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Email address of the user.
+    """
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    First name of the user.
+    """
+    home_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Home address of the user.
+    """
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Last name of the user.
+    """
+    mobile_phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Mobile phone number of the user.
+    """
+    second_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alternative email address of the user.
+    """
+    user_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Username of the user.
+    """
+
+@pulumi.input_type
+class IdentitySourceUserProfileArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mobile_phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 second_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] email: Email address of the user.
+        :param pulumi.Input[_builtins.str] first_name: First name of the user.
+        :param pulumi.Input[_builtins.str] home_address: Home address of the user.
+        :param pulumi.Input[_builtins.str] last_name: Last name of the user.
+        :param pulumi.Input[_builtins.str] mobile_phone: Mobile phone number of the user.
+        :param pulumi.Input[_builtins.str] second_email: Alternative email address of the user.
+        :param pulumi.Input[_builtins.str] user_name: Username of the user.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if home_address is not None:
+            pulumi.set(__self__, "home_address", home_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if mobile_phone is not None:
+            pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if second_email is not None:
+            pulumi.set(__self__, "second_email", second_email)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email address of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        First name of the user.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "first_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="homeAddress")
+    def home_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Home address of the user.
+        """
+        return pulumi.get(self, "home_address")
+
+    @home_address.setter
+    def home_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "home_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Last name of the user.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Mobile phone number of the user.
+        """
+        return pulumi.get(self, "mobile_phone")
+
+    @mobile_phone.setter
+    def mobile_phone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mobile_phone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alternative email address of the user.
+        """
+        return pulumi.get(self, "second_email")
+
+    @second_email.setter
+    def second_email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "second_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Username of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_name", value)
+
+
 class LogStreamSettingsArgsDict(TypedDict):
     account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3984,6 +5224,7 @@ class PushGroupAppConfigArgsDict(TypedDict):
     group_scope: pulumi.Input[_builtins.str]
     group_type: pulumi.Input[_builtins.str]
     sam_account_name: pulumi.Input[_builtins.str]
+    type: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PushGroupAppConfigArgs:
@@ -3991,11 +5232,13 @@ class PushGroupAppConfigArgs:
                  distinguished_name: pulumi.Input[_builtins.str],
                  group_scope: pulumi.Input[_builtins.str],
                  group_type: pulumi.Input[_builtins.str],
-                 sam_account_name: pulumi.Input[_builtins.str]):
+                 sam_account_name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
         pulumi.set(__self__, "distinguished_name", distinguished_name)
         pulumi.set(__self__, "group_scope", group_scope)
         pulumi.set(__self__, "group_type", group_type)
         pulumi.set(__self__, "sam_account_name", sam_account_name)
+        pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="distinguishedName")
@@ -4032,6 +5275,15 @@ class PushGroupAppConfigArgs:
     @sam_account_name.setter
     def sam_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sam_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 
 class PushProviderConfigurationArgsDict(TypedDict):
@@ -6054,6 +7306,281 @@ class GetApiTokenNetworkArgs:
     @includes.setter
     def includes(self, value: Sequence[_builtins.str]):
         pulumi.set(self, "includes", value)
+
+
+class GetAuthenticatorMethodWebauthnAaguidGroupArgsDict(TypedDict):
+    aaguids: Sequence[_builtins.str]
+    """
+    List of FIDO2 AAGUIDs in this group.
+    """
+    name: _builtins.str
+    """
+    The name of the AAGUID group.
+    """
+
+@pulumi.input_type
+class GetAuthenticatorMethodWebauthnAaguidGroupArgs:
+    def __init__(__self__, *,
+                 aaguids: Sequence[_builtins.str],
+                 name: _builtins.str):
+        """
+        :param Sequence[_builtins.str] aaguids: List of FIDO2 AAGUIDs in this group.
+        :param _builtins.str name: The name of the AAGUID group.
+        """
+        pulumi.set(__self__, "aaguids", aaguids)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def aaguids(self) -> Sequence[_builtins.str]:
+        """
+        List of FIDO2 AAGUIDs in this group.
+        """
+        return pulumi.get(self, "aaguids")
+
+    @aaguids.setter
+    def aaguids(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "aaguids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the AAGUID group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+
+class GetAuthenticatorMethodWebauthnRpIdArgsDict(TypedDict):
+    enabled: _builtins.bool
+    """
+    Whether the RP ID is active and used for WebAuthn operations.
+    """
+    domain: NotRequired['GetAuthenticatorMethodWebauthnRpIdDomainArgsDict']
+    """
+    The RP domain configuration. Contains:
+    """
+
+@pulumi.input_type
+class GetAuthenticatorMethodWebauthnRpIdArgs:
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 domain: Optional['GetAuthenticatorMethodWebauthnRpIdDomainArgs'] = None):
+        """
+        :param _builtins.bool enabled: Whether the RP ID is active and used for WebAuthn operations.
+        :param 'GetAuthenticatorMethodWebauthnRpIdDomainArgs' domain: The RP domain configuration. Contains:
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the RP ID is active and used for WebAuthn operations.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: _builtins.bool):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional['GetAuthenticatorMethodWebauthnRpIdDomainArgs']:
+        """
+        The RP domain configuration. Contains:
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional['GetAuthenticatorMethodWebauthnRpIdDomainArgs']):
+        pulumi.set(self, "domain", value)
+
+
+class GetAuthenticatorMethodWebauthnRpIdDomainArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    The name of the AAGUID group.
+    """
+    validation_status: _builtins.str
+    """
+    The validation status of the domain.
+    """
+
+@pulumi.input_type
+class GetAuthenticatorMethodWebauthnRpIdDomainArgs:
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 validation_status: _builtins.str):
+        """
+        :param _builtins.str name: The name of the AAGUID group.
+        :param _builtins.str validation_status: The validation status of the domain.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "validation_status", validation_status)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the AAGUID group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> _builtins.str:
+        """
+        The validation status of the domain.
+        """
+        return pulumi.get(self, "validation_status")
+
+    @validation_status.setter
+    def validation_status(self, value: _builtins.str):
+        pulumi.set(self, "validation_status", value)
+
+
+class GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict(TypedDict):
+    aaguid: _builtins.str
+    """
+    The AAGUID identifier.
+    """
+    name: _builtins.str
+    """
+    The product name associated with the AAGUID.
+    """
+    authenticator_characteristics: NotRequired['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgsDict']
+    """
+    Properties of the custom AAGUID authenticator.
+    """
+
+@pulumi.input_type
+class GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs:
+    def __init__(__self__, *,
+                 aaguid: _builtins.str,
+                 name: _builtins.str,
+                 authenticator_characteristics: Optional['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs'] = None):
+        """
+        :param _builtins.str aaguid: The AAGUID identifier.
+        :param _builtins.str name: The product name associated with the AAGUID.
+        :param 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs' authenticator_characteristics: Properties of the custom AAGUID authenticator.
+        """
+        pulumi.set(__self__, "aaguid", aaguid)
+        pulumi.set(__self__, "name", name)
+        if authenticator_characteristics is not None:
+            pulumi.set(__self__, "authenticator_characteristics", authenticator_characteristics)
+
+    @_builtins.property
+    @pulumi.getter
+    def aaguid(self) -> _builtins.str:
+        """
+        The AAGUID identifier.
+        """
+        return pulumi.get(self, "aaguid")
+
+    @aaguid.setter
+    def aaguid(self, value: _builtins.str):
+        pulumi.set(self, "aaguid", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The product name associated with the AAGUID.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticatorCharacteristics")
+    def authenticator_characteristics(self) -> Optional['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs']:
+        """
+        Properties of the custom AAGUID authenticator.
+        """
+        return pulumi.get(self, "authenticator_characteristics")
+
+    @authenticator_characteristics.setter
+    def authenticator_characteristics(self, value: Optional['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs']):
+        pulumi.set(self, "authenticator_characteristics", value)
+
+
+class GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgsDict(TypedDict):
+    fips_compliant: _builtins.bool
+    """
+    Whether the authenticator meets FIPS compliance requirements.
+    """
+    hardware_protected: _builtins.bool
+    """
+    Whether the authenticator stores the private key on hardware.
+    """
+    platform_attached: _builtins.bool
+    """
+    Whether the AAGUID is built into the authenticator or is external.
+    """
+
+@pulumi.input_type
+class GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs:
+    def __init__(__self__, *,
+                 fips_compliant: _builtins.bool,
+                 hardware_protected: _builtins.bool,
+                 platform_attached: _builtins.bool):
+        """
+        :param _builtins.bool fips_compliant: Whether the authenticator meets FIPS compliance requirements.
+        :param _builtins.bool hardware_protected: Whether the authenticator stores the private key on hardware.
+        :param _builtins.bool platform_attached: Whether the AAGUID is built into the authenticator or is external.
+        """
+        pulumi.set(__self__, "fips_compliant", fips_compliant)
+        pulumi.set(__self__, "hardware_protected", hardware_protected)
+        pulumi.set(__self__, "platform_attached", platform_attached)
+
+    @_builtins.property
+    @pulumi.getter(name="fipsCompliant")
+    def fips_compliant(self) -> _builtins.bool:
+        """
+        Whether the authenticator meets FIPS compliance requirements.
+        """
+        return pulumi.get(self, "fips_compliant")
+
+    @fips_compliant.setter
+    def fips_compliant(self, value: _builtins.bool):
+        pulumi.set(self, "fips_compliant", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hardwareProtected")
+    def hardware_protected(self) -> _builtins.bool:
+        """
+        Whether the authenticator stores the private key on hardware.
+        """
+        return pulumi.get(self, "hardware_protected")
+
+    @hardware_protected.setter
+    def hardware_protected(self, value: _builtins.bool):
+        pulumi.set(self, "hardware_protected", value)
+
+    @_builtins.property
+    @pulumi.getter(name="platformAttached")
+    def platform_attached(self) -> _builtins.bool:
+        """
+        Whether the AAGUID is built into the authenticator or is external.
+        """
+        return pulumi.get(self, "platform_attached")
+
+    @platform_attached.setter
+    def platform_attached(self, value: _builtins.bool):
+        pulumi.set(self, "platform_attached", value)
 
 
 class GetCampaignNotificationSettingsArgsDict(TypedDict):
@@ -9370,6 +10897,53 @@ class GetEntitlementValueArgs:
     @name.setter
     def name(self, value: _builtins.str):
         pulumi.set(self, "name", value)
+
+
+class GetIdentitySourceGroupsProfileArgsDict(TypedDict):
+    description: _builtins.str
+    """
+    Description of the group.
+    """
+    display_name: _builtins.str
+    """
+    Display name of the group.
+    """
+
+@pulumi.input_type
+class GetIdentitySourceGroupsProfileArgs:
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 display_name: _builtins.str):
+        """
+        :param _builtins.str description: Description of the group.
+        :param _builtins.str display_name: Display name of the group.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: _builtins.str):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        Display name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: _builtins.str):
+        pulumi.set(self, "display_name", value)
 
 
 class GetLogStreamSettingsArgsDict(TypedDict):

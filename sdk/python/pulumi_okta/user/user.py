@@ -734,9 +734,11 @@ class UserArgs:
 @pulumi.input_type
 class _UserState:
     def __init__(__self__, *,
+                 activated: pulumi.Input[Optional[_builtins.str]] = None,
                  city: pulumi.Input[Optional[_builtins.str]] = None,
                  cost_center: pulumi.Input[Optional[_builtins.str]] = None,
                  country_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  department: pulumi.Input[Optional[_builtins.str]] = None,
@@ -748,7 +750,9 @@ class _UserState:
                  first_name: pulumi.Input[Optional[_builtins.str]] = None,
                  honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_login: pulumi.Input[Optional[_builtins.str]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  login: pulumi.Input[Optional[_builtins.str]] = None,
                  manager: pulumi.Input[Optional[_builtins.str]] = None,
@@ -759,6 +763,7 @@ class _UserState:
                  old_password: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
+                 password_changed: pulumi.Input[Optional[_builtins.str]] = None,
                  password_hash: pulumi.Input[Optional['UserPasswordHashArgs']] = None,
                  password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  postal_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -773,6 +778,7 @@ class _UserState:
                  skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_changed: pulumi.Input[Optional[_builtins.str]] = None,
                  street_address: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
@@ -782,9 +788,11 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
 
+        :param pulumi.Input[_builtins.str] activated: The timestamp when the user status transitioned to ACTIVE
         :param pulumi.Input[_builtins.str] city: User city
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
+        :param pulumi.Input[_builtins.str] created: The timestamp when the user was created
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_profile_attributes_to_ignores: List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[_builtins.str] department: User department
@@ -796,7 +804,9 @@ class _UserState:
         :param pulumi.Input[_builtins.str] first_name: User first name
         :param pulumi.Input[_builtins.str] honorific_prefix: User honorific prefix
         :param pulumi.Input[_builtins.str] honorific_suffix: User honorific suffix
+        :param pulumi.Input[_builtins.str] last_login: The timestamp of the user's last login
         :param pulumi.Input[_builtins.str] last_name: User last name
+        :param pulumi.Input[_builtins.str] last_updated: The timestamp when the user was last updated
         :param pulumi.Input[_builtins.str] locale: User default location
         :param pulumi.Input[_builtins.str] login: User Okta login
         :param pulumi.Input[_builtins.str] manager: Manager of User
@@ -807,6 +817,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         :param pulumi.Input[_builtins.str] organization: User organization
         :param pulumi.Input[_builtins.str] password: User Password
+        :param pulumi.Input[_builtins.str] password_changed: The timestamp when the user's password was last changed
         :param pulumi.Input['UserPasswordHashArgs'] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[_builtins.str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[_builtins.str] postal_address: User mailing address
@@ -821,6 +832,7 @@ class _UserState:
         :param pulumi.Input[_builtins.bool] skip_roles: Do not populate user roles information (prevents additional API call)
         :param pulumi.Input[_builtins.str] state: User state or region
         :param pulumi.Input[_builtins.str] status: User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
+        :param pulumi.Input[_builtins.str] status_changed: The timestamp when the user's status last changed
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
@@ -828,12 +840,16 @@ class _UserState:
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """
+        if activated is not None:
+            pulumi.set(__self__, "activated", activated)
         if city is not None:
             pulumi.set(__self__, "city", city)
         if cost_center is not None:
             pulumi.set(__self__, "cost_center", cost_center)
         if country_code is not None:
             pulumi.set(__self__, "country_code", country_code)
+        if created is not None:
+            pulumi.set(__self__, "created", created)
         if custom_profile_attributes is not None:
             pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         if custom_profile_attributes_to_ignores is not None:
@@ -856,8 +872,12 @@ class _UserState:
             pulumi.set(__self__, "honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
             pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+        if last_login is not None:
+            pulumi.set(__self__, "last_login", last_login)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
         if locale is not None:
             pulumi.set(__self__, "locale", locale)
         if login is not None:
@@ -878,6 +898,8 @@ class _UserState:
             pulumi.set(__self__, "organization", organization)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_changed is not None:
+            pulumi.set(__self__, "password_changed", password_changed)
         if password_hash is not None:
             pulumi.set(__self__, "password_hash", password_hash)
         if password_inline_hook is not None:
@@ -909,6 +931,8 @@ class _UserState:
             pulumi.set(__self__, "state", state)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if status_changed is not None:
+            pulumi.set(__self__, "status_changed", status_changed)
         if street_address is not None:
             pulumi.set(__self__, "street_address", street_address)
         if timezone is not None:
@@ -921,6 +945,18 @@ class _UserState:
             pulumi.set(__self__, "user_type", user_type)
         if zip_code is not None:
             pulumi.set(__self__, "zip_code", zip_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def activated(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timestamp when the user status transitioned to ACTIVE
+        """
+        return pulumi.get(self, "activated")
+
+    @activated.setter
+    def activated(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "activated", value)
 
     @_builtins.property
     @pulumi.getter
@@ -957,6 +993,18 @@ class _UserState:
     @country_code.setter
     def country_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "country_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timestamp when the user was created
+        """
+        return pulumi.get(self, "created")
+
+    @created.setter
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created", value)
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
@@ -1091,6 +1139,18 @@ class _UserState:
         pulumi.set(self, "honorific_suffix", value)
 
     @_builtins.property
+    @pulumi.getter(name="lastLogin")
+    def last_login(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timestamp of the user's last login
+        """
+        return pulumi.get(self, "last_login")
+
+    @last_login.setter
+    def last_login(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_login", value)
+
+    @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1101,6 +1161,18 @@ class _UserState:
     @last_name.setter
     def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timestamp when the user was last updated
+        """
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1221,6 +1293,18 @@ class _UserState:
     @password.setter
     def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passwordChanged")
+    def password_changed(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timestamp when the user's password was last changed
+        """
+        return pulumi.get(self, "password_changed")
+
+    @password_changed.setter
+    def password_changed(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password_changed", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordHash")
@@ -1390,6 +1474,18 @@ class _UserState:
     @status.setter
     def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusChanged")
+    def status_changed(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timestamp when the user's status last changed
+        """
+        return pulumi.get(self, "status_changed")
+
+    @status_changed.setter
+    def status_changed(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status_changed", value)
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
@@ -1804,7 +1900,13 @@ class User(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["user_type"] = user_type
             __props__.__dict__["zip_code"] = zip_code
+            __props__.__dict__["activated"] = None
+            __props__.__dict__["created"] = None
+            __props__.__dict__["last_login"] = None
+            __props__.__dict__["last_updated"] = None
+            __props__.__dict__["password_changed"] = None
             __props__.__dict__["raw_status"] = None
+            __props__.__dict__["status_changed"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oldPassword", "password", "recoveryAnswer"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(User, __self__).__init__(
@@ -1817,9 +1919,11 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            activated: pulumi.Input[Optional[_builtins.str]] = None,
             city: pulumi.Input[Optional[_builtins.str]] = None,
             cost_center: pulumi.Input[Optional[_builtins.str]] = None,
             country_code: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
             custom_profile_attributes: pulumi.Input[Optional[_builtins.str]] = None,
             custom_profile_attributes_to_ignores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             department: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1831,7 +1935,9 @@ class User(pulumi.CustomResource):
             first_name: pulumi.Input[Optional[_builtins.str]] = None,
             honorific_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             honorific_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            last_login: pulumi.Input[Optional[_builtins.str]] = None,
             last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
             locale: pulumi.Input[Optional[_builtins.str]] = None,
             login: pulumi.Input[Optional[_builtins.str]] = None,
             manager: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1842,6 +1948,7 @@ class User(pulumi.CustomResource):
             old_password: pulumi.Input[Optional[_builtins.str]] = None,
             organization: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
+            password_changed: pulumi.Input[Optional[_builtins.str]] = None,
             password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
             password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
             postal_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1856,6 +1963,7 @@ class User(pulumi.CustomResource):
             skip_roles: pulumi.Input[Optional[_builtins.bool]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_changed: pulumi.Input[Optional[_builtins.str]] = None,
             street_address: pulumi.Input[Optional[_builtins.str]] = None,
             timezone: pulumi.Input[Optional[_builtins.str]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1869,9 +1977,11 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] activated: The timestamp when the user status transitioned to ACTIVE
         :param pulumi.Input[_builtins.str] city: User city
         :param pulumi.Input[_builtins.str] cost_center: User cost center
         :param pulumi.Input[_builtins.str] country_code: User country code
+        :param pulumi.Input[_builtins.str] created: The timestamp when the user was created
         :param pulumi.Input[_builtins.str] custom_profile_attributes: JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_profile_attributes_to_ignores: List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
         :param pulumi.Input[_builtins.str] department: User department
@@ -1883,7 +1993,9 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] first_name: User first name
         :param pulumi.Input[_builtins.str] honorific_prefix: User honorific prefix
         :param pulumi.Input[_builtins.str] honorific_suffix: User honorific suffix
+        :param pulumi.Input[_builtins.str] last_login: The timestamp of the user's last login
         :param pulumi.Input[_builtins.str] last_name: User last name
+        :param pulumi.Input[_builtins.str] last_updated: The timestamp when the user was last updated
         :param pulumi.Input[_builtins.str] locale: User default location
         :param pulumi.Input[_builtins.str] login: User Okta login
         :param pulumi.Input[_builtins.str] manager: Manager of User
@@ -1894,6 +2006,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         :param pulumi.Input[_builtins.str] organization: User organization
         :param pulumi.Input[_builtins.str] password: User Password
+        :param pulumi.Input[_builtins.str] password_changed: The timestamp when the user's password was last changed
         :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[_builtins.str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[_builtins.str] postal_address: User mailing address
@@ -1908,6 +2021,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] skip_roles: Do not populate user roles information (prevents additional API call)
         :param pulumi.Input[_builtins.str] state: User state or region
         :param pulumi.Input[_builtins.str] status: User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
+        :param pulumi.Input[_builtins.str] status_changed: The timestamp when the user's status last changed
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
@@ -1919,9 +2033,11 @@ class User(pulumi.CustomResource):
 
         __props__ = _UserState.__new__(_UserState)
 
+        __props__.__dict__["activated"] = activated
         __props__.__dict__["city"] = city
         __props__.__dict__["cost_center"] = cost_center
         __props__.__dict__["country_code"] = country_code
+        __props__.__dict__["created"] = created
         __props__.__dict__["custom_profile_attributes"] = custom_profile_attributes
         __props__.__dict__["custom_profile_attributes_to_ignores"] = custom_profile_attributes_to_ignores
         __props__.__dict__["department"] = department
@@ -1933,7 +2049,9 @@ class User(pulumi.CustomResource):
         __props__.__dict__["first_name"] = first_name
         __props__.__dict__["honorific_prefix"] = honorific_prefix
         __props__.__dict__["honorific_suffix"] = honorific_suffix
+        __props__.__dict__["last_login"] = last_login
         __props__.__dict__["last_name"] = last_name
+        __props__.__dict__["last_updated"] = last_updated
         __props__.__dict__["locale"] = locale
         __props__.__dict__["login"] = login
         __props__.__dict__["manager"] = manager
@@ -1944,6 +2062,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["old_password"] = old_password
         __props__.__dict__["organization"] = organization
         __props__.__dict__["password"] = password
+        __props__.__dict__["password_changed"] = password_changed
         __props__.__dict__["password_hash"] = password_hash
         __props__.__dict__["password_inline_hook"] = password_inline_hook
         __props__.__dict__["postal_address"] = postal_address
@@ -1958,6 +2077,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["skip_roles"] = skip_roles
         __props__.__dict__["state"] = state
         __props__.__dict__["status"] = status
+        __props__.__dict__["status_changed"] = status_changed
         __props__.__dict__["street_address"] = street_address
         __props__.__dict__["timezone"] = timezone
         __props__.__dict__["title"] = title
@@ -1965,6 +2085,14 @@ class User(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         __props__.__dict__["zip_code"] = zip_code
         return User(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def activated(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the user status transitioned to ACTIVE
+        """
+        return pulumi.get(self, "activated")
 
     @_builtins.property
     @pulumi.getter
@@ -1989,6 +2117,14 @@ class User(pulumi.CustomResource):
         User country code
         """
         return pulumi.get(self, "country_code")
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the user was created
+        """
+        return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
@@ -2079,12 +2215,28 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "honorific_suffix")
 
     @_builtins.property
+    @pulumi.getter(name="lastLogin")
+    def last_login(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp of the user's last login
+        """
+        return pulumi.get(self, "last_login")
+
+    @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[_builtins.str]:
         """
         User last name
         """
         return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the user was last updated
+        """
+        return pulumi.get(self, "last_updated")
 
     @_builtins.property
     @pulumi.getter
@@ -2165,6 +2317,14 @@ class User(pulumi.CustomResource):
         User Password
         """
         return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordChanged")
+    def password_changed(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the user's password was last changed
+        """
+        return pulumi.get(self, "password_changed")
 
     @_builtins.property
     @pulumi.getter(name="passwordHash")
@@ -2278,6 +2438,14 @@ class User(pulumi.CustomResource):
         User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusChanged")
+    def status_changed(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the user's status last changed
+        """
+        return pulumi.get(self, "status_changed")
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")

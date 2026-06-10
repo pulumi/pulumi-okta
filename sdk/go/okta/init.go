@@ -55,6 +55,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthServerDefault{}
 	case "okta:index/authenticator:Authenticator":
 		r = &Authenticator{}
+	case "okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn":
+		r = &AuthenticatorMethodWebauthn{}
+	case "okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid":
+		r = &AuthenticatorWebauthnCustomAaguid{}
 	case "okta:index/behaviour:Behaviour":
 		r = &Behaviour{}
 	case "okta:index/brand:Brand":
@@ -111,6 +115,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupSchemaProperty{}
 	case "okta:index/hookKey:HookKey":
 		r = &HookKey{}
+	case "okta:index/identitySourceGroup:IdentitySourceGroup":
+		r = &IdentitySourceGroup{}
+	case "okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership":
+		r = &IdentitySourceGroupMembership{}
+	case "okta:index/identitySourceImport:IdentitySourceImport":
+		r = &IdentitySourceImport{}
+	case "okta:index/identitySourceUser:IdentitySourceUser":
+		r = &IdentitySourceUser{}
 	case "okta:index/linkDefinition:LinkDefinition":
 		r = &LinkDefinition{}
 	case "okta:index/linkValue:LinkValue":
@@ -311,6 +323,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/authenticatorMethodWebauthn",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/authenticatorWebauthnCustomAaguid",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/behaviour",
 		&module{version},
 	)
@@ -447,6 +469,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/hookKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/identitySourceGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/identitySourceGroupMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/identitySourceImport",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/identitySourceUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -135,6 +135,7 @@ namespace Pulumi.Okta.User
     [OutputType]
     public sealed class GetUserResult
     {
+        public readonly string Activated;
         public readonly ImmutableArray<string> AdminRoles;
         public readonly string City;
         /// <summary>
@@ -143,6 +144,7 @@ namespace Pulumi.Okta.User
         public readonly string? CompoundSearchOperator;
         public readonly string CostCenter;
         public readonly string CountryCode;
+        public readonly string Created;
         public readonly string CustomProfileAttributes;
         /// <summary>
         /// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
@@ -161,7 +163,9 @@ namespace Pulumi.Okta.User
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string LastLogin;
         public readonly string LastName;
+        public readonly string LastUpdated;
         public readonly string Locale;
         public readonly string Login;
         public readonly string Manager;
@@ -170,6 +174,7 @@ namespace Pulumi.Okta.User
         public readonly string MobilePhone;
         public readonly string NickName;
         public readonly string Organization;
+        public readonly string PasswordChanged;
         public readonly string PostalAddress;
         public readonly string PreferredLanguage;
         public readonly string PrimaryPhone;
@@ -194,6 +199,7 @@ namespace Pulumi.Okta.User
         public readonly bool? SkipRoles;
         public readonly string State;
         public readonly string Status;
+        public readonly string StatusChanged;
         public readonly string StreetAddress;
         public readonly string Timezone;
         public readonly string Title;
@@ -207,6 +213,8 @@ namespace Pulumi.Okta.User
 
         [OutputConstructor]
         private GetUserResult(
+            string activated,
+
             ImmutableArray<string> adminRoles,
 
             string city,
@@ -216,6 +224,8 @@ namespace Pulumi.Okta.User
             string costCenter,
 
             string countryCode,
+
+            string created,
 
             string customProfileAttributes,
 
@@ -241,7 +251,11 @@ namespace Pulumi.Okta.User
 
             string id,
 
+            string lastLogin,
+
             string lastName,
+
+            string lastUpdated,
 
             string locale,
 
@@ -258,6 +272,8 @@ namespace Pulumi.Okta.User
             string nickName,
 
             string organization,
+
+            string passwordChanged,
 
             string postalAddress,
 
@@ -283,6 +299,8 @@ namespace Pulumi.Okta.User
 
             string status,
 
+            string statusChanged,
+
             string streetAddress,
 
             string timezone,
@@ -297,11 +315,13 @@ namespace Pulumi.Okta.User
 
             string zipCode)
         {
+            Activated = activated;
             AdminRoles = adminRoles;
             City = city;
             CompoundSearchOperator = compoundSearchOperator;
             CostCenter = costCenter;
             CountryCode = countryCode;
+            Created = created;
             CustomProfileAttributes = customProfileAttributes;
             DelayReadSeconds = delayReadSeconds;
             Department = department;
@@ -314,7 +334,9 @@ namespace Pulumi.Okta.User
             HonorificPrefix = honorificPrefix;
             HonorificSuffix = honorificSuffix;
             Id = id;
+            LastLogin = lastLogin;
             LastName = lastName;
+            LastUpdated = lastUpdated;
             Locale = locale;
             Login = login;
             Manager = manager;
@@ -323,6 +345,7 @@ namespace Pulumi.Okta.User
             MobilePhone = mobilePhone;
             NickName = nickName;
             Organization = organization;
+            PasswordChanged = passwordChanged;
             PostalAddress = postalAddress;
             PreferredLanguage = preferredLanguage;
             PrimaryPhone = primaryPhone;
@@ -335,6 +358,7 @@ namespace Pulumi.Okta.User
             SkipRoles = skipRoles;
             State = state;
             Status = status;
+            StatusChanged = statusChanged;
             StreetAddress = streetAddress;
             Timezone = timezone;
             Title = title;

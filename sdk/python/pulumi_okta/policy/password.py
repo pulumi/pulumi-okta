@@ -20,6 +20,9 @@ __all__ = ['PasswordArgs', 'Password']
 class PasswordArgs:
     def __init__(__self__, *,
                  auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_delegated_workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 breached_password_logout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
@@ -53,6 +56,9 @@ class PasswordArgs:
         The set of arguments for constructing a Password resource.
 
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
+        :param pulumi.Input[_builtins.str] breached_password_delegated_workflow_id: The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        :param pulumi.Input[_builtins.int] breached_password_expire_after_days: Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        :param pulumi.Input[_builtins.bool] breached_password_logout_enabled: If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -85,6 +91,12 @@ class PasswordArgs:
         """
         if auth_provider is not None:
             pulumi.set(__self__, "auth_provider", auth_provider)
+        if breached_password_delegated_workflow_id is not None:
+            pulumi.set(__self__, "breached_password_delegated_workflow_id", breached_password_delegated_workflow_id)
+        if breached_password_expire_after_days is not None:
+            pulumi.set(__self__, "breached_password_expire_after_days", breached_password_expire_after_days)
+        if breached_password_logout_enabled is not None:
+            pulumi.set(__self__, "breached_password_logout_enabled", breached_password_logout_enabled)
         if call_recovery is not None:
             pulumi.set(__self__, "call_recovery", call_recovery)
         if description is not None:
@@ -155,6 +167,42 @@ class PasswordArgs:
     @auth_provider.setter
     def auth_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordDelegatedWorkflowId")
+    def breached_password_delegated_workflow_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        """
+        return pulumi.get(self, "breached_password_delegated_workflow_id")
+
+    @breached_password_delegated_workflow_id.setter
+    def breached_password_delegated_workflow_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "breached_password_delegated_workflow_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordExpireAfterDays")
+    def breached_password_expire_after_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        """
+        return pulumi.get(self, "breached_password_expire_after_days")
+
+    @breached_password_expire_after_days.setter
+    def breached_password_expire_after_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "breached_password_expire_after_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordLogoutEnabled")
+    def breached_password_logout_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
+        """
+        return pulumi.get(self, "breached_password_logout_enabled")
+
+    @breached_password_logout_enabled.setter
+    def breached_password_logout_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "breached_password_logout_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="callRecovery")
@@ -509,6 +557,9 @@ class PasswordArgs:
 class _PasswordState:
     def __init__(__self__, *,
                  auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_delegated_workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 breached_password_logout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
@@ -542,6 +593,9 @@ class _PasswordState:
         Input properties used for looking up and filtering Password resources.
 
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
+        :param pulumi.Input[_builtins.str] breached_password_delegated_workflow_id: The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        :param pulumi.Input[_builtins.int] breached_password_expire_after_days: Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        :param pulumi.Input[_builtins.bool] breached_password_logout_enabled: If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -574,6 +628,12 @@ class _PasswordState:
         """
         if auth_provider is not None:
             pulumi.set(__self__, "auth_provider", auth_provider)
+        if breached_password_delegated_workflow_id is not None:
+            pulumi.set(__self__, "breached_password_delegated_workflow_id", breached_password_delegated_workflow_id)
+        if breached_password_expire_after_days is not None:
+            pulumi.set(__self__, "breached_password_expire_after_days", breached_password_expire_after_days)
+        if breached_password_logout_enabled is not None:
+            pulumi.set(__self__, "breached_password_logout_enabled", breached_password_logout_enabled)
         if call_recovery is not None:
             pulumi.set(__self__, "call_recovery", call_recovery)
         if description is not None:
@@ -644,6 +704,42 @@ class _PasswordState:
     @auth_provider.setter
     def auth_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordDelegatedWorkflowId")
+    def breached_password_delegated_workflow_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        """
+        return pulumi.get(self, "breached_password_delegated_workflow_id")
+
+    @breached_password_delegated_workflow_id.setter
+    def breached_password_delegated_workflow_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "breached_password_delegated_workflow_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordExpireAfterDays")
+    def breached_password_expire_after_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        """
+        return pulumi.get(self, "breached_password_expire_after_days")
+
+    @breached_password_expire_after_days.setter
+    def breached_password_expire_after_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "breached_password_expire_after_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordLogoutEnabled")
+    def breached_password_logout_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
+        """
+        return pulumi.get(self, "breached_password_logout_enabled")
+
+    @breached_password_logout_enabled.setter
+    def breached_password_logout_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "breached_password_logout_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="callRecovery")
@@ -1001,6 +1097,9 @@ class Password(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_delegated_workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 breached_password_logout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1058,6 +1157,9 @@ class Password(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
+        :param pulumi.Input[_builtins.str] breached_password_delegated_workflow_id: The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        :param pulumi.Input[_builtins.int] breached_password_expire_after_days: Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        :param pulumi.Input[_builtins.bool] breached_password_logout_enabled: If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -1134,6 +1236,9 @@ class Password(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_delegated_workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 breached_password_expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 breached_password_logout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1173,6 +1278,9 @@ class Password(pulumi.CustomResource):
             __props__ = PasswordArgs.__new__(PasswordArgs)
 
             __props__.__dict__["auth_provider"] = auth_provider
+            __props__.__dict__["breached_password_delegated_workflow_id"] = breached_password_delegated_workflow_id
+            __props__.__dict__["breached_password_expire_after_days"] = breached_password_expire_after_days
+            __props__.__dict__["breached_password_logout_enabled"] = breached_password_logout_enabled
             __props__.__dict__["call_recovery"] = call_recovery
             __props__.__dict__["description"] = description
             __props__.__dict__["email_recovery"] = email_recovery
@@ -1213,6 +1321,9 @@ class Password(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            breached_password_delegated_workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
+            breached_password_expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+            breached_password_logout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1250,6 +1361,9 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_provider: Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
+        :param pulumi.Input[_builtins.str] breached_password_delegated_workflow_id: The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        :param pulumi.Input[_builtins.int] breached_password_expire_after_days: Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        :param pulumi.Input[_builtins.bool] breached_password_logout_enabled: If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -1285,6 +1399,9 @@ class Password(pulumi.CustomResource):
         __props__ = _PasswordState.__new__(_PasswordState)
 
         __props__.__dict__["auth_provider"] = auth_provider
+        __props__.__dict__["breached_password_delegated_workflow_id"] = breached_password_delegated_workflow_id
+        __props__.__dict__["breached_password_expire_after_days"] = breached_password_expire_after_days
+        __props__.__dict__["breached_password_logout_enabled"] = breached_password_logout_enabled
         __props__.__dict__["call_recovery"] = call_recovery
         __props__.__dict__["description"] = description
         __props__.__dict__["email_recovery"] = email_recovery
@@ -1323,6 +1440,30 @@ class Password(pulumi.CustomResource):
         Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
         """
         return pulumi.get(self, "auth_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordDelegatedWorkflowId")
+    def breached_password_delegated_workflow_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        """
+        return pulumi.get(self, "breached_password_delegated_workflow_id")
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordExpireAfterDays")
+    def breached_password_expire_after_days(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breached_password_logout_enabled` is `true`.
+        """
+        return pulumi.get(self, "breached_password_expire_after_days")
+
+    @_builtins.property
+    @pulumi.getter(name="breachedPasswordLogoutEnabled")
+    def breached_password_logout_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breached_password_expire_after_days` to also be configured. Default: `false`
+        """
+        return pulumi.get(self, "breached_password_logout_enabled")
 
     @_builtins.property
     @pulumi.getter(name="callRecovery")

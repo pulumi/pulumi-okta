@@ -30,7 +30,11 @@ import com.pulumi.okta.inputs.GetAuthServerClaimPlainArgs;
 import com.pulumi.okta.inputs.GetAuthServerClaimsArgs;
 import com.pulumi.okta.inputs.GetAuthServerClaimsPlainArgs;
 import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnArgs;
+import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnPlainArgs;
 import com.pulumi.okta.inputs.GetAuthenticatorPlainArgs;
+import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsArgs;
+import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsPlainArgs;
 import com.pulumi.okta.inputs.GetBehaviourArgs;
 import com.pulumi.okta.inputs.GetBehaviourPlainArgs;
 import com.pulumi.okta.inputs.GetBehavioursArgs;
@@ -69,6 +73,14 @@ import com.pulumi.okta.inputs.GetGroupsArgs;
 import com.pulumi.okta.inputs.GetGroupsPlainArgs;
 import com.pulumi.okta.inputs.GetHookKeyArgs;
 import com.pulumi.okta.inputs.GetHookKeyPlainArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsPlainArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceGroupsPlainArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceSessionsPlainArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
+import com.pulumi.okta.inputs.GetIdentitySourceUsersPlainArgs;
 import com.pulumi.okta.inputs.GetLogStreamArgs;
 import com.pulumi.okta.inputs.GetLogStreamPlainArgs;
 import com.pulumi.okta.inputs.GetNetworkZoneArgs;
@@ -131,7 +143,9 @@ import com.pulumi.okta.outputs.GetAppUserAssignmentsResult;
 import com.pulumi.okta.outputs.GetAppsResult;
 import com.pulumi.okta.outputs.GetAuthServerClaimResult;
 import com.pulumi.okta.outputs.GetAuthServerClaimsResult;
+import com.pulumi.okta.outputs.GetAuthenticatorMethodWebauthnResult;
 import com.pulumi.okta.outputs.GetAuthenticatorResult;
+import com.pulumi.okta.outputs.GetAuthenticatorWebauthnCustomAaguidsResult;
 import com.pulumi.okta.outputs.GetBehaviourResult;
 import com.pulumi.okta.outputs.GetBehavioursResult;
 import com.pulumi.okta.outputs.GetBrandResult;
@@ -153,6 +167,10 @@ import com.pulumi.okta.outputs.GetEntityRiskPolicyResult;
 import com.pulumi.okta.outputs.GetFeaturesResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetHookKeyResult;
+import com.pulumi.okta.outputs.GetIdentitySourceGroupMembershipsResult;
+import com.pulumi.okta.outputs.GetIdentitySourceGroupsResult;
+import com.pulumi.okta.outputs.GetIdentitySourceSessionsResult;
+import com.pulumi.okta.outputs.GetIdentitySourceUsersResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOauthAuthorizationServerResult;
@@ -2458,6 +2476,476 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetAuthenticatorResult> getAuthenticatorPlain(GetAuthenticatorPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getAuthenticator:getAuthenticator", TypeShape.of(GetAuthenticatorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Reads the WebAuthn authenticator method settings, including AAGUID groups, user verification preferences, and passkey configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var example = OktaFunctions.getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAuthenticatorMethodWebauthnResult> getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs args) {
+        return getAuthenticatorMethodWebauthn(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Reads the WebAuthn authenticator method settings, including AAGUID groups, user verification preferences, and passkey configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var example = OktaFunctions.getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAuthenticatorMethodWebauthnResult> getAuthenticatorMethodWebauthnPlain(GetAuthenticatorMethodWebauthnPlainArgs args) {
+        return getAuthenticatorMethodWebauthnPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Reads the WebAuthn authenticator method settings, including AAGUID groups, user verification preferences, and passkey configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var example = OktaFunctions.getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAuthenticatorMethodWebauthnResult> getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn", TypeShape.of(GetAuthenticatorMethodWebauthnResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Reads the WebAuthn authenticator method settings, including AAGUID groups, user verification preferences, and passkey configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var example = OktaFunctions.getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAuthenticatorMethodWebauthnResult> getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn", TypeShape.of(GetAuthenticatorMethodWebauthnResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Reads the WebAuthn authenticator method settings, including AAGUID groups, user verification preferences, and passkey configuration.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorMethodWebauthnArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var example = OktaFunctions.getAuthenticatorMethodWebauthn(GetAuthenticatorMethodWebauthnArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAuthenticatorMethodWebauthnResult> getAuthenticatorMethodWebauthnPlain(GetAuthenticatorMethodWebauthnPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn", TypeShape.of(GetAuthenticatorMethodWebauthnResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Lists all custom AAGUIDs (Authenticator Attestation Globally Unique Identifiers) configured for a WebAuthn authenticator. Only custom AAGUIDs that an admin has created are returned.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var all = OktaFunctions.getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAuthenticatorWebauthnCustomAaguidsResult> getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs args) {
+        return getAuthenticatorWebauthnCustomAaguids(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Lists all custom AAGUIDs (Authenticator Attestation Globally Unique Identifiers) configured for a WebAuthn authenticator. Only custom AAGUIDs that an admin has created are returned.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var all = OktaFunctions.getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAuthenticatorWebauthnCustomAaguidsResult> getAuthenticatorWebauthnCustomAaguidsPlain(GetAuthenticatorWebauthnCustomAaguidsPlainArgs args) {
+        return getAuthenticatorWebauthnCustomAaguidsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Lists all custom AAGUIDs (Authenticator Attestation Globally Unique Identifiers) configured for a WebAuthn authenticator. Only custom AAGUIDs that an admin has created are returned.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var all = OktaFunctions.getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAuthenticatorWebauthnCustomAaguidsResult> getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids", TypeShape.of(GetAuthenticatorWebauthnCustomAaguidsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Lists all custom AAGUIDs (Authenticator Attestation Globally Unique Identifiers) configured for a WebAuthn authenticator. Only custom AAGUIDs that an admin has created are returned.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var all = OktaFunctions.getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetAuthenticatorWebauthnCustomAaguidsResult> getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids", TypeShape.of(GetAuthenticatorWebauthnCustomAaguidsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
+     * 
+     * Lists all custom AAGUIDs (Authenticator Attestation Globally Unique Identifiers) configured for a WebAuthn authenticator. Only custom AAGUIDs that an admin has created are returned.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAuthenticatorArgs;
+     * import com.pulumi.okta.inputs.GetAuthenticatorWebauthnCustomAaguidsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var webauthn = OktaFunctions.getAuthenticator(GetAuthenticatorArgs.builder()
+     *             .key("webauthn")
+     *             .build());
+     * 
+     *         final var all = OktaFunctions.getAuthenticatorWebauthnCustomAaguids(GetAuthenticatorWebauthnCustomAaguidsArgs.builder()
+     *             .authenticatorId(webauthn.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetAuthenticatorWebauthnCustomAaguidsResult> getAuthenticatorWebauthnCustomAaguidsPlain(GetAuthenticatorWebauthnCustomAaguidsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids", TypeShape.of(GetAuthenticatorWebauthnCustomAaguidsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a behavior by name or ID.
@@ -7083,6 +7571,686 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetHookKeyResult> getHookKeyPlain(GetHookKeyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getHookKey:getHookKey", TypeShape.of(GetHookKeyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the list of member external IDs for a group in an Okta Identity Source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .groupExternalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("memberIds", example.memberExternalIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceGroupMembershipsResult> getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs args) {
+        return getIdentitySourceGroupMemberships(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the list of member external IDs for a group in an Okta Identity Source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .groupExternalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("memberIds", example.memberExternalIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceGroupMembershipsResult> getIdentitySourceGroupMembershipsPlain(GetIdentitySourceGroupMembershipsPlainArgs args) {
+        return getIdentitySourceGroupMembershipsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the list of member external IDs for a group in an Okta Identity Source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .groupExternalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("memberIds", example.memberExternalIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceGroupMembershipsResult> getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships", TypeShape.of(GetIdentitySourceGroupMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the list of member external IDs for a group in an Okta Identity Source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .groupExternalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("memberIds", example.memberExternalIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceGroupMembershipsResult> getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships", TypeShape.of(GetIdentitySourceGroupMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the list of member external IDs for a group in an Okta Identity Source.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .groupExternalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("memberIds", example.memberExternalIds());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceGroupMembershipsResult> getIdentitySourceGroupMembershipsPlain(GetIdentitySourceGroupMembershipsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships", TypeShape.of(GetIdentitySourceGroupMembershipsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a group record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroups(GetIdentitySourceGroupsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("groupOktaId", example.id());
+     *         ctx.export("groupDisplayName", example.profile().displayName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceGroupsResult> getIdentitySourceGroups(GetIdentitySourceGroupsArgs args) {
+        return getIdentitySourceGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a group record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroups(GetIdentitySourceGroupsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("groupOktaId", example.id());
+     *         ctx.export("groupDisplayName", example.profile().displayName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceGroupsResult> getIdentitySourceGroupsPlain(GetIdentitySourceGroupsPlainArgs args) {
+        return getIdentitySourceGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a group record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroups(GetIdentitySourceGroupsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("groupOktaId", example.id());
+     *         ctx.export("groupDisplayName", example.profile().displayName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceGroupsResult> getIdentitySourceGroups(GetIdentitySourceGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceGroups:getIdentitySourceGroups", TypeShape.of(GetIdentitySourceGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a group record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroups(GetIdentitySourceGroupsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("groupOktaId", example.id());
+     *         ctx.export("groupDisplayName", example.profile().displayName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceGroupsResult> getIdentitySourceGroups(GetIdentitySourceGroupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceGroups:getIdentitySourceGroups", TypeShape.of(GetIdentitySourceGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a group record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceGroups(GetIdentitySourceGroupsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("GROUPEXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("groupOktaId", example.id());
+     *         ctx.export("groupDisplayName", example.profile().displayName());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceGroupsResult> getIdentitySourceGroupsPlain(GetIdentitySourceGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getIdentitySourceGroups:getIdentitySourceGroups", TypeShape.of(GetIdentitySourceGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetIdentitySourceSessionsResult> getIdentitySourceSessions(GetIdentitySourceSessionsArgs args) {
+        return getIdentitySourceSessions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceSessionsResult> getIdentitySourceSessionsPlain(GetIdentitySourceSessionsPlainArgs args) {
+        return getIdentitySourceSessionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetIdentitySourceSessionsResult> getIdentitySourceSessions(GetIdentitySourceSessionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", TypeShape.of(GetIdentitySourceSessionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetIdentitySourceSessionsResult> getIdentitySourceSessions(GetIdentitySourceSessionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", TypeShape.of(GetIdentitySourceSessionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceSessionsResult> getIdentitySourceSessionsPlain(GetIdentitySourceSessionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", TypeShape.of(GetIdentitySourceSessionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a user record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceUsers(GetIdentitySourceUsersArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("USEREXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("userEmail", example.profile().email());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceUsersResult> getIdentitySourceUsers(GetIdentitySourceUsersArgs args) {
+        return getIdentitySourceUsers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a user record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceUsers(GetIdentitySourceUsersArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("USEREXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("userEmail", example.profile().email());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceUsersResult> getIdentitySourceUsersPlain(GetIdentitySourceUsersPlainArgs args) {
+        return getIdentitySourceUsersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a user record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceUsers(GetIdentitySourceUsersArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("USEREXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("userEmail", example.profile().email());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceUsersResult> getIdentitySourceUsers(GetIdentitySourceUsersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceUsers:getIdentitySourceUsers", TypeShape.of(GetIdentitySourceUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a user record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceUsers(GetIdentitySourceUsersArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("USEREXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("userEmail", example.profile().email());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIdentitySourceUsersResult> getIdentitySourceUsers(GetIdentitySourceUsersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIdentitySourceUsers:getIdentitySourceUsers", TypeShape.of(GetIdentitySourceUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a user record from an Okta Identity Source by external ID.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIdentitySourceUsers(GetIdentitySourceUsersArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .externalId("USEREXT123456EXAMPLE")
+     *             .build());
+     * 
+     *         ctx.export("userEmail", example.profile().email());
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIdentitySourceUsersResult> getIdentitySourceUsersPlain(GetIdentitySourceUsersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getIdentitySourceUsers:getIdentitySourceUsers", TypeShape.of(GetIdentitySourceUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Log Streams

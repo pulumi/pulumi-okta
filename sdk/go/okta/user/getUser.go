@@ -40,12 +40,14 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
+	Activated  string   `pulumi:"activated"`
 	AdminRoles []string `pulumi:"adminRoles"`
 	City       string   `pulumi:"city"`
 	// Search operator used when joining multiple search clauses
 	CompoundSearchOperator  *string `pulumi:"compoundSearchOperator"`
 	CostCenter              string  `pulumi:"costCenter"`
 	CountryCode             string  `pulumi:"countryCode"`
+	Created                 string  `pulumi:"created"`
 	CustomProfileAttributes string  `pulumi:"customProfileAttributes"`
 	// Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
 	DelayReadSeconds *string  `pulumi:"delayReadSeconds"`
@@ -60,7 +62,9 @@ type LookupUserResult struct {
 	HonorificSuffix  string   `pulumi:"honorificSuffix"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
+	LastLogin         string `pulumi:"lastLogin"`
 	LastName          string `pulumi:"lastName"`
+	LastUpdated       string `pulumi:"lastUpdated"`
 	Locale            string `pulumi:"locale"`
 	Login             string `pulumi:"login"`
 	Manager           string `pulumi:"manager"`
@@ -69,6 +73,7 @@ type LookupUserResult struct {
 	MobilePhone       string `pulumi:"mobilePhone"`
 	NickName          string `pulumi:"nickName"`
 	Organization      string `pulumi:"organization"`
+	PasswordChanged   string `pulumi:"passwordChanged"`
 	PostalAddress     string `pulumi:"postalAddress"`
 	PreferredLanguage string `pulumi:"preferredLanguage"`
 	PrimaryPhone      string `pulumi:"primaryPhone"`
@@ -85,6 +90,7 @@ type LookupUserResult struct {
 	SkipRoles     *bool             `pulumi:"skipRoles"`
 	State         string            `pulumi:"state"`
 	Status        string            `pulumi:"status"`
+	StatusChanged string            `pulumi:"statusChanged"`
 	StreetAddress string            `pulumi:"streetAddress"`
 	Timezone      string            `pulumi:"timezone"`
 	Title         string            `pulumi:"title"`
@@ -139,6 +145,10 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
+func (o LookupUserResultOutput) Activated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Activated }).(pulumi.StringOutput)
+}
+
 func (o LookupUserResultOutput) AdminRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
@@ -158,6 +168,10 @@ func (o LookupUserResultOutput) CostCenter() pulumi.StringOutput {
 
 func (o LookupUserResultOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Created }).(pulumi.StringOutput)
 }
 
 func (o LookupUserResultOutput) CustomProfileAttributes() pulumi.StringOutput {
@@ -210,8 +224,16 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o LookupUserResultOutput) LastLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.LastLogin }).(pulumi.StringOutput)
+}
+
 func (o LookupUserResultOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
 func (o LookupUserResultOutput) Locale() pulumi.StringOutput {
@@ -244,6 +266,10 @@ func (o LookupUserResultOutput) NickName() pulumi.StringOutput {
 
 func (o LookupUserResultOutput) Organization() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Organization }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) PasswordChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.PasswordChanged }).(pulumi.StringOutput)
 }
 
 func (o LookupUserResultOutput) PostalAddress() pulumi.StringOutput {
@@ -296,6 +322,10 @@ func (o LookupUserResultOutput) State() pulumi.StringOutput {
 
 func (o LookupUserResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) StatusChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.StatusChanged }).(pulumi.StringOutput)
 }
 
 func (o LookupUserResultOutput) StreetAddress() pulumi.StringOutput {

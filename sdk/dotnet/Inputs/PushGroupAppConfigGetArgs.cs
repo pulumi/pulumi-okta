@@ -24,6 +24,9 @@ namespace Pulumi.Okta.Inputs
         [Input("samAccountName", required: true)]
         public Input<string> SamAccountName { get; set; } = null!;
 
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
         public PushGroupAppConfigGetArgs()
         {
         }

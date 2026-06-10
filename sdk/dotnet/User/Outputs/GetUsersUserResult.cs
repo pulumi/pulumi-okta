@@ -13,10 +13,12 @@ namespace Pulumi.Okta.User.Outputs
     [OutputType]
     public sealed class GetUsersUserResult
     {
+        public readonly string Activated;
         public readonly ImmutableArray<string> AdminRoles;
         public readonly string City;
         public readonly string CostCenter;
         public readonly string CountryCode;
+        public readonly string Created;
         public readonly string CustomProfileAttributes;
         public readonly string Department;
         public readonly string DisplayName;
@@ -28,7 +30,9 @@ namespace Pulumi.Okta.User.Outputs
         public readonly string HonorificPrefix;
         public readonly string HonorificSuffix;
         public readonly string Id;
+        public readonly string LastLogin;
         public readonly string LastName;
+        public readonly string LastUpdated;
         public readonly string Locale;
         public readonly string Login;
         public readonly string Manager;
@@ -37,6 +41,7 @@ namespace Pulumi.Okta.User.Outputs
         public readonly string MobilePhone;
         public readonly string NickName;
         public readonly string Organization;
+        public readonly string PasswordChanged;
         public readonly string PostalAddress;
         public readonly string PreferredLanguage;
         public readonly string PrimaryPhone;
@@ -49,6 +54,7 @@ namespace Pulumi.Okta.User.Outputs
         public readonly string SecondEmail;
         public readonly string State;
         public readonly string Status;
+        public readonly string StatusChanged;
         public readonly string StreetAddress;
         public readonly string Timezone;
         public readonly string Title;
@@ -61,6 +67,8 @@ namespace Pulumi.Okta.User.Outputs
 
         [OutputConstructor]
         private GetUsersUserResult(
+            string activated,
+
             ImmutableArray<string> adminRoles,
 
             string city,
@@ -68,6 +76,8 @@ namespace Pulumi.Okta.User.Outputs
             string costCenter,
 
             string countryCode,
+
+            string created,
 
             string customProfileAttributes,
 
@@ -91,7 +101,11 @@ namespace Pulumi.Okta.User.Outputs
 
             string id,
 
+            string lastLogin,
+
             string lastName,
+
+            string lastUpdated,
 
             string locale,
 
@@ -108,6 +122,8 @@ namespace Pulumi.Okta.User.Outputs
             string nickName,
 
             string organization,
+
+            string passwordChanged,
 
             string postalAddress,
 
@@ -127,6 +143,8 @@ namespace Pulumi.Okta.User.Outputs
 
             string status,
 
+            string statusChanged,
+
             string streetAddress,
 
             string timezone,
@@ -139,10 +157,12 @@ namespace Pulumi.Okta.User.Outputs
 
             string zipCode)
         {
+            Activated = activated;
             AdminRoles = adminRoles;
             City = city;
             CostCenter = costCenter;
             CountryCode = countryCode;
+            Created = created;
             CustomProfileAttributes = customProfileAttributes;
             Department = department;
             DisplayName = displayName;
@@ -154,7 +174,9 @@ namespace Pulumi.Okta.User.Outputs
             HonorificPrefix = honorificPrefix;
             HonorificSuffix = honorificSuffix;
             Id = id;
+            LastLogin = lastLogin;
             LastName = lastName;
+            LastUpdated = lastUpdated;
             Locale = locale;
             Login = login;
             Manager = manager;
@@ -163,6 +185,7 @@ namespace Pulumi.Okta.User.Outputs
             MobilePhone = mobilePhone;
             NickName = nickName;
             Organization = organization;
+            PasswordChanged = passwordChanged;
             PostalAddress = postalAddress;
             PreferredLanguage = preferredLanguage;
             PrimaryPhone = primaryPhone;
@@ -172,6 +195,7 @@ namespace Pulumi.Okta.User.Outputs
             SecondEmail = secondEmail;
             State = state;
             Status = status;
+            StatusChanged = statusChanged;
             StreetAddress = streetAddress;
             Timezone = timezone;
             Title = title;

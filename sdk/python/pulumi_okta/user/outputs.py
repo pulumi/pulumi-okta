@@ -242,10 +242,12 @@ class GetUsersSearchResult(dict):
 @pulumi.output_type
 class GetUsersUserResult(dict):
     def __init__(__self__, *,
+                 activated: _builtins.str,
                  admin_roles: Sequence[_builtins.str],
                  city: _builtins.str,
                  cost_center: _builtins.str,
                  country_code: _builtins.str,
+                 created: _builtins.str,
                  custom_profile_attributes: _builtins.str,
                  department: _builtins.str,
                  display_name: _builtins.str,
@@ -257,7 +259,9 @@ class GetUsersUserResult(dict):
                  honorific_prefix: _builtins.str,
                  honorific_suffix: _builtins.str,
                  id: _builtins.str,
+                 last_login: _builtins.str,
                  last_name: _builtins.str,
+                 last_updated: _builtins.str,
                  locale: _builtins.str,
                  login: _builtins.str,
                  manager: _builtins.str,
@@ -266,6 +270,7 @@ class GetUsersUserResult(dict):
                  mobile_phone: _builtins.str,
                  nick_name: _builtins.str,
                  organization: _builtins.str,
+                 password_changed: _builtins.str,
                  postal_address: _builtins.str,
                  preferred_language: _builtins.str,
                  primary_phone: _builtins.str,
@@ -275,6 +280,7 @@ class GetUsersUserResult(dict):
                  second_email: _builtins.str,
                  state: _builtins.str,
                  status: _builtins.str,
+                 status_changed: _builtins.str,
                  street_address: _builtins.str,
                  timezone: _builtins.str,
                  title: _builtins.str,
@@ -285,10 +291,12 @@ class GetUsersUserResult(dict):
         :param _builtins.str realm_id: The Realm ID associated with the user.
         :param Sequence['GetUsersUserTypeArgs'] types: User type
         """
+        pulumi.set(__self__, "activated", activated)
         pulumi.set(__self__, "admin_roles", admin_roles)
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "cost_center", cost_center)
         pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "created", created)
         pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
         pulumi.set(__self__, "department", department)
         pulumi.set(__self__, "display_name", display_name)
@@ -300,7 +308,9 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "honorific_prefix", honorific_prefix)
         pulumi.set(__self__, "honorific_suffix", honorific_suffix)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_login", last_login)
         pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "last_updated", last_updated)
         pulumi.set(__self__, "locale", locale)
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "manager", manager)
@@ -309,6 +319,7 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "mobile_phone", mobile_phone)
         pulumi.set(__self__, "nick_name", nick_name)
         pulumi.set(__self__, "organization", organization)
+        pulumi.set(__self__, "password_changed", password_changed)
         pulumi.set(__self__, "postal_address", postal_address)
         pulumi.set(__self__, "preferred_language", preferred_language)
         pulumi.set(__self__, "primary_phone", primary_phone)
@@ -318,12 +329,18 @@ class GetUsersUserResult(dict):
         pulumi.set(__self__, "second_email", second_email)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_changed", status_changed)
         pulumi.set(__self__, "street_address", street_address)
         pulumi.set(__self__, "timezone", timezone)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "types", types)
         pulumi.set(__self__, "user_type", user_type)
         pulumi.set(__self__, "zip_code", zip_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def activated(self) -> _builtins.str:
+        return pulumi.get(self, "activated")
 
     @_builtins.property
     @pulumi.getter(name="adminRoles")
@@ -344,6 +361,11 @@ class GetUsersUserResult(dict):
     @pulumi.getter(name="countryCode")
     def country_code(self) -> _builtins.str:
         return pulumi.get(self, "country_code")
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> _builtins.str:
+        return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
@@ -401,9 +423,19 @@ class GetUsersUserResult(dict):
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="lastLogin")
+    def last_login(self) -> _builtins.str:
+        return pulumi.get(self, "last_login")
+
+    @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> _builtins.str:
         return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> _builtins.str:
+        return pulumi.get(self, "last_updated")
 
     @_builtins.property
     @pulumi.getter
@@ -444,6 +476,11 @@ class GetUsersUserResult(dict):
     @pulumi.getter
     def organization(self) -> _builtins.str:
         return pulumi.get(self, "organization")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordChanged")
+    def password_changed(self) -> _builtins.str:
+        return pulumi.get(self, "password_changed")
 
     @_builtins.property
     @pulumi.getter(name="postalAddress")
@@ -492,6 +529,11 @@ class GetUsersUserResult(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusChanged")
+    def status_changed(self) -> _builtins.str:
+        return pulumi.get(self, "status_changed")
 
     @_builtins.property
     @pulumi.getter(name="streetAddress")
