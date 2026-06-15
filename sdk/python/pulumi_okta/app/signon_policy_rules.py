@@ -145,6 +145,16 @@ class SignonPolicyRules(pulumi.CustomResource):
                     "access": "DENY",
                     "status": "ACTIVE",
                 },
+                {
+                    "name": "KMSI Rule",
+                    "priority": 4,
+                    "access": "ALLOW",
+                    "status": "ACTIVE",
+                    "keep_me_signed_in": {
+                        "post_auth": "ALLOWED",
+                        "post_auth_prompt_frequency": "PT168H",
+                    },
+                },
             ])
         ```
 
@@ -335,6 +345,16 @@ class SignonPolicyRules(pulumi.CustomResource):
                     "priority": 3,
                     "access": "DENY",
                     "status": "ACTIVE",
+                },
+                {
+                    "name": "KMSI Rule",
+                    "priority": 4,
+                    "access": "ALLOW",
+                    "status": "ACTIVE",
+                    "keep_me_signed_in": {
+                        "post_auth": "ALLOWED",
+                        "post_auth_prompt_frequency": "PT168H",
+                    },
                 },
             ])
         ```

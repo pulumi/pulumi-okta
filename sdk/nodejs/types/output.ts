@@ -76,6 +76,17 @@ export interface AppGroupAssignmentsGroup {
     profile: string;
 }
 
+export interface AppSignonPolicyRuleKeepMeSignedIn {
+    /**
+     * Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+     */
+    postAuth?: string;
+    /**
+     * How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+     */
+    postAuthPromptFrequency?: string;
+}
+
 export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available with OTHER OS type
@@ -105,6 +116,73 @@ export interface AppUserSchemaPropertyOneOf {
      * Enum title
      */
     title: string;
+}
+
+export interface AuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * A list of FIDO2 AAGUIDs in this group.
+     */
+    aaguids: string[];
+    /**
+     * A name to identify the group of FIDO2 AAGUIDs.
+     */
+    name: string;
+}
+
+export interface AuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: outputs.AuthenticatorMethodWebauthnRpIdDomain;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled: boolean;
+}
+
+export interface AuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The RP ID domain value used for WebAuthn operations.
+     */
+    name: string;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus: string;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAttestationRootCertificate {
+    /**
+     * Expiry date of the certificate.
+     */
+    expiry: string;
+    /**
+     * Issuer of the certificate.
+     */
+    issuer: string;
+    /**
+     * X.509 certificate chain (base64-encoded).
+     */
+    x5c: string;
+    /**
+     * SHA-256 hash (thumbprint) of the X.509 certificate.
+     */
+    x5tS256: string;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Indicates whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant: boolean;
+    /**
+     * Indicates whether the authenticator stores the private key on a hardware component.
+     */
+    hardwareProtected: boolean;
+    /**
+     * Indicates whether the custom AAGUID is built into the authenticator or is external.
+     */
+    platformAttached: boolean;
 }
 
 export interface CampaignNotificationSettings {
@@ -748,6 +826,156 @@ export interface GetAuthServerClaimsClaim {
      * Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
      */
     valueType: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * List of FIDO2 AAGUIDs in this group.
+     */
+    aaguids: string[];
+    /**
+     * The name of the AAGUID group.
+     */
+    name: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: outputs.GetAuthenticatorMethodWebauthnRpIdDomain;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled: boolean;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The name of the AAGUID group.
+     */
+    name: string;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus: string;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguid {
+    /**
+     * The AAGUID identifier.
+     */
+    aaguid: string;
+    /**
+     * Properties of the custom AAGUID authenticator.
+     */
+    authenticatorCharacteristics?: outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics;
+    /**
+     * The product name associated with the AAGUID.
+     */
+    name: string;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant: boolean;
+    /**
+     * Whether the authenticator stores the private key on hardware.
+     */
+    hardwareProtected: boolean;
+    /**
+     * Whether the AAGUID is built into the authenticator or is external.
+     */
+    platformAttached: boolean;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActions {
+    /**
+     * Token
+     */
+    token?: outputs.GetAuthorizationServersPoliciesRuleActionsToken;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsToken {
+    /**
+     * Lifetime of the access token in minutes.
+     */
+    accessTokenLifetimeMinutes: number;
+    /**
+     * InlineHook
+     */
+    inlineHook?: outputs.GetAuthorizationServersPoliciesRuleActionsTokenInlineHook;
+    /**
+     * Lifetime of the refresh token is the minimum access token lifetime.
+     */
+    refreshTokenLifetimeMinutes: number;
+    /**
+     * Timeframe when the refresh token is valid.
+     */
+    refreshTokenWindowMinutes: number;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsTokenInlineHook {
+    /**
+     * Unique identifier of the authorization server policy rule.
+     */
+    id: string;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditions {
+    /**
+     * Array of grant types that this condition includes.
+     */
+    grantTypes?: outputs.GetAuthorizationServersPoliciesRuleConditionsGrantTypes;
+    /**
+     * Identifies Users and Groups that are used together
+     */
+    people?: outputs.GetAuthorizationServersPoliciesRuleConditionsPeople;
+    /**
+     * Array of scopes that the condition includes
+     */
+    scopes?: outputs.GetAuthorizationServersPoliciesRuleConditionsScopes;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsGrantTypes {
+    /**
+     * Array of grant types that this condition includes.
+     */
+    includes: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeople {
+    /**
+     * Specifies a set of Groups whose Users are to be included
+     */
+    groups?: outputs.GetAuthorizationServersPoliciesRuleConditionsPeopleGroups;
+    /**
+     * Specifies a set of Users to be included
+     */
+    users?: outputs.GetAuthorizationServersPoliciesRuleConditionsPeopleUsers;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleGroups {
+    /**
+     * Groups to be included
+     */
+    includes: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleUsers {
+    /**
+     * Users to be included
+     */
+    includes: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsScopes {
+    /**
+     * Include
+     */
+    includes: string[];
 }
 
 export interface GetBehavioursBehavior {
@@ -1516,6 +1744,35 @@ export interface GetGroupsGroup {
     type: string;
 }
 
+export interface GetIamAssigneesUserItem {
+    id: string;
+    /**
+     * ORN representing the assignee
+     */
+    orn: string;
+}
+
+export interface GetIdentitySourceGroupsProfile {
+    /**
+     * Description of the group.
+     */
+    description: string;
+    /**
+     * Display name of the group.
+     */
+    displayName: string;
+}
+
+export interface GetIdentitySourceUsersProfile {
+    email: string;
+    firstName: string;
+    homeAddress: string;
+    lastName: string;
+    mobilePhone: string;
+    secondEmail: string;
+    userName: string;
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -2139,6 +2396,191 @@ export interface GroupSchemaPropertyOneOf {
     title: string;
 }
 
+export interface IdentitySourceGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: string;
+    /**
+     * Name of the group.
+     */
+    displayName?: string;
+}
+
+export interface IdentitySourceImportDeleteGroupMemberships {
+    /**
+     * Group memberships to delete. (see below)
+     */
+    memberships?: outputs.IdentitySourceImportDeleteGroupMembershipsMembership[];
+}
+
+export interface IdentitySourceImportDeleteGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: string;
+    /**
+     * External IDs of the group members to remove.
+     */
+    memberExternalIds?: string[];
+}
+
+export interface IdentitySourceImportDeleteGroups {
+    /**
+     * External IDs of the groups to delete.
+     */
+    externalIds?: string[];
+}
+
+export interface IdentitySourceImportDeleteUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: string;
+    /**
+     * User profiles to delete (by external ID). (see below)
+     */
+    profiles?: outputs.IdentitySourceImportDeleteUsersProfile[];
+}
+
+export interface IdentitySourceImportDeleteUsersProfile {
+    /**
+     * External ID of the user to delete.
+     */
+    externalId?: string;
+}
+
+export interface IdentitySourceImportUpsertGroupMemberships {
+    /**
+     * Group memberships to upsert. (see below)
+     */
+    memberships?: outputs.IdentitySourceImportUpsertGroupMembershipsMembership[];
+}
+
+export interface IdentitySourceImportUpsertGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: string;
+    /**
+     * External IDs of the group members to add.
+     */
+    memberExternalIds?: string[];
+}
+
+export interface IdentitySourceImportUpsertGroups {
+    /**
+     * Group profiles to upsert. (see below)
+     */
+    profiles?: outputs.IdentitySourceImportUpsertGroupsProfile[];
+}
+
+export interface IdentitySourceImportUpsertGroupsProfile {
+    /**
+     * External ID of the group.
+     */
+    externalId?: string;
+    /**
+     * Group profile attributes. (see below)
+     */
+    groupProfile?: outputs.IdentitySourceImportUpsertGroupsProfileGroupProfile;
+}
+
+export interface IdentitySourceImportUpsertGroupsProfileGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: string;
+    /**
+     * Display name of the group.
+     */
+    displayName?: string;
+}
+
+export interface IdentitySourceImportUpsertUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: string;
+    /**
+     * User profiles to upsert. (see below)
+     */
+    profiles?: outputs.IdentitySourceImportUpsertUsersProfile[];
+}
+
+export interface IdentitySourceImportUpsertUsersProfile {
+    /**
+     * External ID of the user.
+     */
+    externalId?: string;
+    /**
+     * User profile attributes. (see below)
+     */
+    profile?: outputs.IdentitySourceImportUpsertUsersProfileProfile;
+}
+
+export interface IdentitySourceImportUpsertUsersProfileProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: string;
+    /**
+     * First name of the user.
+     */
+    firstName?: string;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: string;
+    /**
+     * Last name of the user.
+     */
+    lastName?: string;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: string;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: string;
+    /**
+     * Username of the user.
+     */
+    userName?: string;
+}
+
+export interface IdentitySourceUserProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: string;
+    /**
+     * First name of the user.
+     */
+    firstName?: string;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: string;
+    /**
+     * Last name of the user.
+     */
+    lastName?: string;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: string;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: string;
+    /**
+     * Username of the user.
+     */
+    userName?: string;
+}
+
 export interface LogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -2219,6 +2661,7 @@ export interface PushGroupAppConfig {
     groupScope: string;
     groupType: string;
     samAccountName: string;
+    type: string;
 }
 
 export interface PushProviderConfiguration {
@@ -2989,6 +3432,261 @@ export namespace app {
         values: string[];
     }
 
+    export interface GetSignOnPolicyRuleActions {
+        /**
+         * Specifies the results when a user attempts to sign in
+         */
+        appSignOn?: outputs.app.GetSignOnPolicyRuleActionsAppSignOn;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOn {
+        /**
+         * Access
+         */
+        access: string;
+        /**
+         * Controls how often the post-authentication prompt is presented to users
+         */
+        keepMeSignedIn?: outputs.app.GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn;
+        /**
+         * The method used to verify a user
+         */
+        verificationMethod?: outputs.app.GetSignOnPolicyRuleActionsAppSignOnVerificationMethod;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn {
+        /**
+         * Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+         */
+        postAuth: string;
+        /**
+         * A time duration specified as an ISO 8601 duration
+         */
+        postAuthPromptFrequency: string;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnVerificationMethod {
+        /**
+         * Verification method type
+         */
+        type: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditions {
+        /**
+         * Specifies the device condition to match on
+         */
+        device?: outputs.app.GetSignOnPolicyRuleConditionsDevice;
+        /**
+         * Specifies Okta Expression Language expressions
+         */
+        elCondition?: outputs.app.GetSignOnPolicyRuleConditionsElCondition;
+        /**
+         * Specifies a network selection mode and a set of network zones to be included or excluded.
+         */
+        network?: outputs.app.GetSignOnPolicyRuleConditionsNetwork;
+        /**
+         * Specifies the users and groups that are included or excluded by the policy rule
+         */
+        people?: outputs.app.GetSignOnPolicyRuleConditionsPeople;
+        /**
+         * Specifies a particular platform or device to match on
+         */
+        platform?: outputs.app.GetSignOnPolicyRuleConditionsPlatform;
+        /**
+         * Specifies a particular level of risk to match on
+         */
+        riskScore?: outputs.app.GetSignOnPolicyRuleConditionsRiskScore;
+        /**
+         * Specifies which user types to include and/or exclude
+         */
+        userType?: outputs.app.GetSignOnPolicyRuleConditionsUserType;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsDevice {
+        /**
+         * Specifies device assurance policies in the policy rule.
+         */
+        assurance?: outputs.app.GetSignOnPolicyRuleConditionsDeviceAssurance;
+        /**
+         * Indicates if the device is managed.
+         */
+        managed: boolean;
+        /**
+         * Indicates if the device is registered.
+         */
+        registered: boolean;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsDeviceAssurance {
+        /**
+         * Specifies the device assurance policy ID
+         */
+        includes: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsElCondition {
+        /**
+         * expression to match
+         */
+        condition: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsNetwork {
+        /**
+         * Network selection mode
+         */
+        connection: string;
+        /**
+         * The zones to exclude.
+         */
+        excludes: string[];
+        /**
+         * The zones to include.
+         */
+        includes: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeople {
+        /**
+         * Specifies a set of groups whose users are to be included or excluded
+         */
+        groups?: outputs.app.GetSignOnPolicyRuleConditionsPeopleGroups;
+        /**
+         * Specifies a set of users to be included or excluded
+         */
+        users?: outputs.app.GetSignOnPolicyRuleConditionsPeopleUsers;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleGroups {
+        /**
+         * Groups to be excluded
+         */
+        excludes: string[];
+        /**
+         * Groups to be included
+         */
+        includes: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleUsers {
+        /**
+         * Users to be excluded
+         */
+        excludes: string[];
+        /**
+         * Users to be included
+         */
+        includes: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatform {
+        /**
+         * Exclude
+         */
+        excludes?: outputs.app.GetSignOnPolicyRuleConditionsPlatformExclude[];
+        /**
+         * Include
+         */
+        includes?: outputs.app.GetSignOnPolicyRuleConditionsPlatformInclude[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExclude {
+        /**
+         * Os
+         */
+        os?: outputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeOs;
+        /**
+         * The type of platform
+         */
+        type: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeOs {
+        /**
+         * Expression
+         */
+        expression: string;
+        /**
+         * The type of operating system
+         */
+        type: string;
+        /**
+         * Version
+         */
+        version?: outputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion {
+        /**
+         * MatchType
+         */
+        matchType: string;
+        /**
+         * Value
+         */
+        value: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformInclude {
+        /**
+         * Os
+         */
+        os?: outputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeOs;
+        /**
+         * The type of platform
+         */
+        type: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeOs {
+        /**
+         * Expression
+         */
+        expression: string;
+        /**
+         * The type of operating system
+         */
+        type: string;
+        /**
+         * Version
+         */
+        version?: outputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion {
+        /**
+         * MatchType
+         */
+        matchType: string;
+        /**
+         * Value
+         */
+        value: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsRiskScore {
+        /**
+         * The level to match
+         */
+        level: string;
+        /**
+         * The minimum risk level to match.
+         */
+        minRiskLevel: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsUserType {
+        /**
+         * The user types to exclude
+         */
+        excludes: string[];
+        /**
+         * The user types to include
+         */
+        includes: string[];
+    }
+
     export interface OAuthGroupsClaim {
         /**
          * Groups claim filter. Can only be set if type is FILTER.
@@ -3176,6 +3874,10 @@ export namespace app {
          */
         inactivityPeriod?: string;
         /**
+         * Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+         */
+        keepMeSignedIn?: outputs.app.SignonPolicyRulesRuleKeepMeSignedIn;
+        /**
          * Policy Rule Name. Must be unique within the policy.
          */
         name: string;
@@ -3204,7 +3906,7 @@ export namespace app {
          */
         reAuthenticationFrequency: string;
         /**
-         * Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+         * Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
          */
         riskScore: string;
         /**
@@ -3235,6 +3937,17 @@ export namespace app {
          * Set of user IDs to include in this rule.
          */
         usersIncludeds?: string[];
+    }
+
+    export interface SignonPolicyRulesRuleKeepMeSignedIn {
+        /**
+         * Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+         */
+        postAuth: string;
+        /**
+         * How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+         */
+        postAuthPromptFrequency?: string;
     }
 
     export interface SignonPolicyRulesRulePlatformInclude {
@@ -3500,10 +4213,12 @@ export namespace user {
     }
 
     export interface GetUsersUser {
+        activated: string;
         adminRoles: string[];
         city: string;
         costCenter: string;
         countryCode: string;
+        created: string;
         customProfileAttributes: string;
         department: string;
         displayName: string;
@@ -3515,7 +4230,9 @@ export namespace user {
         honorificPrefix: string;
         honorificSuffix: string;
         id: string;
+        lastLogin: string;
         lastName: string;
+        lastUpdated: string;
         locale: string;
         login: string;
         manager: string;
@@ -3524,6 +4241,7 @@ export namespace user {
         mobilePhone: string;
         nickName: string;
         organization: string;
+        passwordChanged: string;
         postalAddress: string;
         preferredLanguage: string;
         primaryPhone: string;
@@ -3536,6 +4254,7 @@ export namespace user {
         secondEmail: string;
         state: string;
         status: string;
+        statusChanged: string;
         streetAddress: string;
         timezone: string;
         title: string;

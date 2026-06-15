@@ -56,6 +56,7 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
+    readonly activated: string;
     readonly adminRoles: string[];
     readonly city: string;
     /**
@@ -64,6 +65,7 @@ export interface GetUserResult {
     readonly compoundSearchOperator?: string;
     readonly costCenter: string;
     readonly countryCode: string;
+    readonly created: string;
     readonly customProfileAttributes: string;
     /**
      * Force delay of the user read by N seconds. Useful when eventual consistency of user information needs to be allowed for.
@@ -82,7 +84,9 @@ export interface GetUserResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly lastLogin: string;
     readonly lastName: string;
+    readonly lastUpdated: string;
     readonly locale: string;
     readonly login: string;
     readonly manager: string;
@@ -91,6 +95,7 @@ export interface GetUserResult {
     readonly mobilePhone: string;
     readonly nickName: string;
     readonly organization: string;
+    readonly passwordChanged: string;
     readonly postalAddress: string;
     readonly preferredLanguage: string;
     readonly primaryPhone: string;
@@ -115,6 +120,7 @@ export interface GetUserResult {
     readonly skipRoles?: boolean;
     readonly state: string;
     readonly status: string;
+    readonly statusChanged: string;
     readonly streetAddress: string;
     readonly timezone: string;
     readonly title: string;

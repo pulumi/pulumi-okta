@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewRequestSettingResource(ctx, "test", &okta.RequestSettingResourceArgs{
-//				ResourceId: "<resource_id>",
+//				IdProperty: pulumi.String("<resource_id>"),
 //				RiskSettings: &okta.RequestSettingResourceRiskSettingsArgs{
 //					DefaultSetting: &okta.RequestSettingResourceRiskSettingsDefaultSettingArgs{
 //						RequestSubmissionType: pulumi.String("ALLOWED_WITH_OVERRIDES"),

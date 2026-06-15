@@ -34,6 +34,51 @@ public final class PasswordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     * 
+     */
+    @Import(name="breachedPasswordDelegatedWorkflowId")
+    private @Nullable Output<String> breachedPasswordDelegatedWorkflowId;
+
+    /**
+     * @return The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     * 
+     */
+    public Optional<Output<String>> breachedPasswordDelegatedWorkflowId() {
+        return Optional.ofNullable(this.breachedPasswordDelegatedWorkflowId);
+    }
+
+    /**
+     * Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     * 
+     */
+    @Import(name="breachedPasswordExpireAfterDays")
+    private @Nullable Output<Integer> breachedPasswordExpireAfterDays;
+
+    /**
+     * @return Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     * 
+     */
+    public Optional<Output<Integer>> breachedPasswordExpireAfterDays() {
+        return Optional.ofNullable(this.breachedPasswordExpireAfterDays);
+    }
+
+    /**
+     * If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     * 
+     */
+    @Import(name="breachedPasswordLogoutEnabled")
+    private @Nullable Output<Boolean> breachedPasswordLogoutEnabled;
+
+    /**
+     * @return If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     * 
+     */
+    public Optional<Output<Boolean>> breachedPasswordLogoutEnabled() {
+        return Optional.ofNullable(this.breachedPasswordLogoutEnabled);
+    }
+
+    /**
      * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      * 
      */
@@ -472,6 +517,9 @@ public final class PasswordState extends com.pulumi.resources.ResourceArgs {
 
     private PasswordState(PasswordState $) {
         this.authProvider = $.authProvider;
+        this.breachedPasswordDelegatedWorkflowId = $.breachedPasswordDelegatedWorkflowId;
+        this.breachedPasswordExpireAfterDays = $.breachedPasswordExpireAfterDays;
+        this.breachedPasswordLogoutEnabled = $.breachedPasswordLogoutEnabled;
         this.callRecovery = $.callRecovery;
         this.description = $.description;
         this.emailRecovery = $.emailRecovery;
@@ -540,6 +588,69 @@ public final class PasswordState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder authProvider(String authProvider) {
             return authProvider(Output.of(authProvider));
+        }
+
+        /**
+         * @param breachedPasswordDelegatedWorkflowId The ID of the workflow to run when a breached password is found during a sign-in attempt.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder breachedPasswordDelegatedWorkflowId(@Nullable Output<String> breachedPasswordDelegatedWorkflowId) {
+            $.breachedPasswordDelegatedWorkflowId = breachedPasswordDelegatedWorkflowId;
+            return this;
+        }
+
+        /**
+         * @param breachedPasswordDelegatedWorkflowId The ID of the workflow to run when a breached password is found during a sign-in attempt.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder breachedPasswordDelegatedWorkflowId(String breachedPasswordDelegatedWorkflowId) {
+            return breachedPasswordDelegatedWorkflowId(Output.of(breachedPasswordDelegatedWorkflowId));
+        }
+
+        /**
+         * @param breachedPasswordExpireAfterDays Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder breachedPasswordExpireAfterDays(@Nullable Output<Integer> breachedPasswordExpireAfterDays) {
+            $.breachedPasswordExpireAfterDays = breachedPasswordExpireAfterDays;
+            return this;
+        }
+
+        /**
+         * @param breachedPasswordExpireAfterDays Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder breachedPasswordExpireAfterDays(Integer breachedPasswordExpireAfterDays) {
+            return breachedPasswordExpireAfterDays(Output.of(breachedPasswordExpireAfterDays));
+        }
+
+        /**
+         * @param breachedPasswordLogoutEnabled If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder breachedPasswordLogoutEnabled(@Nullable Output<Boolean> breachedPasswordLogoutEnabled) {
+            $.breachedPasswordLogoutEnabled = breachedPasswordLogoutEnabled;
+            return this;
+        }
+
+        /**
+         * @param breachedPasswordLogoutEnabled If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder breachedPasswordLogoutEnabled(Boolean breachedPasswordLogoutEnabled) {
+            return breachedPasswordLogoutEnabled(Output.of(breachedPasswordLogoutEnabled));
         }
 
         /**

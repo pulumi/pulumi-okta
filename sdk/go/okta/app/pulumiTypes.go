@@ -3765,6 +3765,8 @@ type SignonPolicyRulesRule struct {
 	Id *string `pulumi:"id"`
 	// Inactivity period before re-authentication in ISO 8601 duration format.
 	InactivityPeriod *string `pulumi:"inactivityPeriod"`
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn *SignonPolicyRulesRuleKeepMeSignedIn `pulumi:"keepMeSignedIn"`
 	// Policy Rule Name. Must be unique within the policy.
 	Name string `pulumi:"name"`
 	// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -3779,7 +3781,7 @@ type SignonPolicyRulesRule struct {
 	Priority *int `pulumi:"priority"`
 	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
 	ReAuthenticationFrequency *string `pulumi:"reAuthenticationFrequency"`
-	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
 	RiskScore *string `pulumi:"riskScore"`
 	// Status of the rule: ACTIVE or INACTIVE.
 	Status *string `pulumi:"status"`
@@ -3833,6 +3835,8 @@ type SignonPolicyRulesRuleArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Inactivity period before re-authentication in ISO 8601 duration format.
 	InactivityPeriod pulumi.StringPtrInput `pulumi:"inactivityPeriod"`
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn SignonPolicyRulesRuleKeepMeSignedInPtrInput `pulumi:"keepMeSignedIn"`
 	// Policy Rule Name. Must be unique within the policy.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -3847,7 +3851,7 @@ type SignonPolicyRulesRuleArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
 	ReAuthenticationFrequency pulumi.StringPtrInput `pulumi:"reAuthenticationFrequency"`
-	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+	// Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
 	RiskScore pulumi.StringPtrInput `pulumi:"riskScore"`
 	// Status of the rule: ACTIVE or INACTIVE.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -3976,6 +3980,11 @@ func (o SignonPolicyRulesRuleOutput) InactivityPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.InactivityPeriod }).(pulumi.StringPtrOutput)
 }
 
+// Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+func (o SignonPolicyRulesRuleOutput) KeepMeSignedIn() SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) *SignonPolicyRulesRuleKeepMeSignedIn { return v.KeepMeSignedIn }).(SignonPolicyRulesRuleKeepMeSignedInPtrOutput)
+}
+
 // Policy Rule Name. Must be unique within the policy.
 func (o SignonPolicyRulesRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRule) string { return v.Name }).(pulumi.StringOutput)
@@ -4011,7 +4020,7 @@ func (o SignonPolicyRulesRuleOutput) ReAuthenticationFrequency() pulumi.StringPt
 	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.ReAuthenticationFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+// Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
 func (o SignonPolicyRulesRuleOutput) RiskScore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignonPolicyRulesRule) *string { return v.RiskScore }).(pulumi.StringPtrOutput)
 }
@@ -4069,6 +4078,162 @@ func (o SignonPolicyRulesRuleArrayOutput) Index(i pulumi.IntInput) SignonPolicyR
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignonPolicyRulesRule {
 		return vs[0].([]SignonPolicyRulesRule)[vs[1].(int)]
 	}).(SignonPolicyRulesRuleOutput)
+}
+
+type SignonPolicyRulesRuleKeepMeSignedIn struct {
+	// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+	PostAuth *string `pulumi:"postAuth"`
+	// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+	PostAuthPromptFrequency *string `pulumi:"postAuthPromptFrequency"`
+}
+
+// SignonPolicyRulesRuleKeepMeSignedInInput is an input type that accepts SignonPolicyRulesRuleKeepMeSignedInArgs and SignonPolicyRulesRuleKeepMeSignedInOutput values.
+// You can construct a concrete instance of `SignonPolicyRulesRuleKeepMeSignedInInput` via:
+//
+//	SignonPolicyRulesRuleKeepMeSignedInArgs{...}
+type SignonPolicyRulesRuleKeepMeSignedInInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRulesRuleKeepMeSignedInOutput() SignonPolicyRulesRuleKeepMeSignedInOutput
+	ToSignonPolicyRulesRuleKeepMeSignedInOutputWithContext(context.Context) SignonPolicyRulesRuleKeepMeSignedInOutput
+}
+
+type SignonPolicyRulesRuleKeepMeSignedInArgs struct {
+	// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+	PostAuth pulumi.StringPtrInput `pulumi:"postAuth"`
+	// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+	PostAuthPromptFrequency pulumi.StringPtrInput `pulumi:"postAuthPromptFrequency"`
+}
+
+func (SignonPolicyRulesRuleKeepMeSignedInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRulesRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (i SignonPolicyRulesRuleKeepMeSignedInArgs) ToSignonPolicyRulesRuleKeepMeSignedInOutput() SignonPolicyRulesRuleKeepMeSignedInOutput {
+	return i.ToSignonPolicyRulesRuleKeepMeSignedInOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRulesRuleKeepMeSignedInArgs) ToSignonPolicyRulesRuleKeepMeSignedInOutputWithContext(ctx context.Context) SignonPolicyRulesRuleKeepMeSignedInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRuleKeepMeSignedInOutput)
+}
+
+func (i SignonPolicyRulesRuleKeepMeSignedInArgs) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutput() SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return i.ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (i SignonPolicyRulesRuleKeepMeSignedInArgs) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRuleKeepMeSignedInOutput).ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(ctx)
+}
+
+// SignonPolicyRulesRuleKeepMeSignedInPtrInput is an input type that accepts SignonPolicyRulesRuleKeepMeSignedInArgs, SignonPolicyRulesRuleKeepMeSignedInPtr and SignonPolicyRulesRuleKeepMeSignedInPtrOutput values.
+// You can construct a concrete instance of `SignonPolicyRulesRuleKeepMeSignedInPtrInput` via:
+//
+//	        SignonPolicyRulesRuleKeepMeSignedInArgs{...}
+//
+//	or:
+//
+//	        nil
+type SignonPolicyRulesRuleKeepMeSignedInPtrInput interface {
+	pulumi.Input
+
+	ToSignonPolicyRulesRuleKeepMeSignedInPtrOutput() SignonPolicyRulesRuleKeepMeSignedInPtrOutput
+	ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(context.Context) SignonPolicyRulesRuleKeepMeSignedInPtrOutput
+}
+
+type signonPolicyRulesRuleKeepMeSignedInPtrType SignonPolicyRulesRuleKeepMeSignedInArgs
+
+func SignonPolicyRulesRuleKeepMeSignedInPtr(v *SignonPolicyRulesRuleKeepMeSignedInArgs) SignonPolicyRulesRuleKeepMeSignedInPtrInput {
+	return (*signonPolicyRulesRuleKeepMeSignedInPtrType)(v)
+}
+
+func (*signonPolicyRulesRuleKeepMeSignedInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignonPolicyRulesRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (i *signonPolicyRulesRuleKeepMeSignedInPtrType) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutput() SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return i.ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (i *signonPolicyRulesRuleKeepMeSignedInPtrType) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignonPolicyRulesRuleKeepMeSignedInPtrOutput)
+}
+
+type SignonPolicyRulesRuleKeepMeSignedInOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRulesRuleKeepMeSignedInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignonPolicyRulesRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInOutput) ToSignonPolicyRulesRuleKeepMeSignedInOutput() SignonPolicyRulesRuleKeepMeSignedInOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInOutput) ToSignonPolicyRulesRuleKeepMeSignedInOutputWithContext(ctx context.Context) SignonPolicyRulesRuleKeepMeSignedInOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInOutput) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutput() SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return o.ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInOutput) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignonPolicyRulesRuleKeepMeSignedIn) *SignonPolicyRulesRuleKeepMeSignedIn {
+		return &v
+	}).(SignonPolicyRulesRuleKeepMeSignedInPtrOutput)
+}
+
+// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+func (o SignonPolicyRulesRuleKeepMeSignedInOutput) PostAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRuleKeepMeSignedIn) *string { return v.PostAuth }).(pulumi.StringPtrOutput)
+}
+
+// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+func (o SignonPolicyRulesRuleKeepMeSignedInOutput) PostAuthPromptFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRuleKeepMeSignedIn) *string { return v.PostAuthPromptFrequency }).(pulumi.StringPtrOutput)
+}
+
+type SignonPolicyRulesRuleKeepMeSignedInPtrOutput struct{ *pulumi.OutputState }
+
+func (SignonPolicyRulesRuleKeepMeSignedInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SignonPolicyRulesRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInPtrOutput) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutput() SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInPtrOutput) ToSignonPolicyRulesRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) SignonPolicyRulesRuleKeepMeSignedInPtrOutput {
+	return o
+}
+
+func (o SignonPolicyRulesRuleKeepMeSignedInPtrOutput) Elem() SignonPolicyRulesRuleKeepMeSignedInOutput {
+	return o.ApplyT(func(v *SignonPolicyRulesRuleKeepMeSignedIn) SignonPolicyRulesRuleKeepMeSignedIn {
+		if v != nil {
+			return *v
+		}
+		var ret SignonPolicyRulesRuleKeepMeSignedIn
+		return ret
+	}).(SignonPolicyRulesRuleKeepMeSignedInOutput)
+}
+
+// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+func (o SignonPolicyRulesRuleKeepMeSignedInPtrOutput) PostAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRulesRuleKeepMeSignedIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostAuth
+	}).(pulumi.StringPtrOutput)
+}
+
+// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+func (o SignonPolicyRulesRuleKeepMeSignedInPtrOutput) PostAuthPromptFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignonPolicyRulesRuleKeepMeSignedIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostAuthPromptFrequency
+	}).(pulumi.StringPtrOutput)
 }
 
 type SignonPolicyRulesRulePlatformInclude struct {
@@ -6851,6 +7016,3316 @@ func (o GetSamlAttributeStatementArrayOutput) Index(i pulumi.IntInput) GetSamlAt
 	}).(GetSamlAttributeStatementOutput)
 }
 
+type GetSignOnPolicyRuleActions struct {
+	// Specifies the results when a user attempts to sign in
+	AppSignOn *GetSignOnPolicyRuleActionsAppSignOn `pulumi:"appSignOn"`
+}
+
+// GetSignOnPolicyRuleActionsInput is an input type that accepts GetSignOnPolicyRuleActionsArgs and GetSignOnPolicyRuleActionsOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsInput` via:
+//
+//	GetSignOnPolicyRuleActionsArgs{...}
+type GetSignOnPolicyRuleActionsInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsOutput() GetSignOnPolicyRuleActionsOutput
+	ToGetSignOnPolicyRuleActionsOutputWithContext(context.Context) GetSignOnPolicyRuleActionsOutput
+}
+
+type GetSignOnPolicyRuleActionsArgs struct {
+	// Specifies the results when a user attempts to sign in
+	AppSignOn GetSignOnPolicyRuleActionsAppSignOnPtrInput `pulumi:"appSignOn"`
+}
+
+func (GetSignOnPolicyRuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActions)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleActionsArgs) ToGetSignOnPolicyRuleActionsOutput() GetSignOnPolicyRuleActionsOutput {
+	return i.ToGetSignOnPolicyRuleActionsOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsArgs) ToGetSignOnPolicyRuleActionsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsOutput)
+}
+
+func (i GetSignOnPolicyRuleActionsArgs) ToGetSignOnPolicyRuleActionsPtrOutput() GetSignOnPolicyRuleActionsPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsArgs) ToGetSignOnPolicyRuleActionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsOutput).ToGetSignOnPolicyRuleActionsPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleActionsPtrInput is an input type that accepts GetSignOnPolicyRuleActionsArgs, GetSignOnPolicyRuleActionsPtr and GetSignOnPolicyRuleActionsPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsPtrInput` via:
+//
+//	        GetSignOnPolicyRuleActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleActionsPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsPtrOutput() GetSignOnPolicyRuleActionsPtrOutput
+	ToGetSignOnPolicyRuleActionsPtrOutputWithContext(context.Context) GetSignOnPolicyRuleActionsPtrOutput
+}
+
+type getSignOnPolicyRuleActionsPtrType GetSignOnPolicyRuleActionsArgs
+
+func GetSignOnPolicyRuleActionsPtr(v *GetSignOnPolicyRuleActionsArgs) GetSignOnPolicyRuleActionsPtrInput {
+	return (*getSignOnPolicyRuleActionsPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActions)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleActionsPtrType) ToGetSignOnPolicyRuleActionsPtrOutput() GetSignOnPolicyRuleActionsPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleActionsPtrType) ToGetSignOnPolicyRuleActionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActions)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsOutput) ToGetSignOnPolicyRuleActionsOutput() GetSignOnPolicyRuleActionsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsOutput) ToGetSignOnPolicyRuleActionsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsOutput) ToGetSignOnPolicyRuleActionsPtrOutput() GetSignOnPolicyRuleActionsPtrOutput {
+	return o.ToGetSignOnPolicyRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleActionsOutput) ToGetSignOnPolicyRuleActionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleActions) *GetSignOnPolicyRuleActions {
+		return &v
+	}).(GetSignOnPolicyRuleActionsPtrOutput)
+}
+
+// Specifies the results when a user attempts to sign in
+func (o GetSignOnPolicyRuleActionsOutput) AppSignOn() GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActions) *GetSignOnPolicyRuleActionsAppSignOn { return v.AppSignOn }).(GetSignOnPolicyRuleActionsAppSignOnPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActions)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsPtrOutput) ToGetSignOnPolicyRuleActionsPtrOutput() GetSignOnPolicyRuleActionsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsPtrOutput) ToGetSignOnPolicyRuleActionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsPtrOutput) Elem() GetSignOnPolicyRuleActionsOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActions) GetSignOnPolicyRuleActions {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleActions
+		return ret
+	}).(GetSignOnPolicyRuleActionsOutput)
+}
+
+// Specifies the results when a user attempts to sign in
+func (o GetSignOnPolicyRuleActionsPtrOutput) AppSignOn() GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActions) *GetSignOnPolicyRuleActionsAppSignOn {
+		if v == nil {
+			return nil
+		}
+		return v.AppSignOn
+	}).(GetSignOnPolicyRuleActionsAppSignOnPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOn struct {
+	// Access
+	Access string `pulumi:"access"`
+	// Controls how often the post-authentication prompt is presented to users
+	KeepMeSignedIn *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn `pulumi:"keepMeSignedIn"`
+	// The method used to verify a user
+	VerificationMethod *GetSignOnPolicyRuleActionsAppSignOnVerificationMethod `pulumi:"verificationMethod"`
+}
+
+// GetSignOnPolicyRuleActionsAppSignOnInput is an input type that accepts GetSignOnPolicyRuleActionsAppSignOnArgs and GetSignOnPolicyRuleActionsAppSignOnOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsAppSignOnInput` via:
+//
+//	GetSignOnPolicyRuleActionsAppSignOnArgs{...}
+type GetSignOnPolicyRuleActionsAppSignOnInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsAppSignOnOutput() GetSignOnPolicyRuleActionsAppSignOnOutput
+	ToGetSignOnPolicyRuleActionsAppSignOnOutputWithContext(context.Context) GetSignOnPolicyRuleActionsAppSignOnOutput
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnArgs struct {
+	// Access
+	Access pulumi.StringInput `pulumi:"access"`
+	// Controls how often the post-authentication prompt is presented to users
+	KeepMeSignedIn GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrInput `pulumi:"keepMeSignedIn"`
+	// The method used to verify a user
+	VerificationMethod GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrInput `pulumi:"verificationMethod"`
+}
+
+func (GetSignOnPolicyRuleActionsAppSignOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOn)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnArgs) ToGetSignOnPolicyRuleActionsAppSignOnOutput() GetSignOnPolicyRuleActionsAppSignOnOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnArgs) ToGetSignOnPolicyRuleActionsAppSignOnOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnOutput)
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnArgs) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutput() GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnArgs) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnOutput).ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleActionsAppSignOnPtrInput is an input type that accepts GetSignOnPolicyRuleActionsAppSignOnArgs, GetSignOnPolicyRuleActionsAppSignOnPtr and GetSignOnPolicyRuleActionsAppSignOnPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsAppSignOnPtrInput` via:
+//
+//	        GetSignOnPolicyRuleActionsAppSignOnArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleActionsAppSignOnPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsAppSignOnPtrOutput() GetSignOnPolicyRuleActionsAppSignOnPtrOutput
+	ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(context.Context) GetSignOnPolicyRuleActionsAppSignOnPtrOutput
+}
+
+type getSignOnPolicyRuleActionsAppSignOnPtrType GetSignOnPolicyRuleActionsAppSignOnArgs
+
+func GetSignOnPolicyRuleActionsAppSignOnPtr(v *GetSignOnPolicyRuleActionsAppSignOnArgs) GetSignOnPolicyRuleActionsAppSignOnPtrInput {
+	return (*getSignOnPolicyRuleActionsAppSignOnPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleActionsAppSignOnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActionsAppSignOn)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleActionsAppSignOnPtrType) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutput() GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleActionsAppSignOnPtrType) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsAppSignOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOn)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) ToGetSignOnPolicyRuleActionsAppSignOnOutput() GetSignOnPolicyRuleActionsAppSignOnOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) ToGetSignOnPolicyRuleActionsAppSignOnOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutput() GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return o.ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleActionsAppSignOn) *GetSignOnPolicyRuleActionsAppSignOn {
+		return &v
+	}).(GetSignOnPolicyRuleActionsAppSignOnPtrOutput)
+}
+
+// Access
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActionsAppSignOn) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// Controls how often the post-authentication prompt is presented to users
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) KeepMeSignedIn() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActionsAppSignOn) *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn {
+		return v.KeepMeSignedIn
+	}).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput)
+}
+
+// The method used to verify a user
+func (o GetSignOnPolicyRuleActionsAppSignOnOutput) VerificationMethod() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActionsAppSignOn) *GetSignOnPolicyRuleActionsAppSignOnVerificationMethod {
+		return v.VerificationMethod
+	}).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsAppSignOnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActionsAppSignOn)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnPtrOutput) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutput() GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnPtrOutput) ToGetSignOnPolicyRuleActionsAppSignOnPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnPtrOutput) Elem() GetSignOnPolicyRuleActionsAppSignOnOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOn) GetSignOnPolicyRuleActionsAppSignOn {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleActionsAppSignOn
+		return ret
+	}).(GetSignOnPolicyRuleActionsAppSignOnOutput)
+}
+
+// Access
+func (o GetSignOnPolicyRuleActionsAppSignOnPtrOutput) Access() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Access
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls how often the post-authentication prompt is presented to users
+func (o GetSignOnPolicyRuleActionsAppSignOnPtrOutput) KeepMeSignedIn() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOn) *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn {
+		if v == nil {
+			return nil
+		}
+		return v.KeepMeSignedIn
+	}).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput)
+}
+
+// The method used to verify a user
+func (o GetSignOnPolicyRuleActionsAppSignOnPtrOutput) VerificationMethod() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOn) *GetSignOnPolicyRuleActionsAppSignOnVerificationMethod {
+		if v == nil {
+			return nil
+		}
+		return v.VerificationMethod
+	}).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn struct {
+	// Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+	PostAuth string `pulumi:"postAuth"`
+	// A time duration specified as an ISO 8601 duration
+	PostAuthPromptFrequency string `pulumi:"postAuthPromptFrequency"`
+}
+
+// GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInInput is an input type that accepts GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs and GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInInput` via:
+//
+//	GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs{...}
+type GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput
+	ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutputWithContext(context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs struct {
+	// Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+	PostAuth pulumi.StringInput `pulumi:"postAuth"`
+	// A time duration specified as an ISO 8601 duration
+	PostAuthPromptFrequency pulumi.StringInput `pulumi:"postAuthPromptFrequency"`
+}
+
+func (GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput)
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput).ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrInput is an input type that accepts GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs, GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtr and GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrInput` via:
+//
+//	        GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput
+	ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput
+}
+
+type getSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrType GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs
+
+func GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtr(v *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrInput {
+	return (*getSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrType) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrType) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return o.ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn) *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn {
+		return &v
+	}).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput)
+}
+
+// Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) PostAuth() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn) string { return v.PostAuth }).(pulumi.StringOutput)
+}
+
+// A time duration specified as an ISO 8601 duration
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput) PostAuthPromptFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn) string { return v.PostAuthPromptFrequency }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput) ToGetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput) Elem() GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn) GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn
+		return ret
+	}).(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput)
+}
+
+// Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput) PostAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PostAuth
+	}).(pulumi.StringPtrOutput)
+}
+
+// A time duration specified as an ISO 8601 duration
+func (o GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput) PostAuthPromptFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PostAuthPromptFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnVerificationMethod struct {
+	// Verification method type
+	Type string `pulumi:"type"`
+}
+
+// GetSignOnPolicyRuleActionsAppSignOnVerificationMethodInput is an input type that accepts GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs and GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsAppSignOnVerificationMethodInput` via:
+//
+//	GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs{...}
+type GetSignOnPolicyRuleActionsAppSignOnVerificationMethodInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput
+	ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutputWithContext(context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs struct {
+	// Verification method type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnVerificationMethod)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput)
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput).ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrInput is an input type that accepts GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs, GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtr and GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrInput` via:
+//
+//	        GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput
+	ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput
+}
+
+type getSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrType GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs
+
+func GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtr(v *GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrInput {
+	return (*getSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActionsAppSignOnVerificationMethod)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrType) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return i.ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrType) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnVerificationMethod)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return o.ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleActionsAppSignOnVerificationMethod) *GetSignOnPolicyRuleActionsAppSignOnVerificationMethod {
+		return &v
+	}).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput)
+}
+
+// Verification method type
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleActionsAppSignOnVerificationMethod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleActionsAppSignOnVerificationMethod)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput) ToGetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput) Elem() GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOnVerificationMethod) GetSignOnPolicyRuleActionsAppSignOnVerificationMethod {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleActionsAppSignOnVerificationMethod
+		return ret
+	}).(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput)
+}
+
+// Verification method type
+func (o GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleActionsAppSignOnVerificationMethod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditions struct {
+	// Specifies the device condition to match on
+	Device *GetSignOnPolicyRuleConditionsDevice `pulumi:"device"`
+	// Specifies Okta Expression Language expressions
+	ElCondition *GetSignOnPolicyRuleConditionsElCondition `pulumi:"elCondition"`
+	// Specifies a network selection mode and a set of network zones to be included or excluded.
+	Network *GetSignOnPolicyRuleConditionsNetwork `pulumi:"network"`
+	// Specifies the users and groups that are included or excluded by the policy rule
+	People *GetSignOnPolicyRuleConditionsPeople `pulumi:"people"`
+	// Specifies a particular platform or device to match on
+	Platform *GetSignOnPolicyRuleConditionsPlatform `pulumi:"platform"`
+	// Specifies a particular level of risk to match on
+	RiskScore *GetSignOnPolicyRuleConditionsRiskScore `pulumi:"riskScore"`
+	// Specifies which user types to include and/or exclude
+	UserType *GetSignOnPolicyRuleConditionsUserType `pulumi:"userType"`
+}
+
+// GetSignOnPolicyRuleConditionsInput is an input type that accepts GetSignOnPolicyRuleConditionsArgs and GetSignOnPolicyRuleConditionsOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsInput` via:
+//
+//	GetSignOnPolicyRuleConditionsArgs{...}
+type GetSignOnPolicyRuleConditionsInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsOutput() GetSignOnPolicyRuleConditionsOutput
+	ToGetSignOnPolicyRuleConditionsOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsOutput
+}
+
+type GetSignOnPolicyRuleConditionsArgs struct {
+	// Specifies the device condition to match on
+	Device GetSignOnPolicyRuleConditionsDevicePtrInput `pulumi:"device"`
+	// Specifies Okta Expression Language expressions
+	ElCondition GetSignOnPolicyRuleConditionsElConditionPtrInput `pulumi:"elCondition"`
+	// Specifies a network selection mode and a set of network zones to be included or excluded.
+	Network GetSignOnPolicyRuleConditionsNetworkPtrInput `pulumi:"network"`
+	// Specifies the users and groups that are included or excluded by the policy rule
+	People GetSignOnPolicyRuleConditionsPeoplePtrInput `pulumi:"people"`
+	// Specifies a particular platform or device to match on
+	Platform GetSignOnPolicyRuleConditionsPlatformPtrInput `pulumi:"platform"`
+	// Specifies a particular level of risk to match on
+	RiskScore GetSignOnPolicyRuleConditionsRiskScorePtrInput `pulumi:"riskScore"`
+	// Specifies which user types to include and/or exclude
+	UserType GetSignOnPolicyRuleConditionsUserTypePtrInput `pulumi:"userType"`
+}
+
+func (GetSignOnPolicyRuleConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditions)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsArgs) ToGetSignOnPolicyRuleConditionsOutput() GetSignOnPolicyRuleConditionsOutput {
+	return i.ToGetSignOnPolicyRuleConditionsOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsArgs) ToGetSignOnPolicyRuleConditionsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsArgs) ToGetSignOnPolicyRuleConditionsPtrOutput() GetSignOnPolicyRuleConditionsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsArgs) ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsOutput).ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsArgs, GetSignOnPolicyRuleConditionsPtr and GetSignOnPolicyRuleConditionsPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPtrOutput() GetSignOnPolicyRuleConditionsPtrOutput
+	ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPtrType GetSignOnPolicyRuleConditionsArgs
+
+func GetSignOnPolicyRuleConditionsPtr(v *GetSignOnPolicyRuleConditionsArgs) GetSignOnPolicyRuleConditionsPtrInput {
+	return (*getSignOnPolicyRuleConditionsPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditions)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPtrType) ToGetSignOnPolicyRuleConditionsPtrOutput() GetSignOnPolicyRuleConditionsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPtrType) ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditions)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsOutput) ToGetSignOnPolicyRuleConditionsOutput() GetSignOnPolicyRuleConditionsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsOutput) ToGetSignOnPolicyRuleConditionsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsOutput) ToGetSignOnPolicyRuleConditionsPtrOutput() GetSignOnPolicyRuleConditionsPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsOutput) ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditions {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPtrOutput)
+}
+
+// Specifies the device condition to match on
+func (o GetSignOnPolicyRuleConditionsOutput) Device() GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsDevice { return v.Device }).(GetSignOnPolicyRuleConditionsDevicePtrOutput)
+}
+
+// Specifies Okta Expression Language expressions
+func (o GetSignOnPolicyRuleConditionsOutput) ElCondition() GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsElCondition { return v.ElCondition }).(GetSignOnPolicyRuleConditionsElConditionPtrOutput)
+}
+
+// Specifies a network selection mode and a set of network zones to be included or excluded.
+func (o GetSignOnPolicyRuleConditionsOutput) Network() GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsNetwork { return v.Network }).(GetSignOnPolicyRuleConditionsNetworkPtrOutput)
+}
+
+// Specifies the users and groups that are included or excluded by the policy rule
+func (o GetSignOnPolicyRuleConditionsOutput) People() GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsPeople { return v.People }).(GetSignOnPolicyRuleConditionsPeoplePtrOutput)
+}
+
+// Specifies a particular platform or device to match on
+func (o GetSignOnPolicyRuleConditionsOutput) Platform() GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsPlatform { return v.Platform }).(GetSignOnPolicyRuleConditionsPlatformPtrOutput)
+}
+
+// Specifies a particular level of risk to match on
+func (o GetSignOnPolicyRuleConditionsOutput) RiskScore() GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsRiskScore { return v.RiskScore }).(GetSignOnPolicyRuleConditionsRiskScorePtrOutput)
+}
+
+// Specifies which user types to include and/or exclude
+func (o GetSignOnPolicyRuleConditionsOutput) UserType() GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsUserType { return v.UserType }).(GetSignOnPolicyRuleConditionsUserTypePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditions)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPtrOutput) ToGetSignOnPolicyRuleConditionsPtrOutput() GetSignOnPolicyRuleConditionsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPtrOutput) ToGetSignOnPolicyRuleConditionsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPtrOutput) Elem() GetSignOnPolicyRuleConditionsOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) GetSignOnPolicyRuleConditions {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditions
+		return ret
+	}).(GetSignOnPolicyRuleConditionsOutput)
+}
+
+// Specifies the device condition to match on
+func (o GetSignOnPolicyRuleConditionsPtrOutput) Device() GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsDevice {
+		if v == nil {
+			return nil
+		}
+		return v.Device
+	}).(GetSignOnPolicyRuleConditionsDevicePtrOutput)
+}
+
+// Specifies Okta Expression Language expressions
+func (o GetSignOnPolicyRuleConditionsPtrOutput) ElCondition() GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsElCondition {
+		if v == nil {
+			return nil
+		}
+		return v.ElCondition
+	}).(GetSignOnPolicyRuleConditionsElConditionPtrOutput)
+}
+
+// Specifies a network selection mode and a set of network zones to be included or excluded.
+func (o GetSignOnPolicyRuleConditionsPtrOutput) Network() GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsNetwork {
+		if v == nil {
+			return nil
+		}
+		return v.Network
+	}).(GetSignOnPolicyRuleConditionsNetworkPtrOutput)
+}
+
+// Specifies the users and groups that are included or excluded by the policy rule
+func (o GetSignOnPolicyRuleConditionsPtrOutput) People() GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsPeople {
+		if v == nil {
+			return nil
+		}
+		return v.People
+	}).(GetSignOnPolicyRuleConditionsPeoplePtrOutput)
+}
+
+// Specifies a particular platform or device to match on
+func (o GetSignOnPolicyRuleConditionsPtrOutput) Platform() GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsPlatform {
+		if v == nil {
+			return nil
+		}
+		return v.Platform
+	}).(GetSignOnPolicyRuleConditionsPlatformPtrOutput)
+}
+
+// Specifies a particular level of risk to match on
+func (o GetSignOnPolicyRuleConditionsPtrOutput) RiskScore() GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsRiskScore {
+		if v == nil {
+			return nil
+		}
+		return v.RiskScore
+	}).(GetSignOnPolicyRuleConditionsRiskScorePtrOutput)
+}
+
+// Specifies which user types to include and/or exclude
+func (o GetSignOnPolicyRuleConditionsPtrOutput) UserType() GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditions) *GetSignOnPolicyRuleConditionsUserType {
+		if v == nil {
+			return nil
+		}
+		return v.UserType
+	}).(GetSignOnPolicyRuleConditionsUserTypePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsDevice struct {
+	// Specifies device assurance policies in the policy rule.
+	Assurance *GetSignOnPolicyRuleConditionsDeviceAssurance `pulumi:"assurance"`
+	// Indicates if the device is managed.
+	Managed bool `pulumi:"managed"`
+	// Indicates if the device is registered.
+	Registered bool `pulumi:"registered"`
+}
+
+// GetSignOnPolicyRuleConditionsDeviceInput is an input type that accepts GetSignOnPolicyRuleConditionsDeviceArgs and GetSignOnPolicyRuleConditionsDeviceOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsDeviceInput` via:
+//
+//	GetSignOnPolicyRuleConditionsDeviceArgs{...}
+type GetSignOnPolicyRuleConditionsDeviceInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsDeviceOutput() GetSignOnPolicyRuleConditionsDeviceOutput
+	ToGetSignOnPolicyRuleConditionsDeviceOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsDeviceOutput
+}
+
+type GetSignOnPolicyRuleConditionsDeviceArgs struct {
+	// Specifies device assurance policies in the policy rule.
+	Assurance GetSignOnPolicyRuleConditionsDeviceAssurancePtrInput `pulumi:"assurance"`
+	// Indicates if the device is managed.
+	Managed pulumi.BoolInput `pulumi:"managed"`
+	// Indicates if the device is registered.
+	Registered pulumi.BoolInput `pulumi:"registered"`
+}
+
+func (GetSignOnPolicyRuleConditionsDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsDevice)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceArgs) ToGetSignOnPolicyRuleConditionsDeviceOutput() GetSignOnPolicyRuleConditionsDeviceOutput {
+	return i.ToGetSignOnPolicyRuleConditionsDeviceOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceArgs) ToGetSignOnPolicyRuleConditionsDeviceOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsDeviceOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceArgs) ToGetSignOnPolicyRuleConditionsDevicePtrOutput() GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceArgs) ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsDeviceOutput).ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsDevicePtrInput is an input type that accepts GetSignOnPolicyRuleConditionsDeviceArgs, GetSignOnPolicyRuleConditionsDevicePtr and GetSignOnPolicyRuleConditionsDevicePtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsDevicePtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsDeviceArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsDevicePtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsDevicePtrOutput() GetSignOnPolicyRuleConditionsDevicePtrOutput
+	ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsDevicePtrOutput
+}
+
+type getSignOnPolicyRuleConditionsDevicePtrType GetSignOnPolicyRuleConditionsDeviceArgs
+
+func GetSignOnPolicyRuleConditionsDevicePtr(v *GetSignOnPolicyRuleConditionsDeviceArgs) GetSignOnPolicyRuleConditionsDevicePtrInput {
+	return (*getSignOnPolicyRuleConditionsDevicePtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsDevice)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsDevicePtrType) ToGetSignOnPolicyRuleConditionsDevicePtrOutput() GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsDevicePtrType) ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsDevicePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsDevice)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) ToGetSignOnPolicyRuleConditionsDeviceOutput() GetSignOnPolicyRuleConditionsDeviceOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) ToGetSignOnPolicyRuleConditionsDeviceOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) ToGetSignOnPolicyRuleConditionsDevicePtrOutput() GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsDevice) *GetSignOnPolicyRuleConditionsDevice {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsDevicePtrOutput)
+}
+
+// Specifies device assurance policies in the policy rule.
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) Assurance() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsDevice) *GetSignOnPolicyRuleConditionsDeviceAssurance {
+		return v.Assurance
+	}).(GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput)
+}
+
+// Indicates if the device is managed.
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) Managed() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsDevice) bool { return v.Managed }).(pulumi.BoolOutput)
+}
+
+// Indicates if the device is registered.
+func (o GetSignOnPolicyRuleConditionsDeviceOutput) Registered() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsDevice) bool { return v.Registered }).(pulumi.BoolOutput)
+}
+
+type GetSignOnPolicyRuleConditionsDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsDevice)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsDevicePtrOutput) ToGetSignOnPolicyRuleConditionsDevicePtrOutput() GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDevicePtrOutput) ToGetSignOnPolicyRuleConditionsDevicePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDevicePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDevicePtrOutput) Elem() GetSignOnPolicyRuleConditionsDeviceOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsDevice) GetSignOnPolicyRuleConditionsDevice {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsDevice
+		return ret
+	}).(GetSignOnPolicyRuleConditionsDeviceOutput)
+}
+
+// Specifies device assurance policies in the policy rule.
+func (o GetSignOnPolicyRuleConditionsDevicePtrOutput) Assurance() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsDevice) *GetSignOnPolicyRuleConditionsDeviceAssurance {
+		if v == nil {
+			return nil
+		}
+		return v.Assurance
+	}).(GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput)
+}
+
+// Indicates if the device is managed.
+func (o GetSignOnPolicyRuleConditionsDevicePtrOutput) Managed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Managed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if the device is registered.
+func (o GetSignOnPolicyRuleConditionsDevicePtrOutput) Registered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsDevice) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Registered
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsDeviceAssurance struct {
+	// Specifies the device assurance policy ID
+	Includes []string `pulumi:"includes"`
+}
+
+// GetSignOnPolicyRuleConditionsDeviceAssuranceInput is an input type that accepts GetSignOnPolicyRuleConditionsDeviceAssuranceArgs and GetSignOnPolicyRuleConditionsDeviceAssuranceOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsDeviceAssuranceInput` via:
+//
+//	GetSignOnPolicyRuleConditionsDeviceAssuranceArgs{...}
+type GetSignOnPolicyRuleConditionsDeviceAssuranceInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutput() GetSignOnPolicyRuleConditionsDeviceAssuranceOutput
+	ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsDeviceAssuranceOutput
+}
+
+type GetSignOnPolicyRuleConditionsDeviceAssuranceArgs struct {
+	// Specifies the device assurance policy ID
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetSignOnPolicyRuleConditionsDeviceAssuranceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsDeviceAssurance)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceAssuranceArgs) ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutput() GetSignOnPolicyRuleConditionsDeviceAssuranceOutput {
+	return i.ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceAssuranceArgs) ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceAssuranceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsDeviceAssuranceOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceAssuranceArgs) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsDeviceAssuranceArgs) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsDeviceAssuranceOutput).ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsDeviceAssurancePtrInput is an input type that accepts GetSignOnPolicyRuleConditionsDeviceAssuranceArgs, GetSignOnPolicyRuleConditionsDeviceAssurancePtr and GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsDeviceAssurancePtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsDeviceAssuranceArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsDeviceAssurancePtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput
+	ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput
+}
+
+type getSignOnPolicyRuleConditionsDeviceAssurancePtrType GetSignOnPolicyRuleConditionsDeviceAssuranceArgs
+
+func GetSignOnPolicyRuleConditionsDeviceAssurancePtr(v *GetSignOnPolicyRuleConditionsDeviceAssuranceArgs) GetSignOnPolicyRuleConditionsDeviceAssurancePtrInput {
+	return (*getSignOnPolicyRuleConditionsDeviceAssurancePtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsDeviceAssurancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsDeviceAssurance)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsDeviceAssurancePtrType) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsDeviceAssurancePtrType) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsDeviceAssuranceOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsDeviceAssuranceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsDeviceAssurance)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssuranceOutput) ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutput() GetSignOnPolicyRuleConditionsDeviceAssuranceOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssuranceOutput) ToGetSignOnPolicyRuleConditionsDeviceAssuranceOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceAssuranceOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssuranceOutput) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssuranceOutput) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsDeviceAssurance) *GetSignOnPolicyRuleConditionsDeviceAssurance {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput)
+}
+
+// Specifies the device assurance policy ID
+func (o GetSignOnPolicyRuleConditionsDeviceAssuranceOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsDeviceAssurance) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsDeviceAssurance)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput() GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput) ToGetSignOnPolicyRuleConditionsDeviceAssurancePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput) Elem() GetSignOnPolicyRuleConditionsDeviceAssuranceOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsDeviceAssurance) GetSignOnPolicyRuleConditionsDeviceAssurance {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsDeviceAssurance
+		return ret
+	}).(GetSignOnPolicyRuleConditionsDeviceAssuranceOutput)
+}
+
+// Specifies the device assurance policy ID
+func (o GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsDeviceAssurance) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsElCondition struct {
+	// expression to match
+	Condition string `pulumi:"condition"`
+}
+
+// GetSignOnPolicyRuleConditionsElConditionInput is an input type that accepts GetSignOnPolicyRuleConditionsElConditionArgs and GetSignOnPolicyRuleConditionsElConditionOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsElConditionInput` via:
+//
+//	GetSignOnPolicyRuleConditionsElConditionArgs{...}
+type GetSignOnPolicyRuleConditionsElConditionInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsElConditionOutput() GetSignOnPolicyRuleConditionsElConditionOutput
+	ToGetSignOnPolicyRuleConditionsElConditionOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsElConditionOutput
+}
+
+type GetSignOnPolicyRuleConditionsElConditionArgs struct {
+	// expression to match
+	Condition pulumi.StringInput `pulumi:"condition"`
+}
+
+func (GetSignOnPolicyRuleConditionsElConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsElCondition)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsElConditionArgs) ToGetSignOnPolicyRuleConditionsElConditionOutput() GetSignOnPolicyRuleConditionsElConditionOutput {
+	return i.ToGetSignOnPolicyRuleConditionsElConditionOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsElConditionArgs) ToGetSignOnPolicyRuleConditionsElConditionOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsElConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsElConditionOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsElConditionArgs) ToGetSignOnPolicyRuleConditionsElConditionPtrOutput() GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsElConditionArgs) ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsElConditionOutput).ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsElConditionPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsElConditionArgs, GetSignOnPolicyRuleConditionsElConditionPtr and GetSignOnPolicyRuleConditionsElConditionPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsElConditionPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsElConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsElConditionPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsElConditionPtrOutput() GetSignOnPolicyRuleConditionsElConditionPtrOutput
+	ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsElConditionPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsElConditionPtrType GetSignOnPolicyRuleConditionsElConditionArgs
+
+func GetSignOnPolicyRuleConditionsElConditionPtr(v *GetSignOnPolicyRuleConditionsElConditionArgs) GetSignOnPolicyRuleConditionsElConditionPtrInput {
+	return (*getSignOnPolicyRuleConditionsElConditionPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsElConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsElCondition)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsElConditionPtrType) ToGetSignOnPolicyRuleConditionsElConditionPtrOutput() GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsElConditionPtrType) ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsElConditionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsElConditionOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsElConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsElCondition)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionOutput) ToGetSignOnPolicyRuleConditionsElConditionOutput() GetSignOnPolicyRuleConditionsElConditionOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionOutput) ToGetSignOnPolicyRuleConditionsElConditionOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsElConditionOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionOutput) ToGetSignOnPolicyRuleConditionsElConditionPtrOutput() GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionOutput) ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsElCondition) *GetSignOnPolicyRuleConditionsElCondition {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsElConditionPtrOutput)
+}
+
+// expression to match
+func (o GetSignOnPolicyRuleConditionsElConditionOutput) Condition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsElCondition) string { return v.Condition }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleConditionsElConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsElConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsElCondition)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionPtrOutput) ToGetSignOnPolicyRuleConditionsElConditionPtrOutput() GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionPtrOutput) ToGetSignOnPolicyRuleConditionsElConditionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsElConditionPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsElConditionPtrOutput) Elem() GetSignOnPolicyRuleConditionsElConditionOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsElCondition) GetSignOnPolicyRuleConditionsElCondition {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsElCondition
+		return ret
+	}).(GetSignOnPolicyRuleConditionsElConditionOutput)
+}
+
+// expression to match
+func (o GetSignOnPolicyRuleConditionsElConditionPtrOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsElCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Condition
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsNetwork struct {
+	// Network selection mode
+	Connection string `pulumi:"connection"`
+	// The zones to exclude.
+	Excludes []string `pulumi:"excludes"`
+	// The zones to include.
+	Includes []string `pulumi:"includes"`
+}
+
+// GetSignOnPolicyRuleConditionsNetworkInput is an input type that accepts GetSignOnPolicyRuleConditionsNetworkArgs and GetSignOnPolicyRuleConditionsNetworkOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsNetworkInput` via:
+//
+//	GetSignOnPolicyRuleConditionsNetworkArgs{...}
+type GetSignOnPolicyRuleConditionsNetworkInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsNetworkOutput() GetSignOnPolicyRuleConditionsNetworkOutput
+	ToGetSignOnPolicyRuleConditionsNetworkOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsNetworkOutput
+}
+
+type GetSignOnPolicyRuleConditionsNetworkArgs struct {
+	// Network selection mode
+	Connection pulumi.StringInput `pulumi:"connection"`
+	// The zones to exclude.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// The zones to include.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetSignOnPolicyRuleConditionsNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsNetwork)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsNetworkArgs) ToGetSignOnPolicyRuleConditionsNetworkOutput() GetSignOnPolicyRuleConditionsNetworkOutput {
+	return i.ToGetSignOnPolicyRuleConditionsNetworkOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsNetworkArgs) ToGetSignOnPolicyRuleConditionsNetworkOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsNetworkOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsNetworkArgs) ToGetSignOnPolicyRuleConditionsNetworkPtrOutput() GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsNetworkArgs) ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsNetworkOutput).ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsNetworkPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsNetworkArgs, GetSignOnPolicyRuleConditionsNetworkPtr and GetSignOnPolicyRuleConditionsNetworkPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsNetworkPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsNetworkArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsNetworkPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsNetworkPtrOutput() GetSignOnPolicyRuleConditionsNetworkPtrOutput
+	ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsNetworkPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsNetworkPtrType GetSignOnPolicyRuleConditionsNetworkArgs
+
+func GetSignOnPolicyRuleConditionsNetworkPtr(v *GetSignOnPolicyRuleConditionsNetworkArgs) GetSignOnPolicyRuleConditionsNetworkPtrInput {
+	return (*getSignOnPolicyRuleConditionsNetworkPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsNetwork)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsNetworkPtrType) ToGetSignOnPolicyRuleConditionsNetworkPtrOutput() GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsNetworkPtrType) ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsNetworkPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsNetwork)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) ToGetSignOnPolicyRuleConditionsNetworkOutput() GetSignOnPolicyRuleConditionsNetworkOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) ToGetSignOnPolicyRuleConditionsNetworkOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsNetworkOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) ToGetSignOnPolicyRuleConditionsNetworkPtrOutput() GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsNetwork) *GetSignOnPolicyRuleConditionsNetwork {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsNetworkPtrOutput)
+}
+
+// Network selection mode
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) Connection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsNetwork) string { return v.Connection }).(pulumi.StringOutput)
+}
+
+// The zones to exclude.
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsNetwork) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// The zones to include.
+func (o GetSignOnPolicyRuleConditionsNetworkOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsNetwork) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsNetwork)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkPtrOutput) ToGetSignOnPolicyRuleConditionsNetworkPtrOutput() GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkPtrOutput) ToGetSignOnPolicyRuleConditionsNetworkPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsNetworkPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsNetworkPtrOutput) Elem() GetSignOnPolicyRuleConditionsNetworkOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsNetwork) GetSignOnPolicyRuleConditionsNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsNetwork
+		return ret
+	}).(GetSignOnPolicyRuleConditionsNetworkOutput)
+}
+
+// Network selection mode
+func (o GetSignOnPolicyRuleConditionsNetworkPtrOutput) Connection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Connection
+	}).(pulumi.StringPtrOutput)
+}
+
+// The zones to exclude.
+func (o GetSignOnPolicyRuleConditionsNetworkPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The zones to include.
+func (o GetSignOnPolicyRuleConditionsNetworkPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsNetwork) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeople struct {
+	// Specifies a set of groups whose users are to be included or excluded
+	Groups *GetSignOnPolicyRuleConditionsPeopleGroups `pulumi:"groups"`
+	// Specifies a set of users to be included or excluded
+	Users *GetSignOnPolicyRuleConditionsPeopleUsers `pulumi:"users"`
+}
+
+// GetSignOnPolicyRuleConditionsPeopleInput is an input type that accepts GetSignOnPolicyRuleConditionsPeopleArgs and GetSignOnPolicyRuleConditionsPeopleOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPeopleInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPeopleArgs{...}
+type GetSignOnPolicyRuleConditionsPeopleInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPeopleOutput() GetSignOnPolicyRuleConditionsPeopleOutput
+	ToGetSignOnPolicyRuleConditionsPeopleOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPeopleOutput
+}
+
+type GetSignOnPolicyRuleConditionsPeopleArgs struct {
+	// Specifies a set of groups whose users are to be included or excluded
+	Groups GetSignOnPolicyRuleConditionsPeopleGroupsPtrInput `pulumi:"groups"`
+	// Specifies a set of users to be included or excluded
+	Users GetSignOnPolicyRuleConditionsPeopleUsersPtrInput `pulumi:"users"`
+}
+
+func (GetSignOnPolicyRuleConditionsPeopleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeople)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleArgs) ToGetSignOnPolicyRuleConditionsPeopleOutput() GetSignOnPolicyRuleConditionsPeopleOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleArgs) ToGetSignOnPolicyRuleConditionsPeopleOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleArgs) ToGetSignOnPolicyRuleConditionsPeoplePtrOutput() GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleArgs) ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleOutput).ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPeoplePtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPeopleArgs, GetSignOnPolicyRuleConditionsPeoplePtr and GetSignOnPolicyRuleConditionsPeoplePtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPeoplePtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPeopleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPeoplePtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPeoplePtrOutput() GetSignOnPolicyRuleConditionsPeoplePtrOutput
+	ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPeoplePtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPeoplePtrType GetSignOnPolicyRuleConditionsPeopleArgs
+
+func GetSignOnPolicyRuleConditionsPeoplePtr(v *GetSignOnPolicyRuleConditionsPeopleArgs) GetSignOnPolicyRuleConditionsPeoplePtrInput {
+	return (*getSignOnPolicyRuleConditionsPeoplePtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPeoplePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPeople)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPeoplePtrType) ToGetSignOnPolicyRuleConditionsPeoplePtrOutput() GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPeoplePtrType) ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeoplePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPeopleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeople)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleOutput) ToGetSignOnPolicyRuleConditionsPeopleOutput() GetSignOnPolicyRuleConditionsPeopleOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleOutput) ToGetSignOnPolicyRuleConditionsPeopleOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleOutput) ToGetSignOnPolicyRuleConditionsPeoplePtrOutput() GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleOutput) ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPeople) *GetSignOnPolicyRuleConditionsPeople {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPeoplePtrOutput)
+}
+
+// Specifies a set of groups whose users are to be included or excluded
+func (o GetSignOnPolicyRuleConditionsPeopleOutput) Groups() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPeople) *GetSignOnPolicyRuleConditionsPeopleGroups {
+		return v.Groups
+	}).(GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput)
+}
+
+// Specifies a set of users to be included or excluded
+func (o GetSignOnPolicyRuleConditionsPeopleOutput) Users() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPeople) *GetSignOnPolicyRuleConditionsPeopleUsers { return v.Users }).(GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeoplePtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPeoplePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPeople)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPeoplePtrOutput) ToGetSignOnPolicyRuleConditionsPeoplePtrOutput() GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeoplePtrOutput) ToGetSignOnPolicyRuleConditionsPeoplePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeoplePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeoplePtrOutput) Elem() GetSignOnPolicyRuleConditionsPeopleOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeople) GetSignOnPolicyRuleConditionsPeople {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPeople
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPeopleOutput)
+}
+
+// Specifies a set of groups whose users are to be included or excluded
+func (o GetSignOnPolicyRuleConditionsPeoplePtrOutput) Groups() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeople) *GetSignOnPolicyRuleConditionsPeopleGroups {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput)
+}
+
+// Specifies a set of users to be included or excluded
+func (o GetSignOnPolicyRuleConditionsPeoplePtrOutput) Users() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeople) *GetSignOnPolicyRuleConditionsPeopleUsers {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleGroups struct {
+	// Groups to be excluded
+	Excludes []string `pulumi:"excludes"`
+	// Groups to be included
+	Includes []string `pulumi:"includes"`
+}
+
+// GetSignOnPolicyRuleConditionsPeopleGroupsInput is an input type that accepts GetSignOnPolicyRuleConditionsPeopleGroupsArgs and GetSignOnPolicyRuleConditionsPeopleGroupsOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPeopleGroupsInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPeopleGroupsArgs{...}
+type GetSignOnPolicyRuleConditionsPeopleGroupsInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPeopleGroupsOutput() GetSignOnPolicyRuleConditionsPeopleGroupsOutput
+	ToGetSignOnPolicyRuleConditionsPeopleGroupsOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsOutput
+}
+
+type GetSignOnPolicyRuleConditionsPeopleGroupsArgs struct {
+	// Groups to be excluded
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// Groups to be included
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetSignOnPolicyRuleConditionsPeopleGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleGroups)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleGroupsArgs) ToGetSignOnPolicyRuleConditionsPeopleGroupsOutput() GetSignOnPolicyRuleConditionsPeopleGroupsOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleGroupsOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleGroupsArgs) ToGetSignOnPolicyRuleConditionsPeopleGroupsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleGroupsOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleGroupsArgs) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleGroupsArgs) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleGroupsOutput).ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPeopleGroupsPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPeopleGroupsArgs, GetSignOnPolicyRuleConditionsPeopleGroupsPtr and GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPeopleGroupsPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPeopleGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPeopleGroupsPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput
+	ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPeopleGroupsPtrType GetSignOnPolicyRuleConditionsPeopleGroupsArgs
+
+func GetSignOnPolicyRuleConditionsPeopleGroupsPtr(v *GetSignOnPolicyRuleConditionsPeopleGroupsArgs) GetSignOnPolicyRuleConditionsPeopleGroupsPtrInput {
+	return (*getSignOnPolicyRuleConditionsPeopleGroupsPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPeopleGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPeopleGroups)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPeopleGroupsPtrType) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPeopleGroupsPtrType) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleGroupsOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPeopleGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleGroups)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsOutput) ToGetSignOnPolicyRuleConditionsPeopleGroupsOutput() GetSignOnPolicyRuleConditionsPeopleGroupsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsOutput) ToGetSignOnPolicyRuleConditionsPeopleGroupsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsOutput) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsOutput) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPeopleGroups) *GetSignOnPolicyRuleConditionsPeopleGroups {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput)
+}
+
+// Groups to be excluded
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPeopleGroups) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// Groups to be included
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPeopleGroups) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPeopleGroups)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput() GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput) ToGetSignOnPolicyRuleConditionsPeopleGroupsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput) Elem() GetSignOnPolicyRuleConditionsPeopleGroupsOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeopleGroups) GetSignOnPolicyRuleConditionsPeopleGroups {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPeopleGroups
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPeopleGroupsOutput)
+}
+
+// Groups to be excluded
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeopleGroups) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Groups to be included
+func (o GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeopleGroups) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleUsers struct {
+	// Users to be excluded
+	Excludes []string `pulumi:"excludes"`
+	// Users to be included
+	Includes []string `pulumi:"includes"`
+}
+
+// GetSignOnPolicyRuleConditionsPeopleUsersInput is an input type that accepts GetSignOnPolicyRuleConditionsPeopleUsersArgs and GetSignOnPolicyRuleConditionsPeopleUsersOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPeopleUsersInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPeopleUsersArgs{...}
+type GetSignOnPolicyRuleConditionsPeopleUsersInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPeopleUsersOutput() GetSignOnPolicyRuleConditionsPeopleUsersOutput
+	ToGetSignOnPolicyRuleConditionsPeopleUsersOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPeopleUsersOutput
+}
+
+type GetSignOnPolicyRuleConditionsPeopleUsersArgs struct {
+	// Users to be excluded
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// Users to be included
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetSignOnPolicyRuleConditionsPeopleUsersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleUsers)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleUsersArgs) ToGetSignOnPolicyRuleConditionsPeopleUsersOutput() GetSignOnPolicyRuleConditionsPeopleUsersOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleUsersOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleUsersArgs) ToGetSignOnPolicyRuleConditionsPeopleUsersOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleUsersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleUsersOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleUsersArgs) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutput() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPeopleUsersArgs) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleUsersOutput).ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPeopleUsersPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPeopleUsersArgs, GetSignOnPolicyRuleConditionsPeopleUsersPtr and GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPeopleUsersPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPeopleUsersArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPeopleUsersPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutput() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput
+	ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPeopleUsersPtrType GetSignOnPolicyRuleConditionsPeopleUsersArgs
+
+func GetSignOnPolicyRuleConditionsPeopleUsersPtr(v *GetSignOnPolicyRuleConditionsPeopleUsersArgs) GetSignOnPolicyRuleConditionsPeopleUsersPtrInput {
+	return (*getSignOnPolicyRuleConditionsPeopleUsersPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPeopleUsersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPeopleUsers)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPeopleUsersPtrType) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutput() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPeopleUsersPtrType) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleUsersOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPeopleUsersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleUsers)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersOutput) ToGetSignOnPolicyRuleConditionsPeopleUsersOutput() GetSignOnPolicyRuleConditionsPeopleUsersOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersOutput) ToGetSignOnPolicyRuleConditionsPeopleUsersOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleUsersOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersOutput) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutput() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersOutput) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPeopleUsers) *GetSignOnPolicyRuleConditionsPeopleUsers {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput)
+}
+
+// Users to be excluded
+func (o GetSignOnPolicyRuleConditionsPeopleUsersOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPeopleUsers) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// Users to be included
+func (o GetSignOnPolicyRuleConditionsPeopleUsersOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPeopleUsers) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPeopleUsers)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutput() GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput) ToGetSignOnPolicyRuleConditionsPeopleUsersPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput) Elem() GetSignOnPolicyRuleConditionsPeopleUsersOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeopleUsers) GetSignOnPolicyRuleConditionsPeopleUsers {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPeopleUsers
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPeopleUsersOutput)
+}
+
+// Users to be excluded
+func (o GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeopleUsers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Users to be included
+func (o GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPeopleUsers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatform struct {
+	// Exclude
+	Excludes []GetSignOnPolicyRuleConditionsPlatformExclude `pulumi:"excludes"`
+	// Include
+	Includes []GetSignOnPolicyRuleConditionsPlatformInclude `pulumi:"includes"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformArgs and GetSignOnPolicyRuleConditionsPlatformOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformOutput() GetSignOnPolicyRuleConditionsPlatformOutput
+	ToGetSignOnPolicyRuleConditionsPlatformOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformArgs struct {
+	// Exclude
+	Excludes GetSignOnPolicyRuleConditionsPlatformExcludeArrayInput `pulumi:"excludes"`
+	// Include
+	Includes GetSignOnPolicyRuleConditionsPlatformIncludeArrayInput `pulumi:"includes"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatform)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformArgs) ToGetSignOnPolicyRuleConditionsPlatformOutput() GetSignOnPolicyRuleConditionsPlatformOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformArgs) ToGetSignOnPolicyRuleConditionsPlatformOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformArgs) ToGetSignOnPolicyRuleConditionsPlatformPtrOutput() GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformArgs) ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformOutput).ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformArgs, GetSignOnPolicyRuleConditionsPlatformPtr and GetSignOnPolicyRuleConditionsPlatformPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPlatformArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPlatformPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformPtrOutput() GetSignOnPolicyRuleConditionsPlatformPtrOutput
+	ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPlatformPtrType GetSignOnPolicyRuleConditionsPlatformArgs
+
+func GetSignOnPolicyRuleConditionsPlatformPtr(v *GetSignOnPolicyRuleConditionsPlatformArgs) GetSignOnPolicyRuleConditionsPlatformPtrInput {
+	return (*getSignOnPolicyRuleConditionsPlatformPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatform)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformPtrType) ToGetSignOnPolicyRuleConditionsPlatformPtrOutput() GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformPtrType) ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatform)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformOutput) ToGetSignOnPolicyRuleConditionsPlatformOutput() GetSignOnPolicyRuleConditionsPlatformOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformOutput) ToGetSignOnPolicyRuleConditionsPlatformOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformOutput) ToGetSignOnPolicyRuleConditionsPlatformPtrOutput() GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformOutput) ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPlatform) *GetSignOnPolicyRuleConditionsPlatform {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPlatformPtrOutput)
+}
+
+// Exclude
+func (o GetSignOnPolicyRuleConditionsPlatformOutput) Excludes() GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatform) []GetSignOnPolicyRuleConditionsPlatformExclude {
+		return v.Excludes
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput)
+}
+
+// Include
+func (o GetSignOnPolicyRuleConditionsPlatformOutput) Includes() GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatform) []GetSignOnPolicyRuleConditionsPlatformInclude {
+		return v.Includes
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatform)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformPtrOutput() GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformPtrOutput) Elem() GetSignOnPolicyRuleConditionsPlatformOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatform) GetSignOnPolicyRuleConditionsPlatform {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPlatform
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPlatformOutput)
+}
+
+// Exclude
+func (o GetSignOnPolicyRuleConditionsPlatformPtrOutput) Excludes() GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatform) []GetSignOnPolicyRuleConditionsPlatformExclude {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput)
+}
+
+// Include
+func (o GetSignOnPolicyRuleConditionsPlatformPtrOutput) Includes() GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatform) []GetSignOnPolicyRuleConditionsPlatformInclude {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExclude struct {
+	// Os
+	Os *GetSignOnPolicyRuleConditionsPlatformExcludeOs `pulumi:"os"`
+	// The type of platform
+	Type string `pulumi:"type"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformExcludeInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformExcludeArgs and GetSignOnPolicyRuleConditionsPlatformExcludeOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformExcludeInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformExcludeArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformExcludeInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOutput
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeArgs struct {
+	// Os
+	Os GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrInput `pulumi:"os"`
+	// The type of platform
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExclude)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOutput)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformExcludeArrayInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformExcludeArray and GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformExcludeArrayInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformExcludeArray{ GetSignOnPolicyRuleConditionsPlatformExcludeArgs{...} }
+type GetSignOnPolicyRuleConditionsPlatformExcludeArrayInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput() GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeArray []GetSignOnPolicyRuleConditionsPlatformExcludeInput
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSignOnPolicyRuleConditionsPlatformExclude)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeArray) ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput() GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeArray) ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExclude)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOutput {
+	return o
+}
+
+// Os
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOutput) Os() GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExclude) *GetSignOnPolicyRuleConditionsPlatformExcludeOs {
+		return v.Os
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput)
+}
+
+// The type of platform
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExclude) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSignOnPolicyRuleConditionsPlatformExclude)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput() GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeArrayOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput) Index(i pulumi.IntInput) GetSignOnPolicyRuleConditionsPlatformExcludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSignOnPolicyRuleConditionsPlatformExclude {
+		return vs[0].([]GetSignOnPolicyRuleConditionsPlatformExclude)[vs[1].(int)]
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOs struct {
+	// Expression
+	Expression string `pulumi:"expression"`
+	// The type of operating system
+	Type string `pulumi:"type"`
+	// Version
+	Version *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion `pulumi:"version"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformExcludeOsInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs and GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformExcludeOsInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs struct {
+	// Expression
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The type of operating system
+	Type pulumi.StringInput `pulumi:"type"`
+	// Version
+	Version GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrInput `pulumi:"version"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOs)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput).ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs, GetSignOnPolicyRuleConditionsPlatformExcludeOsPtr and GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPlatformExcludeOsPtrType GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs
+
+func GetSignOnPolicyRuleConditionsPlatformExcludeOsPtr(v *GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs) GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrInput {
+	return (*getSignOnPolicyRuleConditionsPlatformExcludeOsPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPlatformExcludeOsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformExcludeOs)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformExcludeOsPtrType) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformExcludeOsPtrType) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOs)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPlatformExcludeOs) *GetSignOnPolicyRuleConditionsPlatformExcludeOs {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput)
+}
+
+// Expression
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExcludeOs) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The type of operating system
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExcludeOs) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput) Version() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExcludeOs) *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion {
+		return v.Version
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformExcludeOs)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) Elem() GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOs) GetSignOnPolicyRuleConditionsPlatformExcludeOs {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPlatformExcludeOs
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput)
+}
+
+// Expression
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of operating system
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput) Version() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOs) *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion struct {
+	// MatchType
+	MatchType string `pulumi:"matchType"`
+	// Value
+	Value string `pulumi:"value"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs and GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs struct {
+	// MatchType
+	MatchType pulumi.StringInput `pulumi:"matchType"`
+	// Value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput).ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs, GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtr and GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput
+	ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrType GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs
+
+func GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtr(v *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrInput {
+	return (*getSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrType) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrType) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion) *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput)
+}
+
+// MatchType
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) MatchType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion) string { return v.MatchType }).(pulumi.StringOutput)
+}
+
+// Value
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput) Elem() GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion) GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput)
+}
+
+// MatchType
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value
+func (o GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformInclude struct {
+	// Os
+	Os *GetSignOnPolicyRuleConditionsPlatformIncludeOs `pulumi:"os"`
+	// The type of platform
+	Type string `pulumi:"type"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformIncludeInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformIncludeArgs and GetSignOnPolicyRuleConditionsPlatformIncludeOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformIncludeInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformIncludeArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformIncludeInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOutput
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeArgs struct {
+	// Os
+	Os GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrInput `pulumi:"os"`
+	// The type of platform
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformInclude)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOutput)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformIncludeArrayInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformIncludeArray and GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformIncludeArrayInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformIncludeArray{ GetSignOnPolicyRuleConditionsPlatformIncludeArgs{...} }
+type GetSignOnPolicyRuleConditionsPlatformIncludeArrayInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput() GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeArray []GetSignOnPolicyRuleConditionsPlatformIncludeInput
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSignOnPolicyRuleConditionsPlatformInclude)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeArray) ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput() GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeArray) ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformInclude)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOutput {
+	return o
+}
+
+// Os
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOutput) Os() GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformInclude) *GetSignOnPolicyRuleConditionsPlatformIncludeOs {
+		return v.Os
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput)
+}
+
+// The type of platform
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformInclude) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSignOnPolicyRuleConditionsPlatformInclude)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput() GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeArrayOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput) Index(i pulumi.IntInput) GetSignOnPolicyRuleConditionsPlatformIncludeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSignOnPolicyRuleConditionsPlatformInclude {
+		return vs[0].([]GetSignOnPolicyRuleConditionsPlatformInclude)[vs[1].(int)]
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOs struct {
+	// Expression
+	Expression string `pulumi:"expression"`
+	// The type of operating system
+	Type string `pulumi:"type"`
+	// Version
+	Version *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion `pulumi:"version"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformIncludeOsInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs and GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformIncludeOsInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs struct {
+	// Expression
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The type of operating system
+	Type pulumi.StringInput `pulumi:"type"`
+	// Version
+	Version GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrInput `pulumi:"version"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOs)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput).ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs, GetSignOnPolicyRuleConditionsPlatformIncludeOsPtr and GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPlatformIncludeOsPtrType GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs
+
+func GetSignOnPolicyRuleConditionsPlatformIncludeOsPtr(v *GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs) GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrInput {
+	return (*getSignOnPolicyRuleConditionsPlatformIncludeOsPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPlatformIncludeOsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformIncludeOs)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformIncludeOsPtrType) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformIncludeOsPtrType) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOs)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPlatformIncludeOs) *GetSignOnPolicyRuleConditionsPlatformIncludeOs {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput)
+}
+
+// Expression
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformIncludeOs) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The type of operating system
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformIncludeOs) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput) Version() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformIncludeOs) *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion {
+		return v.Version
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformIncludeOs)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) Elem() GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOs) GetSignOnPolicyRuleConditionsPlatformIncludeOs {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPlatformIncludeOs
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput)
+}
+
+// Expression
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of operating system
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput) Version() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOs) *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion struct {
+	// MatchType
+	MatchType string `pulumi:"matchType"`
+	// Value
+	Value string `pulumi:"value"`
+}
+
+// GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs and GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionInput` via:
+//
+//	GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs{...}
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs struct {
+	// MatchType
+	MatchType pulumi.StringInput `pulumi:"matchType"`
+	// Value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput).ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrInput is an input type that accepts GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs, GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtr and GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput
+	ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput
+}
+
+type getSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrType GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs
+
+func GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtr(v *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrInput {
+	return (*getSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrType) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrType) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion) *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput)
+}
+
+// MatchType
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) MatchType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion) string { return v.MatchType }).(pulumi.StringOutput)
+}
+
+// Value
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput) ToGetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput) Elem() GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion) GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion
+		return ret
+	}).(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput)
+}
+
+// MatchType
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value
+func (o GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsRiskScore struct {
+	// The level to match
+	Level string `pulumi:"level"`
+	// The minimum risk level to match.
+	MinRiskLevel string `pulumi:"minRiskLevel"`
+}
+
+// GetSignOnPolicyRuleConditionsRiskScoreInput is an input type that accepts GetSignOnPolicyRuleConditionsRiskScoreArgs and GetSignOnPolicyRuleConditionsRiskScoreOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsRiskScoreInput` via:
+//
+//	GetSignOnPolicyRuleConditionsRiskScoreArgs{...}
+type GetSignOnPolicyRuleConditionsRiskScoreInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsRiskScoreOutput() GetSignOnPolicyRuleConditionsRiskScoreOutput
+	ToGetSignOnPolicyRuleConditionsRiskScoreOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsRiskScoreOutput
+}
+
+type GetSignOnPolicyRuleConditionsRiskScoreArgs struct {
+	// The level to match
+	Level pulumi.StringInput `pulumi:"level"`
+	// The minimum risk level to match.
+	MinRiskLevel pulumi.StringInput `pulumi:"minRiskLevel"`
+}
+
+func (GetSignOnPolicyRuleConditionsRiskScoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsRiskScore)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsRiskScoreArgs) ToGetSignOnPolicyRuleConditionsRiskScoreOutput() GetSignOnPolicyRuleConditionsRiskScoreOutput {
+	return i.ToGetSignOnPolicyRuleConditionsRiskScoreOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsRiskScoreArgs) ToGetSignOnPolicyRuleConditionsRiskScoreOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsRiskScoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsRiskScoreOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsRiskScoreArgs) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutput() GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsRiskScoreArgs) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsRiskScoreOutput).ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsRiskScorePtrInput is an input type that accepts GetSignOnPolicyRuleConditionsRiskScoreArgs, GetSignOnPolicyRuleConditionsRiskScorePtr and GetSignOnPolicyRuleConditionsRiskScorePtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsRiskScorePtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsRiskScoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsRiskScorePtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsRiskScorePtrOutput() GetSignOnPolicyRuleConditionsRiskScorePtrOutput
+	ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsRiskScorePtrOutput
+}
+
+type getSignOnPolicyRuleConditionsRiskScorePtrType GetSignOnPolicyRuleConditionsRiskScoreArgs
+
+func GetSignOnPolicyRuleConditionsRiskScorePtr(v *GetSignOnPolicyRuleConditionsRiskScoreArgs) GetSignOnPolicyRuleConditionsRiskScorePtrInput {
+	return (*getSignOnPolicyRuleConditionsRiskScorePtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsRiskScorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsRiskScore)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsRiskScorePtrType) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutput() GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsRiskScorePtrType) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsRiskScorePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsRiskScoreOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsRiskScoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsRiskScore)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScoreOutput) ToGetSignOnPolicyRuleConditionsRiskScoreOutput() GetSignOnPolicyRuleConditionsRiskScoreOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScoreOutput) ToGetSignOnPolicyRuleConditionsRiskScoreOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsRiskScoreOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScoreOutput) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutput() GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScoreOutput) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsRiskScore) *GetSignOnPolicyRuleConditionsRiskScore {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsRiskScorePtrOutput)
+}
+
+// The level to match
+func (o GetSignOnPolicyRuleConditionsRiskScoreOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsRiskScore) string { return v.Level }).(pulumi.StringOutput)
+}
+
+// The minimum risk level to match.
+func (o GetSignOnPolicyRuleConditionsRiskScoreOutput) MinRiskLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsRiskScore) string { return v.MinRiskLevel }).(pulumi.StringOutput)
+}
+
+type GetSignOnPolicyRuleConditionsRiskScorePtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsRiskScorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsRiskScore)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScorePtrOutput) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutput() GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScorePtrOutput) ToGetSignOnPolicyRuleConditionsRiskScorePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsRiskScorePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsRiskScorePtrOutput) Elem() GetSignOnPolicyRuleConditionsRiskScoreOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsRiskScore) GetSignOnPolicyRuleConditionsRiskScore {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsRiskScore
+		return ret
+	}).(GetSignOnPolicyRuleConditionsRiskScoreOutput)
+}
+
+// The level to match
+func (o GetSignOnPolicyRuleConditionsRiskScorePtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsRiskScore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum risk level to match.
+func (o GetSignOnPolicyRuleConditionsRiskScorePtrOutput) MinRiskLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsRiskScore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinRiskLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsUserType struct {
+	// The user types to exclude
+	Excludes []string `pulumi:"excludes"`
+	// The user types to include
+	Includes []string `pulumi:"includes"`
+}
+
+// GetSignOnPolicyRuleConditionsUserTypeInput is an input type that accepts GetSignOnPolicyRuleConditionsUserTypeArgs and GetSignOnPolicyRuleConditionsUserTypeOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsUserTypeInput` via:
+//
+//	GetSignOnPolicyRuleConditionsUserTypeArgs{...}
+type GetSignOnPolicyRuleConditionsUserTypeInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsUserTypeOutput() GetSignOnPolicyRuleConditionsUserTypeOutput
+	ToGetSignOnPolicyRuleConditionsUserTypeOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsUserTypeOutput
+}
+
+type GetSignOnPolicyRuleConditionsUserTypeArgs struct {
+	// The user types to exclude
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// The user types to include
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (GetSignOnPolicyRuleConditionsUserTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsUserType)(nil)).Elem()
+}
+
+func (i GetSignOnPolicyRuleConditionsUserTypeArgs) ToGetSignOnPolicyRuleConditionsUserTypeOutput() GetSignOnPolicyRuleConditionsUserTypeOutput {
+	return i.ToGetSignOnPolicyRuleConditionsUserTypeOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsUserTypeArgs) ToGetSignOnPolicyRuleConditionsUserTypeOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsUserTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsUserTypeOutput)
+}
+
+func (i GetSignOnPolicyRuleConditionsUserTypeArgs) ToGetSignOnPolicyRuleConditionsUserTypePtrOutput() GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(context.Background())
+}
+
+func (i GetSignOnPolicyRuleConditionsUserTypeArgs) ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsUserTypeOutput).ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(ctx)
+}
+
+// GetSignOnPolicyRuleConditionsUserTypePtrInput is an input type that accepts GetSignOnPolicyRuleConditionsUserTypeArgs, GetSignOnPolicyRuleConditionsUserTypePtr and GetSignOnPolicyRuleConditionsUserTypePtrOutput values.
+// You can construct a concrete instance of `GetSignOnPolicyRuleConditionsUserTypePtrInput` via:
+//
+//	        GetSignOnPolicyRuleConditionsUserTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetSignOnPolicyRuleConditionsUserTypePtrInput interface {
+	pulumi.Input
+
+	ToGetSignOnPolicyRuleConditionsUserTypePtrOutput() GetSignOnPolicyRuleConditionsUserTypePtrOutput
+	ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(context.Context) GetSignOnPolicyRuleConditionsUserTypePtrOutput
+}
+
+type getSignOnPolicyRuleConditionsUserTypePtrType GetSignOnPolicyRuleConditionsUserTypeArgs
+
+func GetSignOnPolicyRuleConditionsUserTypePtr(v *GetSignOnPolicyRuleConditionsUserTypeArgs) GetSignOnPolicyRuleConditionsUserTypePtrInput {
+	return (*getSignOnPolicyRuleConditionsUserTypePtrType)(v)
+}
+
+func (*getSignOnPolicyRuleConditionsUserTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsUserType)(nil)).Elem()
+}
+
+func (i *getSignOnPolicyRuleConditionsUserTypePtrType) ToGetSignOnPolicyRuleConditionsUserTypePtrOutput() GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return i.ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(context.Background())
+}
+
+func (i *getSignOnPolicyRuleConditionsUserTypePtrType) ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSignOnPolicyRuleConditionsUserTypePtrOutput)
+}
+
+type GetSignOnPolicyRuleConditionsUserTypeOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsUserTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSignOnPolicyRuleConditionsUserType)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypeOutput) ToGetSignOnPolicyRuleConditionsUserTypeOutput() GetSignOnPolicyRuleConditionsUserTypeOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypeOutput) ToGetSignOnPolicyRuleConditionsUserTypeOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsUserTypeOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypeOutput) ToGetSignOnPolicyRuleConditionsUserTypePtrOutput() GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return o.ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(context.Background())
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypeOutput) ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetSignOnPolicyRuleConditionsUserType) *GetSignOnPolicyRuleConditionsUserType {
+		return &v
+	}).(GetSignOnPolicyRuleConditionsUserTypePtrOutput)
+}
+
+// The user types to exclude
+func (o GetSignOnPolicyRuleConditionsUserTypeOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsUserType) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// The user types to include
+func (o GetSignOnPolicyRuleConditionsUserTypeOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSignOnPolicyRuleConditionsUserType) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type GetSignOnPolicyRuleConditionsUserTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GetSignOnPolicyRuleConditionsUserTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetSignOnPolicyRuleConditionsUserType)(nil)).Elem()
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypePtrOutput) ToGetSignOnPolicyRuleConditionsUserTypePtrOutput() GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypePtrOutput) ToGetSignOnPolicyRuleConditionsUserTypePtrOutputWithContext(ctx context.Context) GetSignOnPolicyRuleConditionsUserTypePtrOutput {
+	return o
+}
+
+func (o GetSignOnPolicyRuleConditionsUserTypePtrOutput) Elem() GetSignOnPolicyRuleConditionsUserTypeOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsUserType) GetSignOnPolicyRuleConditionsUserType {
+		if v != nil {
+			return *v
+		}
+		var ret GetSignOnPolicyRuleConditionsUserType
+		return ret
+	}).(GetSignOnPolicyRuleConditionsUserTypeOutput)
+}
+
+// The user types to exclude
+func (o GetSignOnPolicyRuleConditionsUserTypePtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsUserType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The user types to include
+func (o GetSignOnPolicyRuleConditionsUserTypePtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetSignOnPolicyRuleConditionsUserType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfileInput)(nil)).Elem(), ConnectionProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionProfilePtrInput)(nil)).Elem(), ConnectionProfileArgs{})
@@ -6900,6 +10375,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlKeyArrayInput)(nil)).Elem(), SamlKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRuleInput)(nil)).Elem(), SignonPolicyRulesRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRuleArrayInput)(nil)).Elem(), SignonPolicyRulesRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRuleKeepMeSignedInInput)(nil)).Elem(), SignonPolicyRulesRuleKeepMeSignedInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRuleKeepMeSignedInPtrInput)(nil)).Elem(), SignonPolicyRulesRuleKeepMeSignedInArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRulePlatformIncludeInput)(nil)).Elem(), SignonPolicyRulesRulePlatformIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignonPolicyRulesRulePlatformIncludeArrayInput)(nil)).Elem(), SignonPolicyRulesRulePlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionProfileInput)(nil)).Elem(), GetConnectionProfileArgs{})
@@ -6936,6 +10413,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOauthNetworkArrayInput)(nil)).Elem(), GetOauthNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSamlAttributeStatementInput)(nil)).Elem(), GetSamlAttributeStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSamlAttributeStatementArrayInput)(nil)).Elem(), GetSamlAttributeStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsInput)(nil)).Elem(), GetSignOnPolicyRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsPtrInput)(nil)).Elem(), GetSignOnPolicyRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnInput)(nil)).Elem(), GetSignOnPolicyRuleActionsAppSignOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnPtrInput)(nil)).Elem(), GetSignOnPolicyRuleActionsAppSignOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInInput)(nil)).Elem(), GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrInput)(nil)).Elem(), GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnVerificationMethodInput)(nil)).Elem(), GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrInput)(nil)).Elem(), GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsDeviceInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsDevicePtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsDeviceAssuranceInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsDeviceAssuranceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsDeviceAssurancePtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsDeviceAssuranceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsElConditionInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsElConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsElConditionPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsElConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsNetworkInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsNetworkPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPeopleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeoplePtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPeopleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleGroupsInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPeopleGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleGroupsPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPeopleGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleUsersInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPeopleUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPeopleUsersPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPeopleUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformExcludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeArrayInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformExcludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOsInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeArrayInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformIncludeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOsInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsRiskScoreInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsRiskScoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsRiskScorePtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsRiskScoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsUserTypeInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsUserTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSignOnPolicyRuleConditionsUserTypePtrInput)(nil)).Elem(), GetSignOnPolicyRuleConditionsUserTypeArgs{})
 	pulumi.RegisterOutputType(ConnectionProfileOutput{})
 	pulumi.RegisterOutputType(ConnectionProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionProfileSettingsOutput{})
@@ -6984,6 +10503,8 @@ func init() {
 	pulumi.RegisterOutputType(SamlKeyArrayOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRulesRuleOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRulesRuleArrayOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRulesRuleKeepMeSignedInOutput{})
+	pulumi.RegisterOutputType(SignonPolicyRulesRuleKeepMeSignedInPtrOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRulesRulePlatformIncludeOutput{})
 	pulumi.RegisterOutputType(SignonPolicyRulesRulePlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(GetConnectionProfileOutput{})
@@ -7020,4 +10541,46 @@ func init() {
 	pulumi.RegisterOutputType(GetOauthNetworkArrayOutput{})
 	pulumi.RegisterOutputType(GetSamlAttributeStatementOutput{})
 	pulumi.RegisterOutputType(GetSamlAttributeStatementArrayOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsAppSignOnOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsAppSignOnPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleActionsAppSignOnVerificationMethodPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsDeviceOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsDevicePtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsDeviceAssuranceOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsDeviceAssurancePtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsElConditionOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsElConditionPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsNetworkOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsNetworkPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPeopleOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPeoplePtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPeopleGroupsOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPeopleGroupsPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPeopleUsersOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPeopleUsersPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformExcludeOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformExcludeArrayOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformExcludeOsOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformExcludeOsPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformIncludeOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformIncludeArrayOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformIncludeOsOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformIncludeOsPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionPtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsRiskScoreOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsRiskScorePtrOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsUserTypeOutput{})
+	pulumi.RegisterOutputType(GetSignOnPolicyRuleConditionsUserTypePtrOutput{})
 }

@@ -177,6 +177,12 @@ namespace Pulumi.Okta.App
         public Output<bool?> AutoSubmitToolbar { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+        /// </summary>
+        [Output("backchannelCustomAuthenticatorId")]
+        public Output<string?> BackchannelCustomAuthenticatorId { get; private set; } = null!;
+
+        /// <summary>
         /// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `ClientBasicSecretWo` instead to avoid persisting secrets in state. Either `ClientBasicSecret` or `ClientBasicSecretWo` can be specified, but not both.
         /// </summary>
         [Output("clientBasicSecret")]
@@ -581,6 +587,12 @@ namespace Pulumi.Okta.App
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
 
+        /// <summary>
+        /// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+        /// </summary>
+        [Input("backchannelCustomAuthenticatorId")]
+        public Input<string>? BackchannelCustomAuthenticatorId { get; set; }
+
         [Input("clientBasicSecret")]
         private Input<string>? _clientBasicSecret;
 
@@ -973,6 +985,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("autoSubmitToolbar")]
         public Input<bool>? AutoSubmitToolbar { get; set; }
+
+        /// <summary>
+        /// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+        /// </summary>
+        [Input("backchannelCustomAuthenticatorId")]
+        public Input<string>? BackchannelCustomAuthenticatorId { get; set; }
 
         [Input("clientBasicSecret")]
         private Input<string>? _clientBasicSecret;

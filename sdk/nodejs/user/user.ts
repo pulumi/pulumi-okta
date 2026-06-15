@@ -94,6 +94,10 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
+     * The timestamp when the user status transitioned to ACTIVE
+     */
+    declare public /*out*/ readonly activated: pulumi.Output<string>;
+    /**
      * User city
      */
     declare public readonly city: pulumi.Output<string | undefined>;
@@ -105,6 +109,10 @@ export class User extends pulumi.CustomResource {
      * User country code
      */
     declare public readonly countryCode: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp when the user was created
+     */
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
@@ -150,9 +158,17 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly honorificSuffix: pulumi.Output<string | undefined>;
     /**
+     * The timestamp of the user's last login
+     */
+    declare public /*out*/ readonly lastLogin: pulumi.Output<string>;
+    /**
      * User last name
      */
     declare public readonly lastName: pulumi.Output<string>;
+    /**
+     * The timestamp when the user was last updated
+     */
+    declare public /*out*/ readonly lastUpdated: pulumi.Output<string>;
     /**
      * User default location
      */
@@ -193,6 +209,10 @@ export class User extends pulumi.CustomResource {
      * User Password
      */
     declare public readonly password: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp when the user's password was last changed
+     */
+    declare public /*out*/ readonly passwordChanged: pulumi.Output<string>;
     /**
      * Specifies a hashed password to import into Okta.
      */
@@ -252,6 +272,10 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
+     * The timestamp when the user's status last changed
+     */
+    declare public /*out*/ readonly statusChanged: pulumi.Output<string>;
+    /**
      * User street address
      */
     declare public readonly streetAddress: pulumi.Output<string | undefined>;
@@ -289,9 +313,11 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
+            resourceInputs["activated"] = state?.activated;
             resourceInputs["city"] = state?.city;
             resourceInputs["costCenter"] = state?.costCenter;
             resourceInputs["countryCode"] = state?.countryCode;
+            resourceInputs["created"] = state?.created;
             resourceInputs["customProfileAttributes"] = state?.customProfileAttributes;
             resourceInputs["customProfileAttributesToIgnores"] = state?.customProfileAttributesToIgnores;
             resourceInputs["department"] = state?.department;
@@ -303,7 +329,9 @@ export class User extends pulumi.CustomResource {
             resourceInputs["firstName"] = state?.firstName;
             resourceInputs["honorificPrefix"] = state?.honorificPrefix;
             resourceInputs["honorificSuffix"] = state?.honorificSuffix;
+            resourceInputs["lastLogin"] = state?.lastLogin;
             resourceInputs["lastName"] = state?.lastName;
+            resourceInputs["lastUpdated"] = state?.lastUpdated;
             resourceInputs["locale"] = state?.locale;
             resourceInputs["login"] = state?.login;
             resourceInputs["manager"] = state?.manager;
@@ -314,6 +342,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["oldPassword"] = state?.oldPassword;
             resourceInputs["organization"] = state?.organization;
             resourceInputs["password"] = state?.password;
+            resourceInputs["passwordChanged"] = state?.passwordChanged;
             resourceInputs["passwordHash"] = state?.passwordHash;
             resourceInputs["passwordInlineHook"] = state?.passwordInlineHook;
             resourceInputs["postalAddress"] = state?.postalAddress;
@@ -328,6 +357,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["skipRoles"] = state?.skipRoles;
             resourceInputs["state"] = state?.state;
             resourceInputs["status"] = state?.status;
+            resourceInputs["statusChanged"] = state?.statusChanged;
             resourceInputs["streetAddress"] = state?.streetAddress;
             resourceInputs["timezone"] = state?.timezone;
             resourceInputs["title"] = state?.title;
@@ -392,7 +422,13 @@ export class User extends pulumi.CustomResource {
             resourceInputs["type"] = args?.type;
             resourceInputs["userType"] = args?.userType;
             resourceInputs["zipCode"] = args?.zipCode;
+            resourceInputs["activated"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastLogin"] = undefined /*out*/;
+            resourceInputs["lastUpdated"] = undefined /*out*/;
+            resourceInputs["passwordChanged"] = undefined /*out*/;
             resourceInputs["rawStatus"] = undefined /*out*/;
+            resourceInputs["statusChanged"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["oldPassword", "password", "recoveryAnswer"] };
@@ -406,6 +442,10 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
+     * The timestamp when the user status transitioned to ACTIVE
+     */
+    activated?: pulumi.Input<string | undefined>;
+    /**
      * User city
      */
     city?: pulumi.Input<string | undefined>;
@@ -417,6 +457,10 @@ export interface UserState {
      * User country code
      */
     countryCode?: pulumi.Input<string | undefined>;
+    /**
+     * The timestamp when the user was created
+     */
+    created?: pulumi.Input<string | undefined>;
     /**
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
      */
@@ -462,9 +506,17 @@ export interface UserState {
      */
     honorificSuffix?: pulumi.Input<string | undefined>;
     /**
+     * The timestamp of the user's last login
+     */
+    lastLogin?: pulumi.Input<string | undefined>;
+    /**
      * User last name
      */
     lastName?: pulumi.Input<string | undefined>;
+    /**
+     * The timestamp when the user was last updated
+     */
+    lastUpdated?: pulumi.Input<string | undefined>;
     /**
      * User default location
      */
@@ -505,6 +557,10 @@ export interface UserState {
      * User Password
      */
     password?: pulumi.Input<string | undefined>;
+    /**
+     * The timestamp when the user's password was last changed
+     */
+    passwordChanged?: pulumi.Input<string | undefined>;
     /**
      * Specifies a hashed password to import into Okta.
      */
@@ -563,6 +619,10 @@ export interface UserState {
      * User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * The timestamp when the user's status last changed
+     */
+    statusChanged?: pulumi.Input<string | undefined>;
     /**
      * User street address
      */

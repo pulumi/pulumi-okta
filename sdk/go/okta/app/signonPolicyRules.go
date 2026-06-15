@@ -56,6 +56,16 @@ import (
 //						Access:   pulumi.String("DENY"),
 //						Status:   pulumi.String("ACTIVE"),
 //					},
+//					&app.SignonPolicyRulesRuleArgs{
+//						Name:     pulumi.String("KMSI Rule"),
+//						Priority: pulumi.Int(4),
+//						Access:   pulumi.String("ALLOW"),
+//						Status:   pulumi.String("ACTIVE"),
+//						KeepMeSignedIn: &app.SignonPolicyRulesRuleKeepMeSignedInArgs{
+//							PostAuth:                pulumi.String("ALLOWED"),
+//							PostAuthPromptFrequency: pulumi.String("PT168H"),
+//						},
+//					},
 //				},
 //			})
 //			if err != nil {
