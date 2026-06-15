@@ -697,10 +697,12 @@ func (o GetUsersSearchArrayOutput) Index(i pulumi.IntInput) GetUsersSearchOutput
 }
 
 type GetUsersUser struct {
+	Activated               string   `pulumi:"activated"`
 	AdminRoles              []string `pulumi:"adminRoles"`
 	City                    string   `pulumi:"city"`
 	CostCenter              string   `pulumi:"costCenter"`
 	CountryCode             string   `pulumi:"countryCode"`
+	Created                 string   `pulumi:"created"`
 	CustomProfileAttributes string   `pulumi:"customProfileAttributes"`
 	Department              string   `pulumi:"department"`
 	DisplayName             string   `pulumi:"displayName"`
@@ -712,7 +714,9 @@ type GetUsersUser struct {
 	HonorificPrefix         string   `pulumi:"honorificPrefix"`
 	HonorificSuffix         string   `pulumi:"honorificSuffix"`
 	Id                      string   `pulumi:"id"`
+	LastLogin               string   `pulumi:"lastLogin"`
 	LastName                string   `pulumi:"lastName"`
+	LastUpdated             string   `pulumi:"lastUpdated"`
 	Locale                  string   `pulumi:"locale"`
 	Login                   string   `pulumi:"login"`
 	Manager                 string   `pulumi:"manager"`
@@ -721,6 +725,7 @@ type GetUsersUser struct {
 	MobilePhone             string   `pulumi:"mobilePhone"`
 	NickName                string   `pulumi:"nickName"`
 	Organization            string   `pulumi:"organization"`
+	PasswordChanged         string   `pulumi:"passwordChanged"`
 	PostalAddress           string   `pulumi:"postalAddress"`
 	PreferredLanguage       string   `pulumi:"preferredLanguage"`
 	PrimaryPhone            string   `pulumi:"primaryPhone"`
@@ -731,6 +736,7 @@ type GetUsersUser struct {
 	SecondEmail   string   `pulumi:"secondEmail"`
 	State         string   `pulumi:"state"`
 	Status        string   `pulumi:"status"`
+	StatusChanged string   `pulumi:"statusChanged"`
 	StreetAddress string   `pulumi:"streetAddress"`
 	Timezone      string   `pulumi:"timezone"`
 	Title         string   `pulumi:"title"`
@@ -752,10 +758,12 @@ type GetUsersUserInput interface {
 }
 
 type GetUsersUserArgs struct {
+	Activated               pulumi.StringInput      `pulumi:"activated"`
 	AdminRoles              pulumi.StringArrayInput `pulumi:"adminRoles"`
 	City                    pulumi.StringInput      `pulumi:"city"`
 	CostCenter              pulumi.StringInput      `pulumi:"costCenter"`
 	CountryCode             pulumi.StringInput      `pulumi:"countryCode"`
+	Created                 pulumi.StringInput      `pulumi:"created"`
 	CustomProfileAttributes pulumi.StringInput      `pulumi:"customProfileAttributes"`
 	Department              pulumi.StringInput      `pulumi:"department"`
 	DisplayName             pulumi.StringInput      `pulumi:"displayName"`
@@ -767,7 +775,9 @@ type GetUsersUserArgs struct {
 	HonorificPrefix         pulumi.StringInput      `pulumi:"honorificPrefix"`
 	HonorificSuffix         pulumi.StringInput      `pulumi:"honorificSuffix"`
 	Id                      pulumi.StringInput      `pulumi:"id"`
+	LastLogin               pulumi.StringInput      `pulumi:"lastLogin"`
 	LastName                pulumi.StringInput      `pulumi:"lastName"`
+	LastUpdated             pulumi.StringInput      `pulumi:"lastUpdated"`
 	Locale                  pulumi.StringInput      `pulumi:"locale"`
 	Login                   pulumi.StringInput      `pulumi:"login"`
 	Manager                 pulumi.StringInput      `pulumi:"manager"`
@@ -776,6 +786,7 @@ type GetUsersUserArgs struct {
 	MobilePhone             pulumi.StringInput      `pulumi:"mobilePhone"`
 	NickName                pulumi.StringInput      `pulumi:"nickName"`
 	Organization            pulumi.StringInput      `pulumi:"organization"`
+	PasswordChanged         pulumi.StringInput      `pulumi:"passwordChanged"`
 	PostalAddress           pulumi.StringInput      `pulumi:"postalAddress"`
 	PreferredLanguage       pulumi.StringInput      `pulumi:"preferredLanguage"`
 	PrimaryPhone            pulumi.StringInput      `pulumi:"primaryPhone"`
@@ -786,6 +797,7 @@ type GetUsersUserArgs struct {
 	SecondEmail   pulumi.StringInput      `pulumi:"secondEmail"`
 	State         pulumi.StringInput      `pulumi:"state"`
 	Status        pulumi.StringInput      `pulumi:"status"`
+	StatusChanged pulumi.StringInput      `pulumi:"statusChanged"`
 	StreetAddress pulumi.StringInput      `pulumi:"streetAddress"`
 	Timezone      pulumi.StringInput      `pulumi:"timezone"`
 	Title         pulumi.StringInput      `pulumi:"title"`
@@ -846,6 +858,10 @@ func (o GetUsersUserOutput) ToGetUsersUserOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o GetUsersUserOutput) Activated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Activated }).(pulumi.StringOutput)
+}
+
 func (o GetUsersUserOutput) AdminRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetUsersUser) []string { return v.AdminRoles }).(pulumi.StringArrayOutput)
 }
@@ -860,6 +876,10 @@ func (o GetUsersUserOutput) CostCenter() pulumi.StringOutput {
 
 func (o GetUsersUserOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.CountryCode }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Created }).(pulumi.StringOutput)
 }
 
 func (o GetUsersUserOutput) CustomProfileAttributes() pulumi.StringOutput {
@@ -906,8 +926,16 @@ func (o GetUsersUserOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetUsersUserOutput) LastLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.LastLogin }).(pulumi.StringOutput)
+}
+
 func (o GetUsersUserOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
 func (o GetUsersUserOutput) Locale() pulumi.StringOutput {
@@ -940,6 +968,10 @@ func (o GetUsersUserOutput) NickName() pulumi.StringOutput {
 
 func (o GetUsersUserOutput) Organization() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Organization }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) PasswordChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.PasswordChanged }).(pulumi.StringOutput)
 }
 
 func (o GetUsersUserOutput) PostalAddress() pulumi.StringOutput {
@@ -977,6 +1009,10 @@ func (o GetUsersUserOutput) State() pulumi.StringOutput {
 
 func (o GetUsersUserOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetUsersUserOutput) StatusChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.StatusChanged }).(pulumi.StringOutput)
 }
 
 func (o GetUsersUserOutput) StreetAddress() pulumi.StringOutput {

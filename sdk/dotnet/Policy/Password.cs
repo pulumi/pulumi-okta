@@ -53,6 +53,24 @@ namespace Pulumi.Okta.Policy
         public Output<string?> AuthProvider { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        /// </summary>
+        [Output("breachedPasswordDelegatedWorkflowId")]
+        public Output<string?> BreachedPasswordDelegatedWorkflowId { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `BreachedPasswordLogoutEnabled` is `True`.
+        /// </summary>
+        [Output("breachedPasswordExpireAfterDays")]
+        public Output<int?> BreachedPasswordExpireAfterDays { get; private set; } = null!;
+
+        /// <summary>
+        /// If `True`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `BreachedPasswordExpireAfterDays` to also be configured. Default: `False`
+        /// </summary>
+        [Output("breachedPasswordLogoutEnabled")]
+        public Output<bool?> BreachedPasswordLogoutEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         /// </summary>
         [Output("callRecovery")]
@@ -279,6 +297,24 @@ namespace Pulumi.Okta.Policy
         public Input<string>? AuthProvider { get; set; }
 
         /// <summary>
+        /// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        /// </summary>
+        [Input("breachedPasswordDelegatedWorkflowId")]
+        public Input<string>? BreachedPasswordDelegatedWorkflowId { get; set; }
+
+        /// <summary>
+        /// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `BreachedPasswordLogoutEnabled` is `True`.
+        /// </summary>
+        [Input("breachedPasswordExpireAfterDays")]
+        public Input<int>? BreachedPasswordExpireAfterDays { get; set; }
+
+        /// <summary>
+        /// If `True`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `BreachedPasswordExpireAfterDays` to also be configured. Default: `False`
+        /// </summary>
+        [Input("breachedPasswordLogoutEnabled")]
+        public Input<bool>? BreachedPasswordLogoutEnabled { get; set; }
+
+        /// <summary>
         /// Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         /// </summary>
         [Input("callRecovery")]
@@ -477,6 +513,24 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("authProvider")]
         public Input<string>? AuthProvider { get; set; }
+
+        /// <summary>
+        /// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+        /// </summary>
+        [Input("breachedPasswordDelegatedWorkflowId")]
+        public Input<string>? BreachedPasswordDelegatedWorkflowId { get; set; }
+
+        /// <summary>
+        /// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `BreachedPasswordLogoutEnabled` is `True`.
+        /// </summary>
+        [Input("breachedPasswordExpireAfterDays")]
+        public Input<int>? BreachedPasswordExpireAfterDays { get; set; }
+
+        /// <summary>
+        /// If `True`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `BreachedPasswordExpireAfterDays` to also be configured. Default: `False`
+        /// </summary>
+        [Input("breachedPasswordLogoutEnabled")]
+        public Input<bool>? BreachedPasswordLogoutEnabled { get; set; }
 
         /// <summary>
         /// Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`

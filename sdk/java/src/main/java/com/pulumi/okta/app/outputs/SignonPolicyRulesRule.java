@@ -5,6 +5,7 @@ package com.pulumi.okta.app.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.okta.app.outputs.SignonPolicyRulesRuleKeepMeSignedIn;
 import com.pulumi.okta.app.outputs.SignonPolicyRulesRulePlatformInclude;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -77,6 +78,11 @@ public final class SignonPolicyRulesRule {
      */
     private @Nullable String inactivityPeriod;
     /**
+     * @return Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the &#34;Option to stay signed in&#34;. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    private @Nullable SignonPolicyRulesRuleKeepMeSignedIn keepMeSignedIn;
+    /**
      * @return Policy Rule Name. Must be unique within the policy.
      * 
      */
@@ -112,7 +118,7 @@ public final class SignonPolicyRulesRule {
      */
     private @Nullable String reAuthenticationFrequency;
     /**
-     * @return Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+     * @return Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
      * 
      */
     private @Nullable String riskScore;
@@ -238,6 +244,13 @@ public final class SignonPolicyRulesRule {
         return Optional.ofNullable(this.inactivityPeriod);
     }
     /**
+     * @return Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the &#34;Option to stay signed in&#34;. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    public Optional<SignonPolicyRulesRuleKeepMeSignedIn> keepMeSignedIn() {
+        return Optional.ofNullable(this.keepMeSignedIn);
+    }
+    /**
      * @return Policy Rule Name. Must be unique within the policy.
      * 
      */
@@ -287,7 +300,7 @@ public final class SignonPolicyRulesRule {
         return Optional.ofNullable(this.reAuthenticationFrequency);
     }
     /**
-     * @return Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+     * @return Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
      * 
      */
     public Optional<String> riskScore() {
@@ -364,6 +377,7 @@ public final class SignonPolicyRulesRule {
         private @Nullable List<String> groupsIncludeds;
         private @Nullable String id;
         private @Nullable String inactivityPeriod;
+        private @Nullable SignonPolicyRulesRuleKeepMeSignedIn keepMeSignedIn;
         private String name;
         private @Nullable String networkConnection;
         private @Nullable List<String> networkExcludes;
@@ -394,6 +408,7 @@ public final class SignonPolicyRulesRule {
     	      this.groupsIncludeds = defaults.groupsIncludeds;
     	      this.id = defaults.id;
     	      this.inactivityPeriod = defaults.inactivityPeriod;
+    	      this.keepMeSignedIn = defaults.keepMeSignedIn;
     	      this.name = defaults.name;
     	      this.networkConnection = defaults.networkConnection;
     	      this.networkExcludes = defaults.networkExcludes;
@@ -496,6 +511,12 @@ public final class SignonPolicyRulesRule {
         public Builder inactivityPeriod(@Nullable String inactivityPeriod) {
 
             this.inactivityPeriod = inactivityPeriod;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keepMeSignedIn(@Nullable SignonPolicyRulesRuleKeepMeSignedIn keepMeSignedIn) {
+
+            this.keepMeSignedIn = keepMeSignedIn;
             return this;
         }
         @CustomType.Setter
@@ -625,6 +646,7 @@ public final class SignonPolicyRulesRule {
             _resultValue.groupsIncludeds = groupsIncludeds;
             _resultValue.id = id;
             _resultValue.inactivityPeriod = inactivityPeriod;
+            _resultValue.keepMeSignedIn = keepMeSignedIn;
             _resultValue.name = name;
             _resultValue.networkConnection = networkConnection;
             _resultValue.networkExcludes = networkExcludes;

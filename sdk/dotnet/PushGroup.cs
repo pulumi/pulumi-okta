@@ -55,6 +55,7 @@ namespace Pulumi.Okta
     ///         Status = "ACTIVE",
     ///         AppConfig = new Okta.Inputs.PushGroupAppConfigArgs
     ///         {
+    ///             Type = "ACTIVE_DIRECTORY",
     ///             DistinguishedName = "CN=Test,OU=Groups,DC=example,DC=com",
     ///             GroupScope = "DOMAIN_LOCAL",
     ///             GroupType = "SECURITY",

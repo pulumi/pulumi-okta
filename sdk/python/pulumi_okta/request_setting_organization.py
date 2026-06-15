@@ -24,7 +24,7 @@ class RequestSettingOrganizationArgs:
         """
         The set of arguments for constructing a RequestSettingOrganization resource.
 
-        :param pulumi.Input[_builtins.str] id_property: Request condition id.
+        :param pulumi.Input[_builtins.str] id_property: The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         :param pulumi.Input[_builtins.bool] subprocessors_acknowledged: Whether a customer has acknowledged Access Requests subprocessors.
         """
         pulumi.set(__self__, "id_property", id_property)
@@ -35,7 +35,7 @@ class RequestSettingOrganizationArgs:
     @pulumi.getter(name="idProperty")
     def id_property(self) -> pulumi.Input[_builtins.str]:
         """
-        Request condition id.
+        The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         """
         return pulumi.get(self, "id_property")
 
@@ -64,7 +64,7 @@ class _RequestSettingOrganizationState:
         """
         Input properties used for looking up and filtering RequestSettingOrganization resources.
 
-        :param pulumi.Input[_builtins.str] id_property: Request condition id.
+        :param pulumi.Input[_builtins.str] id_property: The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         :param pulumi.Input[_builtins.bool] subprocessors_acknowledged: Whether a customer has acknowledged Access Requests subprocessors.
         """
         if id_property is not None:
@@ -76,7 +76,7 @@ class _RequestSettingOrganizationState:
     @pulumi.getter(name="idProperty")
     def id_property(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Request condition id.
+        The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         """
         return pulumi.get(self, "id_property")
 
@@ -115,16 +115,9 @@ class RequestSettingOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.RequestCondition("example",
-            resource_id="<resource_id>",
-            approval_sequence_id="<approval_sequence_id>",
-            name="<name>",
-            access_scope_settings={
-                "type": "RESOURCE_DEFAULT",
-            },
-            requester_settings={
-                "type": "EVERYONE",
-            })
+        example = okta.RequestSettingOrganization("example",
+            id_property="default",
+            subprocessors_acknowledged=True)
         ```
 
         ## Import
@@ -136,7 +129,7 @@ class RequestSettingOrganization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] id_property: Request condition id.
+        :param pulumi.Input[_builtins.str] id_property: The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         :param pulumi.Input[_builtins.bool] subprocessors_acknowledged: Whether a customer has acknowledged Access Requests subprocessors.
         """
         ...
@@ -154,16 +147,9 @@ class RequestSettingOrganization(pulumi.CustomResource):
         import pulumi
         import pulumi_okta as okta
 
-        example = okta.RequestCondition("example",
-            resource_id="<resource_id>",
-            approval_sequence_id="<approval_sequence_id>",
-            name="<name>",
-            access_scope_settings={
-                "type": "RESOURCE_DEFAULT",
-            },
-            requester_settings={
-                "type": "EVERYONE",
-            })
+        example = okta.RequestSettingOrganization("example",
+            id_property="default",
+            subprocessors_acknowledged=True)
         ```
 
         ## Import
@@ -222,7 +208,7 @@ class RequestSettingOrganization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] id_property: Request condition id.
+        :param pulumi.Input[_builtins.str] id_property: The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         :param pulumi.Input[_builtins.bool] subprocessors_acknowledged: Whether a customer has acknowledged Access Requests subprocessors.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -237,7 +223,7 @@ class RequestSettingOrganization(pulumi.CustomResource):
     @pulumi.getter(name="idProperty")
     def id_property(self) -> pulumi.Output[_builtins.str]:
         """
-        Request condition id.
+        The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         """
         return pulumi.get(self, "id_property")
 

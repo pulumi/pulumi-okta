@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as okta from "@pulumi/okta";
  *
  * const test = new okta.RequestSettingResource("test", {
- *     resourceId: "<resource_id>",
+ *     idProperty: "<resource_id>",
  *     riskSettings: {
  *         defaultSetting: {
  *             requestSubmissionType: "ALLOWED_WITH_OVERRIDES",

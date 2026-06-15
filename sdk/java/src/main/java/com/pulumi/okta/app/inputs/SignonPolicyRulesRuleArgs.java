@@ -6,6 +6,7 @@ package com.pulumi.okta.app.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.okta.app.inputs.SignonPolicyRulesRuleKeepMeSignedInArgs;
 import com.pulumi.okta.app.inputs.SignonPolicyRulesRulePlatformIncludeArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -201,6 +202,21 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the &#34;Option to stay signed in&#34;. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    @Import(name="keepMeSignedIn")
+    private @Nullable Output<SignonPolicyRulesRuleKeepMeSignedInArgs> keepMeSignedIn;
+
+    /**
+     * @return Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the &#34;Option to stay signed in&#34;. Requires the KMSI feature to be enabled on the Okta org.
+     * 
+     */
+    public Optional<Output<SignonPolicyRulesRuleKeepMeSignedInArgs>> keepMeSignedIn() {
+        return Optional.ofNullable(this.keepMeSignedIn);
+    }
+
+    /**
      * Policy Rule Name. Must be unique within the policy.
      * 
      */
@@ -306,14 +322,14 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+     * Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
      * 
      */
     @Import(name="riskScore")
     private @Nullable Output<String> riskScore;
 
     /**
-     * @return Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+     * @return Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
      * 
      */
     public Optional<Output<String>> riskScore() {
@@ -440,6 +456,7 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         this.groupsIncludeds = $.groupsIncludeds;
         this.id = $.id;
         this.inactivityPeriod = $.inactivityPeriod;
+        this.keepMeSignedIn = $.keepMeSignedIn;
         this.name = $.name;
         this.networkConnection = $.networkConnection;
         this.networkExcludes = $.networkExcludes;
@@ -778,6 +795,27 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param keepMeSignedIn Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the &#34;Option to stay signed in&#34;. Requires the KMSI feature to be enabled on the Okta org.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepMeSignedIn(@Nullable Output<SignonPolicyRulesRuleKeepMeSignedInArgs> keepMeSignedIn) {
+            $.keepMeSignedIn = keepMeSignedIn;
+            return this;
+        }
+
+        /**
+         * @param keepMeSignedIn Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the &#34;Option to stay signed in&#34;. Requires the KMSI feature to be enabled on the Okta org.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepMeSignedIn(SignonPolicyRulesRuleKeepMeSignedInArgs keepMeSignedIn) {
+            return keepMeSignedIn(Output.of(keepMeSignedIn));
+        }
+
+        /**
          * @param name Policy Rule Name. Must be unique within the policy.
          * 
          * @return builder
@@ -955,7 +993,7 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param riskScore Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+         * @param riskScore Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
          * 
          * @return builder
          * 
@@ -966,7 +1004,7 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param riskScore Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+         * @param riskScore Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
          * 
          * @return builder
          * 

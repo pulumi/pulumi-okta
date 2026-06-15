@@ -98,6 +98,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     declare public readonly inactivityPeriod: pulumi.Output<string | undefined>;
     /**
+     * Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     */
+    declare public readonly keepMeSignedIn: pulumi.Output<outputs.AppSignonPolicyRuleKeepMeSignedIn>;
+    /**
      * Policy Rule Name
      */
     declare public readonly name: pulumi.Output<string>;
@@ -183,6 +187,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
             resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
             resourceInputs["inactivityPeriod"] = state?.inactivityPeriod;
+            resourceInputs["keepMeSignedIn"] = state?.keepMeSignedIn;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkConnection"] = state?.networkConnection;
             resourceInputs["networkExcludes"] = state?.networkExcludes;
@@ -215,6 +220,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
             resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
             resourceInputs["inactivityPeriod"] = args?.inactivityPeriod;
+            resourceInputs["keepMeSignedIn"] = args?.keepMeSignedIn;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConnection"] = args?.networkConnection;
             resourceInputs["networkExcludes"] = args?.networkExcludes;
@@ -285,6 +291,10 @@ export interface AppSignonPolicyRuleState {
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
     inactivityPeriod?: pulumi.Input<string | undefined>;
+    /**
+     * Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     */
+    keepMeSignedIn?: pulumi.Input<inputs.AppSignonPolicyRuleKeepMeSignedIn | undefined>;
     /**
      * Policy Rule Name
      */
@@ -396,6 +406,10 @@ export interface AppSignonPolicyRuleArgs {
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
     inactivityPeriod?: pulumi.Input<string | undefined>;
+    /**
+     * Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+     */
+    keepMeSignedIn?: pulumi.Input<inputs.AppSignonPolicyRuleKeepMeSignedIn | undefined>;
     /**
      * Policy Rule Name
      */

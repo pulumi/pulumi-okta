@@ -14,6 +14,7 @@ public final class PushGroupAppConfig {
     private String groupScope;
     private String groupType;
     private String samAccountName;
+    private String type;
 
     private PushGroupAppConfig() {}
     public String distinguishedName() {
@@ -27,6 +28,9 @@ public final class PushGroupAppConfig {
     }
     public String samAccountName() {
         return this.samAccountName;
+    }
+    public String type() {
+        return this.type;
     }
 
     public static Builder builder() {
@@ -42,6 +46,7 @@ public final class PushGroupAppConfig {
         private String groupScope;
         private String groupType;
         private String samAccountName;
+        private String type;
         public Builder() {}
         public Builder(PushGroupAppConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -49,6 +54,7 @@ public final class PushGroupAppConfig {
     	      this.groupScope = defaults.groupScope;
     	      this.groupType = defaults.groupType;
     	      this.samAccountName = defaults.samAccountName;
+    	      this.type = defaults.type;
         }
 
         @CustomType.Setter
@@ -83,12 +89,21 @@ public final class PushGroupAppConfig {
             this.samAccountName = samAccountName;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("PushGroupAppConfig", "type");
+            }
+            this.type = type;
+            return this;
+        }
         public PushGroupAppConfig build() {
             final var _resultValue = new PushGroupAppConfig();
             _resultValue.distinguishedName = distinguishedName;
             _resultValue.groupScope = groupScope;
             _resultValue.groupType = groupType;
             _resultValue.samAccountName = samAccountName;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

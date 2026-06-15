@@ -123,6 +123,13 @@ def get_request_setting_resource(id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_request_setting_resource(id="<id>")
+    ```
+
 
     :param _builtins.str id: The resource ID of the request settings to retrieve. This is the unique identifier for the resource in Okta.
     :param Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict'] request_on_behalf_of_settings: Risk settings for the resource.
@@ -159,6 +166,13 @@ def get_request_setting_resource_output(id: pulumi.Input[Optional[_builtins.str]
     Retrieves the request settings for a resource.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    test = okta.get_request_setting_resource(id="<id>")
+    ```
 
 
     :param _builtins.str id: The resource ID of the request settings to retrieve. This is the unique identifier for the resource in Okta.

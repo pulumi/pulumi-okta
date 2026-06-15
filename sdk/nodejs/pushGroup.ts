@@ -36,6 +36,7 @@ import * as utilities from "./utilities";
  *     sourceGroupId: testGroup.id,
  *     status: "ACTIVE",
  *     appConfig: {
+ *         type: "ACTIVE_DIRECTORY",
  *         distinguishedName: "CN=Test,OU=Groups,DC=example,DC=com",
  *         groupScope: "DOMAIN_LOCAL",
  *         groupType: "SECURITY",

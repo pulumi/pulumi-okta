@@ -42,6 +42,13 @@ public final class PushGroupAppConfigArgs extends com.pulumi.resources.ResourceA
         return this.samAccountName;
     }
 
+    @Import(name="type", required=true)
+    private Output<String> type;
+
+    public Output<String> type() {
+        return this.type;
+    }
+
     private PushGroupAppConfigArgs() {}
 
     private PushGroupAppConfigArgs(PushGroupAppConfigArgs $) {
@@ -49,6 +56,7 @@ public final class PushGroupAppConfigArgs extends com.pulumi.resources.ResourceA
         this.groupScope = $.groupScope;
         this.groupType = $.groupType;
         this.samAccountName = $.samAccountName;
+        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -105,6 +113,15 @@ public final class PushGroupAppConfigArgs extends com.pulumi.resources.ResourceA
             return samAccountName(Output.of(samAccountName));
         }
 
+        public Builder type(Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        public Builder type(String type) {
+            return type(Output.of(type));
+        }
+
         public PushGroupAppConfigArgs build() {
             if ($.distinguishedName == null) {
                 throw new MissingRequiredPropertyException("PushGroupAppConfigArgs", "distinguishedName");
@@ -117,6 +134,9 @@ public final class PushGroupAppConfigArgs extends com.pulumi.resources.ResourceA
             }
             if ($.samAccountName == null) {
                 throw new MissingRequiredPropertyException("PushGroupAppConfigArgs", "samAccountName");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PushGroupAppConfigArgs", "type");
             }
             return $;
         }

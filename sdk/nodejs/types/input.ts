@@ -76,6 +76,17 @@ export interface AppGroupAssignmentsGroup {
     profile: pulumi.Input<string>;
 }
 
+export interface AppSignonPolicyRuleKeepMeSignedIn {
+    /**
+     * Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+     */
+    postAuth?: pulumi.Input<string | undefined>;
+    /**
+     * How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+     */
+    postAuthPromptFrequency?: pulumi.Input<string | undefined>;
+}
+
 export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available with OTHER OS type
@@ -105,6 +116,73 @@ export interface AppUserSchemaPropertyOneOf {
      * Enum title
      */
     title: pulumi.Input<string>;
+}
+
+export interface AuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * A list of FIDO2 AAGUIDs in this group.
+     */
+    aaguids: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A name to identify the group of FIDO2 AAGUIDs.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface AuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: pulumi.Input<inputs.AuthenticatorMethodWebauthnRpIdDomain | undefined>;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+}
+
+export interface AuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The RP ID domain value used for WebAuthn operations.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus?: pulumi.Input<string | undefined>;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAttestationRootCertificate {
+    /**
+     * Expiry date of the certificate.
+     */
+    expiry?: pulumi.Input<string | undefined>;
+    /**
+     * Issuer of the certificate.
+     */
+    issuer?: pulumi.Input<string | undefined>;
+    /**
+     * X.509 certificate chain (base64-encoded).
+     */
+    x5c: pulumi.Input<string>;
+    /**
+     * SHA-256 hash (thumbprint) of the X.509 certificate.
+     */
+    x5tS256?: pulumi.Input<string | undefined>;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Indicates whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant?: pulumi.Input<boolean | undefined>;
+    /**
+     * Indicates whether the authenticator stores the private key on a hardware component.
+     */
+    hardwareProtected?: pulumi.Input<boolean | undefined>;
+    /**
+     * Indicates whether the custom AAGUID is built into the authenticator or is external.
+     */
+    platformAttached?: pulumi.Input<boolean | undefined>;
 }
 
 export interface CampaignNotificationSettings {
@@ -778,6 +856,306 @@ export interface GetApiTokenNetworkArgs {
     excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The IP address the included zone.
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface GetAuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * List of FIDO2 AAGUIDs in this group.
+     */
+    aaguids?: string[];
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnAaguidGroupArgs {
+    /**
+     * List of FIDO2 AAGUIDs in this group.
+     */
+    aaguids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: inputs.GetAuthenticatorMethodWebauthnRpIdDomain;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled?: boolean;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdArgs {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: pulumi.Input<inputs.GetAuthenticatorMethodWebauthnRpIdDomainArgs | undefined>;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: string;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus?: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdDomainArgs {
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguid {
+    /**
+     * The AAGUID identifier.
+     */
+    aaguid?: string;
+    /**
+     * Properties of the custom AAGUID authenticator.
+     */
+    authenticatorCharacteristics?: inputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics;
+    /**
+     * The product name associated with the AAGUID.
+     */
+    name?: string;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs {
+    /**
+     * The AAGUID identifier.
+     */
+    aaguid?: pulumi.Input<string | undefined>;
+    /**
+     * Properties of the custom AAGUID authenticator.
+     */
+    authenticatorCharacteristics?: pulumi.Input<inputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs | undefined>;
+    /**
+     * The product name associated with the AAGUID.
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant?: boolean;
+    /**
+     * Whether the authenticator stores the private key on hardware.
+     */
+    hardwareProtected?: boolean;
+    /**
+     * Whether the AAGUID is built into the authenticator or is external.
+     */
+    platformAttached?: boolean;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs {
+    /**
+     * Whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the authenticator stores the private key on hardware.
+     */
+    hardwareProtected?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the AAGUID is built into the authenticator or is external.
+     */
+    platformAttached?: pulumi.Input<boolean | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActions {
+    /**
+     * Token
+     */
+    token?: inputs.GetAuthorizationServersPoliciesRuleActionsToken;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsArgs {
+    /**
+     * Token
+     */
+    token?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleActionsTokenArgs | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsToken {
+    /**
+     * Lifetime of the access token in minutes.
+     */
+    accessTokenLifetimeMinutes?: number;
+    /**
+     * InlineHook
+     */
+    inlineHook?: inputs.GetAuthorizationServersPoliciesRuleActionsTokenInlineHook;
+    /**
+     * Lifetime of the refresh token is the minimum access token lifetime.
+     */
+    refreshTokenLifetimeMinutes?: number;
+    /**
+     * Timeframe when the refresh token is valid.
+     */
+    refreshTokenWindowMinutes?: number;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsTokenArgs {
+    /**
+     * Lifetime of the access token in minutes.
+     */
+    accessTokenLifetimeMinutes?: pulumi.Input<number | undefined>;
+    /**
+     * InlineHook
+     */
+    inlineHook?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleActionsTokenInlineHookArgs | undefined>;
+    /**
+     * Lifetime of the refresh token is the minimum access token lifetime.
+     */
+    refreshTokenLifetimeMinutes?: pulumi.Input<number | undefined>;
+    /**
+     * Timeframe when the refresh token is valid.
+     */
+    refreshTokenWindowMinutes?: pulumi.Input<number | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsTokenInlineHook {
+    /**
+     * Unique identifier of the authorization server policy rule.
+     */
+    id?: string;
+}
+
+export interface GetAuthorizationServersPoliciesRuleActionsTokenInlineHookArgs {
+    /**
+     * Unique identifier of the authorization server policy rule.
+     */
+    id?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditions {
+    /**
+     * Array of grant types that this condition includes.
+     */
+    grantTypes?: inputs.GetAuthorizationServersPoliciesRuleConditionsGrantTypes;
+    /**
+     * Identifies Users and Groups that are used together
+     */
+    people?: inputs.GetAuthorizationServersPoliciesRuleConditionsPeople;
+    /**
+     * Array of scopes that the condition includes
+     */
+    scopes?: inputs.GetAuthorizationServersPoliciesRuleConditionsScopes;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsArgs {
+    /**
+     * Array of grant types that this condition includes.
+     */
+    grantTypes?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleConditionsGrantTypesArgs | undefined>;
+    /**
+     * Identifies Users and Groups that are used together
+     */
+    people?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleConditionsPeopleArgs | undefined>;
+    /**
+     * Array of scopes that the condition includes
+     */
+    scopes?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleConditionsScopesArgs | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsGrantTypes {
+    /**
+     * Array of grant types that this condition includes.
+     */
+    includes?: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsGrantTypesArgs {
+    /**
+     * Array of grant types that this condition includes.
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeople {
+    /**
+     * Specifies a set of Groups whose Users are to be included
+     */
+    groups?: inputs.GetAuthorizationServersPoliciesRuleConditionsPeopleGroups;
+    /**
+     * Specifies a set of Users to be included
+     */
+    users?: inputs.GetAuthorizationServersPoliciesRuleConditionsPeopleUsers;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleArgs {
+    /**
+     * Specifies a set of Groups whose Users are to be included
+     */
+    groups?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleConditionsPeopleGroupsArgs | undefined>;
+    /**
+     * Specifies a set of Users to be included
+     */
+    users?: pulumi.Input<inputs.GetAuthorizationServersPoliciesRuleConditionsPeopleUsersArgs | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleGroups {
+    /**
+     * Groups to be included
+     */
+    includes?: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleGroupsArgs {
+    /**
+     * Groups to be included
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleUsers {
+    /**
+     * Users to be included
+     */
+    includes?: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsPeopleUsersArgs {
+    /**
+     * Users to be included
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsScopes {
+    /**
+     * Include
+     */
+    includes?: string[];
+}
+
+export interface GetAuthorizationServersPoliciesRuleConditionsScopesArgs {
+    /**
+     * Include
      */
     includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -1988,6 +2366,44 @@ export interface GetEntitlementValueArgs {
     name?: pulumi.Input<string | undefined>;
 }
 
+export interface GetIamAssigneesUserItem {
+    id?: string;
+    /**
+     * ORN representing the assignee
+     */
+    orn?: string;
+}
+
+export interface GetIamAssigneesUserItemArgs {
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * ORN representing the assignee
+     */
+    orn?: pulumi.Input<string | undefined>;
+}
+
+export interface GetIdentitySourceGroupsProfile {
+    /**
+     * Description of the group.
+     */
+    description?: string;
+    /**
+     * Display name of the group.
+     */
+    displayName?: string;
+}
+
+export interface GetIdentitySourceGroupsProfileArgs {
+    /**
+     * Description of the group.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Display name of the group.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -3005,6 +3421,191 @@ export interface GroupSchemaPropertyOneOf {
     title: pulumi.Input<string>;
 }
 
+export interface IdentitySourceGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the group.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceImportDeleteGroupMemberships {
+    /**
+     * Group memberships to delete. (see below)
+     */
+    memberships?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportDeleteGroupMembershipsMembership>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: pulumi.Input<string | undefined>;
+    /**
+     * External IDs of the group members to remove.
+     */
+    memberExternalIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteGroups {
+    /**
+     * External IDs of the groups to delete.
+     */
+    externalIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: pulumi.Input<string | undefined>;
+    /**
+     * User profiles to delete (by external ID). (see below)
+     */
+    profiles?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportDeleteUsersProfile>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteUsersProfile {
+    /**
+     * External ID of the user to delete.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupMemberships {
+    /**
+     * Group memberships to upsert. (see below)
+     */
+    memberships?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportUpsertGroupMembershipsMembership>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: pulumi.Input<string | undefined>;
+    /**
+     * External IDs of the group members to add.
+     */
+    memberExternalIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroups {
+    /**
+     * Group profiles to upsert. (see below)
+     */
+    profiles?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportUpsertGroupsProfile>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupsProfile {
+    /**
+     * External ID of the group.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+    /**
+     * Group profile attributes. (see below)
+     */
+    groupProfile?: pulumi.Input<inputs.IdentitySourceImportUpsertGroupsProfileGroupProfile | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupsProfileGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Display name of the group.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceImportUpsertUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: pulumi.Input<string | undefined>;
+    /**
+     * User profiles to upsert. (see below)
+     */
+    profiles?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportUpsertUsersProfile>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertUsersProfile {
+    /**
+     * External ID of the user.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+    /**
+     * User profile attributes. (see below)
+     */
+    profile?: pulumi.Input<inputs.IdentitySourceImportUpsertUsersProfileProfile | undefined>;
+}
+
+export interface IdentitySourceImportUpsertUsersProfileProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: pulumi.Input<string | undefined>;
+    /**
+     * First name of the user.
+     */
+    firstName?: pulumi.Input<string | undefined>;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: pulumi.Input<string | undefined>;
+    /**
+     * Last name of the user.
+     */
+    lastName?: pulumi.Input<string | undefined>;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: pulumi.Input<string | undefined>;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: pulumi.Input<string | undefined>;
+    /**
+     * Username of the user.
+     */
+    userName?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceUserProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: pulumi.Input<string | undefined>;
+    /**
+     * First name of the user.
+     */
+    firstName?: pulumi.Input<string | undefined>;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: pulumi.Input<string | undefined>;
+    /**
+     * Last name of the user.
+     */
+    lastName?: pulumi.Input<string | undefined>;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: pulumi.Input<string | undefined>;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: pulumi.Input<string | undefined>;
+    /**
+     * Username of the user.
+     */
+    userName?: pulumi.Input<string | undefined>;
+}
+
 export interface LogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -3085,6 +3686,7 @@ export interface PushGroupAppConfig {
     groupScope: pulumi.Input<string>;
     groupType: pulumi.Input<string>;
     samAccountName: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }
 
 export interface PushProviderConfiguration {
@@ -3992,6 +4594,516 @@ export namespace app {
         status?: pulumi.Input<string | undefined>;
     }
 
+    export interface GetSignOnPolicyRuleActions {
+        /**
+         * Specifies the results when a user attempts to sign in
+         */
+        appSignOn?: inputs.app.GetSignOnPolicyRuleActionsAppSignOn;
+    }
+
+    export interface GetSignOnPolicyRuleActionsArgs {
+        /**
+         * Specifies the results when a user attempts to sign in
+         */
+        appSignOn?: pulumi.Input<inputs.app.GetSignOnPolicyRuleActionsAppSignOnArgs | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOn {
+        /**
+         * Access
+         */
+        access?: string;
+        /**
+         * Controls how often the post-authentication prompt is presented to users
+         */
+        keepMeSignedIn?: inputs.app.GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn;
+        /**
+         * The method used to verify a user
+         */
+        verificationMethod?: inputs.app.GetSignOnPolicyRuleActionsAppSignOnVerificationMethod;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnArgs {
+        /**
+         * Access
+         */
+        access?: pulumi.Input<string | undefined>;
+        /**
+         * Controls how often the post-authentication prompt is presented to users
+         */
+        keepMeSignedIn?: pulumi.Input<inputs.app.GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs | undefined>;
+        /**
+         * The method used to verify a user
+         */
+        verificationMethod?: pulumi.Input<inputs.app.GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedIn {
+        /**
+         * Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+         */
+        postAuth?: string;
+        /**
+         * A time duration specified as an ISO 8601 duration
+         */
+        postAuthPromptFrequency?: string;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs {
+        /**
+         * Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+         */
+        postAuth?: pulumi.Input<string | undefined>;
+        /**
+         * A time duration specified as an ISO 8601 duration
+         */
+        postAuthPromptFrequency?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnVerificationMethod {
+        /**
+         * Verification method type
+         */
+        type?: string;
+    }
+
+    export interface GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs {
+        /**
+         * Verification method type
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditions {
+        /**
+         * Specifies the device condition to match on
+         */
+        device?: inputs.app.GetSignOnPolicyRuleConditionsDevice;
+        /**
+         * Specifies Okta Expression Language expressions
+         */
+        elCondition?: inputs.app.GetSignOnPolicyRuleConditionsElCondition;
+        /**
+         * Specifies a network selection mode and a set of network zones to be included or excluded.
+         */
+        network?: inputs.app.GetSignOnPolicyRuleConditionsNetwork;
+        /**
+         * Specifies the users and groups that are included or excluded by the policy rule
+         */
+        people?: inputs.app.GetSignOnPolicyRuleConditionsPeople;
+        /**
+         * Specifies a particular platform or device to match on
+         */
+        platform?: inputs.app.GetSignOnPolicyRuleConditionsPlatform;
+        /**
+         * Specifies a particular level of risk to match on
+         */
+        riskScore?: inputs.app.GetSignOnPolicyRuleConditionsRiskScore;
+        /**
+         * Specifies which user types to include and/or exclude
+         */
+        userType?: inputs.app.GetSignOnPolicyRuleConditionsUserType;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsArgs {
+        /**
+         * Specifies the device condition to match on
+         */
+        device?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsDeviceArgs | undefined>;
+        /**
+         * Specifies Okta Expression Language expressions
+         */
+        elCondition?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsElConditionArgs | undefined>;
+        /**
+         * Specifies a network selection mode and a set of network zones to be included or excluded.
+         */
+        network?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsNetworkArgs | undefined>;
+        /**
+         * Specifies the users and groups that are included or excluded by the policy rule
+         */
+        people?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPeopleArgs | undefined>;
+        /**
+         * Specifies a particular platform or device to match on
+         */
+        platform?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformArgs | undefined>;
+        /**
+         * Specifies a particular level of risk to match on
+         */
+        riskScore?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsRiskScoreArgs | undefined>;
+        /**
+         * Specifies which user types to include and/or exclude
+         */
+        userType?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsUserTypeArgs | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsDevice {
+        /**
+         * Specifies device assurance policies in the policy rule.
+         */
+        assurance?: inputs.app.GetSignOnPolicyRuleConditionsDeviceAssurance;
+        /**
+         * Indicates if the device is managed.
+         */
+        managed?: boolean;
+        /**
+         * Indicates if the device is registered.
+         */
+        registered?: boolean;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsDeviceArgs {
+        /**
+         * Specifies device assurance policies in the policy rule.
+         */
+        assurance?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsDeviceAssuranceArgs | undefined>;
+        /**
+         * Indicates if the device is managed.
+         */
+        managed?: pulumi.Input<boolean | undefined>;
+        /**
+         * Indicates if the device is registered.
+         */
+        registered?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsDeviceAssurance {
+        /**
+         * Specifies the device assurance policy ID
+         */
+        includes?: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsDeviceAssuranceArgs {
+        /**
+         * Specifies the device assurance policy ID
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsElCondition {
+        /**
+         * expression to match
+         */
+        condition?: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsElConditionArgs {
+        /**
+         * expression to match
+         */
+        condition?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsNetwork {
+        /**
+         * Network selection mode
+         */
+        connection?: string;
+        /**
+         * The zones to exclude.
+         */
+        excludes?: string[];
+        /**
+         * The zones to include.
+         */
+        includes?: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsNetworkArgs {
+        /**
+         * Network selection mode
+         */
+        connection?: pulumi.Input<string | undefined>;
+        /**
+         * The zones to exclude.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The zones to include.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeople {
+        /**
+         * Specifies a set of groups whose users are to be included or excluded
+         */
+        groups?: inputs.app.GetSignOnPolicyRuleConditionsPeopleGroups;
+        /**
+         * Specifies a set of users to be included or excluded
+         */
+        users?: inputs.app.GetSignOnPolicyRuleConditionsPeopleUsers;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleArgs {
+        /**
+         * Specifies a set of groups whose users are to be included or excluded
+         */
+        groups?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPeopleGroupsArgs | undefined>;
+        /**
+         * Specifies a set of users to be included or excluded
+         */
+        users?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPeopleUsersArgs | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleGroups {
+        /**
+         * Groups to be excluded
+         */
+        excludes?: string[];
+        /**
+         * Groups to be included
+         */
+        includes?: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleGroupsArgs {
+        /**
+         * Groups to be excluded
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Groups to be included
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleUsers {
+        /**
+         * Users to be excluded
+         */
+        excludes?: string[];
+        /**
+         * Users to be included
+         */
+        includes?: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPeopleUsersArgs {
+        /**
+         * Users to be excluded
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Users to be included
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatform {
+        /**
+         * Exclude
+         */
+        excludes?: inputs.app.GetSignOnPolicyRuleConditionsPlatformExclude[];
+        /**
+         * Include
+         */
+        includes?: inputs.app.GetSignOnPolicyRuleConditionsPlatformInclude[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformArgs {
+        /**
+         * Exclude
+         */
+        excludes?: pulumi.Input<pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeArgs>[] | undefined>;
+        /**
+         * Include
+         */
+        includes?: pulumi.Input<pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeArgs>[] | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExclude {
+        /**
+         * Os
+         */
+        os?: inputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeOs;
+        /**
+         * The type of platform
+         */
+        type?: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeArgs {
+        /**
+         * Os
+         */
+        os?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs | undefined>;
+        /**
+         * The type of platform
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeOs {
+        /**
+         * Expression
+         */
+        expression?: string;
+        /**
+         * The type of operating system
+         */
+        type?: string;
+        /**
+         * Version
+         */
+        version?: inputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs {
+        /**
+         * Expression
+         */
+        expression?: pulumi.Input<string | undefined>;
+        /**
+         * The type of operating system
+         */
+        type?: pulumi.Input<string | undefined>;
+        /**
+         * Version
+         */
+        version?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeOsVersion {
+        /**
+         * MatchType
+         */
+        matchType?: string;
+        /**
+         * Value
+         */
+        value?: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs {
+        /**
+         * MatchType
+         */
+        matchType?: pulumi.Input<string | undefined>;
+        /**
+         * Value
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformInclude {
+        /**
+         * Os
+         */
+        os?: inputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeOs;
+        /**
+         * The type of platform
+         */
+        type?: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeArgs {
+        /**
+         * Os
+         */
+        os?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs | undefined>;
+        /**
+         * The type of platform
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeOs {
+        /**
+         * Expression
+         */
+        expression?: string;
+        /**
+         * The type of operating system
+         */
+        type?: string;
+        /**
+         * Version
+         */
+        version?: inputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs {
+        /**
+         * Expression
+         */
+        expression?: pulumi.Input<string | undefined>;
+        /**
+         * The type of operating system
+         */
+        type?: pulumi.Input<string | undefined>;
+        /**
+         * Version
+         */
+        version?: pulumi.Input<inputs.app.GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeOsVersion {
+        /**
+         * MatchType
+         */
+        matchType?: string;
+        /**
+         * Value
+         */
+        value?: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs {
+        /**
+         * MatchType
+         */
+        matchType?: pulumi.Input<string | undefined>;
+        /**
+         * Value
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsRiskScore {
+        /**
+         * The level to match
+         */
+        level?: string;
+        /**
+         * The minimum risk level to match.
+         */
+        minRiskLevel?: string;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsRiskScoreArgs {
+        /**
+         * The level to match
+         */
+        level?: pulumi.Input<string | undefined>;
+        /**
+         * The minimum risk level to match.
+         */
+        minRiskLevel?: pulumi.Input<string | undefined>;
+    }
+
+    export interface GetSignOnPolicyRuleConditionsUserType {
+        /**
+         * The user types to exclude
+         */
+        excludes?: string[];
+        /**
+         * The user types to include
+         */
+        includes?: string[];
+    }
+
+    export interface GetSignOnPolicyRuleConditionsUserTypeArgs {
+        /**
+         * The user types to exclude
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The user types to include
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface OAuthGroupsClaim {
         /**
          * Groups claim filter. Can only be set if type is FILTER.
@@ -4179,6 +5291,10 @@ export namespace app {
          */
         inactivityPeriod?: pulumi.Input<string | undefined>;
         /**
+         * Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+         */
+        keepMeSignedIn?: pulumi.Input<inputs.app.SignonPolicyRulesRuleKeepMeSignedIn | undefined>;
+        /**
          * Policy Rule Name. Must be unique within the policy.
          */
         name: pulumi.Input<string>;
@@ -4207,7 +5323,7 @@ export namespace app {
          */
         reAuthenticationFrequency?: pulumi.Input<string | undefined>;
         /**
-         * Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+         * Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
          */
         riskScore?: pulumi.Input<string | undefined>;
         /**
@@ -4238,6 +5354,17 @@ export namespace app {
          * Set of user IDs to include in this rule.
          */
         usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface SignonPolicyRulesRuleKeepMeSignedIn {
+        /**
+         * Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+         */
+        postAuth?: pulumi.Input<string | undefined>;
+        /**
+         * How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+         */
+        postAuthPromptFrequency?: pulumi.Input<string | undefined>;
     }
 
     export interface SignonPolicyRulesRulePlatformInclude {

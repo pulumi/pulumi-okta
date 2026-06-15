@@ -15,6 +15,22 @@ namespace Pulumi.Okta
         /// Retrieves the request settings for a resource.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetRequestSettingResource.Invoke(new()
+        ///     {
+        ///         Id = "&lt;id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetRequestSettingResourceResult> InvokeAsync(GetRequestSettingResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRequestSettingResourceResult>("okta:index/getRequestSettingResource:getRequestSettingResource", args ?? new GetRequestSettingResourceArgs(), options.WithDefaults());
@@ -23,6 +39,22 @@ namespace Pulumi.Okta
         /// Retrieves the request settings for a resource.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetRequestSettingResource.Invoke(new()
+        ///     {
+        ///         Id = "&lt;id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRequestSettingResourceResult> Invoke(GetRequestSettingResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestSettingResourceResult>("okta:index/getRequestSettingResource:getRequestSettingResource", args ?? new GetRequestSettingResourceInvokeArgs(), options.WithDefaults());
@@ -31,6 +63,22 @@ namespace Pulumi.Okta
         /// Retrieves the request settings for a resource.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Okta.GetRequestSettingResource.Invoke(new()
+        ///     {
+        ///         Id = "&lt;id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRequestSettingResourceResult> Invoke(GetRequestSettingResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestSettingResourceResult>("okta:index/getRequestSettingResource:getRequestSettingResource", args ?? new GetRequestSettingResourceInvokeArgs(), options.WithDefaults());

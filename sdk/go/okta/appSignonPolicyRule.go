@@ -54,6 +54,8 @@ type AppSignonPolicyRule struct {
 	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod pulumi.StringPtrOutput `pulumi:"inactivityPeriod"`
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn AppSignonPolicyRuleKeepMeSignedInOutput `pulumi:"keepMeSignedIn"`
 	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
@@ -142,6 +144,8 @@ type appSignonPolicyRuleState struct {
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod *string `pulumi:"inactivityPeriod"`
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn *AppSignonPolicyRuleKeepMeSignedIn `pulumi:"keepMeSignedIn"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
 	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
@@ -198,6 +202,8 @@ type AppSignonPolicyRuleState struct {
 	GroupsIncludeds pulumi.StringArrayInput
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod pulumi.StringPtrInput
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn AppSignonPolicyRuleKeepMeSignedInPtrInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
 	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
@@ -258,6 +264,8 @@ type appSignonPolicyRuleArgs struct {
 	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod *string `pulumi:"inactivityPeriod"`
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn *AppSignonPolicyRuleKeepMeSignedIn `pulumi:"keepMeSignedIn"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
 	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
@@ -313,6 +321,8 @@ type AppSignonPolicyRuleArgs struct {
 	GroupsIncludeds pulumi.StringArrayInput
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod pulumi.StringPtrInput
+	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+	KeepMeSignedIn AppSignonPolicyRuleKeepMeSignedInPtrInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
 	// Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
@@ -484,6 +494,11 @@ func (o AppSignonPolicyRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
 // The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 func (o AppSignonPolicyRuleOutput) InactivityPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringPtrOutput { return v.InactivityPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+func (o AppSignonPolicyRuleOutput) KeepMeSignedIn() AppSignonPolicyRuleKeepMeSignedInOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) AppSignonPolicyRuleKeepMeSignedInOutput { return v.KeepMeSignedIn }).(AppSignonPolicyRuleKeepMeSignedInOutput)
 }
 
 // Policy Rule Name
