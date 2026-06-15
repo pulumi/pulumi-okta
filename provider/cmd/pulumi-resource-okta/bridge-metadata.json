@@ -237,6 +237,9 @@
                     "groups_included": {
                         "maxItemsOne": false
                     },
+                    "keep_me_signed_in": {
+                        "maxItemsOne": true
+                    },
                     "network_excludes": {
                         "maxItemsOne": false
                     },
@@ -282,6 +285,9 @@
                                 },
                                 "groups_included": {
                                     "maxItemsOne": false
+                                },
+                                "keep_me_signed_in": {
+                                    "maxItemsOne": true
                                 },
                                 "network_excludes": {
                                     "maxItemsOne": false
@@ -430,6 +436,31 @@
             "okta_authenticator": {
                 "current": "okta:index/authenticator:Authenticator",
                 "majorVersion": 6
+            },
+            "okta_authenticator_method_webauthn": {
+                "current": "okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn",
+                "majorVersion": 6,
+                "fields": {
+                    "aaguid_group": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "aaguids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "okta_authenticator_webauthn_custom_aaguid": {
+                "current": "okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid",
+                "majorVersion": 6,
+                "fields": {
+                    "attestation_root_certificate": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "okta_behavior": {
                 "current": "okta:index/behaviour:Behaviour",
@@ -779,6 +810,85 @@
             },
             "okta_hook_key": {
                 "current": "okta:index/hookKey:HookKey",
+                "majorVersion": 6
+            },
+            "okta_identity_source_group": {
+                "current": "okta:index/identitySourceGroup:IdentitySourceGroup",
+                "majorVersion": 6
+            },
+            "okta_identity_source_group_membership": {
+                "current": "okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership",
+                "majorVersion": 6,
+                "fields": {
+                    "member_external_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_identity_source_import": {
+                "current": "okta:index/identitySourceImport:IdentitySourceImport",
+                "majorVersion": 6,
+                "fields": {
+                    "delete_group_memberships": {
+                        "fields": {
+                            "memberships": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "member_external_ids": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "delete_groups": {
+                        "fields": {
+                            "external_ids": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "delete_users": {
+                        "fields": {
+                            "profiles": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "upsert_group_memberships": {
+                        "fields": {
+                            "memberships": {
+                                "maxItemsOne": false,
+                                "elem": {
+                                    "fields": {
+                                        "member_external_ids": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "upsert_groups": {
+                        "fields": {
+                            "profiles": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "upsert_users": {
+                        "fields": {
+                            "profiles": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "okta_identity_source_user": {
+                "current": "okta:index/identitySourceUser:IdentitySourceUser",
                 "majorVersion": 6
             },
             "okta_idp_oidc": {
@@ -1616,6 +1726,81 @@
                     }
                 }
             },
+            "okta_app_sign_on_policy_rule": {
+                "current": "okta:app/getSignOnPolicyRule:getSignOnPolicyRule",
+                "majorVersion": 6,
+                "fields": {
+                    "conditions": {
+                        "fields": {
+                            "device": {
+                                "fields": {
+                                    "assurance": {
+                                        "fields": {
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "network": {
+                                "fields": {
+                                    "exclude": {
+                                        "maxItemsOne": false
+                                    },
+                                    "include": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "people": {
+                                "fields": {
+                                    "groups": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": false
+                                            },
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    },
+                                    "users": {
+                                        "fields": {
+                                            "exclude": {
+                                                "maxItemsOne": false
+                                            },
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "platform": {
+                                "fields": {
+                                    "exclude": {
+                                        "maxItemsOne": false
+                                    },
+                                    "include": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "user_type": {
+                                "fields": {
+                                    "exclude": {
+                                        "maxItemsOne": false
+                                    },
+                                    "include": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "okta_app_signon_policy": {
                 "current": "okta:index/getAppSignonPolicy:getAppSignonPolicy",
                 "majorVersion": 6
@@ -1722,6 +1907,73 @@
             "okta_authenticator": {
                 "current": "okta:index/getAuthenticator:getAuthenticator",
                 "majorVersion": 6
+            },
+            "okta_authenticator_method_webauthn": {
+                "current": "okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn",
+                "majorVersion": 6,
+                "fields": {
+                    "aaguid_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "aaguids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "okta_authenticator_webauthn_custom_aaguids": {
+                "current": "okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids",
+                "majorVersion": 6,
+                "fields": {
+                    "custom_aaguids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_authorization_servers_policies_rule": {
+                "current": "okta:index/getAuthorizationServersPoliciesRule:getAuthorizationServersPoliciesRule",
+                "majorVersion": 6,
+                "fields": {
+                    "conditions": {
+                        "fields": {
+                            "grant_types": {
+                                "fields": {
+                                    "include": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            },
+                            "people": {
+                                "fields": {
+                                    "groups": {
+                                        "fields": {
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    },
+                                    "users": {
+                                        "fields": {
+                                            "include": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "scopes": {
+                                "fields": {
+                                    "include": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "okta_behavior": {
                 "current": "okta:index/getBehaviour:getBehaviour",
@@ -2044,6 +2296,36 @@
             },
             "okta_hook_key": {
                 "current": "okta:index/getHookKey:getHookKey",
+                "majorVersion": 6
+            },
+            "okta_iam_assignees_user": {
+                "current": "okta:index/getIamAssigneesUser:getIamAssigneesUser",
+                "majorVersion": 6,
+                "fields": {
+                    "items": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_identity_source_group_memberships": {
+                "current": "okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships",
+                "majorVersion": 6,
+                "fields": {
+                    "member_external_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_identity_source_groups": {
+                "current": "okta:index/getIdentitySourceGroups:getIdentitySourceGroups",
+                "majorVersion": 6
+            },
+            "okta_identity_source_sessions": {
+                "current": "okta:index/getIdentitySourceSessions:getIdentitySourceSessions",
+                "majorVersion": 6
+            },
+            "okta_identity_source_users": {
+                "current": "okta:index/getIdentitySourceUsers:getIdentitySourceUsers",
                 "majorVersion": 6
             },
             "okta_idp_metadata_saml": {
@@ -2553,6 +2835,8 @@
             "okta:index/authServerClaimDefault:AuthServerClaimDefault": 0,
             "okta:index/authServerDefault:AuthServerDefault": 0,
             "okta:index/authenticator:Authenticator": 0,
+            "okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn": 1,
+            "okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid": 1,
             "okta:index/behaviour:Behaviour": 0,
             "okta:index/brand:Brand": 1,
             "okta:index/campaign:Campaign": 1,
@@ -2581,6 +2865,10 @@
             "okta:index/groupMemberships:GroupMemberships": 0,
             "okta:index/groupSchemaProperty:GroupSchemaProperty": 0,
             "okta:index/hookKey:HookKey": 1,
+            "okta:index/identitySourceGroup:IdentitySourceGroup": 1,
+            "okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership": 1,
+            "okta:index/identitySourceImport:IdentitySourceImport": 1,
+            "okta:index/identitySourceUser:IdentitySourceUser": 1,
             "okta:index/linkDefinition:LinkDefinition": 0,
             "okta:index/linkValue:LinkValue": 0,
             "okta:index/logStream:LogStream": 1,
@@ -2650,6 +2938,7 @@
             "okta:app/getMetadataSaml:getMetadataSaml": 0,
             "okta:app/getOauth:getOauth": 0,
             "okta:app/getSaml:getSaml": 0,
+            "okta:app/getSignOnPolicyRule:getSignOnPolicyRule": 1,
             "okta:app/getToken:getToken": 1,
             "okta:auth/getServer:getServer": 0,
             "okta:auth/getServerClients:getServerClients": 1,
@@ -2674,6 +2963,9 @@
             "okta:index/getAuthServerClaim:getAuthServerClaim": 0,
             "okta:index/getAuthServerClaims:getAuthServerClaims": 0,
             "okta:index/getAuthenticator:getAuthenticator": 0,
+            "okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn": 1,
+            "okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids": 1,
+            "okta:index/getAuthorizationServersPoliciesRule:getAuthorizationServersPoliciesRule": 1,
             "okta:index/getBehaviour:getBehaviour": 0,
             "okta:index/getBehaviours:getBehaviours": 0,
             "okta:index/getBrand:getBrand": 0,
@@ -2695,6 +2987,11 @@
             "okta:index/getFeatures:getFeatures": 1,
             "okta:index/getGroups:getGroups": 0,
             "okta:index/getHookKey:getHookKey": 1,
+            "okta:index/getIamAssigneesUser:getIamAssigneesUser": 1,
+            "okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships": 1,
+            "okta:index/getIdentitySourceGroups:getIdentitySourceGroups": 1,
+            "okta:index/getIdentitySourceSessions:getIdentitySourceSessions": 1,
+            "okta:index/getIdentitySourceUsers:getIdentitySourceUsers": 1,
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
             "okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer": 1,
