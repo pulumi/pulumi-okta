@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewSessionViolationPolicyRule(ctx, "example", &okta.SessionViolationPolicyRuleArgs{
-//				PolicyId:                pulumi.String(pulumi.String(example.Id)),
+//				PolicyId:                pulumi.String(example.Id),
 //				Name:                    pulumi.String("Session Violation Rule"),
 //				MinRiskLevel:            pulumi.String("HIGH"),
 //				PolicyEvaluationEnabled: pulumi.Bool(true),

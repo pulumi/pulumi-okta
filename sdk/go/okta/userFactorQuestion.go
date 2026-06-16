@@ -52,7 +52,7 @@ import (
 //			_, err = okta.NewUserFactorQuestion(ctx, "example", &okta.UserFactorQuestionArgs{
 //				UserId: exampleUser.ID(),
 //				Key: pulumi.String(example.ApplyT(func(example okta.GetUserSecurityQuestionsResult) (*string, error) {
-//					return &example.Questions[0].Key, nil
+//					return example.Questions[0].Key, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Answer: pulumi.String("meatball"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

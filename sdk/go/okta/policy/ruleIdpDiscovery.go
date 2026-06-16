@@ -42,7 +42,7 @@ import (
 //			}
 //			// Example 1: Specific IdP routing - route to a named OIDC IdP
 //			_, err = policy.NewRuleIdpDiscovery(ctx, "example", &policy.RuleIdpDiscoveryArgs{
-//				PolicyId: pulumi.String(pulumi.String(idpDiscoveryPolicy.Id)),
+//				PolicyId: pulumi.String(idpDiscoveryPolicy.Id),
 //				Name:     pulumi.String("example"),
 //				IdpProviders: policy.RuleIdpDiscoveryIdpProviderArray{
 //					&policy.RuleIdpDiscoveryIdpProviderArgs{
@@ -93,7 +93,7 @@ import (
 //			}
 //			// Example 2: Dynamic IdP routing - select IdP based on an expression
 //			_, err = policy.NewRuleIdpDiscovery(ctx, "dynamic_example", &policy.RuleIdpDiscoveryArgs{
-//				PolicyId:           pulumi.String(pulumi.String(idpDiscoveryPolicy.Id)),
+//				PolicyId:           pulumi.String(idpDiscoveryPolicy.Id),
 //				Name:               pulumi.String("dynamic-idp-routing"),
 //				NetworkConnection:  pulumi.String("ANYWHERE"),
 //				Priority:           pulumi.Int(2),

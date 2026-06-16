@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewEntityRiskPolicyRule(ctx, "high_risk", &okta.EntityRiskPolicyRuleArgs{
-//				PolicyId:             pulumi.String(pulumi.String(example.Id)),
+//				PolicyId:             pulumi.String(example.Id),
 //				Name:                 pulumi.String("High Risk - Terminate Sessions"),
 //				RiskLevel:            pulumi.String("HIGH"),
 //				TerminateAllSessions: pulumi.Bool(true),
@@ -77,12 +77,12 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewEntityRiskPolicyRule(ctx, "privileged_high_risk", &okta.EntityRiskPolicyRuleArgs{
-//				PolicyId:             pulumi.String(pulumi.String(example.Id)),
+//				PolicyId:             pulumi.String(example.Id),
 //				Name:                 pulumi.String("Privileged Users - High Risk"),
 //				RiskLevel:            pulumi.String("HIGH"),
 //				TerminateAllSessions: pulumi.Bool(true),
 //				GroupsIncludeds: pulumi.StringArray{
-//					pulumi.String(pulumi.String(privilegedUsers.Id)),
+//					pulumi.String(privilegedUsers.Id),
 //				},
 //			})
 //			if err != nil {
@@ -113,7 +113,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewEntityRiskPolicyRule(ctx, "workflow_rule", &okta.EntityRiskPolicyRuleArgs{
-//				PolicyId:   pulumi.String(pulumi.String(example.Id)),
+//				PolicyId:   pulumi.String(example.Id),
 //				Name:       pulumi.String("Low Risk - Run Workflow"),
 //				RiskLevel:  pulumi.String("LOW"),
 //				WorkflowId: pulumi.String("your-workflow-id"),

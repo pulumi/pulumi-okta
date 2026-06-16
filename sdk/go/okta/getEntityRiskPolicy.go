@@ -33,7 +33,7 @@ import (
 //			}
 //			// Use the policy ID to create rules
 //			_, err = okta.NewEntityRiskPolicyRule(ctx, "example", &okta.EntityRiskPolicyRuleArgs{
-//				PolicyId:             pulumi.String(pulumi.String(example.Id)),
+//				PolicyId:             pulumi.String(example.Id),
 //				Name:                 pulumi.String("High Risk Response"),
 //				RiskLevel:            pulumi.String("HIGH"),
 //				TerminateAllSessions: pulumi.Bool(true),

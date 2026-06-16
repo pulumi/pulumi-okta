@@ -2500,6 +2500,103 @@
             }
         }
     },
+    "default-resource-schema-fixups": {
+        "resources": {
+            "okta_agent_pool_update": {},
+            "okta_api_service_integration": {},
+            "okta_api_token": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_app_access_policy_assignment": {},
+            "okta_app_connection": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_app_features": {},
+            "okta_app_federated_claim": {},
+            "okta_app_oauth_role_assignment": {},
+            "okta_app_signon_policy": {},
+            "okta_app_signon_policy_rules": {},
+            "okta_app_token": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_brand": {},
+            "okta_campaign": {},
+            "okta_customized_signin_page": {},
+            "okta_device": {},
+            "okta_email_template_settings": {},
+            "okta_end_user_my_requests": {},
+            "okta_entitlement": {},
+            "okta_entitlement_bundle": {},
+            "okta_entity_risk_policy_rule": {},
+            "okta_feature": {},
+            "okta_group_owner": {},
+            "okta_group_owners": {},
+            "okta_hook_key": {},
+            "okta_log_stream": {},
+            "okta_policy_device_assurance_android": {},
+            "okta_policy_device_assurance_chromeos": {},
+            "okta_policy_device_assurance_ios": {},
+            "okta_policy_device_assurance_macos": {},
+            "okta_policy_device_assurance_windows": {},
+            "okta_post_auth_session_policy_rule": {},
+            "okta_preview_signin_page": {},
+            "okta_principal_rate_limits": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_push_group": {},
+            "okta_push_provider": {},
+            "okta_rate_limit_admin_notification_settings": {},
+            "okta_rate_limit_warning_threshold_percentage": {},
+            "okta_rate_limiting": {},
+            "okta_realm": {},
+            "okta_realm_assignment": {},
+            "okta_request_condition": {},
+            "okta_request_sequence": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_request_setting_organization": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_request_setting_resource": {
+                "fields": {
+                    "id": {
+                        "name": "idProperty"
+                    }
+                }
+            },
+            "okta_request_v2": {},
+            "okta_review": {},
+            "okta_security_events_provider": {},
+            "okta_session_violation_policy_rule": {},
+            "okta_trusted_server": {},
+            "okta_ui_schema": {},
+            "okta_user_risk": {}
+        }
+    },
     "mux": {
         "resources": {
             "okta:app/accessPolicyAssignment:AccessPolicyAssignment": 1,

@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewPostAuthSessionPolicyRule(ctx, "example", &okta.PostAuthSessionPolicyRuleArgs{
-//				PolicyId:         pulumi.String(pulumi.String(example.Id)),
+//				PolicyId:         pulumi.String(example.Id),
 //				Name:             pulumi.String("Session Protection Rule"),
 //				TerminateSession: pulumi.Bool(true),
 //			})
