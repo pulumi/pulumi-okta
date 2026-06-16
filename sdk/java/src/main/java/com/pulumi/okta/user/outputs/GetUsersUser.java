@@ -12,10 +12,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUsersUser {
+    private String activated;
     private List<String> adminRoles;
     private String city;
     private String costCenter;
     private String countryCode;
+    private String created;
     private String customProfileAttributes;
     private String department;
     private String displayName;
@@ -27,7 +29,9 @@ public final class GetUsersUser {
     private String honorificPrefix;
     private String honorificSuffix;
     private String id;
+    private String lastLogin;
     private String lastName;
+    private String lastUpdated;
     private String locale;
     private String login;
     private String manager;
@@ -36,6 +40,7 @@ public final class GetUsersUser {
     private String mobilePhone;
     private String nickName;
     private String organization;
+    private String passwordChanged;
     private String postalAddress;
     private String preferredLanguage;
     private String primaryPhone;
@@ -49,6 +54,7 @@ public final class GetUsersUser {
     private String secondEmail;
     private String state;
     private String status;
+    private String statusChanged;
     private String streetAddress;
     private String timezone;
     private String title;
@@ -61,6 +67,9 @@ public final class GetUsersUser {
     private String zipCode;
 
     private GetUsersUser() {}
+    public String activated() {
+        return this.activated;
+    }
     public List<String> adminRoles() {
         return this.adminRoles;
     }
@@ -72,6 +81,9 @@ public final class GetUsersUser {
     }
     public String countryCode() {
         return this.countryCode;
+    }
+    public String created() {
+        return this.created;
     }
     public String customProfileAttributes() {
         return this.customProfileAttributes;
@@ -106,8 +118,14 @@ public final class GetUsersUser {
     public String id() {
         return this.id;
     }
+    public String lastLogin() {
+        return this.lastLogin;
+    }
     public String lastName() {
         return this.lastName;
+    }
+    public String lastUpdated() {
+        return this.lastUpdated;
     }
     public String locale() {
         return this.locale;
@@ -132,6 +150,9 @@ public final class GetUsersUser {
     }
     public String organization() {
         return this.organization;
+    }
+    public String passwordChanged() {
+        return this.passwordChanged;
     }
     public String postalAddress() {
         return this.postalAddress;
@@ -163,6 +184,9 @@ public final class GetUsersUser {
     }
     public String status() {
         return this.status;
+    }
+    public String statusChanged() {
+        return this.statusChanged;
     }
     public String streetAddress() {
         return this.streetAddress;
@@ -196,10 +220,12 @@ public final class GetUsersUser {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String activated;
         private List<String> adminRoles;
         private String city;
         private String costCenter;
         private String countryCode;
+        private String created;
         private String customProfileAttributes;
         private String department;
         private String displayName;
@@ -211,7 +237,9 @@ public final class GetUsersUser {
         private String honorificPrefix;
         private String honorificSuffix;
         private String id;
+        private String lastLogin;
         private String lastName;
+        private String lastUpdated;
         private String locale;
         private String login;
         private String manager;
@@ -220,6 +248,7 @@ public final class GetUsersUser {
         private String mobilePhone;
         private String nickName;
         private String organization;
+        private String passwordChanged;
         private String postalAddress;
         private String preferredLanguage;
         private String primaryPhone;
@@ -229,6 +258,7 @@ public final class GetUsersUser {
         private String secondEmail;
         private String state;
         private String status;
+        private String statusChanged;
         private String streetAddress;
         private String timezone;
         private String title;
@@ -238,10 +268,12 @@ public final class GetUsersUser {
         public Builder() {}
         public Builder(GetUsersUser defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.activated = defaults.activated;
     	      this.adminRoles = defaults.adminRoles;
     	      this.city = defaults.city;
     	      this.costCenter = defaults.costCenter;
     	      this.countryCode = defaults.countryCode;
+    	      this.created = defaults.created;
     	      this.customProfileAttributes = defaults.customProfileAttributes;
     	      this.department = defaults.department;
     	      this.displayName = defaults.displayName;
@@ -253,7 +285,9 @@ public final class GetUsersUser {
     	      this.honorificPrefix = defaults.honorificPrefix;
     	      this.honorificSuffix = defaults.honorificSuffix;
     	      this.id = defaults.id;
+    	      this.lastLogin = defaults.lastLogin;
     	      this.lastName = defaults.lastName;
+    	      this.lastUpdated = defaults.lastUpdated;
     	      this.locale = defaults.locale;
     	      this.login = defaults.login;
     	      this.manager = defaults.manager;
@@ -262,6 +296,7 @@ public final class GetUsersUser {
     	      this.mobilePhone = defaults.mobilePhone;
     	      this.nickName = defaults.nickName;
     	      this.organization = defaults.organization;
+    	      this.passwordChanged = defaults.passwordChanged;
     	      this.postalAddress = defaults.postalAddress;
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.primaryPhone = defaults.primaryPhone;
@@ -271,6 +306,7 @@ public final class GetUsersUser {
     	      this.secondEmail = defaults.secondEmail;
     	      this.state = defaults.state;
     	      this.status = defaults.status;
+    	      this.statusChanged = defaults.statusChanged;
     	      this.streetAddress = defaults.streetAddress;
     	      this.timezone = defaults.timezone;
     	      this.title = defaults.title;
@@ -279,6 +315,14 @@ public final class GetUsersUser {
     	      this.zipCode = defaults.zipCode;
         }
 
+        @CustomType.Setter
+        public Builder activated(String activated) {
+            if (activated == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "activated");
+            }
+            this.activated = activated;
+            return this;
+        }
         @CustomType.Setter
         public Builder adminRoles(List<String> adminRoles) {
             if (adminRoles == null) {
@@ -312,6 +356,14 @@ public final class GetUsersUser {
               throw new MissingRequiredPropertyException("GetUsersUser", "countryCode");
             }
             this.countryCode = countryCode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder created(String created) {
+            if (created == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "created");
+            }
+            this.created = created;
             return this;
         }
         @CustomType.Setter
@@ -406,11 +458,27 @@ public final class GetUsersUser {
             return this;
         }
         @CustomType.Setter
+        public Builder lastLogin(String lastLogin) {
+            if (lastLogin == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "lastLogin");
+            }
+            this.lastLogin = lastLogin;
+            return this;
+        }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             if (lastName == null) {
               throw new MissingRequiredPropertyException("GetUsersUser", "lastName");
             }
             this.lastName = lastName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lastUpdated(String lastUpdated) {
+            if (lastUpdated == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "lastUpdated");
+            }
+            this.lastUpdated = lastUpdated;
             return this;
         }
         @CustomType.Setter
@@ -475,6 +543,14 @@ public final class GetUsersUser {
               throw new MissingRequiredPropertyException("GetUsersUser", "organization");
             }
             this.organization = organization;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordChanged(String passwordChanged) {
+            if (passwordChanged == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "passwordChanged");
+            }
+            this.passwordChanged = passwordChanged;
             return this;
         }
         @CustomType.Setter
@@ -553,6 +629,14 @@ public final class GetUsersUser {
             return this;
         }
         @CustomType.Setter
+        public Builder statusChanged(String statusChanged) {
+            if (statusChanged == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "statusChanged");
+            }
+            this.statusChanged = statusChanged;
+            return this;
+        }
+        @CustomType.Setter
         public Builder streetAddress(String streetAddress) {
             if (streetAddress == null) {
               throw new MissingRequiredPropertyException("GetUsersUser", "streetAddress");
@@ -605,10 +689,12 @@ public final class GetUsersUser {
         }
         public GetUsersUser build() {
             final var _resultValue = new GetUsersUser();
+            _resultValue.activated = activated;
             _resultValue.adminRoles = adminRoles;
             _resultValue.city = city;
             _resultValue.costCenter = costCenter;
             _resultValue.countryCode = countryCode;
+            _resultValue.created = created;
             _resultValue.customProfileAttributes = customProfileAttributes;
             _resultValue.department = department;
             _resultValue.displayName = displayName;
@@ -620,7 +706,9 @@ public final class GetUsersUser {
             _resultValue.honorificPrefix = honorificPrefix;
             _resultValue.honorificSuffix = honorificSuffix;
             _resultValue.id = id;
+            _resultValue.lastLogin = lastLogin;
             _resultValue.lastName = lastName;
+            _resultValue.lastUpdated = lastUpdated;
             _resultValue.locale = locale;
             _resultValue.login = login;
             _resultValue.manager = manager;
@@ -629,6 +717,7 @@ public final class GetUsersUser {
             _resultValue.mobilePhone = mobilePhone;
             _resultValue.nickName = nickName;
             _resultValue.organization = organization;
+            _resultValue.passwordChanged = passwordChanged;
             _resultValue.postalAddress = postalAddress;
             _resultValue.preferredLanguage = preferredLanguage;
             _resultValue.primaryPhone = primaryPhone;
@@ -638,6 +727,7 @@ public final class GetUsersUser {
             _resultValue.secondEmail = secondEmail;
             _resultValue.state = state;
             _resultValue.status = status;
+            _resultValue.statusChanged = statusChanged;
             _resultValue.streetAddress = streetAddress;
             _resultValue.timezone = timezone;
             _resultValue.title = title;

@@ -719,6 +719,162 @@ func (o AppGroupAssignmentsGroupArrayOutput) Index(i pulumi.IntInput) AppGroupAs
 	}).(AppGroupAssignmentsGroupOutput)
 }
 
+type AppSignonPolicyRuleKeepMeSignedIn struct {
+	// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+	PostAuth *string `pulumi:"postAuth"`
+	// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+	PostAuthPromptFrequency *string `pulumi:"postAuthPromptFrequency"`
+}
+
+// AppSignonPolicyRuleKeepMeSignedInInput is an input type that accepts AppSignonPolicyRuleKeepMeSignedInArgs and AppSignonPolicyRuleKeepMeSignedInOutput values.
+// You can construct a concrete instance of `AppSignonPolicyRuleKeepMeSignedInInput` via:
+//
+//	AppSignonPolicyRuleKeepMeSignedInArgs{...}
+type AppSignonPolicyRuleKeepMeSignedInInput interface {
+	pulumi.Input
+
+	ToAppSignonPolicyRuleKeepMeSignedInOutput() AppSignonPolicyRuleKeepMeSignedInOutput
+	ToAppSignonPolicyRuleKeepMeSignedInOutputWithContext(context.Context) AppSignonPolicyRuleKeepMeSignedInOutput
+}
+
+type AppSignonPolicyRuleKeepMeSignedInArgs struct {
+	// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+	PostAuth pulumi.StringPtrInput `pulumi:"postAuth"`
+	// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+	PostAuthPromptFrequency pulumi.StringPtrInput `pulumi:"postAuthPromptFrequency"`
+}
+
+func (AppSignonPolicyRuleKeepMeSignedInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSignonPolicyRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (i AppSignonPolicyRuleKeepMeSignedInArgs) ToAppSignonPolicyRuleKeepMeSignedInOutput() AppSignonPolicyRuleKeepMeSignedInOutput {
+	return i.ToAppSignonPolicyRuleKeepMeSignedInOutputWithContext(context.Background())
+}
+
+func (i AppSignonPolicyRuleKeepMeSignedInArgs) ToAppSignonPolicyRuleKeepMeSignedInOutputWithContext(ctx context.Context) AppSignonPolicyRuleKeepMeSignedInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleKeepMeSignedInOutput)
+}
+
+func (i AppSignonPolicyRuleKeepMeSignedInArgs) ToAppSignonPolicyRuleKeepMeSignedInPtrOutput() AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return i.ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (i AppSignonPolicyRuleKeepMeSignedInArgs) ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleKeepMeSignedInOutput).ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(ctx)
+}
+
+// AppSignonPolicyRuleKeepMeSignedInPtrInput is an input type that accepts AppSignonPolicyRuleKeepMeSignedInArgs, AppSignonPolicyRuleKeepMeSignedInPtr and AppSignonPolicyRuleKeepMeSignedInPtrOutput values.
+// You can construct a concrete instance of `AppSignonPolicyRuleKeepMeSignedInPtrInput` via:
+//
+//	        AppSignonPolicyRuleKeepMeSignedInArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppSignonPolicyRuleKeepMeSignedInPtrInput interface {
+	pulumi.Input
+
+	ToAppSignonPolicyRuleKeepMeSignedInPtrOutput() AppSignonPolicyRuleKeepMeSignedInPtrOutput
+	ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(context.Context) AppSignonPolicyRuleKeepMeSignedInPtrOutput
+}
+
+type appSignonPolicyRuleKeepMeSignedInPtrType AppSignonPolicyRuleKeepMeSignedInArgs
+
+func AppSignonPolicyRuleKeepMeSignedInPtr(v *AppSignonPolicyRuleKeepMeSignedInArgs) AppSignonPolicyRuleKeepMeSignedInPtrInput {
+	return (*appSignonPolicyRuleKeepMeSignedInPtrType)(v)
+}
+
+func (*appSignonPolicyRuleKeepMeSignedInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppSignonPolicyRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (i *appSignonPolicyRuleKeepMeSignedInPtrType) ToAppSignonPolicyRuleKeepMeSignedInPtrOutput() AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return i.ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (i *appSignonPolicyRuleKeepMeSignedInPtrType) ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSignonPolicyRuleKeepMeSignedInPtrOutput)
+}
+
+type AppSignonPolicyRuleKeepMeSignedInOutput struct{ *pulumi.OutputState }
+
+func (AppSignonPolicyRuleKeepMeSignedInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSignonPolicyRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInOutput) ToAppSignonPolicyRuleKeepMeSignedInOutput() AppSignonPolicyRuleKeepMeSignedInOutput {
+	return o
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInOutput) ToAppSignonPolicyRuleKeepMeSignedInOutputWithContext(ctx context.Context) AppSignonPolicyRuleKeepMeSignedInOutput {
+	return o
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInOutput) ToAppSignonPolicyRuleKeepMeSignedInPtrOutput() AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return o.ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(context.Background())
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInOutput) ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSignonPolicyRuleKeepMeSignedIn) *AppSignonPolicyRuleKeepMeSignedIn {
+		return &v
+	}).(AppSignonPolicyRuleKeepMeSignedInPtrOutput)
+}
+
+// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+func (o AppSignonPolicyRuleKeepMeSignedInOutput) PostAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSignonPolicyRuleKeepMeSignedIn) *string { return v.PostAuth }).(pulumi.StringPtrOutput)
+}
+
+// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+func (o AppSignonPolicyRuleKeepMeSignedInOutput) PostAuthPromptFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppSignonPolicyRuleKeepMeSignedIn) *string { return v.PostAuthPromptFrequency }).(pulumi.StringPtrOutput)
+}
+
+type AppSignonPolicyRuleKeepMeSignedInPtrOutput struct{ *pulumi.OutputState }
+
+func (AppSignonPolicyRuleKeepMeSignedInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppSignonPolicyRuleKeepMeSignedIn)(nil)).Elem()
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInPtrOutput) ToAppSignonPolicyRuleKeepMeSignedInPtrOutput() AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return o
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInPtrOutput) ToAppSignonPolicyRuleKeepMeSignedInPtrOutputWithContext(ctx context.Context) AppSignonPolicyRuleKeepMeSignedInPtrOutput {
+	return o
+}
+
+func (o AppSignonPolicyRuleKeepMeSignedInPtrOutput) Elem() AppSignonPolicyRuleKeepMeSignedInOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRuleKeepMeSignedIn) AppSignonPolicyRuleKeepMeSignedIn {
+		if v != nil {
+			return *v
+		}
+		var ret AppSignonPolicyRuleKeepMeSignedIn
+		return ret
+	}).(AppSignonPolicyRuleKeepMeSignedInOutput)
+}
+
+// Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+func (o AppSignonPolicyRuleKeepMeSignedInPtrOutput) PostAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRuleKeepMeSignedIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostAuth
+	}).(pulumi.StringPtrOutput)
+}
+
+// How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+func (o AppSignonPolicyRuleKeepMeSignedInPtrOutput) PostAuthPromptFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRuleKeepMeSignedIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostAuthPromptFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
 type AppSignonPolicyRulePlatformInclude struct {
 	// Only available with OTHER OS type
 	OsExpression *string `pulumi:"osExpression"`
@@ -1038,6 +1194,725 @@ func (o AppUserSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) AppUserS
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppUserSchemaPropertyOneOf {
 		return vs[0].([]AppUserSchemaPropertyOneOf)[vs[1].(int)]
 	}).(AppUserSchemaPropertyOneOfOutput)
+}
+
+type AuthenticatorMethodWebauthnAaguidGroup struct {
+	// A list of FIDO2 AAGUIDs in this group.
+	Aaguids []string `pulumi:"aaguids"`
+	// A name to identify the group of FIDO2 AAGUIDs.
+	Name string `pulumi:"name"`
+}
+
+// AuthenticatorMethodWebauthnAaguidGroupInput is an input type that accepts AuthenticatorMethodWebauthnAaguidGroupArgs and AuthenticatorMethodWebauthnAaguidGroupOutput values.
+// You can construct a concrete instance of `AuthenticatorMethodWebauthnAaguidGroupInput` via:
+//
+//	AuthenticatorMethodWebauthnAaguidGroupArgs{...}
+type AuthenticatorMethodWebauthnAaguidGroupInput interface {
+	pulumi.Input
+
+	ToAuthenticatorMethodWebauthnAaguidGroupOutput() AuthenticatorMethodWebauthnAaguidGroupOutput
+	ToAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(context.Context) AuthenticatorMethodWebauthnAaguidGroupOutput
+}
+
+type AuthenticatorMethodWebauthnAaguidGroupArgs struct {
+	// A list of FIDO2 AAGUIDs in this group.
+	Aaguids pulumi.StringArrayInput `pulumi:"aaguids"`
+	// A name to identify the group of FIDO2 AAGUIDs.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AuthenticatorMethodWebauthnAaguidGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (i AuthenticatorMethodWebauthnAaguidGroupArgs) ToAuthenticatorMethodWebauthnAaguidGroupOutput() AuthenticatorMethodWebauthnAaguidGroupOutput {
+	return i.ToAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorMethodWebauthnAaguidGroupArgs) ToAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnAaguidGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnAaguidGroupOutput)
+}
+
+// AuthenticatorMethodWebauthnAaguidGroupArrayInput is an input type that accepts AuthenticatorMethodWebauthnAaguidGroupArray and AuthenticatorMethodWebauthnAaguidGroupArrayOutput values.
+// You can construct a concrete instance of `AuthenticatorMethodWebauthnAaguidGroupArrayInput` via:
+//
+//	AuthenticatorMethodWebauthnAaguidGroupArray{ AuthenticatorMethodWebauthnAaguidGroupArgs{...} }
+type AuthenticatorMethodWebauthnAaguidGroupArrayInput interface {
+	pulumi.Input
+
+	ToAuthenticatorMethodWebauthnAaguidGroupArrayOutput() AuthenticatorMethodWebauthnAaguidGroupArrayOutput
+	ToAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(context.Context) AuthenticatorMethodWebauthnAaguidGroupArrayOutput
+}
+
+type AuthenticatorMethodWebauthnAaguidGroupArray []AuthenticatorMethodWebauthnAaguidGroupInput
+
+func (AuthenticatorMethodWebauthnAaguidGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (i AuthenticatorMethodWebauthnAaguidGroupArray) ToAuthenticatorMethodWebauthnAaguidGroupArrayOutput() AuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return i.ToAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorMethodWebauthnAaguidGroupArray) ToAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnAaguidGroupArrayOutput)
+}
+
+type AuthenticatorMethodWebauthnAaguidGroupOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorMethodWebauthnAaguidGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (o AuthenticatorMethodWebauthnAaguidGroupOutput) ToAuthenticatorMethodWebauthnAaguidGroupOutput() AuthenticatorMethodWebauthnAaguidGroupOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnAaguidGroupOutput) ToAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnAaguidGroupOutput {
+	return o
+}
+
+// A list of FIDO2 AAGUIDs in this group.
+func (o AuthenticatorMethodWebauthnAaguidGroupOutput) Aaguids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticatorMethodWebauthnAaguidGroup) []string { return v.Aaguids }).(pulumi.StringArrayOutput)
+}
+
+// A name to identify the group of FIDO2 AAGUIDs.
+func (o AuthenticatorMethodWebauthnAaguidGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthenticatorMethodWebauthnAaguidGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AuthenticatorMethodWebauthnAaguidGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorMethodWebauthnAaguidGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (o AuthenticatorMethodWebauthnAaguidGroupArrayOutput) ToAuthenticatorMethodWebauthnAaguidGroupArrayOutput() AuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnAaguidGroupArrayOutput) ToAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnAaguidGroupArrayOutput) Index(i pulumi.IntInput) AuthenticatorMethodWebauthnAaguidGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthenticatorMethodWebauthnAaguidGroup {
+		return vs[0].([]AuthenticatorMethodWebauthnAaguidGroup)[vs[1].(int)]
+	}).(AuthenticatorMethodWebauthnAaguidGroupOutput)
+}
+
+type AuthenticatorMethodWebauthnRpId struct {
+	// The RP domain configuration. Contains:
+	Domain *AuthenticatorMethodWebauthnRpIdDomain `pulumi:"domain"`
+	// Whether the RP ID is active and used for WebAuthn operations.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// AuthenticatorMethodWebauthnRpIdInput is an input type that accepts AuthenticatorMethodWebauthnRpIdArgs and AuthenticatorMethodWebauthnRpIdOutput values.
+// You can construct a concrete instance of `AuthenticatorMethodWebauthnRpIdInput` via:
+//
+//	AuthenticatorMethodWebauthnRpIdArgs{...}
+type AuthenticatorMethodWebauthnRpIdInput interface {
+	pulumi.Input
+
+	ToAuthenticatorMethodWebauthnRpIdOutput() AuthenticatorMethodWebauthnRpIdOutput
+	ToAuthenticatorMethodWebauthnRpIdOutputWithContext(context.Context) AuthenticatorMethodWebauthnRpIdOutput
+}
+
+type AuthenticatorMethodWebauthnRpIdArgs struct {
+	// The RP domain configuration. Contains:
+	Domain AuthenticatorMethodWebauthnRpIdDomainPtrInput `pulumi:"domain"`
+	// Whether the RP ID is active and used for WebAuthn operations.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (AuthenticatorMethodWebauthnRpIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (i AuthenticatorMethodWebauthnRpIdArgs) ToAuthenticatorMethodWebauthnRpIdOutput() AuthenticatorMethodWebauthnRpIdOutput {
+	return i.ToAuthenticatorMethodWebauthnRpIdOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorMethodWebauthnRpIdArgs) ToAuthenticatorMethodWebauthnRpIdOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnRpIdOutput)
+}
+
+func (i AuthenticatorMethodWebauthnRpIdArgs) ToAuthenticatorMethodWebauthnRpIdPtrOutput() AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return i.ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorMethodWebauthnRpIdArgs) ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnRpIdOutput).ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx)
+}
+
+// AuthenticatorMethodWebauthnRpIdPtrInput is an input type that accepts AuthenticatorMethodWebauthnRpIdArgs, AuthenticatorMethodWebauthnRpIdPtr and AuthenticatorMethodWebauthnRpIdPtrOutput values.
+// You can construct a concrete instance of `AuthenticatorMethodWebauthnRpIdPtrInput` via:
+//
+//	        AuthenticatorMethodWebauthnRpIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticatorMethodWebauthnRpIdPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticatorMethodWebauthnRpIdPtrOutput() AuthenticatorMethodWebauthnRpIdPtrOutput
+	ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Context) AuthenticatorMethodWebauthnRpIdPtrOutput
+}
+
+type authenticatorMethodWebauthnRpIdPtrType AuthenticatorMethodWebauthnRpIdArgs
+
+func AuthenticatorMethodWebauthnRpIdPtr(v *AuthenticatorMethodWebauthnRpIdArgs) AuthenticatorMethodWebauthnRpIdPtrInput {
+	return (*authenticatorMethodWebauthnRpIdPtrType)(v)
+}
+
+func (*authenticatorMethodWebauthnRpIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (i *authenticatorMethodWebauthnRpIdPtrType) ToAuthenticatorMethodWebauthnRpIdPtrOutput() AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return i.ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticatorMethodWebauthnRpIdPtrType) ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnRpIdPtrOutput)
+}
+
+type AuthenticatorMethodWebauthnRpIdOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorMethodWebauthnRpIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (o AuthenticatorMethodWebauthnRpIdOutput) ToAuthenticatorMethodWebauthnRpIdOutput() AuthenticatorMethodWebauthnRpIdOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdOutput) ToAuthenticatorMethodWebauthnRpIdOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdOutput) ToAuthenticatorMethodWebauthnRpIdPtrOutput() AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o.ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticatorMethodWebauthnRpIdOutput) ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticatorMethodWebauthnRpId) *AuthenticatorMethodWebauthnRpId {
+		return &v
+	}).(AuthenticatorMethodWebauthnRpIdPtrOutput)
+}
+
+// The RP domain configuration. Contains:
+func (o AuthenticatorMethodWebauthnRpIdOutput) Domain() AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ApplyT(func(v AuthenticatorMethodWebauthnRpId) *AuthenticatorMethodWebauthnRpIdDomain { return v.Domain }).(AuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+// Whether the RP ID is active and used for WebAuthn operations.
+func (o AuthenticatorMethodWebauthnRpIdOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthenticatorMethodWebauthnRpId) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type AuthenticatorMethodWebauthnRpIdPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorMethodWebauthnRpIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (o AuthenticatorMethodWebauthnRpIdPtrOutput) ToAuthenticatorMethodWebauthnRpIdPtrOutput() AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdPtrOutput) ToAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdPtrOutput) Elem() AuthenticatorMethodWebauthnRpIdOutput {
+	return o.ApplyT(func(v *AuthenticatorMethodWebauthnRpId) AuthenticatorMethodWebauthnRpId {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticatorMethodWebauthnRpId
+		return ret
+	}).(AuthenticatorMethodWebauthnRpIdOutput)
+}
+
+// The RP domain configuration. Contains:
+func (o AuthenticatorMethodWebauthnRpIdPtrOutput) Domain() AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorMethodWebauthnRpId) *AuthenticatorMethodWebauthnRpIdDomain {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(AuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+// Whether the RP ID is active and used for WebAuthn operations.
+func (o AuthenticatorMethodWebauthnRpIdPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorMethodWebauthnRpId) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AuthenticatorMethodWebauthnRpIdDomain struct {
+	// The RP ID domain value used for WebAuthn operations.
+	Name *string `pulumi:"name"`
+	// The validation status of the domain.
+	ValidationStatus *string `pulumi:"validationStatus"`
+}
+
+// AuthenticatorMethodWebauthnRpIdDomainInput is an input type that accepts AuthenticatorMethodWebauthnRpIdDomainArgs and AuthenticatorMethodWebauthnRpIdDomainOutput values.
+// You can construct a concrete instance of `AuthenticatorMethodWebauthnRpIdDomainInput` via:
+//
+//	AuthenticatorMethodWebauthnRpIdDomainArgs{...}
+type AuthenticatorMethodWebauthnRpIdDomainInput interface {
+	pulumi.Input
+
+	ToAuthenticatorMethodWebauthnRpIdDomainOutput() AuthenticatorMethodWebauthnRpIdDomainOutput
+	ToAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(context.Context) AuthenticatorMethodWebauthnRpIdDomainOutput
+}
+
+type AuthenticatorMethodWebauthnRpIdDomainArgs struct {
+	// The RP ID domain value used for WebAuthn operations.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The validation status of the domain.
+	ValidationStatus pulumi.StringPtrInput `pulumi:"validationStatus"`
+}
+
+func (AuthenticatorMethodWebauthnRpIdDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (i AuthenticatorMethodWebauthnRpIdDomainArgs) ToAuthenticatorMethodWebauthnRpIdDomainOutput() AuthenticatorMethodWebauthnRpIdDomainOutput {
+	return i.ToAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorMethodWebauthnRpIdDomainArgs) ToAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnRpIdDomainOutput)
+}
+
+func (i AuthenticatorMethodWebauthnRpIdDomainArgs) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutput() AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return i.ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorMethodWebauthnRpIdDomainArgs) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnRpIdDomainOutput).ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx)
+}
+
+// AuthenticatorMethodWebauthnRpIdDomainPtrInput is an input type that accepts AuthenticatorMethodWebauthnRpIdDomainArgs, AuthenticatorMethodWebauthnRpIdDomainPtr and AuthenticatorMethodWebauthnRpIdDomainPtrOutput values.
+// You can construct a concrete instance of `AuthenticatorMethodWebauthnRpIdDomainPtrInput` via:
+//
+//	        AuthenticatorMethodWebauthnRpIdDomainArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticatorMethodWebauthnRpIdDomainPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticatorMethodWebauthnRpIdDomainPtrOutput() AuthenticatorMethodWebauthnRpIdDomainPtrOutput
+	ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Context) AuthenticatorMethodWebauthnRpIdDomainPtrOutput
+}
+
+type authenticatorMethodWebauthnRpIdDomainPtrType AuthenticatorMethodWebauthnRpIdDomainArgs
+
+func AuthenticatorMethodWebauthnRpIdDomainPtr(v *AuthenticatorMethodWebauthnRpIdDomainArgs) AuthenticatorMethodWebauthnRpIdDomainPtrInput {
+	return (*authenticatorMethodWebauthnRpIdDomainPtrType)(v)
+}
+
+func (*authenticatorMethodWebauthnRpIdDomainPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (i *authenticatorMethodWebauthnRpIdDomainPtrType) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutput() AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return i.ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticatorMethodWebauthnRpIdDomainPtrType) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+type AuthenticatorMethodWebauthnRpIdDomainOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorMethodWebauthnRpIdDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainOutput) ToAuthenticatorMethodWebauthnRpIdDomainOutput() AuthenticatorMethodWebauthnRpIdDomainOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainOutput) ToAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdDomainOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainOutput) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutput() AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainOutput) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticatorMethodWebauthnRpIdDomain) *AuthenticatorMethodWebauthnRpIdDomain {
+		return &v
+	}).(AuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+// The RP ID domain value used for WebAuthn operations.
+func (o AuthenticatorMethodWebauthnRpIdDomainOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticatorMethodWebauthnRpIdDomain) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The validation status of the domain.
+func (o AuthenticatorMethodWebauthnRpIdDomainOutput) ValidationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticatorMethodWebauthnRpIdDomain) *string { return v.ValidationStatus }).(pulumi.StringPtrOutput)
+}
+
+type AuthenticatorMethodWebauthnRpIdDomainPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorMethodWebauthnRpIdDomainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainPtrOutput) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutput() AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainPtrOutput) ToAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) AuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o
+}
+
+func (o AuthenticatorMethodWebauthnRpIdDomainPtrOutput) Elem() AuthenticatorMethodWebauthnRpIdDomainOutput {
+	return o.ApplyT(func(v *AuthenticatorMethodWebauthnRpIdDomain) AuthenticatorMethodWebauthnRpIdDomain {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticatorMethodWebauthnRpIdDomain
+		return ret
+	}).(AuthenticatorMethodWebauthnRpIdDomainOutput)
+}
+
+// The RP ID domain value used for WebAuthn operations.
+func (o AuthenticatorMethodWebauthnRpIdDomainPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorMethodWebauthnRpIdDomain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The validation status of the domain.
+func (o AuthenticatorMethodWebauthnRpIdDomainPtrOutput) ValidationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorMethodWebauthnRpIdDomain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificate struct {
+	// Expiry date of the certificate.
+	Expiry *string `pulumi:"expiry"`
+	// Issuer of the certificate.
+	Issuer *string `pulumi:"issuer"`
+	// X.509 certificate chain (base64-encoded).
+	X5c string `pulumi:"x5c"`
+	// SHA-256 hash (thumbprint) of the X.509 certificate.
+	X5tS256 *string `pulumi:"x5tS256"`
+}
+
+// AuthenticatorWebauthnCustomAaguidAttestationRootCertificateInput is an input type that accepts AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs and AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput values.
+// You can construct a concrete instance of `AuthenticatorWebauthnCustomAaguidAttestationRootCertificateInput` via:
+//
+//	AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs{...}
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificateInput interface {
+	pulumi.Input
+
+	ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput() AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput
+	ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutputWithContext(context.Context) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput
+}
+
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs struct {
+	// Expiry date of the certificate.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// Issuer of the certificate.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// X.509 certificate chain (base64-encoded).
+	X5c pulumi.StringInput `pulumi:"x5c"`
+	// SHA-256 hash (thumbprint) of the X.509 certificate.
+	X5tS256 pulumi.StringPtrInput `pulumi:"x5tS256"`
+}
+
+func (AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAttestationRootCertificate)(nil)).Elem()
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput() AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput {
+	return i.ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput)
+}
+
+// AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayInput is an input type that accepts AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray and AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput values.
+// You can construct a concrete instance of `AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayInput` via:
+//
+//	AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray{ AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs{...} }
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput() AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput
+	ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutputWithContext(context.Context) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput
+}
+
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray []AuthenticatorWebauthnCustomAaguidAttestationRootCertificateInput
+
+func (AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthenticatorWebauthnCustomAaguidAttestationRootCertificate)(nil)).Elem()
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput() AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput {
+	return i.ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput)
+}
+
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAttestationRootCertificate)(nil)).Elem()
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput() AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput {
+	return o
+}
+
+// Expiry date of the certificate.
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAttestationRootCertificate) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// Issuer of the certificate.
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAttestationRootCertificate) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// X.509 certificate chain (base64-encoded).
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) X5c() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAttestationRootCertificate) string { return v.X5c }).(pulumi.StringOutput)
+}
+
+// SHA-256 hash (thumbprint) of the X.509 certificate.
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput) X5tS256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAttestationRootCertificate) *string { return v.X5tS256 }).(pulumi.StringPtrOutput)
+}
+
+type AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthenticatorWebauthnCustomAaguidAttestationRootCertificate)(nil)).Elem()
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput() AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput) ToAuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput) Index(i pulumi.IntInput) AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthenticatorWebauthnCustomAaguidAttestationRootCertificate {
+		return vs[0].([]AuthenticatorWebauthnCustomAaguidAttestationRootCertificate)[vs[1].(int)]
+	}).(AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput)
+}
+
+type AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics struct {
+	// Indicates whether the authenticator meets FIPS compliance requirements.
+	FipsCompliant *bool `pulumi:"fipsCompliant"`
+	// Indicates whether the authenticator stores the private key on a hardware component.
+	HardwareProtected *bool `pulumi:"hardwareProtected"`
+	// Indicates whether the custom AAGUID is built into the authenticator or is external.
+	PlatformAttached *bool `pulumi:"platformAttached"`
+}
+
+// AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsInput is an input type that accepts AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs and AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput values.
+// You can construct a concrete instance of `AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsInput` via:
+//
+//	AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs{...}
+type AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsInput interface {
+	pulumi.Input
+
+	ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput
+	ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutputWithContext(context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput
+}
+
+type AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs struct {
+	// Indicates whether the authenticator meets FIPS compliance requirements.
+	FipsCompliant pulumi.BoolPtrInput `pulumi:"fipsCompliant"`
+	// Indicates whether the authenticator stores the private key on a hardware component.
+	HardwareProtected pulumi.BoolPtrInput `pulumi:"hardwareProtected"`
+	// Indicates whether the custom AAGUID is built into the authenticator or is external.
+	PlatformAttached pulumi.BoolPtrInput `pulumi:"platformAttached"`
+}
+
+func (AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput {
+	return i.ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput)
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return i.ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput).ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx)
+}
+
+// AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrInput is an input type that accepts AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs, AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtr and AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput values.
+// You can construct a concrete instance of `AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrInput` via:
+//
+//	        AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput
+	ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput
+}
+
+type authenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrType AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs
+
+func AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtr(v *AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrInput {
+	return (*authenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrType)(v)
+}
+
+func (*authenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (i *authenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrType) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return i.ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrType) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput)
+}
+
+type AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o.ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics {
+		return &v
+	}).(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput)
+}
+
+// Indicates whether the authenticator meets FIPS compliance requirements.
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) FipsCompliant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *bool { return v.FipsCompliant }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the authenticator stores the private key on a hardware component.
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) HardwareProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *bool {
+		return v.HardwareProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the custom AAGUID is built into the authenticator or is external.
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput) PlatformAttached() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *bool { return v.PlatformAttached }).(pulumi.BoolPtrOutput)
+}
+
+type AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) ToAuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o
+}
+
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) Elem() AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput {
+	return o.ApplyT(func(v *AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics
+		return ret
+	}).(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput)
+}
+
+// Indicates whether the authenticator meets FIPS compliance requirements.
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) FipsCompliant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FipsCompliant
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the authenticator stores the private key on a hardware component.
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) HardwareProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HardwareProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the custom AAGUID is built into the authenticator or is external.
+func (o AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput) PlatformAttached() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PlatformAttached
+	}).(pulumi.BoolPtrOutput)
 }
 
 type CampaignNotificationSettings struct {
@@ -6116,6 +6991,2209 @@ func (o GroupSchemaPropertyOneOfArrayOutput) Index(i pulumi.IntInput) GroupSchem
 	}).(GroupSchemaPropertyOneOfOutput)
 }
 
+type IdentitySourceGroupProfile struct {
+	// Description of the group.
+	Description *string `pulumi:"description"`
+	// Name of the group.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// IdentitySourceGroupProfileInput is an input type that accepts IdentitySourceGroupProfileArgs and IdentitySourceGroupProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceGroupProfileInput` via:
+//
+//	IdentitySourceGroupProfileArgs{...}
+type IdentitySourceGroupProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceGroupProfileOutput() IdentitySourceGroupProfileOutput
+	ToIdentitySourceGroupProfileOutputWithContext(context.Context) IdentitySourceGroupProfileOutput
+}
+
+type IdentitySourceGroupProfileArgs struct {
+	// Description of the group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Name of the group.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (IdentitySourceGroupProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceGroupProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceGroupProfileArgs) ToIdentitySourceGroupProfileOutput() IdentitySourceGroupProfileOutput {
+	return i.ToIdentitySourceGroupProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceGroupProfileArgs) ToIdentitySourceGroupProfileOutputWithContext(ctx context.Context) IdentitySourceGroupProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceGroupProfileOutput)
+}
+
+func (i IdentitySourceGroupProfileArgs) ToIdentitySourceGroupProfilePtrOutput() IdentitySourceGroupProfilePtrOutput {
+	return i.ToIdentitySourceGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceGroupProfileArgs) ToIdentitySourceGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceGroupProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceGroupProfileOutput).ToIdentitySourceGroupProfilePtrOutputWithContext(ctx)
+}
+
+// IdentitySourceGroupProfilePtrInput is an input type that accepts IdentitySourceGroupProfileArgs, IdentitySourceGroupProfilePtr and IdentitySourceGroupProfilePtrOutput values.
+// You can construct a concrete instance of `IdentitySourceGroupProfilePtrInput` via:
+//
+//	        IdentitySourceGroupProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceGroupProfilePtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceGroupProfilePtrOutput() IdentitySourceGroupProfilePtrOutput
+	ToIdentitySourceGroupProfilePtrOutputWithContext(context.Context) IdentitySourceGroupProfilePtrOutput
+}
+
+type identitySourceGroupProfilePtrType IdentitySourceGroupProfileArgs
+
+func IdentitySourceGroupProfilePtr(v *IdentitySourceGroupProfileArgs) IdentitySourceGroupProfilePtrInput {
+	return (*identitySourceGroupProfilePtrType)(v)
+}
+
+func (*identitySourceGroupProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceGroupProfile)(nil)).Elem()
+}
+
+func (i *identitySourceGroupProfilePtrType) ToIdentitySourceGroupProfilePtrOutput() IdentitySourceGroupProfilePtrOutput {
+	return i.ToIdentitySourceGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceGroupProfilePtrType) ToIdentitySourceGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceGroupProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceGroupProfilePtrOutput)
+}
+
+type IdentitySourceGroupProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceGroupProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceGroupProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceGroupProfileOutput) ToIdentitySourceGroupProfileOutput() IdentitySourceGroupProfileOutput {
+	return o
+}
+
+func (o IdentitySourceGroupProfileOutput) ToIdentitySourceGroupProfileOutputWithContext(ctx context.Context) IdentitySourceGroupProfileOutput {
+	return o
+}
+
+func (o IdentitySourceGroupProfileOutput) ToIdentitySourceGroupProfilePtrOutput() IdentitySourceGroupProfilePtrOutput {
+	return o.ToIdentitySourceGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceGroupProfileOutput) ToIdentitySourceGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceGroupProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceGroupProfile) *IdentitySourceGroupProfile {
+		return &v
+	}).(IdentitySourceGroupProfilePtrOutput)
+}
+
+// Description of the group.
+func (o IdentitySourceGroupProfileOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceGroupProfile) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the group.
+func (o IdentitySourceGroupProfileOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceGroupProfile) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceGroupProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceGroupProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceGroupProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceGroupProfilePtrOutput) ToIdentitySourceGroupProfilePtrOutput() IdentitySourceGroupProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceGroupProfilePtrOutput) ToIdentitySourceGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceGroupProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceGroupProfilePtrOutput) Elem() IdentitySourceGroupProfileOutput {
+	return o.ApplyT(func(v *IdentitySourceGroupProfile) IdentitySourceGroupProfile {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceGroupProfile
+		return ret
+	}).(IdentitySourceGroupProfileOutput)
+}
+
+// Description of the group.
+func (o IdentitySourceGroupProfilePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the group.
+func (o IdentitySourceGroupProfilePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceImportDeleteGroupMemberships struct {
+	// Group memberships to delete. (see below)
+	Memberships []IdentitySourceImportDeleteGroupMembershipsMembership `pulumi:"memberships"`
+}
+
+// IdentitySourceImportDeleteGroupMembershipsInput is an input type that accepts IdentitySourceImportDeleteGroupMembershipsArgs and IdentitySourceImportDeleteGroupMembershipsOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteGroupMembershipsInput` via:
+//
+//	IdentitySourceImportDeleteGroupMembershipsArgs{...}
+type IdentitySourceImportDeleteGroupMembershipsInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteGroupMembershipsOutput() IdentitySourceImportDeleteGroupMembershipsOutput
+	ToIdentitySourceImportDeleteGroupMembershipsOutputWithContext(context.Context) IdentitySourceImportDeleteGroupMembershipsOutput
+}
+
+type IdentitySourceImportDeleteGroupMembershipsArgs struct {
+	// Group memberships to delete. (see below)
+	Memberships IdentitySourceImportDeleteGroupMembershipsMembershipArrayInput `pulumi:"memberships"`
+}
+
+func (IdentitySourceImportDeleteGroupMembershipsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteGroupMemberships)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsArgs) ToIdentitySourceImportDeleteGroupMembershipsOutput() IdentitySourceImportDeleteGroupMembershipsOutput {
+	return i.ToIdentitySourceImportDeleteGroupMembershipsOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsArgs) ToIdentitySourceImportDeleteGroupMembershipsOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupMembershipsOutput)
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsArgs) ToIdentitySourceImportDeleteGroupMembershipsPtrOutput() IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return i.ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsArgs) ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupMembershipsOutput).ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportDeleteGroupMembershipsPtrInput is an input type that accepts IdentitySourceImportDeleteGroupMembershipsArgs, IdentitySourceImportDeleteGroupMembershipsPtr and IdentitySourceImportDeleteGroupMembershipsPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteGroupMembershipsPtrInput` via:
+//
+//	        IdentitySourceImportDeleteGroupMembershipsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportDeleteGroupMembershipsPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteGroupMembershipsPtrOutput() IdentitySourceImportDeleteGroupMembershipsPtrOutput
+	ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(context.Context) IdentitySourceImportDeleteGroupMembershipsPtrOutput
+}
+
+type identitySourceImportDeleteGroupMembershipsPtrType IdentitySourceImportDeleteGroupMembershipsArgs
+
+func IdentitySourceImportDeleteGroupMembershipsPtr(v *IdentitySourceImportDeleteGroupMembershipsArgs) IdentitySourceImportDeleteGroupMembershipsPtrInput {
+	return (*identitySourceImportDeleteGroupMembershipsPtrType)(v)
+}
+
+func (*identitySourceImportDeleteGroupMembershipsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportDeleteGroupMemberships)(nil)).Elem()
+}
+
+func (i *identitySourceImportDeleteGroupMembershipsPtrType) ToIdentitySourceImportDeleteGroupMembershipsPtrOutput() IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return i.ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportDeleteGroupMembershipsPtrType) ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupMembershipsPtrOutput)
+}
+
+type IdentitySourceImportDeleteGroupMembershipsOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteGroupMembershipsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteGroupMemberships)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsOutput) ToIdentitySourceImportDeleteGroupMembershipsOutput() IdentitySourceImportDeleteGroupMembershipsOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsOutput) ToIdentitySourceImportDeleteGroupMembershipsOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsOutput) ToIdentitySourceImportDeleteGroupMembershipsPtrOutput() IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return o.ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsOutput) ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportDeleteGroupMemberships) *IdentitySourceImportDeleteGroupMemberships {
+		return &v
+	}).(IdentitySourceImportDeleteGroupMembershipsPtrOutput)
+}
+
+// Group memberships to delete. (see below)
+func (o IdentitySourceImportDeleteGroupMembershipsOutput) Memberships() IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteGroupMemberships) []IdentitySourceImportDeleteGroupMembershipsMembership {
+		return v.Memberships
+	}).(IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput)
+}
+
+type IdentitySourceImportDeleteGroupMembershipsPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteGroupMembershipsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportDeleteGroupMemberships)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsPtrOutput) ToIdentitySourceImportDeleteGroupMembershipsPtrOutput() IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsPtrOutput) ToIdentitySourceImportDeleteGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsPtrOutput) Elem() IdentitySourceImportDeleteGroupMembershipsOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteGroupMemberships) IdentitySourceImportDeleteGroupMemberships {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportDeleteGroupMemberships
+		return ret
+	}).(IdentitySourceImportDeleteGroupMembershipsOutput)
+}
+
+// Group memberships to delete. (see below)
+func (o IdentitySourceImportDeleteGroupMembershipsPtrOutput) Memberships() IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteGroupMemberships) []IdentitySourceImportDeleteGroupMembershipsMembership {
+		if v == nil {
+			return nil
+		}
+		return v.Memberships
+	}).(IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput)
+}
+
+type IdentitySourceImportDeleteGroupMembershipsMembership struct {
+	// External ID of the group.
+	GroupExternalId *string `pulumi:"groupExternalId"`
+	// External IDs of the group members to remove.
+	MemberExternalIds []string `pulumi:"memberExternalIds"`
+}
+
+// IdentitySourceImportDeleteGroupMembershipsMembershipInput is an input type that accepts IdentitySourceImportDeleteGroupMembershipsMembershipArgs and IdentitySourceImportDeleteGroupMembershipsMembershipOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteGroupMembershipsMembershipInput` via:
+//
+//	IdentitySourceImportDeleteGroupMembershipsMembershipArgs{...}
+type IdentitySourceImportDeleteGroupMembershipsMembershipInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteGroupMembershipsMembershipOutput() IdentitySourceImportDeleteGroupMembershipsMembershipOutput
+	ToIdentitySourceImportDeleteGroupMembershipsMembershipOutputWithContext(context.Context) IdentitySourceImportDeleteGroupMembershipsMembershipOutput
+}
+
+type IdentitySourceImportDeleteGroupMembershipsMembershipArgs struct {
+	// External ID of the group.
+	GroupExternalId pulumi.StringPtrInput `pulumi:"groupExternalId"`
+	// External IDs of the group members to remove.
+	MemberExternalIds pulumi.StringArrayInput `pulumi:"memberExternalIds"`
+}
+
+func (IdentitySourceImportDeleteGroupMembershipsMembershipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsMembershipArgs) ToIdentitySourceImportDeleteGroupMembershipsMembershipOutput() IdentitySourceImportDeleteGroupMembershipsMembershipOutput {
+	return i.ToIdentitySourceImportDeleteGroupMembershipsMembershipOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsMembershipArgs) ToIdentitySourceImportDeleteGroupMembershipsMembershipOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsMembershipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupMembershipsMembershipOutput)
+}
+
+// IdentitySourceImportDeleteGroupMembershipsMembershipArrayInput is an input type that accepts IdentitySourceImportDeleteGroupMembershipsMembershipArray and IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteGroupMembershipsMembershipArrayInput` via:
+//
+//	IdentitySourceImportDeleteGroupMembershipsMembershipArray{ IdentitySourceImportDeleteGroupMembershipsMembershipArgs{...} }
+type IdentitySourceImportDeleteGroupMembershipsMembershipArrayInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput() IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput
+	ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutputWithContext(context.Context) IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput
+}
+
+type IdentitySourceImportDeleteGroupMembershipsMembershipArray []IdentitySourceImportDeleteGroupMembershipsMembershipInput
+
+func (IdentitySourceImportDeleteGroupMembershipsMembershipArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportDeleteGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsMembershipArray) ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput() IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput {
+	return i.ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteGroupMembershipsMembershipArray) ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput)
+}
+
+type IdentitySourceImportDeleteGroupMembershipsMembershipOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteGroupMembershipsMembershipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipOutput) ToIdentitySourceImportDeleteGroupMembershipsMembershipOutput() IdentitySourceImportDeleteGroupMembershipsMembershipOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipOutput) ToIdentitySourceImportDeleteGroupMembershipsMembershipOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsMembershipOutput {
+	return o
+}
+
+// External ID of the group.
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipOutput) GroupExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteGroupMembershipsMembership) *string { return v.GroupExternalId }).(pulumi.StringPtrOutput)
+}
+
+// External IDs of the group members to remove.
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipOutput) MemberExternalIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteGroupMembershipsMembership) []string { return v.MemberExternalIds }).(pulumi.StringArrayOutput)
+}
+
+type IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportDeleteGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput) ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput() IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput) ToIdentitySourceImportDeleteGroupMembershipsMembershipArrayOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput) Index(i pulumi.IntInput) IdentitySourceImportDeleteGroupMembershipsMembershipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentitySourceImportDeleteGroupMembershipsMembership {
+		return vs[0].([]IdentitySourceImportDeleteGroupMembershipsMembership)[vs[1].(int)]
+	}).(IdentitySourceImportDeleteGroupMembershipsMembershipOutput)
+}
+
+type IdentitySourceImportDeleteGroups struct {
+	// External IDs of the groups to delete.
+	ExternalIds []string `pulumi:"externalIds"`
+}
+
+// IdentitySourceImportDeleteGroupsInput is an input type that accepts IdentitySourceImportDeleteGroupsArgs and IdentitySourceImportDeleteGroupsOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteGroupsInput` via:
+//
+//	IdentitySourceImportDeleteGroupsArgs{...}
+type IdentitySourceImportDeleteGroupsInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteGroupsOutput() IdentitySourceImportDeleteGroupsOutput
+	ToIdentitySourceImportDeleteGroupsOutputWithContext(context.Context) IdentitySourceImportDeleteGroupsOutput
+}
+
+type IdentitySourceImportDeleteGroupsArgs struct {
+	// External IDs of the groups to delete.
+	ExternalIds pulumi.StringArrayInput `pulumi:"externalIds"`
+}
+
+func (IdentitySourceImportDeleteGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteGroups)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteGroupsArgs) ToIdentitySourceImportDeleteGroupsOutput() IdentitySourceImportDeleteGroupsOutput {
+	return i.ToIdentitySourceImportDeleteGroupsOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteGroupsArgs) ToIdentitySourceImportDeleteGroupsOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupsOutput)
+}
+
+func (i IdentitySourceImportDeleteGroupsArgs) ToIdentitySourceImportDeleteGroupsPtrOutput() IdentitySourceImportDeleteGroupsPtrOutput {
+	return i.ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteGroupsArgs) ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupsOutput).ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportDeleteGroupsPtrInput is an input type that accepts IdentitySourceImportDeleteGroupsArgs, IdentitySourceImportDeleteGroupsPtr and IdentitySourceImportDeleteGroupsPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteGroupsPtrInput` via:
+//
+//	        IdentitySourceImportDeleteGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportDeleteGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteGroupsPtrOutput() IdentitySourceImportDeleteGroupsPtrOutput
+	ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(context.Context) IdentitySourceImportDeleteGroupsPtrOutput
+}
+
+type identitySourceImportDeleteGroupsPtrType IdentitySourceImportDeleteGroupsArgs
+
+func IdentitySourceImportDeleteGroupsPtr(v *IdentitySourceImportDeleteGroupsArgs) IdentitySourceImportDeleteGroupsPtrInput {
+	return (*identitySourceImportDeleteGroupsPtrType)(v)
+}
+
+func (*identitySourceImportDeleteGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportDeleteGroups)(nil)).Elem()
+}
+
+func (i *identitySourceImportDeleteGroupsPtrType) ToIdentitySourceImportDeleteGroupsPtrOutput() IdentitySourceImportDeleteGroupsPtrOutput {
+	return i.ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportDeleteGroupsPtrType) ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteGroupsPtrOutput)
+}
+
+type IdentitySourceImportDeleteGroupsOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteGroups)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteGroupsOutput) ToIdentitySourceImportDeleteGroupsOutput() IdentitySourceImportDeleteGroupsOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupsOutput) ToIdentitySourceImportDeleteGroupsOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupsOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupsOutput) ToIdentitySourceImportDeleteGroupsPtrOutput() IdentitySourceImportDeleteGroupsPtrOutput {
+	return o.ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportDeleteGroupsOutput) ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportDeleteGroups) *IdentitySourceImportDeleteGroups {
+		return &v
+	}).(IdentitySourceImportDeleteGroupsPtrOutput)
+}
+
+// External IDs of the groups to delete.
+func (o IdentitySourceImportDeleteGroupsOutput) ExternalIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteGroups) []string { return v.ExternalIds }).(pulumi.StringArrayOutput)
+}
+
+type IdentitySourceImportDeleteGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportDeleteGroups)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteGroupsPtrOutput) ToIdentitySourceImportDeleteGroupsPtrOutput() IdentitySourceImportDeleteGroupsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupsPtrOutput) ToIdentitySourceImportDeleteGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteGroupsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteGroupsPtrOutput) Elem() IdentitySourceImportDeleteGroupsOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteGroups) IdentitySourceImportDeleteGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportDeleteGroups
+		return ret
+	}).(IdentitySourceImportDeleteGroupsOutput)
+}
+
+// External IDs of the groups to delete.
+func (o IdentitySourceImportDeleteGroupsPtrOutput) ExternalIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteGroups) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type IdentitySourceImportDeleteUsers struct {
+	// Entity type. Currently only `USERS` is supported.
+	EntityType *string `pulumi:"entityType"`
+	// User profiles to delete (by external ID). (see below)
+	Profiles []IdentitySourceImportDeleteUsersProfile `pulumi:"profiles"`
+}
+
+// IdentitySourceImportDeleteUsersInput is an input type that accepts IdentitySourceImportDeleteUsersArgs and IdentitySourceImportDeleteUsersOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteUsersInput` via:
+//
+//	IdentitySourceImportDeleteUsersArgs{...}
+type IdentitySourceImportDeleteUsersInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteUsersOutput() IdentitySourceImportDeleteUsersOutput
+	ToIdentitySourceImportDeleteUsersOutputWithContext(context.Context) IdentitySourceImportDeleteUsersOutput
+}
+
+type IdentitySourceImportDeleteUsersArgs struct {
+	// Entity type. Currently only `USERS` is supported.
+	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
+	// User profiles to delete (by external ID). (see below)
+	Profiles IdentitySourceImportDeleteUsersProfileArrayInput `pulumi:"profiles"`
+}
+
+func (IdentitySourceImportDeleteUsersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteUsers)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteUsersArgs) ToIdentitySourceImportDeleteUsersOutput() IdentitySourceImportDeleteUsersOutput {
+	return i.ToIdentitySourceImportDeleteUsersOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteUsersArgs) ToIdentitySourceImportDeleteUsersOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteUsersOutput)
+}
+
+func (i IdentitySourceImportDeleteUsersArgs) ToIdentitySourceImportDeleteUsersPtrOutput() IdentitySourceImportDeleteUsersPtrOutput {
+	return i.ToIdentitySourceImportDeleteUsersPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteUsersArgs) ToIdentitySourceImportDeleteUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteUsersOutput).ToIdentitySourceImportDeleteUsersPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportDeleteUsersPtrInput is an input type that accepts IdentitySourceImportDeleteUsersArgs, IdentitySourceImportDeleteUsersPtr and IdentitySourceImportDeleteUsersPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteUsersPtrInput` via:
+//
+//	        IdentitySourceImportDeleteUsersArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportDeleteUsersPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteUsersPtrOutput() IdentitySourceImportDeleteUsersPtrOutput
+	ToIdentitySourceImportDeleteUsersPtrOutputWithContext(context.Context) IdentitySourceImportDeleteUsersPtrOutput
+}
+
+type identitySourceImportDeleteUsersPtrType IdentitySourceImportDeleteUsersArgs
+
+func IdentitySourceImportDeleteUsersPtr(v *IdentitySourceImportDeleteUsersArgs) IdentitySourceImportDeleteUsersPtrInput {
+	return (*identitySourceImportDeleteUsersPtrType)(v)
+}
+
+func (*identitySourceImportDeleteUsersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportDeleteUsers)(nil)).Elem()
+}
+
+func (i *identitySourceImportDeleteUsersPtrType) ToIdentitySourceImportDeleteUsersPtrOutput() IdentitySourceImportDeleteUsersPtrOutput {
+	return i.ToIdentitySourceImportDeleteUsersPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportDeleteUsersPtrType) ToIdentitySourceImportDeleteUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteUsersPtrOutput)
+}
+
+type IdentitySourceImportDeleteUsersOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteUsersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteUsers)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteUsersOutput) ToIdentitySourceImportDeleteUsersOutput() IdentitySourceImportDeleteUsersOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersOutput) ToIdentitySourceImportDeleteUsersOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersOutput) ToIdentitySourceImportDeleteUsersPtrOutput() IdentitySourceImportDeleteUsersPtrOutput {
+	return o.ToIdentitySourceImportDeleteUsersPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportDeleteUsersOutput) ToIdentitySourceImportDeleteUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportDeleteUsers) *IdentitySourceImportDeleteUsers {
+		return &v
+	}).(IdentitySourceImportDeleteUsersPtrOutput)
+}
+
+// Entity type. Currently only `USERS` is supported.
+func (o IdentitySourceImportDeleteUsersOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteUsers) *string { return v.EntityType }).(pulumi.StringPtrOutput)
+}
+
+// User profiles to delete (by external ID). (see below)
+func (o IdentitySourceImportDeleteUsersOutput) Profiles() IdentitySourceImportDeleteUsersProfileArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteUsers) []IdentitySourceImportDeleteUsersProfile { return v.Profiles }).(IdentitySourceImportDeleteUsersProfileArrayOutput)
+}
+
+type IdentitySourceImportDeleteUsersPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteUsersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportDeleteUsers)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteUsersPtrOutput) ToIdentitySourceImportDeleteUsersPtrOutput() IdentitySourceImportDeleteUsersPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersPtrOutput) ToIdentitySourceImportDeleteUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersPtrOutput) Elem() IdentitySourceImportDeleteUsersOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteUsers) IdentitySourceImportDeleteUsers {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportDeleteUsers
+		return ret
+	}).(IdentitySourceImportDeleteUsersOutput)
+}
+
+// Entity type. Currently only `USERS` is supported.
+func (o IdentitySourceImportDeleteUsersPtrOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteUsers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// User profiles to delete (by external ID). (see below)
+func (o IdentitySourceImportDeleteUsersPtrOutput) Profiles() IdentitySourceImportDeleteUsersProfileArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceImportDeleteUsers) []IdentitySourceImportDeleteUsersProfile {
+		if v == nil {
+			return nil
+		}
+		return v.Profiles
+	}).(IdentitySourceImportDeleteUsersProfileArrayOutput)
+}
+
+type IdentitySourceImportDeleteUsersProfile struct {
+	// External ID of the user to delete.
+	ExternalId *string `pulumi:"externalId"`
+}
+
+// IdentitySourceImportDeleteUsersProfileInput is an input type that accepts IdentitySourceImportDeleteUsersProfileArgs and IdentitySourceImportDeleteUsersProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteUsersProfileInput` via:
+//
+//	IdentitySourceImportDeleteUsersProfileArgs{...}
+type IdentitySourceImportDeleteUsersProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteUsersProfileOutput() IdentitySourceImportDeleteUsersProfileOutput
+	ToIdentitySourceImportDeleteUsersProfileOutputWithContext(context.Context) IdentitySourceImportDeleteUsersProfileOutput
+}
+
+type IdentitySourceImportDeleteUsersProfileArgs struct {
+	// External ID of the user to delete.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+}
+
+func (IdentitySourceImportDeleteUsersProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteUsersProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteUsersProfileArgs) ToIdentitySourceImportDeleteUsersProfileOutput() IdentitySourceImportDeleteUsersProfileOutput {
+	return i.ToIdentitySourceImportDeleteUsersProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteUsersProfileArgs) ToIdentitySourceImportDeleteUsersProfileOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteUsersProfileOutput)
+}
+
+// IdentitySourceImportDeleteUsersProfileArrayInput is an input type that accepts IdentitySourceImportDeleteUsersProfileArray and IdentitySourceImportDeleteUsersProfileArrayOutput values.
+// You can construct a concrete instance of `IdentitySourceImportDeleteUsersProfileArrayInput` via:
+//
+//	IdentitySourceImportDeleteUsersProfileArray{ IdentitySourceImportDeleteUsersProfileArgs{...} }
+type IdentitySourceImportDeleteUsersProfileArrayInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportDeleteUsersProfileArrayOutput() IdentitySourceImportDeleteUsersProfileArrayOutput
+	ToIdentitySourceImportDeleteUsersProfileArrayOutputWithContext(context.Context) IdentitySourceImportDeleteUsersProfileArrayOutput
+}
+
+type IdentitySourceImportDeleteUsersProfileArray []IdentitySourceImportDeleteUsersProfileInput
+
+func (IdentitySourceImportDeleteUsersProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportDeleteUsersProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportDeleteUsersProfileArray) ToIdentitySourceImportDeleteUsersProfileArrayOutput() IdentitySourceImportDeleteUsersProfileArrayOutput {
+	return i.ToIdentitySourceImportDeleteUsersProfileArrayOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportDeleteUsersProfileArray) ToIdentitySourceImportDeleteUsersProfileArrayOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportDeleteUsersProfileArrayOutput)
+}
+
+type IdentitySourceImportDeleteUsersProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteUsersProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportDeleteUsersProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteUsersProfileOutput) ToIdentitySourceImportDeleteUsersProfileOutput() IdentitySourceImportDeleteUsersProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersProfileOutput) ToIdentitySourceImportDeleteUsersProfileOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersProfileOutput {
+	return o
+}
+
+// External ID of the user to delete.
+func (o IdentitySourceImportDeleteUsersProfileOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportDeleteUsersProfile) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceImportDeleteUsersProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportDeleteUsersProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportDeleteUsersProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportDeleteUsersProfileArrayOutput) ToIdentitySourceImportDeleteUsersProfileArrayOutput() IdentitySourceImportDeleteUsersProfileArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersProfileArrayOutput) ToIdentitySourceImportDeleteUsersProfileArrayOutputWithContext(ctx context.Context) IdentitySourceImportDeleteUsersProfileArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportDeleteUsersProfileArrayOutput) Index(i pulumi.IntInput) IdentitySourceImportDeleteUsersProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentitySourceImportDeleteUsersProfile {
+		return vs[0].([]IdentitySourceImportDeleteUsersProfile)[vs[1].(int)]
+	}).(IdentitySourceImportDeleteUsersProfileOutput)
+}
+
+type IdentitySourceImportUpsertGroupMemberships struct {
+	// Group memberships to upsert. (see below)
+	Memberships []IdentitySourceImportUpsertGroupMembershipsMembership `pulumi:"memberships"`
+}
+
+// IdentitySourceImportUpsertGroupMembershipsInput is an input type that accepts IdentitySourceImportUpsertGroupMembershipsArgs and IdentitySourceImportUpsertGroupMembershipsOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupMembershipsInput` via:
+//
+//	IdentitySourceImportUpsertGroupMembershipsArgs{...}
+type IdentitySourceImportUpsertGroupMembershipsInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupMembershipsOutput() IdentitySourceImportUpsertGroupMembershipsOutput
+	ToIdentitySourceImportUpsertGroupMembershipsOutputWithContext(context.Context) IdentitySourceImportUpsertGroupMembershipsOutput
+}
+
+type IdentitySourceImportUpsertGroupMembershipsArgs struct {
+	// Group memberships to upsert. (see below)
+	Memberships IdentitySourceImportUpsertGroupMembershipsMembershipArrayInput `pulumi:"memberships"`
+}
+
+func (IdentitySourceImportUpsertGroupMembershipsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupMemberships)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsArgs) ToIdentitySourceImportUpsertGroupMembershipsOutput() IdentitySourceImportUpsertGroupMembershipsOutput {
+	return i.ToIdentitySourceImportUpsertGroupMembershipsOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsArgs) ToIdentitySourceImportUpsertGroupMembershipsOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupMembershipsOutput)
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsArgs) ToIdentitySourceImportUpsertGroupMembershipsPtrOutput() IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return i.ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsArgs) ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupMembershipsOutput).ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportUpsertGroupMembershipsPtrInput is an input type that accepts IdentitySourceImportUpsertGroupMembershipsArgs, IdentitySourceImportUpsertGroupMembershipsPtr and IdentitySourceImportUpsertGroupMembershipsPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupMembershipsPtrInput` via:
+//
+//	        IdentitySourceImportUpsertGroupMembershipsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportUpsertGroupMembershipsPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupMembershipsPtrOutput() IdentitySourceImportUpsertGroupMembershipsPtrOutput
+	ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(context.Context) IdentitySourceImportUpsertGroupMembershipsPtrOutput
+}
+
+type identitySourceImportUpsertGroupMembershipsPtrType IdentitySourceImportUpsertGroupMembershipsArgs
+
+func IdentitySourceImportUpsertGroupMembershipsPtr(v *IdentitySourceImportUpsertGroupMembershipsArgs) IdentitySourceImportUpsertGroupMembershipsPtrInput {
+	return (*identitySourceImportUpsertGroupMembershipsPtrType)(v)
+}
+
+func (*identitySourceImportUpsertGroupMembershipsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertGroupMemberships)(nil)).Elem()
+}
+
+func (i *identitySourceImportUpsertGroupMembershipsPtrType) ToIdentitySourceImportUpsertGroupMembershipsPtrOutput() IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return i.ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportUpsertGroupMembershipsPtrType) ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupMembershipsPtrOutput)
+}
+
+type IdentitySourceImportUpsertGroupMembershipsOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupMembershipsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupMemberships)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsOutput) ToIdentitySourceImportUpsertGroupMembershipsOutput() IdentitySourceImportUpsertGroupMembershipsOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsOutput) ToIdentitySourceImportUpsertGroupMembershipsOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsOutput) ToIdentitySourceImportUpsertGroupMembershipsPtrOutput() IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return o.ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsOutput) ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportUpsertGroupMemberships) *IdentitySourceImportUpsertGroupMemberships {
+		return &v
+	}).(IdentitySourceImportUpsertGroupMembershipsPtrOutput)
+}
+
+// Group memberships to upsert. (see below)
+func (o IdentitySourceImportUpsertGroupMembershipsOutput) Memberships() IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupMemberships) []IdentitySourceImportUpsertGroupMembershipsMembership {
+		return v.Memberships
+	}).(IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupMembershipsPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupMembershipsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertGroupMemberships)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsPtrOutput) ToIdentitySourceImportUpsertGroupMembershipsPtrOutput() IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsPtrOutput) ToIdentitySourceImportUpsertGroupMembershipsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsPtrOutput) Elem() IdentitySourceImportUpsertGroupMembershipsOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroupMemberships) IdentitySourceImportUpsertGroupMemberships {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportUpsertGroupMemberships
+		return ret
+	}).(IdentitySourceImportUpsertGroupMembershipsOutput)
+}
+
+// Group memberships to upsert. (see below)
+func (o IdentitySourceImportUpsertGroupMembershipsPtrOutput) Memberships() IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroupMemberships) []IdentitySourceImportUpsertGroupMembershipsMembership {
+		if v == nil {
+			return nil
+		}
+		return v.Memberships
+	}).(IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupMembershipsMembership struct {
+	// External ID of the group.
+	GroupExternalId *string `pulumi:"groupExternalId"`
+	// External IDs of the group members to add.
+	MemberExternalIds []string `pulumi:"memberExternalIds"`
+}
+
+// IdentitySourceImportUpsertGroupMembershipsMembershipInput is an input type that accepts IdentitySourceImportUpsertGroupMembershipsMembershipArgs and IdentitySourceImportUpsertGroupMembershipsMembershipOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupMembershipsMembershipInput` via:
+//
+//	IdentitySourceImportUpsertGroupMembershipsMembershipArgs{...}
+type IdentitySourceImportUpsertGroupMembershipsMembershipInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupMembershipsMembershipOutput() IdentitySourceImportUpsertGroupMembershipsMembershipOutput
+	ToIdentitySourceImportUpsertGroupMembershipsMembershipOutputWithContext(context.Context) IdentitySourceImportUpsertGroupMembershipsMembershipOutput
+}
+
+type IdentitySourceImportUpsertGroupMembershipsMembershipArgs struct {
+	// External ID of the group.
+	GroupExternalId pulumi.StringPtrInput `pulumi:"groupExternalId"`
+	// External IDs of the group members to add.
+	MemberExternalIds pulumi.StringArrayInput `pulumi:"memberExternalIds"`
+}
+
+func (IdentitySourceImportUpsertGroupMembershipsMembershipArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsMembershipArgs) ToIdentitySourceImportUpsertGroupMembershipsMembershipOutput() IdentitySourceImportUpsertGroupMembershipsMembershipOutput {
+	return i.ToIdentitySourceImportUpsertGroupMembershipsMembershipOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsMembershipArgs) ToIdentitySourceImportUpsertGroupMembershipsMembershipOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsMembershipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupMembershipsMembershipOutput)
+}
+
+// IdentitySourceImportUpsertGroupMembershipsMembershipArrayInput is an input type that accepts IdentitySourceImportUpsertGroupMembershipsMembershipArray and IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupMembershipsMembershipArrayInput` via:
+//
+//	IdentitySourceImportUpsertGroupMembershipsMembershipArray{ IdentitySourceImportUpsertGroupMembershipsMembershipArgs{...} }
+type IdentitySourceImportUpsertGroupMembershipsMembershipArrayInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput() IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput
+	ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutputWithContext(context.Context) IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput
+}
+
+type IdentitySourceImportUpsertGroupMembershipsMembershipArray []IdentitySourceImportUpsertGroupMembershipsMembershipInput
+
+func (IdentitySourceImportUpsertGroupMembershipsMembershipArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportUpsertGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsMembershipArray) ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput() IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput {
+	return i.ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupMembershipsMembershipArray) ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupMembershipsMembershipOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupMembershipsMembershipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipOutput) ToIdentitySourceImportUpsertGroupMembershipsMembershipOutput() IdentitySourceImportUpsertGroupMembershipsMembershipOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipOutput) ToIdentitySourceImportUpsertGroupMembershipsMembershipOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsMembershipOutput {
+	return o
+}
+
+// External ID of the group.
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipOutput) GroupExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupMembershipsMembership) *string { return v.GroupExternalId }).(pulumi.StringPtrOutput)
+}
+
+// External IDs of the group members to add.
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipOutput) MemberExternalIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupMembershipsMembership) []string { return v.MemberExternalIds }).(pulumi.StringArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportUpsertGroupMembershipsMembership)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput) ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput() IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput) ToIdentitySourceImportUpsertGroupMembershipsMembershipArrayOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput) Index(i pulumi.IntInput) IdentitySourceImportUpsertGroupMembershipsMembershipOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentitySourceImportUpsertGroupMembershipsMembership {
+		return vs[0].([]IdentitySourceImportUpsertGroupMembershipsMembership)[vs[1].(int)]
+	}).(IdentitySourceImportUpsertGroupMembershipsMembershipOutput)
+}
+
+type IdentitySourceImportUpsertGroups struct {
+	// Group profiles to upsert. (see below)
+	Profiles []IdentitySourceImportUpsertGroupsProfile `pulumi:"profiles"`
+}
+
+// IdentitySourceImportUpsertGroupsInput is an input type that accepts IdentitySourceImportUpsertGroupsArgs and IdentitySourceImportUpsertGroupsOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupsInput` via:
+//
+//	IdentitySourceImportUpsertGroupsArgs{...}
+type IdentitySourceImportUpsertGroupsInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupsOutput() IdentitySourceImportUpsertGroupsOutput
+	ToIdentitySourceImportUpsertGroupsOutputWithContext(context.Context) IdentitySourceImportUpsertGroupsOutput
+}
+
+type IdentitySourceImportUpsertGroupsArgs struct {
+	// Group profiles to upsert. (see below)
+	Profiles IdentitySourceImportUpsertGroupsProfileArrayInput `pulumi:"profiles"`
+}
+
+func (IdentitySourceImportUpsertGroupsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroups)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupsArgs) ToIdentitySourceImportUpsertGroupsOutput() IdentitySourceImportUpsertGroupsOutput {
+	return i.ToIdentitySourceImportUpsertGroupsOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupsArgs) ToIdentitySourceImportUpsertGroupsOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsOutput)
+}
+
+func (i IdentitySourceImportUpsertGroupsArgs) ToIdentitySourceImportUpsertGroupsPtrOutput() IdentitySourceImportUpsertGroupsPtrOutput {
+	return i.ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupsArgs) ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsOutput).ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportUpsertGroupsPtrInput is an input type that accepts IdentitySourceImportUpsertGroupsArgs, IdentitySourceImportUpsertGroupsPtr and IdentitySourceImportUpsertGroupsPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupsPtrInput` via:
+//
+//	        IdentitySourceImportUpsertGroupsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportUpsertGroupsPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupsPtrOutput() IdentitySourceImportUpsertGroupsPtrOutput
+	ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(context.Context) IdentitySourceImportUpsertGroupsPtrOutput
+}
+
+type identitySourceImportUpsertGroupsPtrType IdentitySourceImportUpsertGroupsArgs
+
+func IdentitySourceImportUpsertGroupsPtr(v *IdentitySourceImportUpsertGroupsArgs) IdentitySourceImportUpsertGroupsPtrInput {
+	return (*identitySourceImportUpsertGroupsPtrType)(v)
+}
+
+func (*identitySourceImportUpsertGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertGroups)(nil)).Elem()
+}
+
+func (i *identitySourceImportUpsertGroupsPtrType) ToIdentitySourceImportUpsertGroupsPtrOutput() IdentitySourceImportUpsertGroupsPtrOutput {
+	return i.ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportUpsertGroupsPtrType) ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsPtrOutput)
+}
+
+type IdentitySourceImportUpsertGroupsOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroups)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupsOutput) ToIdentitySourceImportUpsertGroupsOutput() IdentitySourceImportUpsertGroupsOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsOutput) ToIdentitySourceImportUpsertGroupsOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsOutput) ToIdentitySourceImportUpsertGroupsPtrOutput() IdentitySourceImportUpsertGroupsPtrOutput {
+	return o.ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportUpsertGroupsOutput) ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportUpsertGroups) *IdentitySourceImportUpsertGroups {
+		return &v
+	}).(IdentitySourceImportUpsertGroupsPtrOutput)
+}
+
+// Group profiles to upsert. (see below)
+func (o IdentitySourceImportUpsertGroupsOutput) Profiles() IdentitySourceImportUpsertGroupsProfileArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroups) []IdentitySourceImportUpsertGroupsProfile { return v.Profiles }).(IdentitySourceImportUpsertGroupsProfileArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertGroups)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupsPtrOutput) ToIdentitySourceImportUpsertGroupsPtrOutput() IdentitySourceImportUpsertGroupsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsPtrOutput) ToIdentitySourceImportUpsertGroupsPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsPtrOutput) Elem() IdentitySourceImportUpsertGroupsOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroups) IdentitySourceImportUpsertGroups {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportUpsertGroups
+		return ret
+	}).(IdentitySourceImportUpsertGroupsOutput)
+}
+
+// Group profiles to upsert. (see below)
+func (o IdentitySourceImportUpsertGroupsPtrOutput) Profiles() IdentitySourceImportUpsertGroupsProfileArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroups) []IdentitySourceImportUpsertGroupsProfile {
+		if v == nil {
+			return nil
+		}
+		return v.Profiles
+	}).(IdentitySourceImportUpsertGroupsProfileArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupsProfile struct {
+	// External ID of the group.
+	ExternalId *string `pulumi:"externalId"`
+	// Group profile attributes. (see below)
+	GroupProfile *IdentitySourceImportUpsertGroupsProfileGroupProfile `pulumi:"groupProfile"`
+}
+
+// IdentitySourceImportUpsertGroupsProfileInput is an input type that accepts IdentitySourceImportUpsertGroupsProfileArgs and IdentitySourceImportUpsertGroupsProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupsProfileInput` via:
+//
+//	IdentitySourceImportUpsertGroupsProfileArgs{...}
+type IdentitySourceImportUpsertGroupsProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupsProfileOutput() IdentitySourceImportUpsertGroupsProfileOutput
+	ToIdentitySourceImportUpsertGroupsProfileOutputWithContext(context.Context) IdentitySourceImportUpsertGroupsProfileOutput
+}
+
+type IdentitySourceImportUpsertGroupsProfileArgs struct {
+	// External ID of the group.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Group profile attributes. (see below)
+	GroupProfile IdentitySourceImportUpsertGroupsProfileGroupProfilePtrInput `pulumi:"groupProfile"`
+}
+
+func (IdentitySourceImportUpsertGroupsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileArgs) ToIdentitySourceImportUpsertGroupsProfileOutput() IdentitySourceImportUpsertGroupsProfileOutput {
+	return i.ToIdentitySourceImportUpsertGroupsProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileArgs) ToIdentitySourceImportUpsertGroupsProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsProfileOutput)
+}
+
+// IdentitySourceImportUpsertGroupsProfileArrayInput is an input type that accepts IdentitySourceImportUpsertGroupsProfileArray and IdentitySourceImportUpsertGroupsProfileArrayOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupsProfileArrayInput` via:
+//
+//	IdentitySourceImportUpsertGroupsProfileArray{ IdentitySourceImportUpsertGroupsProfileArgs{...} }
+type IdentitySourceImportUpsertGroupsProfileArrayInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupsProfileArrayOutput() IdentitySourceImportUpsertGroupsProfileArrayOutput
+	ToIdentitySourceImportUpsertGroupsProfileArrayOutputWithContext(context.Context) IdentitySourceImportUpsertGroupsProfileArrayOutput
+}
+
+type IdentitySourceImportUpsertGroupsProfileArray []IdentitySourceImportUpsertGroupsProfileInput
+
+func (IdentitySourceImportUpsertGroupsProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportUpsertGroupsProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileArray) ToIdentitySourceImportUpsertGroupsProfileArrayOutput() IdentitySourceImportUpsertGroupsProfileArrayOutput {
+	return i.ToIdentitySourceImportUpsertGroupsProfileArrayOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileArray) ToIdentitySourceImportUpsertGroupsProfileArrayOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsProfileArrayOutput)
+}
+
+type IdentitySourceImportUpsertGroupsProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileOutput) ToIdentitySourceImportUpsertGroupsProfileOutput() IdentitySourceImportUpsertGroupsProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileOutput) ToIdentitySourceImportUpsertGroupsProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileOutput {
+	return o
+}
+
+// External ID of the group.
+func (o IdentitySourceImportUpsertGroupsProfileOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupsProfile) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Group profile attributes. (see below)
+func (o IdentitySourceImportUpsertGroupsProfileOutput) GroupProfile() IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupsProfile) *IdentitySourceImportUpsertGroupsProfileGroupProfile {
+		return v.GroupProfile
+	}).(IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput)
+}
+
+type IdentitySourceImportUpsertGroupsProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupsProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportUpsertGroupsProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileArrayOutput) ToIdentitySourceImportUpsertGroupsProfileArrayOutput() IdentitySourceImportUpsertGroupsProfileArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileArrayOutput) ToIdentitySourceImportUpsertGroupsProfileArrayOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileArrayOutput) Index(i pulumi.IntInput) IdentitySourceImportUpsertGroupsProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentitySourceImportUpsertGroupsProfile {
+		return vs[0].([]IdentitySourceImportUpsertGroupsProfile)[vs[1].(int)]
+	}).(IdentitySourceImportUpsertGroupsProfileOutput)
+}
+
+type IdentitySourceImportUpsertGroupsProfileGroupProfile struct {
+	// Description of the group.
+	Description *string `pulumi:"description"`
+	// Display name of the group.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// IdentitySourceImportUpsertGroupsProfileGroupProfileInput is an input type that accepts IdentitySourceImportUpsertGroupsProfileGroupProfileArgs and IdentitySourceImportUpsertGroupsProfileGroupProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupsProfileGroupProfileInput` via:
+//
+//	IdentitySourceImportUpsertGroupsProfileGroupProfileArgs{...}
+type IdentitySourceImportUpsertGroupsProfileGroupProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutput() IdentitySourceImportUpsertGroupsProfileGroupProfileOutput
+	ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutputWithContext(context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfileOutput
+}
+
+type IdentitySourceImportUpsertGroupsProfileGroupProfileArgs struct {
+	// Description of the group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Display name of the group.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (IdentitySourceImportUpsertGroupsProfileGroupProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfileGroupProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileGroupProfileArgs) ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutput() IdentitySourceImportUpsertGroupsProfileGroupProfileOutput {
+	return i.ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileGroupProfileArgs) ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsProfileGroupProfileOutput)
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileGroupProfileArgs) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput() IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return i.ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertGroupsProfileGroupProfileArgs) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsProfileGroupProfileOutput).ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportUpsertGroupsProfileGroupProfilePtrInput is an input type that accepts IdentitySourceImportUpsertGroupsProfileGroupProfileArgs, IdentitySourceImportUpsertGroupsProfileGroupProfilePtr and IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertGroupsProfileGroupProfilePtrInput` via:
+//
+//	        IdentitySourceImportUpsertGroupsProfileGroupProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportUpsertGroupsProfileGroupProfilePtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput() IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput
+	ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput
+}
+
+type identitySourceImportUpsertGroupsProfileGroupProfilePtrType IdentitySourceImportUpsertGroupsProfileGroupProfileArgs
+
+func IdentitySourceImportUpsertGroupsProfileGroupProfilePtr(v *IdentitySourceImportUpsertGroupsProfileGroupProfileArgs) IdentitySourceImportUpsertGroupsProfileGroupProfilePtrInput {
+	return (*identitySourceImportUpsertGroupsProfileGroupProfilePtrType)(v)
+}
+
+func (*identitySourceImportUpsertGroupsProfileGroupProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertGroupsProfileGroupProfile)(nil)).Elem()
+}
+
+func (i *identitySourceImportUpsertGroupsProfileGroupProfilePtrType) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput() IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return i.ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportUpsertGroupsProfileGroupProfilePtrType) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput)
+}
+
+type IdentitySourceImportUpsertGroupsProfileGroupProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfileGroupProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutput() IdentitySourceImportUpsertGroupsProfileGroupProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) ToIdentitySourceImportUpsertGroupsProfileGroupProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput() IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return o.ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportUpsertGroupsProfileGroupProfile) *IdentitySourceImportUpsertGroupsProfileGroupProfile {
+		return &v
+	}).(IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput)
+}
+
+// Description of the group.
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupsProfileGroupProfile) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the group.
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfileOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertGroupsProfileGroupProfile) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertGroupsProfileGroupProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput() IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput) ToIdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput) Elem() IdentitySourceImportUpsertGroupsProfileGroupProfileOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroupsProfileGroupProfile) IdentitySourceImportUpsertGroupsProfileGroupProfile {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportUpsertGroupsProfileGroupProfile
+		return ret
+	}).(IdentitySourceImportUpsertGroupsProfileGroupProfileOutput)
+}
+
+// Description of the group.
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroupsProfileGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display name of the group.
+func (o IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertGroupsProfileGroupProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceImportUpsertUsers struct {
+	// Entity type. Currently only `USERS` is supported.
+	EntityType *string `pulumi:"entityType"`
+	// User profiles to upsert. (see below)
+	Profiles []IdentitySourceImportUpsertUsersProfile `pulumi:"profiles"`
+}
+
+// IdentitySourceImportUpsertUsersInput is an input type that accepts IdentitySourceImportUpsertUsersArgs and IdentitySourceImportUpsertUsersOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertUsersInput` via:
+//
+//	IdentitySourceImportUpsertUsersArgs{...}
+type IdentitySourceImportUpsertUsersInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertUsersOutput() IdentitySourceImportUpsertUsersOutput
+	ToIdentitySourceImportUpsertUsersOutputWithContext(context.Context) IdentitySourceImportUpsertUsersOutput
+}
+
+type IdentitySourceImportUpsertUsersArgs struct {
+	// Entity type. Currently only `USERS` is supported.
+	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
+	// User profiles to upsert. (see below)
+	Profiles IdentitySourceImportUpsertUsersProfileArrayInput `pulumi:"profiles"`
+}
+
+func (IdentitySourceImportUpsertUsersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertUsers)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertUsersArgs) ToIdentitySourceImportUpsertUsersOutput() IdentitySourceImportUpsertUsersOutput {
+	return i.ToIdentitySourceImportUpsertUsersOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertUsersArgs) ToIdentitySourceImportUpsertUsersOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersOutput)
+}
+
+func (i IdentitySourceImportUpsertUsersArgs) ToIdentitySourceImportUpsertUsersPtrOutput() IdentitySourceImportUpsertUsersPtrOutput {
+	return i.ToIdentitySourceImportUpsertUsersPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertUsersArgs) ToIdentitySourceImportUpsertUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersOutput).ToIdentitySourceImportUpsertUsersPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportUpsertUsersPtrInput is an input type that accepts IdentitySourceImportUpsertUsersArgs, IdentitySourceImportUpsertUsersPtr and IdentitySourceImportUpsertUsersPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertUsersPtrInput` via:
+//
+//	        IdentitySourceImportUpsertUsersArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportUpsertUsersPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertUsersPtrOutput() IdentitySourceImportUpsertUsersPtrOutput
+	ToIdentitySourceImportUpsertUsersPtrOutputWithContext(context.Context) IdentitySourceImportUpsertUsersPtrOutput
+}
+
+type identitySourceImportUpsertUsersPtrType IdentitySourceImportUpsertUsersArgs
+
+func IdentitySourceImportUpsertUsersPtr(v *IdentitySourceImportUpsertUsersArgs) IdentitySourceImportUpsertUsersPtrInput {
+	return (*identitySourceImportUpsertUsersPtrType)(v)
+}
+
+func (*identitySourceImportUpsertUsersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertUsers)(nil)).Elem()
+}
+
+func (i *identitySourceImportUpsertUsersPtrType) ToIdentitySourceImportUpsertUsersPtrOutput() IdentitySourceImportUpsertUsersPtrOutput {
+	return i.ToIdentitySourceImportUpsertUsersPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportUpsertUsersPtrType) ToIdentitySourceImportUpsertUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersPtrOutput)
+}
+
+type IdentitySourceImportUpsertUsersOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertUsersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertUsers)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertUsersOutput) ToIdentitySourceImportUpsertUsersOutput() IdentitySourceImportUpsertUsersOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersOutput) ToIdentitySourceImportUpsertUsersOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersOutput) ToIdentitySourceImportUpsertUsersPtrOutput() IdentitySourceImportUpsertUsersPtrOutput {
+	return o.ToIdentitySourceImportUpsertUsersPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportUpsertUsersOutput) ToIdentitySourceImportUpsertUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportUpsertUsers) *IdentitySourceImportUpsertUsers {
+		return &v
+	}).(IdentitySourceImportUpsertUsersPtrOutput)
+}
+
+// Entity type. Currently only `USERS` is supported.
+func (o IdentitySourceImportUpsertUsersOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsers) *string { return v.EntityType }).(pulumi.StringPtrOutput)
+}
+
+// User profiles to upsert. (see below)
+func (o IdentitySourceImportUpsertUsersOutput) Profiles() IdentitySourceImportUpsertUsersProfileArrayOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsers) []IdentitySourceImportUpsertUsersProfile { return v.Profiles }).(IdentitySourceImportUpsertUsersProfileArrayOutput)
+}
+
+type IdentitySourceImportUpsertUsersPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertUsersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertUsers)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertUsersPtrOutput) ToIdentitySourceImportUpsertUsersPtrOutput() IdentitySourceImportUpsertUsersPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersPtrOutput) ToIdentitySourceImportUpsertUsersPtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersPtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersPtrOutput) Elem() IdentitySourceImportUpsertUsersOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsers) IdentitySourceImportUpsertUsers {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportUpsertUsers
+		return ret
+	}).(IdentitySourceImportUpsertUsersOutput)
+}
+
+// Entity type. Currently only `USERS` is supported.
+func (o IdentitySourceImportUpsertUsersPtrOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// User profiles to upsert. (see below)
+func (o IdentitySourceImportUpsertUsersPtrOutput) Profiles() IdentitySourceImportUpsertUsersProfileArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsers) []IdentitySourceImportUpsertUsersProfile {
+		if v == nil {
+			return nil
+		}
+		return v.Profiles
+	}).(IdentitySourceImportUpsertUsersProfileArrayOutput)
+}
+
+type IdentitySourceImportUpsertUsersProfile struct {
+	// External ID of the user.
+	ExternalId *string `pulumi:"externalId"`
+	// User profile attributes. (see below)
+	Profile *IdentitySourceImportUpsertUsersProfileProfile `pulumi:"profile"`
+}
+
+// IdentitySourceImportUpsertUsersProfileInput is an input type that accepts IdentitySourceImportUpsertUsersProfileArgs and IdentitySourceImportUpsertUsersProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertUsersProfileInput` via:
+//
+//	IdentitySourceImportUpsertUsersProfileArgs{...}
+type IdentitySourceImportUpsertUsersProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertUsersProfileOutput() IdentitySourceImportUpsertUsersProfileOutput
+	ToIdentitySourceImportUpsertUsersProfileOutputWithContext(context.Context) IdentitySourceImportUpsertUsersProfileOutput
+}
+
+type IdentitySourceImportUpsertUsersProfileArgs struct {
+	// External ID of the user.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// User profile attributes. (see below)
+	Profile IdentitySourceImportUpsertUsersProfileProfilePtrInput `pulumi:"profile"`
+}
+
+func (IdentitySourceImportUpsertUsersProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertUsersProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertUsersProfileArgs) ToIdentitySourceImportUpsertUsersProfileOutput() IdentitySourceImportUpsertUsersProfileOutput {
+	return i.ToIdentitySourceImportUpsertUsersProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertUsersProfileArgs) ToIdentitySourceImportUpsertUsersProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersProfileOutput)
+}
+
+// IdentitySourceImportUpsertUsersProfileArrayInput is an input type that accepts IdentitySourceImportUpsertUsersProfileArray and IdentitySourceImportUpsertUsersProfileArrayOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertUsersProfileArrayInput` via:
+//
+//	IdentitySourceImportUpsertUsersProfileArray{ IdentitySourceImportUpsertUsersProfileArgs{...} }
+type IdentitySourceImportUpsertUsersProfileArrayInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertUsersProfileArrayOutput() IdentitySourceImportUpsertUsersProfileArrayOutput
+	ToIdentitySourceImportUpsertUsersProfileArrayOutputWithContext(context.Context) IdentitySourceImportUpsertUsersProfileArrayOutput
+}
+
+type IdentitySourceImportUpsertUsersProfileArray []IdentitySourceImportUpsertUsersProfileInput
+
+func (IdentitySourceImportUpsertUsersProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportUpsertUsersProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertUsersProfileArray) ToIdentitySourceImportUpsertUsersProfileArrayOutput() IdentitySourceImportUpsertUsersProfileArrayOutput {
+	return i.ToIdentitySourceImportUpsertUsersProfileArrayOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertUsersProfileArray) ToIdentitySourceImportUpsertUsersProfileArrayOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersProfileArrayOutput)
+}
+
+type IdentitySourceImportUpsertUsersProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertUsersProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertUsersProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertUsersProfileOutput) ToIdentitySourceImportUpsertUsersProfileOutput() IdentitySourceImportUpsertUsersProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileOutput) ToIdentitySourceImportUpsertUsersProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileOutput {
+	return o
+}
+
+// External ID of the user.
+func (o IdentitySourceImportUpsertUsersProfileOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfile) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// User profile attributes. (see below)
+func (o IdentitySourceImportUpsertUsersProfileOutput) Profile() IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfile) *IdentitySourceImportUpsertUsersProfileProfile {
+		return v.Profile
+	}).(IdentitySourceImportUpsertUsersProfileProfilePtrOutput)
+}
+
+type IdentitySourceImportUpsertUsersProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertUsersProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceImportUpsertUsersProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertUsersProfileArrayOutput) ToIdentitySourceImportUpsertUsersProfileArrayOutput() IdentitySourceImportUpsertUsersProfileArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileArrayOutput) ToIdentitySourceImportUpsertUsersProfileArrayOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileArrayOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileArrayOutput) Index(i pulumi.IntInput) IdentitySourceImportUpsertUsersProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentitySourceImportUpsertUsersProfile {
+		return vs[0].([]IdentitySourceImportUpsertUsersProfile)[vs[1].(int)]
+	}).(IdentitySourceImportUpsertUsersProfileOutput)
+}
+
+type IdentitySourceImportUpsertUsersProfileProfile struct {
+	// Email address of the user.
+	Email *string `pulumi:"email"`
+	// First name of the user.
+	FirstName *string `pulumi:"firstName"`
+	// Home address of the user.
+	HomeAddress *string `pulumi:"homeAddress"`
+	// Last name of the user.
+	LastName *string `pulumi:"lastName"`
+	// Mobile phone number of the user.
+	MobilePhone *string `pulumi:"mobilePhone"`
+	// Alternative email address of the user.
+	SecondEmail *string `pulumi:"secondEmail"`
+	// Username of the user.
+	UserName *string `pulumi:"userName"`
+}
+
+// IdentitySourceImportUpsertUsersProfileProfileInput is an input type that accepts IdentitySourceImportUpsertUsersProfileProfileArgs and IdentitySourceImportUpsertUsersProfileProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertUsersProfileProfileInput` via:
+//
+//	IdentitySourceImportUpsertUsersProfileProfileArgs{...}
+type IdentitySourceImportUpsertUsersProfileProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertUsersProfileProfileOutput() IdentitySourceImportUpsertUsersProfileProfileOutput
+	ToIdentitySourceImportUpsertUsersProfileProfileOutputWithContext(context.Context) IdentitySourceImportUpsertUsersProfileProfileOutput
+}
+
+type IdentitySourceImportUpsertUsersProfileProfileArgs struct {
+	// Email address of the user.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// First name of the user.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Home address of the user.
+	HomeAddress pulumi.StringPtrInput `pulumi:"homeAddress"`
+	// Last name of the user.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// Mobile phone number of the user.
+	MobilePhone pulumi.StringPtrInput `pulumi:"mobilePhone"`
+	// Alternative email address of the user.
+	SecondEmail pulumi.StringPtrInput `pulumi:"secondEmail"`
+	// Username of the user.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (IdentitySourceImportUpsertUsersProfileProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceImportUpsertUsersProfileProfileArgs) ToIdentitySourceImportUpsertUsersProfileProfileOutput() IdentitySourceImportUpsertUsersProfileProfileOutput {
+	return i.ToIdentitySourceImportUpsertUsersProfileProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertUsersProfileProfileArgs) ToIdentitySourceImportUpsertUsersProfileProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersProfileProfileOutput)
+}
+
+func (i IdentitySourceImportUpsertUsersProfileProfileArgs) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutput() IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return i.ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceImportUpsertUsersProfileProfileArgs) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersProfileProfileOutput).ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(ctx)
+}
+
+// IdentitySourceImportUpsertUsersProfileProfilePtrInput is an input type that accepts IdentitySourceImportUpsertUsersProfileProfileArgs, IdentitySourceImportUpsertUsersProfileProfilePtr and IdentitySourceImportUpsertUsersProfileProfilePtrOutput values.
+// You can construct a concrete instance of `IdentitySourceImportUpsertUsersProfileProfilePtrInput` via:
+//
+//	        IdentitySourceImportUpsertUsersProfileProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceImportUpsertUsersProfileProfilePtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceImportUpsertUsersProfileProfilePtrOutput() IdentitySourceImportUpsertUsersProfileProfilePtrOutput
+	ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(context.Context) IdentitySourceImportUpsertUsersProfileProfilePtrOutput
+}
+
+type identitySourceImportUpsertUsersProfileProfilePtrType IdentitySourceImportUpsertUsersProfileProfileArgs
+
+func IdentitySourceImportUpsertUsersProfileProfilePtr(v *IdentitySourceImportUpsertUsersProfileProfileArgs) IdentitySourceImportUpsertUsersProfileProfilePtrInput {
+	return (*identitySourceImportUpsertUsersProfileProfilePtrType)(v)
+}
+
+func (*identitySourceImportUpsertUsersProfileProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertUsersProfileProfile)(nil)).Elem()
+}
+
+func (i *identitySourceImportUpsertUsersProfileProfilePtrType) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutput() IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return i.ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceImportUpsertUsersProfileProfilePtrType) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceImportUpsertUsersProfileProfilePtrOutput)
+}
+
+type IdentitySourceImportUpsertUsersProfileProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertUsersProfileProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) ToIdentitySourceImportUpsertUsersProfileProfileOutput() IdentitySourceImportUpsertUsersProfileProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) ToIdentitySourceImportUpsertUsersProfileProfileOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileProfileOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutput() IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return o.ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceImportUpsertUsersProfileProfile) *IdentitySourceImportUpsertUsersProfileProfile {
+		return &v
+	}).(IdentitySourceImportUpsertUsersProfileProfilePtrOutput)
+}
+
+// Email address of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// First name of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Home address of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) HomeAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.HomeAddress }).(pulumi.StringPtrOutput)
+}
+
+// Last name of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Mobile phone number of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) MobilePhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.MobilePhone }).(pulumi.StringPtrOutput)
+}
+
+// Alternative email address of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) SecondEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.SecondEmail }).(pulumi.StringPtrOutput)
+}
+
+// Username of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfileOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceImportUpsertUsersProfileProfile) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceImportUpsertUsersProfileProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceImportUpsertUsersProfileProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceImportUpsertUsersProfileProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutput() IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) ToIdentitySourceImportUpsertUsersProfileProfilePtrOutputWithContext(ctx context.Context) IdentitySourceImportUpsertUsersProfileProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) Elem() IdentitySourceImportUpsertUsersProfileProfileOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) IdentitySourceImportUpsertUsersProfileProfile {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceImportUpsertUsersProfileProfile
+		return ret
+	}).(IdentitySourceImportUpsertUsersProfileProfileOutput)
+}
+
+// Email address of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// First name of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Home address of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) HomeAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HomeAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last name of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Mobile phone number of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) MobilePhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MobilePhone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Alternative email address of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) SecondEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username of the user.
+func (o IdentitySourceImportUpsertUsersProfileProfilePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceImportUpsertUsersProfileProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceUserProfile struct {
+	// Email address of the user.
+	Email *string `pulumi:"email"`
+	// First name of the user.
+	FirstName *string `pulumi:"firstName"`
+	// Home address of the user.
+	HomeAddress *string `pulumi:"homeAddress"`
+	// Last name of the user.
+	LastName *string `pulumi:"lastName"`
+	// Mobile phone number of the user.
+	MobilePhone *string `pulumi:"mobilePhone"`
+	// Alternative email address of the user.
+	SecondEmail *string `pulumi:"secondEmail"`
+	// Username of the user.
+	UserName *string `pulumi:"userName"`
+}
+
+// IdentitySourceUserProfileInput is an input type that accepts IdentitySourceUserProfileArgs and IdentitySourceUserProfileOutput values.
+// You can construct a concrete instance of `IdentitySourceUserProfileInput` via:
+//
+//	IdentitySourceUserProfileArgs{...}
+type IdentitySourceUserProfileInput interface {
+	pulumi.Input
+
+	ToIdentitySourceUserProfileOutput() IdentitySourceUserProfileOutput
+	ToIdentitySourceUserProfileOutputWithContext(context.Context) IdentitySourceUserProfileOutput
+}
+
+type IdentitySourceUserProfileArgs struct {
+	// Email address of the user.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// First name of the user.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Home address of the user.
+	HomeAddress pulumi.StringPtrInput `pulumi:"homeAddress"`
+	// Last name of the user.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// Mobile phone number of the user.
+	MobilePhone pulumi.StringPtrInput `pulumi:"mobilePhone"`
+	// Alternative email address of the user.
+	SecondEmail pulumi.StringPtrInput `pulumi:"secondEmail"`
+	// Username of the user.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (IdentitySourceUserProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceUserProfile)(nil)).Elem()
+}
+
+func (i IdentitySourceUserProfileArgs) ToIdentitySourceUserProfileOutput() IdentitySourceUserProfileOutput {
+	return i.ToIdentitySourceUserProfileOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceUserProfileArgs) ToIdentitySourceUserProfileOutputWithContext(ctx context.Context) IdentitySourceUserProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceUserProfileOutput)
+}
+
+func (i IdentitySourceUserProfileArgs) ToIdentitySourceUserProfilePtrOutput() IdentitySourceUserProfilePtrOutput {
+	return i.ToIdentitySourceUserProfilePtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceUserProfileArgs) ToIdentitySourceUserProfilePtrOutputWithContext(ctx context.Context) IdentitySourceUserProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceUserProfileOutput).ToIdentitySourceUserProfilePtrOutputWithContext(ctx)
+}
+
+// IdentitySourceUserProfilePtrInput is an input type that accepts IdentitySourceUserProfileArgs, IdentitySourceUserProfilePtr and IdentitySourceUserProfilePtrOutput values.
+// You can construct a concrete instance of `IdentitySourceUserProfilePtrInput` via:
+//
+//	        IdentitySourceUserProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceUserProfilePtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceUserProfilePtrOutput() IdentitySourceUserProfilePtrOutput
+	ToIdentitySourceUserProfilePtrOutputWithContext(context.Context) IdentitySourceUserProfilePtrOutput
+}
+
+type identitySourceUserProfilePtrType IdentitySourceUserProfileArgs
+
+func IdentitySourceUserProfilePtr(v *IdentitySourceUserProfileArgs) IdentitySourceUserProfilePtrInput {
+	return (*identitySourceUserProfilePtrType)(v)
+}
+
+func (*identitySourceUserProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceUserProfile)(nil)).Elem()
+}
+
+func (i *identitySourceUserProfilePtrType) ToIdentitySourceUserProfilePtrOutput() IdentitySourceUserProfilePtrOutput {
+	return i.ToIdentitySourceUserProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceUserProfilePtrType) ToIdentitySourceUserProfilePtrOutputWithContext(ctx context.Context) IdentitySourceUserProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceUserProfilePtrOutput)
+}
+
+type IdentitySourceUserProfileOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceUserProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceUserProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceUserProfileOutput) ToIdentitySourceUserProfileOutput() IdentitySourceUserProfileOutput {
+	return o
+}
+
+func (o IdentitySourceUserProfileOutput) ToIdentitySourceUserProfileOutputWithContext(ctx context.Context) IdentitySourceUserProfileOutput {
+	return o
+}
+
+func (o IdentitySourceUserProfileOutput) ToIdentitySourceUserProfilePtrOutput() IdentitySourceUserProfilePtrOutput {
+	return o.ToIdentitySourceUserProfilePtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceUserProfileOutput) ToIdentitySourceUserProfilePtrOutputWithContext(ctx context.Context) IdentitySourceUserProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceUserProfile) *IdentitySourceUserProfile {
+		return &v
+	}).(IdentitySourceUserProfilePtrOutput)
+}
+
+// Email address of the user.
+func (o IdentitySourceUserProfileOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// First name of the user.
+func (o IdentitySourceUserProfileOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Home address of the user.
+func (o IdentitySourceUserProfileOutput) HomeAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.HomeAddress }).(pulumi.StringPtrOutput)
+}
+
+// Last name of the user.
+func (o IdentitySourceUserProfileOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Mobile phone number of the user.
+func (o IdentitySourceUserProfileOutput) MobilePhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.MobilePhone }).(pulumi.StringPtrOutput)
+}
+
+// Alternative email address of the user.
+func (o IdentitySourceUserProfileOutput) SecondEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.SecondEmail }).(pulumi.StringPtrOutput)
+}
+
+// Username of the user.
+func (o IdentitySourceUserProfileOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceUserProfile) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceUserProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceUserProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceUserProfile)(nil)).Elem()
+}
+
+func (o IdentitySourceUserProfilePtrOutput) ToIdentitySourceUserProfilePtrOutput() IdentitySourceUserProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceUserProfilePtrOutput) ToIdentitySourceUserProfilePtrOutputWithContext(ctx context.Context) IdentitySourceUserProfilePtrOutput {
+	return o
+}
+
+func (o IdentitySourceUserProfilePtrOutput) Elem() IdentitySourceUserProfileOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) IdentitySourceUserProfile {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceUserProfile
+		return ret
+	}).(IdentitySourceUserProfileOutput)
+}
+
+// Email address of the user.
+func (o IdentitySourceUserProfilePtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// First name of the user.
+func (o IdentitySourceUserProfilePtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Home address of the user.
+func (o IdentitySourceUserProfilePtrOutput) HomeAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HomeAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last name of the user.
+func (o IdentitySourceUserProfilePtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Mobile phone number of the user.
+func (o IdentitySourceUserProfilePtrOutput) MobilePhone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MobilePhone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Alternative email address of the user.
+func (o IdentitySourceUserProfilePtrOutput) SecondEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondEmail
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username of the user.
+func (o IdentitySourceUserProfilePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceUserProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogStreamSettings struct {
 	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId *string `pulumi:"accountId"`
@@ -7070,6 +10148,7 @@ type PushGroupAppConfig struct {
 	GroupScope        string `pulumi:"groupScope"`
 	GroupType         string `pulumi:"groupType"`
 	SamAccountName    string `pulumi:"samAccountName"`
+	Type              string `pulumi:"type"`
 }
 
 // PushGroupAppConfigInput is an input type that accepts PushGroupAppConfigArgs and PushGroupAppConfigOutput values.
@@ -7088,6 +10167,7 @@ type PushGroupAppConfigArgs struct {
 	GroupScope        pulumi.StringInput `pulumi:"groupScope"`
 	GroupType         pulumi.StringInput `pulumi:"groupType"`
 	SamAccountName    pulumi.StringInput `pulumi:"samAccountName"`
+	Type              pulumi.StringInput `pulumi:"type"`
 }
 
 func (PushGroupAppConfigArgs) ElementType() reflect.Type {
@@ -7183,6 +10263,10 @@ func (o PushGroupAppConfigOutput) SamAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v PushGroupAppConfig) string { return v.SamAccountName }).(pulumi.StringOutput)
 }
 
+func (o PushGroupAppConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PushGroupAppConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type PushGroupAppConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (PushGroupAppConfigPtrOutput) ElementType() reflect.Type {
@@ -7240,6 +10324,15 @@ func (o PushGroupAppConfigPtrOutput) SamAccountName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.SamAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PushGroupAppConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushGroupAppConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12383,6 +15476,722 @@ func (o GetAuthServerClaimsClaimArrayOutput) Index(i pulumi.IntInput) GetAuthSer
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthServerClaimsClaim {
 		return vs[0].([]GetAuthServerClaimsClaim)[vs[1].(int)]
 	}).(GetAuthServerClaimsClaimOutput)
+}
+
+type GetAuthenticatorMethodWebauthnAaguidGroup struct {
+	// List of FIDO2 AAGUIDs in this group.
+	Aaguids []string `pulumi:"aaguids"`
+	// The name of the AAGUID group.
+	Name string `pulumi:"name"`
+}
+
+// GetAuthenticatorMethodWebauthnAaguidGroupInput is an input type that accepts GetAuthenticatorMethodWebauthnAaguidGroupArgs and GetAuthenticatorMethodWebauthnAaguidGroupOutput values.
+// You can construct a concrete instance of `GetAuthenticatorMethodWebauthnAaguidGroupInput` via:
+//
+//	GetAuthenticatorMethodWebauthnAaguidGroupArgs{...}
+type GetAuthenticatorMethodWebauthnAaguidGroupInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorMethodWebauthnAaguidGroupOutput() GetAuthenticatorMethodWebauthnAaguidGroupOutput
+	ToGetAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(context.Context) GetAuthenticatorMethodWebauthnAaguidGroupOutput
+}
+
+type GetAuthenticatorMethodWebauthnAaguidGroupArgs struct {
+	// List of FIDO2 AAGUIDs in this group.
+	Aaguids pulumi.StringArrayInput `pulumi:"aaguids"`
+	// The name of the AAGUID group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAuthenticatorMethodWebauthnAaguidGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (i GetAuthenticatorMethodWebauthnAaguidGroupArgs) ToGetAuthenticatorMethodWebauthnAaguidGroupOutput() GetAuthenticatorMethodWebauthnAaguidGroupOutput {
+	return i.ToGetAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorMethodWebauthnAaguidGroupArgs) ToGetAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnAaguidGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnAaguidGroupOutput)
+}
+
+// GetAuthenticatorMethodWebauthnAaguidGroupArrayInput is an input type that accepts GetAuthenticatorMethodWebauthnAaguidGroupArray and GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput values.
+// You can construct a concrete instance of `GetAuthenticatorMethodWebauthnAaguidGroupArrayInput` via:
+//
+//	GetAuthenticatorMethodWebauthnAaguidGroupArray{ GetAuthenticatorMethodWebauthnAaguidGroupArgs{...} }
+type GetAuthenticatorMethodWebauthnAaguidGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutput() GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput
+	ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(context.Context) GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput
+}
+
+type GetAuthenticatorMethodWebauthnAaguidGroupArray []GetAuthenticatorMethodWebauthnAaguidGroupInput
+
+func (GetAuthenticatorMethodWebauthnAaguidGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (i GetAuthenticatorMethodWebauthnAaguidGroupArray) ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutput() GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return i.ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorMethodWebauthnAaguidGroupArray) ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput)
+}
+
+type GetAuthenticatorMethodWebauthnAaguidGroupOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorMethodWebauthnAaguidGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (o GetAuthenticatorMethodWebauthnAaguidGroupOutput) ToGetAuthenticatorMethodWebauthnAaguidGroupOutput() GetAuthenticatorMethodWebauthnAaguidGroupOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnAaguidGroupOutput) ToGetAuthenticatorMethodWebauthnAaguidGroupOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnAaguidGroupOutput {
+	return o
+}
+
+// List of FIDO2 AAGUIDs in this group.
+func (o GetAuthenticatorMethodWebauthnAaguidGroupOutput) Aaguids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAuthenticatorMethodWebauthnAaguidGroup) []string { return v.Aaguids }).(pulumi.StringArrayOutput)
+}
+
+// The name of the AAGUID group.
+func (o GetAuthenticatorMethodWebauthnAaguidGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticatorMethodWebauthnAaguidGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticatorMethodWebauthnAaguidGroup)(nil)).Elem()
+}
+
+func (o GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput) ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutput() GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput) ToGetAuthenticatorMethodWebauthnAaguidGroupArrayOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput) Index(i pulumi.IntInput) GetAuthenticatorMethodWebauthnAaguidGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticatorMethodWebauthnAaguidGroup {
+		return vs[0].([]GetAuthenticatorMethodWebauthnAaguidGroup)[vs[1].(int)]
+	}).(GetAuthenticatorMethodWebauthnAaguidGroupOutput)
+}
+
+type GetAuthenticatorMethodWebauthnRpId struct {
+	// The RP domain configuration. Contains:
+	Domain *GetAuthenticatorMethodWebauthnRpIdDomain `pulumi:"domain"`
+	// Whether the RP ID is active and used for WebAuthn operations.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetAuthenticatorMethodWebauthnRpIdInput is an input type that accepts GetAuthenticatorMethodWebauthnRpIdArgs and GetAuthenticatorMethodWebauthnRpIdOutput values.
+// You can construct a concrete instance of `GetAuthenticatorMethodWebauthnRpIdInput` via:
+//
+//	GetAuthenticatorMethodWebauthnRpIdArgs{...}
+type GetAuthenticatorMethodWebauthnRpIdInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorMethodWebauthnRpIdOutput() GetAuthenticatorMethodWebauthnRpIdOutput
+	ToGetAuthenticatorMethodWebauthnRpIdOutputWithContext(context.Context) GetAuthenticatorMethodWebauthnRpIdOutput
+}
+
+type GetAuthenticatorMethodWebauthnRpIdArgs struct {
+	// The RP domain configuration. Contains:
+	Domain GetAuthenticatorMethodWebauthnRpIdDomainPtrInput `pulumi:"domain"`
+	// Whether the RP ID is active and used for WebAuthn operations.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetAuthenticatorMethodWebauthnRpIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdArgs) ToGetAuthenticatorMethodWebauthnRpIdOutput() GetAuthenticatorMethodWebauthnRpIdOutput {
+	return i.ToGetAuthenticatorMethodWebauthnRpIdOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdArgs) ToGetAuthenticatorMethodWebauthnRpIdOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnRpIdOutput)
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdArgs) ToGetAuthenticatorMethodWebauthnRpIdPtrOutput() GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return i.ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdArgs) ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnRpIdOutput).ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx)
+}
+
+// GetAuthenticatorMethodWebauthnRpIdPtrInput is an input type that accepts GetAuthenticatorMethodWebauthnRpIdArgs, GetAuthenticatorMethodWebauthnRpIdPtr and GetAuthenticatorMethodWebauthnRpIdPtrOutput values.
+// You can construct a concrete instance of `GetAuthenticatorMethodWebauthnRpIdPtrInput` via:
+//
+//	        GetAuthenticatorMethodWebauthnRpIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAuthenticatorMethodWebauthnRpIdPtrInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorMethodWebauthnRpIdPtrOutput() GetAuthenticatorMethodWebauthnRpIdPtrOutput
+	ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Context) GetAuthenticatorMethodWebauthnRpIdPtrOutput
+}
+
+type getAuthenticatorMethodWebauthnRpIdPtrType GetAuthenticatorMethodWebauthnRpIdArgs
+
+func GetAuthenticatorMethodWebauthnRpIdPtr(v *GetAuthenticatorMethodWebauthnRpIdArgs) GetAuthenticatorMethodWebauthnRpIdPtrInput {
+	return (*getAuthenticatorMethodWebauthnRpIdPtrType)(v)
+}
+
+func (*getAuthenticatorMethodWebauthnRpIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (i *getAuthenticatorMethodWebauthnRpIdPtrType) ToGetAuthenticatorMethodWebauthnRpIdPtrOutput() GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return i.ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Background())
+}
+
+func (i *getAuthenticatorMethodWebauthnRpIdPtrType) ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnRpIdPtrOutput)
+}
+
+type GetAuthenticatorMethodWebauthnRpIdOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorMethodWebauthnRpIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdOutput) ToGetAuthenticatorMethodWebauthnRpIdOutput() GetAuthenticatorMethodWebauthnRpIdOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdOutput) ToGetAuthenticatorMethodWebauthnRpIdOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdOutput) ToGetAuthenticatorMethodWebauthnRpIdPtrOutput() GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o.ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(context.Background())
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdOutput) ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticatorMethodWebauthnRpId) *GetAuthenticatorMethodWebauthnRpId {
+		return &v
+	}).(GetAuthenticatorMethodWebauthnRpIdPtrOutput)
+}
+
+// The RP domain configuration. Contains:
+func (o GetAuthenticatorMethodWebauthnRpIdOutput) Domain() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ApplyT(func(v GetAuthenticatorMethodWebauthnRpId) *GetAuthenticatorMethodWebauthnRpIdDomain { return v.Domain }).(GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+// Whether the RP ID is active and used for WebAuthn operations.
+func (o GetAuthenticatorMethodWebauthnRpIdOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAuthenticatorMethodWebauthnRpId) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetAuthenticatorMethodWebauthnRpIdPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorMethodWebauthnRpIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticatorMethodWebauthnRpId)(nil)).Elem()
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdPtrOutput) ToGetAuthenticatorMethodWebauthnRpIdPtrOutput() GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdPtrOutput) ToGetAuthenticatorMethodWebauthnRpIdPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdPtrOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdPtrOutput) Elem() GetAuthenticatorMethodWebauthnRpIdOutput {
+	return o.ApplyT(func(v *GetAuthenticatorMethodWebauthnRpId) GetAuthenticatorMethodWebauthnRpId {
+		if v != nil {
+			return *v
+		}
+		var ret GetAuthenticatorMethodWebauthnRpId
+		return ret
+	}).(GetAuthenticatorMethodWebauthnRpIdOutput)
+}
+
+// The RP domain configuration. Contains:
+func (o GetAuthenticatorMethodWebauthnRpIdPtrOutput) Domain() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorMethodWebauthnRpId) *GetAuthenticatorMethodWebauthnRpIdDomain {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+// Whether the RP ID is active and used for WebAuthn operations.
+func (o GetAuthenticatorMethodWebauthnRpIdPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorMethodWebauthnRpId) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetAuthenticatorMethodWebauthnRpIdDomain struct {
+	// The name of the AAGUID group.
+	Name string `pulumi:"name"`
+	// The validation status of the domain.
+	ValidationStatus string `pulumi:"validationStatus"`
+}
+
+// GetAuthenticatorMethodWebauthnRpIdDomainInput is an input type that accepts GetAuthenticatorMethodWebauthnRpIdDomainArgs and GetAuthenticatorMethodWebauthnRpIdDomainOutput values.
+// You can construct a concrete instance of `GetAuthenticatorMethodWebauthnRpIdDomainInput` via:
+//
+//	GetAuthenticatorMethodWebauthnRpIdDomainArgs{...}
+type GetAuthenticatorMethodWebauthnRpIdDomainInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorMethodWebauthnRpIdDomainOutput() GetAuthenticatorMethodWebauthnRpIdDomainOutput
+	ToGetAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(context.Context) GetAuthenticatorMethodWebauthnRpIdDomainOutput
+}
+
+type GetAuthenticatorMethodWebauthnRpIdDomainArgs struct {
+	// The name of the AAGUID group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The validation status of the domain.
+	ValidationStatus pulumi.StringInput `pulumi:"validationStatus"`
+}
+
+func (GetAuthenticatorMethodWebauthnRpIdDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdDomainArgs) ToGetAuthenticatorMethodWebauthnRpIdDomainOutput() GetAuthenticatorMethodWebauthnRpIdDomainOutput {
+	return i.ToGetAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdDomainArgs) ToGetAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnRpIdDomainOutput)
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdDomainArgs) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutput() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return i.ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorMethodWebauthnRpIdDomainArgs) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnRpIdDomainOutput).ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx)
+}
+
+// GetAuthenticatorMethodWebauthnRpIdDomainPtrInput is an input type that accepts GetAuthenticatorMethodWebauthnRpIdDomainArgs, GetAuthenticatorMethodWebauthnRpIdDomainPtr and GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput values.
+// You can construct a concrete instance of `GetAuthenticatorMethodWebauthnRpIdDomainPtrInput` via:
+//
+//	        GetAuthenticatorMethodWebauthnRpIdDomainArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAuthenticatorMethodWebauthnRpIdDomainPtrInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutput() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput
+	ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Context) GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput
+}
+
+type getAuthenticatorMethodWebauthnRpIdDomainPtrType GetAuthenticatorMethodWebauthnRpIdDomainArgs
+
+func GetAuthenticatorMethodWebauthnRpIdDomainPtr(v *GetAuthenticatorMethodWebauthnRpIdDomainArgs) GetAuthenticatorMethodWebauthnRpIdDomainPtrInput {
+	return (*getAuthenticatorMethodWebauthnRpIdDomainPtrType)(v)
+}
+
+func (*getAuthenticatorMethodWebauthnRpIdDomainPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (i *getAuthenticatorMethodWebauthnRpIdDomainPtrType) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutput() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return i.ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Background())
+}
+
+func (i *getAuthenticatorMethodWebauthnRpIdDomainPtrType) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+type GetAuthenticatorMethodWebauthnRpIdDomainOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorMethodWebauthnRpIdDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainOutput) ToGetAuthenticatorMethodWebauthnRpIdDomainOutput() GetAuthenticatorMethodWebauthnRpIdDomainOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainOutput) ToGetAuthenticatorMethodWebauthnRpIdDomainOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdDomainOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainOutput) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutput() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(context.Background())
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainOutput) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticatorMethodWebauthnRpIdDomain) *GetAuthenticatorMethodWebauthnRpIdDomain {
+		return &v
+	}).(GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput)
+}
+
+// The name of the AAGUID group.
+func (o GetAuthenticatorMethodWebauthnRpIdDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticatorMethodWebauthnRpIdDomain) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The validation status of the domain.
+func (o GetAuthenticatorMethodWebauthnRpIdDomainOutput) ValidationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticatorMethodWebauthnRpIdDomain) string { return v.ValidationStatus }).(pulumi.StringOutput)
+}
+
+type GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticatorMethodWebauthnRpIdDomain)(nil)).Elem()
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutput() GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput) ToGetAuthenticatorMethodWebauthnRpIdDomainPtrOutputWithContext(ctx context.Context) GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput {
+	return o
+}
+
+func (o GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput) Elem() GetAuthenticatorMethodWebauthnRpIdDomainOutput {
+	return o.ApplyT(func(v *GetAuthenticatorMethodWebauthnRpIdDomain) GetAuthenticatorMethodWebauthnRpIdDomain {
+		if v != nil {
+			return *v
+		}
+		var ret GetAuthenticatorMethodWebauthnRpIdDomain
+		return ret
+	}).(GetAuthenticatorMethodWebauthnRpIdDomainOutput)
+}
+
+// The name of the AAGUID group.
+func (o GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorMethodWebauthnRpIdDomain) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The validation status of the domain.
+func (o GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput) ValidationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorMethodWebauthnRpIdDomain) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguid struct {
+	// The AAGUID identifier.
+	Aaguid string `pulumi:"aaguid"`
+	// Properties of the custom AAGUID authenticator.
+	AuthenticatorCharacteristics *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics `pulumi:"authenticatorCharacteristics"`
+	// The product name associated with the AAGUID.
+	Name string `pulumi:"name"`
+}
+
+// GetAuthenticatorWebauthnCustomAaguidsCustomAaguidInput is an input type that accepts GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs and GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput values.
+// You can construct a concrete instance of `GetAuthenticatorWebauthnCustomAaguidsCustomAaguidInput` via:
+//
+//	GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs{...}
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutputWithContext(context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs struct {
+	// The AAGUID identifier.
+	Aaguid pulumi.StringInput `pulumi:"aaguid"`
+	// Properties of the custom AAGUID authenticator.
+	AuthenticatorCharacteristics GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrInput `pulumi:"authenticatorCharacteristics"`
+	// The product name associated with the AAGUID.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguid)(nil)).Elem()
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput {
+	return i.ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput)
+}
+
+// GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayInput is an input type that accepts GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray and GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput values.
+// You can construct a concrete instance of `GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayInput` via:
+//
+//	GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray{ GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs{...} }
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutputWithContext(context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray []GetAuthenticatorWebauthnCustomAaguidsCustomAaguidInput
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticatorWebauthnCustomAaguidsCustomAaguid)(nil)).Elem()
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput {
+	return i.ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput)
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguid)(nil)).Elem()
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput {
+	return o
+}
+
+// The AAGUID identifier.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput) Aaguid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticatorWebauthnCustomAaguidsCustomAaguid) string { return v.Aaguid }).(pulumi.StringOutput)
+}
+
+// Properties of the custom AAGUID authenticator.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput) AuthenticatorCharacteristics() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o.ApplyT(func(v GetAuthenticatorWebauthnCustomAaguidsCustomAaguid) *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+		return v.AuthenticatorCharacteristics
+	}).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput)
+}
+
+// The product name associated with the AAGUID.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthenticatorWebauthnCustomAaguidsCustomAaguid) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAuthenticatorWebauthnCustomAaguidsCustomAaguid)(nil)).Elem()
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput) Index(i pulumi.IntInput) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticatorWebauthnCustomAaguidsCustomAaguid {
+		return vs[0].([]GetAuthenticatorWebauthnCustomAaguidsCustomAaguid)[vs[1].(int)]
+	}).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput)
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics struct {
+	// Whether the authenticator meets FIPS compliance requirements.
+	FipsCompliant bool `pulumi:"fipsCompliant"`
+	// Whether the authenticator stores the private key on hardware.
+	HardwareProtected bool `pulumi:"hardwareProtected"`
+	// Whether the AAGUID is built into the authenticator or is external.
+	PlatformAttached bool `pulumi:"platformAttached"`
+}
+
+// GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsInput is an input type that accepts GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs and GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput values.
+// You can construct a concrete instance of `GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsInput` via:
+//
+//	GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs{...}
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutputWithContext(context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs struct {
+	// Whether the authenticator meets FIPS compliance requirements.
+	FipsCompliant pulumi.BoolInput `pulumi:"fipsCompliant"`
+	// Whether the authenticator stores the private key on hardware.
+	HardwareProtected pulumi.BoolInput `pulumi:"hardwareProtected"`
+	// Whether the AAGUID is built into the authenticator or is external.
+	PlatformAttached pulumi.BoolInput `pulumi:"platformAttached"`
+}
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput {
+	return i.ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput)
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return i.ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Background())
+}
+
+func (i GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput).ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx)
+}
+
+// GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrInput is an input type that accepts GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs, GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtr and GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput values.
+// You can construct a concrete instance of `GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrInput` via:
+//
+//	        GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrInput interface {
+	pulumi.Input
+
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput
+	ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput
+}
+
+type getAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrType GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs
+
+func GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtr(v *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrInput {
+	return (*getAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrType)(v)
+}
+
+func (*getAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (i *getAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrType) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return i.ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Background())
+}
+
+func (i *getAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrType) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput)
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o.ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(context.Background())
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+		return &v
+	}).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput)
+}
+
+// Whether the authenticator meets FIPS compliance requirements.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) FipsCompliant() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) bool {
+		return v.FipsCompliant
+	}).(pulumi.BoolOutput)
+}
+
+// Whether the authenticator stores the private key on hardware.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) HardwareProtected() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) bool {
+		return v.HardwareProtected
+	}).(pulumi.BoolOutput)
+}
+
+// Whether the AAGUID is built into the authenticator or is external.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput) PlatformAttached() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) bool {
+		return v.PlatformAttached
+	}).(pulumi.BoolOutput)
+}
+
+type GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics)(nil)).Elem()
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) ToGetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutputWithContext(ctx context.Context) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput {
+	return o
+}
+
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) Elem() GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput {
+	return o.ApplyT(func(v *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+		if v != nil {
+			return *v
+		}
+		var ret GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics
+		return ret
+	}).(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput)
+}
+
+// Whether the authenticator meets FIPS compliance requirements.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) FipsCompliant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.FipsCompliant
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the authenticator stores the private key on hardware.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) HardwareProtected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.HardwareProtected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the AAGUID is built into the authenticator or is external.
+func (o GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput) PlatformAttached() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PlatformAttached
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetBehavioursBehavior struct {
@@ -20726,6 +24535,247 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	}).(GetGroupsGroupOutput)
 }
 
+type GetIdentitySourceGroupsProfile struct {
+	// Description of the group.
+	Description string `pulumi:"description"`
+	// Display name of the group.
+	DisplayName string `pulumi:"displayName"`
+}
+
+// GetIdentitySourceGroupsProfileInput is an input type that accepts GetIdentitySourceGroupsProfileArgs and GetIdentitySourceGroupsProfileOutput values.
+// You can construct a concrete instance of `GetIdentitySourceGroupsProfileInput` via:
+//
+//	GetIdentitySourceGroupsProfileArgs{...}
+type GetIdentitySourceGroupsProfileInput interface {
+	pulumi.Input
+
+	ToGetIdentitySourceGroupsProfileOutput() GetIdentitySourceGroupsProfileOutput
+	ToGetIdentitySourceGroupsProfileOutputWithContext(context.Context) GetIdentitySourceGroupsProfileOutput
+}
+
+type GetIdentitySourceGroupsProfileArgs struct {
+	// Description of the group.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Display name of the group.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+}
+
+func (GetIdentitySourceGroupsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentitySourceGroupsProfile)(nil)).Elem()
+}
+
+func (i GetIdentitySourceGroupsProfileArgs) ToGetIdentitySourceGroupsProfileOutput() GetIdentitySourceGroupsProfileOutput {
+	return i.ToGetIdentitySourceGroupsProfileOutputWithContext(context.Background())
+}
+
+func (i GetIdentitySourceGroupsProfileArgs) ToGetIdentitySourceGroupsProfileOutputWithContext(ctx context.Context) GetIdentitySourceGroupsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentitySourceGroupsProfileOutput)
+}
+
+func (i GetIdentitySourceGroupsProfileArgs) ToGetIdentitySourceGroupsProfilePtrOutput() GetIdentitySourceGroupsProfilePtrOutput {
+	return i.ToGetIdentitySourceGroupsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i GetIdentitySourceGroupsProfileArgs) ToGetIdentitySourceGroupsProfilePtrOutputWithContext(ctx context.Context) GetIdentitySourceGroupsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentitySourceGroupsProfileOutput).ToGetIdentitySourceGroupsProfilePtrOutputWithContext(ctx)
+}
+
+// GetIdentitySourceGroupsProfilePtrInput is an input type that accepts GetIdentitySourceGroupsProfileArgs, GetIdentitySourceGroupsProfilePtr and GetIdentitySourceGroupsProfilePtrOutput values.
+// You can construct a concrete instance of `GetIdentitySourceGroupsProfilePtrInput` via:
+//
+//	        GetIdentitySourceGroupsProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetIdentitySourceGroupsProfilePtrInput interface {
+	pulumi.Input
+
+	ToGetIdentitySourceGroupsProfilePtrOutput() GetIdentitySourceGroupsProfilePtrOutput
+	ToGetIdentitySourceGroupsProfilePtrOutputWithContext(context.Context) GetIdentitySourceGroupsProfilePtrOutput
+}
+
+type getIdentitySourceGroupsProfilePtrType GetIdentitySourceGroupsProfileArgs
+
+func GetIdentitySourceGroupsProfilePtr(v *GetIdentitySourceGroupsProfileArgs) GetIdentitySourceGroupsProfilePtrInput {
+	return (*getIdentitySourceGroupsProfilePtrType)(v)
+}
+
+func (*getIdentitySourceGroupsProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetIdentitySourceGroupsProfile)(nil)).Elem()
+}
+
+func (i *getIdentitySourceGroupsProfilePtrType) ToGetIdentitySourceGroupsProfilePtrOutput() GetIdentitySourceGroupsProfilePtrOutput {
+	return i.ToGetIdentitySourceGroupsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *getIdentitySourceGroupsProfilePtrType) ToGetIdentitySourceGroupsProfilePtrOutputWithContext(ctx context.Context) GetIdentitySourceGroupsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentitySourceGroupsProfilePtrOutput)
+}
+
+type GetIdentitySourceGroupsProfileOutput struct{ *pulumi.OutputState }
+
+func (GetIdentitySourceGroupsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentitySourceGroupsProfile)(nil)).Elem()
+}
+
+func (o GetIdentitySourceGroupsProfileOutput) ToGetIdentitySourceGroupsProfileOutput() GetIdentitySourceGroupsProfileOutput {
+	return o
+}
+
+func (o GetIdentitySourceGroupsProfileOutput) ToGetIdentitySourceGroupsProfileOutputWithContext(ctx context.Context) GetIdentitySourceGroupsProfileOutput {
+	return o
+}
+
+func (o GetIdentitySourceGroupsProfileOutput) ToGetIdentitySourceGroupsProfilePtrOutput() GetIdentitySourceGroupsProfilePtrOutput {
+	return o.ToGetIdentitySourceGroupsProfilePtrOutputWithContext(context.Background())
+}
+
+func (o GetIdentitySourceGroupsProfileOutput) ToGetIdentitySourceGroupsProfilePtrOutputWithContext(ctx context.Context) GetIdentitySourceGroupsProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetIdentitySourceGroupsProfile) *GetIdentitySourceGroupsProfile {
+		return &v
+	}).(GetIdentitySourceGroupsProfilePtrOutput)
+}
+
+// Description of the group.
+func (o GetIdentitySourceGroupsProfileOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceGroupsProfile) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Display name of the group.
+func (o GetIdentitySourceGroupsProfileOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceGroupsProfile) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+type GetIdentitySourceGroupsProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (GetIdentitySourceGroupsProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetIdentitySourceGroupsProfile)(nil)).Elem()
+}
+
+func (o GetIdentitySourceGroupsProfilePtrOutput) ToGetIdentitySourceGroupsProfilePtrOutput() GetIdentitySourceGroupsProfilePtrOutput {
+	return o
+}
+
+func (o GetIdentitySourceGroupsProfilePtrOutput) ToGetIdentitySourceGroupsProfilePtrOutputWithContext(ctx context.Context) GetIdentitySourceGroupsProfilePtrOutput {
+	return o
+}
+
+func (o GetIdentitySourceGroupsProfilePtrOutput) Elem() GetIdentitySourceGroupsProfileOutput {
+	return o.ApplyT(func(v *GetIdentitySourceGroupsProfile) GetIdentitySourceGroupsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GetIdentitySourceGroupsProfile
+		return ret
+	}).(GetIdentitySourceGroupsProfileOutput)
+}
+
+// Description of the group.
+func (o GetIdentitySourceGroupsProfilePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetIdentitySourceGroupsProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Display name of the group.
+func (o GetIdentitySourceGroupsProfilePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetIdentitySourceGroupsProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetIdentitySourceUsersProfile struct {
+	Email       string `pulumi:"email"`
+	FirstName   string `pulumi:"firstName"`
+	HomeAddress string `pulumi:"homeAddress"`
+	LastName    string `pulumi:"lastName"`
+	MobilePhone string `pulumi:"mobilePhone"`
+	SecondEmail string `pulumi:"secondEmail"`
+	UserName    string `pulumi:"userName"`
+}
+
+// GetIdentitySourceUsersProfileInput is an input type that accepts GetIdentitySourceUsersProfileArgs and GetIdentitySourceUsersProfileOutput values.
+// You can construct a concrete instance of `GetIdentitySourceUsersProfileInput` via:
+//
+//	GetIdentitySourceUsersProfileArgs{...}
+type GetIdentitySourceUsersProfileInput interface {
+	pulumi.Input
+
+	ToGetIdentitySourceUsersProfileOutput() GetIdentitySourceUsersProfileOutput
+	ToGetIdentitySourceUsersProfileOutputWithContext(context.Context) GetIdentitySourceUsersProfileOutput
+}
+
+type GetIdentitySourceUsersProfileArgs struct {
+	Email       pulumi.StringInput `pulumi:"email"`
+	FirstName   pulumi.StringInput `pulumi:"firstName"`
+	HomeAddress pulumi.StringInput `pulumi:"homeAddress"`
+	LastName    pulumi.StringInput `pulumi:"lastName"`
+	MobilePhone pulumi.StringInput `pulumi:"mobilePhone"`
+	SecondEmail pulumi.StringInput `pulumi:"secondEmail"`
+	UserName    pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetIdentitySourceUsersProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentitySourceUsersProfile)(nil)).Elem()
+}
+
+func (i GetIdentitySourceUsersProfileArgs) ToGetIdentitySourceUsersProfileOutput() GetIdentitySourceUsersProfileOutput {
+	return i.ToGetIdentitySourceUsersProfileOutputWithContext(context.Background())
+}
+
+func (i GetIdentitySourceUsersProfileArgs) ToGetIdentitySourceUsersProfileOutputWithContext(ctx context.Context) GetIdentitySourceUsersProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentitySourceUsersProfileOutput)
+}
+
+type GetIdentitySourceUsersProfileOutput struct{ *pulumi.OutputState }
+
+func (GetIdentitySourceUsersProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentitySourceUsersProfile)(nil)).Elem()
+}
+
+func (o GetIdentitySourceUsersProfileOutput) ToGetIdentitySourceUsersProfileOutput() GetIdentitySourceUsersProfileOutput {
+	return o
+}
+
+func (o GetIdentitySourceUsersProfileOutput) ToGetIdentitySourceUsersProfileOutputWithContext(ctx context.Context) GetIdentitySourceUsersProfileOutput {
+	return o
+}
+
+func (o GetIdentitySourceUsersProfileOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.Email }).(pulumi.StringOutput)
+}
+
+func (o GetIdentitySourceUsersProfileOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+func (o GetIdentitySourceUsersProfileOutput) HomeAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.HomeAddress }).(pulumi.StringOutput)
+}
+
+func (o GetIdentitySourceUsersProfileOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o GetIdentitySourceUsersProfileOutput) MobilePhone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.MobilePhone }).(pulumi.StringOutput)
+}
+
+func (o GetIdentitySourceUsersProfileOutput) SecondEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.SecondEmail }).(pulumi.StringOutput)
+}
+
+func (o GetIdentitySourceUsersProfileOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.UserName }).(pulumi.StringOutput)
+}
+
 type GetLogStreamSettings struct {
 	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId string `pulumi:"accountId"`
@@ -28050,12 +32100,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiTokenNetworkPtrInput)(nil)).Elem(), ApiTokenNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupInput)(nil)).Elem(), AppGroupAssignmentsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppGroupAssignmentsGroupArrayInput)(nil)).Elem(), AppGroupAssignmentsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRuleKeepMeSignedInInput)(nil)).Elem(), AppSignonPolicyRuleKeepMeSignedInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRuleKeepMeSignedInPtrInput)(nil)).Elem(), AppSignonPolicyRuleKeepMeSignedInArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppSignonPolicyRulePlatformIncludeArrayInput)(nil)).Elem(), AppSignonPolicyRulePlatformIncludeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyArrayOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyArrayOneOfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppUserSchemaPropertyOneOfArrayInput)(nil)).Elem(), AppUserSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMethodWebauthnAaguidGroupInput)(nil)).Elem(), AuthenticatorMethodWebauthnAaguidGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMethodWebauthnAaguidGroupArrayInput)(nil)).Elem(), AuthenticatorMethodWebauthnAaguidGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMethodWebauthnRpIdInput)(nil)).Elem(), AuthenticatorMethodWebauthnRpIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMethodWebauthnRpIdPtrInput)(nil)).Elem(), AuthenticatorMethodWebauthnRpIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMethodWebauthnRpIdDomainInput)(nil)).Elem(), AuthenticatorMethodWebauthnRpIdDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorMethodWebauthnRpIdDomainPtrInput)(nil)).Elem(), AuthenticatorMethodWebauthnRpIdDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAttestationRootCertificateInput)(nil)).Elem(), AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayInput)(nil)).Elem(), AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsInput)(nil)).Elem(), AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrInput)(nil)).Elem(), AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignNotificationSettingsInput)(nil)).Elem(), CampaignNotificationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignNotificationSettingsPtrInput)(nil)).Elem(), CampaignNotificationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignPrincipalScopeSettingsInput)(nil)).Elem(), CampaignPrincipalScopeSettingsArgs{})
@@ -28122,6 +32184,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyMasterOverridePriorityArrayInput)(nil)).Elem(), GroupSchemaPropertyMasterOverridePriorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyOneOfInput)(nil)).Elem(), GroupSchemaPropertyOneOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupSchemaPropertyOneOfArrayInput)(nil)).Elem(), GroupSchemaPropertyOneOfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceGroupProfileInput)(nil)).Elem(), IdentitySourceGroupProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceGroupProfilePtrInput)(nil)).Elem(), IdentitySourceGroupProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteGroupMembershipsInput)(nil)).Elem(), IdentitySourceImportDeleteGroupMembershipsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteGroupMembershipsPtrInput)(nil)).Elem(), IdentitySourceImportDeleteGroupMembershipsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteGroupMembershipsMembershipInput)(nil)).Elem(), IdentitySourceImportDeleteGroupMembershipsMembershipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteGroupMembershipsMembershipArrayInput)(nil)).Elem(), IdentitySourceImportDeleteGroupMembershipsMembershipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteGroupsInput)(nil)).Elem(), IdentitySourceImportDeleteGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteGroupsPtrInput)(nil)).Elem(), IdentitySourceImportDeleteGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteUsersInput)(nil)).Elem(), IdentitySourceImportDeleteUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteUsersPtrInput)(nil)).Elem(), IdentitySourceImportDeleteUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteUsersProfileInput)(nil)).Elem(), IdentitySourceImportDeleteUsersProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportDeleteUsersProfileArrayInput)(nil)).Elem(), IdentitySourceImportDeleteUsersProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupMembershipsInput)(nil)).Elem(), IdentitySourceImportUpsertGroupMembershipsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupMembershipsPtrInput)(nil)).Elem(), IdentitySourceImportUpsertGroupMembershipsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupMembershipsMembershipInput)(nil)).Elem(), IdentitySourceImportUpsertGroupMembershipsMembershipArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupMembershipsMembershipArrayInput)(nil)).Elem(), IdentitySourceImportUpsertGroupMembershipsMembershipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupsInput)(nil)).Elem(), IdentitySourceImportUpsertGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupsPtrInput)(nil)).Elem(), IdentitySourceImportUpsertGroupsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfileInput)(nil)).Elem(), IdentitySourceImportUpsertGroupsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfileArrayInput)(nil)).Elem(), IdentitySourceImportUpsertGroupsProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfileGroupProfileInput)(nil)).Elem(), IdentitySourceImportUpsertGroupsProfileGroupProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertGroupsProfileGroupProfilePtrInput)(nil)).Elem(), IdentitySourceImportUpsertGroupsProfileGroupProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersInput)(nil)).Elem(), IdentitySourceImportUpsertUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersPtrInput)(nil)).Elem(), IdentitySourceImportUpsertUsersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileInput)(nil)).Elem(), IdentitySourceImportUpsertUsersProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileArrayInput)(nil)).Elem(), IdentitySourceImportUpsertUsersProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileProfileInput)(nil)).Elem(), IdentitySourceImportUpsertUsersProfileProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileProfilePtrInput)(nil)).Elem(), IdentitySourceImportUpsertUsersProfileProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceUserProfileInput)(nil)).Elem(), IdentitySourceUserProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceUserProfilePtrInput)(nil)).Elem(), IdentitySourceUserProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamSettingsInput)(nil)).Elem(), LogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamSettingsPtrInput)(nil)).Elem(), LogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttributeInput)(nil)).Elem(), PolicyRuleProfileEnrollmentProfileAttributeArgs{})
@@ -28200,6 +32292,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppsAppVisibilityHideInput)(nil)).Elem(), GetAppsAppVisibilityHideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimInput)(nil)).Elem(), GetAuthServerClaimsClaimArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthServerClaimsClaimArrayInput)(nil)).Elem(), GetAuthServerClaimsClaimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorMethodWebauthnAaguidGroupInput)(nil)).Elem(), GetAuthenticatorMethodWebauthnAaguidGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorMethodWebauthnAaguidGroupArrayInput)(nil)).Elem(), GetAuthenticatorMethodWebauthnAaguidGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpIdInput)(nil)).Elem(), GetAuthenticatorMethodWebauthnRpIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpIdPtrInput)(nil)).Elem(), GetAuthenticatorMethodWebauthnRpIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpIdDomainInput)(nil)).Elem(), GetAuthenticatorMethodWebauthnRpIdDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorMethodWebauthnRpIdDomainPtrInput)(nil)).Elem(), GetAuthenticatorMethodWebauthnRpIdDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguidInput)(nil)).Elem(), GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayInput)(nil)).Elem(), GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsInput)(nil)).Elem(), GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrInput)(nil)).Elem(), GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorInput)(nil)).Elem(), GetBehavioursBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBehavioursBehaviorArrayInput)(nil)).Elem(), GetBehavioursBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrandsBrandInput)(nil)).Elem(), GetBrandsBrandArgs{})
@@ -28304,6 +32406,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFeaturesFeatureStageInput)(nil)).Elem(), GetFeaturesFeatureStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentitySourceGroupsProfileInput)(nil)).Elem(), GetIdentitySourceGroupsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentitySourceGroupsProfilePtrInput)(nil)).Elem(), GetIdentitySourceGroupsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentitySourceUsersProfileInput)(nil)).Elem(), GetIdentitySourceUsersProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsPtrInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
@@ -28410,12 +32515,24 @@ func init() {
 	pulumi.RegisterOutputType(ApiTokenNetworkPtrOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupOutput{})
 	pulumi.RegisterOutputType(AppGroupAssignmentsGroupArrayOutput{})
+	pulumi.RegisterOutputType(AppSignonPolicyRuleKeepMeSignedInOutput{})
+	pulumi.RegisterOutputType(AppSignonPolicyRuleKeepMeSignedInPtrOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeOutput{})
 	pulumi.RegisterOutputType(AppSignonPolicyRulePlatformIncludeArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyArrayOneOfArrayOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(AppUserSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(AuthenticatorMethodWebauthnAaguidGroupOutput{})
+	pulumi.RegisterOutputType(AuthenticatorMethodWebauthnAaguidGroupArrayOutput{})
+	pulumi.RegisterOutputType(AuthenticatorMethodWebauthnRpIdOutput{})
+	pulumi.RegisterOutputType(AuthenticatorMethodWebauthnRpIdPtrOutput{})
+	pulumi.RegisterOutputType(AuthenticatorMethodWebauthnRpIdDomainOutput{})
+	pulumi.RegisterOutputType(AuthenticatorMethodWebauthnRpIdDomainPtrOutput{})
+	pulumi.RegisterOutputType(AuthenticatorWebauthnCustomAaguidAttestationRootCertificateOutput{})
+	pulumi.RegisterOutputType(AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsOutput{})
+	pulumi.RegisterOutputType(AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsPtrOutput{})
 	pulumi.RegisterOutputType(CampaignNotificationSettingsOutput{})
 	pulumi.RegisterOutputType(CampaignNotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CampaignPrincipalScopeSettingsOutput{})
@@ -28482,6 +32599,36 @@ func init() {
 	pulumi.RegisterOutputType(GroupSchemaPropertyMasterOverridePriorityArrayOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyOneOfOutput{})
 	pulumi.RegisterOutputType(GroupSchemaPropertyOneOfArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceGroupProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceGroupProfilePtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteGroupMembershipsOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteGroupMembershipsPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteGroupMembershipsMembershipOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteGroupMembershipsMembershipArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteGroupsOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteUsersOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteUsersPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteUsersProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportDeleteUsersProfileArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupMembershipsOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupMembershipsPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupMembershipsMembershipOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupMembershipsMembershipArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupsOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupsPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupsProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupsProfileArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupsProfileGroupProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertGroupsProfileGroupProfilePtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersProfileArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersProfileProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersProfileProfilePtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceUserProfileOutput{})
+	pulumi.RegisterOutputType(IdentitySourceUserProfilePtrOutput{})
 	pulumi.RegisterOutputType(LogStreamSettingsOutput{})
 	pulumi.RegisterOutputType(LogStreamSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentProfileAttributeOutput{})
@@ -28560,6 +32707,16 @@ func init() {
 	pulumi.RegisterOutputType(GetAppsAppVisibilityHideOutput{})
 	pulumi.RegisterOutputType(GetAuthServerClaimsClaimOutput{})
 	pulumi.RegisterOutputType(GetAuthServerClaimsClaimArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorMethodWebauthnAaguidGroupOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorMethodWebauthnAaguidGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorMethodWebauthnRpIdOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorMethodWebauthnRpIdPtrOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorMethodWebauthnRpIdDomainOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorMethodWebauthnRpIdDomainPtrOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArrayOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsOutput{})
+	pulumi.RegisterOutputType(GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsPtrOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorOutput{})
 	pulumi.RegisterOutputType(GetBehavioursBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(GetBrandsBrandOutput{})
@@ -28664,6 +32821,9 @@ func init() {
 	pulumi.RegisterOutputType(GetFeaturesFeatureStageOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetIdentitySourceGroupsProfileOutput{})
+	pulumi.RegisterOutputType(GetIdentitySourceGroupsProfilePtrOutput{})
+	pulumi.RegisterOutputType(GetIdentitySourceUsersProfileOutput{})
 	pulumi.RegisterOutputType(GetLogStreamSettingsOutput{})
 	pulumi.RegisterOutputType(GetLogStreamSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetOrgMetadataDomainsOutput{})

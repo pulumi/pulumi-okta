@@ -76,6 +76,17 @@ export interface AppGroupAssignmentsGroup {
     profile: pulumi.Input<string>;
 }
 
+export interface AppSignonPolicyRuleKeepMeSignedIn {
+    /**
+     * Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+     */
+    postAuth?: pulumi.Input<string | undefined>;
+    /**
+     * How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+     */
+    postAuthPromptFrequency?: pulumi.Input<string | undefined>;
+}
+
 export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available with OTHER OS type
@@ -105,6 +116,73 @@ export interface AppUserSchemaPropertyOneOf {
      * Enum title
      */
     title: pulumi.Input<string>;
+}
+
+export interface AuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * A list of FIDO2 AAGUIDs in this group.
+     */
+    aaguids: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A name to identify the group of FIDO2 AAGUIDs.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface AuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: pulumi.Input<inputs.AuthenticatorMethodWebauthnRpIdDomain | undefined>;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+}
+
+export interface AuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The RP ID domain value used for WebAuthn operations.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus?: pulumi.Input<string | undefined>;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAttestationRootCertificate {
+    /**
+     * Expiry date of the certificate.
+     */
+    expiry?: pulumi.Input<string | undefined>;
+    /**
+     * Issuer of the certificate.
+     */
+    issuer?: pulumi.Input<string | undefined>;
+    /**
+     * X.509 certificate chain (base64-encoded).
+     */
+    x5c: pulumi.Input<string>;
+    /**
+     * SHA-256 hash (thumbprint) of the X.509 certificate.
+     */
+    x5tS256?: pulumi.Input<string | undefined>;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Indicates whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant?: pulumi.Input<boolean | undefined>;
+    /**
+     * Indicates whether the authenticator stores the private key on a hardware component.
+     */
+    hardwareProtected?: pulumi.Input<boolean | undefined>;
+    /**
+     * Indicates whether the custom AAGUID is built into the authenticator or is external.
+     */
+    platformAttached?: pulumi.Input<boolean | undefined>;
 }
 
 export interface CampaignNotificationSettings {
@@ -780,6 +858,132 @@ export interface GetApiTokenNetworkArgs {
      * The IP address the included zone.
      */
     includes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface GetAuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * List of FIDO2 AAGUIDs in this group.
+     */
+    aaguids?: string[];
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnAaguidGroupArgs {
+    /**
+     * List of FIDO2 AAGUIDs in this group.
+     */
+    aaguids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: inputs.GetAuthenticatorMethodWebauthnRpIdDomain;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled?: boolean;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdArgs {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: pulumi.Input<inputs.GetAuthenticatorMethodWebauthnRpIdDomainArgs | undefined>;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled?: pulumi.Input<boolean | undefined>;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: string;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus?: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdDomainArgs {
+    /**
+     * The name of the AAGUID group.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguid {
+    /**
+     * The AAGUID identifier.
+     */
+    aaguid?: string;
+    /**
+     * Properties of the custom AAGUID authenticator.
+     */
+    authenticatorCharacteristics?: inputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics;
+    /**
+     * The product name associated with the AAGUID.
+     */
+    name?: string;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs {
+    /**
+     * The AAGUID identifier.
+     */
+    aaguid?: pulumi.Input<string | undefined>;
+    /**
+     * Properties of the custom AAGUID authenticator.
+     */
+    authenticatorCharacteristics?: pulumi.Input<inputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs | undefined>;
+    /**
+     * The product name associated with the AAGUID.
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant?: boolean;
+    /**
+     * Whether the authenticator stores the private key on hardware.
+     */
+    hardwareProtected?: boolean;
+    /**
+     * Whether the AAGUID is built into the authenticator or is external.
+     */
+    platformAttached?: boolean;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs {
+    /**
+     * Whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the authenticator stores the private key on hardware.
+     */
+    hardwareProtected?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the AAGUID is built into the authenticator or is external.
+     */
+    platformAttached?: pulumi.Input<boolean | undefined>;
 }
 
 export interface GetCampaignNotificationSettings {
@@ -1988,6 +2192,28 @@ export interface GetEntitlementValueArgs {
     name?: pulumi.Input<string | undefined>;
 }
 
+export interface GetIdentitySourceGroupsProfile {
+    /**
+     * Description of the group.
+     */
+    description?: string;
+    /**
+     * Display name of the group.
+     */
+    displayName?: string;
+}
+
+export interface GetIdentitySourceGroupsProfileArgs {
+    /**
+     * Description of the group.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Display name of the group.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -3005,6 +3231,191 @@ export interface GroupSchemaPropertyOneOf {
     title: pulumi.Input<string>;
 }
 
+export interface IdentitySourceGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the group.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceImportDeleteGroupMemberships {
+    /**
+     * Group memberships to delete. (see below)
+     */
+    memberships?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportDeleteGroupMembershipsMembership>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: pulumi.Input<string | undefined>;
+    /**
+     * External IDs of the group members to remove.
+     */
+    memberExternalIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteGroups {
+    /**
+     * External IDs of the groups to delete.
+     */
+    externalIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: pulumi.Input<string | undefined>;
+    /**
+     * User profiles to delete (by external ID). (see below)
+     */
+    profiles?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportDeleteUsersProfile>[] | undefined>;
+}
+
+export interface IdentitySourceImportDeleteUsersProfile {
+    /**
+     * External ID of the user to delete.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupMemberships {
+    /**
+     * Group memberships to upsert. (see below)
+     */
+    memberships?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportUpsertGroupMembershipsMembership>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: pulumi.Input<string | undefined>;
+    /**
+     * External IDs of the group members to add.
+     */
+    memberExternalIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroups {
+    /**
+     * Group profiles to upsert. (see below)
+     */
+    profiles?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportUpsertGroupsProfile>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupsProfile {
+    /**
+     * External ID of the group.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+    /**
+     * Group profile attributes. (see below)
+     */
+    groupProfile?: pulumi.Input<inputs.IdentitySourceImportUpsertGroupsProfileGroupProfile | undefined>;
+}
+
+export interface IdentitySourceImportUpsertGroupsProfileGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Display name of the group.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceImportUpsertUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: pulumi.Input<string | undefined>;
+    /**
+     * User profiles to upsert. (see below)
+     */
+    profiles?: pulumi.Input<pulumi.Input<inputs.IdentitySourceImportUpsertUsersProfile>[] | undefined>;
+}
+
+export interface IdentitySourceImportUpsertUsersProfile {
+    /**
+     * External ID of the user.
+     */
+    externalId?: pulumi.Input<string | undefined>;
+    /**
+     * User profile attributes. (see below)
+     */
+    profile?: pulumi.Input<inputs.IdentitySourceImportUpsertUsersProfileProfile | undefined>;
+}
+
+export interface IdentitySourceImportUpsertUsersProfileProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: pulumi.Input<string | undefined>;
+    /**
+     * First name of the user.
+     */
+    firstName?: pulumi.Input<string | undefined>;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: pulumi.Input<string | undefined>;
+    /**
+     * Last name of the user.
+     */
+    lastName?: pulumi.Input<string | undefined>;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: pulumi.Input<string | undefined>;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: pulumi.Input<string | undefined>;
+    /**
+     * Username of the user.
+     */
+    userName?: pulumi.Input<string | undefined>;
+}
+
+export interface IdentitySourceUserProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: pulumi.Input<string | undefined>;
+    /**
+     * First name of the user.
+     */
+    firstName?: pulumi.Input<string | undefined>;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: pulumi.Input<string | undefined>;
+    /**
+     * Last name of the user.
+     */
+    lastName?: pulumi.Input<string | undefined>;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: pulumi.Input<string | undefined>;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: pulumi.Input<string | undefined>;
+    /**
+     * Username of the user.
+     */
+    userName?: pulumi.Input<string | undefined>;
+}
+
 export interface LogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -3085,6 +3496,7 @@ export interface PushGroupAppConfig {
     groupScope: pulumi.Input<string>;
     groupType: pulumi.Input<string>;
     samAccountName: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }
 
 export interface PushProviderConfiguration {

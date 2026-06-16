@@ -90,12 +90,16 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
+	// The timestamp when the user status transitioned to ACTIVE
+	Activated pulumi.StringOutput `pulumi:"activated"`
 	// User city
 	City pulumi.StringPtrOutput `pulumi:"city"`
 	// User cost center
 	CostCenter pulumi.StringPtrOutput `pulumi:"costCenter"`
 	// User country code
 	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
+	// The timestamp when the user was created
+	Created pulumi.StringOutput `pulumi:"created"`
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes pulumi.StringOutput `pulumi:"customProfileAttributes"`
 	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
@@ -118,8 +122,12 @@ type User struct {
 	HonorificPrefix pulumi.StringPtrOutput `pulumi:"honorificPrefix"`
 	// User honorific suffix
 	HonorificSuffix pulumi.StringPtrOutput `pulumi:"honorificSuffix"`
+	// The timestamp of the user's last login
+	LastLogin pulumi.StringOutput `pulumi:"lastLogin"`
 	// User last name
 	LastName pulumi.StringOutput `pulumi:"lastName"`
+	// The timestamp when the user was last updated
+	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
 	// User default location
 	Locale pulumi.StringPtrOutput `pulumi:"locale"`
 	// User Okta login
@@ -140,6 +148,8 @@ type User struct {
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// User Password
 	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The timestamp when the user's password was last changed
+	PasswordChanged pulumi.StringOutput `pulumi:"passwordChanged"`
 	// Specifies a hashed password to import into Okta.
 	PasswordHash UserPasswordHashPtrOutput `pulumi:"passwordHash"`
 	// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
@@ -170,6 +180,8 @@ type User struct {
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The timestamp when the user's status last changed
+	StatusChanged pulumi.StringOutput `pulumi:"statusChanged"`
 	// User street address
 	StreetAddress pulumi.StringPtrOutput `pulumi:"streetAddress"`
 	// User default timezone
@@ -241,12 +253,16 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
+	// The timestamp when the user status transitioned to ACTIVE
+	Activated *string `pulumi:"activated"`
 	// User city
 	City *string `pulumi:"city"`
 	// User cost center
 	CostCenter *string `pulumi:"costCenter"`
 	// User country code
 	CountryCode *string `pulumi:"countryCode"`
+	// The timestamp when the user was created
+	Created *string `pulumi:"created"`
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes *string `pulumi:"customProfileAttributes"`
 	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
@@ -269,8 +285,12 @@ type userState struct {
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
 	// User honorific suffix
 	HonorificSuffix *string `pulumi:"honorificSuffix"`
+	// The timestamp of the user's last login
+	LastLogin *string `pulumi:"lastLogin"`
 	// User last name
 	LastName *string `pulumi:"lastName"`
+	// The timestamp when the user was last updated
+	LastUpdated *string `pulumi:"lastUpdated"`
 	// User default location
 	Locale *string `pulumi:"locale"`
 	// User Okta login
@@ -291,6 +311,8 @@ type userState struct {
 	Organization *string `pulumi:"organization"`
 	// User Password
 	Password *string `pulumi:"password"`
+	// The timestamp when the user's password was last changed
+	PasswordChanged *string `pulumi:"passwordChanged"`
 	// Specifies a hashed password to import into Okta.
 	PasswordHash *UserPasswordHash `pulumi:"passwordHash"`
 	// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
@@ -321,6 +343,8 @@ type userState struct {
 	State *string `pulumi:"state"`
 	// User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
+	// The timestamp when the user's status last changed
+	StatusChanged *string `pulumi:"statusChanged"`
 	// User street address
 	StreetAddress *string `pulumi:"streetAddress"`
 	// User default timezone
@@ -336,12 +360,16 @@ type userState struct {
 }
 
 type UserState struct {
+	// The timestamp when the user status transitioned to ACTIVE
+	Activated pulumi.StringPtrInput
 	// User city
 	City pulumi.StringPtrInput
 	// User cost center
 	CostCenter pulumi.StringPtrInput
 	// User country code
 	CountryCode pulumi.StringPtrInput
+	// The timestamp when the user was created
+	Created pulumi.StringPtrInput
 	// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
 	CustomProfileAttributes pulumi.StringPtrInput
 	// List of custom*profile*attribute keys that should be excluded from being managed by Terraform. This is useful in situations where specific custom fields may contain sensitive information and should be managed outside of Terraform.
@@ -364,8 +392,12 @@ type UserState struct {
 	HonorificPrefix pulumi.StringPtrInput
 	// User honorific suffix
 	HonorificSuffix pulumi.StringPtrInput
+	// The timestamp of the user's last login
+	LastLogin pulumi.StringPtrInput
 	// User last name
 	LastName pulumi.StringPtrInput
+	// The timestamp when the user was last updated
+	LastUpdated pulumi.StringPtrInput
 	// User default location
 	Locale pulumi.StringPtrInput
 	// User Okta login
@@ -386,6 +418,8 @@ type UserState struct {
 	Organization pulumi.StringPtrInput
 	// User Password
 	Password pulumi.StringPtrInput
+	// The timestamp when the user's password was last changed
+	PasswordChanged pulumi.StringPtrInput
 	// Specifies a hashed password to import into Okta.
 	PasswordHash UserPasswordHashPtrInput
 	// Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
@@ -416,6 +450,8 @@ type UserState struct {
 	State pulumi.StringPtrInput
 	// User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
+	// The timestamp when the user's status last changed
+	StatusChanged pulumi.StringPtrInput
 	// User street address
 	StreetAddress pulumi.StringPtrInput
 	// User default timezone
@@ -708,6 +744,11 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The timestamp when the user status transitioned to ACTIVE
+func (o UserOutput) Activated() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Activated }).(pulumi.StringOutput)
+}
+
 // User city
 func (o UserOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.City }).(pulumi.StringPtrOutput)
@@ -721,6 +762,11 @@ func (o UserOutput) CostCenter() pulumi.StringPtrOutput {
 // User country code
 func (o UserOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the user was created
+func (o UserOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
 // JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
@@ -778,9 +824,19 @@ func (o UserOutput) HonorificSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.HonorificSuffix }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp of the user's last login
+func (o UserOutput) LastLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LastLogin }).(pulumi.StringOutput)
+}
+
 // User last name
 func (o UserOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LastName }).(pulumi.StringOutput)
+}
+
+// The timestamp when the user was last updated
+func (o UserOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
 // User default location
@@ -831,6 +887,11 @@ func (o UserOutput) Organization() pulumi.StringPtrOutput {
 // User Password
 func (o UserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the user's password was last changed
+func (o UserOutput) PasswordChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.PasswordChanged }).(pulumi.StringOutput)
 }
 
 // Specifies a hashed password to import into Okta.
@@ -903,6 +964,11 @@ func (o UserOutput) State() pulumi.StringPtrOutput {
 // User profile property. Valid values are `ACTIVE`, `DEPROVISIONED`, `STAGED`, `SUSPENDED`. Default: `ACTIVE`
 func (o UserOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the user's status last changed
+func (o UserOutput) StatusChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.StatusChanged }).(pulumi.StringOutput)
 }
 
 // User street address

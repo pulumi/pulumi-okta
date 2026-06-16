@@ -81,6 +81,48 @@ public class Password extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authProvider);
     }
     /**
+     * The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     * 
+     */
+    @Export(name="breachedPasswordDelegatedWorkflowId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> breachedPasswordDelegatedWorkflowId;
+
+    /**
+     * @return The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     * 
+     */
+    public Output<Optional<String>> breachedPasswordDelegatedWorkflowId() {
+        return Codegen.optional(this.breachedPasswordDelegatedWorkflowId);
+    }
+    /**
+     * Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     * 
+     */
+    @Export(name="breachedPasswordExpireAfterDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> breachedPasswordExpireAfterDays;
+
+    /**
+     * @return Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     * 
+     */
+    public Output<Optional<Integer>> breachedPasswordExpireAfterDays() {
+        return Codegen.optional(this.breachedPasswordExpireAfterDays);
+    }
+    /**
+     * If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     * 
+     */
+    @Export(name="breachedPasswordLogoutEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> breachedPasswordLogoutEnabled;
+
+    /**
+     * @return If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     * 
+     */
+    public Output<Optional<Boolean>> breachedPasswordLogoutEnabled() {
+        return Codegen.optional(this.breachedPasswordLogoutEnabled);
+    }
+    /**
      * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      * 
      */

@@ -21,9 +21,15 @@ __all__ = [
     'ApiServiceIntegrationGrantedScope',
     'ApiTokenNetwork',
     'AppGroupAssignmentsGroup',
+    'AppSignonPolicyRuleKeepMeSignedIn',
     'AppSignonPolicyRulePlatformInclude',
     'AppUserSchemaPropertyArrayOneOf',
     'AppUserSchemaPropertyOneOf',
+    'AuthenticatorMethodWebauthnAaguidGroup',
+    'AuthenticatorMethodWebauthnRpId',
+    'AuthenticatorMethodWebauthnRpIdDomain',
+    'AuthenticatorWebauthnCustomAaguidAttestationRootCertificate',
+    'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics',
     'CampaignNotificationSettings',
     'CampaignPrincipalScopeSettings',
     'CampaignPrincipalScopeSettingsPredefinedInactiveUsersScope',
@@ -57,6 +63,21 @@ __all__ = [
     'GroupSchemaPropertyArrayOneOf',
     'GroupSchemaPropertyMasterOverridePriority',
     'GroupSchemaPropertyOneOf',
+    'IdentitySourceGroupProfile',
+    'IdentitySourceImportDeleteGroupMemberships',
+    'IdentitySourceImportDeleteGroupMembershipsMembership',
+    'IdentitySourceImportDeleteGroups',
+    'IdentitySourceImportDeleteUsers',
+    'IdentitySourceImportDeleteUsersProfile',
+    'IdentitySourceImportUpsertGroupMemberships',
+    'IdentitySourceImportUpsertGroupMembershipsMembership',
+    'IdentitySourceImportUpsertGroups',
+    'IdentitySourceImportUpsertGroupsProfile',
+    'IdentitySourceImportUpsertGroupsProfileGroupProfile',
+    'IdentitySourceImportUpsertUsers',
+    'IdentitySourceImportUpsertUsersProfile',
+    'IdentitySourceImportUpsertUsersProfileProfile',
+    'IdentitySourceUserProfile',
     'LogStreamSettings',
     'PolicyRuleProfileEnrollmentProfileAttribute',
     'PreviewSigninPageContentSecurityPolicySetting',
@@ -97,6 +118,11 @@ __all__ = [
     'GetAppsAppVisibilityResult',
     'GetAppsAppVisibilityHideResult',
     'GetAuthServerClaimsClaimResult',
+    'GetAuthenticatorMethodWebauthnAaguidGroupResult',
+    'GetAuthenticatorMethodWebauthnRpIdResult',
+    'GetAuthenticatorMethodWebauthnRpIdDomainResult',
+    'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidResult',
+    'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsResult',
     'GetBehavioursBehaviorResult',
     'GetBrandsBrandResult',
     'GetCampaignNotificationSettingsResult',
@@ -152,6 +178,8 @@ __all__ = [
     'GetFeaturesFeatureResult',
     'GetFeaturesFeatureStageResult',
     'GetGroupsGroupResult',
+    'GetIdentitySourceGroupsProfileResult',
+    'GetIdentitySourceUsersProfileResult',
     'GetLogStreamSettingsResult',
     'GetOrgMetadataDomainsResult',
     'GetOrgMetadataSettingsResult',
@@ -437,6 +465,56 @@ class AppGroupAssignmentsGroup(dict):
 
 
 @pulumi.output_type
+class AppSignonPolicyRuleKeepMeSignedIn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postAuth":
+            suggest = "post_auth"
+        elif key == "postAuthPromptFrequency":
+            suggest = "post_auth_prompt_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppSignonPolicyRuleKeepMeSignedIn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppSignonPolicyRuleKeepMeSignedIn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppSignonPolicyRuleKeepMeSignedIn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_auth: Optional[_builtins.str] = None,
+                 post_auth_prompt_frequency: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str post_auth: Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+        :param _builtins.str post_auth_prompt_frequency: How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+        """
+        if post_auth is not None:
+            pulumi.set(__self__, "post_auth", post_auth)
+        if post_auth_prompt_frequency is not None:
+            pulumi.set(__self__, "post_auth_prompt_frequency", post_auth_prompt_frequency)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuth")
+    def post_auth(self) -> Optional[_builtins.str]:
+        """
+        Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+        """
+        return pulumi.get(self, "post_auth")
+
+    @_builtins.property
+    @pulumi.getter(name="postAuthPromptFrequency")
+    def post_auth_prompt_frequency(self) -> Optional[_builtins.str]:
+        """
+        How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+        """
+        return pulumi.get(self, "post_auth_prompt_frequency")
+
+
+@pulumi.output_type
 class AppSignonPolicyRulePlatformInclude(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -546,6 +624,249 @@ class AppUserSchemaPropertyOneOf(dict):
         Enum title
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class AuthenticatorMethodWebauthnAaguidGroup(dict):
+    def __init__(__self__, *,
+                 aaguids: Sequence[_builtins.str],
+                 name: _builtins.str):
+        """
+        :param Sequence[_builtins.str] aaguids: A list of FIDO2 AAGUIDs in this group.
+        :param _builtins.str name: A name to identify the group of FIDO2 AAGUIDs.
+        """
+        pulumi.set(__self__, "aaguids", aaguids)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def aaguids(self) -> Sequence[_builtins.str]:
+        """
+        A list of FIDO2 AAGUIDs in this group.
+        """
+        return pulumi.get(self, "aaguids")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        A name to identify the group of FIDO2 AAGUIDs.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AuthenticatorMethodWebauthnRpId(dict):
+    def __init__(__self__, *,
+                 domain: Optional['outputs.AuthenticatorMethodWebauthnRpIdDomain'] = None,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        :param 'AuthenticatorMethodWebauthnRpIdDomainArgs' domain: The RP domain configuration. Contains:
+        :param _builtins.bool enabled: Whether the RP ID is active and used for WebAuthn operations.
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional['outputs.AuthenticatorMethodWebauthnRpIdDomain']:
+        """
+        The RP domain configuration. Contains:
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the RP ID is active and used for WebAuthn operations.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AuthenticatorMethodWebauthnRpIdDomain(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validationStatus":
+            suggest = "validation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticatorMethodWebauthnRpIdDomain. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticatorMethodWebauthnRpIdDomain.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticatorMethodWebauthnRpIdDomain.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 validation_status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: The RP ID domain value used for WebAuthn operations.
+        :param _builtins.str validation_status: The validation status of the domain.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if validation_status is not None:
+            pulumi.set(__self__, "validation_status", validation_status)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The RP ID domain value used for WebAuthn operations.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> Optional[_builtins.str]:
+        """
+        The validation status of the domain.
+        """
+        return pulumi.get(self, "validation_status")
+
+
+@pulumi.output_type
+class AuthenticatorWebauthnCustomAaguidAttestationRootCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "x5tS256":
+            suggest = "x5t_s256"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticatorWebauthnCustomAaguidAttestationRootCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticatorWebauthnCustomAaguidAttestationRootCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticatorWebauthnCustomAaguidAttestationRootCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 x5c: _builtins.str,
+                 expiry: Optional[_builtins.str] = None,
+                 issuer: Optional[_builtins.str] = None,
+                 x5t_s256: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str x5c: X.509 certificate chain (base64-encoded).
+        :param _builtins.str expiry: Expiry date of the certificate.
+        :param _builtins.str issuer: Issuer of the certificate.
+        :param _builtins.str x5t_s256: SHA-256 hash (thumbprint) of the X.509 certificate.
+        """
+        pulumi.set(__self__, "x5c", x5c)
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if x5t_s256 is not None:
+            pulumi.set(__self__, "x5t_s256", x5t_s256)
+
+    @_builtins.property
+    @pulumi.getter
+    def x5c(self) -> _builtins.str:
+        """
+        X.509 certificate chain (base64-encoded).
+        """
+        return pulumi.get(self, "x5c")
+
+    @_builtins.property
+    @pulumi.getter
+    def expiry(self) -> Optional[_builtins.str]:
+        """
+        Expiry date of the certificate.
+        """
+        return pulumi.get(self, "expiry")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[_builtins.str]:
+        """
+        Issuer of the certificate.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="x5tS256")
+    def x5t_s256(self) -> Optional[_builtins.str]:
+        """
+        SHA-256 hash (thumbprint) of the X.509 certificate.
+        """
+        return pulumi.get(self, "x5t_s256")
+
+
+@pulumi.output_type
+class AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fipsCompliant":
+            suggest = "fips_compliant"
+        elif key == "hardwareProtected":
+            suggest = "hardware_protected"
+        elif key == "platformAttached":
+            suggest = "platform_attached"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fips_compliant: Optional[_builtins.bool] = None,
+                 hardware_protected: Optional[_builtins.bool] = None,
+                 platform_attached: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool fips_compliant: Indicates whether the authenticator meets FIPS compliance requirements.
+        :param _builtins.bool hardware_protected: Indicates whether the authenticator stores the private key on a hardware component.
+        :param _builtins.bool platform_attached: Indicates whether the custom AAGUID is built into the authenticator or is external.
+        """
+        if fips_compliant is not None:
+            pulumi.set(__self__, "fips_compliant", fips_compliant)
+        if hardware_protected is not None:
+            pulumi.set(__self__, "hardware_protected", hardware_protected)
+        if platform_attached is not None:
+            pulumi.set(__self__, "platform_attached", platform_attached)
+
+    @_builtins.property
+    @pulumi.getter(name="fipsCompliant")
+    def fips_compliant(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the authenticator meets FIPS compliance requirements.
+        """
+        return pulumi.get(self, "fips_compliant")
+
+    @_builtins.property
+    @pulumi.getter(name="hardwareProtected")
+    def hardware_protected(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the authenticator stores the private key on a hardware component.
+        """
+        return pulumi.get(self, "hardware_protected")
+
+    @_builtins.property
+    @pulumi.getter(name="platformAttached")
+    def platform_attached(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the custom AAGUID is built into the authenticator or is external.
+        """
+        return pulumi.get(self, "platform_attached")
 
 
 @pulumi.output_type
@@ -2689,6 +3010,761 @@ class GroupSchemaPropertyOneOf(dict):
 
 
 @pulumi.output_type
+class IdentitySourceGroupProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceGroupProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceGroupProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceGroupProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: Description of the group.
+        :param _builtins.str display_name: Name of the group.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the group.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class IdentitySourceImportDeleteGroupMemberships(dict):
+    def __init__(__self__, *,
+                 memberships: Optional[Sequence['outputs.IdentitySourceImportDeleteGroupMembershipsMembership']] = None):
+        """
+        :param Sequence['IdentitySourceImportDeleteGroupMembershipsMembershipArgs'] memberships: Group memberships to delete. (see below)
+        """
+        if memberships is not None:
+            pulumi.set(__self__, "memberships", memberships)
+
+    @_builtins.property
+    @pulumi.getter
+    def memberships(self) -> Optional[Sequence['outputs.IdentitySourceImportDeleteGroupMembershipsMembership']]:
+        """
+        Group memberships to delete. (see below)
+        """
+        return pulumi.get(self, "memberships")
+
+
+@pulumi.output_type
+class IdentitySourceImportDeleteGroupMembershipsMembership(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupExternalId":
+            suggest = "group_external_id"
+        elif key == "memberExternalIds":
+            suggest = "member_external_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportDeleteGroupMembershipsMembership. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportDeleteGroupMembershipsMembership.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportDeleteGroupMembershipsMembership.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_external_id: Optional[_builtins.str] = None,
+                 member_external_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str group_external_id: External ID of the group.
+        :param Sequence[_builtins.str] member_external_ids: External IDs of the group members to remove.
+        """
+        if group_external_id is not None:
+            pulumi.set(__self__, "group_external_id", group_external_id)
+        if member_external_ids is not None:
+            pulumi.set(__self__, "member_external_ids", member_external_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="groupExternalId")
+    def group_external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID of the group.
+        """
+        return pulumi.get(self, "group_external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="memberExternalIds")
+    def member_external_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        External IDs of the group members to remove.
+        """
+        return pulumi.get(self, "member_external_ids")
+
+
+@pulumi.output_type
+class IdentitySourceImportDeleteGroups(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalIds":
+            suggest = "external_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportDeleteGroups. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportDeleteGroups.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportDeleteGroups.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] external_ids: External IDs of the groups to delete.
+        """
+        if external_ids is not None:
+            pulumi.set(__self__, "external_ids", external_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIds")
+    def external_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        External IDs of the groups to delete.
+        """
+        return pulumi.get(self, "external_ids")
+
+
+@pulumi.output_type
+class IdentitySourceImportDeleteUsers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityType":
+            suggest = "entity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportDeleteUsers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportDeleteUsers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportDeleteUsers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_type: Optional[_builtins.str] = None,
+                 profiles: Optional[Sequence['outputs.IdentitySourceImportDeleteUsersProfile']] = None):
+        """
+        :param _builtins.str entity_type: Entity type. Currently only `USERS` is supported.
+        :param Sequence['IdentitySourceImportDeleteUsersProfileArgs'] profiles: User profiles to delete (by external ID). (see below)
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> Optional[_builtins.str]:
+        """
+        Entity type. Currently only `USERS` is supported.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> Optional[Sequence['outputs.IdentitySourceImportDeleteUsersProfile']]:
+        """
+        User profiles to delete (by external ID). (see below)
+        """
+        return pulumi.get(self, "profiles")
+
+
+@pulumi.output_type
+class IdentitySourceImportDeleteUsersProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportDeleteUsersProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportDeleteUsersProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportDeleteUsersProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str external_id: External ID of the user to delete.
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID of the user to delete.
+        """
+        return pulumi.get(self, "external_id")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertGroupMemberships(dict):
+    def __init__(__self__, *,
+                 memberships: Optional[Sequence['outputs.IdentitySourceImportUpsertGroupMembershipsMembership']] = None):
+        """
+        :param Sequence['IdentitySourceImportUpsertGroupMembershipsMembershipArgs'] memberships: Group memberships to upsert. (see below)
+        """
+        if memberships is not None:
+            pulumi.set(__self__, "memberships", memberships)
+
+    @_builtins.property
+    @pulumi.getter
+    def memberships(self) -> Optional[Sequence['outputs.IdentitySourceImportUpsertGroupMembershipsMembership']]:
+        """
+        Group memberships to upsert. (see below)
+        """
+        return pulumi.get(self, "memberships")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertGroupMembershipsMembership(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupExternalId":
+            suggest = "group_external_id"
+        elif key == "memberExternalIds":
+            suggest = "member_external_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportUpsertGroupMembershipsMembership. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportUpsertGroupMembershipsMembership.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportUpsertGroupMembershipsMembership.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_external_id: Optional[_builtins.str] = None,
+                 member_external_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str group_external_id: External ID of the group.
+        :param Sequence[_builtins.str] member_external_ids: External IDs of the group members to add.
+        """
+        if group_external_id is not None:
+            pulumi.set(__self__, "group_external_id", group_external_id)
+        if member_external_ids is not None:
+            pulumi.set(__self__, "member_external_ids", member_external_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="groupExternalId")
+    def group_external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID of the group.
+        """
+        return pulumi.get(self, "group_external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="memberExternalIds")
+    def member_external_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        External IDs of the group members to add.
+        """
+        return pulumi.get(self, "member_external_ids")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertGroups(dict):
+    def __init__(__self__, *,
+                 profiles: Optional[Sequence['outputs.IdentitySourceImportUpsertGroupsProfile']] = None):
+        """
+        :param Sequence['IdentitySourceImportUpsertGroupsProfileArgs'] profiles: Group profiles to upsert. (see below)
+        """
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> Optional[Sequence['outputs.IdentitySourceImportUpsertGroupsProfile']]:
+        """
+        Group profiles to upsert. (see below)
+        """
+        return pulumi.get(self, "profiles")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertGroupsProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+        elif key == "groupProfile":
+            suggest = "group_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportUpsertGroupsProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportUpsertGroupsProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportUpsertGroupsProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: Optional[_builtins.str] = None,
+                 group_profile: Optional['outputs.IdentitySourceImportUpsertGroupsProfileGroupProfile'] = None):
+        """
+        :param _builtins.str external_id: External ID of the group.
+        :param 'IdentitySourceImportUpsertGroupsProfileGroupProfileArgs' group_profile: Group profile attributes. (see below)
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if group_profile is not None:
+            pulumi.set(__self__, "group_profile", group_profile)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID of the group.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="groupProfile")
+    def group_profile(self) -> Optional['outputs.IdentitySourceImportUpsertGroupsProfileGroupProfile']:
+        """
+        Group profile attributes. (see below)
+        """
+        return pulumi.get(self, "group_profile")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertGroupsProfileGroupProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportUpsertGroupsProfileGroupProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportUpsertGroupsProfileGroupProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportUpsertGroupsProfileGroupProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 display_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: Description of the group.
+        :param _builtins.str display_name: Display name of the group.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the group.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        Display name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertUsers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityType":
+            suggest = "entity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportUpsertUsers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportUpsertUsers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportUpsertUsers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_type: Optional[_builtins.str] = None,
+                 profiles: Optional[Sequence['outputs.IdentitySourceImportUpsertUsersProfile']] = None):
+        """
+        :param _builtins.str entity_type: Entity type. Currently only `USERS` is supported.
+        :param Sequence['IdentitySourceImportUpsertUsersProfileArgs'] profiles: User profiles to upsert. (see below)
+        """
+        if entity_type is not None:
+            pulumi.set(__self__, "entity_type", entity_type)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> Optional[_builtins.str]:
+        """
+        Entity type. Currently only `USERS` is supported.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> Optional[Sequence['outputs.IdentitySourceImportUpsertUsersProfile']]:
+        """
+        User profiles to upsert. (see below)
+        """
+        return pulumi.get(self, "profiles")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertUsersProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportUpsertUsersProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportUpsertUsersProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportUpsertUsersProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: Optional[_builtins.str] = None,
+                 profile: Optional['outputs.IdentitySourceImportUpsertUsersProfileProfile'] = None):
+        """
+        :param _builtins.str external_id: External ID of the user.
+        :param 'IdentitySourceImportUpsertUsersProfileProfileArgs' profile: User profile attributes. (see below)
+        """
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        """
+        External ID of the user.
+        """
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def profile(self) -> Optional['outputs.IdentitySourceImportUpsertUsersProfileProfile']:
+        """
+        User profile attributes. (see below)
+        """
+        return pulumi.get(self, "profile")
+
+
+@pulumi.output_type
+class IdentitySourceImportUpsertUsersProfileProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstName":
+            suggest = "first_name"
+        elif key == "homeAddress":
+            suggest = "home_address"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "mobilePhone":
+            suggest = "mobile_phone"
+        elif key == "secondEmail":
+            suggest = "second_email"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceImportUpsertUsersProfileProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceImportUpsertUsersProfileProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceImportUpsertUsersProfileProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email: Optional[_builtins.str] = None,
+                 first_name: Optional[_builtins.str] = None,
+                 home_address: Optional[_builtins.str] = None,
+                 last_name: Optional[_builtins.str] = None,
+                 mobile_phone: Optional[_builtins.str] = None,
+                 second_email: Optional[_builtins.str] = None,
+                 user_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str email: Email address of the user.
+        :param _builtins.str first_name: First name of the user.
+        :param _builtins.str home_address: Home address of the user.
+        :param _builtins.str last_name: Last name of the user.
+        :param _builtins.str mobile_phone: Mobile phone number of the user.
+        :param _builtins.str second_email: Alternative email address of the user.
+        :param _builtins.str user_name: Username of the user.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if home_address is not None:
+            pulumi.set(__self__, "home_address", home_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if mobile_phone is not None:
+            pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if second_email is not None:
+            pulumi.set(__self__, "second_email", second_email)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> Optional[_builtins.str]:
+        """
+        Email address of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[_builtins.str]:
+        """
+        First name of the user.
+        """
+        return pulumi.get(self, "first_name")
+
+    @_builtins.property
+    @pulumi.getter(name="homeAddress")
+    def home_address(self) -> Optional[_builtins.str]:
+        """
+        Home address of the user.
+        """
+        return pulumi.get(self, "home_address")
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[_builtins.str]:
+        """
+        Last name of the user.
+        """
+        return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> Optional[_builtins.str]:
+        """
+        Mobile phone number of the user.
+        """
+        return pulumi.get(self, "mobile_phone")
+
+    @_builtins.property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> Optional[_builtins.str]:
+        """
+        Alternative email address of the user.
+        """
+        return pulumi.get(self, "second_email")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[_builtins.str]:
+        """
+        Username of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class IdentitySourceUserProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstName":
+            suggest = "first_name"
+        elif key == "homeAddress":
+            suggest = "home_address"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "mobilePhone":
+            suggest = "mobile_phone"
+        elif key == "secondEmail":
+            suggest = "second_email"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceUserProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySourceUserProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySourceUserProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email: Optional[_builtins.str] = None,
+                 first_name: Optional[_builtins.str] = None,
+                 home_address: Optional[_builtins.str] = None,
+                 last_name: Optional[_builtins.str] = None,
+                 mobile_phone: Optional[_builtins.str] = None,
+                 second_email: Optional[_builtins.str] = None,
+                 user_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str email: Email address of the user.
+        :param _builtins.str first_name: First name of the user.
+        :param _builtins.str home_address: Home address of the user.
+        :param _builtins.str last_name: Last name of the user.
+        :param _builtins.str mobile_phone: Mobile phone number of the user.
+        :param _builtins.str second_email: Alternative email address of the user.
+        :param _builtins.str user_name: Username of the user.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if home_address is not None:
+            pulumi.set(__self__, "home_address", home_address)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if mobile_phone is not None:
+            pulumi.set(__self__, "mobile_phone", mobile_phone)
+        if second_email is not None:
+            pulumi.set(__self__, "second_email", second_email)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> Optional[_builtins.str]:
+        """
+        Email address of the user.
+        """
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[_builtins.str]:
+        """
+        First name of the user.
+        """
+        return pulumi.get(self, "first_name")
+
+    @_builtins.property
+    @pulumi.getter(name="homeAddress")
+    def home_address(self) -> Optional[_builtins.str]:
+        """
+        Home address of the user.
+        """
+        return pulumi.get(self, "home_address")
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[_builtins.str]:
+        """
+        Last name of the user.
+        """
+        return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> Optional[_builtins.str]:
+        """
+        Mobile phone number of the user.
+        """
+        return pulumi.get(self, "mobile_phone")
+
+    @_builtins.property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> Optional[_builtins.str]:
+        """
+        Alternative email address of the user.
+        """
+        return pulumi.get(self, "second_email")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[_builtins.str]:
+        """
+        Username of the user.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
 class LogStreamSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3139,11 +4215,13 @@ class PushGroupAppConfig(dict):
                  distinguished_name: _builtins.str,
                  group_scope: _builtins.str,
                  group_type: _builtins.str,
-                 sam_account_name: _builtins.str):
+                 sam_account_name: _builtins.str,
+                 type: _builtins.str):
         pulumi.set(__self__, "distinguished_name", distinguished_name)
         pulumi.set(__self__, "group_scope", group_scope)
         pulumi.set(__self__, "group_type", group_type)
         pulumi.set(__self__, "sam_account_name", sam_account_name)
+        pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="distinguishedName")
@@ -3164,6 +4242,11 @@ class PushGroupAppConfig(dict):
     @pulumi.getter(name="samAccountName")
     def sam_account_name(self) -> _builtins.str:
         return pulumi.get(self, "sam_account_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4883,6 +5966,175 @@ class GetAuthServerClaimsClaimResult(dict):
         Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
         """
         return pulumi.get(self, "value_type")
+
+
+@pulumi.output_type
+class GetAuthenticatorMethodWebauthnAaguidGroupResult(dict):
+    def __init__(__self__, *,
+                 aaguids: Sequence[_builtins.str],
+                 name: _builtins.str):
+        """
+        :param Sequence[_builtins.str] aaguids: List of FIDO2 AAGUIDs in this group.
+        :param _builtins.str name: The name of the AAGUID group.
+        """
+        pulumi.set(__self__, "aaguids", aaguids)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def aaguids(self) -> Sequence[_builtins.str]:
+        """
+        List of FIDO2 AAGUIDs in this group.
+        """
+        return pulumi.get(self, "aaguids")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the AAGUID group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAuthenticatorMethodWebauthnRpIdResult(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 domain: Optional['outputs.GetAuthenticatorMethodWebauthnRpIdDomainResult'] = None):
+        """
+        :param _builtins.bool enabled: Whether the RP ID is active and used for WebAuthn operations.
+        :param 'GetAuthenticatorMethodWebauthnRpIdDomainArgs' domain: The RP domain configuration. Contains:
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the RP ID is active and used for WebAuthn operations.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> Optional['outputs.GetAuthenticatorMethodWebauthnRpIdDomainResult']:
+        """
+        The RP domain configuration. Contains:
+        """
+        return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class GetAuthenticatorMethodWebauthnRpIdDomainResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 validation_status: _builtins.str):
+        """
+        :param _builtins.str name: The name of the AAGUID group.
+        :param _builtins.str validation_status: The validation status of the domain.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "validation_status", validation_status)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the AAGUID group.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> _builtins.str:
+        """
+        The validation status of the domain.
+        """
+        return pulumi.get(self, "validation_status")
+
+
+@pulumi.output_type
+class GetAuthenticatorWebauthnCustomAaguidsCustomAaguidResult(dict):
+    def __init__(__self__, *,
+                 aaguid: _builtins.str,
+                 name: _builtins.str,
+                 authenticator_characteristics: Optional['outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsResult'] = None):
+        """
+        :param _builtins.str aaguid: The AAGUID identifier.
+        :param _builtins.str name: The product name associated with the AAGUID.
+        :param 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsArgs' authenticator_characteristics: Properties of the custom AAGUID authenticator.
+        """
+        pulumi.set(__self__, "aaguid", aaguid)
+        pulumi.set(__self__, "name", name)
+        if authenticator_characteristics is not None:
+            pulumi.set(__self__, "authenticator_characteristics", authenticator_characteristics)
+
+    @_builtins.property
+    @pulumi.getter
+    def aaguid(self) -> _builtins.str:
+        """
+        The AAGUID identifier.
+        """
+        return pulumi.get(self, "aaguid")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The product name associated with the AAGUID.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="authenticatorCharacteristics")
+    def authenticator_characteristics(self) -> Optional['outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsResult']:
+        """
+        Properties of the custom AAGUID authenticator.
+        """
+        return pulumi.get(self, "authenticator_characteristics")
+
+
+@pulumi.output_type
+class GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristicsResult(dict):
+    def __init__(__self__, *,
+                 fips_compliant: _builtins.bool,
+                 hardware_protected: _builtins.bool,
+                 platform_attached: _builtins.bool):
+        """
+        :param _builtins.bool fips_compliant: Whether the authenticator meets FIPS compliance requirements.
+        :param _builtins.bool hardware_protected: Whether the authenticator stores the private key on hardware.
+        :param _builtins.bool platform_attached: Whether the AAGUID is built into the authenticator or is external.
+        """
+        pulumi.set(__self__, "fips_compliant", fips_compliant)
+        pulumi.set(__self__, "hardware_protected", hardware_protected)
+        pulumi.set(__self__, "platform_attached", platform_attached)
+
+    @_builtins.property
+    @pulumi.getter(name="fipsCompliant")
+    def fips_compliant(self) -> _builtins.bool:
+        """
+        Whether the authenticator meets FIPS compliance requirements.
+        """
+        return pulumi.get(self, "fips_compliant")
+
+    @_builtins.property
+    @pulumi.getter(name="hardwareProtected")
+    def hardware_protected(self) -> _builtins.bool:
+        """
+        Whether the authenticator stores the private key on hardware.
+        """
+        return pulumi.get(self, "hardware_protected")
+
+    @_builtins.property
+    @pulumi.getter(name="platformAttached")
+    def platform_attached(self) -> _builtins.bool:
+        """
+        Whether the AAGUID is built into the authenticator or is external.
+        """
+        return pulumi.get(self, "platform_attached")
 
 
 @pulumi.output_type
@@ -7383,6 +8635,89 @@ class GetGroupsGroupResult(dict):
         Group type, either 'APP_GROUP' or 'OKTA_GROUP'.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIdentitySourceGroupsProfileResult(dict):
+    def __init__(__self__, *,
+                 description: _builtins.str,
+                 display_name: _builtins.str):
+        """
+        :param _builtins.str description: Description of the group.
+        :param _builtins.str display_name: Display name of the group.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the group.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        Display name of the group.
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
+class GetIdentitySourceUsersProfileResult(dict):
+    def __init__(__self__, *,
+                 email: _builtins.str,
+                 first_name: _builtins.str,
+                 home_address: _builtins.str,
+                 last_name: _builtins.str,
+                 mobile_phone: _builtins.str,
+                 second_email: _builtins.str,
+                 user_name: _builtins.str):
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "home_address", home_address)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "mobile_phone", mobile_phone)
+        pulumi.set(__self__, "second_email", second_email)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> _builtins.str:
+        return pulumi.get(self, "email")
+
+    @_builtins.property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> _builtins.str:
+        return pulumi.get(self, "first_name")
+
+    @_builtins.property
+    @pulumi.getter(name="homeAddress")
+    def home_address(self) -> _builtins.str:
+        return pulumi.get(self, "home_address")
+
+    @_builtins.property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> _builtins.str:
+        return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="mobilePhone")
+    def mobile_phone(self) -> _builtins.str:
+        return pulumi.get(self, "mobile_phone")
+
+    @_builtins.property
+    @pulumi.getter(name="secondEmail")
+    def second_email(self) -> _builtins.str:
+        return pulumi.get(self, "second_email")
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> _builtins.str:
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type

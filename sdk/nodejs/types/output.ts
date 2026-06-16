@@ -76,6 +76,17 @@ export interface AppGroupAssignmentsGroup {
     profile: string;
 }
 
+export interface AppSignonPolicyRuleKeepMeSignedIn {
+    /**
+     * Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+     */
+    postAuth?: string;
+    /**
+     * How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+     */
+    postAuthPromptFrequency?: string;
+}
+
 export interface AppSignonPolicyRulePlatformInclude {
     /**
      * Only available with OTHER OS type
@@ -105,6 +116,73 @@ export interface AppUserSchemaPropertyOneOf {
      * Enum title
      */
     title: string;
+}
+
+export interface AuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * A list of FIDO2 AAGUIDs in this group.
+     */
+    aaguids: string[];
+    /**
+     * A name to identify the group of FIDO2 AAGUIDs.
+     */
+    name: string;
+}
+
+export interface AuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: outputs.AuthenticatorMethodWebauthnRpIdDomain;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled: boolean;
+}
+
+export interface AuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The RP ID domain value used for WebAuthn operations.
+     */
+    name: string;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus: string;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAttestationRootCertificate {
+    /**
+     * Expiry date of the certificate.
+     */
+    expiry: string;
+    /**
+     * Issuer of the certificate.
+     */
+    issuer: string;
+    /**
+     * X.509 certificate chain (base64-encoded).
+     */
+    x5c: string;
+    /**
+     * SHA-256 hash (thumbprint) of the X.509 certificate.
+     */
+    x5tS256: string;
+}
+
+export interface AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Indicates whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant: boolean;
+    /**
+     * Indicates whether the authenticator stores the private key on a hardware component.
+     */
+    hardwareProtected: boolean;
+    /**
+     * Indicates whether the custom AAGUID is built into the authenticator or is external.
+     */
+    platformAttached: boolean;
 }
 
 export interface CampaignNotificationSettings {
@@ -748,6 +826,69 @@ export interface GetAuthServerClaimsClaim {
      * Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)
      */
     valueType: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnAaguidGroup {
+    /**
+     * List of FIDO2 AAGUIDs in this group.
+     */
+    aaguids: string[];
+    /**
+     * The name of the AAGUID group.
+     */
+    name: string;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpId {
+    /**
+     * The RP domain configuration. Contains:
+     */
+    domain?: outputs.GetAuthenticatorMethodWebauthnRpIdDomain;
+    /**
+     * Whether the RP ID is active and used for WebAuthn operations.
+     */
+    enabled: boolean;
+}
+
+export interface GetAuthenticatorMethodWebauthnRpIdDomain {
+    /**
+     * The name of the AAGUID group.
+     */
+    name: string;
+    /**
+     * The validation status of the domain.
+     */
+    validationStatus: string;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguid {
+    /**
+     * The AAGUID identifier.
+     */
+    aaguid: string;
+    /**
+     * Properties of the custom AAGUID authenticator.
+     */
+    authenticatorCharacteristics?: outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics;
+    /**
+     * The product name associated with the AAGUID.
+     */
+    name: string;
+}
+
+export interface GetAuthenticatorWebauthnCustomAaguidsCustomAaguidAuthenticatorCharacteristics {
+    /**
+     * Whether the authenticator meets FIPS compliance requirements.
+     */
+    fipsCompliant: boolean;
+    /**
+     * Whether the authenticator stores the private key on hardware.
+     */
+    hardwareProtected: boolean;
+    /**
+     * Whether the AAGUID is built into the authenticator or is external.
+     */
+    platformAttached: boolean;
 }
 
 export interface GetBehavioursBehavior {
@@ -1516,6 +1657,27 @@ export interface GetGroupsGroup {
     type: string;
 }
 
+export interface GetIdentitySourceGroupsProfile {
+    /**
+     * Description of the group.
+     */
+    description: string;
+    /**
+     * Display name of the group.
+     */
+    displayName: string;
+}
+
+export interface GetIdentitySourceUsersProfile {
+    email: string;
+    firstName: string;
+    homeAddress: string;
+    lastName: string;
+    mobilePhone: string;
+    secondEmail: string;
+    userName: string;
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -2139,6 +2301,191 @@ export interface GroupSchemaPropertyOneOf {
     title: string;
 }
 
+export interface IdentitySourceGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: string;
+    /**
+     * Name of the group.
+     */
+    displayName?: string;
+}
+
+export interface IdentitySourceImportDeleteGroupMemberships {
+    /**
+     * Group memberships to delete. (see below)
+     */
+    memberships?: outputs.IdentitySourceImportDeleteGroupMembershipsMembership[];
+}
+
+export interface IdentitySourceImportDeleteGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: string;
+    /**
+     * External IDs of the group members to remove.
+     */
+    memberExternalIds?: string[];
+}
+
+export interface IdentitySourceImportDeleteGroups {
+    /**
+     * External IDs of the groups to delete.
+     */
+    externalIds?: string[];
+}
+
+export interface IdentitySourceImportDeleteUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: string;
+    /**
+     * User profiles to delete (by external ID). (see below)
+     */
+    profiles?: outputs.IdentitySourceImportDeleteUsersProfile[];
+}
+
+export interface IdentitySourceImportDeleteUsersProfile {
+    /**
+     * External ID of the user to delete.
+     */
+    externalId?: string;
+}
+
+export interface IdentitySourceImportUpsertGroupMemberships {
+    /**
+     * Group memberships to upsert. (see below)
+     */
+    memberships?: outputs.IdentitySourceImportUpsertGroupMembershipsMembership[];
+}
+
+export interface IdentitySourceImportUpsertGroupMembershipsMembership {
+    /**
+     * External ID of the group.
+     */
+    groupExternalId?: string;
+    /**
+     * External IDs of the group members to add.
+     */
+    memberExternalIds?: string[];
+}
+
+export interface IdentitySourceImportUpsertGroups {
+    /**
+     * Group profiles to upsert. (see below)
+     */
+    profiles?: outputs.IdentitySourceImportUpsertGroupsProfile[];
+}
+
+export interface IdentitySourceImportUpsertGroupsProfile {
+    /**
+     * External ID of the group.
+     */
+    externalId?: string;
+    /**
+     * Group profile attributes. (see below)
+     */
+    groupProfile?: outputs.IdentitySourceImportUpsertGroupsProfileGroupProfile;
+}
+
+export interface IdentitySourceImportUpsertGroupsProfileGroupProfile {
+    /**
+     * Description of the group.
+     */
+    description?: string;
+    /**
+     * Display name of the group.
+     */
+    displayName?: string;
+}
+
+export interface IdentitySourceImportUpsertUsers {
+    /**
+     * Entity type. Currently only `USERS` is supported.
+     */
+    entityType?: string;
+    /**
+     * User profiles to upsert. (see below)
+     */
+    profiles?: outputs.IdentitySourceImportUpsertUsersProfile[];
+}
+
+export interface IdentitySourceImportUpsertUsersProfile {
+    /**
+     * External ID of the user.
+     */
+    externalId?: string;
+    /**
+     * User profile attributes. (see below)
+     */
+    profile?: outputs.IdentitySourceImportUpsertUsersProfileProfile;
+}
+
+export interface IdentitySourceImportUpsertUsersProfileProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: string;
+    /**
+     * First name of the user.
+     */
+    firstName?: string;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: string;
+    /**
+     * Last name of the user.
+     */
+    lastName?: string;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: string;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: string;
+    /**
+     * Username of the user.
+     */
+    userName?: string;
+}
+
+export interface IdentitySourceUserProfile {
+    /**
+     * Email address of the user.
+     */
+    email?: string;
+    /**
+     * First name of the user.
+     */
+    firstName?: string;
+    /**
+     * Home address of the user.
+     */
+    homeAddress?: string;
+    /**
+     * Last name of the user.
+     */
+    lastName?: string;
+    /**
+     * Mobile phone number of the user.
+     */
+    mobilePhone?: string;
+    /**
+     * Alternative email address of the user.
+     */
+    secondEmail?: string;
+    /**
+     * Username of the user.
+     */
+    userName?: string;
+}
+
 export interface LogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -2219,6 +2566,7 @@ export interface PushGroupAppConfig {
     groupScope: string;
     groupType: string;
     samAccountName: string;
+    type: string;
 }
 
 export interface PushProviderConfiguration {
@@ -3500,10 +3848,12 @@ export namespace user {
     }
 
     export interface GetUsersUser {
+        activated: string;
         adminRoles: string[];
         city: string;
         costCenter: string;
         countryCode: string;
+        created: string;
         customProfileAttributes: string;
         department: string;
         displayName: string;
@@ -3515,7 +3865,9 @@ export namespace user {
         honorificPrefix: string;
         honorificSuffix: string;
         id: string;
+        lastLogin: string;
         lastName: string;
+        lastUpdated: string;
         locale: string;
         login: string;
         manager: string;
@@ -3524,6 +3876,7 @@ export namespace user {
         mobilePhone: string;
         nickName: string;
         organization: string;
+        passwordChanged: string;
         postalAddress: string;
         preferredLanguage: string;
         primaryPhone: string;
@@ -3536,6 +3889,7 @@ export namespace user {
         secondEmail: string;
         state: string;
         status: string;
+        statusChanged: string;
         streetAddress: string;
         timezone: string;
         title: string;
