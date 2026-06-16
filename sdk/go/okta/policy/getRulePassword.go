@@ -34,7 +34,7 @@ import (
 //				return err
 //			}
 //			exampleRulePassword, err := policy.NewRulePassword(ctx, "example", &policy.RulePasswordArgs{
-//				PolicyId: pulumi.String(pulumi.String(password.Id)),
+//				PolicyId: pulumi.String(password.Id),
 //				Name:     pulumi.String("My Password Rule"),
 //			})
 //			if err != nil {

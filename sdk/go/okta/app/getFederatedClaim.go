@@ -85,10 +85,10 @@ import (
 //				Id:    exampleFederatedClaim.ID(),
 //			}, nil)
 //			ctx.Export("claimName", example.ApplyT(func(example app.GetFederatedClaimResult) (*string, error) {
-//				return &example.Name, nil
+//				return example.Name, nil
 //			}).(pulumi.StringPtrOutput))
 //			ctx.Export("claimExpression", example.ApplyT(func(example app.GetFederatedClaimResult) (*string, error) {
-//				return &example.Expression, nil
+//				return example.Expression, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
