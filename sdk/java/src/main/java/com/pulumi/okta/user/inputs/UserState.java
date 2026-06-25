@@ -20,6 +20,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
+     * The timestamp when the user status transitioned to ACTIVE
+     * 
+     */
+    @Import(name="activated")
+    private @Nullable Output<String> activated;
+
+    /**
+     * @return The timestamp when the user status transitioned to ACTIVE
+     * 
+     */
+    public Optional<Output<String>> activated() {
+        return Optional.ofNullable(this.activated);
+    }
+
+    /**
      * User city
      * 
      */
@@ -62,6 +77,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> countryCode() {
         return Optional.ofNullable(this.countryCode);
+    }
+
+    /**
+     * The timestamp when the user was created
+     * 
+     */
+    @Import(name="created")
+    private @Nullable Output<String> created;
+
+    /**
+     * @return The timestamp when the user was created
+     * 
+     */
+    public Optional<Output<String>> created() {
+        return Optional.ofNullable(this.created);
     }
 
     /**
@@ -230,6 +260,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The timestamp of the user&#39;s last login
+     * 
+     */
+    @Import(name="lastLogin")
+    private @Nullable Output<String> lastLogin;
+
+    /**
+     * @return The timestamp of the user&#39;s last login
+     * 
+     */
+    public Optional<Output<String>> lastLogin() {
+        return Optional.ofNullable(this.lastLogin);
+    }
+
+    /**
      * User last name
      * 
      */
@@ -242,6 +287,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> lastName() {
         return Optional.ofNullable(this.lastName);
+    }
+
+    /**
+     * The timestamp when the user was last updated
+     * 
+     */
+    @Import(name="lastUpdated")
+    private @Nullable Output<String> lastUpdated;
+
+    /**
+     * @return The timestamp when the user was last updated
+     * 
+     */
+    public Optional<Output<String>> lastUpdated() {
+        return Optional.ofNullable(this.lastUpdated);
     }
 
     /**
@@ -392,6 +452,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * The timestamp when the user&#39;s password was last changed
+     * 
+     */
+    @Import(name="passwordChanged")
+    private @Nullable Output<String> passwordChanged;
+
+    /**
+     * @return The timestamp when the user&#39;s password was last changed
+     * 
+     */
+    public Optional<Output<String>> passwordChanged() {
+        return Optional.ofNullable(this.passwordChanged);
     }
 
     /**
@@ -613,6 +688,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The timestamp when the user&#39;s status last changed
+     * 
+     */
+    @Import(name="statusChanged")
+    private @Nullable Output<String> statusChanged;
+
+    /**
+     * @return The timestamp when the user&#39;s status last changed
+     * 
+     */
+    public Optional<Output<String>> statusChanged() {
+        return Optional.ofNullable(this.statusChanged);
+    }
+
+    /**
      * User street address
      * 
      */
@@ -705,9 +795,11 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     private UserState() {}
 
     private UserState(UserState $) {
+        this.activated = $.activated;
         this.city = $.city;
         this.costCenter = $.costCenter;
         this.countryCode = $.countryCode;
+        this.created = $.created;
         this.customProfileAttributes = $.customProfileAttributes;
         this.customProfileAttributesToIgnores = $.customProfileAttributesToIgnores;
         this.department = $.department;
@@ -719,7 +811,9 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.firstName = $.firstName;
         this.honorificPrefix = $.honorificPrefix;
         this.honorificSuffix = $.honorificSuffix;
+        this.lastLogin = $.lastLogin;
         this.lastName = $.lastName;
+        this.lastUpdated = $.lastUpdated;
         this.locale = $.locale;
         this.login = $.login;
         this.manager = $.manager;
@@ -730,6 +824,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.oldPassword = $.oldPassword;
         this.organization = $.organization;
         this.password = $.password;
+        this.passwordChanged = $.passwordChanged;
         this.passwordHash = $.passwordHash;
         this.passwordInlineHook = $.passwordInlineHook;
         this.postalAddress = $.postalAddress;
@@ -744,6 +839,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.skipRoles = $.skipRoles;
         this.state = $.state;
         this.status = $.status;
+        this.statusChanged = $.statusChanged;
         this.streetAddress = $.streetAddress;
         this.timezone = $.timezone;
         this.title = $.title;
@@ -768,6 +864,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(UserState defaults) {
             $ = new UserState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param activated The timestamp when the user status transitioned to ACTIVE
+         * 
+         * @return builder
+         * 
+         */
+        public Builder activated(@Nullable Output<String> activated) {
+            $.activated = activated;
+            return this;
+        }
+
+        /**
+         * @param activated The timestamp when the user status transitioned to ACTIVE
+         * 
+         * @return builder
+         * 
+         */
+        public Builder activated(String activated) {
+            return activated(Output.of(activated));
         }
 
         /**
@@ -831,6 +948,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder countryCode(String countryCode) {
             return countryCode(Output.of(countryCode));
+        }
+
+        /**
+         * @param created The timestamp when the user was created
+         * 
+         * @return builder
+         * 
+         */
+        public Builder created(@Nullable Output<String> created) {
+            $.created = created;
+            return this;
+        }
+
+        /**
+         * @param created The timestamp when the user was created
+         * 
+         * @return builder
+         * 
+         */
+        public Builder created(String created) {
+            return created(Output.of(created));
         }
 
         /**
@@ -1075,6 +1213,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param lastLogin The timestamp of the user&#39;s last login
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastLogin(@Nullable Output<String> lastLogin) {
+            $.lastLogin = lastLogin;
+            return this;
+        }
+
+        /**
+         * @param lastLogin The timestamp of the user&#39;s last login
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastLogin(String lastLogin) {
+            return lastLogin(Output.of(lastLogin));
+        }
+
+        /**
          * @param lastName User last name
          * 
          * @return builder
@@ -1093,6 +1252,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lastName(String lastName) {
             return lastName(Output.of(lastName));
+        }
+
+        /**
+         * @param lastUpdated The timestamp when the user was last updated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastUpdated(@Nullable Output<String> lastUpdated) {
+            $.lastUpdated = lastUpdated;
+            return this;
+        }
+
+        /**
+         * @param lastUpdated The timestamp when the user was last updated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastUpdated(String lastUpdated) {
+            return lastUpdated(Output.of(lastUpdated));
         }
 
         /**
@@ -1303,6 +1483,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param passwordChanged The timestamp when the user&#39;s password was last changed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordChanged(@Nullable Output<String> passwordChanged) {
+            $.passwordChanged = passwordChanged;
+            return this;
+        }
+
+        /**
+         * @param passwordChanged The timestamp when the user&#39;s password was last changed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordChanged(String passwordChanged) {
+            return passwordChanged(Output.of(passwordChanged));
         }
 
         /**
@@ -1605,6 +1806,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param statusChanged The timestamp when the user&#39;s status last changed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusChanged(@Nullable Output<String> statusChanged) {
+            $.statusChanged = statusChanged;
+            return this;
+        }
+
+        /**
+         * @param statusChanged The timestamp when the user&#39;s status last changed
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusChanged(String statusChanged) {
+            return statusChanged(Output.of(statusChanged));
         }
 
         /**

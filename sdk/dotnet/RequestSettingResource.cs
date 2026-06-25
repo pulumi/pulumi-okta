@@ -24,7 +24,7 @@ namespace Pulumi.Okta
     /// {
     ///     var test = new Okta.RequestSettingResource("test", new()
     ///     {
-    ///         ResourceId = "&lt;resource_id&gt;",
+    ///         IdProperty = "&lt;resource_id&gt;",
     ///         RiskSettings = new Okta.Inputs.RequestSettingResourceRiskSettingsArgs
     ///         {
     ///             DefaultSetting = new Okta.Inputs.RequestSettingResourceRiskSettingsDefaultSettingArgs

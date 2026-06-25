@@ -33,6 +33,7 @@ class AppSignonPolicyRuleArgs:
                  groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional['AppSignonPolicyRuleKeepMeSignedInArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -62,6 +63,7 @@ class AppSignonPolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include
         :param pulumi.Input[_builtins.str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input['AppSignonPolicyRuleKeepMeSignedInArgs'] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
@@ -99,6 +101,8 @@ class AppSignonPolicyRuleArgs:
             pulumi.set(__self__, "groups_includeds", groups_includeds)
         if inactivity_period is not None:
             pulumi.set(__self__, "inactivity_period", inactivity_period)
+        if keep_me_signed_in is not None:
+            pulumi.set(__self__, "keep_me_signed_in", keep_me_signed_in)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_connection is not None:
@@ -271,6 +275,18 @@ class AppSignonPolicyRuleArgs:
     @inactivity_period.setter
     def inactivity_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inactivity_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keepMeSignedIn")
+    def keep_me_signed_in(self) -> pulumi.Input[Optional['AppSignonPolicyRuleKeepMeSignedInArgs']]:
+        """
+        Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        """
+        return pulumi.get(self, "keep_me_signed_in")
+
+    @keep_me_signed_in.setter
+    def keep_me_signed_in(self, value: pulumi.Input[Optional['AppSignonPolicyRuleKeepMeSignedInArgs']]):
+        pulumi.set(self, "keep_me_signed_in", value)
 
     @_builtins.property
     @pulumi.getter
@@ -452,6 +468,7 @@ class _AppSignonPolicyRuleState:
                  groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional['AppSignonPolicyRuleKeepMeSignedInArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -482,6 +499,7 @@ class _AppSignonPolicyRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include
         :param pulumi.Input[_builtins.str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input['AppSignonPolicyRuleKeepMeSignedInArgs'] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
@@ -520,6 +538,8 @@ class _AppSignonPolicyRuleState:
             pulumi.set(__self__, "groups_includeds", groups_includeds)
         if inactivity_period is not None:
             pulumi.set(__self__, "inactivity_period", inactivity_period)
+        if keep_me_signed_in is not None:
+            pulumi.set(__self__, "keep_me_signed_in", keep_me_signed_in)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_connection is not None:
@@ -684,6 +704,18 @@ class _AppSignonPolicyRuleState:
     @inactivity_period.setter
     def inactivity_period(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inactivity_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keepMeSignedIn")
+    def keep_me_signed_in(self) -> pulumi.Input[Optional['AppSignonPolicyRuleKeepMeSignedInArgs']]:
+        """
+        Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        """
+        return pulumi.get(self, "keep_me_signed_in")
+
+    @keep_me_signed_in.setter
+    def keep_me_signed_in(self, value: pulumi.Input[Optional['AppSignonPolicyRuleKeepMeSignedInArgs']]):
+        pulumi.set(self, "keep_me_signed_in", value)
 
     @_builtins.property
     @pulumi.getter
@@ -892,6 +924,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -941,6 +974,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include
         :param pulumi.Input[_builtins.str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
@@ -1008,6 +1042,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1043,6 +1078,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             __props__.__dict__["groups_excludeds"] = groups_excludeds
             __props__.__dict__["groups_includeds"] = groups_includeds
             __props__.__dict__["inactivity_period"] = inactivity_period
+            __props__.__dict__["keep_me_signed_in"] = keep_me_signed_in
             __props__.__dict__["name"] = name
             __props__.__dict__["network_connection"] = network_connection
             __props__.__dict__["network_excludes"] = network_excludes
@@ -1082,6 +1118,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+            keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_connection: pulumi.Input[Optional[_builtins.str]] = None,
             network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1116,6 +1153,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include
         :param pulumi.Input[_builtins.str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
+        :param pulumi.Input[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
@@ -1147,6 +1185,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["groups_excludeds"] = groups_excludeds
         __props__.__dict__["groups_includeds"] = groups_includeds
         __props__.__dict__["inactivity_period"] = inactivity_period
+        __props__.__dict__["keep_me_signed_in"] = keep_me_signed_in
         __props__.__dict__["name"] = name
         __props__.__dict__["network_connection"] = network_connection
         __props__.__dict__["network_excludes"] = network_excludes
@@ -1252,6 +1291,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
         """
         return pulumi.get(self, "inactivity_period")
+
+    @_builtins.property
+    @pulumi.getter(name="keepMeSignedIn")
+    def keep_me_signed_in(self) -> pulumi.Output['outputs.AppSignonPolicyRuleKeepMeSignedIn']:
+        """
+        Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        """
+        return pulumi.get(self, "keep_me_signed_in")
 
     @_builtins.property
     @pulumi.getter

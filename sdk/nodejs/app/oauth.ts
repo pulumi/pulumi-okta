@@ -158,6 +158,10 @@ export class OAuth extends pulumi.CustomResource {
      */
     declare public readonly autoSubmitToolbar: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+     */
+    declare public readonly backchannelCustomAuthenticatorId: pulumi.Output<string | undefined>;
+    /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
     declare public readonly clientBasicSecret: pulumi.Output<string | undefined>;
@@ -379,6 +383,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["authenticationPolicy"] = state?.authenticationPolicy;
             resourceInputs["autoKeyRotation"] = state?.autoKeyRotation;
             resourceInputs["autoSubmitToolbar"] = state?.autoSubmitToolbar;
+            resourceInputs["backchannelCustomAuthenticatorId"] = state?.backchannelCustomAuthenticatorId;
             resourceInputs["clientBasicSecret"] = state?.clientBasicSecret;
             resourceInputs["clientBasicSecretWo"] = state?.clientBasicSecretWo;
             resourceInputs["clientBasicSecretWoVersion"] = state?.clientBasicSecretWoVersion;
@@ -445,6 +450,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["authenticationPolicy"] = args?.authenticationPolicy;
             resourceInputs["autoKeyRotation"] = args?.autoKeyRotation;
             resourceInputs["autoSubmitToolbar"] = args?.autoSubmitToolbar;
+            resourceInputs["backchannelCustomAuthenticatorId"] = args?.backchannelCustomAuthenticatorId;
             resourceInputs["clientBasicSecret"] = args?.clientBasicSecret ? pulumi.secret(args.clientBasicSecret) : undefined;
             resourceInputs["clientBasicSecretWo"] = args?.clientBasicSecretWo ? pulumi.secret(args.clientBasicSecretWo) : undefined;
             resourceInputs["clientBasicSecretWoVersion"] = args?.clientBasicSecretWoVersion;
@@ -546,6 +552,10 @@ export interface OAuthState {
      * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
+    /**
+     * The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+     */
+    backchannelCustomAuthenticatorId?: pulumi.Input<string | undefined>;
     /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */
@@ -791,6 +801,10 @@ export interface OAuthArgs {
      * Display auto submit toolbar
      */
     autoSubmitToolbar?: pulumi.Input<boolean | undefined>;
+    /**
+     * The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+     */
+    backchannelCustomAuthenticatorId?: pulumi.Input<string | undefined>;
     /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      */

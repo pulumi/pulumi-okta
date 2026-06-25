@@ -55,6 +55,18 @@ namespace Pulumi.Okta.App
     ///                 Access = "DENY",
     ///                 Status = "ACTIVE",
     ///             },
+    ///             new Okta.App.Inputs.SignonPolicyRulesRuleArgs
+    ///             {
+    ///                 Name = "KMSI Rule",
+    ///                 Priority = 4,
+    ///                 Access = "ALLOW",
+    ///                 Status = "ACTIVE",
+    ///                 KeepMeSignedIn = new Okta.App.Inputs.SignonPolicyRulesRuleKeepMeSignedInArgs
+    ///                 {
+    ///                     PostAuth = "ALLOWED",
+    ///                     PostAuthPromptFrequency = "PT168H",
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 

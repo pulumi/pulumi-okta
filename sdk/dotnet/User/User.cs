@@ -81,6 +81,12 @@ namespace Pulumi.Okta.User
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The timestamp when the user status transitioned to ACTIVE
+        /// </summary>
+        [Output("activated")]
+        public Output<string> Activated { get; private set; } = null!;
+
+        /// <summary>
         /// User city
         /// </summary>
         [Output("city")]
@@ -97,6 +103,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("countryCode")]
         public Output<string?> CountryCode { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when the user was created
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
 
         /// <summary>
         /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
@@ -165,10 +177,22 @@ namespace Pulumi.Okta.User
         public Output<string?> HonorificSuffix { get; private set; } = null!;
 
         /// <summary>
+        /// The timestamp of the user's last login
+        /// </summary>
+        [Output("lastLogin")]
+        public Output<string> LastLogin { get; private set; } = null!;
+
+        /// <summary>
         /// User last name
         /// </summary>
         [Output("lastName")]
         public Output<string> LastName { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when the user was last updated
+        /// </summary>
+        [Output("lastUpdated")]
+        public Output<string> LastUpdated { get; private set; } = null!;
 
         /// <summary>
         /// User default location
@@ -229,6 +253,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when the user's password was last changed
+        /// </summary>
+        [Output("passwordChanged")]
+        public Output<string> PasswordChanged { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a hashed password to import into Okta.
@@ -313,6 +343,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp when the user's status last changed
+        /// </summary>
+        [Output("statusChanged")]
+        public Output<string> StatusChanged { get; private set; } = null!;
 
         /// <summary>
         /// User street address
@@ -711,6 +747,12 @@ namespace Pulumi.Okta.User
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The timestamp when the user status transitioned to ACTIVE
+        /// </summary>
+        [Input("activated")]
+        public Input<string>? Activated { get; set; }
+
+        /// <summary>
         /// User city
         /// </summary>
         [Input("city")]
@@ -727,6 +769,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
+
+        /// <summary>
+        /// The timestamp when the user was created
+        /// </summary>
+        [Input("created")]
+        public Input<string>? Created { get; set; }
 
         /// <summary>
         /// JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
@@ -801,10 +849,22 @@ namespace Pulumi.Okta.User
         public Input<string>? HonorificSuffix { get; set; }
 
         /// <summary>
+        /// The timestamp of the user's last login
+        /// </summary>
+        [Input("lastLogin")]
+        public Input<string>? LastLogin { get; set; }
+
+        /// <summary>
         /// User last name
         /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
+
+        /// <summary>
+        /// The timestamp when the user was last updated
+        /// </summary>
+        [Input("lastUpdated")]
+        public Input<string>? LastUpdated { get; set; }
 
         /// <summary>
         /// User default location
@@ -885,6 +945,12 @@ namespace Pulumi.Okta.User
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// The timestamp when the user's password was last changed
+        /// </summary>
+        [Input("passwordChanged")]
+        public Input<string>? PasswordChanged { get; set; }
 
         /// <summary>
         /// Specifies a hashed password to import into Okta.
@@ -979,6 +1045,12 @@ namespace Pulumi.Okta.User
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The timestamp when the user's status last changed
+        /// </summary>
+        [Input("statusChanged")]
+        public Input<string>? StatusChanged { get; set; }
 
         /// <summary>
         /// User street address

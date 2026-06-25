@@ -22,19 +22,10 @@ namespace Pulumi.Okta
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Okta.RequestCondition("example", new()
+    ///     var example = new Okta.RequestSettingOrganization("example", new()
     ///     {
-    ///         ResourceId = "&lt;resource_id&gt;",
-    ///         ApprovalSequenceId = "&lt;approval_sequence_id&gt;",
-    ///         Name = "&lt;name&gt;",
-    ///         AccessScopeSettings = new Okta.Inputs.RequestConditionAccessScopeSettingsArgs
-    ///         {
-    ///             Type = "RESOURCE_DEFAULT",
-    ///         },
-    ///         RequesterSettings = new Okta.Inputs.RequestConditionRequesterSettingsArgs
-    ///         {
-    ///             Type = "EVERYONE",
-    ///         },
+    ///         IdProperty = "default",
+    ///         SubprocessorsAcknowledged = true,
     ///     });
     /// 
     /// });
@@ -50,7 +41,7 @@ namespace Pulumi.Okta
     public partial class RequestSettingOrganization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Request condition id.
+        /// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         /// </summary>
         [Output("idProperty")]
         public Output<string> IdProperty { get; private set; } = null!;
@@ -108,7 +99,7 @@ namespace Pulumi.Okta
     public sealed class RequestSettingOrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Request condition id.
+        /// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         /// </summary>
         [Input("idProperty", required: true)]
         public Input<string> IdProperty { get; set; } = null!;
@@ -128,7 +119,7 @@ namespace Pulumi.Okta
     public sealed class RequestSettingOrganizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Request condition id.
+        /// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
         /// </summary>
         [Input("idProperty")]
         public Input<string>? IdProperty { get; set; }

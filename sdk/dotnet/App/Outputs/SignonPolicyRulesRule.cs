@@ -62,6 +62,10 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string? InactivityPeriod;
         /// <summary>
+        /// Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+        /// </summary>
+        public readonly Outputs.SignonPolicyRulesRuleKeepMeSignedIn? KeepMeSignedIn;
+        /// <summary>
         /// Policy Rule Name. Must be unique within the policy.
         /// </summary>
         public readonly string Name;
@@ -90,7 +94,7 @@ namespace Pulumi.Okta.App.Outputs
         /// </summary>
         public readonly string? ReAuthenticationFrequency;
         /// <summary>
-        /// Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+        /// Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
         /// </summary>
         public readonly string? RiskScore;
         /// <summary>
@@ -148,6 +152,8 @@ namespace Pulumi.Okta.App.Outputs
 
             string? inactivityPeriod,
 
+            Outputs.SignonPolicyRulesRuleKeepMeSignedIn? keepMeSignedIn,
+
             string name,
 
             string? networkConnection,
@@ -190,6 +196,7 @@ namespace Pulumi.Okta.App.Outputs
             GroupsIncludeds = groupsIncludeds;
             Id = id;
             InactivityPeriod = inactivityPeriod;
+            KeepMeSignedIn = keepMeSignedIn;
             Name = name;
             NetworkConnection = networkConnection;
             NetworkExcludes = networkExcludes;

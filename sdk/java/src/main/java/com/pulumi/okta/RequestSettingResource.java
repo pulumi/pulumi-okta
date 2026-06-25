@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RequestSettingResource("test", RequestSettingResourceArgs.builder()
- *             .resourceId("<resource_id>")
+ *             .idProperty("<resource_id>")
  *             .riskSettings(RequestSettingResourceRiskSettingsArgs.builder()
  *                 .defaultSetting(RequestSettingResourceRiskSettingsDefaultSettingArgs.builder()
  *                     .requestSubmissionType("ALLOWED_WITH_OVERRIDES")

@@ -104,6 +104,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:user/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
+     * The timestamp when the user status transitioned to ACTIVE
+     * 
+     */
+    @Export(name="activated", refs={String.class}, tree="[0]")
+    private Output<String> activated;
+
+    /**
+     * @return The timestamp when the user status transitioned to ACTIVE
+     * 
+     */
+    public Output<String> activated() {
+        return this.activated;
+    }
+    /**
      * User city
      * 
      */
@@ -144,6 +158,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> countryCode() {
         return Codegen.optional(this.countryCode);
+    }
+    /**
+     * The timestamp when the user was created
+     * 
+     */
+    @Export(name="created", refs={String.class}, tree="[0]")
+    private Output<String> created;
+
+    /**
+     * @return The timestamp when the user was created
+     * 
+     */
+    public Output<String> created() {
+        return this.created;
     }
     /**
      * JSON formatted custom attributes for a user. It must be JSON due to various types Okta allows. You must first add the custom property to the user profile schema before you reference it. You can use the Profile Editor in the Admin Console or the [Schemas](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/#tag/UISchema) API to manage schema extensions.
@@ -300,6 +328,20 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.honorificSuffix);
     }
     /**
+     * The timestamp of the user&#39;s last login
+     * 
+     */
+    @Export(name="lastLogin", refs={String.class}, tree="[0]")
+    private Output<String> lastLogin;
+
+    /**
+     * @return The timestamp of the user&#39;s last login
+     * 
+     */
+    public Output<String> lastLogin() {
+        return this.lastLogin;
+    }
+    /**
      * User last name
      * 
      */
@@ -312,6 +354,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<String> lastName() {
         return this.lastName;
+    }
+    /**
+     * The timestamp when the user was last updated
+     * 
+     */
+    @Export(name="lastUpdated", refs={String.class}, tree="[0]")
+    private Output<String> lastUpdated;
+
+    /**
+     * @return The timestamp when the user was last updated
+     * 
+     */
+    public Output<String> lastUpdated() {
+        return this.lastUpdated;
     }
     /**
      * User default location
@@ -452,6 +508,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
+    }
+    /**
+     * The timestamp when the user&#39;s password was last changed
+     * 
+     */
+    @Export(name="passwordChanged", refs={String.class}, tree="[0]")
+    private Output<String> passwordChanged;
+
+    /**
+     * @return The timestamp when the user&#39;s password was last changed
+     * 
+     */
+    public Output<String> passwordChanged() {
+        return this.passwordChanged;
     }
     /**
      * Specifies a hashed password to import into Okta.
@@ -652,6 +722,20 @@ public class User extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
+    }
+    /**
+     * The timestamp when the user&#39;s status last changed
+     * 
+     */
+    @Export(name="statusChanged", refs={String.class}, tree="[0]")
+    private Output<String> statusChanged;
+
+    /**
+     * @return The timestamp when the user&#39;s status last changed
+     * 
+     */
+    public Output<String> statusChanged() {
+        return this.statusChanged;
     }
     /**
      * User street address

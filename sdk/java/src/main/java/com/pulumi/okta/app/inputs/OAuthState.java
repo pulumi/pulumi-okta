@@ -165,6 +165,21 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the custom authenticator that authenticates the user. Applies when &#39;urn:openid:params:grant-type:ciba&#39; is one of the configured grant_types.
+     * 
+     */
+    @Import(name="backchannelCustomAuthenticatorId")
+    private @Nullable Output<String> backchannelCustomAuthenticatorId;
+
+    /**
+     * @return The ID of the custom authenticator that authenticates the user. Applies when &#39;urn:openid:params:grant-type:ciba&#39; is one of the configured grant_types.
+     * 
+     */
+    public Optional<Output<String>> backchannelCustomAuthenticatorId() {
+        return Optional.ofNullable(this.backchannelCustomAuthenticatorId);
+    }
+
+    /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      * 
      */
@@ -921,6 +936,7 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
         this.authenticationPolicy = $.authenticationPolicy;
         this.autoKeyRotation = $.autoKeyRotation;
         this.autoSubmitToolbar = $.autoSubmitToolbar;
+        this.backchannelCustomAuthenticatorId = $.backchannelCustomAuthenticatorId;
         this.clientBasicSecret = $.clientBasicSecret;
         this.clientBasicSecretWo = $.clientBasicSecretWo;
         this.clientBasicSecretWoVersion = $.clientBasicSecretWoVersion;
@@ -1185,6 +1201,27 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoSubmitToolbar(Boolean autoSubmitToolbar) {
             return autoSubmitToolbar(Output.of(autoSubmitToolbar));
+        }
+
+        /**
+         * @param backchannelCustomAuthenticatorId The ID of the custom authenticator that authenticates the user. Applies when &#39;urn:openid:params:grant-type:ciba&#39; is one of the configured grant_types.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backchannelCustomAuthenticatorId(@Nullable Output<String> backchannelCustomAuthenticatorId) {
+            $.backchannelCustomAuthenticatorId = backchannelCustomAuthenticatorId;
+            return this;
+        }
+
+        /**
+         * @param backchannelCustomAuthenticatorId The ID of the custom authenticator that authenticates the user. Applies when &#39;urn:openid:params:grant-type:ciba&#39; is one of the configured grant_types.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backchannelCustomAuthenticatorId(String backchannelCustomAuthenticatorId) {
+            return backchannelCustomAuthenticatorId(Output.of(backchannelCustomAuthenticatorId));
         }
 
         /**

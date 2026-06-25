@@ -18,14 +18,14 @@ public final class RequestSettingOrganizationArgs extends com.pulumi.resources.R
     public static final RequestSettingOrganizationArgs Empty = new RequestSettingOrganizationArgs();
 
     /**
-     * Request condition id.
+     * The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      * 
      */
     @Import(name="idProperty", required=true)
     private Output<String> idProperty;
 
     /**
-     * @return Request condition id.
+     * @return The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      * 
      */
     public Output<String> idProperty() {
@@ -73,7 +73,7 @@ public final class RequestSettingOrganizationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idProperty Request condition id.
+         * @param idProperty The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RequestSettingOrganizationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param idProperty Request condition id.
+         * @param idProperty The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
          * 
          * @return builder
          * 

@@ -28,16 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewRequestCondition(ctx, "example", &okta.RequestConditionArgs{
-//				ResourceId:         pulumi.String("<resource_id>"),
-//				ApprovalSequenceId: pulumi.String("<approval_sequence_id>"),
-//				Name:               pulumi.String("<name>"),
-//				AccessScopeSettings: &okta.RequestConditionAccessScopeSettingsArgs{
-//					Type: pulumi.String("RESOURCE_DEFAULT"),
-//				},
-//				RequesterSettings: &okta.RequestConditionRequesterSettingsArgs{
-//					Type: pulumi.String("EVERYONE"),
-//				},
+//			_, err := okta.NewRequestSettingOrganization(ctx, "example", &okta.RequestSettingOrganizationArgs{
+//				IdProperty:                pulumi.String("default"),
+//				SubprocessorsAcknowledged: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -56,7 +49,7 @@ import (
 type RequestSettingOrganization struct {
 	pulumi.CustomResourceState
 
-	// Request condition id.
+	// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 	IdProperty pulumi.StringOutput `pulumi:"idProperty"`
 	// Whether a customer has acknowledged Access Requests subprocessors.
 	SubprocessorsAcknowledged pulumi.BoolOutput `pulumi:"subprocessorsAcknowledged"`
@@ -95,14 +88,14 @@ func GetRequestSettingOrganization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RequestSettingOrganization resources.
 type requestSettingOrganizationState struct {
-	// Request condition id.
+	// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 	IdProperty *string `pulumi:"idProperty"`
 	// Whether a customer has acknowledged Access Requests subprocessors.
 	SubprocessorsAcknowledged *bool `pulumi:"subprocessorsAcknowledged"`
 }
 
 type RequestSettingOrganizationState struct {
-	// Request condition id.
+	// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 	IdProperty pulumi.StringPtrInput
 	// Whether a customer has acknowledged Access Requests subprocessors.
 	SubprocessorsAcknowledged pulumi.BoolPtrInput
@@ -113,7 +106,7 @@ func (RequestSettingOrganizationState) ElementType() reflect.Type {
 }
 
 type requestSettingOrganizationArgs struct {
-	// Request condition id.
+	// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 	IdProperty string `pulumi:"idProperty"`
 	// Whether a customer has acknowledged Access Requests subprocessors.
 	SubprocessorsAcknowledged *bool `pulumi:"subprocessorsAcknowledged"`
@@ -121,7 +114,7 @@ type requestSettingOrganizationArgs struct {
 
 // The set of arguments for constructing a RequestSettingOrganization resource.
 type RequestSettingOrganizationArgs struct {
-	// Request condition id.
+	// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 	IdProperty pulumi.StringInput
 	// Whether a customer has acknowledged Access Requests subprocessors.
 	SubprocessorsAcknowledged pulumi.BoolPtrInput
@@ -214,7 +207,7 @@ func (o RequestSettingOrganizationOutput) ToRequestSettingOrganizationOutputWith
 	return o
 }
 
-// Request condition id.
+// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 func (o RequestSettingOrganizationOutput) IdProperty() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestSettingOrganization) pulumi.StringOutput { return v.IdProperty }).(pulumi.StringOutput)
 }

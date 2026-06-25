@@ -11,7 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configures default password policy. This resource allows you to configure default password policy.
+// Configures the default password policy. This resource allows you to configure the default password policy.
+//
+// > **Note:** If your configuration also manages other `policy.Password` resources, add
+// `dependsOn = [okta_policy_password.<last_policy>]` pointing to the last non-default policy in your
+// dependency chain. The default policy's `priority` is read-only and shifts whenever other password policies
+// are created or deleted. Using `dependsOn` ensures all sibling policies are fully created before this
+// resource is read or updated, so the provider sees the correct priority value and the Okta API does not
+// reject the request with E0000077.
 //
 // ## Example Usage
 //
@@ -21,13 +28,29 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := okta.NewPolicyPasswordDefault(ctx, "default", nil)
+//			custom, err := policy.NewPassword(ctx, "custom", &policy.PasswordArgs{
+//				Name: pulumi.String("Custom Password Policy"),
+//				GroupsIncludeds: pulumi.StringArray{
+//					example.Id,
+//				},
+//				Status:   pulumi.String("ACTIVE"),
+//				Priority: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.NewPolicyPasswordDefault(ctx, "default", &okta.PolicyPasswordDefaultArgs{
+//				PasswordHistoryCount: pulumi.Int(5),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				custom,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -45,6 +68,12 @@ import (
 type PolicyPasswordDefault struct {
 	pulumi.CustomResourceState
 
+	// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+	BreachedPasswordDelegatedWorkflowId pulumi.StringPtrOutput `pulumi:"breachedPasswordDelegatedWorkflowId"`
+	// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+	BreachedPasswordExpireAfterDays pulumi.IntPtrOutput `pulumi:"breachedPasswordExpireAfterDays"`
+	// If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+	BreachedPasswordLogoutEnabled pulumi.BoolPtrOutput `pulumi:"breachedPasswordLogoutEnabled"`
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
 	CallRecovery pulumi.StringPtrOutput `pulumi:"callRecovery"`
 	// Default Authentication Provider
@@ -137,6 +166,12 @@ func GetPolicyPasswordDefault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyPasswordDefault resources.
 type policyPasswordDefaultState struct {
+	// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+	BreachedPasswordDelegatedWorkflowId *string `pulumi:"breachedPasswordDelegatedWorkflowId"`
+	// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+	BreachedPasswordExpireAfterDays *int `pulumi:"breachedPasswordExpireAfterDays"`
+	// If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+	BreachedPasswordLogoutEnabled *bool `pulumi:"breachedPasswordLogoutEnabled"`
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
 	CallRecovery *string `pulumi:"callRecovery"`
 	// Default Authentication Provider
@@ -200,6 +235,12 @@ type policyPasswordDefaultState struct {
 }
 
 type PolicyPasswordDefaultState struct {
+	// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+	BreachedPasswordDelegatedWorkflowId pulumi.StringPtrInput
+	// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+	BreachedPasswordExpireAfterDays pulumi.IntPtrInput
+	// If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+	BreachedPasswordLogoutEnabled pulumi.BoolPtrInput
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
 	CallRecovery pulumi.StringPtrInput
 	// Default Authentication Provider
@@ -267,6 +308,12 @@ func (PolicyPasswordDefaultState) ElementType() reflect.Type {
 }
 
 type policyPasswordDefaultArgs struct {
+	// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+	BreachedPasswordDelegatedWorkflowId *string `pulumi:"breachedPasswordDelegatedWorkflowId"`
+	// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+	BreachedPasswordExpireAfterDays *int `pulumi:"breachedPasswordExpireAfterDays"`
+	// If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+	BreachedPasswordLogoutEnabled *bool `pulumi:"breachedPasswordLogoutEnabled"`
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
 	CallRecovery *string `pulumi:"callRecovery"`
 	// Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
@@ -319,6 +366,12 @@ type policyPasswordDefaultArgs struct {
 
 // The set of arguments for constructing a PolicyPasswordDefault resource.
 type PolicyPasswordDefaultArgs struct {
+	// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+	BreachedPasswordDelegatedWorkflowId pulumi.StringPtrInput
+	// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+	BreachedPasswordExpireAfterDays pulumi.IntPtrInput
+	// If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+	BreachedPasswordLogoutEnabled pulumi.BoolPtrInput
 	// Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
 	CallRecovery pulumi.StringPtrInput
 	// Enable or disable email password recovery: ACTIVE or INACTIVE. Default: `ACTIVE`
@@ -454,6 +507,21 @@ func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultOutput() PolicyPassw
 
 func (o PolicyPasswordDefaultOutput) ToPolicyPasswordDefaultOutputWithContext(ctx context.Context) PolicyPasswordDefaultOutput {
 	return o
+}
+
+// The ID of the workflow to run when a breached password is found during a sign-in attempt.
+func (o PolicyPasswordDefaultOutput) BreachedPasswordDelegatedWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyPasswordDefault) pulumi.StringPtrOutput { return v.BreachedPasswordDelegatedWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+func (o PolicyPasswordDefaultOutput) BreachedPasswordExpireAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyPasswordDefault) pulumi.IntPtrOutput { return v.BreachedPasswordExpireAfterDays }).(pulumi.IntPtrOutput)
+}
+
+// If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+func (o PolicyPasswordDefaultOutput) BreachedPasswordLogoutEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyPasswordDefault) pulumi.BoolPtrOutput { return v.BreachedPasswordLogoutEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`

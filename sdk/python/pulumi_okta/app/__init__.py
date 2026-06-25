@@ -20,6 +20,7 @@ from .get_federated_claim import *
 from .get_metadata_saml import *
 from .get_oauth import *
 from .get_saml import *
+from .get_sign_on_policy_rule import *
 from .get_token import *
 from .group_assignment import *
 from .o_auth import *

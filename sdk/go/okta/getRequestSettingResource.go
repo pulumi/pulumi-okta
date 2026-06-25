@@ -14,6 +14,30 @@ import (
 // Retrieves the request settings for a resource.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetRequestSettingResource(ctx, &okta.LookupRequestSettingResourceArgs{
+//				Id: "<id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRequestSettingResource(ctx *pulumi.Context, args *LookupRequestSettingResourceArgs, opts ...pulumi.InvokeOption) (*LookupRequestSettingResourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRequestSettingResourceResult

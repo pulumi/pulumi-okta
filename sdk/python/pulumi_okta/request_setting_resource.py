@@ -151,7 +151,7 @@ class RequestSettingResource(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.RequestSettingResource("test",
-            resource_id="<resource_id>",
+            id_property="<resource_id>",
             risk_settings={
                 "default_setting": {
                     "request_submission_type": "ALLOWED_WITH_OVERRIDES",
@@ -192,7 +192,7 @@ class RequestSettingResource(pulumi.CustomResource):
         import pulumi_okta as okta
 
         test = okta.RequestSettingResource("test",
-            resource_id="<resource_id>",
+            id_property="<resource_id>",
             risk_settings={
                 "default_setting": {
                     "request_submission_type": "ALLOWED_WITH_OVERRIDES",

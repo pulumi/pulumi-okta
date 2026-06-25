@@ -266,6 +266,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoSubmitToolbar);
     }
     /**
+     * The ID of the custom authenticator that authenticates the user. Applies when &#39;urn:openid:params:grant-type:ciba&#39; is one of the configured grant_types.
+     * 
+     */
+    @Export(name="backchannelCustomAuthenticatorId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> backchannelCustomAuthenticatorId;
+
+    /**
+     * @return The ID of the custom authenticator that authenticates the user. Applies when &#39;urn:openid:params:grant-type:ciba&#39; is one of the configured grant_types.
+     * 
+     */
+    public Output<Optional<String>> backchannelCustomAuthenticatorId() {
+        return Codegen.optional(this.backchannelCustomAuthenticatorId);
+    }
+    /**
      * The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
      * 
      */
