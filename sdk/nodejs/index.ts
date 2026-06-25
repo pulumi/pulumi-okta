@@ -90,6 +90,16 @@ export type Authenticator = import("./authenticator").Authenticator;
 export const Authenticator: typeof import("./authenticator").Authenticator = null as any;
 utilities.lazyLoad(exports, ["Authenticator"], () => require("./authenticator"));
 
+export { AuthenticatorMethodWebauthnArgs, AuthenticatorMethodWebauthnState } from "./authenticatorMethodWebauthn";
+export type AuthenticatorMethodWebauthn = import("./authenticatorMethodWebauthn").AuthenticatorMethodWebauthn;
+export const AuthenticatorMethodWebauthn: typeof import("./authenticatorMethodWebauthn").AuthenticatorMethodWebauthn = null as any;
+utilities.lazyLoad(exports, ["AuthenticatorMethodWebauthn"], () => require("./authenticatorMethodWebauthn"));
+
+export { AuthenticatorWebauthnCustomAaguidArgs, AuthenticatorWebauthnCustomAaguidState } from "./authenticatorWebauthnCustomAaguid";
+export type AuthenticatorWebauthnCustomAaguid = import("./authenticatorWebauthnCustomAaguid").AuthenticatorWebauthnCustomAaguid;
+export const AuthenticatorWebauthnCustomAaguid: typeof import("./authenticatorWebauthnCustomAaguid").AuthenticatorWebauthnCustomAaguid = null as any;
+utilities.lazyLoad(exports, ["AuthenticatorWebauthnCustomAaguid"], () => require("./authenticatorWebauthnCustomAaguid"));
+
 export { BehaviourArgs, BehaviourState } from "./behaviour";
 export type Behaviour = import("./behaviour").Behaviour;
 export const Behaviour: typeof import("./behaviour").Behaviour = null as any;
@@ -270,6 +280,21 @@ export const getAuthenticator: typeof import("./getAuthenticator").getAuthentica
 export const getAuthenticatorOutput: typeof import("./getAuthenticator").getAuthenticatorOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthenticator","getAuthenticatorOutput"], () => require("./getAuthenticator"));
 
+export { GetAuthenticatorMethodWebauthnArgs, GetAuthenticatorMethodWebauthnResult, GetAuthenticatorMethodWebauthnOutputArgs } from "./getAuthenticatorMethodWebauthn";
+export const getAuthenticatorMethodWebauthn: typeof import("./getAuthenticatorMethodWebauthn").getAuthenticatorMethodWebauthn = null as any;
+export const getAuthenticatorMethodWebauthnOutput: typeof import("./getAuthenticatorMethodWebauthn").getAuthenticatorMethodWebauthnOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthenticatorMethodWebauthn","getAuthenticatorMethodWebauthnOutput"], () => require("./getAuthenticatorMethodWebauthn"));
+
+export { GetAuthenticatorWebauthnCustomAaguidsArgs, GetAuthenticatorWebauthnCustomAaguidsResult, GetAuthenticatorWebauthnCustomAaguidsOutputArgs } from "./getAuthenticatorWebauthnCustomAaguids";
+export const getAuthenticatorWebauthnCustomAaguids: typeof import("./getAuthenticatorWebauthnCustomAaguids").getAuthenticatorWebauthnCustomAaguids = null as any;
+export const getAuthenticatorWebauthnCustomAaguidsOutput: typeof import("./getAuthenticatorWebauthnCustomAaguids").getAuthenticatorWebauthnCustomAaguidsOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthenticatorWebauthnCustomAaguids","getAuthenticatorWebauthnCustomAaguidsOutput"], () => require("./getAuthenticatorWebauthnCustomAaguids"));
+
+export { GetAuthorizationServersPoliciesRuleArgs, GetAuthorizationServersPoliciesRuleResult, GetAuthorizationServersPoliciesRuleOutputArgs } from "./getAuthorizationServersPoliciesRule";
+export const getAuthorizationServersPoliciesRule: typeof import("./getAuthorizationServersPoliciesRule").getAuthorizationServersPoliciesRule = null as any;
+export const getAuthorizationServersPoliciesRuleOutput: typeof import("./getAuthorizationServersPoliciesRule").getAuthorizationServersPoliciesRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationServersPoliciesRule","getAuthorizationServersPoliciesRuleOutput"], () => require("./getAuthorizationServersPoliciesRule"));
+
 export { GetBehaviourArgs, GetBehaviourResult, GetBehaviourOutputArgs } from "./getBehaviour";
 export const getBehaviour: typeof import("./getBehaviour").getBehaviour = null as any;
 export const getBehaviourOutput: typeof import("./getBehaviour").getBehaviourOutput = null as any;
@@ -374,6 +399,31 @@ export { GetHookKeyArgs, GetHookKeyResult, GetHookKeyOutputArgs } from "./getHoo
 export const getHookKey: typeof import("./getHookKey").getHookKey = null as any;
 export const getHookKeyOutput: typeof import("./getHookKey").getHookKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getHookKey","getHookKeyOutput"], () => require("./getHookKey"));
+
+export { GetIamAssigneesUserArgs, GetIamAssigneesUserResult, GetIamAssigneesUserOutputArgs } from "./getIamAssigneesUser";
+export const getIamAssigneesUser: typeof import("./getIamAssigneesUser").getIamAssigneesUser = null as any;
+export const getIamAssigneesUserOutput: typeof import("./getIamAssigneesUser").getIamAssigneesUserOutput = null as any;
+utilities.lazyLoad(exports, ["getIamAssigneesUser","getIamAssigneesUserOutput"], () => require("./getIamAssigneesUser"));
+
+export { GetIdentitySourceGroupMembershipsArgs, GetIdentitySourceGroupMembershipsResult, GetIdentitySourceGroupMembershipsOutputArgs } from "./getIdentitySourceGroupMemberships";
+export const getIdentitySourceGroupMemberships: typeof import("./getIdentitySourceGroupMemberships").getIdentitySourceGroupMemberships = null as any;
+export const getIdentitySourceGroupMembershipsOutput: typeof import("./getIdentitySourceGroupMemberships").getIdentitySourceGroupMembershipsOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentitySourceGroupMemberships","getIdentitySourceGroupMembershipsOutput"], () => require("./getIdentitySourceGroupMemberships"));
+
+export { GetIdentitySourceGroupsArgs, GetIdentitySourceGroupsResult, GetIdentitySourceGroupsOutputArgs } from "./getIdentitySourceGroups";
+export const getIdentitySourceGroups: typeof import("./getIdentitySourceGroups").getIdentitySourceGroups = null as any;
+export const getIdentitySourceGroupsOutput: typeof import("./getIdentitySourceGroups").getIdentitySourceGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentitySourceGroups","getIdentitySourceGroupsOutput"], () => require("./getIdentitySourceGroups"));
+
+export { GetIdentitySourceSessionsArgs, GetIdentitySourceSessionsResult, GetIdentitySourceSessionsOutputArgs } from "./getIdentitySourceSessions";
+export const getIdentitySourceSessions: typeof import("./getIdentitySourceSessions").getIdentitySourceSessions = null as any;
+export const getIdentitySourceSessionsOutput: typeof import("./getIdentitySourceSessions").getIdentitySourceSessionsOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentitySourceSessions","getIdentitySourceSessionsOutput"], () => require("./getIdentitySourceSessions"));
+
+export { GetIdentitySourceUsersArgs, GetIdentitySourceUsersResult, GetIdentitySourceUsersOutputArgs } from "./getIdentitySourceUsers";
+export const getIdentitySourceUsers: typeof import("./getIdentitySourceUsers").getIdentitySourceUsers = null as any;
+export const getIdentitySourceUsersOutput: typeof import("./getIdentitySourceUsers").getIdentitySourceUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentitySourceUsers","getIdentitySourceUsersOutput"], () => require("./getIdentitySourceUsers"));
 
 export { GetLogStreamArgs, GetLogStreamResult, GetLogStreamOutputArgs } from "./getLogStream";
 export const getLogStream: typeof import("./getLogStream").getLogStream = null as any;
@@ -539,6 +589,26 @@ export { HookKeyArgs, HookKeyState } from "./hookKey";
 export type HookKey = import("./hookKey").HookKey;
 export const HookKey: typeof import("./hookKey").HookKey = null as any;
 utilities.lazyLoad(exports, ["HookKey"], () => require("./hookKey"));
+
+export { IdentitySourceGroupArgs, IdentitySourceGroupState } from "./identitySourceGroup";
+export type IdentitySourceGroup = import("./identitySourceGroup").IdentitySourceGroup;
+export const IdentitySourceGroup: typeof import("./identitySourceGroup").IdentitySourceGroup = null as any;
+utilities.lazyLoad(exports, ["IdentitySourceGroup"], () => require("./identitySourceGroup"));
+
+export { IdentitySourceGroupMembershipArgs, IdentitySourceGroupMembershipState } from "./identitySourceGroupMembership";
+export type IdentitySourceGroupMembership = import("./identitySourceGroupMembership").IdentitySourceGroupMembership;
+export const IdentitySourceGroupMembership: typeof import("./identitySourceGroupMembership").IdentitySourceGroupMembership = null as any;
+utilities.lazyLoad(exports, ["IdentitySourceGroupMembership"], () => require("./identitySourceGroupMembership"));
+
+export { IdentitySourceImportArgs, IdentitySourceImportState } from "./identitySourceImport";
+export type IdentitySourceImport = import("./identitySourceImport").IdentitySourceImport;
+export const IdentitySourceImport: typeof import("./identitySourceImport").IdentitySourceImport = null as any;
+utilities.lazyLoad(exports, ["IdentitySourceImport"], () => require("./identitySourceImport"));
+
+export { IdentitySourceUserArgs, IdentitySourceUserState } from "./identitySourceUser";
+export type IdentitySourceUser = import("./identitySourceUser").IdentitySourceUser;
+export const IdentitySourceUser: typeof import("./identitySourceUser").IdentitySourceUser = null as any;
+utilities.lazyLoad(exports, ["IdentitySourceUser"], () => require("./identitySourceUser"));
 
 export { LinkDefinitionArgs, LinkDefinitionState } from "./linkDefinition";
 export type LinkDefinition = import("./linkDefinition").LinkDefinition;
@@ -818,6 +888,10 @@ const _module = {
                 return new AuthServerDefault(name, <any>undefined, { urn })
             case "okta:index/authenticator:Authenticator":
                 return new Authenticator(name, <any>undefined, { urn })
+            case "okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn":
+                return new AuthenticatorMethodWebauthn(name, <any>undefined, { urn })
+            case "okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid":
+                return new AuthenticatorWebauthnCustomAaguid(name, <any>undefined, { urn })
             case "okta:index/behaviour:Behaviour":
                 return new Behaviour(name, <any>undefined, { urn })
             case "okta:index/brand:Brand":
@@ -874,6 +948,14 @@ const _module = {
                 return new GroupSchemaProperty(name, <any>undefined, { urn })
             case "okta:index/hookKey:HookKey":
                 return new HookKey(name, <any>undefined, { urn })
+            case "okta:index/identitySourceGroup:IdentitySourceGroup":
+                return new IdentitySourceGroup(name, <any>undefined, { urn })
+            case "okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership":
+                return new IdentitySourceGroupMembership(name, <any>undefined, { urn })
+            case "okta:index/identitySourceImport:IdentitySourceImport":
+                return new IdentitySourceImport(name, <any>undefined, { urn })
+            case "okta:index/identitySourceUser:IdentitySourceUser":
+                return new IdentitySourceUser(name, <any>undefined, { urn })
             case "okta:index/linkDefinition:LinkDefinition":
                 return new LinkDefinition(name, <any>undefined, { urn })
             case "okta:index/linkValue:LinkValue":
@@ -978,6 +1060,8 @@ pulumi.runtime.registerResourceModule("okta", "index/appUserSchemaProperty", _mo
 pulumi.runtime.registerResourceModule("okta", "index/authServerClaimDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authServerDefault", _module)
 pulumi.runtime.registerResourceModule("okta", "index/authenticator", _module)
+pulumi.runtime.registerResourceModule("okta", "index/authenticatorMethodWebauthn", _module)
+pulumi.runtime.registerResourceModule("okta", "index/authenticatorWebauthnCustomAaguid", _module)
 pulumi.runtime.registerResourceModule("okta", "index/behaviour", _module)
 pulumi.runtime.registerResourceModule("okta", "index/brand", _module)
 pulumi.runtime.registerResourceModule("okta", "index/campaign", _module)
@@ -1006,6 +1090,10 @@ pulumi.runtime.registerResourceModule("okta", "index/feature", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupMemberships", _module)
 pulumi.runtime.registerResourceModule("okta", "index/groupSchemaProperty", _module)
 pulumi.runtime.registerResourceModule("okta", "index/hookKey", _module)
+pulumi.runtime.registerResourceModule("okta", "index/identitySourceGroup", _module)
+pulumi.runtime.registerResourceModule("okta", "index/identitySourceGroupMembership", _module)
+pulumi.runtime.registerResourceModule("okta", "index/identitySourceImport", _module)
+pulumi.runtime.registerResourceModule("okta", "index/identitySourceUser", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkValue", _module)
 pulumi.runtime.registerResourceModule("okta", "index/logStream", _module)

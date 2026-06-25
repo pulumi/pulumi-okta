@@ -136,6 +136,8 @@ type OAuth struct {
 	AutoKeyRotation pulumi.BoolPtrOutput `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrOutput `pulumi:"autoSubmitToolbar"`
+	// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+	BackchannelCustomAuthenticatorId pulumi.StringPtrOutput `pulumi:"backchannelCustomAuthenticatorId"`
 	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret pulumi.StringPtrOutput `pulumi:"clientBasicSecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -309,6 +311,8 @@ type oauthState struct {
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+	BackchannelCustomAuthenticatorId *string `pulumi:"backchannelCustomAuthenticatorId"`
 	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -435,6 +439,8 @@ type OAuthState struct {
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+	BackchannelCustomAuthenticatorId pulumi.StringPtrInput
 	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -565,6 +571,8 @@ type oauthArgs struct {
 	AutoKeyRotation *bool `pulumi:"autoKeyRotation"`
 	// Display auto submit toolbar
 	AutoSubmitToolbar *bool `pulumi:"autoSubmitToolbar"`
+	// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+	BackchannelCustomAuthenticatorId *string `pulumi:"backchannelCustomAuthenticatorId"`
 	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret *string `pulumi:"clientBasicSecret"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -684,6 +692,8 @@ type OAuthArgs struct {
 	AutoKeyRotation pulumi.BoolPtrInput
 	// Display auto submit toolbar
 	AutoSubmitToolbar pulumi.BoolPtrInput
+	// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+	BackchannelCustomAuthenticatorId pulumi.StringPtrInput
 	// The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.
 	ClientBasicSecret pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -914,6 +924,11 @@ func (o OAuthOutput) AutoKeyRotation() pulumi.BoolPtrOutput {
 // Display auto submit toolbar
 func (o OAuthOutput) AutoSubmitToolbar() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.BoolPtrOutput { return v.AutoSubmitToolbar }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+func (o OAuthOutput) BackchannelCustomAuthenticatorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.BackchannelCustomAuthenticatorId }).(pulumi.StringPtrOutput)
 }
 
 // The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `clientBasicSecretWo` instead to avoid persisting secrets in state. Either `clientBasicSecret` or `clientBasicSecretWo` can be specified, but not both.

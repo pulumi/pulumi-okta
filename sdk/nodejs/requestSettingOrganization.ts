@@ -13,16 +13,9 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as okta from "@pulumi/okta";
  *
- * const example = new okta.RequestCondition("example", {
- *     resourceId: "<resource_id>",
- *     approvalSequenceId: "<approval_sequence_id>",
- *     name: "<name>",
- *     accessScopeSettings: {
- *         type: "RESOURCE_DEFAULT",
- *     },
- *     requesterSettings: {
- *         type: "EVERYONE",
- *     },
+ * const example = new okta.RequestSettingOrganization("example", {
+ *     idProperty: "default",
+ *     subprocessorsAcknowledged: true,
  * });
  * ```
  *
@@ -61,7 +54,7 @@ export class RequestSettingOrganization extends pulumi.CustomResource {
     }
 
     /**
-     * Request condition id.
+     * The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      */
     declare public readonly idProperty: pulumi.Output<string>;
     /**
@@ -102,7 +95,7 @@ export class RequestSettingOrganization extends pulumi.CustomResource {
  */
 export interface RequestSettingOrganizationState {
     /**
-     * Request condition id.
+     * The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      */
     idProperty?: pulumi.Input<string | undefined>;
     /**
@@ -116,7 +109,7 @@ export interface RequestSettingOrganizationState {
  */
 export interface RequestSettingOrganizationArgs {
     /**
-     * Request condition id.
+     * The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      */
     idProperty: pulumi.Input<string>;
     /**

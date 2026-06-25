@@ -28,7 +28,10 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_name=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, realm_id=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, street_address=None, timezone=None, title=None, types=None, user_id=None, user_type=None, zip_code=None):
+    def __init__(__self__, activated=None, admin_roles=None, city=None, compound_search_operator=None, cost_center=None, country_code=None, created=None, custom_profile_attributes=None, delay_read_seconds=None, department=None, display_name=None, division=None, email=None, employee_number=None, first_name=None, group_memberships=None, honorific_prefix=None, honorific_suffix=None, id=None, last_login=None, last_name=None, last_updated=None, locale=None, login=None, manager=None, manager_id=None, middle_name=None, mobile_phone=None, nick_name=None, organization=None, password_changed=None, postal_address=None, preferred_language=None, primary_phone=None, profile_url=None, realm_id=None, roles=None, searches=None, second_email=None, skip_groups=None, skip_roles=None, state=None, status=None, status_changed=None, street_address=None, timezone=None, title=None, types=None, user_id=None, user_type=None, zip_code=None):
+        if activated and not isinstance(activated, str):
+            raise TypeError("Expected argument 'activated' to be a str")
+        pulumi.set(__self__, "activated", activated)
         if admin_roles and not isinstance(admin_roles, list):
             raise TypeError("Expected argument 'admin_roles' to be a list")
         pulumi.set(__self__, "admin_roles", admin_roles)
@@ -44,6 +47,9 @@ class GetUserResult:
         if country_code and not isinstance(country_code, str):
             raise TypeError("Expected argument 'country_code' to be a str")
         pulumi.set(__self__, "country_code", country_code)
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        pulumi.set(__self__, "created", created)
         if custom_profile_attributes and not isinstance(custom_profile_attributes, str):
             raise TypeError("Expected argument 'custom_profile_attributes' to be a str")
         pulumi.set(__self__, "custom_profile_attributes", custom_profile_attributes)
@@ -80,9 +86,15 @@ class GetUserResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_login and not isinstance(last_login, str):
+            raise TypeError("Expected argument 'last_login' to be a str")
+        pulumi.set(__self__, "last_login", last_login)
         if last_name and not isinstance(last_name, str):
             raise TypeError("Expected argument 'last_name' to be a str")
         pulumi.set(__self__, "last_name", last_name)
+        if last_updated and not isinstance(last_updated, str):
+            raise TypeError("Expected argument 'last_updated' to be a str")
+        pulumi.set(__self__, "last_updated", last_updated)
         if locale and not isinstance(locale, str):
             raise TypeError("Expected argument 'locale' to be a str")
         pulumi.set(__self__, "locale", locale)
@@ -107,6 +119,9 @@ class GetUserResult:
         if organization and not isinstance(organization, str):
             raise TypeError("Expected argument 'organization' to be a str")
         pulumi.set(__self__, "organization", organization)
+        if password_changed and not isinstance(password_changed, str):
+            raise TypeError("Expected argument 'password_changed' to be a str")
+        pulumi.set(__self__, "password_changed", password_changed)
         if postal_address and not isinstance(postal_address, str):
             raise TypeError("Expected argument 'postal_address' to be a str")
         pulumi.set(__self__, "postal_address", postal_address)
@@ -143,6 +158,9 @@ class GetUserResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if status_changed and not isinstance(status_changed, str):
+            raise TypeError("Expected argument 'status_changed' to be a str")
+        pulumi.set(__self__, "status_changed", status_changed)
         if street_address and not isinstance(street_address, str):
             raise TypeError("Expected argument 'street_address' to be a str")
         pulumi.set(__self__, "street_address", street_address)
@@ -164,6 +182,11 @@ class GetUserResult:
         if zip_code and not isinstance(zip_code, str):
             raise TypeError("Expected argument 'zip_code' to be a str")
         pulumi.set(__self__, "zip_code", zip_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def activated(self) -> _builtins.str:
+        return pulumi.get(self, "activated")
 
     @_builtins.property
     @pulumi.getter(name="adminRoles")
@@ -192,6 +215,11 @@ class GetUserResult:
     @pulumi.getter(name="countryCode")
     def country_code(self) -> _builtins.str:
         return pulumi.get(self, "country_code")
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> _builtins.str:
+        return pulumi.get(self, "created")
 
     @_builtins.property
     @pulumi.getter(name="customProfileAttributes")
@@ -260,9 +288,19 @@ class GetUserResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="lastLogin")
+    def last_login(self) -> _builtins.str:
+        return pulumi.get(self, "last_login")
+
+    @_builtins.property
     @pulumi.getter(name="lastName")
     def last_name(self) -> _builtins.str:
         return pulumi.get(self, "last_name")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> _builtins.str:
+        return pulumi.get(self, "last_updated")
 
     @_builtins.property
     @pulumi.getter
@@ -303,6 +341,11 @@ class GetUserResult:
     @pulumi.getter
     def organization(self) -> _builtins.str:
         return pulumi.get(self, "organization")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordChanged")
+    def password_changed(self) -> _builtins.str:
+        return pulumi.get(self, "password_changed")
 
     @_builtins.property
     @pulumi.getter(name="postalAddress")
@@ -377,6 +420,11 @@ class GetUserResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter(name="statusChanged")
+    def status_changed(self) -> _builtins.str:
+        return pulumi.get(self, "status_changed")
+
+    @_builtins.property
     @pulumi.getter(name="streetAddress")
     def street_address(self) -> _builtins.str:
         return pulumi.get(self, "street_address")
@@ -421,11 +469,13 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            activated=self.activated,
             admin_roles=self.admin_roles,
             city=self.city,
             compound_search_operator=self.compound_search_operator,
             cost_center=self.cost_center,
             country_code=self.country_code,
+            created=self.created,
             custom_profile_attributes=self.custom_profile_attributes,
             delay_read_seconds=self.delay_read_seconds,
             department=self.department,
@@ -438,7 +488,9 @@ class AwaitableGetUserResult(GetUserResult):
             honorific_prefix=self.honorific_prefix,
             honorific_suffix=self.honorific_suffix,
             id=self.id,
+            last_login=self.last_login,
             last_name=self.last_name,
+            last_updated=self.last_updated,
             locale=self.locale,
             login=self.login,
             manager=self.manager,
@@ -447,6 +499,7 @@ class AwaitableGetUserResult(GetUserResult):
             mobile_phone=self.mobile_phone,
             nick_name=self.nick_name,
             organization=self.organization,
+            password_changed=self.password_changed,
             postal_address=self.postal_address,
             preferred_language=self.preferred_language,
             primary_phone=self.primary_phone,
@@ -459,6 +512,7 @@ class AwaitableGetUserResult(GetUserResult):
             skip_roles=self.skip_roles,
             state=self.state,
             status=self.status,
+            status_changed=self.status_changed,
             street_address=self.street_address,
             timezone=self.timezone,
             title=self.title,
@@ -497,11 +551,13 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('okta:user/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        activated=pulumi.get(__ret__, 'activated'),
         admin_roles=pulumi.get(__ret__, 'admin_roles'),
         city=pulumi.get(__ret__, 'city'),
         compound_search_operator=pulumi.get(__ret__, 'compound_search_operator'),
         cost_center=pulumi.get(__ret__, 'cost_center'),
         country_code=pulumi.get(__ret__, 'country_code'),
+        created=pulumi.get(__ret__, 'created'),
         custom_profile_attributes=pulumi.get(__ret__, 'custom_profile_attributes'),
         delay_read_seconds=pulumi.get(__ret__, 'delay_read_seconds'),
         department=pulumi.get(__ret__, 'department'),
@@ -514,7 +570,9 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
         honorific_prefix=pulumi.get(__ret__, 'honorific_prefix'),
         honorific_suffix=pulumi.get(__ret__, 'honorific_suffix'),
         id=pulumi.get(__ret__, 'id'),
+        last_login=pulumi.get(__ret__, 'last_login'),
         last_name=pulumi.get(__ret__, 'last_name'),
+        last_updated=pulumi.get(__ret__, 'last_updated'),
         locale=pulumi.get(__ret__, 'locale'),
         login=pulumi.get(__ret__, 'login'),
         manager=pulumi.get(__ret__, 'manager'),
@@ -523,6 +581,7 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
         mobile_phone=pulumi.get(__ret__, 'mobile_phone'),
         nick_name=pulumi.get(__ret__, 'nick_name'),
         organization=pulumi.get(__ret__, 'organization'),
+        password_changed=pulumi.get(__ret__, 'password_changed'),
         postal_address=pulumi.get(__ret__, 'postal_address'),
         preferred_language=pulumi.get(__ret__, 'preferred_language'),
         primary_phone=pulumi.get(__ret__, 'primary_phone'),
@@ -535,6 +594,7 @@ def get_user(compound_search_operator: Optional[_builtins.str] = None,
         skip_roles=pulumi.get(__ret__, 'skip_roles'),
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
+        status_changed=pulumi.get(__ret__, 'status_changed'),
         street_address=pulumi.get(__ret__, 'street_address'),
         timezone=pulumi.get(__ret__, 'timezone'),
         title=pulumi.get(__ret__, 'title'),
@@ -570,11 +630,13 @@ def get_user_output(compound_search_operator: pulumi.Input[Optional[Optional[_bu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:user/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
+        activated=pulumi.get(__response__, 'activated'),
         admin_roles=pulumi.get(__response__, 'admin_roles'),
         city=pulumi.get(__response__, 'city'),
         compound_search_operator=pulumi.get(__response__, 'compound_search_operator'),
         cost_center=pulumi.get(__response__, 'cost_center'),
         country_code=pulumi.get(__response__, 'country_code'),
+        created=pulumi.get(__response__, 'created'),
         custom_profile_attributes=pulumi.get(__response__, 'custom_profile_attributes'),
         delay_read_seconds=pulumi.get(__response__, 'delay_read_seconds'),
         department=pulumi.get(__response__, 'department'),
@@ -587,7 +649,9 @@ def get_user_output(compound_search_operator: pulumi.Input[Optional[Optional[_bu
         honorific_prefix=pulumi.get(__response__, 'honorific_prefix'),
         honorific_suffix=pulumi.get(__response__, 'honorific_suffix'),
         id=pulumi.get(__response__, 'id'),
+        last_login=pulumi.get(__response__, 'last_login'),
         last_name=pulumi.get(__response__, 'last_name'),
+        last_updated=pulumi.get(__response__, 'last_updated'),
         locale=pulumi.get(__response__, 'locale'),
         login=pulumi.get(__response__, 'login'),
         manager=pulumi.get(__response__, 'manager'),
@@ -596,6 +660,7 @@ def get_user_output(compound_search_operator: pulumi.Input[Optional[Optional[_bu
         mobile_phone=pulumi.get(__response__, 'mobile_phone'),
         nick_name=pulumi.get(__response__, 'nick_name'),
         organization=pulumi.get(__response__, 'organization'),
+        password_changed=pulumi.get(__response__, 'password_changed'),
         postal_address=pulumi.get(__response__, 'postal_address'),
         preferred_language=pulumi.get(__response__, 'preferred_language'),
         primary_phone=pulumi.get(__response__, 'primary_phone'),
@@ -608,6 +673,7 @@ def get_user_output(compound_search_operator: pulumi.Input[Optional[Optional[_bu
         skip_roles=pulumi.get(__response__, 'skip_roles'),
         state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),
+        status_changed=pulumi.get(__response__, 'status_changed'),
         street_address=pulumi.get(__response__, 'street_address'),
         timezone=pulumi.get(__response__, 'timezone'),
         title=pulumi.get(__response__, 'title'),

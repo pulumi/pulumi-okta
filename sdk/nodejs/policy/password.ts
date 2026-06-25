@@ -61,6 +61,18 @@ export class Password extends pulumi.CustomResource {
      */
     declare public readonly authProvider: pulumi.Output<string | undefined>;
     /**
+     * The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     */
+    declare public readonly breachedPasswordDelegatedWorkflowId: pulumi.Output<string | undefined>;
+    /**
+     * Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     */
+    declare public readonly breachedPasswordExpireAfterDays: pulumi.Output<number | undefined>;
+    /**
+     * If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     */
+    declare public readonly breachedPasswordLogoutEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
     declare public readonly callRecovery: pulumi.Output<string | undefined>;
@@ -191,6 +203,9 @@ export class Password extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PasswordState | undefined;
             resourceInputs["authProvider"] = state?.authProvider;
+            resourceInputs["breachedPasswordDelegatedWorkflowId"] = state?.breachedPasswordDelegatedWorkflowId;
+            resourceInputs["breachedPasswordExpireAfterDays"] = state?.breachedPasswordExpireAfterDays;
+            resourceInputs["breachedPasswordLogoutEnabled"] = state?.breachedPasswordLogoutEnabled;
             resourceInputs["callRecovery"] = state?.callRecovery;
             resourceInputs["description"] = state?.description;
             resourceInputs["emailRecovery"] = state?.emailRecovery;
@@ -223,6 +238,9 @@ export class Password extends pulumi.CustomResource {
         } else {
             const args = argsOrState as PasswordArgs | undefined;
             resourceInputs["authProvider"] = args?.authProvider;
+            resourceInputs["breachedPasswordDelegatedWorkflowId"] = args?.breachedPasswordDelegatedWorkflowId;
+            resourceInputs["breachedPasswordExpireAfterDays"] = args?.breachedPasswordExpireAfterDays;
+            resourceInputs["breachedPasswordLogoutEnabled"] = args?.breachedPasswordLogoutEnabled;
             resourceInputs["callRecovery"] = args?.callRecovery;
             resourceInputs["description"] = args?.description;
             resourceInputs["emailRecovery"] = args?.emailRecovery;
@@ -266,6 +284,18 @@ export interface PasswordState {
      * Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      */
     authProvider?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     */
+    breachedPasswordDelegatedWorkflowId?: pulumi.Input<string | undefined>;
+    /**
+     * Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     */
+    breachedPasswordExpireAfterDays?: pulumi.Input<number | undefined>;
+    /**
+     * If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     */
+    breachedPasswordLogoutEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */
@@ -392,6 +422,18 @@ export interface PasswordArgs {
      * Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
      */
     authProvider?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     */
+    breachedPasswordDelegatedWorkflowId?: pulumi.Input<string | undefined>;
+    /**
+     * Number of days after a breached password is detected before the user's password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     */
+    breachedPasswordExpireAfterDays?: pulumi.Input<number | undefined>;
+    /**
+     * If `true`, the user's sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     */
+    breachedPasswordLogoutEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
      */

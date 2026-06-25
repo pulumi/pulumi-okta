@@ -23,6 +23,8 @@ import com.pulumi.okta.app.inputs.GetOauthArgs;
 import com.pulumi.okta.app.inputs.GetOauthPlainArgs;
 import com.pulumi.okta.app.inputs.GetSamlArgs;
 import com.pulumi.okta.app.inputs.GetSamlPlainArgs;
+import com.pulumi.okta.app.inputs.GetSignOnPolicyRuleArgs;
+import com.pulumi.okta.app.inputs.GetSignOnPolicyRulePlainArgs;
 import com.pulumi.okta.app.inputs.GetTokenArgs;
 import com.pulumi.okta.app.inputs.GetTokenPlainArgs;
 import com.pulumi.okta.app.outputs.GetAppResult;
@@ -32,6 +34,7 @@ import com.pulumi.okta.app.outputs.GetFederatedClaimResult;
 import com.pulumi.okta.app.outputs.GetMetadataSamlResult;
 import com.pulumi.okta.app.outputs.GetOauthResult;
 import com.pulumi.okta.app.outputs.GetSamlResult;
+import com.pulumi.okta.app.outputs.GetSignOnPolicyRuleResult;
 import com.pulumi.okta.app.outputs.GetTokenResult;
 import java.util.concurrent.CompletableFuture;
 
@@ -2385,6 +2388,281 @@ public final class AppFunctions {
      */
     public static CompletableFuture<GetSamlResult> getSamlPlain(GetSamlPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:app/getSaml:getSaml", TypeShape.of(GetSamlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * &gt; Inside the product a sign-on policy rule is referenced as an _authentication
+     * policy rule_, in the public API the parent policy is of type
+     * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetSignOnPolicyRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+     *             .appId("<app id>")
+     *             .build());
+     * 
+     *         final var exampleGetSignOnPolicyRule = AppFunctions.getSignOnPolicyRule(GetSignOnPolicyRuleArgs.builder()
+     *             .id("<rule id>")
+     *             .policyId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSignOnPolicyRuleResult> getSignOnPolicyRule(GetSignOnPolicyRuleArgs args) {
+        return getSignOnPolicyRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * &gt; Inside the product a sign-on policy rule is referenced as an _authentication
+     * policy rule_, in the public API the parent policy is of type
+     * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetSignOnPolicyRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+     *             .appId("<app id>")
+     *             .build());
+     * 
+     *         final var exampleGetSignOnPolicyRule = AppFunctions.getSignOnPolicyRule(GetSignOnPolicyRuleArgs.builder()
+     *             .id("<rule id>")
+     *             .policyId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSignOnPolicyRuleResult> getSignOnPolicyRulePlain(GetSignOnPolicyRulePlainArgs args) {
+        return getSignOnPolicyRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * &gt; Inside the product a sign-on policy rule is referenced as an _authentication
+     * policy rule_, in the public API the parent policy is of type
+     * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetSignOnPolicyRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+     *             .appId("<app id>")
+     *             .build());
+     * 
+     *         final var exampleGetSignOnPolicyRule = AppFunctions.getSignOnPolicyRule(GetSignOnPolicyRuleArgs.builder()
+     *             .id("<rule id>")
+     *             .policyId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSignOnPolicyRuleResult> getSignOnPolicyRule(GetSignOnPolicyRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getSignOnPolicyRule:getSignOnPolicyRule", TypeShape.of(GetSignOnPolicyRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * &gt; Inside the product a sign-on policy rule is referenced as an _authentication
+     * policy rule_, in the public API the parent policy is of type
+     * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetSignOnPolicyRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+     *             .appId("<app id>")
+     *             .build());
+     * 
+     *         final var exampleGetSignOnPolicyRule = AppFunctions.getSignOnPolicyRule(GetSignOnPolicyRuleArgs.builder()
+     *             .id("<rule id>")
+     *             .policyId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSignOnPolicyRuleResult> getSignOnPolicyRule(GetSignOnPolicyRuleArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:app/getSignOnPolicyRule:getSignOnPolicyRule", TypeShape.of(GetSignOnPolicyRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
+     * 
+     * &gt; **WARNING:** This feature is only available as a part of the
+     * Identity Engine. Contact support
+     * for further information.
+     * 
+     * &gt; Inside the product a sign-on policy rule is referenced as an _authentication
+     * policy rule_, in the public API the parent policy is of type
+     * [`ACCESS_POLICY`](https://developer.okta.com/docs/reference/api/policy/#policy-object).
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetAppSignonPolicyArgs;
+     * import com.pulumi.okta.app.AppFunctions;
+     * import com.pulumi.okta.app.inputs.GetSignOnPolicyRuleArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getAppSignonPolicy(GetAppSignonPolicyArgs.builder()
+     *             .appId("<app id>")
+     *             .build());
+     * 
+     *         final var exampleGetSignOnPolicyRule = AppFunctions.getSignOnPolicyRule(GetSignOnPolicyRuleArgs.builder()
+     *             .id("<rule id>")
+     *             .policyId(example.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSignOnPolicyRuleResult> getSignOnPolicyRulePlain(GetSignOnPolicyRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:app/getSignOnPolicyRule:getSignOnPolicyRule", TypeShape.of(GetSignOnPolicyRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a refresh token for the specified app.

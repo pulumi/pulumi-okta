@@ -75,6 +75,11 @@ export const getSaml: typeof import("./getSaml").getSaml = null as any;
 export const getSamlOutput: typeof import("./getSaml").getSamlOutput = null as any;
 utilities.lazyLoad(exports, ["getSaml","getSamlOutput"], () => require("./getSaml"));
 
+export { GetSignOnPolicyRuleArgs, GetSignOnPolicyRuleResult, GetSignOnPolicyRuleOutputArgs } from "./getSignOnPolicyRule";
+export const getSignOnPolicyRule: typeof import("./getSignOnPolicyRule").getSignOnPolicyRule = null as any;
+export const getSignOnPolicyRuleOutput: typeof import("./getSignOnPolicyRule").getSignOnPolicyRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSignOnPolicyRule","getSignOnPolicyRuleOutput"], () => require("./getSignOnPolicyRule"));
+
 export { GetTokenArgs, GetTokenResult, GetTokenOutputArgs } from "./getToken";
 export const getToken: typeof import("./getToken").getToken = null as any;
 export const getTokenOutput: typeof import("./getToken").getTokenOutput = null as any;

@@ -60,6 +60,8 @@ const (
 	trustedOriginMod = "TrustedOrigin"
 	userMod          = "User"
 	mainMod          = "Index"
+
+	idProperty = "idProperty"
 )
 
 var namespaceMap = map[string]string{
@@ -98,12 +100,12 @@ func Provider() tfbridge.ProviderInfo {
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
-		Name:        "okta",
+		Name:        mainPkg,
 		Description: "A Pulumi package for creating and managing okta resources.",
-		Keywords:    []string{"pulumi", "okta"},
+		Keywords:    []string{"pulumi", mainPkg},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "okta",
+		GitHubOrg:   mainPkg,
 		Repository:  "https://github.com/pulumi/pulumi-okta",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"api_token": {
@@ -219,60 +221,60 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_request_setting_organization": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
-				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
+				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey(idProperty),
 					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
 			},
 			"okta_request_setting_resource": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
-				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
+				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey(idProperty),
 					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
 			},
 			"okta_request_sequence": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
-				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey("idProperty"),
+				ComputeID: tfbridge.DelegateIDField(resource.PropertyKey(idProperty),
 					"pulumi-okta", "https://github.com/pulumi/pulumi-okta"),
 			},
 			"okta_api_token": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
 				ComputeID: tfbridge.DelegateIDField(
-					"idProperty",
+					idProperty,
 					"pulumi-okta",
 					"https://github.com/pulumi/pulumi-okta"),
 			},
 			"okta_app_token": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
 				ComputeID: tfbridge.DelegateIDField(
-					"idProperty",
+					idProperty,
 					"pulumi-okta",
 					"https://github.com/pulumi/pulumi-okta"),
 			},
 			"okta_app_connection": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
 				ComputeID: tfbridge.DelegateIDField(
-					"idProperty",
+					idProperty,
 					"pulumi-okta",
 					"https://github.com/pulumi/pulumi-okta"),
 			},
@@ -286,11 +288,11 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_principal_rate_limits": {
 				Fields: map[string]*info.Schema{
 					"id": {
-						Name: "idProperty",
+						Name: idProperty,
 					},
 				},
 				ComputeID: tfbridge.DelegateIDField(
-					"idProperty",
+					idProperty,
 					"pulumi-okta",
 					"https://github.com/pulumi/pulumi-okta"),
 			},

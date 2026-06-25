@@ -63,6 +63,8 @@ __all__ = [
     'SamlKeyArgsDict',
     'SignonPolicyRulesRuleArgs',
     'SignonPolicyRulesRuleArgsDict',
+    'SignonPolicyRulesRuleKeepMeSignedInArgs',
+    'SignonPolicyRulesRuleKeepMeSignedInArgsDict',
     'SignonPolicyRulesRulePlatformIncludeArgs',
     'SignonPolicyRulesRulePlatformIncludeArgsDict',
     'GetConnectionProfileArgs',
@@ -95,6 +97,48 @@ __all__ = [
     'GetFeaturesCapabilitiesUpdatePasswordArgsDict',
     'GetFeaturesCapabilitiesUpdateProfileArgs',
     'GetFeaturesCapabilitiesUpdateProfileArgsDict',
+    'GetSignOnPolicyRuleActionsArgs',
+    'GetSignOnPolicyRuleActionsArgsDict',
+    'GetSignOnPolicyRuleActionsAppSignOnArgs',
+    'GetSignOnPolicyRuleActionsAppSignOnArgsDict',
+    'GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs',
+    'GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgsDict',
+    'GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs',
+    'GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgsDict',
+    'GetSignOnPolicyRuleConditionsArgs',
+    'GetSignOnPolicyRuleConditionsArgsDict',
+    'GetSignOnPolicyRuleConditionsDeviceArgs',
+    'GetSignOnPolicyRuleConditionsDeviceArgsDict',
+    'GetSignOnPolicyRuleConditionsDeviceAssuranceArgs',
+    'GetSignOnPolicyRuleConditionsDeviceAssuranceArgsDict',
+    'GetSignOnPolicyRuleConditionsElConditionArgs',
+    'GetSignOnPolicyRuleConditionsElConditionArgsDict',
+    'GetSignOnPolicyRuleConditionsNetworkArgs',
+    'GetSignOnPolicyRuleConditionsNetworkArgsDict',
+    'GetSignOnPolicyRuleConditionsPeopleArgs',
+    'GetSignOnPolicyRuleConditionsPeopleArgsDict',
+    'GetSignOnPolicyRuleConditionsPeopleGroupsArgs',
+    'GetSignOnPolicyRuleConditionsPeopleGroupsArgsDict',
+    'GetSignOnPolicyRuleConditionsPeopleUsersArgs',
+    'GetSignOnPolicyRuleConditionsPeopleUsersArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformArgs',
+    'GetSignOnPolicyRuleConditionsPlatformArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformExcludeArgs',
+    'GetSignOnPolicyRuleConditionsPlatformExcludeArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs',
+    'GetSignOnPolicyRuleConditionsPlatformExcludeOsArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs',
+    'GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformIncludeArgs',
+    'GetSignOnPolicyRuleConditionsPlatformIncludeArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs',
+    'GetSignOnPolicyRuleConditionsPlatformIncludeOsArgsDict',
+    'GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs',
+    'GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgsDict',
+    'GetSignOnPolicyRuleConditionsRiskScoreArgs',
+    'GetSignOnPolicyRuleConditionsRiskScoreArgsDict',
+    'GetSignOnPolicyRuleConditionsUserTypeArgs',
+    'GetSignOnPolicyRuleConditionsUserTypeArgsDict',
 ]
 
 class ConnectionProfileArgsDict(TypedDict):
@@ -1764,6 +1808,10 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
     """
     Inactivity period before re-authentication in ISO 8601 duration format.
     """
+    keep_me_signed_in: NotRequired[pulumi.Input[Optional['SignonPolicyRulesRuleKeepMeSignedInArgsDict']]]
+    """
+    Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+    """
     network_connection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
@@ -1790,7 +1838,7 @@ class SignonPolicyRulesRuleArgsDict(TypedDict):
     """
     risk_score: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+    Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1837,6 +1885,7 @@ class SignonPolicyRulesRuleArgs:
                  groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional['SignonPolicyRulesRuleKeepMeSignedInArgs']] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1865,13 +1914,14 @@ class SignonPolicyRulesRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: Set of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] id: (String) - The ID of this resource (same as `policy_id`).
         :param pulumi.Input[_builtins.str] inactivity_period: Inactivity period before re-authentication in ISO 8601 duration format.
+        :param pulumi.Input['SignonPolicyRulesRuleKeepMeSignedInArgs'] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON_NETWORK, or OFF_NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: List of network zone IDs to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: List of network zone IDs to include.
         :param pulumi.Input[Sequence[pulumi.Input['SignonPolicyRulesRulePlatformIncludeArgs']]] platform_includes: Platform conditions to include.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule. Lower numbers are evaluated first.
         :param pulumi.Input[_builtins.str] re_authentication_frequency: Re-authentication frequency in ISO 8601 duration format (e.g., PT2H for 2 hours). When using authentication chains with reauthenticateIn, this value is computed by the API based on the chain configuration.
-        :param pulumi.Input[_builtins.str] risk_score: Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+        :param pulumi.Input[_builtins.str] risk_score: Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
         :param pulumi.Input[_builtins.str] status: Status of the rule: ACTIVE or INACTIVE.
         :param pulumi.Input[_builtins.bool] system: Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
         :param pulumi.Input[_builtins.str] type: Verification method type.
@@ -1905,6 +1955,8 @@ class SignonPolicyRulesRuleArgs:
             pulumi.set(__self__, "id", id)
         if inactivity_period is not None:
             pulumi.set(__self__, "inactivity_period", inactivity_period)
+        if keep_me_signed_in is not None:
+            pulumi.set(__self__, "keep_me_signed_in", keep_me_signed_in)
         if network_connection is not None:
             pulumi.set(__self__, "network_connection", network_connection)
         if network_excludes is not None:
@@ -2091,6 +2143,18 @@ class SignonPolicyRulesRuleArgs:
         pulumi.set(self, "inactivity_period", value)
 
     @_builtins.property
+    @pulumi.getter(name="keepMeSignedIn")
+    def keep_me_signed_in(self) -> pulumi.Input[Optional['SignonPolicyRulesRuleKeepMeSignedInArgs']]:
+        """
+        Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
+        """
+        return pulumi.get(self, "keep_me_signed_in")
+
+    @keep_me_signed_in.setter
+    def keep_me_signed_in(self, value: pulumi.Input[Optional['SignonPolicyRulesRuleKeepMeSignedInArgs']]):
+        pulumi.set(self, "keep_me_signed_in", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkConnection")
     def network_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2166,7 +2230,7 @@ class SignonPolicyRulesRuleArgs:
     @pulumi.getter(name="riskScore")
     def risk_score(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Risk score level to match: ANY, LOW, MEDIUM, or HIGH.
+        Risk score level to match: ANY, LOW, MEDIUM, or HIGH. Only sent to the API when explicitly configured; omit on orgs without the risk scoring feature.
         """
         return pulumi.get(self, "risk_score")
 
@@ -2257,6 +2321,55 @@ class SignonPolicyRulesRuleArgs:
     @users_includeds.setter
     def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "users_includeds", value)
+
+
+class SignonPolicyRulesRuleKeepMeSignedInArgsDict(TypedDict):
+    post_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+    """
+    post_auth_prompt_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+    """
+
+@pulumi.input_type
+class SignonPolicyRulesRuleKeepMeSignedInArgs:
+    def __init__(__self__, *,
+                 post_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_auth_prompt_frequency: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] post_auth: Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+        :param pulumi.Input[_builtins.str] post_auth_prompt_frequency: How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+        """
+        if post_auth is not None:
+            pulumi.set(__self__, "post_auth", post_auth)
+        if post_auth_prompt_frequency is not None:
+            pulumi.set(__self__, "post_auth_prompt_frequency", post_auth_prompt_frequency)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuth")
+    def post_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the post-authentication KMSI flow is allowed. Valid values: `ALLOWED`, `NOT_ALLOWED`.
+        """
+        return pulumi.get(self, "post_auth")
+
+    @post_auth.setter
+    def post_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "post_auth", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuthPromptFrequency")
+    def post_auth_prompt_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How often the post-auth prompt is presented, as an ISO-8601 duration (e.g. `PT168H`).
+        """
+        return pulumi.get(self, "post_auth_prompt_frequency")
+
+    @post_auth_prompt_frequency.setter
+    def post_auth_prompt_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "post_auth_prompt_frequency", value)
 
 
 class SignonPolicyRulesRulePlatformIncludeArgsDict(TypedDict):
@@ -3101,5 +3214,1125 @@ class GetFeaturesCapabilitiesUpdateProfileArgs:
     @status.setter
     def status(self, value: _builtins.str):
         pulumi.set(self, "status", value)
+
+
+class GetSignOnPolicyRuleActionsArgsDict(TypedDict):
+    app_sign_on: NotRequired['GetSignOnPolicyRuleActionsAppSignOnArgsDict']
+    """
+    Specifies the results when a user attempts to sign in
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleActionsArgs:
+    def __init__(__self__, *,
+                 app_sign_on: Optional['GetSignOnPolicyRuleActionsAppSignOnArgs'] = None):
+        """
+        :param 'GetSignOnPolicyRuleActionsAppSignOnArgs' app_sign_on: Specifies the results when a user attempts to sign in
+        """
+        if app_sign_on is not None:
+            pulumi.set(__self__, "app_sign_on", app_sign_on)
+
+    @_builtins.property
+    @pulumi.getter(name="appSignOn")
+    def app_sign_on(self) -> Optional['GetSignOnPolicyRuleActionsAppSignOnArgs']:
+        """
+        Specifies the results when a user attempts to sign in
+        """
+        return pulumi.get(self, "app_sign_on")
+
+    @app_sign_on.setter
+    def app_sign_on(self, value: Optional['GetSignOnPolicyRuleActionsAppSignOnArgs']):
+        pulumi.set(self, "app_sign_on", value)
+
+
+class GetSignOnPolicyRuleActionsAppSignOnArgsDict(TypedDict):
+    access: _builtins.str
+    """
+    Access
+    """
+    keep_me_signed_in: NotRequired['GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgsDict']
+    """
+    Controls how often the post-authentication prompt is presented to users
+    """
+    verification_method: NotRequired['GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgsDict']
+    """
+    The method used to verify a user
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleActionsAppSignOnArgs:
+    def __init__(__self__, *,
+                 access: _builtins.str,
+                 keep_me_signed_in: Optional['GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs'] = None,
+                 verification_method: Optional['GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs'] = None):
+        """
+        :param _builtins.str access: Access
+        :param 'GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs' keep_me_signed_in: Controls how often the post-authentication prompt is presented to users
+        :param 'GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs' verification_method: The method used to verify a user
+        """
+        pulumi.set(__self__, "access", access)
+        if keep_me_signed_in is not None:
+            pulumi.set(__self__, "keep_me_signed_in", keep_me_signed_in)
+        if verification_method is not None:
+            pulumi.set(__self__, "verification_method", verification_method)
+
+    @_builtins.property
+    @pulumi.getter
+    def access(self) -> _builtins.str:
+        """
+        Access
+        """
+        return pulumi.get(self, "access")
+
+    @access.setter
+    def access(self, value: _builtins.str):
+        pulumi.set(self, "access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keepMeSignedIn")
+    def keep_me_signed_in(self) -> Optional['GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs']:
+        """
+        Controls how often the post-authentication prompt is presented to users
+        """
+        return pulumi.get(self, "keep_me_signed_in")
+
+    @keep_me_signed_in.setter
+    def keep_me_signed_in(self, value: Optional['GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs']):
+        pulumi.set(self, "keep_me_signed_in", value)
+
+    @_builtins.property
+    @pulumi.getter(name="verificationMethod")
+    def verification_method(self) -> Optional['GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs']:
+        """
+        The method used to verify a user
+        """
+        return pulumi.get(self, "verification_method")
+
+    @verification_method.setter
+    def verification_method(self, value: Optional['GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs']):
+        pulumi.set(self, "verification_method", value)
+
+
+class GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgsDict(TypedDict):
+    post_auth: _builtins.str
+    """
+    Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+    """
+    post_auth_prompt_frequency: _builtins.str
+    """
+    A time duration specified as an ISO 8601 duration
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleActionsAppSignOnKeepMeSignedInArgs:
+    def __init__(__self__, *,
+                 post_auth: _builtins.str,
+                 post_auth_prompt_frequency: _builtins.str):
+        """
+        :param _builtins.str post_auth: Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+        :param _builtins.str post_auth_prompt_frequency: A time duration specified as an ISO 8601 duration
+        """
+        pulumi.set(__self__, "post_auth", post_auth)
+        pulumi.set(__self__, "post_auth_prompt_frequency", post_auth_prompt_frequency)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuth")
+    def post_auth(self) -> _builtins.str:
+        """
+        Whether the post-authentication Keep Me Signed In (KMSI) flow is allowed.
+        """
+        return pulumi.get(self, "post_auth")
+
+    @post_auth.setter
+    def post_auth(self, value: _builtins.str):
+        pulumi.set(self, "post_auth", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuthPromptFrequency")
+    def post_auth_prompt_frequency(self) -> _builtins.str:
+        """
+        A time duration specified as an ISO 8601 duration
+        """
+        return pulumi.get(self, "post_auth_prompt_frequency")
+
+    @post_auth_prompt_frequency.setter
+    def post_auth_prompt_frequency(self, value: _builtins.str):
+        pulumi.set(self, "post_auth_prompt_frequency", value)
+
+
+class GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    Verification method type
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleActionsAppSignOnVerificationMethodArgs:
+    def __init__(__self__, *,
+                 type: _builtins.str):
+        """
+        :param _builtins.str type: Verification method type
+        """
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Verification method type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+
+class GetSignOnPolicyRuleConditionsArgsDict(TypedDict):
+    device: NotRequired['GetSignOnPolicyRuleConditionsDeviceArgsDict']
+    """
+    Specifies the device condition to match on
+    """
+    el_condition: NotRequired['GetSignOnPolicyRuleConditionsElConditionArgsDict']
+    """
+    Specifies Okta Expression Language expressions
+    """
+    network: NotRequired['GetSignOnPolicyRuleConditionsNetworkArgsDict']
+    """
+    Specifies a network selection mode and a set of network zones to be included or excluded.
+    """
+    people: NotRequired['GetSignOnPolicyRuleConditionsPeopleArgsDict']
+    """
+    Specifies the users and groups that are included or excluded by the policy rule
+    """
+    platform: NotRequired['GetSignOnPolicyRuleConditionsPlatformArgsDict']
+    """
+    Specifies a particular platform or device to match on
+    """
+    risk_score: NotRequired['GetSignOnPolicyRuleConditionsRiskScoreArgsDict']
+    """
+    Specifies a particular level of risk to match on
+    """
+    user_type: NotRequired['GetSignOnPolicyRuleConditionsUserTypeArgsDict']
+    """
+    Specifies which user types to include and/or exclude
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsArgs:
+    def __init__(__self__, *,
+                 device: Optional['GetSignOnPolicyRuleConditionsDeviceArgs'] = None,
+                 el_condition: Optional['GetSignOnPolicyRuleConditionsElConditionArgs'] = None,
+                 network: Optional['GetSignOnPolicyRuleConditionsNetworkArgs'] = None,
+                 people: Optional['GetSignOnPolicyRuleConditionsPeopleArgs'] = None,
+                 platform: Optional['GetSignOnPolicyRuleConditionsPlatformArgs'] = None,
+                 risk_score: Optional['GetSignOnPolicyRuleConditionsRiskScoreArgs'] = None,
+                 user_type: Optional['GetSignOnPolicyRuleConditionsUserTypeArgs'] = None):
+        """
+        :param 'GetSignOnPolicyRuleConditionsDeviceArgs' device: Specifies the device condition to match on
+        :param 'GetSignOnPolicyRuleConditionsElConditionArgs' el_condition: Specifies Okta Expression Language expressions
+        :param 'GetSignOnPolicyRuleConditionsNetworkArgs' network: Specifies a network selection mode and a set of network zones to be included or excluded.
+        :param 'GetSignOnPolicyRuleConditionsPeopleArgs' people: Specifies the users and groups that are included or excluded by the policy rule
+        :param 'GetSignOnPolicyRuleConditionsPlatformArgs' platform: Specifies a particular platform or device to match on
+        :param 'GetSignOnPolicyRuleConditionsRiskScoreArgs' risk_score: Specifies a particular level of risk to match on
+        :param 'GetSignOnPolicyRuleConditionsUserTypeArgs' user_type: Specifies which user types to include and/or exclude
+        """
+        if device is not None:
+            pulumi.set(__self__, "device", device)
+        if el_condition is not None:
+            pulumi.set(__self__, "el_condition", el_condition)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if people is not None:
+            pulumi.set(__self__, "people", people)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if risk_score is not None:
+            pulumi.set(__self__, "risk_score", risk_score)
+        if user_type is not None:
+            pulumi.set(__self__, "user_type", user_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def device(self) -> Optional['GetSignOnPolicyRuleConditionsDeviceArgs']:
+        """
+        Specifies the device condition to match on
+        """
+        return pulumi.get(self, "device")
+
+    @device.setter
+    def device(self, value: Optional['GetSignOnPolicyRuleConditionsDeviceArgs']):
+        pulumi.set(self, "device", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elCondition")
+    def el_condition(self) -> Optional['GetSignOnPolicyRuleConditionsElConditionArgs']:
+        """
+        Specifies Okta Expression Language expressions
+        """
+        return pulumi.get(self, "el_condition")
+
+    @el_condition.setter
+    def el_condition(self, value: Optional['GetSignOnPolicyRuleConditionsElConditionArgs']):
+        pulumi.set(self, "el_condition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def network(self) -> Optional['GetSignOnPolicyRuleConditionsNetworkArgs']:
+        """
+        Specifies a network selection mode and a set of network zones to be included or excluded.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional['GetSignOnPolicyRuleConditionsNetworkArgs']):
+        pulumi.set(self, "network", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def people(self) -> Optional['GetSignOnPolicyRuleConditionsPeopleArgs']:
+        """
+        Specifies the users and groups that are included or excluded by the policy rule
+        """
+        return pulumi.get(self, "people")
+
+    @people.setter
+    def people(self, value: Optional['GetSignOnPolicyRuleConditionsPeopleArgs']):
+        pulumi.set(self, "people", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def platform(self) -> Optional['GetSignOnPolicyRuleConditionsPlatformArgs']:
+        """
+        Specifies a particular platform or device to match on
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional['GetSignOnPolicyRuleConditionsPlatformArgs']):
+        pulumi.set(self, "platform", value)
+
+    @_builtins.property
+    @pulumi.getter(name="riskScore")
+    def risk_score(self) -> Optional['GetSignOnPolicyRuleConditionsRiskScoreArgs']:
+        """
+        Specifies a particular level of risk to match on
+        """
+        return pulumi.get(self, "risk_score")
+
+    @risk_score.setter
+    def risk_score(self, value: Optional['GetSignOnPolicyRuleConditionsRiskScoreArgs']):
+        pulumi.set(self, "risk_score", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userType")
+    def user_type(self) -> Optional['GetSignOnPolicyRuleConditionsUserTypeArgs']:
+        """
+        Specifies which user types to include and/or exclude
+        """
+        return pulumi.get(self, "user_type")
+
+    @user_type.setter
+    def user_type(self, value: Optional['GetSignOnPolicyRuleConditionsUserTypeArgs']):
+        pulumi.set(self, "user_type", value)
+
+
+class GetSignOnPolicyRuleConditionsDeviceArgsDict(TypedDict):
+    managed: _builtins.bool
+    """
+    Indicates if the device is managed.
+    """
+    registered: _builtins.bool
+    """
+    Indicates if the device is registered.
+    """
+    assurance: NotRequired['GetSignOnPolicyRuleConditionsDeviceAssuranceArgsDict']
+    """
+    Specifies device assurance policies in the policy rule.
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsDeviceArgs:
+    def __init__(__self__, *,
+                 managed: _builtins.bool,
+                 registered: _builtins.bool,
+                 assurance: Optional['GetSignOnPolicyRuleConditionsDeviceAssuranceArgs'] = None):
+        """
+        :param _builtins.bool managed: Indicates if the device is managed.
+        :param _builtins.bool registered: Indicates if the device is registered.
+        :param 'GetSignOnPolicyRuleConditionsDeviceAssuranceArgs' assurance: Specifies device assurance policies in the policy rule.
+        """
+        pulumi.set(__self__, "managed", managed)
+        pulumi.set(__self__, "registered", registered)
+        if assurance is not None:
+            pulumi.set(__self__, "assurance", assurance)
+
+    @_builtins.property
+    @pulumi.getter
+    def managed(self) -> _builtins.bool:
+        """
+        Indicates if the device is managed.
+        """
+        return pulumi.get(self, "managed")
+
+    @managed.setter
+    def managed(self, value: _builtins.bool):
+        pulumi.set(self, "managed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def registered(self) -> _builtins.bool:
+        """
+        Indicates if the device is registered.
+        """
+        return pulumi.get(self, "registered")
+
+    @registered.setter
+    def registered(self, value: _builtins.bool):
+        pulumi.set(self, "registered", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def assurance(self) -> Optional['GetSignOnPolicyRuleConditionsDeviceAssuranceArgs']:
+        """
+        Specifies device assurance policies in the policy rule.
+        """
+        return pulumi.get(self, "assurance")
+
+    @assurance.setter
+    def assurance(self, value: Optional['GetSignOnPolicyRuleConditionsDeviceAssuranceArgs']):
+        pulumi.set(self, "assurance", value)
+
+
+class GetSignOnPolicyRuleConditionsDeviceAssuranceArgsDict(TypedDict):
+    includes: Sequence[_builtins.str]
+    """
+    Specifies the device assurance policy ID
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsDeviceAssuranceArgs:
+    def __init__(__self__, *,
+                 includes: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] includes: Specifies the device assurance policy ID
+        """
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        Specifies the device assurance policy ID
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "includes", value)
+
+
+class GetSignOnPolicyRuleConditionsElConditionArgsDict(TypedDict):
+    condition: _builtins.str
+    """
+    expression to match
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsElConditionArgs:
+    def __init__(__self__, *,
+                 condition: _builtins.str):
+        """
+        :param _builtins.str condition: expression to match
+        """
+        pulumi.set(__self__, "condition", condition)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> _builtins.str:
+        """
+        expression to match
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: _builtins.str):
+        pulumi.set(self, "condition", value)
+
+
+class GetSignOnPolicyRuleConditionsNetworkArgsDict(TypedDict):
+    connection: _builtins.str
+    """
+    Network selection mode
+    """
+    excludes: Sequence[_builtins.str]
+    """
+    The zones to exclude.
+    """
+    includes: Sequence[_builtins.str]
+    """
+    The zones to include.
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsNetworkArgs:
+    def __init__(__self__, *,
+                 connection: _builtins.str,
+                 excludes: Sequence[_builtins.str],
+                 includes: Sequence[_builtins.str]):
+        """
+        :param _builtins.str connection: Network selection mode
+        :param Sequence[_builtins.str] excludes: The zones to exclude.
+        :param Sequence[_builtins.str] includes: The zones to include.
+        """
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def connection(self) -> _builtins.str:
+        """
+        Network selection mode
+        """
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: _builtins.str):
+        pulumi.set(self, "connection", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Sequence[_builtins.str]:
+        """
+        The zones to exclude.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        The zones to include.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "includes", value)
+
+
+class GetSignOnPolicyRuleConditionsPeopleArgsDict(TypedDict):
+    groups: NotRequired['GetSignOnPolicyRuleConditionsPeopleGroupsArgsDict']
+    """
+    Specifies a set of groups whose users are to be included or excluded
+    """
+    users: NotRequired['GetSignOnPolicyRuleConditionsPeopleUsersArgsDict']
+    """
+    Specifies a set of users to be included or excluded
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPeopleArgs:
+    def __init__(__self__, *,
+                 groups: Optional['GetSignOnPolicyRuleConditionsPeopleGroupsArgs'] = None,
+                 users: Optional['GetSignOnPolicyRuleConditionsPeopleUsersArgs'] = None):
+        """
+        :param 'GetSignOnPolicyRuleConditionsPeopleGroupsArgs' groups: Specifies a set of groups whose users are to be included or excluded
+        :param 'GetSignOnPolicyRuleConditionsPeopleUsersArgs' users: Specifies a set of users to be included or excluded
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional['GetSignOnPolicyRuleConditionsPeopleGroupsArgs']:
+        """
+        Specifies a set of groups whose users are to be included or excluded
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional['GetSignOnPolicyRuleConditionsPeopleGroupsArgs']):
+        pulumi.set(self, "groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> Optional['GetSignOnPolicyRuleConditionsPeopleUsersArgs']:
+        """
+        Specifies a set of users to be included or excluded
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional['GetSignOnPolicyRuleConditionsPeopleUsersArgs']):
+        pulumi.set(self, "users", value)
+
+
+class GetSignOnPolicyRuleConditionsPeopleGroupsArgsDict(TypedDict):
+    excludes: Sequence[_builtins.str]
+    """
+    Groups to be excluded
+    """
+    includes: Sequence[_builtins.str]
+    """
+    Groups to be included
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPeopleGroupsArgs:
+    def __init__(__self__, *,
+                 excludes: Sequence[_builtins.str],
+                 includes: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] excludes: Groups to be excluded
+        :param Sequence[_builtins.str] includes: Groups to be included
+        """
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Sequence[_builtins.str]:
+        """
+        Groups to be excluded
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        Groups to be included
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "includes", value)
+
+
+class GetSignOnPolicyRuleConditionsPeopleUsersArgsDict(TypedDict):
+    excludes: Sequence[_builtins.str]
+    """
+    Users to be excluded
+    """
+    includes: Sequence[_builtins.str]
+    """
+    Users to be included
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPeopleUsersArgs:
+    def __init__(__self__, *,
+                 excludes: Sequence[_builtins.str],
+                 includes: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] excludes: Users to be excluded
+        :param Sequence[_builtins.str] includes: Users to be included
+        """
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Sequence[_builtins.str]:
+        """
+        Users to be excluded
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        Users to be included
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "includes", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformArgsDict(TypedDict):
+    excludes: NotRequired[Sequence['GetSignOnPolicyRuleConditionsPlatformExcludeArgsDict']]
+    """
+    Exclude
+    """
+    includes: NotRequired[Sequence['GetSignOnPolicyRuleConditionsPlatformIncludeArgsDict']]
+    """
+    Include
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformArgs:
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence['GetSignOnPolicyRuleConditionsPlatformExcludeArgs']] = None,
+                 includes: Optional[Sequence['GetSignOnPolicyRuleConditionsPlatformIncludeArgs']] = None):
+        """
+        :param Sequence['GetSignOnPolicyRuleConditionsPlatformExcludeArgs'] excludes: Exclude
+        :param Sequence['GetSignOnPolicyRuleConditionsPlatformIncludeArgs'] includes: Include
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence['GetSignOnPolicyRuleConditionsPlatformExcludeArgs']]:
+        """
+        Exclude
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[Sequence['GetSignOnPolicyRuleConditionsPlatformExcludeArgs']]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence['GetSignOnPolicyRuleConditionsPlatformIncludeArgs']]:
+        """
+        Include
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[Sequence['GetSignOnPolicyRuleConditionsPlatformIncludeArgs']]):
+        pulumi.set(self, "includes", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformExcludeArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    The type of platform
+    """
+    os: NotRequired['GetSignOnPolicyRuleConditionsPlatformExcludeOsArgsDict']
+    """
+    Os
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformExcludeArgs:
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 os: Optional['GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs'] = None):
+        """
+        :param _builtins.str type: The type of platform
+        :param 'GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs' os: Os
+        """
+        pulumi.set(__self__, "type", type)
+        if os is not None:
+            pulumi.set(__self__, "os", os)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of platform
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def os(self) -> Optional['GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs']:
+        """
+        Os
+        """
+        return pulumi.get(self, "os")
+
+    @os.setter
+    def os(self, value: Optional['GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs']):
+        pulumi.set(self, "os", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformExcludeOsArgsDict(TypedDict):
+    expression: _builtins.str
+    """
+    Expression
+    """
+    type: _builtins.str
+    """
+    The type of operating system
+    """
+    version: NotRequired['GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgsDict']
+    """
+    Version
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformExcludeOsArgs:
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 type: _builtins.str,
+                 version: Optional['GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs'] = None):
+        """
+        :param _builtins.str expression: Expression
+        :param _builtins.str type: The type of operating system
+        :param 'GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs' version: Version
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        Expression
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: _builtins.str):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of operating system
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional['GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs']:
+        """
+        Version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional['GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs']):
+        pulumi.set(self, "version", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgsDict(TypedDict):
+    match_type: _builtins.str
+    """
+    MatchType
+    """
+    value: _builtins.str
+    """
+    Value
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformExcludeOsVersionArgs:
+    def __init__(__self__, *,
+                 match_type: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str match_type: MatchType
+        :param _builtins.str value: Value
+        """
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> _builtins.str:
+        """
+        MatchType
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: _builtins.str):
+        pulumi.set(self, "match_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: _builtins.str):
+        pulumi.set(self, "value", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformIncludeArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    The type of platform
+    """
+    os: NotRequired['GetSignOnPolicyRuleConditionsPlatformIncludeOsArgsDict']
+    """
+    Os
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformIncludeArgs:
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 os: Optional['GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs'] = None):
+        """
+        :param _builtins.str type: The type of platform
+        :param 'GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs' os: Os
+        """
+        pulumi.set(__self__, "type", type)
+        if os is not None:
+            pulumi.set(__self__, "os", os)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of platform
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def os(self) -> Optional['GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs']:
+        """
+        Os
+        """
+        return pulumi.get(self, "os")
+
+    @os.setter
+    def os(self, value: Optional['GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs']):
+        pulumi.set(self, "os", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformIncludeOsArgsDict(TypedDict):
+    expression: _builtins.str
+    """
+    Expression
+    """
+    type: _builtins.str
+    """
+    The type of operating system
+    """
+    version: NotRequired['GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgsDict']
+    """
+    Version
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformIncludeOsArgs:
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 type: _builtins.str,
+                 version: Optional['GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs'] = None):
+        """
+        :param _builtins.str expression: Expression
+        :param _builtins.str type: The type of operating system
+        :param 'GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs' version: Version
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        Expression
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: _builtins.str):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of operating system
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional['GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs']:
+        """
+        Version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional['GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs']):
+        pulumi.set(self, "version", value)
+
+
+class GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgsDict(TypedDict):
+    match_type: _builtins.str
+    """
+    MatchType
+    """
+    value: _builtins.str
+    """
+    Value
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsPlatformIncludeOsVersionArgs:
+    def __init__(__self__, *,
+                 match_type: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str match_type: MatchType
+        :param _builtins.str value: Value
+        """
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> _builtins.str:
+        """
+        MatchType
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: _builtins.str):
+        pulumi.set(self, "match_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: _builtins.str):
+        pulumi.set(self, "value", value)
+
+
+class GetSignOnPolicyRuleConditionsRiskScoreArgsDict(TypedDict):
+    level: _builtins.str
+    """
+    The level to match
+    """
+    min_risk_level: _builtins.str
+    """
+    The minimum risk level to match.
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsRiskScoreArgs:
+    def __init__(__self__, *,
+                 level: _builtins.str,
+                 min_risk_level: _builtins.str):
+        """
+        :param _builtins.str level: The level to match
+        :param _builtins.str min_risk_level: The minimum risk level to match.
+        """
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "min_risk_level", min_risk_level)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        """
+        The level to match
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: _builtins.str):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minRiskLevel")
+    def min_risk_level(self) -> _builtins.str:
+        """
+        The minimum risk level to match.
+        """
+        return pulumi.get(self, "min_risk_level")
+
+    @min_risk_level.setter
+    def min_risk_level(self, value: _builtins.str):
+        pulumi.set(self, "min_risk_level", value)
+
+
+class GetSignOnPolicyRuleConditionsUserTypeArgsDict(TypedDict):
+    excludes: Sequence[_builtins.str]
+    """
+    The user types to exclude
+    """
+    includes: Sequence[_builtins.str]
+    """
+    The user types to include
+    """
+
+@pulumi.input_type
+class GetSignOnPolicyRuleConditionsUserTypeArgs:
+    def __init__(__self__, *,
+                 excludes: Sequence[_builtins.str],
+                 includes: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] excludes: The user types to exclude
+        :param Sequence[_builtins.str] includes: The user types to include
+        """
+        pulumi.set(__self__, "excludes", excludes)
+        pulumi.set(__self__, "includes", includes)
+
+    @_builtins.property
+    @pulumi.getter
+    def excludes(self) -> Sequence[_builtins.str]:
+        """
+        The user types to exclude
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "excludes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def includes(self) -> Sequence[_builtins.str]:
+        """
+        The user types to include
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "includes", value)
 
 

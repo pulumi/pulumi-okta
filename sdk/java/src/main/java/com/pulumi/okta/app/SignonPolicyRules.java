@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.okta.app.SignonPolicyRules;
  * import com.pulumi.okta.app.SignonPolicyRulesArgs;
  * import com.pulumi.okta.app.inputs.SignonPolicyRulesRuleArgs;
+ * import com.pulumi.okta.app.inputs.SignonPolicyRulesRuleKeepMeSignedInArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -71,6 +72,16 @@ import javax.annotation.Nullable;
  *                     .priority(3)
  *                     .access("DENY")
  *                     .status("ACTIVE")
+ *                     .build(),
+ *                 SignonPolicyRulesRuleArgs.builder()
+ *                     .name("KMSI Rule")
+ *                     .priority(4)
+ *                     .access("ALLOW")
+ *                     .status("ACTIVE")
+ *                     .keepMeSignedIn(SignonPolicyRulesRuleKeepMeSignedInArgs.builder()
+ *                         .postAuth("ALLOWED")
+ *                         .postAuthPromptFrequency("PT168H")
+ *                         .build())
  *                     .build())
  *             .build());
  * 

@@ -76,6 +76,7 @@ import javax.annotation.Nullable;
  *             .sourceGroupId(testGroup.id())
  *             .status("ACTIVE")
  *             .appConfig(PushGroupAppConfigArgs.builder()
+ *                 .type("ACTIVE_DIRECTORY")
  *                 .distinguishedName("CN=Test,OU=Groups,DC=example,DC=com")
  *                 .groupScope("DOMAIN_LOCAL")
  *                 .groupType("SECURITY")

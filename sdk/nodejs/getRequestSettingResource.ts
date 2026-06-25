@@ -10,6 +10,15 @@ import * as utilities from "./utilities";
  * Retrieves the request settings for a resource.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getRequestSettingResource({
+ *     id: "<id>",
+ * });
+ * ```
  */
 export function getRequestSettingResource(args: GetRequestSettingResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetRequestSettingResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +95,15 @@ export interface GetRequestSettingResourceResult {
  * Retrieves the request settings for a resource.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const test = okta.getRequestSettingResource({
+ *     id: "<id>",
+ * });
+ * ```
  */
 export function getRequestSettingResourceOutput(args: GetRequestSettingResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRequestSettingResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

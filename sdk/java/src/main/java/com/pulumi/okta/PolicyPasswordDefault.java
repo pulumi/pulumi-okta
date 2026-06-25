@@ -18,7 +18,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Configures default password policy. This resource allows you to configure default password policy.
+ * Configures the default password policy. This resource allows you to configure the default password policy.
+ * 
+ * &gt; **Note:** If your configuration also manages other `okta.policy.Password` resources, add
+ * `dependsOn = [okta_policy_password.&lt;last_policy&gt;]` pointing to the last non-default policy in your
+ * dependency chain. The default policy&#39;s `priority` is read-only and shifts whenever other password policies
+ * are created or deleted. Using `dependsOn` ensures all sibling policies are fully created before this
+ * resource is read or updated, so the provider sees the correct priority value and the Okta API does not
+ * reject the request with E0000077.
  * 
  * ## Example Usage
  * 
@@ -29,7 +36,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.okta.policy.Password;
+ * import com.pulumi.okta.policy.PasswordArgs;
  * import com.pulumi.okta.PolicyPasswordDefault;
+ * import com.pulumi.okta.PolicyPasswordDefaultArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -43,7 +54,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new PolicyPasswordDefault("default");
+ *         var custom = new Password("custom", PasswordArgs.builder()
+ *             .name("Custom Password Policy")
+ *             .groupsIncludeds(example.id())
+ *             .status("ACTIVE")
+ *             .priority(1)
+ *             .build());
+ * 
+ *         var default_ = new PolicyPasswordDefault("default", PolicyPasswordDefaultArgs.builder()
+ *             .passwordHistoryCount(5)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(custom)
+ *                 .build());
  * 
  *     }
  * }
@@ -59,6 +81,48 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="okta:index/policyPasswordDefault:PolicyPasswordDefault")
 public class PolicyPasswordDefault extends com.pulumi.resources.CustomResource {
+    /**
+     * The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     * 
+     */
+    @Export(name="breachedPasswordDelegatedWorkflowId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> breachedPasswordDelegatedWorkflowId;
+
+    /**
+     * @return The ID of the workflow to run when a breached password is found during a sign-in attempt.
+     * 
+     */
+    public Output<Optional<String>> breachedPasswordDelegatedWorkflowId() {
+        return Codegen.optional(this.breachedPasswordDelegatedWorkflowId);
+    }
+    /**
+     * Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     * 
+     */
+    @Export(name="breachedPasswordExpireAfterDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> breachedPasswordExpireAfterDays;
+
+    /**
+     * @return Number of days after a breached password is detected before the user&#39;s password expires. Valid values: 0 through 10. If set to 0, expiry is immediate. Only applicable when `breachedPasswordLogoutEnabled` is `true`.
+     * 
+     */
+    public Output<Optional<Integer>> breachedPasswordExpireAfterDays() {
+        return Codegen.optional(this.breachedPasswordExpireAfterDays);
+    }
+    /**
+     * If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     * 
+     */
+    @Export(name="breachedPasswordLogoutEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> breachedPasswordLogoutEnabled;
+
+    /**
+     * @return If `true`, the user&#39;s sessions are terminated immediately when their credentials are detected as part of a breach. Requires `breachedPasswordExpireAfterDays` to also be configured. Default: `false`
+     * 
+     */
+    public Output<Optional<Boolean>> breachedPasswordLogoutEnabled() {
+        return Codegen.optional(this.breachedPasswordLogoutEnabled);
+    }
     /**
      * Enable or disable voice call recovery: ACTIVE or INACTIVE. Default: `INACTIVE`
      * 

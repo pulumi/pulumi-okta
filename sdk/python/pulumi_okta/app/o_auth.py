@@ -32,6 +32,7 @@ class OAuthArgs:
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backchannel_custom_authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -93,6 +94,7 @@ class OAuthArgs:
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[_builtins.str] backchannel_custom_authenticator_id: The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
         :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
@@ -158,6 +160,8 @@ class OAuthArgs:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if backchannel_custom_authenticator_id is not None:
+            pulumi.set(__self__, "backchannel_custom_authenticator_id", backchannel_custom_authenticator_id)
         if client_basic_secret is not None:
             pulumi.set(__self__, "client_basic_secret", client_basic_secret)
         if client_basic_secret_wo is not None:
@@ -383,6 +387,18 @@ class OAuthArgs:
     @auto_submit_toolbar.setter
     def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backchannelCustomAuthenticatorId")
+    def backchannel_custom_authenticator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+        """
+        return pulumi.get(self, "backchannel_custom_authenticator_id")
+
+    @backchannel_custom_authenticator_id.setter
+    def backchannel_custom_authenticator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "backchannel_custom_authenticator_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecret")
@@ -915,6 +931,7 @@ class _OAuthState:
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backchannel_custom_authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -980,6 +997,7 @@ class _OAuthState:
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[_builtins.str] backchannel_custom_authenticator_id: The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
         :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
@@ -1049,6 +1067,8 @@ class _OAuthState:
             pulumi.set(__self__, "auto_key_rotation", auto_key_rotation)
         if auto_submit_toolbar is not None:
             pulumi.set(__self__, "auto_submit_toolbar", auto_submit_toolbar)
+        if backchannel_custom_authenticator_id is not None:
+            pulumi.set(__self__, "backchannel_custom_authenticator_id", backchannel_custom_authenticator_id)
         if client_basic_secret is not None:
             pulumi.set(__self__, "client_basic_secret", client_basic_secret)
         if client_basic_secret_wo is not None:
@@ -1262,6 +1282,18 @@ class _OAuthState:
     @auto_submit_toolbar.setter
     def auto_submit_toolbar(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_submit_toolbar", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backchannelCustomAuthenticatorId")
+    def backchannel_custom_authenticator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+        """
+        return pulumi.get(self, "backchannel_custom_authenticator_id")
+
+    @backchannel_custom_authenticator_id.setter
+    def backchannel_custom_authenticator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "backchannel_custom_authenticator_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecret")
@@ -1869,6 +1901,7 @@ class OAuth(pulumi.CustomResource):
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backchannel_custom_authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2008,6 +2041,7 @@ class OAuth(pulumi.CustomResource):
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[_builtins.str] backchannel_custom_authenticator_id: The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
         :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
@@ -2163,6 +2197,7 @@ class OAuth(pulumi.CustomResource):
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+                 backchannel_custom_authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2226,6 +2261,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["authentication_policy"] = authentication_policy
             __props__.__dict__["auto_key_rotation"] = auto_key_rotation
             __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+            __props__.__dict__["backchannel_custom_authenticator_id"] = backchannel_custom_authenticator_id
             __props__.__dict__["client_basic_secret"] = None if client_basic_secret is None else pulumi.Output.secret(client_basic_secret)
             __props__.__dict__["client_basic_secret_wo"] = None if client_basic_secret_wo is None else pulumi.Output.secret(client_basic_secret_wo)
             __props__.__dict__["client_basic_secret_wo_version"] = client_basic_secret_wo_version
@@ -2300,6 +2336,7 @@ class OAuth(pulumi.CustomResource):
             authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
             auto_key_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
             auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+            backchannel_custom_authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
             client_basic_secret: pulumi.Input[Optional[_builtins.str]] = None,
             client_basic_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
             client_basic_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2369,6 +2406,7 @@ class OAuth(pulumi.CustomResource):
                			UI.
                			See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object"
         :param pulumi.Input[_builtins.bool] auto_submit_toolbar: Display auto submit toolbar
+        :param pulumi.Input[_builtins.str] backchannel_custom_authenticator_id: The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
         :param pulumi.Input[_builtins.str] client_basic_secret: The user provided OAuth client secret key value. When set, this secret will be stored in the Terraform state file. For Terraform 1.11+, consider using `client_basic_secret_wo` instead to avoid persisting secrets in state. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
         :param pulumi.Input[_builtins.str] client_basic_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The user provided write-only OAuth client secret key value for Terraform 1.11+. Unlike `client_basic_secret`, this secret will not be persisted in the Terraform state file, providing improved security. Only use this attribute with Terraform 1.11 or higher. Either `client_basic_secret` or `client_basic_secret_wo` can be specified, but not both.
@@ -2433,6 +2471,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["authentication_policy"] = authentication_policy
         __props__.__dict__["auto_key_rotation"] = auto_key_rotation
         __props__.__dict__["auto_submit_toolbar"] = auto_submit_toolbar
+        __props__.__dict__["backchannel_custom_authenticator_id"] = backchannel_custom_authenticator_id
         __props__.__dict__["client_basic_secret"] = client_basic_secret
         __props__.__dict__["client_basic_secret_wo"] = client_basic_secret_wo
         __props__.__dict__["client_basic_secret_wo_version"] = client_basic_secret_wo_version
@@ -2559,6 +2598,14 @@ class OAuth(pulumi.CustomResource):
         Display auto submit toolbar
         """
         return pulumi.get(self, "auto_submit_toolbar")
+
+    @_builtins.property
+    @pulumi.getter(name="backchannelCustomAuthenticatorId")
+    def backchannel_custom_authenticator_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the custom authenticator that authenticates the user. Applies when 'urn:openid:params:grant-type:ciba' is one of the configured grant_types.
+        """
+        return pulumi.get(self, "backchannel_custom_authenticator_id")
 
     @_builtins.property
     @pulumi.getter(name="clientBasicSecret")

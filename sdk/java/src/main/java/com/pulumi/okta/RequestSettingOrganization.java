@@ -26,10 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.okta.RequestCondition;
- * import com.pulumi.okta.RequestConditionArgs;
- * import com.pulumi.okta.inputs.RequestConditionAccessScopeSettingsArgs;
- * import com.pulumi.okta.inputs.RequestConditionRequesterSettingsArgs;
+ * import com.pulumi.okta.RequestSettingOrganization;
+ * import com.pulumi.okta.RequestSettingOrganizationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -43,16 +41,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new RequestCondition("example", RequestConditionArgs.builder()
- *             .resourceId("<resource_id>")
- *             .approvalSequenceId("<approval_sequence_id>")
- *             .name("<name>")
- *             .accessScopeSettings(RequestConditionAccessScopeSettingsArgs.builder()
- *                 .type("RESOURCE_DEFAULT")
- *                 .build())
- *             .requesterSettings(RequestConditionRequesterSettingsArgs.builder()
- *                 .type("EVERYONE")
- *                 .build())
+ *         var example = new RequestSettingOrganization("example", RequestSettingOrganizationArgs.builder()
+ *             .idProperty("default")
+ *             .subprocessorsAcknowledged(true)
  *             .build());
  * 
  *     }
@@ -70,14 +61,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/requestSettingOrganization:RequestSettingOrganization")
 public class RequestSettingOrganization extends com.pulumi.resources.CustomResource {
     /**
-     * Request condition id.
+     * The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      * 
      */
     @Export(name="idProperty", refs={String.class}, tree="[0]")
     private Output<String> idProperty;
 
     /**
-     * @return Request condition id.
+     * @return The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
      * 
      */
     public Output<String> idProperty() {

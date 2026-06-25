@@ -43,6 +43,16 @@ import * as utilities from "../utilities";
  *             access: "DENY",
  *             status: "ACTIVE",
  *         },
+ *         {
+ *             name: "KMSI Rule",
+ *             priority: 4,
+ *             access: "ALLOW",
+ *             status: "ACTIVE",
+ *             keepMeSignedIn: {
+ *                 postAuth: "ALLOWED",
+ *                 postAuthPromptFrequency: "PT168H",
+ *             },
+ *         },
  *     ],
  * });
  * ```
