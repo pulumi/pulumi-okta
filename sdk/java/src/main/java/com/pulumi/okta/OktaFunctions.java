@@ -77,6 +77,8 @@ import com.pulumi.okta.inputs.GetHookKeyArgs;
 import com.pulumi.okta.inputs.GetHookKeyPlainArgs;
 import com.pulumi.okta.inputs.GetIamAssigneesUserArgs;
 import com.pulumi.okta.inputs.GetIamAssigneesUserPlainArgs;
+import com.pulumi.okta.inputs.GetIamResourceSetArgs;
+import com.pulumi.okta.inputs.GetIamResourceSetPlainArgs;
 import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;
 import com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsPlainArgs;
 import com.pulumi.okta.inputs.GetIdentitySourceGroupsArgs;
@@ -85,6 +87,8 @@ import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
 import com.pulumi.okta.inputs.GetIdentitySourceSessionsPlainArgs;
 import com.pulumi.okta.inputs.GetIdentitySourceUsersArgs;
 import com.pulumi.okta.inputs.GetIdentitySourceUsersPlainArgs;
+import com.pulumi.okta.inputs.GetLabelArgs;
+import com.pulumi.okta.inputs.GetLabelPlainArgs;
 import com.pulumi.okta.inputs.GetLogStreamArgs;
 import com.pulumi.okta.inputs.GetLogStreamPlainArgs;
 import com.pulumi.okta.inputs.GetNetworkZoneArgs;
@@ -117,6 +121,12 @@ import com.pulumi.okta.inputs.GetRequestSettingResourceArgs;
 import com.pulumi.okta.inputs.GetRequestSettingResourcePlainArgs;
 import com.pulumi.okta.inputs.GetRequestV2Args;
 import com.pulumi.okta.inputs.GetRequestV2PlainArgs;
+import com.pulumi.okta.inputs.GetResourceLabelArgs;
+import com.pulumi.okta.inputs.GetResourceLabelPlainArgs;
+import com.pulumi.okta.inputs.GetResourceOwnerArgs;
+import com.pulumi.okta.inputs.GetResourceOwnerPlainArgs;
+import com.pulumi.okta.inputs.GetResourceOwnersCatalogResourceArgs;
+import com.pulumi.okta.inputs.GetResourceOwnersCatalogResourcePlainArgs;
 import com.pulumi.okta.inputs.GetReviewArgs;
 import com.pulumi.okta.inputs.GetReviewPlainArgs;
 import com.pulumi.okta.inputs.GetRoleSubscriptionArgs;
@@ -173,10 +183,12 @@ import com.pulumi.okta.outputs.GetFeaturesResult;
 import com.pulumi.okta.outputs.GetGroupsResult;
 import com.pulumi.okta.outputs.GetHookKeyResult;
 import com.pulumi.okta.outputs.GetIamAssigneesUserResult;
+import com.pulumi.okta.outputs.GetIamResourceSetResult;
 import com.pulumi.okta.outputs.GetIdentitySourceGroupMembershipsResult;
 import com.pulumi.okta.outputs.GetIdentitySourceGroupsResult;
 import com.pulumi.okta.outputs.GetIdentitySourceSessionsResult;
 import com.pulumi.okta.outputs.GetIdentitySourceUsersResult;
+import com.pulumi.okta.outputs.GetLabelResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOauthAuthorizationServerResult;
@@ -196,6 +208,9 @@ import com.pulumi.okta.outputs.GetRequestSequenceResult;
 import com.pulumi.okta.outputs.GetRequestSettingOrganizationResult;
 import com.pulumi.okta.outputs.GetRequestSettingResourceResult;
 import com.pulumi.okta.outputs.GetRequestV2Result;
+import com.pulumi.okta.outputs.GetResourceLabelResult;
+import com.pulumi.okta.outputs.GetResourceOwnerResult;
+import com.pulumi.okta.outputs.GetResourceOwnersCatalogResourceResult;
 import com.pulumi.okta.outputs.GetReviewResult;
 import com.pulumi.okta.outputs.GetRoleSubscriptionResult;
 import com.pulumi.okta.outputs.GetSecurityEventsProviderResult;
@@ -8062,6 +8077,206 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getIamAssigneesUser:getIamAssigneesUser", TypeShape.of(GetIamAssigneesUserResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves a resource set by `resourceSetIdOrLabel`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIamResourceSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIamResourceSet(GetIamResourceSetArgs.builder()
+     *             .id("<resource_set_id_or_label>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIamResourceSetResult> getIamResourceSet(GetIamResourceSetArgs args) {
+        return getIamResourceSet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a resource set by `resourceSetIdOrLabel`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIamResourceSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIamResourceSet(GetIamResourceSetArgs.builder()
+     *             .id("<resource_set_id_or_label>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIamResourceSetResult> getIamResourceSetPlain(GetIamResourceSetPlainArgs args) {
+        return getIamResourceSetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a resource set by `resourceSetIdOrLabel`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIamResourceSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIamResourceSet(GetIamResourceSetArgs.builder()
+     *             .id("<resource_set_id_or_label>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIamResourceSetResult> getIamResourceSet(GetIamResourceSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIamResourceSet:getIamResourceSet", TypeShape.of(GetIamResourceSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a resource set by `resourceSetIdOrLabel`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIamResourceSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIamResourceSet(GetIamResourceSetArgs.builder()
+     *             .id("<resource_set_id_or_label>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetIamResourceSetResult> getIamResourceSet(GetIamResourceSetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getIamResourceSet:getIamResourceSet", TypeShape.of(GetIamResourceSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a resource set by `resourceSetIdOrLabel`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIamResourceSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getIamResourceSet(GetIamResourceSetArgs.builder()
+     *             .id("<resource_set_id_or_label>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetIamResourceSetResult> getIamResourceSetPlain(GetIamResourceSetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getIamResourceSet:getIamResourceSet", TypeShape.of(GetIamResourceSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves the list of member external IDs for a group in an Okta Identity Source.
      * 
      * ## Example Usage
@@ -8740,6 +8955,41 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetIdentitySourceUsersResult> getIdentitySourceUsersPlain(GetIdentitySourceUsersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getIdentitySourceUsers:getIdentitySourceUsers", TypeShape.of(GetIdentitySourceUsersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a single label
+     * 
+     */
+    public static Output<GetLabelResult> getLabel(GetLabelArgs args) {
+        return getLabel(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a single label
+     * 
+     */
+    public static CompletableFuture<GetLabelResult> getLabelPlain(GetLabelPlainArgs args) {
+        return getLabelPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a single label
+     * 
+     */
+    public static Output<GetLabelResult> getLabel(GetLabelArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getLabel:getLabel", TypeShape.of(GetLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a single label
+     * 
+     */
+    public static Output<GetLabelResult> getLabel(GetLabelArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getLabel:getLabel", TypeShape.of(GetLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a single label
+     * 
+     */
+    public static CompletableFuture<GetLabelResult> getLabelPlain(GetLabelPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getLabel:getLabel", TypeShape.of(GetLabelResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Log Streams
@@ -13023,6 +13273,153 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetRequestV2Result> getRequestV2Plain(GetRequestV2PlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getRequestV2:getRequestV2", TypeShape.of(GetRequestV2Result.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static Output<GetResourceLabelResult> getResourceLabel() {
+        return getResourceLabel(GetResourceLabelArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static CompletableFuture<GetResourceLabelResult> getResourceLabelPlain() {
+        return getResourceLabelPlain(GetResourceLabelPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static Output<GetResourceLabelResult> getResourceLabel(GetResourceLabelArgs args) {
+        return getResourceLabel(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static CompletableFuture<GetResourceLabelResult> getResourceLabelPlain(GetResourceLabelPlainArgs args) {
+        return getResourceLabelPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static Output<GetResourceLabelResult> getResourceLabel(GetResourceLabelArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getResourceLabel:getResourceLabel", TypeShape.of(GetResourceLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static Output<GetResourceLabelResult> getResourceLabel(GetResourceLabelArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getResourceLabel:getResourceLabel", TypeShape.of(GetResourceLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all labeled resources  &gt; **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
+     * 
+     */
+    public static CompletableFuture<GetResourceLabelResult> getResourceLabelPlain(GetResourceLabelPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getResourceLabel:getResourceLabel", TypeShape.of(GetResourceLabelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnerResult> getResourceOwner() {
+        return getResourceOwner(GetResourceOwnerArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static CompletableFuture<GetResourceOwnerResult> getResourceOwnerPlain() {
+        return getResourceOwnerPlain(GetResourceOwnerPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnerResult> getResourceOwner(GetResourceOwnerArgs args) {
+        return getResourceOwner(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static CompletableFuture<GetResourceOwnerResult> getResourceOwnerPlain(GetResourceOwnerPlainArgs args) {
+        return getResourceOwnerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnerResult> getResourceOwner(GetResourceOwnerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getResourceOwner:getResourceOwner", TypeShape.of(GetResourceOwnerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnerResult> getResourceOwner(GetResourceOwnerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getResourceOwner:getResourceOwner", TypeShape.of(GetResourceOwnerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all resources with assigned owners for an app (the parent resource).
+     * 
+     */
+    public static CompletableFuture<GetResourceOwnerResult> getResourceOwnerPlain(GetResourceOwnerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getResourceOwner:getResourceOwner", TypeShape.of(GetResourceOwnerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResource() {
+        return getResourceOwnersCatalogResource(GetResourceOwnersCatalogResourceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static CompletableFuture<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResourcePlain() {
+        return getResourceOwnersCatalogResourcePlain(GetResourceOwnersCatalogResourcePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResource(GetResourceOwnersCatalogResourceArgs args) {
+        return getResourceOwnersCatalogResource(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static CompletableFuture<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResourcePlain(GetResourceOwnersCatalogResourcePlainArgs args) {
+        return getResourceOwnersCatalogResourcePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResource(GetResourceOwnersCatalogResourceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource", TypeShape.of(GetResourceOwnersCatalogResourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static Output<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResource(GetResourceOwnersCatalogResourceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource", TypeShape.of(GetResourceOwnersCatalogResourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists all resources without assigned owners for an app (the parent resource).
+     * 
+     */
+    public static CompletableFuture<GetResourceOwnersCatalogResourceResult> getResourceOwnersCatalogResourcePlain(GetResourceOwnersCatalogResourcePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource", TypeShape.of(GetResourceOwnersCatalogResourceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get the reviews belonging to a campaign

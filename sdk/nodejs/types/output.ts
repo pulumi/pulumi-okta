@@ -1773,6 +1773,28 @@ export interface GetIdentitySourceUsersProfile {
     userName: string;
 }
 
+export interface GetLabelValue {
+    /**
+     * The ID of a label value
+     */
+    labelValueId: string;
+    /**
+     * Metadata for a label value
+     */
+    metadata?: outputs.GetLabelValueMetadata;
+    /**
+     * Key name of the label
+     */
+    name: string;
+}
+
+export interface GetLabelValueMetadata {
+    /**
+     * Additional metadata properties for the label value.
+     */
+    additionalProperties: {[key: string]: string};
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -2111,6 +2133,39 @@ export interface GetRequestV2RequestedFor {
      * The type of principal.
      */
     type: string;
+}
+
+export interface GetResourceLabelItem {
+    /**
+     * The ID of the data source.
+     */
+    id: string;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    orn: string;
+}
+
+export interface GetResourceOwnerItem {
+    /**
+     * The ID of the data source.
+     */
+    id: string;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    parentResourceOrn: string;
+}
+
+export interface GetResourceOwnersCatalogResourceItem {
+    /**
+     * The ID of the data source.
+     */
+    id: string;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    parentResourceOrn: string;
 }
 
 export interface GetReviewAllReviewerLevel {
@@ -2579,6 +2634,28 @@ export interface IdentitySourceUserProfile {
      * Username of the user.
      */
     userName?: string;
+}
+
+export interface LabelValue {
+    /**
+     * The ID of a label value
+     */
+    labelValueId: string;
+    /**
+     * Metadata for a label value
+     */
+    metadata?: outputs.LabelValueMetadata;
+    /**
+     * Key name of the label
+     */
+    name: string;
+}
+
+export interface LabelValueMetadata {
+    /**
+     * Additional metadata properties for the label value.
+     */
+    additionalProperties?: {[key: string]: string};
 }
 
 export interface LogStreamSettings {

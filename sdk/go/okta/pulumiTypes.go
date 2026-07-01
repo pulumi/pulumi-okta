@@ -9194,6 +9194,258 @@ func (o IdentitySourceUserProfilePtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LabelValue struct {
+	// The ID of a label value
+	LabelValueId *string `pulumi:"labelValueId"`
+	// Metadata for a label value
+	Metadata *LabelValueMetadata `pulumi:"metadata"`
+	// Key name of the label
+	Name string `pulumi:"name"`
+}
+
+// LabelValueInput is an input type that accepts LabelValueArgs and LabelValueOutput values.
+// You can construct a concrete instance of `LabelValueInput` via:
+//
+//	LabelValueArgs{...}
+type LabelValueInput interface {
+	pulumi.Input
+
+	ToLabelValueOutput() LabelValueOutput
+	ToLabelValueOutputWithContext(context.Context) LabelValueOutput
+}
+
+type LabelValueArgs struct {
+	// The ID of a label value
+	LabelValueId pulumi.StringPtrInput `pulumi:"labelValueId"`
+	// Metadata for a label value
+	Metadata LabelValueMetadataPtrInput `pulumi:"metadata"`
+	// Key name of the label
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LabelValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelValue)(nil)).Elem()
+}
+
+func (i LabelValueArgs) ToLabelValueOutput() LabelValueOutput {
+	return i.ToLabelValueOutputWithContext(context.Background())
+}
+
+func (i LabelValueArgs) ToLabelValueOutputWithContext(ctx context.Context) LabelValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelValueOutput)
+}
+
+// LabelValueArrayInput is an input type that accepts LabelValueArray and LabelValueArrayOutput values.
+// You can construct a concrete instance of `LabelValueArrayInput` via:
+//
+//	LabelValueArray{ LabelValueArgs{...} }
+type LabelValueArrayInput interface {
+	pulumi.Input
+
+	ToLabelValueArrayOutput() LabelValueArrayOutput
+	ToLabelValueArrayOutputWithContext(context.Context) LabelValueArrayOutput
+}
+
+type LabelValueArray []LabelValueInput
+
+func (LabelValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelValue)(nil)).Elem()
+}
+
+func (i LabelValueArray) ToLabelValueArrayOutput() LabelValueArrayOutput {
+	return i.ToLabelValueArrayOutputWithContext(context.Background())
+}
+
+func (i LabelValueArray) ToLabelValueArrayOutputWithContext(ctx context.Context) LabelValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelValueArrayOutput)
+}
+
+type LabelValueOutput struct{ *pulumi.OutputState }
+
+func (LabelValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelValue)(nil)).Elem()
+}
+
+func (o LabelValueOutput) ToLabelValueOutput() LabelValueOutput {
+	return o
+}
+
+func (o LabelValueOutput) ToLabelValueOutputWithContext(ctx context.Context) LabelValueOutput {
+	return o
+}
+
+// The ID of a label value
+func (o LabelValueOutput) LabelValueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelValue) *string { return v.LabelValueId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata for a label value
+func (o LabelValueOutput) Metadata() LabelValueMetadataPtrOutput {
+	return o.ApplyT(func(v LabelValue) *LabelValueMetadata { return v.Metadata }).(LabelValueMetadataPtrOutput)
+}
+
+// Key name of the label
+func (o LabelValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LabelValueArrayOutput struct{ *pulumi.OutputState }
+
+func (LabelValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelValue)(nil)).Elem()
+}
+
+func (o LabelValueArrayOutput) ToLabelValueArrayOutput() LabelValueArrayOutput {
+	return o
+}
+
+func (o LabelValueArrayOutput) ToLabelValueArrayOutputWithContext(ctx context.Context) LabelValueArrayOutput {
+	return o
+}
+
+func (o LabelValueArrayOutput) Index(i pulumi.IntInput) LabelValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabelValue {
+		return vs[0].([]LabelValue)[vs[1].(int)]
+	}).(LabelValueOutput)
+}
+
+type LabelValueMetadata struct {
+	// Additional metadata properties for the label value.
+	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
+}
+
+// LabelValueMetadataInput is an input type that accepts LabelValueMetadataArgs and LabelValueMetadataOutput values.
+// You can construct a concrete instance of `LabelValueMetadataInput` via:
+//
+//	LabelValueMetadataArgs{...}
+type LabelValueMetadataInput interface {
+	pulumi.Input
+
+	ToLabelValueMetadataOutput() LabelValueMetadataOutput
+	ToLabelValueMetadataOutputWithContext(context.Context) LabelValueMetadataOutput
+}
+
+type LabelValueMetadataArgs struct {
+	// Additional metadata properties for the label value.
+	AdditionalProperties pulumi.StringMapInput `pulumi:"additionalProperties"`
+}
+
+func (LabelValueMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelValueMetadata)(nil)).Elem()
+}
+
+func (i LabelValueMetadataArgs) ToLabelValueMetadataOutput() LabelValueMetadataOutput {
+	return i.ToLabelValueMetadataOutputWithContext(context.Background())
+}
+
+func (i LabelValueMetadataArgs) ToLabelValueMetadataOutputWithContext(ctx context.Context) LabelValueMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelValueMetadataOutput)
+}
+
+func (i LabelValueMetadataArgs) ToLabelValueMetadataPtrOutput() LabelValueMetadataPtrOutput {
+	return i.ToLabelValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i LabelValueMetadataArgs) ToLabelValueMetadataPtrOutputWithContext(ctx context.Context) LabelValueMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelValueMetadataOutput).ToLabelValueMetadataPtrOutputWithContext(ctx)
+}
+
+// LabelValueMetadataPtrInput is an input type that accepts LabelValueMetadataArgs, LabelValueMetadataPtr and LabelValueMetadataPtrOutput values.
+// You can construct a concrete instance of `LabelValueMetadataPtrInput` via:
+//
+//	        LabelValueMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelValueMetadataPtrInput interface {
+	pulumi.Input
+
+	ToLabelValueMetadataPtrOutput() LabelValueMetadataPtrOutput
+	ToLabelValueMetadataPtrOutputWithContext(context.Context) LabelValueMetadataPtrOutput
+}
+
+type labelValueMetadataPtrType LabelValueMetadataArgs
+
+func LabelValueMetadataPtr(v *LabelValueMetadataArgs) LabelValueMetadataPtrInput {
+	return (*labelValueMetadataPtrType)(v)
+}
+
+func (*labelValueMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelValueMetadata)(nil)).Elem()
+}
+
+func (i *labelValueMetadataPtrType) ToLabelValueMetadataPtrOutput() LabelValueMetadataPtrOutput {
+	return i.ToLabelValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *labelValueMetadataPtrType) ToLabelValueMetadataPtrOutputWithContext(ctx context.Context) LabelValueMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelValueMetadataPtrOutput)
+}
+
+type LabelValueMetadataOutput struct{ *pulumi.OutputState }
+
+func (LabelValueMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelValueMetadata)(nil)).Elem()
+}
+
+func (o LabelValueMetadataOutput) ToLabelValueMetadataOutput() LabelValueMetadataOutput {
+	return o
+}
+
+func (o LabelValueMetadataOutput) ToLabelValueMetadataOutputWithContext(ctx context.Context) LabelValueMetadataOutput {
+	return o
+}
+
+func (o LabelValueMetadataOutput) ToLabelValueMetadataPtrOutput() LabelValueMetadataPtrOutput {
+	return o.ToLabelValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o LabelValueMetadataOutput) ToLabelValueMetadataPtrOutputWithContext(ctx context.Context) LabelValueMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelValueMetadata) *LabelValueMetadata {
+		return &v
+	}).(LabelValueMetadataPtrOutput)
+}
+
+// Additional metadata properties for the label value.
+func (o LabelValueMetadataOutput) AdditionalProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabelValueMetadata) map[string]string { return v.AdditionalProperties }).(pulumi.StringMapOutput)
+}
+
+type LabelValueMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelValueMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelValueMetadata)(nil)).Elem()
+}
+
+func (o LabelValueMetadataPtrOutput) ToLabelValueMetadataPtrOutput() LabelValueMetadataPtrOutput {
+	return o
+}
+
+func (o LabelValueMetadataPtrOutput) ToLabelValueMetadataPtrOutputWithContext(ctx context.Context) LabelValueMetadataPtrOutput {
+	return o
+}
+
+func (o LabelValueMetadataPtrOutput) Elem() LabelValueMetadataOutput {
+	return o.ApplyT(func(v *LabelValueMetadata) LabelValueMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret LabelValueMetadata
+		return ret
+	}).(LabelValueMetadataOutput)
+}
+
+// Additional metadata properties for the label value.
+func (o LabelValueMetadataPtrOutput) AdditionalProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabelValueMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalProperties
+	}).(pulumi.StringMapOutput)
+}
+
 type LogStreamSettings struct {
 	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId *string `pulumi:"accountId"`
@@ -26240,6 +26492,258 @@ func (o GetIdentitySourceUsersProfileOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIdentitySourceUsersProfile) string { return v.UserName }).(pulumi.StringOutput)
 }
 
+type GetLabelValue struct {
+	// The ID of a label value
+	LabelValueId string `pulumi:"labelValueId"`
+	// Metadata for a label value
+	Metadata *GetLabelValueMetadata `pulumi:"metadata"`
+	// Key name of the label
+	Name string `pulumi:"name"`
+}
+
+// GetLabelValueInput is an input type that accepts GetLabelValueArgs and GetLabelValueOutput values.
+// You can construct a concrete instance of `GetLabelValueInput` via:
+//
+//	GetLabelValueArgs{...}
+type GetLabelValueInput interface {
+	pulumi.Input
+
+	ToGetLabelValueOutput() GetLabelValueOutput
+	ToGetLabelValueOutputWithContext(context.Context) GetLabelValueOutput
+}
+
+type GetLabelValueArgs struct {
+	// The ID of a label value
+	LabelValueId pulumi.StringInput `pulumi:"labelValueId"`
+	// Metadata for a label value
+	Metadata GetLabelValueMetadataPtrInput `pulumi:"metadata"`
+	// Key name of the label
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetLabelValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabelValue)(nil)).Elem()
+}
+
+func (i GetLabelValueArgs) ToGetLabelValueOutput() GetLabelValueOutput {
+	return i.ToGetLabelValueOutputWithContext(context.Background())
+}
+
+func (i GetLabelValueArgs) ToGetLabelValueOutputWithContext(ctx context.Context) GetLabelValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelValueOutput)
+}
+
+// GetLabelValueArrayInput is an input type that accepts GetLabelValueArray and GetLabelValueArrayOutput values.
+// You can construct a concrete instance of `GetLabelValueArrayInput` via:
+//
+//	GetLabelValueArray{ GetLabelValueArgs{...} }
+type GetLabelValueArrayInput interface {
+	pulumi.Input
+
+	ToGetLabelValueArrayOutput() GetLabelValueArrayOutput
+	ToGetLabelValueArrayOutputWithContext(context.Context) GetLabelValueArrayOutput
+}
+
+type GetLabelValueArray []GetLabelValueInput
+
+func (GetLabelValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLabelValue)(nil)).Elem()
+}
+
+func (i GetLabelValueArray) ToGetLabelValueArrayOutput() GetLabelValueArrayOutput {
+	return i.ToGetLabelValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetLabelValueArray) ToGetLabelValueArrayOutputWithContext(ctx context.Context) GetLabelValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelValueArrayOutput)
+}
+
+type GetLabelValueOutput struct{ *pulumi.OutputState }
+
+func (GetLabelValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabelValue)(nil)).Elem()
+}
+
+func (o GetLabelValueOutput) ToGetLabelValueOutput() GetLabelValueOutput {
+	return o
+}
+
+func (o GetLabelValueOutput) ToGetLabelValueOutputWithContext(ctx context.Context) GetLabelValueOutput {
+	return o
+}
+
+// The ID of a label value
+func (o GetLabelValueOutput) LabelValueId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLabelValue) string { return v.LabelValueId }).(pulumi.StringOutput)
+}
+
+// Metadata for a label value
+func (o GetLabelValueOutput) Metadata() GetLabelValueMetadataPtrOutput {
+	return o.ApplyT(func(v GetLabelValue) *GetLabelValueMetadata { return v.Metadata }).(GetLabelValueMetadataPtrOutput)
+}
+
+// Key name of the label
+func (o GetLabelValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLabelValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetLabelValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLabelValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLabelValue)(nil)).Elem()
+}
+
+func (o GetLabelValueArrayOutput) ToGetLabelValueArrayOutput() GetLabelValueArrayOutput {
+	return o
+}
+
+func (o GetLabelValueArrayOutput) ToGetLabelValueArrayOutputWithContext(ctx context.Context) GetLabelValueArrayOutput {
+	return o
+}
+
+func (o GetLabelValueArrayOutput) Index(i pulumi.IntInput) GetLabelValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLabelValue {
+		return vs[0].([]GetLabelValue)[vs[1].(int)]
+	}).(GetLabelValueOutput)
+}
+
+type GetLabelValueMetadata struct {
+	// Additional metadata properties for the label value.
+	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
+}
+
+// GetLabelValueMetadataInput is an input type that accepts GetLabelValueMetadataArgs and GetLabelValueMetadataOutput values.
+// You can construct a concrete instance of `GetLabelValueMetadataInput` via:
+//
+//	GetLabelValueMetadataArgs{...}
+type GetLabelValueMetadataInput interface {
+	pulumi.Input
+
+	ToGetLabelValueMetadataOutput() GetLabelValueMetadataOutput
+	ToGetLabelValueMetadataOutputWithContext(context.Context) GetLabelValueMetadataOutput
+}
+
+type GetLabelValueMetadataArgs struct {
+	// Additional metadata properties for the label value.
+	AdditionalProperties pulumi.StringMapInput `pulumi:"additionalProperties"`
+}
+
+func (GetLabelValueMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabelValueMetadata)(nil)).Elem()
+}
+
+func (i GetLabelValueMetadataArgs) ToGetLabelValueMetadataOutput() GetLabelValueMetadataOutput {
+	return i.ToGetLabelValueMetadataOutputWithContext(context.Background())
+}
+
+func (i GetLabelValueMetadataArgs) ToGetLabelValueMetadataOutputWithContext(ctx context.Context) GetLabelValueMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelValueMetadataOutput)
+}
+
+func (i GetLabelValueMetadataArgs) ToGetLabelValueMetadataPtrOutput() GetLabelValueMetadataPtrOutput {
+	return i.ToGetLabelValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i GetLabelValueMetadataArgs) ToGetLabelValueMetadataPtrOutputWithContext(ctx context.Context) GetLabelValueMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelValueMetadataOutput).ToGetLabelValueMetadataPtrOutputWithContext(ctx)
+}
+
+// GetLabelValueMetadataPtrInput is an input type that accepts GetLabelValueMetadataArgs, GetLabelValueMetadataPtr and GetLabelValueMetadataPtrOutput values.
+// You can construct a concrete instance of `GetLabelValueMetadataPtrInput` via:
+//
+//	        GetLabelValueMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetLabelValueMetadataPtrInput interface {
+	pulumi.Input
+
+	ToGetLabelValueMetadataPtrOutput() GetLabelValueMetadataPtrOutput
+	ToGetLabelValueMetadataPtrOutputWithContext(context.Context) GetLabelValueMetadataPtrOutput
+}
+
+type getLabelValueMetadataPtrType GetLabelValueMetadataArgs
+
+func GetLabelValueMetadataPtr(v *GetLabelValueMetadataArgs) GetLabelValueMetadataPtrInput {
+	return (*getLabelValueMetadataPtrType)(v)
+}
+
+func (*getLabelValueMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLabelValueMetadata)(nil)).Elem()
+}
+
+func (i *getLabelValueMetadataPtrType) ToGetLabelValueMetadataPtrOutput() GetLabelValueMetadataPtrOutput {
+	return i.ToGetLabelValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *getLabelValueMetadataPtrType) ToGetLabelValueMetadataPtrOutputWithContext(ctx context.Context) GetLabelValueMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLabelValueMetadataPtrOutput)
+}
+
+type GetLabelValueMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetLabelValueMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLabelValueMetadata)(nil)).Elem()
+}
+
+func (o GetLabelValueMetadataOutput) ToGetLabelValueMetadataOutput() GetLabelValueMetadataOutput {
+	return o
+}
+
+func (o GetLabelValueMetadataOutput) ToGetLabelValueMetadataOutputWithContext(ctx context.Context) GetLabelValueMetadataOutput {
+	return o
+}
+
+func (o GetLabelValueMetadataOutput) ToGetLabelValueMetadataPtrOutput() GetLabelValueMetadataPtrOutput {
+	return o.ToGetLabelValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o GetLabelValueMetadataOutput) ToGetLabelValueMetadataPtrOutputWithContext(ctx context.Context) GetLabelValueMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLabelValueMetadata) *GetLabelValueMetadata {
+		return &v
+	}).(GetLabelValueMetadataPtrOutput)
+}
+
+// Additional metadata properties for the label value.
+func (o GetLabelValueMetadataOutput) AdditionalProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLabelValueMetadata) map[string]string { return v.AdditionalProperties }).(pulumi.StringMapOutput)
+}
+
+type GetLabelValueMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (GetLabelValueMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetLabelValueMetadata)(nil)).Elem()
+}
+
+func (o GetLabelValueMetadataPtrOutput) ToGetLabelValueMetadataPtrOutput() GetLabelValueMetadataPtrOutput {
+	return o
+}
+
+func (o GetLabelValueMetadataPtrOutput) ToGetLabelValueMetadataPtrOutputWithContext(ctx context.Context) GetLabelValueMetadataPtrOutput {
+	return o
+}
+
+func (o GetLabelValueMetadataPtrOutput) Elem() GetLabelValueMetadataOutput {
+	return o.ApplyT(func(v *GetLabelValueMetadata) GetLabelValueMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret GetLabelValueMetadata
+		return ret
+	}).(GetLabelValueMetadataOutput)
+}
+
+// Additional metadata properties for the label value.
+func (o GetLabelValueMetadataPtrOutput) AdditionalProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GetLabelValueMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalProperties
+	}).(pulumi.StringMapOutput)
+}
+
 type GetLogStreamSettings struct {
 	// AWS account ID. Required only for 'aws_eventbridge' type
 	AccountId string `pulumi:"accountId"`
@@ -30809,6 +31313,324 @@ func (o GetRequestV2RequestedForPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetResourceLabelItem struct {
+	// The ID of the data source.
+	Id string `pulumi:"id"`
+	// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+	Orn string `pulumi:"orn"`
+}
+
+// GetResourceLabelItemInput is an input type that accepts GetResourceLabelItemArgs and GetResourceLabelItemOutput values.
+// You can construct a concrete instance of `GetResourceLabelItemInput` via:
+//
+//	GetResourceLabelItemArgs{...}
+type GetResourceLabelItemInput interface {
+	pulumi.Input
+
+	ToGetResourceLabelItemOutput() GetResourceLabelItemOutput
+	ToGetResourceLabelItemOutputWithContext(context.Context) GetResourceLabelItemOutput
+}
+
+type GetResourceLabelItemArgs struct {
+	// The ID of the data source.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+	Orn pulumi.StringInput `pulumi:"orn"`
+}
+
+func (GetResourceLabelItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceLabelItem)(nil)).Elem()
+}
+
+func (i GetResourceLabelItemArgs) ToGetResourceLabelItemOutput() GetResourceLabelItemOutput {
+	return i.ToGetResourceLabelItemOutputWithContext(context.Background())
+}
+
+func (i GetResourceLabelItemArgs) ToGetResourceLabelItemOutputWithContext(ctx context.Context) GetResourceLabelItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceLabelItemOutput)
+}
+
+// GetResourceLabelItemArrayInput is an input type that accepts GetResourceLabelItemArray and GetResourceLabelItemArrayOutput values.
+// You can construct a concrete instance of `GetResourceLabelItemArrayInput` via:
+//
+//	GetResourceLabelItemArray{ GetResourceLabelItemArgs{...} }
+type GetResourceLabelItemArrayInput interface {
+	pulumi.Input
+
+	ToGetResourceLabelItemArrayOutput() GetResourceLabelItemArrayOutput
+	ToGetResourceLabelItemArrayOutputWithContext(context.Context) GetResourceLabelItemArrayOutput
+}
+
+type GetResourceLabelItemArray []GetResourceLabelItemInput
+
+func (GetResourceLabelItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceLabelItem)(nil)).Elem()
+}
+
+func (i GetResourceLabelItemArray) ToGetResourceLabelItemArrayOutput() GetResourceLabelItemArrayOutput {
+	return i.ToGetResourceLabelItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetResourceLabelItemArray) ToGetResourceLabelItemArrayOutputWithContext(ctx context.Context) GetResourceLabelItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceLabelItemArrayOutput)
+}
+
+type GetResourceLabelItemOutput struct{ *pulumi.OutputState }
+
+func (GetResourceLabelItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceLabelItem)(nil)).Elem()
+}
+
+func (o GetResourceLabelItemOutput) ToGetResourceLabelItemOutput() GetResourceLabelItemOutput {
+	return o
+}
+
+func (o GetResourceLabelItemOutput) ToGetResourceLabelItemOutputWithContext(ctx context.Context) GetResourceLabelItemOutput {
+	return o
+}
+
+// The ID of the data source.
+func (o GetResourceLabelItemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceLabelItem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+func (o GetResourceLabelItemOutput) Orn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceLabelItem) string { return v.Orn }).(pulumi.StringOutput)
+}
+
+type GetResourceLabelItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResourceLabelItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceLabelItem)(nil)).Elem()
+}
+
+func (o GetResourceLabelItemArrayOutput) ToGetResourceLabelItemArrayOutput() GetResourceLabelItemArrayOutput {
+	return o
+}
+
+func (o GetResourceLabelItemArrayOutput) ToGetResourceLabelItemArrayOutputWithContext(ctx context.Context) GetResourceLabelItemArrayOutput {
+	return o
+}
+
+func (o GetResourceLabelItemArrayOutput) Index(i pulumi.IntInput) GetResourceLabelItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourceLabelItem {
+		return vs[0].([]GetResourceLabelItem)[vs[1].(int)]
+	}).(GetResourceLabelItemOutput)
+}
+
+type GetResourceOwnerItem struct {
+	// The ID of the data source.
+	Id string `pulumi:"id"`
+	// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+	ParentResourceOrn string `pulumi:"parentResourceOrn"`
+}
+
+// GetResourceOwnerItemInput is an input type that accepts GetResourceOwnerItemArgs and GetResourceOwnerItemOutput values.
+// You can construct a concrete instance of `GetResourceOwnerItemInput` via:
+//
+//	GetResourceOwnerItemArgs{...}
+type GetResourceOwnerItemInput interface {
+	pulumi.Input
+
+	ToGetResourceOwnerItemOutput() GetResourceOwnerItemOutput
+	ToGetResourceOwnerItemOutputWithContext(context.Context) GetResourceOwnerItemOutput
+}
+
+type GetResourceOwnerItemArgs struct {
+	// The ID of the data source.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+	ParentResourceOrn pulumi.StringInput `pulumi:"parentResourceOrn"`
+}
+
+func (GetResourceOwnerItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceOwnerItem)(nil)).Elem()
+}
+
+func (i GetResourceOwnerItemArgs) ToGetResourceOwnerItemOutput() GetResourceOwnerItemOutput {
+	return i.ToGetResourceOwnerItemOutputWithContext(context.Background())
+}
+
+func (i GetResourceOwnerItemArgs) ToGetResourceOwnerItemOutputWithContext(ctx context.Context) GetResourceOwnerItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceOwnerItemOutput)
+}
+
+// GetResourceOwnerItemArrayInput is an input type that accepts GetResourceOwnerItemArray and GetResourceOwnerItemArrayOutput values.
+// You can construct a concrete instance of `GetResourceOwnerItemArrayInput` via:
+//
+//	GetResourceOwnerItemArray{ GetResourceOwnerItemArgs{...} }
+type GetResourceOwnerItemArrayInput interface {
+	pulumi.Input
+
+	ToGetResourceOwnerItemArrayOutput() GetResourceOwnerItemArrayOutput
+	ToGetResourceOwnerItemArrayOutputWithContext(context.Context) GetResourceOwnerItemArrayOutput
+}
+
+type GetResourceOwnerItemArray []GetResourceOwnerItemInput
+
+func (GetResourceOwnerItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceOwnerItem)(nil)).Elem()
+}
+
+func (i GetResourceOwnerItemArray) ToGetResourceOwnerItemArrayOutput() GetResourceOwnerItemArrayOutput {
+	return i.ToGetResourceOwnerItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetResourceOwnerItemArray) ToGetResourceOwnerItemArrayOutputWithContext(ctx context.Context) GetResourceOwnerItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceOwnerItemArrayOutput)
+}
+
+type GetResourceOwnerItemOutput struct{ *pulumi.OutputState }
+
+func (GetResourceOwnerItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceOwnerItem)(nil)).Elem()
+}
+
+func (o GetResourceOwnerItemOutput) ToGetResourceOwnerItemOutput() GetResourceOwnerItemOutput {
+	return o
+}
+
+func (o GetResourceOwnerItemOutput) ToGetResourceOwnerItemOutputWithContext(ctx context.Context) GetResourceOwnerItemOutput {
+	return o
+}
+
+// The ID of the data source.
+func (o GetResourceOwnerItemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceOwnerItem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+func (o GetResourceOwnerItemOutput) ParentResourceOrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceOwnerItem) string { return v.ParentResourceOrn }).(pulumi.StringOutput)
+}
+
+type GetResourceOwnerItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResourceOwnerItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceOwnerItem)(nil)).Elem()
+}
+
+func (o GetResourceOwnerItemArrayOutput) ToGetResourceOwnerItemArrayOutput() GetResourceOwnerItemArrayOutput {
+	return o
+}
+
+func (o GetResourceOwnerItemArrayOutput) ToGetResourceOwnerItemArrayOutputWithContext(ctx context.Context) GetResourceOwnerItemArrayOutput {
+	return o
+}
+
+func (o GetResourceOwnerItemArrayOutput) Index(i pulumi.IntInput) GetResourceOwnerItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourceOwnerItem {
+		return vs[0].([]GetResourceOwnerItem)[vs[1].(int)]
+	}).(GetResourceOwnerItemOutput)
+}
+
+type GetResourceOwnersCatalogResourceItem struct {
+	// The ID of the data source.
+	Id string `pulumi:"id"`
+	// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+	ParentResourceOrn string `pulumi:"parentResourceOrn"`
+}
+
+// GetResourceOwnersCatalogResourceItemInput is an input type that accepts GetResourceOwnersCatalogResourceItemArgs and GetResourceOwnersCatalogResourceItemOutput values.
+// You can construct a concrete instance of `GetResourceOwnersCatalogResourceItemInput` via:
+//
+//	GetResourceOwnersCatalogResourceItemArgs{...}
+type GetResourceOwnersCatalogResourceItemInput interface {
+	pulumi.Input
+
+	ToGetResourceOwnersCatalogResourceItemOutput() GetResourceOwnersCatalogResourceItemOutput
+	ToGetResourceOwnersCatalogResourceItemOutputWithContext(context.Context) GetResourceOwnersCatalogResourceItemOutput
+}
+
+type GetResourceOwnersCatalogResourceItemArgs struct {
+	// The ID of the data source.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+	ParentResourceOrn pulumi.StringInput `pulumi:"parentResourceOrn"`
+}
+
+func (GetResourceOwnersCatalogResourceItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceOwnersCatalogResourceItem)(nil)).Elem()
+}
+
+func (i GetResourceOwnersCatalogResourceItemArgs) ToGetResourceOwnersCatalogResourceItemOutput() GetResourceOwnersCatalogResourceItemOutput {
+	return i.ToGetResourceOwnersCatalogResourceItemOutputWithContext(context.Background())
+}
+
+func (i GetResourceOwnersCatalogResourceItemArgs) ToGetResourceOwnersCatalogResourceItemOutputWithContext(ctx context.Context) GetResourceOwnersCatalogResourceItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceOwnersCatalogResourceItemOutput)
+}
+
+// GetResourceOwnersCatalogResourceItemArrayInput is an input type that accepts GetResourceOwnersCatalogResourceItemArray and GetResourceOwnersCatalogResourceItemArrayOutput values.
+// You can construct a concrete instance of `GetResourceOwnersCatalogResourceItemArrayInput` via:
+//
+//	GetResourceOwnersCatalogResourceItemArray{ GetResourceOwnersCatalogResourceItemArgs{...} }
+type GetResourceOwnersCatalogResourceItemArrayInput interface {
+	pulumi.Input
+
+	ToGetResourceOwnersCatalogResourceItemArrayOutput() GetResourceOwnersCatalogResourceItemArrayOutput
+	ToGetResourceOwnersCatalogResourceItemArrayOutputWithContext(context.Context) GetResourceOwnersCatalogResourceItemArrayOutput
+}
+
+type GetResourceOwnersCatalogResourceItemArray []GetResourceOwnersCatalogResourceItemInput
+
+func (GetResourceOwnersCatalogResourceItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceOwnersCatalogResourceItem)(nil)).Elem()
+}
+
+func (i GetResourceOwnersCatalogResourceItemArray) ToGetResourceOwnersCatalogResourceItemArrayOutput() GetResourceOwnersCatalogResourceItemArrayOutput {
+	return i.ToGetResourceOwnersCatalogResourceItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetResourceOwnersCatalogResourceItemArray) ToGetResourceOwnersCatalogResourceItemArrayOutputWithContext(ctx context.Context) GetResourceOwnersCatalogResourceItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResourceOwnersCatalogResourceItemArrayOutput)
+}
+
+type GetResourceOwnersCatalogResourceItemOutput struct{ *pulumi.OutputState }
+
+func (GetResourceOwnersCatalogResourceItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResourceOwnersCatalogResourceItem)(nil)).Elem()
+}
+
+func (o GetResourceOwnersCatalogResourceItemOutput) ToGetResourceOwnersCatalogResourceItemOutput() GetResourceOwnersCatalogResourceItemOutput {
+	return o
+}
+
+func (o GetResourceOwnersCatalogResourceItemOutput) ToGetResourceOwnersCatalogResourceItemOutputWithContext(ctx context.Context) GetResourceOwnersCatalogResourceItemOutput {
+	return o
+}
+
+// The ID of the data source.
+func (o GetResourceOwnersCatalogResourceItemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceOwnersCatalogResourceItem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+func (o GetResourceOwnersCatalogResourceItemOutput) ParentResourceOrn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourceOwnersCatalogResourceItem) string { return v.ParentResourceOrn }).(pulumi.StringOutput)
+}
+
+type GetResourceOwnersCatalogResourceItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResourceOwnersCatalogResourceItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResourceOwnersCatalogResourceItem)(nil)).Elem()
+}
+
+func (o GetResourceOwnersCatalogResourceItemArrayOutput) ToGetResourceOwnersCatalogResourceItemArrayOutput() GetResourceOwnersCatalogResourceItemArrayOutput {
+	return o
+}
+
+func (o GetResourceOwnersCatalogResourceItemArrayOutput) ToGetResourceOwnersCatalogResourceItemArrayOutputWithContext(ctx context.Context) GetResourceOwnersCatalogResourceItemArrayOutput {
+	return o
+}
+
+func (o GetResourceOwnersCatalogResourceItemArrayOutput) Index(i pulumi.IntInput) GetResourceOwnersCatalogResourceItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResourceOwnersCatalogResourceItem {
+		return vs[0].([]GetResourceOwnersCatalogResourceItem)[vs[1].(int)]
+	}).(GetResourceOwnersCatalogResourceItemOutput)
+}
+
 type GetReviewAllReviewerLevel struct {
 	// The ISO 8601 formatted date and time when the resource was created.
 	Created string `pulumi:"created"`
@@ -33678,6 +34500,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceImportUpsertUsersProfileProfilePtrInput)(nil)).Elem(), IdentitySourceImportUpsertUsersProfileProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceUserProfileInput)(nil)).Elem(), IdentitySourceUserProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceUserProfilePtrInput)(nil)).Elem(), IdentitySourceUserProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelValueInput)(nil)).Elem(), LabelValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelValueArrayInput)(nil)).Elem(), LabelValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelValueMetadataInput)(nil)).Elem(), LabelValueMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelValueMetadataPtrInput)(nil)).Elem(), LabelValueMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamSettingsInput)(nil)).Elem(), LogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogStreamSettingsPtrInput)(nil)).Elem(), LogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleProfileEnrollmentProfileAttributeInput)(nil)).Elem(), PolicyRuleProfileEnrollmentProfileAttributeArgs{})
@@ -33893,6 +34719,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentitySourceGroupsProfileInput)(nil)).Elem(), GetIdentitySourceGroupsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentitySourceGroupsProfilePtrInput)(nil)).Elem(), GetIdentitySourceGroupsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentitySourceUsersProfileInput)(nil)).Elem(), GetIdentitySourceUsersProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLabelValueInput)(nil)).Elem(), GetLabelValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLabelValueArrayInput)(nil)).Elem(), GetLabelValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLabelValueMetadataInput)(nil)).Elem(), GetLabelValueMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLabelValueMetadataPtrInput)(nil)).Elem(), GetLabelValueMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogStreamSettingsPtrInput)(nil)).Elem(), GetLogStreamSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrgMetadataDomainsInput)(nil)).Elem(), GetOrgMetadataDomainsArgs{})
@@ -33955,6 +34785,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedByPtrInput)(nil)).Elem(), GetRequestV2RequestedByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedForInput)(nil)).Elem(), GetRequestV2RequestedForArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRequestV2RequestedForPtrInput)(nil)).Elem(), GetRequestV2RequestedForArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceLabelItemInput)(nil)).Elem(), GetResourceLabelItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceLabelItemArrayInput)(nil)).Elem(), GetResourceLabelItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceOwnerItemInput)(nil)).Elem(), GetResourceOwnerItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceOwnerItemArrayInput)(nil)).Elem(), GetResourceOwnerItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceOwnersCatalogResourceItemInput)(nil)).Elem(), GetResourceOwnersCatalogResourceItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceOwnersCatalogResourceItemArrayInput)(nil)).Elem(), GetResourceOwnersCatalogResourceItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelInput)(nil)).Elem(), GetReviewAllReviewerLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelArrayInput)(nil)).Elem(), GetReviewAllReviewerLevelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReviewAllReviewerLevelReviewerGroupProfileInput)(nil)).Elem(), GetReviewAllReviewerLevelReviewerGroupProfileArgs{})
@@ -34113,6 +34949,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentitySourceImportUpsertUsersProfileProfilePtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceUserProfileOutput{})
 	pulumi.RegisterOutputType(IdentitySourceUserProfilePtrOutput{})
+	pulumi.RegisterOutputType(LabelValueOutput{})
+	pulumi.RegisterOutputType(LabelValueArrayOutput{})
+	pulumi.RegisterOutputType(LabelValueMetadataOutput{})
+	pulumi.RegisterOutputType(LabelValueMetadataPtrOutput{})
 	pulumi.RegisterOutputType(LogStreamSettingsOutput{})
 	pulumi.RegisterOutputType(LogStreamSettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyRuleProfileEnrollmentProfileAttributeOutput{})
@@ -34328,6 +35168,10 @@ func init() {
 	pulumi.RegisterOutputType(GetIdentitySourceGroupsProfileOutput{})
 	pulumi.RegisterOutputType(GetIdentitySourceGroupsProfilePtrOutput{})
 	pulumi.RegisterOutputType(GetIdentitySourceUsersProfileOutput{})
+	pulumi.RegisterOutputType(GetLabelValueOutput{})
+	pulumi.RegisterOutputType(GetLabelValueArrayOutput{})
+	pulumi.RegisterOutputType(GetLabelValueMetadataOutput{})
+	pulumi.RegisterOutputType(GetLabelValueMetadataPtrOutput{})
 	pulumi.RegisterOutputType(GetLogStreamSettingsOutput{})
 	pulumi.RegisterOutputType(GetLogStreamSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetOrgMetadataDomainsOutput{})
@@ -34390,6 +35234,12 @@ func init() {
 	pulumi.RegisterOutputType(GetRequestV2RequestedByPtrOutput{})
 	pulumi.RegisterOutputType(GetRequestV2RequestedForOutput{})
 	pulumi.RegisterOutputType(GetRequestV2RequestedForPtrOutput{})
+	pulumi.RegisterOutputType(GetResourceLabelItemOutput{})
+	pulumi.RegisterOutputType(GetResourceLabelItemArrayOutput{})
+	pulumi.RegisterOutputType(GetResourceOwnerItemOutput{})
+	pulumi.RegisterOutputType(GetResourceOwnerItemArrayOutput{})
+	pulumi.RegisterOutputType(GetResourceOwnersCatalogResourceItemOutput{})
+	pulumi.RegisterOutputType(GetResourceOwnersCatalogResourceItemArrayOutput{})
 	pulumi.RegisterOutputType(GetReviewAllReviewerLevelOutput{})
 	pulumi.RegisterOutputType(GetReviewAllReviewerLevelArrayOutput{})
 	pulumi.RegisterOutputType(GetReviewAllReviewerLevelReviewerGroupProfileOutput{})

@@ -86,10 +86,12 @@ from .get_features import *
 from .get_groups import *
 from .get_hook_key import *
 from .get_iam_assignees_user import *
+from .get_iam_resource_set import *
 from .get_identity_source_group_memberships import *
 from .get_identity_source_groups import *
 from .get_identity_source_sessions import *
 from .get_identity_source_users import *
+from .get_label import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_oauth_authorization_server import *
@@ -109,6 +111,9 @@ from .get_request_sequence import *
 from .get_request_setting_organization import *
 from .get_request_setting_resource import *
 from .get_request_v2 import *
+from .get_resource_label import *
+from .get_resource_owner import *
+from .get_resource_owners_catalog_resource import *
 from .get_review import *
 from .get_role_subscription import *
 from .get_security_events_provider import *
@@ -127,6 +132,7 @@ from .identity_source_group import *
 from .identity_source_group_membership import *
 from .identity_source_import import *
 from .identity_source_user import *
+from .label import *
 from .link_definition import *
 from .link_value import *
 from .log_stream import *
@@ -153,6 +159,7 @@ from .request_sequence import *
 from .request_setting_organization import *
 from .request_setting_resource import *
 from .request_v2 import *
+from .resource_owner import *
 from .resource_set import *
 from .review import *
 from .role_subscription import *
@@ -897,6 +904,14 @@ _utilities.register(
  },
  {
   "pkg": "okta",
+  "mod": "index/label",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/label:Label": "Label"
+  }
+ },
+ {
+  "pkg": "okta",
   "mod": "index/linkDefinition",
   "fqn": "pulumi_okta",
   "classes": {
@@ -1093,6 +1108,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/requestV2:RequestV2": "RequestV2"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/resourceOwner",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/resourceOwner:ResourceOwner": "ResourceOwner"
   }
  },
  {

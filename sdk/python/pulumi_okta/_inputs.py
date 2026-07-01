@@ -139,6 +139,10 @@ __all__ = [
     'IdentitySourceImportUpsertUsersProfileProfileArgsDict',
     'IdentitySourceUserProfileArgs',
     'IdentitySourceUserProfileArgsDict',
+    'LabelValueArgs',
+    'LabelValueArgsDict',
+    'LabelValueMetadataArgs',
+    'LabelValueMetadataArgsDict',
     'LogStreamSettingsArgs',
     'LogStreamSettingsArgsDict',
     'PolicyRuleProfileEnrollmentProfileAttributeArgs',
@@ -327,6 +331,10 @@ __all__ = [
     'GetIamAssigneesUserItemArgsDict',
     'GetIdentitySourceGroupsProfileArgs',
     'GetIdentitySourceGroupsProfileArgsDict',
+    'GetLabelValueArgs',
+    'GetLabelValueArgsDict',
+    'GetLabelValueMetadataArgs',
+    'GetLabelValueMetadataArgsDict',
     'GetLogStreamSettingsArgs',
     'GetLogStreamSettingsArgsDict',
     'GetOrgMetadataDomainsArgs',
@@ -387,6 +395,12 @@ __all__ = [
     'GetRequestV2RequestedByArgsDict',
     'GetRequestV2RequestedForArgs',
     'GetRequestV2RequestedForArgsDict',
+    'GetResourceLabelItemArgs',
+    'GetResourceLabelItemArgsDict',
+    'GetResourceOwnerItemArgs',
+    'GetResourceOwnerItemArgsDict',
+    'GetResourceOwnersCatalogResourceItemArgs',
+    'GetResourceOwnersCatalogResourceItemArgsDict',
     'GetReviewAllReviewerLevelArgs',
     'GetReviewAllReviewerLevelArgsDict',
     'GetReviewAllReviewerLevelReviewerGroupProfileArgs',
@@ -4707,6 +4721,103 @@ class IdentitySourceUserProfileArgs:
     @user_name.setter
     def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
+
+
+class LabelValueArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Key name of the label
+    """
+    label_value_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of a label value
+    """
+    metadata: NotRequired[pulumi.Input[Optional['LabelValueMetadataArgsDict']]]
+    """
+    Metadata for a label value
+    """
+
+@pulumi.input_type
+class LabelValueArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 label_value_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata: pulumi.Input[Optional['LabelValueMetadataArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Key name of the label
+        :param pulumi.Input[_builtins.str] label_value_id: The ID of a label value
+        :param pulumi.Input['LabelValueMetadataArgs'] metadata: Metadata for a label value
+        """
+        pulumi.set(__self__, "name", name)
+        if label_value_id is not None:
+            pulumi.set(__self__, "label_value_id", label_value_id)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Key name of the label
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelValueId")
+    def label_value_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of a label value
+        """
+        return pulumi.get(self, "label_value_id")
+
+    @label_value_id.setter
+    def label_value_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "label_value_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[Optional['LabelValueMetadataArgs']]:
+        """
+        Metadata for a label value
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[Optional['LabelValueMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+
+class LabelValueMetadataArgsDict(TypedDict):
+    additional_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Additional metadata properties for the label value.
+    """
+
+@pulumi.input_type
+class LabelValueMetadataArgs:
+    def __init__(__self__, *,
+                 additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: Additional metadata properties for the label value.
+        """
+        if additional_properties is not None:
+            pulumi.set(__self__, "additional_properties", additional_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Additional metadata properties for the label value.
+        """
+        return pulumi.get(self, "additional_properties")
+
+    @additional_properties.setter
+    def additional_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "additional_properties", value)
 
 
 class LogStreamSettingsArgsDict(TypedDict):
@@ -11379,6 +11490,101 @@ class GetIdentitySourceGroupsProfileArgs:
         pulumi.set(self, "display_name", value)
 
 
+class GetLabelValueArgsDict(TypedDict):
+    label_value_id: _builtins.str
+    """
+    The ID of a label value
+    """
+    name: _builtins.str
+    """
+    Key name of the label
+    """
+    metadata: NotRequired['GetLabelValueMetadataArgsDict']
+    """
+    Metadata for a label value
+    """
+
+@pulumi.input_type
+class GetLabelValueArgs:
+    def __init__(__self__, *,
+                 label_value_id: _builtins.str,
+                 name: _builtins.str,
+                 metadata: Optional['GetLabelValueMetadataArgs'] = None):
+        """
+        :param _builtins.str label_value_id: The ID of a label value
+        :param _builtins.str name: Key name of the label
+        :param 'GetLabelValueMetadataArgs' metadata: Metadata for a label value
+        """
+        pulumi.set(__self__, "label_value_id", label_value_id)
+        pulumi.set(__self__, "name", name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="labelValueId")
+    def label_value_id(self) -> _builtins.str:
+        """
+        The ID of a label value
+        """
+        return pulumi.get(self, "label_value_id")
+
+    @label_value_id.setter
+    def label_value_id(self, value: _builtins.str):
+        pulumi.set(self, "label_value_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Key name of the label
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional['GetLabelValueMetadataArgs']:
+        """
+        Metadata for a label value
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional['GetLabelValueMetadataArgs']):
+        pulumi.set(self, "metadata", value)
+
+
+class GetLabelValueMetadataArgsDict(TypedDict):
+    additional_properties: Mapping[str, _builtins.str]
+    """
+    Additional metadata properties for the label value.
+    """
+
+@pulumi.input_type
+class GetLabelValueMetadataArgs:
+    def __init__(__self__, *,
+                 additional_properties: Mapping[str, _builtins.str]):
+        """
+        :param Mapping[str, _builtins.str] additional_properties: Additional metadata properties for the label value.
+        """
+        pulumi.set(__self__, "additional_properties", additional_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Mapping[str, _builtins.str]:
+        """
+        Additional metadata properties for the label value.
+        """
+        return pulumi.get(self, "additional_properties")
+
+    @additional_properties.setter
+    def additional_properties(self, value: Mapping[str, _builtins.str]):
+        pulumi.set(self, "additional_properties", value)
+
+
 class GetLogStreamSettingsArgsDict(TypedDict):
     account_id: _builtins.str
     """
@@ -12958,6 +13164,147 @@ class GetRequestV2RequestedForArgs:
     @type.setter
     def type(self, value: _builtins.str):
         pulumi.set(self, "type", value)
+
+
+class GetResourceLabelItemArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the data source.
+    """
+    orn: _builtins.str
+    """
+    The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+    """
+
+@pulumi.input_type
+class GetResourceLabelItemArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 orn: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the data source.
+        :param _builtins.str orn: The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "orn", orn)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the data source.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def orn(self) -> _builtins.str:
+        """
+        The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        return pulumi.get(self, "orn")
+
+    @orn.setter
+    def orn(self, value: _builtins.str):
+        pulumi.set(self, "orn", value)
+
+
+class GetResourceOwnerItemArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the data source.
+    """
+    parent_resource_orn: _builtins.str
+    """
+    The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+    """
+
+@pulumi.input_type
+class GetResourceOwnerItemArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 parent_resource_orn: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the data source.
+        :param _builtins.str parent_resource_orn: The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "parent_resource_orn", parent_resource_orn)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the data source.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parentResourceOrn")
+    def parent_resource_orn(self) -> _builtins.str:
+        """
+        The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        return pulumi.get(self, "parent_resource_orn")
+
+    @parent_resource_orn.setter
+    def parent_resource_orn(self, value: _builtins.str):
+        pulumi.set(self, "parent_resource_orn", value)
+
+
+class GetResourceOwnersCatalogResourceItemArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The ID of the data source.
+    """
+    parent_resource_orn: _builtins.str
+    """
+    The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+    """
+
+@pulumi.input_type
+class GetResourceOwnersCatalogResourceItemArgs:
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 parent_resource_orn: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the data source.
+        :param _builtins.str parent_resource_orn: The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "parent_resource_orn", parent_resource_orn)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the data source.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parentResourceOrn")
+    def parent_resource_orn(self) -> _builtins.str:
+        """
+        The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        return pulumi.get(self, "parent_resource_orn")
+
+    @parent_resource_orn.setter
+    def parent_resource_orn(self, value: _builtins.str):
+        pulumi.set(self, "parent_resource_orn", value)
 
 
 class GetReviewAllReviewerLevelArgsDict(TypedDict):

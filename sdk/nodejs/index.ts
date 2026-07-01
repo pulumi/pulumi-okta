@@ -405,6 +405,11 @@ export const getIamAssigneesUser: typeof import("./getIamAssigneesUser").getIamA
 export const getIamAssigneesUserOutput: typeof import("./getIamAssigneesUser").getIamAssigneesUserOutput = null as any;
 utilities.lazyLoad(exports, ["getIamAssigneesUser","getIamAssigneesUserOutput"], () => require("./getIamAssigneesUser"));
 
+export { GetIamResourceSetArgs, GetIamResourceSetResult, GetIamResourceSetOutputArgs } from "./getIamResourceSet";
+export const getIamResourceSet: typeof import("./getIamResourceSet").getIamResourceSet = null as any;
+export const getIamResourceSetOutput: typeof import("./getIamResourceSet").getIamResourceSetOutput = null as any;
+utilities.lazyLoad(exports, ["getIamResourceSet","getIamResourceSetOutput"], () => require("./getIamResourceSet"));
+
 export { GetIdentitySourceGroupMembershipsArgs, GetIdentitySourceGroupMembershipsResult, GetIdentitySourceGroupMembershipsOutputArgs } from "./getIdentitySourceGroupMemberships";
 export const getIdentitySourceGroupMemberships: typeof import("./getIdentitySourceGroupMemberships").getIdentitySourceGroupMemberships = null as any;
 export const getIdentitySourceGroupMembershipsOutput: typeof import("./getIdentitySourceGroupMemberships").getIdentitySourceGroupMembershipsOutput = null as any;
@@ -424,6 +429,11 @@ export { GetIdentitySourceUsersArgs, GetIdentitySourceUsersResult, GetIdentitySo
 export const getIdentitySourceUsers: typeof import("./getIdentitySourceUsers").getIdentitySourceUsers = null as any;
 export const getIdentitySourceUsersOutput: typeof import("./getIdentitySourceUsers").getIdentitySourceUsersOutput = null as any;
 utilities.lazyLoad(exports, ["getIdentitySourceUsers","getIdentitySourceUsersOutput"], () => require("./getIdentitySourceUsers"));
+
+export { GetLabelArgs, GetLabelResult, GetLabelOutputArgs } from "./getLabel";
+export const getLabel: typeof import("./getLabel").getLabel = null as any;
+export const getLabelOutput: typeof import("./getLabel").getLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getLabel","getLabelOutput"], () => require("./getLabel"));
 
 export { GetLogStreamArgs, GetLogStreamResult, GetLogStreamOutputArgs } from "./getLogStream";
 export const getLogStream: typeof import("./getLogStream").getLogStream = null as any;
@@ -520,6 +530,21 @@ export const getRequestV2: typeof import("./getRequestV2").getRequestV2 = null a
 export const getRequestV2Output: typeof import("./getRequestV2").getRequestV2Output = null as any;
 utilities.lazyLoad(exports, ["getRequestV2","getRequestV2Output"], () => require("./getRequestV2"));
 
+export { GetResourceLabelArgs, GetResourceLabelResult, GetResourceLabelOutputArgs } from "./getResourceLabel";
+export const getResourceLabel: typeof import("./getResourceLabel").getResourceLabel = null as any;
+export const getResourceLabelOutput: typeof import("./getResourceLabel").getResourceLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceLabel","getResourceLabelOutput"], () => require("./getResourceLabel"));
+
+export { GetResourceOwnerArgs, GetResourceOwnerResult, GetResourceOwnerOutputArgs } from "./getResourceOwner";
+export const getResourceOwner: typeof import("./getResourceOwner").getResourceOwner = null as any;
+export const getResourceOwnerOutput: typeof import("./getResourceOwner").getResourceOwnerOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceOwner","getResourceOwnerOutput"], () => require("./getResourceOwner"));
+
+export { GetResourceOwnersCatalogResourceArgs, GetResourceOwnersCatalogResourceResult, GetResourceOwnersCatalogResourceOutputArgs } from "./getResourceOwnersCatalogResource";
+export const getResourceOwnersCatalogResource: typeof import("./getResourceOwnersCatalogResource").getResourceOwnersCatalogResource = null as any;
+export const getResourceOwnersCatalogResourceOutput: typeof import("./getResourceOwnersCatalogResource").getResourceOwnersCatalogResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceOwnersCatalogResource","getResourceOwnersCatalogResourceOutput"], () => require("./getResourceOwnersCatalogResource"));
+
 export { GetReviewArgs, GetReviewResult, GetReviewOutputArgs } from "./getReview";
 export const getReview: typeof import("./getReview").getReview = null as any;
 export const getReviewOutput: typeof import("./getReview").getReviewOutput = null as any;
@@ -609,6 +634,11 @@ export { IdentitySourceUserArgs, IdentitySourceUserState } from "./identitySourc
 export type IdentitySourceUser = import("./identitySourceUser").IdentitySourceUser;
 export const IdentitySourceUser: typeof import("./identitySourceUser").IdentitySourceUser = null as any;
 utilities.lazyLoad(exports, ["IdentitySourceUser"], () => require("./identitySourceUser"));
+
+export { LabelArgs, LabelState } from "./label";
+export type Label = import("./label").Label;
+export const Label: typeof import("./label").Label = null as any;
+utilities.lazyLoad(exports, ["Label"], () => require("./label"));
 
 export { LinkDefinitionArgs, LinkDefinitionState } from "./linkDefinition";
 export type LinkDefinition = import("./linkDefinition").LinkDefinition;
@@ -737,6 +767,11 @@ export { RequestV2Args, RequestV2State } from "./requestV2";
 export type RequestV2 = import("./requestV2").RequestV2;
 export const RequestV2: typeof import("./requestV2").RequestV2 = null as any;
 utilities.lazyLoad(exports, ["RequestV2"], () => require("./requestV2"));
+
+export { ResourceOwnerArgs, ResourceOwnerState } from "./resourceOwner";
+export type ResourceOwner = import("./resourceOwner").ResourceOwner;
+export const ResourceOwner: typeof import("./resourceOwner").ResourceOwner = null as any;
+utilities.lazyLoad(exports, ["ResourceOwner"], () => require("./resourceOwner"));
 
 export { ResourceSetArgs, ResourceSetState } from "./resourceSet";
 export type ResourceSet = import("./resourceSet").ResourceSet;
@@ -956,6 +991,8 @@ const _module = {
                 return new IdentitySourceImport(name, <any>undefined, { urn })
             case "okta:index/identitySourceUser:IdentitySourceUser":
                 return new IdentitySourceUser(name, <any>undefined, { urn })
+            case "okta:index/label:Label":
+                return new Label(name, <any>undefined, { urn })
             case "okta:index/linkDefinition:LinkDefinition":
                 return new LinkDefinition(name, <any>undefined, { urn })
             case "okta:index/linkValue:LinkValue":
@@ -1006,6 +1043,8 @@ const _module = {
                 return new RequestSettingResource(name, <any>undefined, { urn })
             case "okta:index/requestV2:RequestV2":
                 return new RequestV2(name, <any>undefined, { urn })
+            case "okta:index/resourceOwner:ResourceOwner":
+                return new ResourceOwner(name, <any>undefined, { urn })
             case "okta:index/resourceSet:ResourceSet":
                 return new ResourceSet(name, <any>undefined, { urn })
             case "okta:index/review:Review":
@@ -1094,6 +1133,7 @@ pulumi.runtime.registerResourceModule("okta", "index/identitySourceGroup", _modu
 pulumi.runtime.registerResourceModule("okta", "index/identitySourceGroupMembership", _module)
 pulumi.runtime.registerResourceModule("okta", "index/identitySourceImport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/identitySourceUser", _module)
+pulumi.runtime.registerResourceModule("okta", "index/label", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkValue", _module)
 pulumi.runtime.registerResourceModule("okta", "index/logStream", _module)
@@ -1119,6 +1159,7 @@ pulumi.runtime.registerResourceModule("okta", "index/requestSequence", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestSettingOrganization", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestSettingResource", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestV2", _module)
+pulumi.runtime.registerResourceModule("okta", "index/resourceOwner", _module)
 pulumi.runtime.registerResourceModule("okta", "index/resourceSet", _module)
 pulumi.runtime.registerResourceModule("okta", "index/review", _module)
 pulumi.runtime.registerResourceModule("okta", "index/roleSubscription", _module)

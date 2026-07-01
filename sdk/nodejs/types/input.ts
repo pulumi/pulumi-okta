@@ -2404,6 +2404,50 @@ export interface GetIdentitySourceGroupsProfileArgs {
     displayName?: pulumi.Input<string | undefined>;
 }
 
+export interface GetLabelValue {
+    /**
+     * The ID of a label value
+     */
+    labelValueId?: string;
+    /**
+     * Metadata for a label value
+     */
+    metadata?: inputs.GetLabelValueMetadata;
+    /**
+     * Key name of the label
+     */
+    name?: string;
+}
+
+export interface GetLabelValueArgs {
+    /**
+     * The ID of a label value
+     */
+    labelValueId?: pulumi.Input<string | undefined>;
+    /**
+     * Metadata for a label value
+     */
+    metadata?: pulumi.Input<inputs.GetLabelValueMetadataArgs | undefined>;
+    /**
+     * Key name of the label
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
+export interface GetLabelValueMetadata {
+    /**
+     * Additional metadata properties for the label value.
+     */
+    additionalProperties?: {[key: string]: string};
+}
+
+export interface GetLabelValueMetadataArgs {
+    /**
+     * Additional metadata properties for the label value.
+     */
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+}
+
 export interface GetLogStreamSettings {
     /**
      * AWS account ID. Required only for 'aws_eventbridge' type
@@ -3070,6 +3114,72 @@ export interface GetRequestV2RequestedForArgs {
     type?: pulumi.Input<string | undefined>;
 }
 
+export interface GetResourceLabelItem {
+    /**
+     * The ID of the data source.
+     */
+    id?: string;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    orn?: string;
+}
+
+export interface GetResourceLabelItemArgs {
+    /**
+     * The ID of the data source.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    orn?: pulumi.Input<string | undefined>;
+}
+
+export interface GetResourceOwnerItem {
+    /**
+     * The ID of the data source.
+     */
+    id?: string;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    parentResourceOrn?: string;
+}
+
+export interface GetResourceOwnerItemArgs {
+    /**
+     * The ID of the data source.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    parentResourceOrn?: pulumi.Input<string | undefined>;
+}
+
+export interface GetResourceOwnersCatalogResourceItem {
+    /**
+     * The ID of the data source.
+     */
+    id?: string;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    parentResourceOrn?: string;
+}
+
+export interface GetResourceOwnersCatalogResourceItemArgs {
+    /**
+     * The ID of the data source.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+     */
+    parentResourceOrn?: pulumi.Input<string | undefined>;
+}
+
 export interface GetReviewAllReviewerLevel {
     /**
      * The ISO 8601 formatted date and time when the resource was created.
@@ -3604,6 +3714,28 @@ export interface IdentitySourceUserProfile {
      * Username of the user.
      */
     userName?: pulumi.Input<string | undefined>;
+}
+
+export interface LabelValue {
+    /**
+     * The ID of a label value
+     */
+    labelValueId?: pulumi.Input<string | undefined>;
+    /**
+     * Metadata for a label value
+     */
+    metadata?: pulumi.Input<inputs.LabelValueMetadata | undefined>;
+    /**
+     * Key name of the label
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface LabelValueMetadata {
+    /**
+     * Additional metadata properties for the label value.
+     */
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 export interface LogStreamSettings {

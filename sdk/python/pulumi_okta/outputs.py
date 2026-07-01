@@ -78,6 +78,8 @@ __all__ = [
     'IdentitySourceImportUpsertUsersProfile',
     'IdentitySourceImportUpsertUsersProfileProfile',
     'IdentitySourceUserProfile',
+    'LabelValue',
+    'LabelValueMetadata',
     'LogStreamSettings',
     'PolicyRuleProfileEnrollmentProfileAttribute',
     'PreviewSigninPageContentSecurityPolicySetting',
@@ -190,6 +192,8 @@ __all__ = [
     'GetIamAssigneesUserItemResult',
     'GetIdentitySourceGroupsProfileResult',
     'GetIdentitySourceUsersProfileResult',
+    'GetLabelValueResult',
+    'GetLabelValueMetadataResult',
     'GetLogStreamSettingsResult',
     'GetOrgMetadataDomainsResult',
     'GetOrgMetadataSettingsResult',
@@ -221,6 +225,9 @@ __all__ = [
     'GetRequestV2RequestedResult',
     'GetRequestV2RequestedByResult',
     'GetRequestV2RequestedForResult',
+    'GetResourceLabelItemResult',
+    'GetResourceOwnerItemResult',
+    'GetResourceOwnersCatalogResourceItemResult',
     'GetReviewAllReviewerLevelResult',
     'GetReviewAllReviewerLevelReviewerGroupProfileResult',
     'GetReviewAllReviewerLevelReviewerProfileResult',
@@ -3772,6 +3779,101 @@ class IdentitySourceUserProfile(dict):
         Username of the user.
         """
         return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class LabelValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelValueId":
+            suggest = "label_value_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 label_value_id: Optional[_builtins.str] = None,
+                 metadata: Optional['outputs.LabelValueMetadata'] = None):
+        """
+        :param _builtins.str name: Key name of the label
+        :param _builtins.str label_value_id: The ID of a label value
+        :param 'LabelValueMetadataArgs' metadata: Metadata for a label value
+        """
+        pulumi.set(__self__, "name", name)
+        if label_value_id is not None:
+            pulumi.set(__self__, "label_value_id", label_value_id)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Key name of the label
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="labelValueId")
+    def label_value_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of a label value
+        """
+        return pulumi.get(self, "label_value_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.LabelValueMetadata']:
+        """
+        Metadata for a label value
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class LabelValueMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalProperties":
+            suggest = "additional_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelValueMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelValueMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelValueMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_properties: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param Mapping[str, _builtins.str] additional_properties: Additional metadata properties for the label value.
+        """
+        if additional_properties is not None:
+            pulumi.set(__self__, "additional_properties", additional_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Additional metadata properties for the label value.
+        """
+        return pulumi.get(self, "additional_properties")
 
 
 @pulumi.output_type
@@ -8991,6 +9093,65 @@ class GetIdentitySourceUsersProfileResult(dict):
 
 
 @pulumi.output_type
+class GetLabelValueResult(dict):
+    def __init__(__self__, *,
+                 label_value_id: _builtins.str,
+                 name: _builtins.str,
+                 metadata: Optional['outputs.GetLabelValueMetadataResult'] = None):
+        """
+        :param _builtins.str label_value_id: The ID of a label value
+        :param _builtins.str name: Key name of the label
+        :param 'GetLabelValueMetadataArgs' metadata: Metadata for a label value
+        """
+        pulumi.set(__self__, "label_value_id", label_value_id)
+        pulumi.set(__self__, "name", name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="labelValueId")
+    def label_value_id(self) -> _builtins.str:
+        """
+        The ID of a label value
+        """
+        return pulumi.get(self, "label_value_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Key name of the label
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.GetLabelValueMetadataResult']:
+        """
+        Metadata for a label value
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class GetLabelValueMetadataResult(dict):
+    def __init__(__self__, *,
+                 additional_properties: Mapping[str, _builtins.str]):
+        """
+        :param Mapping[str, _builtins.str] additional_properties: Additional metadata properties for the label value.
+        """
+        pulumi.set(__self__, "additional_properties", additional_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Mapping[str, _builtins.str]:
+        """
+        Additional metadata properties for the label value.
+        """
+        return pulumi.get(self, "additional_properties")
+
+
+@pulumi.output_type
 class GetLogStreamSettingsResult(dict):
     def __init__(__self__, *,
                  account_id: _builtins.str,
@@ -9987,6 +10148,93 @@ class GetRequestV2RequestedForResult(dict):
         The type of principal.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetResourceLabelItemResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 orn: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the data source.
+        :param _builtins.str orn: The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "orn", orn)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the data source.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def orn(self) -> _builtins.str:
+        """
+        The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        return pulumi.get(self, "orn")
+
+
+@pulumi.output_type
+class GetResourceOwnerItemResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 parent_resource_orn: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the data source.
+        :param _builtins.str parent_resource_orn: The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "parent_resource_orn", parent_resource_orn)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the data source.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="parentResourceOrn")
+    def parent_resource_orn(self) -> _builtins.str:
+        """
+        The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        return pulumi.get(self, "parent_resource_orn")
+
+
+@pulumi.output_type
+class GetResourceOwnersCatalogResourceItemResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 parent_resource_orn: _builtins.str):
+        """
+        :param _builtins.str id: The ID of the data source.
+        :param _builtins.str parent_resource_orn: The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "parent_resource_orn", parent_resource_orn)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The ID of the data source.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="parentResourceOrn")
+    def parent_resource_orn(self) -> _builtins.str:
+        """
+        The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.
+        """
+        return pulumi.get(self, "parent_resource_orn")
 
 
 @pulumi.output_type
