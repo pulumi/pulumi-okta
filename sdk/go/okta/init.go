@@ -123,6 +123,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentitySourceImport{}
 	case "okta:index/identitySourceUser:IdentitySourceUser":
 		r = &IdentitySourceUser{}
+	case "okta:index/label:Label":
+		r = &Label{}
 	case "okta:index/linkDefinition:LinkDefinition":
 		r = &LinkDefinition{}
 	case "okta:index/linkValue:LinkValue":
@@ -173,6 +175,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RequestSettingResource{}
 	case "okta:index/requestV2:RequestV2":
 		r = &RequestV2{}
+	case "okta:index/resourceOwner:ResourceOwner":
+		r = &ResourceOwner{}
 	case "okta:index/resourceSet:ResourceSet":
 		r = &ResourceSet{}
 	case "okta:index/review:Review":
@@ -493,6 +497,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"okta",
+		"index/label",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
 		"index/linkDefinition",
 		&module{version},
 	)
@@ -614,6 +623,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/requestV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/resourceOwner",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
