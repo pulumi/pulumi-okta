@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.12.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.13.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -3192,6 +3192,46 @@
             },
             "type": "object"
         },
+        "okta:index/LabelValue:LabelValue": {
+            "properties": {
+                "labelValueId": {
+                    "type": "string",
+                    "description": "The ID of a label value\n"
+                },
+                "metadata": {
+                    "$ref": "#/types/okta:index/LabelValueMetadata:LabelValueMetadata",
+                    "description": "Metadata for a label value\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Key name of the label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "labelValueId",
+                        "name"
+                    ]
+                }
+            }
+        },
+        "okta:index/LabelValueMetadata:LabelValueMetadata": {
+            "properties": {
+                "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Additional metadata properties for the label value.\n"
+                }
+            },
+            "type": "object"
+        },
         "okta:index/LogStreamSettings:LogStreamSettings": {
             "properties": {
                 "accountId": {
@@ -6256,6 +6296,52 @@
                 }
             }
         },
+        "okta:index/getLabelValue:getLabelValue": {
+            "properties": {
+                "labelValueId": {
+                    "type": "string",
+                    "description": "The ID of a label value\n"
+                },
+                "metadata": {
+                    "$ref": "#/types/okta:index/getLabelValueMetadata:getLabelValueMetadata",
+                    "description": "Metadata for a label value\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Key name of the label\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "labelValueId",
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getLabelValueMetadata:getLabelValueMetadata": {
+            "properties": {
+                "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Additional metadata properties for the label value.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "additionalProperties"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:index/getLogStreamSettings:getLogStreamSettings": {
             "properties": {
                 "accountId": {
@@ -6979,6 +7065,72 @@
             "required": [
                 "externalId",
                 "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getResourceLabelItem:getResourceLabelItem": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the data source.\n"
+                },
+                "orn": {
+                    "type": "string",
+                    "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "orn"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getResourceOwnerItem:getResourceOwnerItem": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the data source.\n"
+                },
+                "parentResourceOrn": {
+                    "type": "string",
+                    "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "parentResourceOrn"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "okta:index/getResourceOwnersCatalogResourceItem:getResourceOwnersCatalogResourceItem": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the data source.\n"
+                },
+                "parentResourceOrn": {
+                    "type": "string",
+                    "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "id",
+                "parentResourceOrn"
             ],
             "language": {
                 "nodejs": {
@@ -21410,6 +21562,64 @@
                 "type": "object"
             }
         },
+        "okta:index/label:Label": {
+            "description": "Manages an\u003cspan pulumi-lang-nodejs=\" okta.Label \" pulumi-lang-dotnet=\" okta.Label \" pulumi-lang-go=\" Label \" pulumi-lang-python=\" Label \" pulumi-lang-yaml=\" okta.Label \" pulumi-lang-java=\" okta.Label \" pulumi-lang-hcl=\" okta_label \"\u003e okta.Label \u003c/span\u003eresource.\n",
+            "properties": {
+                "labelId": {
+                    "type": "string",
+                    "description": "The ID of a label\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Key name of the label\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:index/LabelValue:LabelValue"
+                    },
+                    "description": "List of label values\n"
+                }
+            },
+            "required": [
+                "labelId",
+                "name"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Key name of the label\n"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/okta:index/LabelValue:LabelValue"
+                    },
+                    "description": "List of label values\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Label resources.\n",
+                "properties": {
+                    "labelId": {
+                        "type": "string",
+                        "description": "The ID of a label\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Key name of the label\n"
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/LabelValue:LabelValue"
+                        },
+                        "description": "List of label values\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "okta:index/linkDefinition:LinkDefinition": {
             "description": "Manages the creation and removal of the link definitions.\n\t\t\nLink definition operations allow you to manage the creation and removal of the link definitions. If you remove a link \ndefinition, links based on that definition are unavailable. Note that this resource is immutable, thus can not be modified.\n\u003e **NOTE:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.LinkDefinition(\"example\", {\n    primaryName: \"emperor\",\n    primaryTitle: \"Emperor\",\n    primaryDescription: \"Hereditary ruler of the Imperium and the Known Universe\",\n    associatedName: \"sardaukar\",\n    associatedTitle: \"Sardaukar\",\n    associatedDescription: \"Elite military force member\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.LinkDefinition(\"example\",\n    primary_name=\"emperor\",\n    primary_title=\"Emperor\",\n    primary_description=\"Hereditary ruler of the Imperium and the Known Universe\",\n    associated_name=\"sardaukar\",\n    associated_title=\"Sardaukar\",\n    associated_description=\"Elite military force member\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.LinkDefinition(\"example\", new()\n    {\n        PrimaryName = \"emperor\",\n        PrimaryTitle = \"Emperor\",\n        PrimaryDescription = \"Hereditary ruler of the Imperium and the Known Universe\",\n        AssociatedName = \"sardaukar\",\n        AssociatedTitle = \"Sardaukar\",\n        AssociatedDescription = \"Elite military force member\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.NewLinkDefinition(ctx, \"example\", \u0026okta.LinkDefinitionArgs{\n\t\t\tPrimaryName:           pulumi.String(\"emperor\"),\n\t\t\tPrimaryTitle:          pulumi.String(\"Emperor\"),\n\t\t\tPrimaryDescription:    pulumi.String(\"Hereditary ruler of the Imperium and the Known Universe\"),\n\t\t\tAssociatedName:        pulumi.String(\"sardaukar\"),\n\t\t\tAssociatedTitle:       pulumi.String(\"Sardaukar\"),\n\t\t\tAssociatedDescription: pulumi.String(\"Elite military force member\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_linkdefinition\" \"example\" {\n  primary_name           = \"emperor\"\n  primary_title          = \"Emperor\"\n  primary_description    = \"Hereditary ruler of the Imperium and the Known Universe\"\n  associated_name        = \"sardaukar\"\n  associated_title       = \"Sardaukar\"\n  associated_description = \"Elite military force member\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.LinkDefinition;\nimport com.pulumi.okta.LinkDefinitionArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new LinkDefinition(\"example\", LinkDefinitionArgs.builder()\n            .primaryName(\"emperor\")\n            .primaryTitle(\"Emperor\")\n            .primaryDescription(\"Hereditary ruler of the Imperium and the Known Universe\")\n            .associatedName(\"sardaukar\")\n            .associatedTitle(\"Sardaukar\")\n            .associatedDescription(\"Elite military force member\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:LinkDefinition\n    properties:\n      primaryName: emperor\n      primaryTitle: Emperor\n      primaryDescription: Hereditary ruler of the Imperium and the Known Universe\n      associatedName: sardaukar\n      associatedTitle: Sardaukar\n      associatedDescription: Elite military force member\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/linkDefinition:LinkDefinition example \u003cprimary_name\u003e\n```\n\n",
             "properties": {
@@ -24424,6 +24634,73 @@
                     "status": {
                         "type": "string",
                         "description": "The status of the request.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/resourceOwner:ResourceOwner": {
+            "description": "Manages an\u003cspan pulumi-lang-nodejs=\" okta.ResourceOwner \" pulumi-lang-dotnet=\" okta.ResourceOwner \" pulumi-lang-go=\" ResourceOwner \" pulumi-lang-python=\" ResourceOwner \" pulumi-lang-yaml=\" okta.ResourceOwner \" pulumi-lang-java=\" okta.ResourceOwner \" pulumi-lang-hcl=\" okta_resource_owner \"\u003e okta.ResourceOwner \u003c/span\u003eresource.\n",
+            "properties": {
+                "principalOrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Owners of the resource.\n",
+                    "secret": true
+                },
+                "resourceOrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The resources to assign owners\n",
+                    "secret": true
+                }
+            },
+            "required": [
+                "resourceOrns"
+            ],
+            "inputProperties": {
+                "principalOrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Owners of the resource.\n",
+                    "secret": true
+                },
+                "resourceOrns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The resources to assign owners\n",
+                    "secret": true
+                }
+            },
+            "requiredInputs": [
+                "resourceOrns"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ResourceOwner resources.\n",
+                "properties": {
+                    "principalOrns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Owners of the resource.\n",
+                        "secret": true
+                    },
+                    "resourceOrns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The resources to assign owners\n",
+                        "secret": true
                     }
                 },
                 "type": "object"
@@ -35114,6 +35391,55 @@
                 "type": "object"
             }
         },
+        "okta:index/getIamResourceSet:getIamResourceSet": {
+            "description": "Retrieves a resource set by `resourceSetIdOrLabel`.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getIamResourceSet({\n    id: \"\u003cresource_set_id_or_label\u003e\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_iam_resource_set(id=\"\u003cresource_set_id_or_label\u003e\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetIamResourceSet.Invoke(new()\n    {\n        Id = \"\u003cresource_set_id_or_label\u003e\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetIamResourceSet(ctx, \u0026okta.GetIamResourceSetArgs{\n\t\t\tId: \"\u003cresource_set_id_or_label\u003e\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getiamresourceset\" \"example\" {\n  id = \"\u003cresource_set_id_or_label\u003e\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetIamResourceSetArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getIamResourceSet(GetIamResourceSetArgs.builder()\n            .id(\"\u003cresource_set_id_or_label\u003e\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getIamResourceSet\n      arguments:\n        id: \u003cresource_set_id_or_label\u003e\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getIamResourceSet.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier of the resource set.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIamResourceSet.\n",
+                "properties": {
+                    "created": {
+                        "description": "Timestamp when the resource set was created.\n",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the resource set.\n",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Unique identifier of the resource set.\n",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "Unique label for the resource set.\n",
+                        "type": "string"
+                    },
+                    "lastUpdated": {
+                        "description": "Timestamp when the resource set was last updated.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "created",
+                    "description",
+                    "id",
+                    "label",
+                    "lastUpdated"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships": {
             "description": "Retrieves the list of member external IDs for a group in an Okta Identity Source.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getIdentitySourceGroupMemberships({\n    identitySourceId: \"\u003cidentity-source-id\u003e\",\n    groupExternalId: \"GROUPEXT123456EXAMPLE\",\n});\nexport const memberIds = example.then(example =\u003e example.memberExternalIds);\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_identity_source_group_memberships(identity_source_id=\"\u003cidentity-source-id\u003e\",\n    group_external_id=\"GROUPEXT123456EXAMPLE\")\npulumi.export(\"memberIds\", example.member_external_ids)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetIdentitySourceGroupMemberships.Invoke(new()\n    {\n        IdentitySourceId = \"\u003cidentity-source-id\u003e\",\n        GroupExternalId = \"GROUPEXT123456EXAMPLE\",\n    });\n\n    return new Dictionary\u003cstring, object?\u003e\n    {\n        [\"memberIds\"] = example.Apply(getIdentitySourceGroupMembershipsResult =\u003e getIdentitySourceGroupMembershipsResult.MemberExternalIds),\n    };\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetIdentitySourceGroupMemberships(ctx, \u0026okta.GetIdentitySourceGroupMembershipsArgs{\n\t\t\tIdentitySourceId: \"\u003cidentity-source-id\u003e\",\n\t\t\tGroupExternalId:  \"GROUPEXT123456EXAMPLE\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"memberIds\", example.MemberExternalIds)\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getidentitysourcegroupmemberships\" \"example\" {\n  identity_source_id = \"\u003cidentity-source-id\u003e\"\n  group_external_id  = \"GROUPEXT123456EXAMPLE\"\n}\n\noutput \"memberIds\" {\n  value = data.okta_getidentitysourcegroupmemberships.example.member_external_ids\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetIdentitySourceGroupMembershipsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getIdentitySourceGroupMemberships(GetIdentitySourceGroupMembershipsArgs.builder()\n            .identitySourceId(\"\u003cidentity-source-id\u003e\")\n            .groupExternalId(\"GROUPEXT123456EXAMPLE\")\n            .build());\n\n        ctx.export(\"memberIds\", example.memberExternalIds());\n    }\n}\n```\n```yaml\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getIdentitySourceGroupMemberships\n      arguments:\n        identitySourceId: \u003cidentity-source-id\u003e\n        groupExternalId: GROUPEXT123456EXAMPLE\noutputs:\n  memberIds: ${example.memberExternalIds}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -35332,6 +35658,59 @@
                     "identitySourceId",
                     "lastUpdated",
                     "profile"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getLabel:getLabel": {
+            "description": "Retrieves a single label\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getLabel.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the data source.\n"
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/getLabelValue:getLabelValue"
+                        },
+                        "description": "List of label values\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLabel.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the data source.\n",
+                        "type": "string"
+                    },
+                    "labelId": {
+                        "description": "The ID of a label\n",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Key name of the label\n",
+                        "type": "string"
+                    },
+                    "values": {
+                        "description": "List of label values\n",
+                        "items": {
+                            "$ref": "#/types/okta:index/getLabelValue:getLabelValue"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id",
+                    "labelId",
+                    "name"
                 ],
                 "type": "object"
             }
@@ -36527,6 +36906,136 @@
                     "lastUpdated",
                     "lastUpdatedBy",
                     "status"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getResourceLabel:getResourceLabel": {
+            "description": "Lists all labeled resources  \u003e **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getResourceLabel.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the data source.\n"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/getResourceLabelItem:getResourceLabelItem"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getResourceLabel.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the data source.\n",
+                        "type": "string"
+                    },
+                    "items": {
+                        "items": {
+                            "$ref": "#/types/okta:index/getResourceLabelItem:getResourceLabelItem"
+                        },
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getResourceOwner:getResourceOwner": {
+            "description": "Lists all resources with assigned owners for an app (the parent resource).\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getResourceOwner.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the data source.\n"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/getResourceOwnerItem:getResourceOwnerItem"
+                        }
+                    },
+                    "parentResourceOrn": {
+                        "type": "string",
+                        "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getResourceOwner.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the data source.\n",
+                        "type": "string"
+                    },
+                    "items": {
+                        "items": {
+                            "$ref": "#/types/okta:index/getResourceOwnerItem:getResourceOwnerItem"
+                        },
+                        "type": "array"
+                    },
+                    "parentResourceOrn": {
+                        "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource": {
+            "description": "Lists all resources without assigned owners for an app (the parent resource).\n",
+            "inputs": {
+                "description": "A collection of arguments for invoking getResourceOwnersCatalogResource.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the data source.\n"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/getResourceOwnersCatalogResourceItem:getResourceOwnersCatalogResourceItem"
+                        }
+                    },
+                    "parentResourceOrn": {
+                        "type": "string",
+                        "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getResourceOwnersCatalogResource.\n",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the data source.\n",
+                        "type": "string"
+                    },
+                    "items": {
+                        "items": {
+                            "$ref": "#/types/okta:index/getResourceOwnersCatalogResourceItem:getResourceOwnersCatalogResourceItem"
+                        },
+                        "type": "array"
+                    },
+                    "parentResourceOrn": {
+                        "description": "The Okta resource, in [ORN format](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#okta-resource-name-orn) format.\n",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
                 ],
                 "type": "object"
             }

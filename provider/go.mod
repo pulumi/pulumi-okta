@@ -183,7 +183,7 @@ require (
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/nxadm/tail v1.4.11 // indirect
 	github.com/oklog/run v1.1.0 // indirect
-	github.com/okta/okta-governance-sdk-golang v1.0.1 // indirect
+	github.com/okta/okta-governance-sdk-golang v1.1.0 // indirect
 	github.com/okta/okta-sdk-golang/v4 v4.1.2 // indirect
 	github.com/okta/okta-sdk-golang/v5 v5.0.6 // indirect
 	github.com/okta/okta-sdk-golang/v6 v6.1.6 // indirect

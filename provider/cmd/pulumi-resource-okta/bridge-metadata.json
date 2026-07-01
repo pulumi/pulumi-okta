@@ -963,6 +963,15 @@
                     }
                 }
             },
+            "okta_label": {
+                "current": "okta:index/label:Label",
+                "majorVersion": 6,
+                "fields": {
+                    "values": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_link_definition": {
                 "current": "okta:index/linkDefinition:LinkDefinition",
                 "majorVersion": 6
@@ -1411,6 +1420,18 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "okta_resource_owner": {
+                "current": "okta:index/resourceOwner:ResourceOwner",
+                "majorVersion": 6,
+                "fields": {
+                    "principal_orns": {
+                        "maxItemsOne": false
+                    },
+                    "resource_orns": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -2307,6 +2328,10 @@
                     }
                 }
             },
+            "okta_iam_resource_set": {
+                "current": "okta:index/getIamResourceSet:getIamResourceSet",
+                "majorVersion": 6
+            },
             "okta_identity_source_group_memberships": {
                 "current": "okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships",
                 "majorVersion": 6,
@@ -2364,6 +2389,15 @@
                         "maxItemsOne": false
                     },
                     "scopes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_label": {
+                "current": "okta:index/getLabel:getLabel",
+                "majorVersion": 6,
+                "fields": {
+                    "values": {
                         "maxItemsOne": false
                     }
                 }
@@ -2638,6 +2672,33 @@
                 "current": "okta:index/getRequestV2:getRequestV2",
                 "majorVersion": 6
             },
+            "okta_resource_label": {
+                "current": "okta:index/getResourceLabel:getResourceLabel",
+                "majorVersion": 6,
+                "fields": {
+                    "items": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_resource_owner": {
+                "current": "okta:index/getResourceOwner:getResourceOwner",
+                "majorVersion": 6,
+                "fields": {
+                    "items": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "okta_resource_owners_catalog_resource": {
+                "current": "okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource",
+                "majorVersion": 6,
+                "fields": {
+                    "items": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "okta_review": {
                 "current": "okta:index/getReview:getReview",
                 "majorVersion": 6,
@@ -2842,6 +2903,7 @@
                     "field": "identitySourceUserId"
                 }
             },
+            "okta_label": {},
             "okta_log_stream": {},
             "okta_policy_device_assurance_android": {},
             "okta_policy_device_assurance_chromeos": {},
@@ -2887,6 +2949,7 @@
                 }
             },
             "okta_request_v2": {},
+            "okta_resource_owner": {},
             "okta_review": {},
             "okta_security_events_provider": {},
             "okta_session_violation_policy_rule": {},
@@ -2982,6 +3045,7 @@
             "okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership": 1,
             "okta:index/identitySourceImport:IdentitySourceImport": 1,
             "okta:index/identitySourceUser:IdentitySourceUser": 1,
+            "okta:index/label:Label": 1,
             "okta:index/linkDefinition:LinkDefinition": 0,
             "okta:index/linkValue:LinkValue": 0,
             "okta:index/logStream:LogStream": 1,
@@ -3007,6 +3071,7 @@
             "okta:index/requestSettingOrganization:RequestSettingOrganization": 1,
             "okta:index/requestSettingResource:RequestSettingResource": 1,
             "okta:index/requestV2:RequestV2": 1,
+            "okta:index/resourceOwner:ResourceOwner": 1,
             "okta:index/resourceSet:ResourceSet": 0,
             "okta:index/review:Review": 1,
             "okta:index/roleSubscription:RoleSubscription": 0,
@@ -3101,10 +3166,12 @@
             "okta:index/getGroups:getGroups": 0,
             "okta:index/getHookKey:getHookKey": 1,
             "okta:index/getIamAssigneesUser:getIamAssigneesUser": 1,
+            "okta:index/getIamResourceSet:getIamResourceSet": 1,
             "okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships": 1,
             "okta:index/getIdentitySourceGroups:getIdentitySourceGroups": 1,
             "okta:index/getIdentitySourceSessions:getIdentitySourceSessions": 1,
             "okta:index/getIdentitySourceUsers:getIdentitySourceUsers": 1,
+            "okta:index/getLabel:getLabel": 1,
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
             "okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer": 1,
@@ -3124,6 +3191,9 @@
             "okta:index/getRequestSettingOrganization:getRequestSettingOrganization": 1,
             "okta:index/getRequestSettingResource:getRequestSettingResource": 1,
             "okta:index/getRequestV2:getRequestV2": 1,
+            "okta:index/getResourceLabel:getResourceLabel": 1,
+            "okta:index/getResourceOwner:getResourceOwner": 1,
+            "okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource": 1,
             "okta:index/getReview:getReview": 1,
             "okta:index/getRoleSubscription:getRoleSubscription": 0,
             "okta:index/getSecurityEventsProvider:getSecurityEventsProvider": 1,
