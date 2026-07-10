@@ -28,12 +28,12 @@ import * as utilities from "./utilities";
  *     email: "shaddam.corrino.iv@salusa-secundus.planet",
  * });
  * const sardaukars: okta.user.User[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     sardaukars.push(new okta.user.User(`sardaukars-${range.value}`, {
+ * for (let range = 0; range < 5; range++) {
+ *     sardaukars.push(new okta.user.User(`sardaukars-${range}`, {
  *         firstName: "Amrit",
- *         lastName: `Sardaukar_${range.value}`,
- *         login: `amritsardaukar_${range.value}@salusa-secundus.planet`,
- *         email: `amritsardaukar_${range.value}@salusa-secundus.planet`,
+ *         lastName: `Sardaukar_${range}`,
+ *         login: `amritsardaukar_${range}@salusa-secundus.planet`,
+ *         email: `amritsardaukar_${range}@salusa-secundus.planet`,
  *     }));
  * }
  * const example = new okta.LinkValue("example", {

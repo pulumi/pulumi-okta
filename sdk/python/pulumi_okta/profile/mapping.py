@@ -33,7 +33,7 @@ class MappingArgs:
         :param pulumi.Input[_builtins.str] target_id: The target id of the mapping to manage.
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+               **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[_builtins.bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         """
         pulumi.set(__self__, "source_id", source_id)
@@ -75,7 +75,7 @@ class MappingArgs:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
         > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -122,7 +122,7 @@ class _MappingState:
 
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+               **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[_builtins.bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         :param pulumi.Input[_builtins.str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[_builtins.str] source_name: Name of the mapping source.
@@ -156,7 +156,7 @@ class _MappingState:
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
         > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 
@@ -309,7 +309,7 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+               **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[_builtins.bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         :param pulumi.Input[_builtins.str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[_builtins.str] target_id: The target id of the mapping to manage.
@@ -425,7 +425,7 @@ class Mapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_apply: Whether apply the changes to all users with this profile after updating or creating the these mappings.
                > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-               > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+               **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         :param pulumi.Input[_builtins.bool] delete_when_absent: When turned on this flag will trigger the provider to delete mapping properties that are not defined in config. By default, we do not delete missing properties.
         :param pulumi.Input[_builtins.str] source_id: The source id of the mapping to manage.
         :param pulumi.Input[_builtins.str] source_name: Name of the mapping source.
@@ -455,7 +455,7 @@ class Mapping(pulumi.CustomResource):
         """
         Whether apply the changes to all users with this profile after updating or creating the these mappings.
         > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         """
         return pulumi.get(self, "always_apply")
 

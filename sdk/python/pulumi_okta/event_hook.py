@@ -32,7 +32,7 @@ class EventHookArgs:
 
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] channel: Details of the endpoint the event hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.\\
                	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
                	- 'uri' - (Required) The URI the hook will hit.
                	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -79,7 +79,7 @@ class EventHookArgs:
     @pulumi.getter
     def auth(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Details of the endpoint the event hook will hit.   
+        Details of the endpoint the event hook will hit.\\
         	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
         	- 'uri' - (Required) The URI the hook will hit.
         	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -139,7 +139,7 @@ class _EventHookState:
         """
         Input properties used for looking up and filtering EventHook resources.
 
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.\\
                	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
                	- 'uri' - (Required) The URI the hook will hit.
                	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -166,7 +166,7 @@ class _EventHookState:
     @pulumi.getter
     def auth(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Details of the endpoint the event hook will hit.   
+        Details of the endpoint the event hook will hit.\\
         	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
         	- 'uri' - (Required) The URI the hook will hit.
         	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -287,7 +287,7 @@ class EventHook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.\\
                	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
                	- 'uri' - (Required) The URI the hook will hit.
                	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -400,7 +400,7 @@ class EventHook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.   
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] auth: Details of the endpoint the event hook will hit.\\
                	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
                	- 'uri' - (Required) The URI the hook will hit.
                	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -426,7 +426,7 @@ class EventHook(pulumi.CustomResource):
     @pulumi.getter
     def auth(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Details of the endpoint the event hook will hit.   
+        Details of the endpoint the event hook will hit.\\
         	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
         	- 'uri' - (Required) The URI the hook will hit.
         	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.

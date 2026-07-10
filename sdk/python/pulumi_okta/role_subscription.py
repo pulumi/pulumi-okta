@@ -25,7 +25,7 @@ class RoleSubscriptionArgs:
         """
         The set of arguments for constructing a RoleSubscription resource.
 
-        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
+        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values:
                	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
                	- 'USER_LOCKED_OUT' - User lockouts.
                	- 'APP_IMPORT' - App user import status.
@@ -62,7 +62,7 @@ class RoleSubscriptionArgs:
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the notification. Valid values: 
+        Type of the notification. Valid values:
         	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
         	- 'USER_LOCKED_OUT' - User lockouts.
         	- 'APP_IMPORT' - App user import status.
@@ -128,7 +128,7 @@ class _RoleSubscriptionState:
         """
         Input properties used for looking up and filtering RoleSubscription resources.
 
-        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
+        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values:
                	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
                	- 'USER_LOCKED_OUT' - User lockouts.
                	- 'APP_IMPORT' - App user import status.
@@ -167,7 +167,7 @@ class _RoleSubscriptionState:
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of the notification. Valid values: 
+        Type of the notification. Valid values:
         	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
         	- 'USER_LOCKED_OUT' - User lockouts.
         	- 'APP_IMPORT' - App user import status.
@@ -262,7 +262,7 @@ class RoleSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
+        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values:
                	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
                	- 'USER_LOCKED_OUT' - User lockouts.
                	- 'APP_IMPORT' - App user import status.
@@ -376,7 +376,7 @@ class RoleSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values: 
+        :param pulumi.Input[_builtins.str] notification_type: Type of the notification. Valid values:
                	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
                	- 'USER_LOCKED_OUT' - User lockouts.
                	- 'APP_IMPORT' - App user import status.
@@ -417,7 +417,7 @@ class RoleSubscription(pulumi.CustomResource):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of the notification. Valid values: 
+        Type of the notification. Valid values:
         	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
         	- 'USER_LOCKED_OUT' - User lockouts.
         	- 'APP_IMPORT' - App user import status.

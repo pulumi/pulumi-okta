@@ -160,13 +160,13 @@ class LinkValue(pulumi.CustomResource):
             last_name="Corrino IV",
             login="shaddam.corrino.iv@salusa-secundus.planet",
             email="shaddam.corrino.iv@salusa-secundus.planet")
-        sardaukars: list[Any] = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            sardaukars.append(okta.user.User(f"sardaukars-{range['value']}",
+        sardaukars: list[okta.user.User] = []
+        for sardaukars_range in [{"value": i} for i in range(0, 5)]:
+            sardaukars.append(okta.user.User(f"sardaukars-{sardaukars_range['value']}",
                 first_name="Amrit",
-                last_name=f"Sardaukar_{range['value']}",
-                login=f"amritsardaukar_{range['value']}@salusa-secundus.planet",
-                email=f"amritsardaukar_{range['value']}@salusa-secundus.planet"))
+                last_name=f"Sardaukar_{sardaukars_range['value']}",
+                login=f"amritsardaukar_{sardaukars_range['value']}@salusa-secundus.planet",
+                email=f"amritsardaukar_{sardaukars_range['value']}@salusa-secundus.planet"))
         example = okta.LinkValue("example",
             primary_name=padishah.primary_name,
             primary_user_id=emperor.id,
@@ -220,13 +220,13 @@ class LinkValue(pulumi.CustomResource):
             last_name="Corrino IV",
             login="shaddam.corrino.iv@salusa-secundus.planet",
             email="shaddam.corrino.iv@salusa-secundus.planet")
-        sardaukars: list[Any] = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            sardaukars.append(okta.user.User(f"sardaukars-{range['value']}",
+        sardaukars: list[okta.user.User] = []
+        for sardaukars_range in [{"value": i} for i in range(0, 5)]:
+            sardaukars.append(okta.user.User(f"sardaukars-{sardaukars_range['value']}",
                 first_name="Amrit",
-                last_name=f"Sardaukar_{range['value']}",
-                login=f"amritsardaukar_{range['value']}@salusa-secundus.planet",
-                email=f"amritsardaukar_{range['value']}@salusa-secundus.planet"))
+                last_name=f"Sardaukar_{sardaukars_range['value']}",
+                login=f"amritsardaukar_{sardaukars_range['value']}@salusa-secundus.planet",
+                email=f"amritsardaukar_{sardaukars_range['value']}@salusa-secundus.planet"))
         example = okta.LinkValue("example",
             primary_name=padishah.primary_name,
             primary_user_id=emperor.id,

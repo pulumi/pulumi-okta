@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-okta"
                 packaging = "jar"
-                description = "A Pulumi package for creating and managing okta resources."
+                description = $/A Pulumi package for creating and managing okta resources./$
 
                 url = "https://github.com/pulumi/pulumi-okta"
 
