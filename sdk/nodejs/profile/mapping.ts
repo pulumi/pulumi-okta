@@ -72,7 +72,7 @@ export class Mapping extends pulumi.CustomResource {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     declare public readonly alwaysApply: pulumi.Output<boolean | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface MappingState {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface MappingArgs {
     /**
      * Whether apply the changes to all users with this profile after updating or creating the these mappings.
      * > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-     * > **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+     * **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
      */
     alwaysApply?: pulumi.Input<boolean | undefined>;
     /**

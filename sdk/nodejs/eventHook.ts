@@ -69,7 +69,7 @@ export class EventHook extends pulumi.CustomResource {
     }
 
     /**
-     * Details of the endpoint the event hook will hit.   
+     * Details of the endpoint the event hook will hit.\
      * 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
      * 	- 'uri' - (Required) The URI the hook will hit.
      * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -140,7 +140,7 @@ export class EventHook extends pulumi.CustomResource {
  */
 export interface EventHookState {
     /**
-     * Details of the endpoint the event hook will hit.   
+     * Details of the endpoint the event hook will hit.\
      * 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
      * 	- 'uri' - (Required) The URI the hook will hit.
      * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
@@ -173,7 +173,7 @@ export interface EventHookState {
  */
 export interface EventHookArgs {
     /**
-     * Details of the endpoint the event hook will hit.   
+     * Details of the endpoint the event hook will hit.\
      * 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.
      * 	- 'uri' - (Required) The URI the hook will hit.
      * 	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.

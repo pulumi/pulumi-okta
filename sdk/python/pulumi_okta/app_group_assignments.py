@@ -126,15 +126,15 @@ class AppGroupAssignments(pulumi.CustomResource):
         import pulumi_okta as okta
         import pulumi_std as std
 
-        this: list[Any] = []
-        for range in [{"value": i} for i in range(0, std.toset(input=[
+        this: list[okta.AppGroupAssignments] = []
+        for this_range in [{"value": i} for i in range(0, std.toset(input=[
             group-a,
             group-b,
         ]).result)]:
-            this.append(okta.AppGroupAssignments(f"this-{range['value']}",
+            this.append(okta.AppGroupAssignments(f"this-{this_range['value']}",
                 app_id=this_okta_app_bookmark["id"],
                 groups=[{
-                    "id": range["value"],
+                    "id": this_range["value"],
                 }]))
         ```
 
@@ -216,15 +216,15 @@ class AppGroupAssignments(pulumi.CustomResource):
         import pulumi_okta as okta
         import pulumi_std as std
 
-        this: list[Any] = []
-        for range in [{"value": i} for i in range(0, std.toset(input=[
+        this: list[okta.AppGroupAssignments] = []
+        for this_range in [{"value": i} for i in range(0, std.toset(input=[
             group-a,
             group-b,
         ]).result)]:
-            this.append(okta.AppGroupAssignments(f"this-{range['value']}",
+            this.append(okta.AppGroupAssignments(f"this-{this_range['value']}",
                 app_id=this_okta_app_bookmark["id"],
                 groups=[{
-                    "id": range["value"],
+                    "id": this_range["value"],
                 }]))
         ```
 

@@ -59,7 +59,7 @@ export class RoleSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Type of the notification. Valid values: 
+     * Type of the notification. Valid values:
      * 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
      * 	- 'USER_LOCKED_OUT' - User lockouts.
      * 	- 'APP_IMPORT' - App user import status.
@@ -133,7 +133,7 @@ export class RoleSubscription extends pulumi.CustomResource {
  */
 export interface RoleSubscriptionState {
     /**
-     * Type of the notification. Valid values: 
+     * Type of the notification. Valid values:
      * 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
      * 	- 'USER_LOCKED_OUT' - User lockouts.
      * 	- 'APP_IMPORT' - App user import status.
@@ -175,7 +175,7 @@ export interface RoleSubscriptionState {
  */
 export interface RoleSubscriptionArgs {
     /**
-     * Type of the notification. Valid values: 
+     * Type of the notification. Valid values:
      * 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
      * 	- 'USER_LOCKED_OUT' - User lockouts.
      * 	- 'APP_IMPORT' - App user import status.
