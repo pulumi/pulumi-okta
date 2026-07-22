@@ -33540,10 +33540,6 @@
                         },
                         "type": "array"
                     },
-                    "id": {
-                        "description": "The provider-assigned unique ID for this managed resource.",
-                        "type": "string"
-                    },
                     "includeNonDeleted": {
                         "description": "Specifies whether to include non-active, but not deleted apps in the results.\n",
                         "type": "boolean"
@@ -33567,8 +33563,7 @@
                     }
                 },
                 "required": [
-                    "apps",
-                    "id"
+                    "apps"
                 ],
                 "type": "object"
             }
