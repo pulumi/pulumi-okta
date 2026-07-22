@@ -45,8 +45,6 @@ type GetAppsResult struct {
 	ActiveOnly *bool `pulumi:"activeOnly"`
 	// The list of applications that match the search criteria.
 	Apps []GetAppsApp `pulumi:"apps"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Specifies whether to include non-active, but not deleted apps in the results.
 	IncludeNonDeleted *bool `pulumi:"includeNonDeleted"`
 	// Searches for applications whose label or name property matches this value exactly.
@@ -115,11 +113,6 @@ func (o GetAppsResultOutput) ActiveOnly() pulumi.BoolPtrOutput {
 // The list of applications that match the search criteria.
 func (o GetAppsResultOutput) Apps() GetAppsAppArrayOutput {
 	return o.ApplyT(func(v GetAppsResult) []GetAppsApp { return v.Apps }).(GetAppsAppArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetAppsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAppsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Specifies whether to include non-active, but not deleted apps in the results.

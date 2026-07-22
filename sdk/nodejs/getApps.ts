@@ -64,10 +64,6 @@ export interface GetAppsResult {
      */
     readonly apps: outputs.GetAppsApp[];
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Specifies whether to include non-active, but not deleted apps in the results.
      */
     readonly includeNonDeleted?: boolean;
