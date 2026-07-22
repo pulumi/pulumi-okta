@@ -26,11 +26,6 @@ public final class GetAppsResult {
      */
     private List<GetAppsApp> apps;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Specifies whether to include non-active, but not deleted apps in the results.
      * 
      */
@@ -74,13 +69,6 @@ public final class GetAppsResult {
      */
     public List<GetAppsApp> apps() {
         return this.apps;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Specifies whether to include non-active, but not deleted apps in the results.
@@ -133,7 +121,6 @@ public final class GetAppsResult {
     public static final class Builder {
         private @Nullable Boolean activeOnly;
         private List<GetAppsApp> apps;
-        private String id;
         private @Nullable Boolean includeNonDeleted;
         private @Nullable String label;
         private @Nullable String labelPrefix;
@@ -144,7 +131,6 @@ public final class GetAppsResult {
     	      Objects.requireNonNull(defaults);
     	      this.activeOnly = defaults.activeOnly;
     	      this.apps = defaults.apps;
-    	      this.id = defaults.id;
     	      this.includeNonDeleted = defaults.includeNonDeleted;
     	      this.label = defaults.label;
     	      this.labelPrefix = defaults.labelPrefix;
@@ -168,14 +154,6 @@ public final class GetAppsResult {
         }
         public Builder apps(GetAppsApp... apps) {
             return apps(List.of(apps));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetAppsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder includeNonDeleted(@Nullable Boolean includeNonDeleted) {
@@ -211,7 +189,6 @@ public final class GetAppsResult {
             final var _resultValue = new GetAppsResult();
             _resultValue.activeOnly = activeOnly;
             _resultValue.apps = apps;
-            _resultValue.id = id;
             _resultValue.includeNonDeleted = includeNonDeleted;
             _resultValue.label = label;
             _resultValue.labelPrefix = labelPrefix;

@@ -123,10 +123,6 @@ namespace Pulumi.Okta
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppsAppResult> Apps;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Specifies whether to include non-active, but not deleted apps in the results.
         /// </summary>
         public readonly bool? IncludeNonDeleted;
@@ -153,8 +149,6 @@ namespace Pulumi.Okta
 
             ImmutableArray<Outputs.GetAppsAppResult> apps,
 
-            string id,
-
             bool? includeNonDeleted,
 
             string? label,
@@ -167,7 +161,6 @@ namespace Pulumi.Okta
         {
             ActiveOnly = activeOnly;
             Apps = apps;
-            Id = id;
             IncludeNonDeleted = includeNonDeleted;
             Label = label;
             LabelPrefix = labelPrefix;

@@ -27,16 +27,13 @@ class GetAppsResult:
     """
     A collection of values returned by getApps.
     """
-    def __init__(__self__, active_only=None, apps=None, id=None, include_non_deleted=None, label=None, label_prefix=None, q=None, use_optimization=None):
+    def __init__(__self__, active_only=None, apps=None, include_non_deleted=None, label=None, label_prefix=None, q=None, use_optimization=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
         if apps and not isinstance(apps, list):
             raise TypeError("Expected argument 'apps' to be a list")
         pulumi.set(__self__, "apps", apps)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if include_non_deleted and not isinstance(include_non_deleted, bool):
             raise TypeError("Expected argument 'include_non_deleted' to be a bool")
         pulumi.set(__self__, "include_non_deleted", include_non_deleted)
@@ -68,14 +65,6 @@ class GetAppsResult:
         The list of applications that match the search criteria.
         """
         return pulumi.get(self, "apps")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="includeNonDeleted")
@@ -127,7 +116,6 @@ class AwaitableGetAppsResult(GetAppsResult):
         return GetAppsResult(
             active_only=self.active_only,
             apps=self.apps,
-            id=self.id,
             include_non_deleted=self.include_non_deleted,
             label=self.label,
             label_prefix=self.label_prefix,
@@ -165,7 +153,6 @@ def get_apps(active_only: Optional[_builtins.bool] = None,
     return AwaitableGetAppsResult(
         active_only=pulumi.get(__ret__, 'active_only'),
         apps=pulumi.get(__ret__, 'apps'),
-        id=pulumi.get(__ret__, 'id'),
         include_non_deleted=pulumi.get(__ret__, 'include_non_deleted'),
         label=pulumi.get(__ret__, 'label'),
         label_prefix=pulumi.get(__ret__, 'label_prefix'),
@@ -200,7 +187,6 @@ def get_apps_output(active_only: pulumi.Input[Optional[Optional[_builtins.bool]]
     return __ret__.apply(lambda __response__: GetAppsResult(
         active_only=pulumi.get(__response__, 'active_only'),
         apps=pulumi.get(__response__, 'apps'),
-        id=pulumi.get(__response__, 'id'),
         include_non_deleted=pulumi.get(__response__, 'include_non_deleted'),
         label=pulumi.get(__response__, 'label'),
         label_prefix=pulumi.get(__response__, 'label_prefix'),
