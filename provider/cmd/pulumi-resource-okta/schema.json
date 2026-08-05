@@ -42,7 +42,7 @@
             "respectSchemaVersion": true
         },
         "nodejs": {
-            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.13.0",
+            "packageDescription": "A Pulumi package for creating and managing okta resources.. Based on terraform-provider-okta: version v6.14.0",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/okta/terraform-provider-okta)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-okta` repo](https://github.com/pulumi/pulumi-okta/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-okta` repo](https://github.com/okta/terraform-provider-okta/issues).",
             "devDependencies": {
                 "@types/mime": "^2.0.0",
@@ -7539,6 +7539,31 @@
                 }
             }
         },
+        "okta:index/getTrustedOriginScope:getTrustedOriginScope": {
+            "properties": {
+                "allowedOktaApps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The allowed Okta apps for the trusted origin scope\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The scope type.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "allowedOktaApps",
+                "type"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "okta:index/getTrustedOriginsTrustedOrigin:getTrustedOriginsTrustedOrigin": {
             "properties": {
                 "active": {
@@ -7971,6 +7996,22 @@
                 "expression",
                 "id"
             ]
+        },
+        "okta:trustedorigin/OriginScope:OriginScope": {
+            "properties": {
+                "allowedOktaApps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The allowed Okta apps for the trusted origin scope\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The scope type. Supported values: `CORS`, `REDIRECT`, `IFRAME_EMBED`\n"
+                }
+            },
+            "type": "object"
         },
         "okta:user/UserPasswordHash:UserPasswordHash": {
             "properties": {
@@ -9783,8 +9824,8 @@
                 },
                 "groupsClaim": {
                     "$ref": "#/types/okta:app/OAuthGroupsClaim:OAuthGroupsClaim",
-                    "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\" pulumi-lang-hcl=\"`preconfigured_app`\"\u003e`preconfiguredApp`\u003c/span\u003e is set)\n",
-                    "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \" pulumi-lang-hcl=\" groups_claim \"\u003e groupsClaim \u003c/span\u003efield is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead."
+                    "description": "**DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (\u003cspan pulumi-lang-nodejs=\"`privateKey`\" pulumi-lang-dotnet=\"`PrivateKey`\" pulumi-lang-go=\"`privateKey`\" pulumi-lang-python=\"`private_key`\" pulumi-lang-yaml=\"`privateKey`\" pulumi-lang-java=\"`privateKey`\" pulumi-lang-hcl=\"`private_key`\"\u003e`privateKey`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`accessToken`\" pulumi-lang-dotnet=\"`AccessToken`\" pulumi-lang-go=\"`accessToken`\" pulumi-lang-python=\"`access_token`\" pulumi-lang-yaml=\"`accessToken`\" pulumi-lang-java=\"`accessToken`\" pulumi-lang-hcl=\"`access_token`\"\u003e`accessToken`\u003c/span\u003e), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\" pulumi-lang-hcl=\"`preconfigured_app`\"\u003e`preconfiguredApp`\u003c/span\u003e is set. Use \u003cspan pulumi-lang-nodejs=\"`okta.auth.ServerClaim`\" pulumi-lang-dotnet=\"`okta.auth.ServerClaim`\" pulumi-lang-go=\"`auth.ServerClaim`\" pulumi-lang-python=\"`auth.ServerClaim`\" pulumi-lang-yaml=\"`okta.auth.ServerClaim`\" pulumi-lang-java=\"`okta.auth.ServerClaim`\" pulumi-lang-hcl=\"`okta_auth_server_claim`\"\u003e`okta.auth.ServerClaim`\u003c/span\u003e (requires Custom Authorization Server / API Access Management subscription) instead.\n",
+                    "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \" pulumi-lang-hcl=\" groups_claim \"\u003e groupsClaim \u003c/span\u003efield is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead."
                 },
                 "hideIos": {
                     "type": "boolean",
@@ -10052,8 +10093,8 @@
                 },
                 "groupsClaim": {
                     "$ref": "#/types/okta:app/OAuthGroupsClaim:OAuthGroupsClaim",
-                    "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\" pulumi-lang-hcl=\"`preconfigured_app`\"\u003e`preconfiguredApp`\u003c/span\u003e is set)\n",
-                    "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \" pulumi-lang-hcl=\" groups_claim \"\u003e groupsClaim \u003c/span\u003efield is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead."
+                    "description": "**DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (\u003cspan pulumi-lang-nodejs=\"`privateKey`\" pulumi-lang-dotnet=\"`PrivateKey`\" pulumi-lang-go=\"`privateKey`\" pulumi-lang-python=\"`private_key`\" pulumi-lang-yaml=\"`privateKey`\" pulumi-lang-java=\"`privateKey`\" pulumi-lang-hcl=\"`private_key`\"\u003e`privateKey`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`accessToken`\" pulumi-lang-dotnet=\"`AccessToken`\" pulumi-lang-go=\"`accessToken`\" pulumi-lang-python=\"`access_token`\" pulumi-lang-yaml=\"`accessToken`\" pulumi-lang-java=\"`accessToken`\" pulumi-lang-hcl=\"`access_token`\"\u003e`accessToken`\u003c/span\u003e), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\" pulumi-lang-hcl=\"`preconfigured_app`\"\u003e`preconfiguredApp`\u003c/span\u003e is set. Use \u003cspan pulumi-lang-nodejs=\"`okta.auth.ServerClaim`\" pulumi-lang-dotnet=\"`okta.auth.ServerClaim`\" pulumi-lang-go=\"`auth.ServerClaim`\" pulumi-lang-python=\"`auth.ServerClaim`\" pulumi-lang-yaml=\"`okta.auth.ServerClaim`\" pulumi-lang-java=\"`okta.auth.ServerClaim`\" pulumi-lang-hcl=\"`okta_auth_server_claim`\"\u003e`okta.auth.ServerClaim`\u003c/span\u003e (requires Custom Authorization Server / API Access Management subscription) instead.\n",
+                    "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \" pulumi-lang-hcl=\" groups_claim \"\u003e groupsClaim \u003c/span\u003efield is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead."
                 },
                 "hideIos": {
                     "type": "boolean",
@@ -10308,8 +10349,8 @@
                     },
                     "groupsClaim": {
                         "$ref": "#/types/okta:app/OAuthGroupsClaim:OAuthGroupsClaim",
-                        "description": "Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\" pulumi-lang-hcl=\"`preconfigured_app`\"\u003e`preconfiguredApp`\u003c/span\u003e is set)\n",
-                        "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \" pulumi-lang-hcl=\" groups_claim \"\u003e groupsClaim \u003c/span\u003efield is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead."
+                        "description": "**DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (\u003cspan pulumi-lang-nodejs=\"`privateKey`\" pulumi-lang-dotnet=\"`PrivateKey`\" pulumi-lang-go=\"`privateKey`\" pulumi-lang-python=\"`private_key`\" pulumi-lang-yaml=\"`privateKey`\" pulumi-lang-java=\"`privateKey`\" pulumi-lang-hcl=\"`private_key`\"\u003e`privateKey`\u003c/span\u003e or \u003cspan pulumi-lang-nodejs=\"`accessToken`\" pulumi-lang-dotnet=\"`AccessToken`\" pulumi-lang-go=\"`accessToken`\" pulumi-lang-python=\"`access_token`\" pulumi-lang-yaml=\"`accessToken`\" pulumi-lang-java=\"`accessToken`\" pulumi-lang-hcl=\"`access_token`\"\u003e`accessToken`\u003c/span\u003e), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when \u003cspan pulumi-lang-nodejs=\"`preconfiguredApp`\" pulumi-lang-dotnet=\"`PreconfiguredApp`\" pulumi-lang-go=\"`preconfiguredApp`\" pulumi-lang-python=\"`preconfigured_app`\" pulumi-lang-yaml=\"`preconfiguredApp`\" pulumi-lang-java=\"`preconfiguredApp`\" pulumi-lang-hcl=\"`preconfigured_app`\"\u003e`preconfiguredApp`\u003c/span\u003e is set. Use \u003cspan pulumi-lang-nodejs=\"`okta.auth.ServerClaim`\" pulumi-lang-dotnet=\"`okta.auth.ServerClaim`\" pulumi-lang-go=\"`auth.ServerClaim`\" pulumi-lang-python=\"`auth.ServerClaim`\" pulumi-lang-yaml=\"`okta.auth.ServerClaim`\" pulumi-lang-java=\"`okta.auth.ServerClaim`\" pulumi-lang-hcl=\"`okta_auth_server_claim`\"\u003e`okta.auth.ServerClaim`\u003c/span\u003e (requires Custom Authorization Server / API Access Management subscription) instead.\n",
+                        "deprecationMessage": "The\u003cspan pulumi-lang-nodejs=\" groupsClaim \" pulumi-lang-dotnet=\" GroupsClaim \" pulumi-lang-go=\" groupsClaim \" pulumi-lang-python=\" groups_claim \" pulumi-lang-yaml=\" groupsClaim \" pulumi-lang-java=\" groupsClaim \" pulumi-lang-hcl=\" groups_claim \"\u003e groupsClaim \u003c/span\u003efield is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead."
                     },
                     "hideIos": {
                         "type": "boolean",
@@ -16964,6 +17005,13 @@
                     },
                     "description": "The zones to include\n"
                 },
+                "office365ClientIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications."
+                },
                 "platformIncludes": {
                     "type": "array",
                     "items": {
@@ -17120,6 +17168,13 @@
                     },
                     "description": "The zones to include\n"
                 },
+                "office365ClientIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications."
+                },
                 "platformIncludes": {
                     "type": "array",
                     "items": {
@@ -17270,6 +17325,13 @@
                             "type": "string"
                         },
                         "description": "The zones to include\n"
+                    },
+                    "office365ClientIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications."
                     },
                     "platformIncludes": {
                         "type": "array",
@@ -18996,10 +19058,7 @@
                 }
             },
             "required": [
-                "name",
-                "secretKey",
-                "siteKey",
-                "type"
+                "name"
             ],
             "inputProperties": {
                 "name": {
@@ -19017,15 +19076,9 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`\n",
-                    "willReplaceOnChanges": true
+                    "description": "Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`\n"
                 }
             },
-            "requiredInputs": [
-                "secretKey",
-                "siteKey",
-                "type"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Captcha resources.\n",
                 "properties": {
@@ -19044,8 +19097,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`\n",
-                        "willReplaceOnChanges": true
+                        "description": "Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`\n"
                     }
                 },
                 "type": "object"
@@ -21863,6 +21915,1392 @@
                     "type": {
                         "type": "string",
                         "description": "Streaming provider used - 'aws*eventbridge' or 'splunk*cloud_logstreaming'\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set ID"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role ID"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"ACCESS_CERTIFICATIONS_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "resourceSet",
+                "role",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"ACCESS_CERTIFICATIONS_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleAccessCertificationsAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "resourceSet": {
+                        "type": "string",
+                        "description": "Resource set ID"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Role ID"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"ACCESS_CERTIFICATIONS_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleAccessRequestsAdmin:Oauth2V1ClientsRoleAccessRequestsAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set ID"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role ID"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"ACCESS_REQUESTS_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "resourceSet",
+                "role",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"ACCESS_REQUESTS_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleAccessRequestsAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "resourceSet": {
+                        "type": "string",
+                        "description": "Resource set ID"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Role ID"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"ACCESS_REQUESTS_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"API_ACCESS_MANAGEMENT_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"API_ACCESS_MANAGEMENT_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleApiAccessManagementAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"API_ACCESS_MANAGEMENT_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleAppAdmin:Oauth2V1ClientsRoleAppAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"APP_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"APP_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleAppAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"APP_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleCustom:Oauth2V1ClientsRoleCustom": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set ID"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role ID"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"CUSTOM\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "resourceSet",
+                "role",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set ID"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role ID"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"CUSTOM\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleCustom resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "resourceSet": {
+                        "type": "string",
+                        "description": "Resource set ID"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Role ID"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"CUSTOM\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleGroupMembershipAdmin:Oauth2V1ClientsRoleGroupMembershipAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"GROUP_MEMBERSHIP_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"GROUP_MEMBERSHIP_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleGroupMembershipAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"GROUP_MEMBERSHIP_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleHelpDeskAdmin:Oauth2V1ClientsRoleHelpDeskAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"HELP_DESK_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"HELP_DESK_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleHelpDeskAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"HELP_DESK_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleOrgAdmin:Oauth2V1ClientsRoleOrgAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"ORG_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"ORG_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleOrgAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"ORG_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleReadOnlyAdmin:Oauth2V1ClientsRoleReadOnlyAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"READ_ONLY_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"READ_ONLY_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleReadOnlyAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"READ_ONLY_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleReportAdmin:Oauth2V1ClientsRoleReportAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"REPORT_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"REPORT_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleReportAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"REPORT_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"SUPER_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"SUPER_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleSuperAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"SUPER_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleUserAdmin:Oauth2V1ClientsRoleUserAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"USER_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"USER_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleUserAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"USER_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin": {
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the object was created"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Label for the role assignment"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the object was last updated"
+                },
+                "resourceSet": {
+                    "type": "string",
+                    "description": "Resource set ID"
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Role ID"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"WORKFLOWS_ADMIN\"."
+                }
+            },
+            "required": [
+                "assignmentType",
+                "clientId",
+                "created",
+                "label",
+                "lastUpdated",
+                "resourceSet",
+                "role",
+                "status",
+                "type"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "Role assignment type"
+                },
+                "clientId": {
+                    "type": "string",
+                    "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the role assignment"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Discriminator field identifying the variant type. Must be set to \"WORKFLOWS_ADMIN\"."
+                }
+            },
+            "requiredInputs": [
+                "clientId",
+                "type"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Oauth2V1ClientsRoleWorkflowsAdmin resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "Role assignment type"
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "\u003cspan pulumi-lang-nodejs=\"`clientId`\" pulumi-lang-dotnet=\"`ClientId`\" pulumi-lang-go=\"`clientId`\" pulumi-lang-python=\"`client_id`\" pulumi-lang-yaml=\"`clientId`\" pulumi-lang-java=\"`clientId`\" pulumi-lang-hcl=\"`client_id`\"\u003e`clientId`\u003c/span\u003e of the app"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the object was created"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "Label for the role assignment"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the object was last updated"
+                    },
+                    "resourceSet": {
+                        "type": "string",
+                        "description": "Resource set ID"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "Role ID"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the role assignment"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Discriminator field identifying the variant type. Must be set to \"WORKFLOWS_ADMIN\"."
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "okta:index/orgCaptcha:OrgCaptcha": {
+            "properties": {
+                "captchaId": {
+                    "type": "string",
+                    "description": "The unique key of the associated CAPTCHA instance"
+                },
+                "enabledPages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of pages that have CAPTCHA enabled"
+                }
+            },
+            "inputProperties": {
+                "captchaId": {
+                    "type": "string",
+                    "description": "The unique key of the associated CAPTCHA instance"
+                },
+                "enabledPages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An array of pages that have CAPTCHA enabled"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering OrgCaptcha resources.\n",
+                "properties": {
+                    "captchaId": {
+                        "type": "string",
+                        "description": "The unique key of the associated CAPTCHA instance"
+                    },
+                    "enabledPages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An array of pages that have CAPTCHA enabled"
                     }
                 },
                 "type": "object"
@@ -30301,19 +31739,31 @@
             }
         },
         "okta:trustedorigin/origin:Origin": {
-            "description": "Creates a Trusted Origin. This resource allows you to create and configure a Trusted Origin.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.trustedorigin.Origin(\"example\", {\n    name: \"example\",\n    origin: \"https://example.com\",\n    scopes: [\"CORS\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.trustedorigin.Origin(\"example\",\n    name=\"example\",\n    origin=\"https://example.com\",\n    scopes=[\"CORS\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.TrustedOrigin.Origin(\"example\", new()\n    {\n        Name = \"example\",\n        OriginName = \"https://example.com\",\n        Scopes = new[]\n        {\n            \"CORS\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/trustedorigin\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := trustedorigin.NewOrigin(ctx, \"example\", \u0026trustedorigin.OriginArgs{\n\t\t\tName:   pulumi.String(\"example\"),\n\t\t\tOrigin: pulumi.String(\"https://example.com\"),\n\t\t\tScopes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"CORS\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_trustedorigin_origin\" \"example\" {\n  name   = \"example\"\n  origin = \"https://example.com\"\n  scopes = [\"CORS\"]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.trustedorigin.Origin;\nimport com.pulumi.okta.trustedorigin.OriginArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Origin(\"example\", OriginArgs.builder()\n            .name(\"example\")\n            .origin(\"https://example.com\")\n            .scopes(\"CORS\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:trustedorigin:Origin\n    properties:\n      name: example\n      origin: https://example.com\n      scopes:\n        - CORS\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:trustedorigin/origin:Origin example \u003ctrusted_origin_id\u003e\n```\n\n",
+            "description": "Creates a Trusted Origin. This resource allows you to create and configure a Trusted Origin.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.trustedorigin.Origin(\"example\", {\n    name: \"example\",\n    origin: \"https://example.com\",\n    scopes: [{\n        type: \"CORS\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.trustedorigin.Origin(\"example\",\n    name=\"example\",\n    origin=\"https://example.com\",\n    scopes=[{\n        \"type\": \"CORS\",\n    }])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.TrustedOrigin.Origin(\"example\", new()\n    {\n        Name = \"example\",\n        OriginName = \"https://example.com\",\n        Scopes = new[]\n        {\n            new Okta.TrustedOrigin.Inputs.OriginScopeArgs\n            {\n                Type = \"CORS\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/trustedorigin\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := trustedorigin.NewOrigin(ctx, \"example\", \u0026trustedorigin.OriginArgs{\n\t\t\tName:   pulumi.String(\"example\"),\n\t\t\tOrigin: pulumi.String(\"https://example.com\"),\n\t\t\tScopes: trustedorigin.OriginScopeArray{\n\t\t\t\t\u0026trustedorigin.OriginScopeArgs{\n\t\t\t\t\tType: pulumi.String(\"CORS\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_trustedorigin_origin\" \"example\" {\n  name   = \"example\"\n  origin = \"https://example.com\"\n  scopes {\n    type = \"CORS\"\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.trustedorigin.Origin;\nimport com.pulumi.okta.trustedorigin.OriginArgs;\nimport com.pulumi.okta.trustedorigin.inputs.OriginScopeArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Origin(\"example\", OriginArgs.builder()\n            .name(\"example\")\n            .origin(\"https://example.com\")\n            .scopes(OriginScopeArgs.builder()\n                .type(\"CORS\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:trustedorigin:Origin\n    properties:\n      name: example\n      origin: https://example.com\n      scopes:\n        - type: CORS\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:trustedorigin/origin:Origin example \u003ctrusted_origin_id\u003e\n```\n\n",
             "properties": {
-                "active": {
-                    "type": "boolean",
-                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                "created": {
+                    "type": "string",
+                    "description": "Timestamp when the trusted origin was created\n"
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "The ID of the user who created the trusted origin\n"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "description": "Timestamp when the trusted origin was last updated\n"
+                },
+                "lastUpdatedBy": {
+                    "type": "string",
+                    "description": "The ID of the user who last updated the trusted origin\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Unique name for this trusted origin\n"
+                    "description": "Unique name for the trusted origin\n"
                 },
                 "origin": {
                     "type": "string",
-                    "description": "Unique origin URL for this trusted origin\n",
+                    "description": "Unique origin URL for the trusted origin.\n",
                     "language": {
                         "csharp": {
                             "name": "OriginName"
@@ -30323,28 +31773,32 @@
                 "scopes": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/types/okta:trustedorigin/OriginScope:OriginScope"
                     },
-                    "description": "Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`\n"
+                    "description": "Array of scope types that this trusted origin is used for\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the trusted origin. Values: ACTIVE, INACTIVE\n"
                 }
             },
             "required": [
+                "created",
+                "createdBy",
+                "lastUpdated",
+                "lastUpdatedBy",
                 "name",
                 "origin",
-                "scopes"
+                "status"
             ],
             "inputProperties": {
-                "active": {
-                    "type": "boolean",
-                    "description": "Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
-                },
                 "name": {
                     "type": "string",
-                    "description": "Unique name for this trusted origin\n"
+                    "description": "Unique name for the trusted origin\n"
                 },
                 "origin": {
                     "type": "string",
-                    "description": "Unique origin URL for this trusted origin\n",
+                    "description": "Unique origin URL for the trusted origin.\n",
                     "language": {
                         "csharp": {
                             "name": "OriginName"
@@ -30354,29 +31808,44 @@
                 "scopes": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/types/okta:trustedorigin/OriginScope:OriginScope"
                     },
-                    "description": "Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`\n"
+                    "description": "Array of scope types that this trusted origin is used for\n"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the trusted origin. Values: ACTIVE, INACTIVE\n"
                 }
             },
             "requiredInputs": [
-                "origin",
-                "scopes"
+                "origin"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Origin resources.\n",
                 "properties": {
-                    "active": {
-                        "type": "boolean",
-                        "description": "Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is \u003cspan pulumi-lang-nodejs=\"`true`\" pulumi-lang-dotnet=\"`True`\" pulumi-lang-go=\"`true`\" pulumi-lang-python=\"`true`\" pulumi-lang-yaml=\"`true`\" pulumi-lang-java=\"`true`\" pulumi-lang-hcl=\"`true`\"\u003e`true`\u003c/span\u003e.\n"
+                    "created": {
+                        "type": "string",
+                        "description": "Timestamp when the trusted origin was created\n"
+                    },
+                    "createdBy": {
+                        "type": "string",
+                        "description": "The ID of the user who created the trusted origin\n"
+                    },
+                    "lastUpdated": {
+                        "type": "string",
+                        "description": "Timestamp when the trusted origin was last updated\n"
+                    },
+                    "lastUpdatedBy": {
+                        "type": "string",
+                        "description": "The ID of the user who last updated the trusted origin\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Unique name for this trusted origin\n"
+                        "description": "Unique name for the trusted origin\n"
                     },
                     "origin": {
                         "type": "string",
-                        "description": "Unique origin URL for this trusted origin\n",
+                        "description": "Unique origin URL for the trusted origin.\n",
                         "language": {
                             "csharp": {
                                 "name": "OriginName"
@@ -30386,9 +31855,13 @@
                     "scopes": {
                         "type": "array",
                         "items": {
-                            "type": "string"
+                            "$ref": "#/types/okta:trustedorigin/OriginScope:OriginScope"
                         },
-                        "description": "Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`\n"
+                        "description": "Array of scope types that this trusted origin is used for\n"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Status of the trusted origin. Values: ACTIVE, INACTIVE\n"
                     }
                 },
                 "type": "object"
@@ -34295,6 +35768,44 @@
                 "type": "object"
             }
         },
+        "okta:index/getCaptcha:getCaptcha": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getCaptcha.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCaptcha.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "siteKey": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "siteKey",
+                    "type"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getCatalogEntryDefault:getCatalogEntryDefault": {
             "description": "Retrieves a catalog entry.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test = okta.getCatalogEntryUserAccessRequestFields({});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest = okta.get_catalog_entry_user_access_request_fields()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = Okta.GetCatalogEntryUserAccessRequestFields.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v6/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := okta.GetCatalogEntryUserAccessRequestFields(ctx, \u0026okta.GetCatalogEntryUserAccessRequestFieldsArgs{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getcatalogentryuseraccessrequestfields\" \"test\" {\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var test = OktaFunctions.getCatalogEntryUserAccessRequestFields(GetCatalogEntryUserAccessRequestFieldsArgs.builder()\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  test:\n    fn::invoke:\n      function: okta:getCatalogEntryUserAccessRequestFields\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "inputs": {
@@ -36054,6 +37565,40 @@
                 "type": "object"
             }
         },
+        "okta:index/getOrgCaptcha:getOrgCaptcha": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getOrgCaptcha.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "outputs": {
+                "description": "A collection of values returned by getOrgCaptcha.\n",
+                "properties": {
+                    "captchaId": {
+                        "type": "string"
+                    },
+                    "enabledPages": {
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "captchaId",
+                    "enabledPages",
+                    "id"
+                ],
+                "type": "object"
+            }
+        },
         "okta:index/getOrgMetadata:getOrgMetadata": {
             "description": "Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.\n",
             "inputs": {
@@ -37552,6 +39097,72 @@
                     "brandId",
                     "themes",
                     "id"
+                ],
+                "type": "object"
+            }
+        },
+        "okta:index/getTrustedOrigin:getTrustedOrigin": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getTrustedOrigin.\n",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/okta:index/getTrustedOriginScope:getTrustedOriginScope"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getTrustedOrigin.\n",
+                "properties": {
+                    "created": {
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "lastUpdated": {
+                        "type": "string"
+                    },
+                    "lastUpdatedBy": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "origin": {
+                        "type": "string"
+                    },
+                    "scopes": {
+                        "items": {
+                            "$ref": "#/types/okta:index/getTrustedOriginScope:getTrustedOriginScope"
+                        },
+                        "type": "array"
+                    },
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "created",
+                    "createdBy",
+                    "id",
+                    "lastUpdated",
+                    "lastUpdatedBy",
+                    "name",
+                    "origin",
+                    "status"
                 ],
                 "type": "object"
             }
