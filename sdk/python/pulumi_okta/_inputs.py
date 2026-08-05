@@ -421,6 +421,8 @@ __all__ = [
     'GetReviewReviewerProfileArgsDict',
     'GetSecurityEventsProviderSettingsArgs',
     'GetSecurityEventsProviderSettingsArgsDict',
+    'GetTrustedOriginScopeArgs',
+    'GetTrustedOriginScopeArgsDict',
     'GetUiSchemaUiSchemaArgs',
     'GetUiSchemaUiSchemaArgsDict',
     'GetUiSchemaUiSchemaElementArgs',
@@ -14009,6 +14011,53 @@ class GetSecurityEventsProviderSettingsArgs:
     @well_known_url.setter
     def well_known_url(self, value: _builtins.str):
         pulumi.set(self, "well_known_url", value)
+
+
+class GetTrustedOriginScopeArgsDict(TypedDict):
+    allowed_okta_apps: Sequence[_builtins.str]
+    """
+    The allowed Okta apps for the trusted origin scope
+    """
+    type: _builtins.str
+    """
+    The scope type.
+    """
+
+@pulumi.input_type
+class GetTrustedOriginScopeArgs:
+    def __init__(__self__, *,
+                 allowed_okta_apps: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] allowed_okta_apps: The allowed Okta apps for the trusted origin scope
+        :param _builtins.str type: The scope type.
+        """
+        pulumi.set(__self__, "allowed_okta_apps", allowed_okta_apps)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOktaApps")
+    def allowed_okta_apps(self) -> Sequence[_builtins.str]:
+        """
+        The allowed Okta apps for the trusted origin scope
+        """
+        return pulumi.get(self, "allowed_okta_apps")
+
+    @allowed_okta_apps.setter
+    def allowed_okta_apps(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "allowed_okta_apps", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The scope type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
 
 
 class GetUiSchemaUiSchemaArgsDict(TypedDict):

@@ -250,7 +250,7 @@ namespace Pulumi.Okta.App
         public Output<ImmutableArray<string>> GrantTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `PreconfiguredApp` is set)
+        /// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`PrivateKey` or `AccessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `PreconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         /// </summary>
         [Output("groupsClaim")]
         public Output<Outputs.OAuthGroupsClaim?> GroupsClaim { get; private set; } = null!;
@@ -681,7 +681,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `PreconfiguredApp` is set)
+        /// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`PrivateKey` or `AccessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `PreconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimArgs>? GroupsClaim { get; set; }
@@ -1096,7 +1096,7 @@ namespace Pulumi.Okta.App
         }
 
         /// <summary>
-        /// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `PreconfiguredApp` is set)
+        /// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`PrivateKey` or `AccessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `PreconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         /// </summary>
         [Input("groupsClaim")]
         public Input<Inputs.OAuthGroupsClaimGetArgs>? GroupsClaim { get; set; }

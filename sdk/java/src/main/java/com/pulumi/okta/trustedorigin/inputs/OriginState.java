@@ -5,7 +5,7 @@ package com.pulumi.okta.trustedorigin.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
+import com.pulumi.okta.trustedorigin.inputs.OriginScopeArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,29 +18,74 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
     public static final OriginState Empty = new OriginState();
 
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     * Timestamp when the trusted origin was created
      * 
      */
-    @Import(name="active")
-    private @Nullable Output<Boolean> active;
+    @Import(name="created")
+    private @Nullable Output<String> created;
 
     /**
-     * @return Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     * @return Timestamp when the trusted origin was created
      * 
      */
-    public Optional<Output<Boolean>> active() {
-        return Optional.ofNullable(this.active);
+    public Optional<Output<String>> created() {
+        return Optional.ofNullable(this.created);
     }
 
     /**
-     * Unique name for this trusted origin
+     * The ID of the user who created the trusted origin
+     * 
+     */
+    @Import(name="createdBy")
+    private @Nullable Output<String> createdBy;
+
+    /**
+     * @return The ID of the user who created the trusted origin
+     * 
+     */
+    public Optional<Output<String>> createdBy() {
+        return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * Timestamp when the trusted origin was last updated
+     * 
+     */
+    @Import(name="lastUpdated")
+    private @Nullable Output<String> lastUpdated;
+
+    /**
+     * @return Timestamp when the trusted origin was last updated
+     * 
+     */
+    public Optional<Output<String>> lastUpdated() {
+        return Optional.ofNullable(this.lastUpdated);
+    }
+
+    /**
+     * The ID of the user who last updated the trusted origin
+     * 
+     */
+    @Import(name="lastUpdatedBy")
+    private @Nullable Output<String> lastUpdatedBy;
+
+    /**
+     * @return The ID of the user who last updated the trusted origin
+     * 
+     */
+    public Optional<Output<String>> lastUpdatedBy() {
+        return Optional.ofNullable(this.lastUpdatedBy);
+    }
+
+    /**
+     * Unique name for the trusted origin
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique name for this trusted origin
+     * @return Unique name for the trusted origin
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +93,14 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique origin URL for this trusted origin
+     * Unique origin URL for the trusted origin.
      * 
      */
     @Import(name="origin")
     private @Nullable Output<String> origin;
 
     /**
-     * @return Unique origin URL for this trusted origin
+     * @return Unique origin URL for the trusted origin.
      * 
      */
     public Optional<Output<String>> origin() {
@@ -63,27 +108,46 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+     * Array of scope types that this trusted origin is used for
      * 
      */
     @Import(name="scopes")
-    private @Nullable Output<List<String>> scopes;
+    private @Nullable Output<List<OriginScopeArgs>> scopes;
 
     /**
-     * @return Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+     * @return Array of scope types that this trusted origin is used for
      * 
      */
-    public Optional<Output<List<String>>> scopes() {
+    public Optional<Output<List<OriginScopeArgs>>> scopes() {
         return Optional.ofNullable(this.scopes);
+    }
+
+    /**
+     * Status of the trusted origin. Values: ACTIVE, INACTIVE
+     * 
+     */
+    @Import(name="status")
+    private @Nullable Output<String> status;
+
+    /**
+     * @return Status of the trusted origin. Values: ACTIVE, INACTIVE
+     * 
+     */
+    public Optional<Output<String>> status() {
+        return Optional.ofNullable(this.status);
     }
 
     private OriginState() {}
 
     private OriginState(OriginState $) {
-        this.active = $.active;
+        this.created = $.created;
+        this.createdBy = $.createdBy;
+        this.lastUpdated = $.lastUpdated;
+        this.lastUpdatedBy = $.lastUpdatedBy;
         this.name = $.name;
         this.origin = $.origin;
         this.scopes = $.scopes;
+        this.status = $.status;
     }
 
     public static Builder builder() {
@@ -105,28 +169,91 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+         * @param created Timestamp when the trusted origin was created
          * 
          * @return builder
          * 
          */
-        public Builder active(@Nullable Output<Boolean> active) {
-            $.active = active;
+        public Builder created(@Nullable Output<String> created) {
+            $.created = created;
             return this;
         }
 
         /**
-         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+         * @param created Timestamp when the trusted origin was created
          * 
          * @return builder
          * 
          */
-        public Builder active(Boolean active) {
-            return active(Output.of(active));
+        public Builder created(String created) {
+            return created(Output.of(created));
         }
 
         /**
-         * @param name Unique name for this trusted origin
+         * @param createdBy The ID of the user who created the trusted origin
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdBy(@Nullable Output<String> createdBy) {
+            $.createdBy = createdBy;
+            return this;
+        }
+
+        /**
+         * @param createdBy The ID of the user who created the trusted origin
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createdBy(String createdBy) {
+            return createdBy(Output.of(createdBy));
+        }
+
+        /**
+         * @param lastUpdated Timestamp when the trusted origin was last updated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastUpdated(@Nullable Output<String> lastUpdated) {
+            $.lastUpdated = lastUpdated;
+            return this;
+        }
+
+        /**
+         * @param lastUpdated Timestamp when the trusted origin was last updated
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastUpdated(String lastUpdated) {
+            return lastUpdated(Output.of(lastUpdated));
+        }
+
+        /**
+         * @param lastUpdatedBy The ID of the user who last updated the trusted origin
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastUpdatedBy(@Nullable Output<String> lastUpdatedBy) {
+            $.lastUpdatedBy = lastUpdatedBy;
+            return this;
+        }
+
+        /**
+         * @param lastUpdatedBy The ID of the user who last updated the trusted origin
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lastUpdatedBy(String lastUpdatedBy) {
+            return lastUpdatedBy(Output.of(lastUpdatedBy));
+        }
+
+        /**
+         * @param name Unique name for the trusted origin
          * 
          * @return builder
          * 
@@ -137,7 +264,7 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for this trusted origin
+         * @param name Unique name for the trusted origin
          * 
          * @return builder
          * 
@@ -147,7 +274,7 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Unique origin URL for this trusted origin
+         * @param origin Unique origin URL for the trusted origin.
          * 
          * @return builder
          * 
@@ -158,7 +285,7 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Unique origin URL for this trusted origin
+         * @param origin Unique origin URL for the trusted origin.
          * 
          * @return builder
          * 
@@ -168,34 +295,55 @@ public final class OriginState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+         * @param scopes Array of scope types that this trusted origin is used for
          * 
          * @return builder
          * 
          */
-        public Builder scopes(@Nullable Output<List<String>> scopes) {
+        public Builder scopes(@Nullable Output<List<OriginScopeArgs>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
         /**
-         * @param scopes Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+         * @param scopes Array of scope types that this trusted origin is used for
          * 
          * @return builder
          * 
          */
-        public Builder scopes(List<String> scopes) {
+        public Builder scopes(List<OriginScopeArgs> scopes) {
             return scopes(Output.of(scopes));
         }
 
         /**
-         * @param scopes Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+         * @param scopes Array of scope types that this trusted origin is used for
          * 
          * @return builder
          * 
          */
-        public Builder scopes(String... scopes) {
+        public Builder scopes(OriginScopeArgs... scopes) {
             return scopes(List.of(scopes));
+        }
+
+        /**
+         * @param status Status of the trusted origin. Values: ACTIVE, INACTIVE
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(@Nullable Output<String> status) {
+            $.status = status;
+            return this;
+        }
+
+        /**
+         * @param status Status of the trusted origin. Values: ACTIVE, INACTIVE
+         * 
+         * @return builder
+         * 
+         */
+        public Builder status(String status) {
+            return status(Output.of(status));
         }
 
         public OriginState build() {

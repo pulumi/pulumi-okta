@@ -240,6 +240,7 @@ __all__ = [
     'GetSecurityEventsProviderSettingsResult',
     'GetTemplatesEmailTemplateResult',
     'GetThemesThemeResult',
+    'GetTrustedOriginScopeResult',
     'GetTrustedOriginsTrustedOriginResult',
     'GetUiSchemaUiSchemaResult',
     'GetUiSchemaUiSchemaElementResult',
@@ -10840,6 +10841,35 @@ class GetThemesThemeResult(dict):
         Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
+
+
+@pulumi.output_type
+class GetTrustedOriginScopeResult(dict):
+    def __init__(__self__, *,
+                 allowed_okta_apps: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] allowed_okta_apps: The allowed Okta apps for the trusted origin scope
+        :param _builtins.str type: The scope type.
+        """
+        pulumi.set(__self__, "allowed_okta_apps", allowed_okta_apps)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOktaApps")
+    def allowed_okta_apps(self) -> Sequence[_builtins.str]:
+        """
+        The allowed Okta apps for the trusted origin scope
+        """
+        return pulumi.get(self, "allowed_okta_apps")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The scope type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

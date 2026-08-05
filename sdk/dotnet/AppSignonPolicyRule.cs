@@ -127,6 +127,12 @@ namespace Pulumi.Okta
         [Output("networkIncludes")]
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
+        /// <summary>
+        /// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        /// </summary>
+        [Output("office365ClientIncludes")]
+        public Output<ImmutableArray<string>> Office365ClientIncludes { get; private set; } = null!;
+
         [Output("platformIncludes")]
         public Output<ImmutableArray<Outputs.AppSignonPolicyRulePlatformInclude>> PlatformIncludes { get; private set; } = null!;
 
@@ -380,6 +386,18 @@ namespace Pulumi.Okta
             set => _networkIncludes = value;
         }
 
+        [Input("office365ClientIncludes")]
+        private InputList<string>? _office365ClientIncludes;
+
+        /// <summary>
+        /// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        /// </summary>
+        public InputList<string> Office365ClientIncludes
+        {
+            get => _office365ClientIncludes ?? (_office365ClientIncludes = new InputList<string>());
+            set => _office365ClientIncludes = value;
+        }
+
         [Input("platformIncludes")]
         private InputList<Inputs.AppSignonPolicyRulePlatformIncludeArgs>? _platformIncludes;
         public InputList<Inputs.AppSignonPolicyRulePlatformIncludeArgs> PlatformIncludes
@@ -616,6 +634,18 @@ namespace Pulumi.Okta
         {
             get => _networkIncludes ?? (_networkIncludes = new InputList<string>());
             set => _networkIncludes = value;
+        }
+
+        [Input("office365ClientIncludes")]
+        private InputList<string>? _office365ClientIncludes;
+
+        /// <summary>
+        /// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        /// </summary>
+        public InputList<string> Office365ClientIncludes
+        {
+            get => _office365ClientIncludes ?? (_office365ClientIncludes = new InputList<string>());
+            set => _office365ClientIncludes = value;
         }
 
         [Input("platformIncludes")]

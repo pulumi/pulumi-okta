@@ -69,6 +69,7 @@ from .get_behaviours import *
 from .get_brand import *
 from .get_brands import *
 from .get_campaign import *
+from .get_captcha import *
 from .get_catalog_entry_default import *
 from .get_catalog_entry_user_access_request_fields import *
 from .get_default_signin_page import *
@@ -95,6 +96,7 @@ from .get_label import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_oauth_authorization_server import *
+from .get_org_captcha import *
 from .get_org_metadata import *
 from .get_post_auth_session_policy import *
 from .get_principal_entitlements import *
@@ -122,6 +124,7 @@ from .get_template import *
 from .get_templates import *
 from .get_theme import *
 from .get_themes import *
+from .get_trusted_origin import *
 from .get_trusted_origins import *
 from .get_ui_schema import *
 from .get_user_security_questions import *
@@ -136,6 +139,20 @@ from .label import *
 from .link_definition import *
 from .link_value import *
 from .log_stream import *
+from .oauth2_v1_clients_role_access_certifications_admin import *
+from .oauth2_v1_clients_role_access_requests_admin import *
+from .oauth2_v1_clients_role_api_access_management_admin import *
+from .oauth2_v1_clients_role_app_admin import *
+from .oauth2_v1_clients_role_custom import *
+from .oauth2_v1_clients_role_group_membership_admin import *
+from .oauth2_v1_clients_role_help_desk_admin import *
+from .oauth2_v1_clients_role_org_admin import *
+from .oauth2_v1_clients_role_read_only_admin import *
+from .oauth2_v1_clients_role_report_admin import *
+from .oauth2_v1_clients_role_super_admin import *
+from .oauth2_v1_clients_role_user_admin import *
+from .oauth2_v1_clients_role_workflows_admin import *
+from .org_captcha import *
 from .org_configuration import *
 from .org_support import *
 from .policy_mfa_default import *
@@ -932,6 +949,118 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/logStream:LogStream": "LogStream"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleAccessCertificationsAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin": "Oauth2V1ClientsRoleAccessCertificationsAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleAccessRequestsAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleAccessRequestsAdmin:Oauth2V1ClientsRoleAccessRequestsAdmin": "Oauth2V1ClientsRoleAccessRequestsAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleApiAccessManagementAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin": "Oauth2V1ClientsRoleApiAccessManagementAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleAppAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleAppAdmin:Oauth2V1ClientsRoleAppAdmin": "Oauth2V1ClientsRoleAppAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleCustom",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleCustom:Oauth2V1ClientsRoleCustom": "Oauth2V1ClientsRoleCustom"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleGroupMembershipAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleGroupMembershipAdmin:Oauth2V1ClientsRoleGroupMembershipAdmin": "Oauth2V1ClientsRoleGroupMembershipAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleHelpDeskAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleHelpDeskAdmin:Oauth2V1ClientsRoleHelpDeskAdmin": "Oauth2V1ClientsRoleHelpDeskAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleOrgAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleOrgAdmin:Oauth2V1ClientsRoleOrgAdmin": "Oauth2V1ClientsRoleOrgAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleReadOnlyAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleReadOnlyAdmin:Oauth2V1ClientsRoleReadOnlyAdmin": "Oauth2V1ClientsRoleReadOnlyAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleReportAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleReportAdmin:Oauth2V1ClientsRoleReportAdmin": "Oauth2V1ClientsRoleReportAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleSuperAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin": "Oauth2V1ClientsRoleSuperAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleUserAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleUserAdmin:Oauth2V1ClientsRoleUserAdmin": "Oauth2V1ClientsRoleUserAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/oauth2V1ClientsRoleWorkflowsAdmin",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin": "Oauth2V1ClientsRoleWorkflowsAdmin"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/orgCaptcha",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/orgCaptcha:OrgCaptcha": "OrgCaptcha"
   }
  },
  {

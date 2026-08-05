@@ -38,6 +38,7 @@ class AppSignonPolicyRuleArgs:
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  re_authentication_frequency: pulumi.Input[Optional[_builtins.str]] = None,
@@ -68,6 +69,7 @@ class AppSignonPolicyRuleArgs:
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] office365_client_includes: Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
         :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
         :param pulumi.Input[_builtins.str] risk_score: The risk score specifies a particular level of risk to match on: ANY, LOW, MEDIUM, HIGH
@@ -111,6 +113,8 @@ class AppSignonPolicyRuleArgs:
             pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
             pulumi.set(__self__, "network_includes", network_includes)
+        if office365_client_includes is not None:
+            pulumi.set(__self__, "office365_client_includes", office365_client_includes)
         if platform_includes is not None:
             pulumi.set(__self__, "platform_includes", platform_includes)
         if priority is not None:
@@ -337,6 +341,18 @@ class AppSignonPolicyRuleArgs:
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
+    @pulumi.getter(name="office365ClientIncludes")
+    def office365_client_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        """
+        return pulumi.get(self, "office365_client_includes")
+
+    @office365_client_includes.setter
+    def office365_client_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "office365_client_includes", value)
+
+    @_builtins.property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]]:
         return pulumi.get(self, "platform_includes")
@@ -473,6 +489,7 @@ class _AppSignonPolicyRuleState:
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -504,6 +521,7 @@ class _AppSignonPolicyRuleState:
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] office365_client_includes: Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
         :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
@@ -548,6 +566,8 @@ class _AppSignonPolicyRuleState:
             pulumi.set(__self__, "network_excludes", network_excludes)
         if network_includes is not None:
             pulumi.set(__self__, "network_includes", network_includes)
+        if office365_client_includes is not None:
+            pulumi.set(__self__, "office365_client_includes", office365_client_includes)
         if platform_includes is not None:
             pulumi.set(__self__, "platform_includes", platform_includes)
         if policy_id is not None:
@@ -766,6 +786,18 @@ class _AppSignonPolicyRuleState:
         pulumi.set(self, "network_includes", value)
 
     @_builtins.property
+    @pulumi.getter(name="office365ClientIncludes")
+    def office365_client_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        """
+        return pulumi.get(self, "office365_client_includes")
+
+    @office365_client_includes.setter
+    def office365_client_includes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "office365_client_includes", value)
+
+    @_builtins.property
     @pulumi.getter(name="platformIncludes")
     def platform_includes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppSignonPolicyRulePlatformIncludeArgs']]]]:
         return pulumi.get(self, "platform_includes")
@@ -929,6 +961,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -979,6 +1012,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] office365_client_includes: Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
         :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
@@ -1047,6 +1081,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1083,6 +1118,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             __props__.__dict__["network_connection"] = network_connection
             __props__.__dict__["network_excludes"] = network_excludes
             __props__.__dict__["network_includes"] = network_includes
+            __props__.__dict__["office365_client_includes"] = office365_client_includes
             __props__.__dict__["platform_includes"] = platform_includes
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
@@ -1123,6 +1159,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             network_connection: pulumi.Input[Optional[_builtins.str]] = None,
             network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1158,6 +1195,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_includes: The zones to include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] office365_client_includes: Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
         :param pulumi.Input[_builtins.int] priority: Priority of the rule.
         :param pulumi.Input[_builtins.str] re_authentication_frequency: The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals. PT0S - Every sign-in attempt, PT43800H - Once per session. Cannot be set if reauthenticateIn is set in one or more entries of chains.
@@ -1190,6 +1228,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["network_connection"] = network_connection
         __props__.__dict__["network_excludes"] = network_excludes
         __props__.__dict__["network_includes"] = network_includes
+        __props__.__dict__["office365_client_includes"] = office365_client_includes
         __props__.__dict__["platform_includes"] = platform_includes
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
@@ -1331,6 +1370,14 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         The zones to include
         """
         return pulumi.get(self, "network_includes")
+
+    @_builtins.property
+    @pulumi.getter(name="office365ClientIncludes")
+    def office365_client_includes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        """
+        return pulumi.get(self, "office365_client_includes")
 
     @_builtins.property
     @pulumi.getter(name="platformIncludes")

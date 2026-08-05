@@ -2354,6 +2354,17 @@ export interface GetThemesTheme {
     signInPageTouchPointVariant: string;
 }
 
+export interface GetTrustedOriginScope {
+    /**
+     * The allowed Okta apps for the trusted origin scope
+     */
+    allowedOktaApps: string[];
+    /**
+     * The scope type.
+     */
+    type: string;
+}
+
 export interface GetTrustedOriginsTrustedOrigin {
     /**
      * Whether the Trusted Origin is active or not - can only be issued post-creation
@@ -4251,6 +4262,20 @@ export namespace profile {
          */
         id: string;
         pushStatus?: string;
+    }
+
+}
+
+export namespace trustedorigin {
+    export interface OriginScope {
+        /**
+         * The allowed Okta apps for the trusted origin scope
+         */
+        allowedOktaApps?: string[];
+        /**
+         * The scope type. Supported values: `CORS`, `REDIRECT`, `IFRAME_EMBED`
+         */
+        type?: string;
     }
 
 }

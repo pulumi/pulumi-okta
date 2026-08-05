@@ -320,6 +320,11 @@ export const getCampaign: typeof import("./getCampaign").getCampaign = null as a
 export const getCampaignOutput: typeof import("./getCampaign").getCampaignOutput = null as any;
 utilities.lazyLoad(exports, ["getCampaign","getCampaignOutput"], () => require("./getCampaign"));
 
+export { GetCaptchaArgs, GetCaptchaResult, GetCaptchaOutputArgs } from "./getCaptcha";
+export const getCaptcha: typeof import("./getCaptcha").getCaptcha = null as any;
+export const getCaptchaOutput: typeof import("./getCaptcha").getCaptchaOutput = null as any;
+utilities.lazyLoad(exports, ["getCaptcha","getCaptchaOutput"], () => require("./getCaptcha"));
+
 export { GetCatalogEntryDefaultArgs, GetCatalogEntryDefaultResult, GetCatalogEntryDefaultOutputArgs } from "./getCatalogEntryDefault";
 export const getCatalogEntryDefault: typeof import("./getCatalogEntryDefault").getCatalogEntryDefault = null as any;
 export const getCatalogEntryDefaultOutput: typeof import("./getCatalogEntryDefault").getCatalogEntryDefaultOutput = null as any;
@@ -449,6 +454,11 @@ export { GetOauthAuthorizationServerArgs, GetOauthAuthorizationServerResult, Get
 export const getOauthAuthorizationServer: typeof import("./getOauthAuthorizationServer").getOauthAuthorizationServer = null as any;
 export const getOauthAuthorizationServerOutput: typeof import("./getOauthAuthorizationServer").getOauthAuthorizationServerOutput = null as any;
 utilities.lazyLoad(exports, ["getOauthAuthorizationServer","getOauthAuthorizationServerOutput"], () => require("./getOauthAuthorizationServer"));
+
+export { GetOrgCaptchaArgs, GetOrgCaptchaResult, GetOrgCaptchaOutputArgs } from "./getOrgCaptcha";
+export const getOrgCaptcha: typeof import("./getOrgCaptcha").getOrgCaptcha = null as any;
+export const getOrgCaptchaOutput: typeof import("./getOrgCaptcha").getOrgCaptchaOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgCaptcha","getOrgCaptchaOutput"], () => require("./getOrgCaptcha"));
 
 export { GetOrgMetadataArgs, GetOrgMetadataResult, GetOrgMetadataOutputArgs } from "./getOrgMetadata";
 export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = null as any;
@@ -585,6 +595,11 @@ export const getThemes: typeof import("./getThemes").getThemes = null as any;
 export const getThemesOutput: typeof import("./getThemes").getThemesOutput = null as any;
 utilities.lazyLoad(exports, ["getThemes","getThemesOutput"], () => require("./getThemes"));
 
+export { GetTrustedOriginArgs, GetTrustedOriginResult, GetTrustedOriginOutputArgs } from "./getTrustedOrigin";
+export const getTrustedOrigin: typeof import("./getTrustedOrigin").getTrustedOrigin = null as any;
+export const getTrustedOriginOutput: typeof import("./getTrustedOrigin").getTrustedOriginOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustedOrigin","getTrustedOriginOutput"], () => require("./getTrustedOrigin"));
+
 export { GetTrustedOriginsArgs, GetTrustedOriginsResult, GetTrustedOriginsOutputArgs } from "./getTrustedOrigins";
 export const getTrustedOrigins: typeof import("./getTrustedOrigins").getTrustedOrigins = null as any;
 export const getTrustedOriginsOutput: typeof import("./getTrustedOrigins").getTrustedOriginsOutput = null as any;
@@ -654,6 +669,76 @@ export { LogStreamArgs, LogStreamState } from "./logStream";
 export type LogStream = import("./logStream").LogStream;
 export const LogStream: typeof import("./logStream").LogStream = null as any;
 utilities.lazyLoad(exports, ["LogStream"], () => require("./logStream"));
+
+export { Oauth2V1ClientsRoleAccessCertificationsAdminArgs, Oauth2V1ClientsRoleAccessCertificationsAdminState } from "./oauth2V1ClientsRoleAccessCertificationsAdmin";
+export type Oauth2V1ClientsRoleAccessCertificationsAdmin = import("./oauth2V1ClientsRoleAccessCertificationsAdmin").Oauth2V1ClientsRoleAccessCertificationsAdmin;
+export const Oauth2V1ClientsRoleAccessCertificationsAdmin: typeof import("./oauth2V1ClientsRoleAccessCertificationsAdmin").Oauth2V1ClientsRoleAccessCertificationsAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleAccessCertificationsAdmin"], () => require("./oauth2V1ClientsRoleAccessCertificationsAdmin"));
+
+export { Oauth2V1ClientsRoleAccessRequestsAdminArgs, Oauth2V1ClientsRoleAccessRequestsAdminState } from "./oauth2V1ClientsRoleAccessRequestsAdmin";
+export type Oauth2V1ClientsRoleAccessRequestsAdmin = import("./oauth2V1ClientsRoleAccessRequestsAdmin").Oauth2V1ClientsRoleAccessRequestsAdmin;
+export const Oauth2V1ClientsRoleAccessRequestsAdmin: typeof import("./oauth2V1ClientsRoleAccessRequestsAdmin").Oauth2V1ClientsRoleAccessRequestsAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleAccessRequestsAdmin"], () => require("./oauth2V1ClientsRoleAccessRequestsAdmin"));
+
+export { Oauth2V1ClientsRoleApiAccessManagementAdminArgs, Oauth2V1ClientsRoleApiAccessManagementAdminState } from "./oauth2V1ClientsRoleApiAccessManagementAdmin";
+export type Oauth2V1ClientsRoleApiAccessManagementAdmin = import("./oauth2V1ClientsRoleApiAccessManagementAdmin").Oauth2V1ClientsRoleApiAccessManagementAdmin;
+export const Oauth2V1ClientsRoleApiAccessManagementAdmin: typeof import("./oauth2V1ClientsRoleApiAccessManagementAdmin").Oauth2V1ClientsRoleApiAccessManagementAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleApiAccessManagementAdmin"], () => require("./oauth2V1ClientsRoleApiAccessManagementAdmin"));
+
+export { Oauth2V1ClientsRoleAppAdminArgs, Oauth2V1ClientsRoleAppAdminState } from "./oauth2V1ClientsRoleAppAdmin";
+export type Oauth2V1ClientsRoleAppAdmin = import("./oauth2V1ClientsRoleAppAdmin").Oauth2V1ClientsRoleAppAdmin;
+export const Oauth2V1ClientsRoleAppAdmin: typeof import("./oauth2V1ClientsRoleAppAdmin").Oauth2V1ClientsRoleAppAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleAppAdmin"], () => require("./oauth2V1ClientsRoleAppAdmin"));
+
+export { Oauth2V1ClientsRoleCustomArgs, Oauth2V1ClientsRoleCustomState } from "./oauth2V1ClientsRoleCustom";
+export type Oauth2V1ClientsRoleCustom = import("./oauth2V1ClientsRoleCustom").Oauth2V1ClientsRoleCustom;
+export const Oauth2V1ClientsRoleCustom: typeof import("./oauth2V1ClientsRoleCustom").Oauth2V1ClientsRoleCustom = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleCustom"], () => require("./oauth2V1ClientsRoleCustom"));
+
+export { Oauth2V1ClientsRoleGroupMembershipAdminArgs, Oauth2V1ClientsRoleGroupMembershipAdminState } from "./oauth2V1ClientsRoleGroupMembershipAdmin";
+export type Oauth2V1ClientsRoleGroupMembershipAdmin = import("./oauth2V1ClientsRoleGroupMembershipAdmin").Oauth2V1ClientsRoleGroupMembershipAdmin;
+export const Oauth2V1ClientsRoleGroupMembershipAdmin: typeof import("./oauth2V1ClientsRoleGroupMembershipAdmin").Oauth2V1ClientsRoleGroupMembershipAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleGroupMembershipAdmin"], () => require("./oauth2V1ClientsRoleGroupMembershipAdmin"));
+
+export { Oauth2V1ClientsRoleHelpDeskAdminArgs, Oauth2V1ClientsRoleHelpDeskAdminState } from "./oauth2V1ClientsRoleHelpDeskAdmin";
+export type Oauth2V1ClientsRoleHelpDeskAdmin = import("./oauth2V1ClientsRoleHelpDeskAdmin").Oauth2V1ClientsRoleHelpDeskAdmin;
+export const Oauth2V1ClientsRoleHelpDeskAdmin: typeof import("./oauth2V1ClientsRoleHelpDeskAdmin").Oauth2V1ClientsRoleHelpDeskAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleHelpDeskAdmin"], () => require("./oauth2V1ClientsRoleHelpDeskAdmin"));
+
+export { Oauth2V1ClientsRoleOrgAdminArgs, Oauth2V1ClientsRoleOrgAdminState } from "./oauth2V1ClientsRoleOrgAdmin";
+export type Oauth2V1ClientsRoleOrgAdmin = import("./oauth2V1ClientsRoleOrgAdmin").Oauth2V1ClientsRoleOrgAdmin;
+export const Oauth2V1ClientsRoleOrgAdmin: typeof import("./oauth2V1ClientsRoleOrgAdmin").Oauth2V1ClientsRoleOrgAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleOrgAdmin"], () => require("./oauth2V1ClientsRoleOrgAdmin"));
+
+export { Oauth2V1ClientsRoleReadOnlyAdminArgs, Oauth2V1ClientsRoleReadOnlyAdminState } from "./oauth2V1ClientsRoleReadOnlyAdmin";
+export type Oauth2V1ClientsRoleReadOnlyAdmin = import("./oauth2V1ClientsRoleReadOnlyAdmin").Oauth2V1ClientsRoleReadOnlyAdmin;
+export const Oauth2V1ClientsRoleReadOnlyAdmin: typeof import("./oauth2V1ClientsRoleReadOnlyAdmin").Oauth2V1ClientsRoleReadOnlyAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleReadOnlyAdmin"], () => require("./oauth2V1ClientsRoleReadOnlyAdmin"));
+
+export { Oauth2V1ClientsRoleReportAdminArgs, Oauth2V1ClientsRoleReportAdminState } from "./oauth2V1ClientsRoleReportAdmin";
+export type Oauth2V1ClientsRoleReportAdmin = import("./oauth2V1ClientsRoleReportAdmin").Oauth2V1ClientsRoleReportAdmin;
+export const Oauth2V1ClientsRoleReportAdmin: typeof import("./oauth2V1ClientsRoleReportAdmin").Oauth2V1ClientsRoleReportAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleReportAdmin"], () => require("./oauth2V1ClientsRoleReportAdmin"));
+
+export { Oauth2V1ClientsRoleSuperAdminArgs, Oauth2V1ClientsRoleSuperAdminState } from "./oauth2V1ClientsRoleSuperAdmin";
+export type Oauth2V1ClientsRoleSuperAdmin = import("./oauth2V1ClientsRoleSuperAdmin").Oauth2V1ClientsRoleSuperAdmin;
+export const Oauth2V1ClientsRoleSuperAdmin: typeof import("./oauth2V1ClientsRoleSuperAdmin").Oauth2V1ClientsRoleSuperAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleSuperAdmin"], () => require("./oauth2V1ClientsRoleSuperAdmin"));
+
+export { Oauth2V1ClientsRoleUserAdminArgs, Oauth2V1ClientsRoleUserAdminState } from "./oauth2V1ClientsRoleUserAdmin";
+export type Oauth2V1ClientsRoleUserAdmin = import("./oauth2V1ClientsRoleUserAdmin").Oauth2V1ClientsRoleUserAdmin;
+export const Oauth2V1ClientsRoleUserAdmin: typeof import("./oauth2V1ClientsRoleUserAdmin").Oauth2V1ClientsRoleUserAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleUserAdmin"], () => require("./oauth2V1ClientsRoleUserAdmin"));
+
+export { Oauth2V1ClientsRoleWorkflowsAdminArgs, Oauth2V1ClientsRoleWorkflowsAdminState } from "./oauth2V1ClientsRoleWorkflowsAdmin";
+export type Oauth2V1ClientsRoleWorkflowsAdmin = import("./oauth2V1ClientsRoleWorkflowsAdmin").Oauth2V1ClientsRoleWorkflowsAdmin;
+export const Oauth2V1ClientsRoleWorkflowsAdmin: typeof import("./oauth2V1ClientsRoleWorkflowsAdmin").Oauth2V1ClientsRoleWorkflowsAdmin = null as any;
+utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleWorkflowsAdmin"], () => require("./oauth2V1ClientsRoleWorkflowsAdmin"));
+
+export { OrgCaptchaArgs, OrgCaptchaState } from "./orgCaptcha";
+export type OrgCaptcha = import("./orgCaptcha").OrgCaptcha;
+export const OrgCaptcha: typeof import("./orgCaptcha").OrgCaptcha = null as any;
+utilities.lazyLoad(exports, ["OrgCaptcha"], () => require("./orgCaptcha"));
 
 export { OrgConfigurationArgs, OrgConfigurationState } from "./orgConfiguration";
 export type OrgConfiguration = import("./orgConfiguration").OrgConfiguration;
@@ -999,6 +1084,34 @@ const _module = {
                 return new LinkValue(name, <any>undefined, { urn })
             case "okta:index/logStream:LogStream":
                 return new LogStream(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin":
+                return new Oauth2V1ClientsRoleAccessCertificationsAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleAccessRequestsAdmin:Oauth2V1ClientsRoleAccessRequestsAdmin":
+                return new Oauth2V1ClientsRoleAccessRequestsAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin":
+                return new Oauth2V1ClientsRoleApiAccessManagementAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleAppAdmin:Oauth2V1ClientsRoleAppAdmin":
+                return new Oauth2V1ClientsRoleAppAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleCustom:Oauth2V1ClientsRoleCustom":
+                return new Oauth2V1ClientsRoleCustom(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleGroupMembershipAdmin:Oauth2V1ClientsRoleGroupMembershipAdmin":
+                return new Oauth2V1ClientsRoleGroupMembershipAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleHelpDeskAdmin:Oauth2V1ClientsRoleHelpDeskAdmin":
+                return new Oauth2V1ClientsRoleHelpDeskAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleOrgAdmin:Oauth2V1ClientsRoleOrgAdmin":
+                return new Oauth2V1ClientsRoleOrgAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleReadOnlyAdmin:Oauth2V1ClientsRoleReadOnlyAdmin":
+                return new Oauth2V1ClientsRoleReadOnlyAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleReportAdmin:Oauth2V1ClientsRoleReportAdmin":
+                return new Oauth2V1ClientsRoleReportAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin":
+                return new Oauth2V1ClientsRoleSuperAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleUserAdmin:Oauth2V1ClientsRoleUserAdmin":
+                return new Oauth2V1ClientsRoleUserAdmin(name, <any>undefined, { urn })
+            case "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin":
+                return new Oauth2V1ClientsRoleWorkflowsAdmin(name, <any>undefined, { urn })
+            case "okta:index/orgCaptcha:OrgCaptcha":
+                return new OrgCaptcha(name, <any>undefined, { urn })
             case "okta:index/orgConfiguration:OrgConfiguration":
                 return new OrgConfiguration(name, <any>undefined, { urn })
             case "okta:index/orgSupport:OrgSupport":
@@ -1137,6 +1250,20 @@ pulumi.runtime.registerResourceModule("okta", "index/label", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkDefinition", _module)
 pulumi.runtime.registerResourceModule("okta", "index/linkValue", _module)
 pulumi.runtime.registerResourceModule("okta", "index/logStream", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleAccessCertificationsAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleAccessRequestsAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleApiAccessManagementAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleAppAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleCustom", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleGroupMembershipAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleHelpDeskAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleOrgAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleReadOnlyAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleReportAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleSuperAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleUserAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleWorkflowsAdmin", _module)
+pulumi.runtime.registerResourceModule("okta", "index/orgCaptcha", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgConfiguration", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgSupport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)

@@ -260,6 +260,21 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.networkIncludes);
     }
 
+    /**
+     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * 
+     */
+    @Import(name="office365ClientIncludes")
+    private @Nullable Output<List<String>> office365ClientIncludes;
+
+    /**
+     * @return Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * 
+     */
+    public Optional<Output<List<String>>> office365ClientIncludes() {
+        return Optional.ofNullable(this.office365ClientIncludes);
+    }
+
     @Import(name="platformIncludes")
     private @Nullable Output<List<AppSignonPolicyRulePlatformIncludeArgs>> platformIncludes;
 
@@ -451,6 +466,7 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
         this.networkConnection = $.networkConnection;
         this.networkExcludes = $.networkExcludes;
         this.networkIncludes = $.networkIncludes;
+        this.office365ClientIncludes = $.office365ClientIncludes;
         this.platformIncludes = $.platformIncludes;
         this.policyId = $.policyId;
         this.priority = $.priority;
@@ -887,6 +903,37 @@ public final class AppSignonPolicyRuleState extends com.pulumi.resources.Resourc
          */
         public Builder networkIncludes(String... networkIncludes) {
             return networkIncludes(List.of(networkIncludes));
+        }
+
+        /**
+         * @param office365ClientIncludes Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder office365ClientIncludes(@Nullable Output<List<String>> office365ClientIncludes) {
+            $.office365ClientIncludes = office365ClientIncludes;
+            return this;
+        }
+
+        /**
+         * @param office365ClientIncludes Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder office365ClientIncludes(List<String> office365ClientIncludes) {
+            return office365ClientIncludes(Output.of(office365ClientIncludes));
+        }
+
+        /**
+         * @param office365ClientIncludes Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder office365ClientIncludes(String... office365ClientIncludes) {
+            return office365ClientIncludes(List.of(office365ClientIncludes));
         }
 
         public Builder platformIncludes(@Nullable Output<List<AppSignonPolicyRulePlatformIncludeArgs>> platformIncludes) {
