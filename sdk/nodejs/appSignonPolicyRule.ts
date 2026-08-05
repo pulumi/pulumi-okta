@@ -117,6 +117,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      * The zones to include
      */
     declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
+    /**
+     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     */
+    declare public readonly office365ClientIncludes: pulumi.Output<string[] | undefined>;
     declare public readonly platformIncludes: pulumi.Output<outputs.AppSignonPolicyRulePlatformInclude[] | undefined>;
     /**
      * ID of the policy
@@ -192,6 +196,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["networkConnection"] = state?.networkConnection;
             resourceInputs["networkExcludes"] = state?.networkExcludes;
             resourceInputs["networkIncludes"] = state?.networkIncludes;
+            resourceInputs["office365ClientIncludes"] = state?.office365ClientIncludes;
             resourceInputs["platformIncludes"] = state?.platformIncludes;
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["priority"] = state?.priority;
@@ -225,6 +230,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["networkConnection"] = args?.networkConnection;
             resourceInputs["networkExcludes"] = args?.networkExcludes;
             resourceInputs["networkIncludes"] = args?.networkIncludes;
+            resourceInputs["office365ClientIncludes"] = args?.office365ClientIncludes;
             resourceInputs["platformIncludes"] = args?.platformIncludes;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["priority"] = args?.priority;
@@ -311,6 +317,10 @@ export interface AppSignonPolicyRuleState {
      * The zones to include
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     */
+    office365ClientIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[] | undefined>;
     /**
      * ID of the policy
@@ -426,6 +436,10 @@ export interface AppSignonPolicyRuleArgs {
      * The zones to include
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     */
+    office365ClientIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[] | undefined>;
     /**
      * ID of the policy

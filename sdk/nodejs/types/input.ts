@@ -3420,6 +3420,28 @@ export interface GetSecurityEventsProviderSettingsArgs {
     wellKnownUrl?: pulumi.Input<string | undefined>;
 }
 
+export interface GetTrustedOriginScope {
+    /**
+     * The allowed Okta apps for the trusted origin scope
+     */
+    allowedOktaApps?: string[];
+    /**
+     * The scope type.
+     */
+    type?: string;
+}
+
+export interface GetTrustedOriginScopeArgs {
+    /**
+     * The allowed Okta apps for the trusted origin scope
+     */
+    allowedOktaApps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The scope type.
+     */
+    type?: pulumi.Input<string | undefined>;
+}
+
 export interface GetUiSchemaUiSchema {
     /**
      * Specifies the button label for the Submit button at the bottom of the enrollment form.
@@ -5650,6 +5672,19 @@ export namespace profile {
          */
         id: pulumi.Input<string>;
         pushStatus?: pulumi.Input<string | undefined>;
+    }
+}
+
+export namespace trustedorigin {
+    export interface OriginScope {
+        /**
+         * The allowed Okta apps for the trusted origin scope
+         */
+        allowedOktaApps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The scope type. Supported values: `CORS`, `REDIRECT`, `IFRAME_EMBED`
+         */
+        type?: pulumi.Input<string | undefined>;
     }
 }
 

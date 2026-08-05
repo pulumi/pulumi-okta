@@ -131,6 +131,34 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkValue{}
 	case "okta:index/logStream:LogStream":
 		r = &LogStream{}
+	case "okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin":
+		r = &Oauth2V1ClientsRoleAccessCertificationsAdmin{}
+	case "okta:index/oauth2V1ClientsRoleAccessRequestsAdmin:Oauth2V1ClientsRoleAccessRequestsAdmin":
+		r = &Oauth2V1ClientsRoleAccessRequestsAdmin{}
+	case "okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin":
+		r = &Oauth2V1ClientsRoleApiAccessManagementAdmin{}
+	case "okta:index/oauth2V1ClientsRoleAppAdmin:Oauth2V1ClientsRoleAppAdmin":
+		r = &Oauth2V1ClientsRoleAppAdmin{}
+	case "okta:index/oauth2V1ClientsRoleCustom:Oauth2V1ClientsRoleCustom":
+		r = &Oauth2V1ClientsRoleCustom{}
+	case "okta:index/oauth2V1ClientsRoleGroupMembershipAdmin:Oauth2V1ClientsRoleGroupMembershipAdmin":
+		r = &Oauth2V1ClientsRoleGroupMembershipAdmin{}
+	case "okta:index/oauth2V1ClientsRoleHelpDeskAdmin:Oauth2V1ClientsRoleHelpDeskAdmin":
+		r = &Oauth2V1ClientsRoleHelpDeskAdmin{}
+	case "okta:index/oauth2V1ClientsRoleOrgAdmin:Oauth2V1ClientsRoleOrgAdmin":
+		r = &Oauth2V1ClientsRoleOrgAdmin{}
+	case "okta:index/oauth2V1ClientsRoleReadOnlyAdmin:Oauth2V1ClientsRoleReadOnlyAdmin":
+		r = &Oauth2V1ClientsRoleReadOnlyAdmin{}
+	case "okta:index/oauth2V1ClientsRoleReportAdmin:Oauth2V1ClientsRoleReportAdmin":
+		r = &Oauth2V1ClientsRoleReportAdmin{}
+	case "okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin":
+		r = &Oauth2V1ClientsRoleSuperAdmin{}
+	case "okta:index/oauth2V1ClientsRoleUserAdmin:Oauth2V1ClientsRoleUserAdmin":
+		r = &Oauth2V1ClientsRoleUserAdmin{}
+	case "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin":
+		r = &Oauth2V1ClientsRoleWorkflowsAdmin{}
+	case "okta:index/orgCaptcha:OrgCaptcha":
+		r = &OrgCaptcha{}
 	case "okta:index/orgConfiguration:OrgConfiguration":
 		r = &OrgConfiguration{}
 	case "okta:index/orgSupport:OrgSupport":
@@ -513,6 +541,76 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/logStream",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleAccessCertificationsAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleAccessRequestsAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleApiAccessManagementAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleAppAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleCustom",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleGroupMembershipAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleHelpDeskAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleOrgAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleReadOnlyAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleReportAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleSuperAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleUserAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/oauth2V1ClientsRoleWorkflowsAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/orgCaptcha",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

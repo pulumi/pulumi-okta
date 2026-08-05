@@ -333,24 +333,24 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+     * **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
      * 
      * @deprecated
-     * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+     * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
      * 
      */
-    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
+    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
     @Import(name="groupsClaim")
     private @Nullable Output<OAuthGroupsClaimArgs> groupsClaim;
 
     /**
-     * @return Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+     * @return **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
      * 
      * @deprecated
-     * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+     * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
      * 
      */
-    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
+    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
     public Optional<Output<OAuthGroupsClaimArgs>> groupsClaim() {
         return Optional.ofNullable(this.groupsClaim);
     }
@@ -1384,30 +1384,30 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+         * @param groupsClaim **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+         * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
          * 
          */
-        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
+        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
         public Builder groupsClaim(@Nullable Output<OAuthGroupsClaimArgs> groupsClaim) {
             $.groupsClaim = groupsClaim;
             return this;
         }
 
         /**
-         * @param groupsClaim Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+         * @param groupsClaim **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
          * 
          * @return builder
          * 
          * @deprecated
-         * The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+         * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
          * 
          */
-        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead. */
+        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
         public Builder groupsClaim(OAuthGroupsClaimArgs groupsClaim) {
             return groupsClaim(Output.of(groupsClaim));
         }

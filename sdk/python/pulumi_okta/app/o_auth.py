@@ -106,7 +106,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -183,8 +183,8 @@ class OAuthArgs:
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
         if groups_claim is not None:
-            warnings.warn("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""", DeprecationWarning)
-            pulumi.log.warn("""groups_claim is deprecated: The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
+            warnings.warn("""The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""", DeprecationWarning)
+            pulumi.log.warn("""groups_claim is deprecated: The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""")
         if groups_claim is not None:
             pulumi.set(__self__, "groups_claim", groups_claim)
         if hide_ios is not None:
@@ -523,10 +523,10 @@ class OAuthArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
-    @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
+    @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""")
     def groups_claim(self) -> pulumi.Input[Optional['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         """
         return pulumi.get(self, "groups_claim")
 
@@ -1010,7 +1010,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        :param pulumi.Input['OAuthGroupsClaimArgs'] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -1092,8 +1092,8 @@ class _OAuthState:
         if grant_types is not None:
             pulumi.set(__self__, "grant_types", grant_types)
         if groups_claim is not None:
-            warnings.warn("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""", DeprecationWarning)
-            pulumi.log.warn("""groups_claim is deprecated: The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
+            warnings.warn("""The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""", DeprecationWarning)
+            pulumi.log.warn("""groups_claim is deprecated: The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""")
         if groups_claim is not None:
             pulumi.set(__self__, "groups_claim", groups_claim)
         if hide_ios is not None:
@@ -1430,10 +1430,10 @@ class _OAuthState:
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
-    @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
+    @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""")
     def groups_claim(self) -> pulumi.Input[Optional['OAuthGroupsClaimArgs']]:
         """
-        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         """
         return pulumi.get(self, "groups_claim")
 
@@ -2053,7 +2053,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -2419,7 +2419,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
@@ -2698,10 +2698,10 @@ class OAuth(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="groupsClaim")
-    @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.""")
+    @_utilities.deprecated("""The groups_claim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.""")
     def groups_claim(self) -> pulumi.Output[Optional['outputs.OAuthGroupsClaim']]:
         """
-        Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfigured_app` is set)
+        **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         """
         return pulumi.get(self, "groups_claim")
 

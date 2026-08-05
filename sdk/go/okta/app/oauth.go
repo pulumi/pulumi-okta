@@ -161,9 +161,9 @@ type OAuth struct {
 	FrontchannelLogoutUri pulumi.StringPtrOutput `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayOutput `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+	// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
 	//
-	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
 	GroupsClaim OAuthGroupsClaimPtrOutput `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrOutput `pulumi:"hideIos"`
@@ -336,9 +336,9 @@ type oauthState struct {
 	FrontchannelLogoutUri *string `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+	// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
 	//
-	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -464,9 +464,9 @@ type OAuthState struct {
 	FrontchannelLogoutUri pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+	// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
 	//
-	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -594,9 +594,9 @@ type oauthArgs struct {
 	FrontchannelLogoutUri *string `pulumi:"frontchannelLogoutUri"`
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes []string `pulumi:"grantTypes"`
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+	// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
 	//
-	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
 	GroupsClaim *OAuthGroupsClaim `pulumi:"groupsClaim"`
 	// Do not display application icon on mobile app
 	HideIos *bool `pulumi:"hideIos"`
@@ -715,9 +715,9 @@ type OAuthArgs struct {
 	FrontchannelLogoutUri pulumi.StringPtrInput
 	// List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
 	GrantTypes pulumi.StringArrayInput
-	// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+	// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
 	//
-	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+	// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
 	GroupsClaim OAuthGroupsClaimPtrInput
 	// Do not display application icon on mobile app
 	HideIos pulumi.BoolPtrInput
@@ -987,9 +987,9 @@ func (o OAuthOutput) GrantTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
 }
 
-// Groups claim for an OpenID Connect client application (argument is ignored when API auth is done with OAuth 2.0 credentials, and is not supported when `preconfiguredApp` is set)
+// **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
 //
-// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. Use Authorization Server Claims (okta_auth_server_claim) or app profile configuration instead.
+// Deprecated: The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
 func (o OAuthOutput) GroupsClaim() OAuthGroupsClaimPtrOutput {
 	return o.ApplyT(func(v *OAuth) OAuthGroupsClaimPtrOutput { return v.GroupsClaim }).(OAuthGroupsClaimPtrOutput)
 }

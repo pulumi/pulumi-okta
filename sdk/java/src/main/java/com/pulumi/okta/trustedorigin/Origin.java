@@ -10,7 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.trustedorigin.OriginArgs;
 import com.pulumi.okta.trustedorigin.inputs.OriginState;
-import java.lang.Boolean;
+import com.pulumi.okta.trustedorigin.outputs.OriginScope;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.trustedorigin.Origin;
  * import com.pulumi.okta.trustedorigin.OriginArgs;
+ * import com.pulumi.okta.trustedorigin.inputs.OriginScopeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -46,7 +47,9 @@ import javax.annotation.Nullable;
  *         var example = new Origin("example", OriginArgs.builder()
  *             .name("example")
  *             .origin("https://example.com")
- *             .scopes("CORS")
+ *             .scopes(OriginScopeArgs.builder()
+ *                 .type("CORS")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -64,60 +67,116 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:trustedorigin/origin:Origin")
 public class Origin extends com.pulumi.resources.CustomResource {
     /**
-     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     * Timestamp when the trusted origin was created
      * 
      */
-    @Export(name="active", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> active;
+    @Export(name="created", refs={String.class}, tree="[0]")
+    private Output<String> created;
 
     /**
-     * @return Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     * @return Timestamp when the trusted origin was created
      * 
      */
-    public Output<Optional<Boolean>> active() {
-        return Codegen.optional(this.active);
+    public Output<String> created() {
+        return this.created;
     }
     /**
-     * Unique name for this trusted origin
+     * The ID of the user who created the trusted origin
+     * 
+     */
+    @Export(name="createdBy", refs={String.class}, tree="[0]")
+    private Output<String> createdBy;
+
+    /**
+     * @return The ID of the user who created the trusted origin
+     * 
+     */
+    public Output<String> createdBy() {
+        return this.createdBy;
+    }
+    /**
+     * Timestamp when the trusted origin was last updated
+     * 
+     */
+    @Export(name="lastUpdated", refs={String.class}, tree="[0]")
+    private Output<String> lastUpdated;
+
+    /**
+     * @return Timestamp when the trusted origin was last updated
+     * 
+     */
+    public Output<String> lastUpdated() {
+        return this.lastUpdated;
+    }
+    /**
+     * The ID of the user who last updated the trusted origin
+     * 
+     */
+    @Export(name="lastUpdatedBy", refs={String.class}, tree="[0]")
+    private Output<String> lastUpdatedBy;
+
+    /**
+     * @return The ID of the user who last updated the trusted origin
+     * 
+     */
+    public Output<String> lastUpdatedBy() {
+        return this.lastUpdatedBy;
+    }
+    /**
+     * Unique name for the trusted origin
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Unique name for this trusted origin
+     * @return Unique name for the trusted origin
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Unique origin URL for this trusted origin
+     * Unique origin URL for the trusted origin.
      * 
      */
     @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
     /**
-     * @return Unique origin URL for this trusted origin
+     * @return Unique origin URL for the trusted origin.
      * 
      */
     public Output<String> origin() {
         return this.origin;
     }
     /**
-     * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+     * Array of scope types that this trusted origin is used for
      * 
      */
-    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> scopes;
+    @Export(name="scopes", refs={List.class,OriginScope.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<OriginScope>> scopes;
 
     /**
-     * @return Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+     * @return Array of scope types that this trusted origin is used for
      * 
      */
-    public Output<List<String>> scopes() {
-        return this.scopes;
+    public Output<Optional<List<OriginScope>>> scopes() {
+        return Codegen.optional(this.scopes);
+    }
+    /**
+     * Status of the trusted origin. Values: ACTIVE, INACTIVE
+     * 
+     */
+    @Export(name="status", refs={String.class}, tree="[0]")
+    private Output<String> status;
+
+    /**
+     * @return Status of the trusted origin. Values: ACTIVE, INACTIVE
+     * 
+     */
+    public Output<String> status() {
+        return this.status;
     }
 
     /**
