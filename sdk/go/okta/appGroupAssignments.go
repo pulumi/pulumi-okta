@@ -39,7 +39,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			var this []*okta.AppGroupAssignments
-//			for index := 0; index < std.Toset(ctx, map[string]interface{}{
+//			for index := 0; index < std.Toset(ctx, map[string][]string{
 //				"input": []string{
 //					"group-a",
 //					"group-b",
@@ -86,7 +86,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"application profile field": "application profile value",
 //			})
 //			if err != nil {

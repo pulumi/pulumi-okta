@@ -49,7 +49,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"allowedFor": "recovery",
 //			})
 //			if err != nil {
@@ -86,7 +86,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON2, err := json.Marshal(map[string]interface{}{
+//			tmpJSON2, err := json.Marshal(map[string]string{
 //				"userVerification": "REQUIRED",
 //				"appInstanceId":    "0oasontedmcepr0Uf1d7",
 //			})
@@ -96,8 +96,8 @@ import (
 //			json2 := string(tmpJSON2)
 //			tmpJSON3, err := json.Marshal(map[string]interface{}{
 //				"type": "PUSH",
-//				"configuration": map[string]interface{}{
-//					"fcm": map[string]interface{}{
+//				"configuration": map[string]map[string]string{
+//					"fcm": map[string]string{
 //						"id": "ppcrb12345678ABCDEF",
 //					},
 //				},

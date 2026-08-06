@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = app.NewFederatedClaim(ctx, "example", &app.FederatedClaimArgs{
-//				AppId:      testApp.ID(),
+//				AppId:      testApp.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("role_last_name"),
 //				Expression: pulumi.String("user.profile.lastName"),
 //			})
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			_, err = app.NewFederatedClaim(ctx, "last_name", &app.FederatedClaimArgs{
-//				AppId:      testApp.ID(),
+//				AppId:      testApp.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("lastName"),
 //				Expression: pulumi.String("user.profile.lastName"),
 //			})
@@ -97,7 +97,7 @@ import (
 //				return err
 //			}
 //			_, err = app.NewFederatedClaim(ctx, "first_name", &app.FederatedClaimArgs{
-//				AppId:      testApp.ID(),
+//				AppId:      testApp.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("firstName"),
 //				Expression: pulumi.String("user.profile.firstName"),
 //			})
@@ -105,7 +105,7 @@ import (
 //				return err
 //			}
 //			_, err = app.NewFederatedClaim(ctx, "department", &app.FederatedClaimArgs{
-//				AppId:      testApp.ID(),
+//				AppId:      testApp.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("department"),
 //				Expression: pulumi.String("user.profile.department"),
 //			})

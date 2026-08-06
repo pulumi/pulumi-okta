@@ -47,7 +47,7 @@ import (
 //			_, err = okta.NewThreatInsightSettings(ctx, "example", &okta.ThreatInsightSettingsArgs{
 //				Action: pulumi.String("block"),
 //				NetworkExcludes: pulumi.StringArray{
-//					ipNetworkZoneExample.ID(),
+//					ipNetworkZoneExample.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

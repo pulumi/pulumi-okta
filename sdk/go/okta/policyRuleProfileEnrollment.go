@@ -65,9 +65,9 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewPolicyRuleProfileEnrollment(ctx, "example", &okta.PolicyRuleProfileEnrollmentArgs{
-//				PolicyId:          example.ID(),
-//				InlineHookId:      exampleHook.ID(),
-//				TargetGroupId:     exampleGroup.ID(),
+//				PolicyId:          example.ID().ToIDOutput().ToStringOutput(),
+//				InlineHookId:      exampleHook.ID().ToIDOutput().ToStringOutput(),
+//				TargetGroupId:     exampleGroup.ID().ToIDOutput().ToStringOutput(),
 //				UnknownUserAction: pulumi.String("REGISTER"),
 //				EmailVerification: pulumi.Bool(true),
 //				Access:            pulumi.String("ALLOW"),

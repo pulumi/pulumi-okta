@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeToset, err := std.Toset(ctx, map[string]interface{}{
+//			invokeToset, err := std.Toset(ctx, map[string][]string{
 //				"input": []string{
 //					"BIOMETRIC",
 //				},
