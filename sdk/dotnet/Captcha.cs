@@ -54,19 +54,19 @@ namespace Pulumi.Okta
         /// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         /// </summary>
         [Output("secretKey")]
-        public Output<string?> SecretKey { get; private set; } = null!;
+        public Output<string> SecretKey { get; private set; } = null!;
 
         /// <summary>
         /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         /// </summary>
         [Output("siteKey")]
-        public Output<string?> SiteKey { get; private set; } = null!;
+        public Output<string> SiteKey { get; private set; } = null!;
 
         /// <summary>
         /// Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.Okta
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Captcha(string name, CaptchaArgs? args = null, CustomResourceOptions? options = null)
+        public Captcha(string name, CaptchaArgs args, CustomResourceOptions? options = null)
             : base("okta:index/captcha:Captcha", name, args ?? new CaptchaArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -124,7 +124,7 @@ namespace Pulumi.Okta
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("secretKey")]
+        [Input("secretKey", required: true)]
         private Input<string>? _secretKey;
 
         /// <summary>
@@ -143,14 +143,14 @@ namespace Pulumi.Okta
         /// <summary>
         /// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         /// </summary>
-        [Input("siteKey")]
-        public Input<string>? SiteKey { get; set; }
+        [Input("siteKey", required: true)]
+        public Input<string> SiteKey { get; set; } = null!;
 
         /// <summary>
         /// Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public CaptchaArgs()
         {

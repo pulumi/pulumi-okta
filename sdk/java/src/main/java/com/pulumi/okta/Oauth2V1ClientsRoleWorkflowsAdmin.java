@@ -13,6 +13,50 @@ import com.pulumi.okta.inputs.Oauth2V1ClientsRoleWorkflowsAdminState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Oauth2V1ClientsRoleWorkflowsAdmin;
+ * import com.pulumi.okta.Oauth2V1ClientsRoleWorkflowsAdminArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Oauth2V1ClientsRoleWorkflowsAdmin("example", Oauth2V1ClientsRoleWorkflowsAdminArgs.builder()
+ *             .clientId("<client_id>")
+ *             .type("WORKFLOWS_ADMIN")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin example &lt;client_id&gt;/&lt;id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin")
 public class Oauth2V1ClientsRoleWorkflowsAdmin extends com.pulumi.resources.CustomResource {
     /**

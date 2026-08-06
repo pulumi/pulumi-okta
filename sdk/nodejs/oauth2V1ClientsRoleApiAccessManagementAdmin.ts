@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Oauth2V1ClientsRoleApiAccessManagementAdmin("example", {
+ *     clientId: "<client_id>",
+ *     type: "API_ACCESS_MANAGEMENT_ADMIN",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin example <client_id>/<id>
+ * ```
+ */
 export class Oauth2V1ClientsRoleApiAccessManagementAdmin extends pulumi.CustomResource {
     /**
      * Get an existing Oauth2V1ClientsRoleApiAccessManagementAdmin resource's state with the given name, ID, and optional extra
@@ -57,7 +78,7 @@ export class Oauth2V1ClientsRoleApiAccessManagementAdmin extends pulumi.CustomRe
      */
     declare public readonly status: pulumi.Output<string>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "API_ACCESS_MANAGEMENT_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "API*ACCESS*MANAGEMENT_ADMIN".
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -131,7 +152,7 @@ export interface Oauth2V1ClientsRoleApiAccessManagementAdminState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "API_ACCESS_MANAGEMENT_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "API*ACCESS*MANAGEMENT_ADMIN".
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -153,7 +174,7 @@ export interface Oauth2V1ClientsRoleApiAccessManagementAdminArgs {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "API_ACCESS_MANAGEMENT_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "API*ACCESS*MANAGEMENT_ADMIN".
      */
     type: pulumi.Input<string>;
 }

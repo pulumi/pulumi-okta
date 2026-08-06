@@ -13,8 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['OriginArgs', 'Origin']
 
@@ -22,30 +20,29 @@ __all__ = ['OriginArgs', 'Origin']
 class OriginArgs:
     def __init__(__self__, *,
                  origin: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['OriginScopeArgs']]]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None):
+                 scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Origin resource.
 
-        :param pulumi.Input[_builtins.str] origin: Unique origin URL for the trusted origin.
-        :param pulumi.Input[_builtins.str] name: Unique name for the trusted origin
-        :param pulumi.Input[Sequence[pulumi.Input['OriginScopeArgs']]] scopes: Array of scope types that this trusted origin is used for
-        :param pulumi.Input[_builtins.str] status: Status of the trusted origin. Values: ACTIVE, INACTIVE
+        :param pulumi.Input[_builtins.str] origin: Unique origin URL for this trusted origin
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+        :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+        :param pulumi.Input[_builtins.str] name: Unique name for this trusted origin
         """
         pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "scopes", scopes)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
     def origin(self) -> pulumi.Input[_builtins.str]:
         """
-        Unique origin URL for the trusted origin.
+        Unique origin URL for this trusted origin
         """
         return pulumi.get(self, "origin")
 
@@ -55,9 +52,33 @@ class OriginArgs:
 
     @_builtins.property
     @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "active", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique name for the trusted origin
+        Unique name for this trusted origin
         """
         return pulumi.get(self, "name")
 
@@ -65,124 +86,48 @@ class OriginArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
-    @_builtins.property
-    @pulumi.getter
-    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginScopeArgs']]]]:
-        """
-        Array of scope types that this trusted origin is used for
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginScopeArgs']]]]):
-        pulumi.set(self, "scopes", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Status of the trusted origin. Values: ACTIVE, INACTIVE
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "status", value)
-
 
 @pulumi.input_type
 class _OriginState:
     def __init__(__self__, *,
-                 created: pulumi.Input[Optional[_builtins.str]] = None,
-                 created_by: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_updated: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input['OriginScopeArgs']]]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None):
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Origin resources.
 
-        :param pulumi.Input[_builtins.str] created: Timestamp when the trusted origin was created
-        :param pulumi.Input[_builtins.str] created_by: The ID of the user who created the trusted origin
-        :param pulumi.Input[_builtins.str] last_updated: Timestamp when the trusted origin was last updated
-        :param pulumi.Input[_builtins.str] last_updated_by: The ID of the user who last updated the trusted origin
-        :param pulumi.Input[_builtins.str] name: Unique name for the trusted origin
-        :param pulumi.Input[_builtins.str] origin: Unique origin URL for the trusted origin.
-        :param pulumi.Input[Sequence[pulumi.Input['OriginScopeArgs']]] scopes: Array of scope types that this trusted origin is used for
-        :param pulumi.Input[_builtins.str] status: Status of the trusted origin. Values: ACTIVE, INACTIVE
+        :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+        :param pulumi.Input[_builtins.str] name: Unique name for this trusted origin
+        :param pulumi.Input[_builtins.str] origin: Unique origin URL for this trusted origin
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         """
-        if created is not None:
-            pulumi.set(__self__, "created", created)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if last_updated is not None:
-            pulumi.set(__self__, "last_updated", last_updated)
-        if last_updated_by is not None:
-            pulumi.set(__self__, "last_updated_by", last_updated_by)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if origin is not None:
             pulumi.set(__self__, "origin", origin)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Timestamp when the trusted origin was created
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
         """
-        return pulumi.get(self, "created")
+        return pulumi.get(self, "active")
 
-    @created.setter
-    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "created", value)
-
-    @_builtins.property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the user who created the trusted origin
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "created_by", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Timestamp when the trusted origin was last updated
-        """
-        return pulumi.get(self, "last_updated")
-
-    @last_updated.setter
-    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "last_updated", value)
-
-    @_builtins.property
-    @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the user who last updated the trusted origin
-        """
-        return pulumi.get(self, "last_updated_by")
-
-    @last_updated_by.setter
-    def last_updated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "last_updated_by", value)
+    @active.setter
+    def active(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "active", value)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique name for the trusted origin
+        Unique name for this trusted origin
         """
         return pulumi.get(self, "name")
 
@@ -194,7 +139,7 @@ class _OriginState:
     @pulumi.getter
     def origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique origin URL for the trusted origin.
+        Unique origin URL for this trusted origin
         """
         return pulumi.get(self, "origin")
 
@@ -204,27 +149,15 @@ class _OriginState:
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OriginScopeArgs']]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Array of scope types that this trusted origin is used for
+        Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OriginScopeArgs']]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Status of the trusted origin. Values: ACTIVE, INACTIVE
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.type_token("okta:trustedorigin/origin:Origin")
@@ -233,10 +166,10 @@ class Origin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a Trusted Origin. This resource allows you to create and configure a Trusted Origin.
@@ -250,9 +183,7 @@ class Origin(pulumi.CustomResource):
         example = okta.trustedorigin.Origin("example",
             name="example",
             origin="https://example.com",
-            scopes=[{
-                "type": "CORS",
-            }])
+            scopes=["CORS"])
         ```
 
         ## Import
@@ -264,10 +195,10 @@ class Origin(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Unique name for the trusted origin
-        :param pulumi.Input[_builtins.str] origin: Unique origin URL for the trusted origin.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]] scopes: Array of scope types that this trusted origin is used for
-        :param pulumi.Input[_builtins.str] status: Status of the trusted origin. Values: ACTIVE, INACTIVE
+        :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+        :param pulumi.Input[_builtins.str] name: Unique name for this trusted origin
+        :param pulumi.Input[_builtins.str] origin: Unique origin URL for this trusted origin
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         """
         ...
     @overload
@@ -287,9 +218,7 @@ class Origin(pulumi.CustomResource):
         example = okta.trustedorigin.Origin("example",
             name="example",
             origin="https://example.com",
-            scopes=[{
-                "type": "CORS",
-            }])
+            scopes=["CORS"])
         ```
 
         ## Import
@@ -314,10 +243,10 @@ class Origin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 active: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -327,16 +256,14 @@ class Origin(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginArgs.__new__(OriginArgs)
 
+            __props__.__dict__["active"] = active
             __props__.__dict__["name"] = name
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__.__dict__["origin"] = origin
+            if scopes is None and not opts.urn:
+                raise TypeError("Missing required property 'scopes'")
             __props__.__dict__["scopes"] = scopes
-            __props__.__dict__["status"] = status
-            __props__.__dict__["created"] = None
-            __props__.__dict__["created_by"] = None
-            __props__.__dict__["last_updated"] = None
-            __props__.__dict__["last_updated_by"] = None
         super(Origin, __self__).__init__(
             'okta:trustedorigin/origin:Origin',
             resource_name,
@@ -347,14 +274,10 @@ class Origin(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            created: pulumi.Input[Optional[_builtins.str]] = None,
-            created_by: pulumi.Input[Optional[_builtins.str]] = None,
-            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
-            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            active: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             origin: pulumi.Input[Optional[_builtins.str]] = None,
-            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]]] = None,
-            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Origin':
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Origin':
         """
         Get an existing Origin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -362,66 +285,34 @@ class Origin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] created: Timestamp when the trusted origin was created
-        :param pulumi.Input[_builtins.str] created_by: The ID of the user who created the trusted origin
-        :param pulumi.Input[_builtins.str] last_updated: Timestamp when the trusted origin was last updated
-        :param pulumi.Input[_builtins.str] last_updated_by: The ID of the user who last updated the trusted origin
-        :param pulumi.Input[_builtins.str] name: Unique name for the trusted origin
-        :param pulumi.Input[_builtins.str] origin: Unique origin URL for the trusted origin.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]] scopes: Array of scope types that this trusted origin is used for
-        :param pulumi.Input[_builtins.str] status: Status of the trusted origin. Values: ACTIVE, INACTIVE
+        :param pulumi.Input[_builtins.bool] active: Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+        :param pulumi.Input[_builtins.str] name: Unique name for this trusted origin
+        :param pulumi.Input[_builtins.str] origin: Unique origin URL for this trusted origin
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _OriginState.__new__(_OriginState)
 
-        __props__.__dict__["created"] = created
-        __props__.__dict__["created_by"] = created_by
-        __props__.__dict__["last_updated"] = last_updated
-        __props__.__dict__["last_updated_by"] = last_updated_by
+        __props__.__dict__["active"] = active
         __props__.__dict__["name"] = name
         __props__.__dict__["origin"] = origin
         __props__.__dict__["scopes"] = scopes
-        __props__.__dict__["status"] = status
         return Origin(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter
-    def created(self) -> pulumi.Output[_builtins.str]:
+    def active(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Timestamp when the trusted origin was created
+        Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
         """
-        return pulumi.get(self, "created")
-
-    @_builtins.property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the user who created the trusted origin
-        """
-        return pulumi.get(self, "created_by")
-
-    @_builtins.property
-    @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> pulumi.Output[_builtins.str]:
-        """
-        Timestamp when the trusted origin was last updated
-        """
-        return pulumi.get(self, "last_updated")
-
-    @_builtins.property
-    @pulumi.getter(name="lastUpdatedBy")
-    def last_updated_by(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the user who last updated the trusted origin
-        """
-        return pulumi.get(self, "last_updated_by")
+        return pulumi.get(self, "active")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Unique name for the trusted origin
+        Unique name for this trusted origin
         """
         return pulumi.get(self, "name")
 
@@ -429,23 +320,15 @@ class Origin(pulumi.CustomResource):
     @pulumi.getter
     def origin(self) -> pulumi.Output[_builtins.str]:
         """
-        Unique origin URL for the trusted origin.
+        Unique origin URL for this trusted origin
         """
         return pulumi.get(self, "origin")
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.OriginScope']]]:
+    def scopes(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Array of scope types that this trusted origin is used for
+        Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         """
         return pulumi.get(self, "scopes")
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[_builtins.str]:
-        """
-        Status of the trusted origin. Values: ACTIVE, INACTIVE
-        """
-        return pulumi.get(self, "status")
 

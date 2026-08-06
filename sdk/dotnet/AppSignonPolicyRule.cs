@@ -128,7 +128,7 @@ namespace Pulumi.Okta
         public Output<ImmutableArray<string>> NetworkIncludes { get; private set; } = null!;
 
         /// <summary>
-        /// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        /// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
         /// </summary>
         [Output("office365ClientIncludes")]
         public Output<ImmutableArray<string>> Office365ClientIncludes { get; private set; } = null!;
@@ -390,7 +390,7 @@ namespace Pulumi.Okta
         private InputList<string>? _office365ClientIncludes;
 
         /// <summary>
-        /// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        /// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
         /// </summary>
         public InputList<string> Office365ClientIncludes
         {
@@ -640,7 +640,7 @@ namespace Pulumi.Okta
         private InputList<string>? _office365ClientIncludes;
 
         /// <summary>
-        /// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+        /// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
         /// </summary>
         public InputList<string> Office365ClientIncludes
         {

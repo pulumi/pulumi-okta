@@ -262,14 +262,14 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      * 
      */
     @Import(name="office365ClientIncludes")
     private @Nullable Output<List<String>> office365ClientIncludes;
 
     /**
-     * @return Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * @return Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      * 
      */
     public Optional<Output<List<String>>> office365ClientIncludes() {
@@ -891,7 +891,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param office365ClientIncludes Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+         * @param office365ClientIncludes Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
          * 
          * @return builder
          * 
@@ -902,7 +902,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param office365ClientIncludes Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+         * @param office365ClientIncludes Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
          * 
          * @return builder
          * 
@@ -912,7 +912,7 @@ public final class AppSignonPolicyRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param office365ClientIncludes Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+         * @param office365ClientIncludes Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
          * 
          * @return builder
          * 

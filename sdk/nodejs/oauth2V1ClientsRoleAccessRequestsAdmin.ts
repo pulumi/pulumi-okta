@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Oauth2V1ClientsRoleAccessRequestsAdmin("example", {
+ *     clientId: "<client_id>",
+ *     type: "ACCESS_REQUESTS_ADMIN",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleAccessRequestsAdmin:Oauth2V1ClientsRoleAccessRequestsAdmin example <client_id>/<id>
+ * ```
+ */
 export class Oauth2V1ClientsRoleAccessRequestsAdmin extends pulumi.CustomResource {
     /**
      * Get an existing Oauth2V1ClientsRoleAccessRequestsAdmin resource's state with the given name, ID, and optional extra
@@ -65,7 +86,7 @@ export class Oauth2V1ClientsRoleAccessRequestsAdmin extends pulumi.CustomResourc
      */
     declare public readonly status: pulumi.Output<string>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "ACCESS_REQUESTS_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "ACCESS*REQUESTS*ADMIN".
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -151,7 +172,7 @@ export interface Oauth2V1ClientsRoleAccessRequestsAdminState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "ACCESS_REQUESTS_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "ACCESS*REQUESTS*ADMIN".
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -173,7 +194,7 @@ export interface Oauth2V1ClientsRoleAccessRequestsAdminArgs {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "ACCESS_REQUESTS_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "ACCESS*REQUESTS*ADMIN".
      */
     type: pulumi.Input<string>;
 }

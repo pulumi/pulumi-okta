@@ -6,7 +6,7 @@ package com.pulumi.okta.trustedorigin;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.pulumi.okta.trustedorigin.inputs.OriginScopeArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,14 +19,29 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     public static final OriginArgs Empty = new OriginArgs();
 
     /**
-     * Unique name for the trusted origin
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     * 
+     */
+    @Import(name="active")
+    private @Nullable Output<Boolean> active;
+
+    /**
+     * @return Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> active() {
+        return Optional.ofNullable(this.active);
+    }
+
+    /**
+     * Unique name for this trusted origin
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique name for the trusted origin
+     * @return Unique name for this trusted origin
      * 
      */
     public Optional<Output<String>> name() {
@@ -34,14 +49,14 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique origin URL for the trusted origin.
+     * Unique origin URL for this trusted origin
      * 
      */
     @Import(name="origin", required=true)
     private Output<String> origin;
 
     /**
-     * @return Unique origin URL for the trusted origin.
+     * @return Unique origin URL for this trusted origin
      * 
      */
     public Output<String> origin() {
@@ -49,42 +64,27 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Array of scope types that this trusted origin is used for
+     * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      * 
      */
-    @Import(name="scopes")
-    private @Nullable Output<List<OriginScopeArgs>> scopes;
+    @Import(name="scopes", required=true)
+    private Output<List<String>> scopes;
 
     /**
-     * @return Array of scope types that this trusted origin is used for
+     * @return Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      * 
      */
-    public Optional<Output<List<OriginScopeArgs>>> scopes() {
-        return Optional.ofNullable(this.scopes);
-    }
-
-    /**
-     * Status of the trusted origin. Values: ACTIVE, INACTIVE
-     * 
-     */
-    @Import(name="status")
-    private @Nullable Output<String> status;
-
-    /**
-     * @return Status of the trusted origin. Values: ACTIVE, INACTIVE
-     * 
-     */
-    public Optional<Output<String>> status() {
-        return Optional.ofNullable(this.status);
+    public Output<List<String>> scopes() {
+        return this.scopes;
     }
 
     private OriginArgs() {}
 
     private OriginArgs(OriginArgs $) {
+        this.active = $.active;
         this.name = $.name;
         this.origin = $.origin;
         this.scopes = $.scopes;
-        this.status = $.status;
     }
 
     public static Builder builder() {
@@ -106,7 +106,28 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for the trusted origin
+         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder active(@Nullable Output<Boolean> active) {
+            $.active = active;
+            return this;
+        }
+
+        /**
+         * @param active Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder active(Boolean active) {
+            return active(Output.of(active));
+        }
+
+        /**
+         * @param name Unique name for this trusted origin
          * 
          * @return builder
          * 
@@ -117,7 +138,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for the trusted origin
+         * @param name Unique name for this trusted origin
          * 
          * @return builder
          * 
@@ -127,7 +148,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Unique origin URL for the trusted origin.
+         * @param origin Unique origin URL for this trusted origin
          * 
          * @return builder
          * 
@@ -138,7 +159,7 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param origin Unique origin URL for the trusted origin.
+         * @param origin Unique origin URL for this trusted origin
          * 
          * @return builder
          * 
@@ -148,60 +169,42 @@ public final class OriginArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes Array of scope types that this trusted origin is used for
+         * @param scopes Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
          * 
          * @return builder
          * 
          */
-        public Builder scopes(@Nullable Output<List<OriginScopeArgs>> scopes) {
+        public Builder scopes(Output<List<String>> scopes) {
             $.scopes = scopes;
             return this;
         }
 
         /**
-         * @param scopes Array of scope types that this trusted origin is used for
+         * @param scopes Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
          * 
          * @return builder
          * 
          */
-        public Builder scopes(List<OriginScopeArgs> scopes) {
+        public Builder scopes(List<String> scopes) {
             return scopes(Output.of(scopes));
         }
 
         /**
-         * @param scopes Array of scope types that this trusted origin is used for
+         * @param scopes Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
          * 
          * @return builder
          * 
          */
-        public Builder scopes(OriginScopeArgs... scopes) {
+        public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
-        }
-
-        /**
-         * @param status Status of the trusted origin. Values: ACTIVE, INACTIVE
-         * 
-         * @return builder
-         * 
-         */
-        public Builder status(@Nullable Output<String> status) {
-            $.status = status;
-            return this;
-        }
-
-        /**
-         * @param status Status of the trusted origin. Values: ACTIVE, INACTIVE
-         * 
-         * @return builder
-         * 
-         */
-        public Builder status(String status) {
-            return status(Output.of(status));
         }
 
         public OriginArgs build() {
             if ($.origin == null) {
                 throw new MissingRequiredPropertyException("OriginArgs", "origin");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("OriginArgs", "scopes");
             }
             return $;
         }

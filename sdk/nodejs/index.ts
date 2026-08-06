@@ -320,11 +320,6 @@ export const getCampaign: typeof import("./getCampaign").getCampaign = null as a
 export const getCampaignOutput: typeof import("./getCampaign").getCampaignOutput = null as any;
 utilities.lazyLoad(exports, ["getCampaign","getCampaignOutput"], () => require("./getCampaign"));
 
-export { GetCaptchaArgs, GetCaptchaResult, GetCaptchaOutputArgs } from "./getCaptcha";
-export const getCaptcha: typeof import("./getCaptcha").getCaptcha = null as any;
-export const getCaptchaOutput: typeof import("./getCaptcha").getCaptchaOutput = null as any;
-utilities.lazyLoad(exports, ["getCaptcha","getCaptchaOutput"], () => require("./getCaptcha"));
-
 export { GetCatalogEntryDefaultArgs, GetCatalogEntryDefaultResult, GetCatalogEntryDefaultOutputArgs } from "./getCatalogEntryDefault";
 export const getCatalogEntryDefault: typeof import("./getCatalogEntryDefault").getCatalogEntryDefault = null as any;
 export const getCatalogEntryDefaultOutput: typeof import("./getCatalogEntryDefault").getCatalogEntryDefaultOutput = null as any;
@@ -454,11 +449,6 @@ export { GetOauthAuthorizationServerArgs, GetOauthAuthorizationServerResult, Get
 export const getOauthAuthorizationServer: typeof import("./getOauthAuthorizationServer").getOauthAuthorizationServer = null as any;
 export const getOauthAuthorizationServerOutput: typeof import("./getOauthAuthorizationServer").getOauthAuthorizationServerOutput = null as any;
 utilities.lazyLoad(exports, ["getOauthAuthorizationServer","getOauthAuthorizationServerOutput"], () => require("./getOauthAuthorizationServer"));
-
-export { GetOrgCaptchaArgs, GetOrgCaptchaResult, GetOrgCaptchaOutputArgs } from "./getOrgCaptcha";
-export const getOrgCaptcha: typeof import("./getOrgCaptcha").getOrgCaptcha = null as any;
-export const getOrgCaptchaOutput: typeof import("./getOrgCaptcha").getOrgCaptchaOutput = null as any;
-utilities.lazyLoad(exports, ["getOrgCaptcha","getOrgCaptchaOutput"], () => require("./getOrgCaptcha"));
 
 export { GetOrgMetadataArgs, GetOrgMetadataResult, GetOrgMetadataOutputArgs } from "./getOrgMetadata";
 export const getOrgMetadata: typeof import("./getOrgMetadata").getOrgMetadata = null as any;
@@ -595,11 +585,6 @@ export const getThemes: typeof import("./getThemes").getThemes = null as any;
 export const getThemesOutput: typeof import("./getThemes").getThemesOutput = null as any;
 utilities.lazyLoad(exports, ["getThemes","getThemesOutput"], () => require("./getThemes"));
 
-export { GetTrustedOriginArgs, GetTrustedOriginResult, GetTrustedOriginOutputArgs } from "./getTrustedOrigin";
-export const getTrustedOrigin: typeof import("./getTrustedOrigin").getTrustedOrigin = null as any;
-export const getTrustedOriginOutput: typeof import("./getTrustedOrigin").getTrustedOriginOutput = null as any;
-utilities.lazyLoad(exports, ["getTrustedOrigin","getTrustedOriginOutput"], () => require("./getTrustedOrigin"));
-
 export { GetTrustedOriginsArgs, GetTrustedOriginsResult, GetTrustedOriginsOutputArgs } from "./getTrustedOrigins";
 export const getTrustedOrigins: typeof import("./getTrustedOrigins").getTrustedOrigins = null as any;
 export const getTrustedOriginsOutput: typeof import("./getTrustedOrigins").getTrustedOriginsOutput = null as any;
@@ -734,11 +719,6 @@ export { Oauth2V1ClientsRoleWorkflowsAdminArgs, Oauth2V1ClientsRoleWorkflowsAdmi
 export type Oauth2V1ClientsRoleWorkflowsAdmin = import("./oauth2V1ClientsRoleWorkflowsAdmin").Oauth2V1ClientsRoleWorkflowsAdmin;
 export const Oauth2V1ClientsRoleWorkflowsAdmin: typeof import("./oauth2V1ClientsRoleWorkflowsAdmin").Oauth2V1ClientsRoleWorkflowsAdmin = null as any;
 utilities.lazyLoad(exports, ["Oauth2V1ClientsRoleWorkflowsAdmin"], () => require("./oauth2V1ClientsRoleWorkflowsAdmin"));
-
-export { OrgCaptchaArgs, OrgCaptchaState } from "./orgCaptcha";
-export type OrgCaptcha = import("./orgCaptcha").OrgCaptcha;
-export const OrgCaptcha: typeof import("./orgCaptcha").OrgCaptcha = null as any;
-utilities.lazyLoad(exports, ["OrgCaptcha"], () => require("./orgCaptcha"));
 
 export { OrgConfigurationArgs, OrgConfigurationState } from "./orgConfiguration";
 export type OrgConfiguration = import("./orgConfiguration").OrgConfiguration;
@@ -1110,8 +1090,6 @@ const _module = {
                 return new Oauth2V1ClientsRoleUserAdmin(name, <any>undefined, { urn })
             case "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin":
                 return new Oauth2V1ClientsRoleWorkflowsAdmin(name, <any>undefined, { urn })
-            case "okta:index/orgCaptcha:OrgCaptcha":
-                return new OrgCaptcha(name, <any>undefined, { urn })
             case "okta:index/orgConfiguration:OrgConfiguration":
                 return new OrgConfiguration(name, <any>undefined, { urn })
             case "okta:index/orgSupport:OrgSupport":
@@ -1263,7 +1241,6 @@ pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleReportAd
 pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleSuperAdmin", _module)
 pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleUserAdmin", _module)
 pulumi.runtime.registerResourceModule("okta", "index/oauth2V1ClientsRoleWorkflowsAdmin", _module)
-pulumi.runtime.registerResourceModule("okta", "index/orgCaptcha", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgConfiguration", _module)
 pulumi.runtime.registerResourceModule("okta", "index/orgSupport", _module)
 pulumi.runtime.registerResourceModule("okta", "index/policyMfaDefault", _module)

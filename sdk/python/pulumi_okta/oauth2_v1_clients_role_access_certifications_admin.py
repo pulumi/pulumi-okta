@@ -27,7 +27,7 @@ class Oauth2V1ClientsRoleAccessCertificationsAdminArgs:
         The set of arguments for constructing a Oauth2V1ClientsRoleAccessCertificationsAdmin resource.
 
         :param pulumi.Input[_builtins.str] client_id: `client_id` of the app
-        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         :param pulumi.Input[_builtins.str] assignment_type: Role assignment type
         :param pulumi.Input[_builtins.str] status: Status of the role assignment
         """
@@ -54,7 +54,7 @@ class Oauth2V1ClientsRoleAccessCertificationsAdminArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         """
         return pulumi.get(self, "type")
 
@@ -110,7 +110,7 @@ class _Oauth2V1ClientsRoleAccessCertificationsAdminState:
         :param pulumi.Input[_builtins.str] resource_set: Resource set ID
         :param pulumi.Input[_builtins.str] role: Role ID
         :param pulumi.Input[_builtins.str] status: Status of the role assignment
-        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         """
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
@@ -231,7 +231,7 @@ class _Oauth2V1ClientsRoleAccessCertificationsAdminState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         """
         return pulumi.get(self, "type")
 
@@ -252,14 +252,32 @@ class Oauth2V1ClientsRoleAccessCertificationsAdmin(pulumi.CustomResource):
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a Oauth2V1ClientsRoleAccessCertificationsAdmin resource with the given unique name, props, and options.
+        The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Oauth2V1ClientsRoleAccessCertificationsAdmin("example",
+            client_id="<client_id>",
+            type="ACCESS_CERTIFICATIONS_ADMIN")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin example <client_id>/<id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assignment_type: Role assignment type
         :param pulumi.Input[_builtins.str] client_id: `client_id` of the app
         :param pulumi.Input[_builtins.str] status: Status of the role assignment
-        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         """
         ...
     @overload
@@ -268,7 +286,25 @@ class Oauth2V1ClientsRoleAccessCertificationsAdmin(pulumi.CustomResource):
                  args: Oauth2V1ClientsRoleAccessCertificationsAdminArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Oauth2V1ClientsRoleAccessCertificationsAdmin resource with the given unique name, props, and options.
+        The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Oauth2V1ClientsRoleAccessCertificationsAdmin("example",
+            client_id="<client_id>",
+            type="ACCESS_CERTIFICATIONS_ADMIN")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin example <client_id>/<id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Oauth2V1ClientsRoleAccessCertificationsAdminArgs args: The arguments to use to populate this resource's properties.
@@ -345,7 +381,7 @@ class Oauth2V1ClientsRoleAccessCertificationsAdmin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_set: Resource set ID
         :param pulumi.Input[_builtins.str] role: Role ID
         :param pulumi.Input[_builtins.str] status: Status of the role assignment
-        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        :param pulumi.Input[_builtins.str] type: Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -430,7 +466,7 @@ class Oauth2V1ClientsRoleAccessCertificationsAdmin(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+        Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
         """
         return pulumi.get(self, "type")
 

@@ -106,14 +106,14 @@ public final class Oauth2V1ClientsRoleApiAccessManagementAdminState extends com.
     }
 
     /**
-     * Discriminator field identifying the variant type. Must be set to &#34;API_ACCESS_MANAGEMENT_ADMIN&#34;.
+     * Discriminator field identifying the variant type. Must be set to &#34;API*ACCESS*MANAGEMENT_ADMIN&#34;.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Discriminator field identifying the variant type. Must be set to &#34;API_ACCESS_MANAGEMENT_ADMIN&#34;.
+     * @return Discriminator field identifying the variant type. Must be set to &#34;API*ACCESS*MANAGEMENT_ADMIN&#34;.
      * 
      */
     public Optional<Output<String>> type() {
@@ -277,7 +277,7 @@ public final class Oauth2V1ClientsRoleApiAccessManagementAdminState extends com.
         }
 
         /**
-         * @param type Discriminator field identifying the variant type. Must be set to &#34;API_ACCESS_MANAGEMENT_ADMIN&#34;.
+         * @param type Discriminator field identifying the variant type. Must be set to &#34;API*ACCESS*MANAGEMENT_ADMIN&#34;.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class Oauth2V1ClientsRoleApiAccessManagementAdminState extends com.
         }
 
         /**
-         * @param type Discriminator field identifying the variant type. Must be set to &#34;API_ACCESS_MANAGEMENT_ADMIN&#34;.
+         * @param type Discriminator field identifying the variant type. Must be set to &#34;API*ACCESS*MANAGEMENT_ADMIN&#34;.
          * 
          * @return builder
          * 

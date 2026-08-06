@@ -12,6 +12,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewOauth2V1ClientsRoleGroupMembershipAdmin(ctx, "example", &okta.Oauth2V1ClientsRoleGroupMembershipAdminArgs{
+//				ClientId: pulumi.String("<client_id>"),
+//				Type:     pulumi.String("GROUP_MEMBERSHIP_ADMIN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:index/oauth2V1ClientsRoleGroupMembershipAdmin:Oauth2V1ClientsRoleGroupMembershipAdmin example <client_id>/<id>
+// ```
 type Oauth2V1ClientsRoleGroupMembershipAdmin struct {
 	pulumi.CustomResourceState
 
@@ -27,7 +61,7 @@ type Oauth2V1ClientsRoleGroupMembershipAdmin struct {
 	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
 	// Status of the role assignment
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -79,7 +113,7 @@ type oauth2V1ClientsRoleGroupMembershipAdminState struct {
 	LastUpdated *string `pulumi:"lastUpdated"`
 	// Status of the role assignment
 	Status *string `pulumi:"status"`
-	// Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
 	Type *string `pulumi:"type"`
 }
 
@@ -96,7 +130,7 @@ type Oauth2V1ClientsRoleGroupMembershipAdminState struct {
 	LastUpdated pulumi.StringPtrInput
 	// Status of the role assignment
 	Status pulumi.StringPtrInput
-	// Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
 	Type pulumi.StringPtrInput
 }
 
@@ -111,7 +145,7 @@ type oauth2V1ClientsRoleGroupMembershipAdminArgs struct {
 	ClientId string `pulumi:"clientId"`
 	// Status of the role assignment
 	Status *string `pulumi:"status"`
-	// Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
 	Type string `pulumi:"type"`
 }
 
@@ -123,7 +157,7 @@ type Oauth2V1ClientsRoleGroupMembershipAdminArgs struct {
 	ClientId pulumi.StringInput
 	// Status of the role assignment
 	Status pulumi.StringPtrInput
-	// Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
 	Type pulumi.StringInput
 }
 
@@ -244,7 +278,7 @@ func (o Oauth2V1ClientsRoleGroupMembershipAdminOutput) Status() pulumi.StringOut
 	return o.ApplyT(func(v *Oauth2V1ClientsRoleGroupMembershipAdmin) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+// Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
 func (o Oauth2V1ClientsRoleGroupMembershipAdminOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oauth2V1ClientsRoleGroupMembershipAdmin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

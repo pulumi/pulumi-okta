@@ -12,6 +12,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewOauth2V1ClientsRoleCustom(ctx, "example", &okta.Oauth2V1ClientsRoleCustomArgs{
+//				ClientId: pulumi.String("<client_id>"),
+//				Type:     pulumi.String("CUSTOM"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:index/oauth2V1ClientsRoleCustom:Oauth2V1ClientsRoleCustom example <client_id>/<id>
+// ```
 type Oauth2V1ClientsRoleCustom struct {
 	pulumi.CustomResourceState
 

@@ -9,6 +9,34 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Oauth2V1ClientsRoleWorkflowsAdmin("example", new()
+    ///     {
+    ///         ClientId = "&lt;client_id&gt;",
+    ///         Type = "WORKFLOWS_ADMIN",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin example &lt;client_id&gt;/&lt;id&gt;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin")]
     public partial class Oauth2V1ClientsRoleWorkflowsAdmin : global::Pulumi.CustomResource
     {

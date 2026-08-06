@@ -33691,112 +33691,6 @@ func (o GetThemesThemeArrayOutput) Index(i pulumi.IntInput) GetThemesThemeOutput
 	}).(GetThemesThemeOutput)
 }
 
-type GetTrustedOriginScope struct {
-	// The allowed Okta apps for the trusted origin scope
-	AllowedOktaApps []string `pulumi:"allowedOktaApps"`
-	// The scope type.
-	Type string `pulumi:"type"`
-}
-
-// GetTrustedOriginScopeInput is an input type that accepts GetTrustedOriginScopeArgs and GetTrustedOriginScopeOutput values.
-// You can construct a concrete instance of `GetTrustedOriginScopeInput` via:
-//
-//	GetTrustedOriginScopeArgs{...}
-type GetTrustedOriginScopeInput interface {
-	pulumi.Input
-
-	ToGetTrustedOriginScopeOutput() GetTrustedOriginScopeOutput
-	ToGetTrustedOriginScopeOutputWithContext(context.Context) GetTrustedOriginScopeOutput
-}
-
-type GetTrustedOriginScopeArgs struct {
-	// The allowed Okta apps for the trusted origin scope
-	AllowedOktaApps pulumi.StringArrayInput `pulumi:"allowedOktaApps"`
-	// The scope type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetTrustedOriginScopeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTrustedOriginScope)(nil)).Elem()
-}
-
-func (i GetTrustedOriginScopeArgs) ToGetTrustedOriginScopeOutput() GetTrustedOriginScopeOutput {
-	return i.ToGetTrustedOriginScopeOutputWithContext(context.Background())
-}
-
-func (i GetTrustedOriginScopeArgs) ToGetTrustedOriginScopeOutputWithContext(ctx context.Context) GetTrustedOriginScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTrustedOriginScopeOutput)
-}
-
-// GetTrustedOriginScopeArrayInput is an input type that accepts GetTrustedOriginScopeArray and GetTrustedOriginScopeArrayOutput values.
-// You can construct a concrete instance of `GetTrustedOriginScopeArrayInput` via:
-//
-//	GetTrustedOriginScopeArray{ GetTrustedOriginScopeArgs{...} }
-type GetTrustedOriginScopeArrayInput interface {
-	pulumi.Input
-
-	ToGetTrustedOriginScopeArrayOutput() GetTrustedOriginScopeArrayOutput
-	ToGetTrustedOriginScopeArrayOutputWithContext(context.Context) GetTrustedOriginScopeArrayOutput
-}
-
-type GetTrustedOriginScopeArray []GetTrustedOriginScopeInput
-
-func (GetTrustedOriginScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTrustedOriginScope)(nil)).Elem()
-}
-
-func (i GetTrustedOriginScopeArray) ToGetTrustedOriginScopeArrayOutput() GetTrustedOriginScopeArrayOutput {
-	return i.ToGetTrustedOriginScopeArrayOutputWithContext(context.Background())
-}
-
-func (i GetTrustedOriginScopeArray) ToGetTrustedOriginScopeArrayOutputWithContext(ctx context.Context) GetTrustedOriginScopeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTrustedOriginScopeArrayOutput)
-}
-
-type GetTrustedOriginScopeOutput struct{ *pulumi.OutputState }
-
-func (GetTrustedOriginScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTrustedOriginScope)(nil)).Elem()
-}
-
-func (o GetTrustedOriginScopeOutput) ToGetTrustedOriginScopeOutput() GetTrustedOriginScopeOutput {
-	return o
-}
-
-func (o GetTrustedOriginScopeOutput) ToGetTrustedOriginScopeOutputWithContext(ctx context.Context) GetTrustedOriginScopeOutput {
-	return o
-}
-
-// The allowed Okta apps for the trusted origin scope
-func (o GetTrustedOriginScopeOutput) AllowedOktaApps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetTrustedOriginScope) []string { return v.AllowedOktaApps }).(pulumi.StringArrayOutput)
-}
-
-// The scope type.
-func (o GetTrustedOriginScopeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTrustedOriginScope) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type GetTrustedOriginScopeArrayOutput struct{ *pulumi.OutputState }
-
-func (GetTrustedOriginScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTrustedOriginScope)(nil)).Elem()
-}
-
-func (o GetTrustedOriginScopeArrayOutput) ToGetTrustedOriginScopeArrayOutput() GetTrustedOriginScopeArrayOutput {
-	return o
-}
-
-func (o GetTrustedOriginScopeArrayOutput) ToGetTrustedOriginScopeArrayOutputWithContext(ctx context.Context) GetTrustedOriginScopeArrayOutput {
-	return o
-}
-
-func (o GetTrustedOriginScopeArrayOutput) Index(i pulumi.IntInput) GetTrustedOriginScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrustedOriginScope {
-		return vs[0].([]GetTrustedOriginScope)[vs[1].(int)]
-	}).(GetTrustedOriginScopeOutput)
-}
-
 type GetTrustedOriginsTrustedOrigin struct {
 	// Whether the Trusted Origin is active or not - can only be issued post-creation
 	Active bool `pulumi:"active"`
@@ -34921,8 +34815,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateArrayInput)(nil)).Elem(), GetTemplatesEmailTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeInput)(nil)).Elem(), GetThemesThemeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeArrayInput)(nil)).Elem(), GetThemesThemeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginScopeInput)(nil)).Elem(), GetTrustedOriginScopeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginScopeArrayInput)(nil)).Elem(), GetTrustedOriginScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginArrayInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaInput)(nil)).Elem(), GetUiSchemaUiSchemaArgs{})
@@ -35372,8 +35264,6 @@ func init() {
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeArrayOutput{})
-	pulumi.RegisterOutputType(GetTrustedOriginScopeOutput{})
-	pulumi.RegisterOutputType(GetTrustedOriginScopeArrayOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetUiSchemaUiSchemaOutput{})

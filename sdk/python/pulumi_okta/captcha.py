@@ -19,26 +19,59 @@ __all__ = ['CaptchaArgs', 'Captcha']
 @pulumi.input_type
 class CaptchaArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 secret_key: pulumi.Input[_builtins.str],
+                 site_key: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Captcha resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of the CAPTCHA
         :param pulumi.Input[_builtins.str] secret_key: Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         :param pulumi.Input[_builtins.str] site_key: Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         :param pulumi.Input[_builtins.str] type: Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
+        :param pulumi.Input[_builtins.str] name: Name of the CAPTCHA
         """
+        pulumi.set(__self__, "secret_key", secret_key)
+        pulumi.set(__self__, "site_key", site_key)
+        pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
-        if site_key is not None:
-            pulumi.set(__self__, "site_key", site_key)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
+        """
+        return pulumi.get(self, "secret_key")
+
+    @secret_key.setter
+    def secret_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteKey")
+    def site_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
+        """
+        return pulumi.get(self, "site_key")
+
+    @site_key.setter
+    def site_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -51,42 +84,6 @@ class CaptchaArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secretKey")
-    def secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
-        """
-        return pulumi.get(self, "secret_key")
-
-    @secret_key.setter
-    def secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "secret_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteKey")
-    def site_key(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
-        """
-        return pulumi.get(self, "site_key")
-
-    @site_key.setter
-    def site_key(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "site_key", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -209,7 +206,7 @@ class Captcha(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[CaptchaArgs] = None,
+                 args: CaptchaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates different types of captcha.
@@ -265,8 +262,14 @@ class Captcha(pulumi.CustomResource):
             __props__ = CaptchaArgs.__new__(CaptchaArgs)
 
             __props__.__dict__["name"] = name
+            if secret_key is None and not opts.urn:
+                raise TypeError("Missing required property 'secret_key'")
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
+            if site_key is None and not opts.urn:
+                raise TypeError("Missing required property 'site_key'")
             __props__.__dict__["site_key"] = site_key
+            if type is None and not opts.urn:
+                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -316,7 +319,7 @@ class Captcha(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
-    def secret_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def secret_key(self) -> pulumi.Output[_builtins.str]:
         """
         Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
         """
@@ -324,7 +327,7 @@ class Captcha(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="siteKey")
-    def site_key(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def site_key(self) -> pulumi.Output[_builtins.str]:
         """
         Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
         """
@@ -332,7 +335,7 @@ class Captcha(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
         """

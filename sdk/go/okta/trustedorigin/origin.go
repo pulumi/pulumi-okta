@@ -31,10 +31,8 @@ import (
 //			_, err := trustedorigin.NewOrigin(ctx, "example", &trustedorigin.OriginArgs{
 //				Name:   pulumi.String("example"),
 //				Origin: pulumi.String("https://example.com"),
-//				Scopes: trustedorigin.OriginScopeArray{
-//					&trustedorigin.OriginScopeArgs{
-//						Type: pulumi.String("CORS"),
-//					},
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("CORS"),
 //				},
 //			})
 //			if err != nil {
@@ -54,22 +52,14 @@ import (
 type Origin struct {
 	pulumi.CustomResourceState
 
-	// Timestamp when the trusted origin was created
-	Created pulumi.StringOutput `pulumi:"created"`
-	// The ID of the user who created the trusted origin
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Timestamp when the trusted origin was last updated
-	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
-	// The ID of the user who last updated the trusted origin
-	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
-	// Unique name for the trusted origin
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+	Active pulumi.BoolPtrOutput `pulumi:"active"`
+	// Unique name for this trusted origin
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Unique origin URL for the trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin pulumi.StringOutput `pulumi:"origin"`
-	// Array of scope types that this trusted origin is used for
-	Scopes OriginScopeArrayOutput `pulumi:"scopes"`
-	// Status of the trusted origin. Values: ACTIVE, INACTIVE
-	Status pulumi.StringOutput `pulumi:"status"`
+	// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 }
 
 // NewOrigin registers a new resource with the given unique name, arguments, and options.
@@ -81,6 +71,9 @@ func NewOrigin(ctx *pulumi.Context,
 
 	if args.Origin == nil {
 		return nil, errors.New("invalid value for required argument 'Origin'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Origin
@@ -105,41 +98,25 @@ func GetOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Origin resources.
 type originState struct {
-	// Timestamp when the trusted origin was created
-	Created *string `pulumi:"created"`
-	// The ID of the user who created the trusted origin
-	CreatedBy *string `pulumi:"createdBy"`
-	// Timestamp when the trusted origin was last updated
-	LastUpdated *string `pulumi:"lastUpdated"`
-	// The ID of the user who last updated the trusted origin
-	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
-	// Unique name for the trusted origin
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+	Active *bool `pulumi:"active"`
+	// Unique name for this trusted origin
 	Name *string `pulumi:"name"`
-	// Unique origin URL for the trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin *string `pulumi:"origin"`
-	// Array of scope types that this trusted origin is used for
-	Scopes []OriginScope `pulumi:"scopes"`
-	// Status of the trusted origin. Values: ACTIVE, INACTIVE
-	Status *string `pulumi:"status"`
+	// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+	Scopes []string `pulumi:"scopes"`
 }
 
 type OriginState struct {
-	// Timestamp when the trusted origin was created
-	Created pulumi.StringPtrInput
-	// The ID of the user who created the trusted origin
-	CreatedBy pulumi.StringPtrInput
-	// Timestamp when the trusted origin was last updated
-	LastUpdated pulumi.StringPtrInput
-	// The ID of the user who last updated the trusted origin
-	LastUpdatedBy pulumi.StringPtrInput
-	// Unique name for the trusted origin
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+	Active pulumi.BoolPtrInput
+	// Unique name for this trusted origin
 	Name pulumi.StringPtrInput
-	// Unique origin URL for the trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin pulumi.StringPtrInput
-	// Array of scope types that this trusted origin is used for
-	Scopes OriginScopeArrayInput
-	// Status of the trusted origin. Values: ACTIVE, INACTIVE
-	Status pulumi.StringPtrInput
+	// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+	Scopes pulumi.StringArrayInput
 }
 
 func (OriginState) ElementType() reflect.Type {
@@ -147,26 +124,26 @@ func (OriginState) ElementType() reflect.Type {
 }
 
 type originArgs struct {
-	// Unique name for the trusted origin
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+	Active *bool `pulumi:"active"`
+	// Unique name for this trusted origin
 	Name *string `pulumi:"name"`
-	// Unique origin URL for the trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin string `pulumi:"origin"`
-	// Array of scope types that this trusted origin is used for
-	Scopes []OriginScope `pulumi:"scopes"`
-	// Status of the trusted origin. Values: ACTIVE, INACTIVE
-	Status *string `pulumi:"status"`
+	// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+	Scopes []string `pulumi:"scopes"`
 }
 
 // The set of arguments for constructing a Origin resource.
 type OriginArgs struct {
-	// Unique name for the trusted origin
+	// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+	Active pulumi.BoolPtrInput
+	// Unique name for this trusted origin
 	Name pulumi.StringPtrInput
-	// Unique origin URL for the trusted origin.
+	// Unique origin URL for this trusted origin
 	Origin pulumi.StringInput
-	// Array of scope types that this trusted origin is used for
-	Scopes OriginScopeArrayInput
-	// Status of the trusted origin. Values: ACTIVE, INACTIVE
-	Status pulumi.StringPtrInput
+	// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+	Scopes pulumi.StringArrayInput
 }
 
 func (OriginArgs) ElementType() reflect.Type {
@@ -256,44 +233,24 @@ func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutpu
 	return o
 }
 
-// Timestamp when the trusted origin was created
-func (o OriginOutput) Created() pulumi.StringOutput {
-	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+func (o OriginOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the user who created the trusted origin
-func (o OriginOutput) CreatedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
-}
-
-// Timestamp when the trusted origin was last updated
-func (o OriginOutput) LastUpdated() pulumi.StringOutput {
-	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.LastUpdated }).(pulumi.StringOutput)
-}
-
-// The ID of the user who last updated the trusted origin
-func (o OriginOutput) LastUpdatedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.LastUpdatedBy }).(pulumi.StringOutput)
-}
-
-// Unique name for the trusted origin
+// Unique name for this trusted origin
 func (o OriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Unique origin URL for the trusted origin.
+// Unique origin URL for this trusted origin
 func (o OriginOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
 }
 
-// Array of scope types that this trusted origin is used for
-func (o OriginOutput) Scopes() OriginScopeArrayOutput {
-	return o.ApplyT(func(v *Origin) OriginScopeArrayOutput { return v.Scopes }).(OriginScopeArrayOutput)
-}
-
-// Status of the trusted origin. Values: ACTIVE, INACTIVE
-func (o OriginOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
+func (o OriginOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
 type OriginArrayOutput struct{ *pulumi.OutputState }

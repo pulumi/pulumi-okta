@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Oauth2V1ClientsRoleReportAdmin("example", {
+ *     clientId: "<client_id>",
+ *     type: "REPORT_ADMIN",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleReportAdmin:Oauth2V1ClientsRoleReportAdmin example <client_id>/<id>
+ * ```
+ */
 export class Oauth2V1ClientsRoleReportAdmin extends pulumi.CustomResource {
     /**
      * Get an existing Oauth2V1ClientsRoleReportAdmin resource's state with the given name, ID, and optional extra

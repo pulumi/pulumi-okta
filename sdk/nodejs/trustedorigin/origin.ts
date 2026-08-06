@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -18,9 +16,7 @@ import * as utilities from "../utilities";
  * const example = new okta.trustedorigin.Origin("example", {
  *     name: "example",
  *     origin: "https://example.com",
- *     scopes: [{
- *         type: "CORS",
- *     }],
+ *     scopes: ["CORS"],
  * });
  * ```
  *
@@ -59,37 +55,21 @@ export class Origin extends pulumi.CustomResource {
     }
 
     /**
-     * Timestamp when the trusted origin was created
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
      */
-    declare public /*out*/ readonly created: pulumi.Output<string>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the user who created the trusted origin
-     */
-    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
-    /**
-     * Timestamp when the trusted origin was last updated
-     */
-    declare public /*out*/ readonly lastUpdated: pulumi.Output<string>;
-    /**
-     * The ID of the user who last updated the trusted origin
-     */
-    declare public /*out*/ readonly lastUpdatedBy: pulumi.Output<string>;
-    /**
-     * Unique name for the trusted origin
+     * Unique name for this trusted origin
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Unique origin URL for the trusted origin.
+     * Unique origin URL for this trusted origin
      */
     declare public readonly origin: pulumi.Output<string>;
     /**
-     * Array of scope types that this trusted origin is used for
+     * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      */
-    declare public readonly scopes: pulumi.Output<outputs.trustedorigin.OriginScope[] | undefined>;
-    /**
-     * Status of the trusted origin. Values: ACTIVE, INACTIVE
-     */
-    declare public readonly status: pulumi.Output<string>;
+    declare public readonly scopes: pulumi.Output<string[]>;
 
     /**
      * Create a Origin resource with the given unique name, arguments, and options.
@@ -104,27 +84,22 @@ export class Origin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OriginState | undefined;
-            resourceInputs["created"] = state?.created;
-            resourceInputs["createdBy"] = state?.createdBy;
-            resourceInputs["lastUpdated"] = state?.lastUpdated;
-            resourceInputs["lastUpdatedBy"] = state?.lastUpdatedBy;
+            resourceInputs["active"] = state?.active;
             resourceInputs["name"] = state?.name;
             resourceInputs["origin"] = state?.origin;
             resourceInputs["scopes"] = state?.scopes;
-            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as OriginArgs | undefined;
             if (args?.origin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origin'");
             }
+            if (args?.scopes === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scopes'");
+            }
+            resourceInputs["active"] = args?.active;
             resourceInputs["name"] = args?.name;
             resourceInputs["origin"] = args?.origin;
             resourceInputs["scopes"] = args?.scopes;
-            resourceInputs["status"] = args?.status;
-            resourceInputs["created"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["lastUpdated"] = undefined /*out*/;
-            resourceInputs["lastUpdatedBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Origin.__pulumiType, name, resourceInputs, opts);
@@ -136,37 +111,21 @@ export class Origin extends pulumi.CustomResource {
  */
 export interface OriginState {
     /**
-     * Timestamp when the trusted origin was created
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
      */
-    created?: pulumi.Input<string | undefined>;
+    active?: pulumi.Input<boolean | undefined>;
     /**
-     * The ID of the user who created the trusted origin
-     */
-    createdBy?: pulumi.Input<string | undefined>;
-    /**
-     * Timestamp when the trusted origin was last updated
-     */
-    lastUpdated?: pulumi.Input<string | undefined>;
-    /**
-     * The ID of the user who last updated the trusted origin
-     */
-    lastUpdatedBy?: pulumi.Input<string | undefined>;
-    /**
-     * Unique name for the trusted origin
+     * Unique name for this trusted origin
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Unique origin URL for the trusted origin.
+     * Unique origin URL for this trusted origin
      */
     origin?: pulumi.Input<string | undefined>;
     /**
-     * Array of scope types that this trusted origin is used for
+     * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.trustedorigin.OriginScope>[] | undefined>;
-    /**
-     * Status of the trusted origin. Values: ACTIVE, INACTIVE
-     */
-    status?: pulumi.Input<string | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -174,19 +133,19 @@ export interface OriginState {
  */
 export interface OriginArgs {
     /**
-     * Unique name for the trusted origin
+     * Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `true`.
+     */
+    active?: pulumi.Input<boolean | undefined>;
+    /**
+     * Unique name for this trusted origin
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Unique origin URL for the trusted origin.
+     * Unique origin URL for this trusted origin
      */
     origin: pulumi.Input<string>;
     /**
-     * Array of scope types that this trusted origin is used for
+     * Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.trustedorigin.OriginScope>[] | undefined>;
-    /**
-     * Status of the trusted origin. Values: ACTIVE, INACTIVE
-     */
-    status?: pulumi.Input<string | undefined>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -1071,15 +1071,6 @@
                 "current": "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin",
                 "majorVersion": 6
             },
-            "okta_org_captcha": {
-                "current": "okta:index/orgCaptcha:OrgCaptcha",
-                "majorVersion": 6,
-                "fields": {
-                    "enabled_pages": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
             "okta_org_configuration": {
                 "current": "okta:index/orgConfiguration:OrgConfiguration",
                 "majorVersion": 6
@@ -1571,14 +1562,7 @@
                 "majorVersion": 6,
                 "fields": {
                     "scopes": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "allowed_okta_apps": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -2181,10 +2165,6 @@
                     }
                 }
             },
-            "okta_captcha": {
-                "current": "okta:index/getCaptcha:getCaptcha",
-                "majorVersion": 6
-            },
             "okta_catalog_entry_default": {
                 "current": "okta:index/getCatalogEntryDefault:getCatalogEntryDefault",
                 "majorVersion": 6
@@ -2556,15 +2536,6 @@
                     }
                 }
             },
-            "okta_org_captcha": {
-                "current": "okta:index/getOrgCaptcha:getOrgCaptcha",
-                "majorVersion": 6,
-                "fields": {
-                    "enabled_pages": {
-                        "maxItemsOne": false
-                    }
-                }
-            },
             "okta_org_metadata": {
                 "current": "okta:index/getOrgMetadata:getOrgMetadata",
                 "majorVersion": 6
@@ -2817,22 +2788,6 @@
                     }
                 }
             },
-            "okta_trusted_origin": {
-                "current": "okta:index/getTrustedOrigin:getTrustedOrigin",
-                "majorVersion": 6,
-                "fields": {
-                    "scopes": {
-                        "maxItemsOne": false,
-                        "elem": {
-                            "fields": {
-                                "allowed_okta_apps": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
             "okta_trusted_origins": {
                 "current": "okta:index/getTrustedOrigins:getTrustedOrigins",
                 "majorVersion": 6,
@@ -2978,7 +2933,6 @@
             "okta_authenticator_webauthn_custom_aaguid": {},
             "okta_brand": {},
             "okta_campaign": {},
-            "okta_captcha": {},
             "okta_customized_signin_page": {},
             "okta_device": {},
             "okta_email_template_settings": {},
@@ -3019,7 +2973,6 @@
             "okta_oauth2_v1_clients_role_super_admin": {},
             "okta_oauth2_v1_clients_role_user_admin": {},
             "okta_oauth2_v1_clients_role_workflows_admin": {},
-            "okta_org_captcha": {},
             "okta_policy_device_assurance_android": {},
             "okta_policy_device_assurance_chromeos": {},
             "okta_policy_device_assurance_ios": {},
@@ -3068,7 +3021,6 @@
             "okta_review": {},
             "okta_security_events_provider": {},
             "okta_session_violation_policy_rule": {},
-            "okta_trusted_origin": {},
             "okta_trusted_server": {},
             "okta_ui_schema": {},
             "okta_user_risk": {}
@@ -3132,7 +3084,7 @@
             "okta:index/behaviour:Behaviour": 0,
             "okta:index/brand:Brand": 1,
             "okta:index/campaign:Campaign": 1,
-            "okta:index/captcha:Captcha": 1,
+            "okta:index/captcha:Captcha": 0,
             "okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings": 0,
             "okta:index/customizedSigninPage:CustomizedSigninPage": 1,
             "okta:index/device:Device": 1,
@@ -3178,7 +3130,6 @@
             "okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin": 1,
             "okta:index/oauth2V1ClientsRoleUserAdmin:Oauth2V1ClientsRoleUserAdmin": 1,
             "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin": 1,
-            "okta:index/orgCaptcha:OrgCaptcha": 1,
             "okta:index/orgConfiguration:OrgConfiguration": 0,
             "okta:index/orgSupport:OrgSupport": 0,
             "okta:index/policyMfaDefault:PolicyMfaDefault": 0,
@@ -3233,7 +3184,7 @@
             "okta:policy/ruleSignon:RuleSignon": 0,
             "okta:policy/signon:Signon": 0,
             "okta:profile/mapping:Mapping": 0,
-            "okta:trustedorigin/origin:Origin": 1,
+            "okta:trustedorigin/origin:Origin": 0,
             "okta:user/risk:Risk": 1,
             "okta:user/user:User": 0,
             "okta:user/userType:UserType": 0
@@ -3279,7 +3230,6 @@
             "okta:index/getBrand:getBrand": 0,
             "okta:index/getBrands:getBrands": 0,
             "okta:index/getCampaign:getCampaign": 1,
-            "okta:index/getCaptcha:getCaptcha": 1,
             "okta:index/getCatalogEntryDefault:getCatalogEntryDefault": 1,
             "okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields": 1,
             "okta:index/getDefaultSigninPage:getDefaultSigninPage": 1,
@@ -3306,7 +3256,6 @@
             "okta:index/getLogStream:getLogStream": 1,
             "okta:index/getNetworkZone:getNetworkZone": 0,
             "okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer": 1,
-            "okta:index/getOrgCaptcha:getOrgCaptcha": 1,
             "okta:index/getOrgMetadata:getOrgMetadata": 1,
             "okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy": 1,
             "okta:index/getPrincipalEntitlements:getPrincipalEntitlements": 1,
@@ -3334,7 +3283,6 @@
             "okta:index/getTemplates:getTemplates": 0,
             "okta:index/getTheme:getTheme": 0,
             "okta:index/getThemes:getThemes": 0,
-            "okta:index/getTrustedOrigin:getTrustedOrigin": 1,
             "okta:index/getTrustedOrigins:getTrustedOrigins": 0,
             "okta:index/getUiSchema:getUiSchema": 1,
             "okta:index/getUserSecurityQuestions:getUserSecurityQuestions": 0,

@@ -64,7 +64,7 @@ type AppSignonPolicyRule struct {
 	NetworkExcludes pulumi.StringArrayOutput `pulumi:"networkExcludes"`
 	// The zones to include
 	NetworkIncludes pulumi.StringArrayOutput `pulumi:"networkIncludes"`
-	// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+	// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
 	Office365ClientIncludes pulumi.StringArrayOutput                      `pulumi:"office365ClientIncludes"`
 	PlatformIncludes        AppSignonPolicyRulePlatformIncludeArrayOutput `pulumi:"platformIncludes"`
 	// ID of the policy
@@ -156,7 +156,7 @@ type appSignonPolicyRuleState struct {
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+	// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
 	Office365ClientIncludes []string                             `pulumi:"office365ClientIncludes"`
 	PlatformIncludes        []AppSignonPolicyRulePlatformInclude `pulumi:"platformIncludes"`
 	// ID of the policy
@@ -216,7 +216,7 @@ type AppSignonPolicyRuleState struct {
 	NetworkExcludes pulumi.StringArrayInput
 	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
-	// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+	// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
 	Office365ClientIncludes pulumi.StringArrayInput
 	PlatformIncludes        AppSignonPolicyRulePlatformIncludeArrayInput
 	// ID of the policy
@@ -280,7 +280,7 @@ type appSignonPolicyRuleArgs struct {
 	NetworkExcludes []string `pulumi:"networkExcludes"`
 	// The zones to include
 	NetworkIncludes []string `pulumi:"networkIncludes"`
-	// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+	// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
 	Office365ClientIncludes []string                             `pulumi:"office365ClientIncludes"`
 	PlatformIncludes        []AppSignonPolicyRulePlatformInclude `pulumi:"platformIncludes"`
 	// ID of the policy
@@ -339,7 +339,7 @@ type AppSignonPolicyRuleArgs struct {
 	NetworkExcludes pulumi.StringArrayInput
 	// The zones to include
 	NetworkIncludes pulumi.StringArrayInput
-	// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+	// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
 	Office365ClientIncludes pulumi.StringArrayInput
 	PlatformIncludes        AppSignonPolicyRulePlatformIncludeArrayInput
 	// ID of the policy
@@ -531,7 +531,7 @@ func (o AppSignonPolicyRuleOutput) NetworkIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.NetworkIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+// Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
 func (o AppSignonPolicyRuleOutput) Office365ClientIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.Office365ClientIncludes }).(pulumi.StringArrayOutput)
 }
