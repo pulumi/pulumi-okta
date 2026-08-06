@@ -9,6 +9,34 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Okta
 {
+    /// <summary>
+    /// The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.Oauth2V1ClientsRoleApiAccessManagementAdmin("example", new()
+    ///     {
+    ///         ClientId = "&lt;client_id&gt;",
+    ///         Type = "API_ACCESS_MANAGEMENT_ADMIN",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin example &lt;client_id&gt;/&lt;id&gt;
+    /// ```
+    /// </summary>
     [OktaResourceType("okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin")]
     public partial class Oauth2V1ClientsRoleApiAccessManagementAdmin : global::Pulumi.CustomResource
     {
@@ -49,7 +77,7 @@ namespace Pulumi.Okta
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Discriminator field identifying the variant type. Must be set to "API_ACCESS_MANAGEMENT_ADMIN".
+        /// Discriminator field identifying the variant type. Must be set to "API*ACCESS*MANAGEMENT_ADMIN".
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -119,7 +147,7 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Discriminator field identifying the variant type. Must be set to "API_ACCESS_MANAGEMENT_ADMIN".
+        /// Discriminator field identifying the variant type. Must be set to "API*ACCESS*MANAGEMENT_ADMIN".
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -169,7 +197,7 @@ namespace Pulumi.Okta
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Discriminator field identifying the variant type. Must be set to "API_ACCESS_MANAGEMENT_ADMIN".
+        /// Discriminator field identifying the variant type. Must be set to "API*ACCESS*MANAGEMENT_ADMIN".
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

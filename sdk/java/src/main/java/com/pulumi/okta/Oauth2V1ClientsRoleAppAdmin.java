@@ -13,6 +13,50 @@ import com.pulumi.okta.inputs.Oauth2V1ClientsRoleAppAdminState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Oauth2V1ClientsRoleAppAdmin;
+ * import com.pulumi.okta.Oauth2V1ClientsRoleAppAdminArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Oauth2V1ClientsRoleAppAdmin("example", Oauth2V1ClientsRoleAppAdminArgs.builder()
+ *             .clientId("<client_id>")
+ *             .type("APP_ADMIN")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleAppAdmin:Oauth2V1ClientsRoleAppAdmin example &lt;client_id&gt;/&lt;id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/oauth2V1ClientsRoleAppAdmin:Oauth2V1ClientsRoleAppAdmin")
 public class Oauth2V1ClientsRoleAppAdmin extends com.pulumi.resources.CustomResource {
     /**

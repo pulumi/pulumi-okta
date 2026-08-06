@@ -266,14 +266,14 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkIncludes);
     }
     /**
-     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      * 
      */
     @Export(name="office365ClientIncludes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> office365ClientIncludes;
 
     /**
-     * @return Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * @return Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      * 
      */
     public Output<Optional<List<String>>> office365ClientIncludes() {

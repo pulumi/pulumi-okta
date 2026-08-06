@@ -12,6 +12,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.NewOauth2V1ClientsRoleAccessCertificationsAdmin(ctx, "example", &okta.Oauth2V1ClientsRoleAccessCertificationsAdminArgs{
+//				ClientId: pulumi.String("<client_id>"),
+//				Type:     pulumi.String("ACCESS_CERTIFICATIONS_ADMIN"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import okta:index/oauth2V1ClientsRoleAccessCertificationsAdmin:Oauth2V1ClientsRoleAccessCertificationsAdmin example <client_id>/<id>
+// ```
 type Oauth2V1ClientsRoleAccessCertificationsAdmin struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +65,7 @@ type Oauth2V1ClientsRoleAccessCertificationsAdmin struct {
 	Role pulumi.StringOutput `pulumi:"role"`
 	// Status of the role assignment
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -87,7 +121,7 @@ type oauth2V1ClientsRoleAccessCertificationsAdminState struct {
 	Role *string `pulumi:"role"`
 	// Status of the role assignment
 	Status *string `pulumi:"status"`
-	// Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
 	Type *string `pulumi:"type"`
 }
 
@@ -108,7 +142,7 @@ type Oauth2V1ClientsRoleAccessCertificationsAdminState struct {
 	Role pulumi.StringPtrInput
 	// Status of the role assignment
 	Status pulumi.StringPtrInput
-	// Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
 	Type pulumi.StringPtrInput
 }
 
@@ -123,7 +157,7 @@ type oauth2V1ClientsRoleAccessCertificationsAdminArgs struct {
 	ClientId string `pulumi:"clientId"`
 	// Status of the role assignment
 	Status *string `pulumi:"status"`
-	// Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
 	Type string `pulumi:"type"`
 }
 
@@ -135,7 +169,7 @@ type Oauth2V1ClientsRoleAccessCertificationsAdminArgs struct {
 	ClientId pulumi.StringInput
 	// Status of the role assignment
 	Status pulumi.StringPtrInput
-	// Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+	// Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
 	Type pulumi.StringInput
 }
 
@@ -266,7 +300,7 @@ func (o Oauth2V1ClientsRoleAccessCertificationsAdminOutput) Status() pulumi.Stri
 	return o.ApplyT(func(v *Oauth2V1ClientsRoleAccessCertificationsAdmin) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Discriminator field identifying the variant type. Must be set to "ACCESS_CERTIFICATIONS_ADMIN".
+// Discriminator field identifying the variant type. Must be set to "ACCESS*CERTIFICATIONS*ADMIN".
 func (o Oauth2V1ClientsRoleAccessCertificationsAdminOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Oauth2V1ClientsRoleAccessCertificationsAdmin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

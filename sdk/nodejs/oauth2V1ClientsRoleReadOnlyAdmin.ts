@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Oauth2V1ClientsRoleReadOnlyAdmin("example", {
+ *     clientId: "<client_id>",
+ *     type: "READ_ONLY_ADMIN",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleReadOnlyAdmin:Oauth2V1ClientsRoleReadOnlyAdmin example <client_id>/<id>
+ * ```
+ */
 export class Oauth2V1ClientsRoleReadOnlyAdmin extends pulumi.CustomResource {
     /**
      * Get an existing Oauth2V1ClientsRoleReadOnlyAdmin resource's state with the given name, ID, and optional extra
@@ -57,7 +78,7 @@ export class Oauth2V1ClientsRoleReadOnlyAdmin extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "READ_ONLY_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "READ*ONLY*ADMIN".
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -131,7 +152,7 @@ export interface Oauth2V1ClientsRoleReadOnlyAdminState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "READ_ONLY_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "READ*ONLY*ADMIN".
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -153,7 +174,7 @@ export interface Oauth2V1ClientsRoleReadOnlyAdminArgs {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "READ_ONLY_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "READ*ONLY*ADMIN".
      */
     type: pulumi.Input<string>;
 }

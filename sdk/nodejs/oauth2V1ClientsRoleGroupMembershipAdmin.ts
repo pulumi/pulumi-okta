@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.Oauth2V1ClientsRoleGroupMembershipAdmin("example", {
+ *     clientId: "<client_id>",
+ *     type: "GROUP_MEMBERSHIP_ADMIN",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleGroupMembershipAdmin:Oauth2V1ClientsRoleGroupMembershipAdmin example <client_id>/<id>
+ * ```
+ */
 export class Oauth2V1ClientsRoleGroupMembershipAdmin extends pulumi.CustomResource {
     /**
      * Get an existing Oauth2V1ClientsRoleGroupMembershipAdmin resource's state with the given name, ID, and optional extra
@@ -57,7 +78,7 @@ export class Oauth2V1ClientsRoleGroupMembershipAdmin extends pulumi.CustomResour
      */
     declare public readonly status: pulumi.Output<string>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -131,7 +152,7 @@ export interface Oauth2V1ClientsRoleGroupMembershipAdminState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -153,7 +174,7 @@ export interface Oauth2V1ClientsRoleGroupMembershipAdminArgs {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Discriminator field identifying the variant type. Must be set to "GROUP_MEMBERSHIP_ADMIN".
+     * Discriminator field identifying the variant type. Must be set to "GROUP*MEMBERSHIP*ADMIN".
      */
     type: pulumi.Input<string>;
 }

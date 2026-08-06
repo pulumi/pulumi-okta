@@ -28,10 +28,7 @@ namespace Pulumi.Okta.TrustedOrigin
     ///         OriginName = "https://example.com",
     ///         Scopes = new[]
     ///         {
-    ///             new Okta.TrustedOrigin.Inputs.OriginScopeArgs
-    ///             {
-    ///                 Type = "CORS",
-    ///             },
+    ///             "CORS",
     ///         },
     ///     });
     /// 
@@ -48,52 +45,28 @@ namespace Pulumi.Okta.TrustedOrigin
     public partial class Origin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Timestamp when the trusted origin was created
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `True`.
         /// </summary>
-        [Output("created")]
-        public Output<string> Created { get; private set; } = null!;
+        [Output("active")]
+        public Output<bool?> Active { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the user who created the trusted origin
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// Timestamp when the trusted origin was last updated
-        /// </summary>
-        [Output("lastUpdated")]
-        public Output<string> LastUpdated { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID of the user who last updated the trusted origin
-        /// </summary>
-        [Output("lastUpdatedBy")]
-        public Output<string> LastUpdatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique name for the trusted origin
+        /// Unique name for this trusted origin
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Unique origin URL for the trusted origin.
+        /// Unique origin URL for this trusted origin
         /// </summary>
         [Output("origin")]
         public Output<string> OriginName { get; private set; } = null!;
 
         /// <summary>
-        /// Array of scope types that this trusted origin is used for
+        /// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         /// </summary>
         [Output("scopes")]
-        public Output<ImmutableArray<Outputs.OriginScope>> Scopes { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the trusted origin. Values: ACTIVE, INACTIVE
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
 
         /// <summary>
@@ -142,34 +115,34 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Unique name for the trusted origin
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `True`.
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
+        /// Unique name for this trusted origin
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Unique origin URL for the trusted origin.
+        /// Unique origin URL for this trusted origin
         /// </summary>
         [Input("origin", required: true)]
         public Input<string> OriginName { get; set; } = null!;
 
-        [Input("scopes")]
-        private InputList<Inputs.OriginScopeArgs>? _scopes;
+        [Input("scopes", required: true)]
+        private InputList<string>? _scopes;
 
         /// <summary>
-        /// Array of scope types that this trusted origin is used for
+        /// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         /// </summary>
-        public InputList<Inputs.OriginScopeArgs> Scopes
+        public InputList<string> Scopes
         {
-            get => _scopes ?? (_scopes = new InputList<Inputs.OriginScopeArgs>());
+            get => _scopes ?? (_scopes = new InputList<string>());
             set => _scopes = value;
         }
-
-        /// <summary>
-        /// Status of the trusted origin. Values: ACTIVE, INACTIVE
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
 
         public OriginArgs()
         {
@@ -180,58 +153,34 @@ namespace Pulumi.Okta.TrustedOrigin
     public sealed class OriginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Timestamp when the trusted origin was created
+        /// Whether the Trusted Origin is active or not - can only be issued post-creation. By default, it is `True`.
         /// </summary>
-        [Input("created")]
-        public Input<string>? Created { get; set; }
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// The ID of the user who created the trusted origin
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// Timestamp when the trusted origin was last updated
-        /// </summary>
-        [Input("lastUpdated")]
-        public Input<string>? LastUpdated { get; set; }
-
-        /// <summary>
-        /// The ID of the user who last updated the trusted origin
-        /// </summary>
-        [Input("lastUpdatedBy")]
-        public Input<string>? LastUpdatedBy { get; set; }
-
-        /// <summary>
-        /// Unique name for the trusted origin
+        /// Unique name for this trusted origin
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Unique origin URL for the trusted origin.
+        /// Unique origin URL for this trusted origin
         /// </summary>
         [Input("origin")]
         public Input<string>? OriginName { get; set; }
 
         [Input("scopes")]
-        private InputList<Inputs.OriginScopeGetArgs>? _scopes;
+        private InputList<string>? _scopes;
 
         /// <summary>
-        /// Array of scope types that this trusted origin is used for
+        /// Scopes of the Trusted Origin - can either be `CORS` and/or `REDIRECT`
         /// </summary>
-        public InputList<Inputs.OriginScopeGetArgs> Scopes
+        public InputList<string> Scopes
         {
-            get => _scopes ?? (_scopes = new InputList<Inputs.OriginScopeGetArgs>());
+            get => _scopes ?? (_scopes = new InputList<string>());
             set => _scopes = value;
         }
-
-        /// <summary>
-        /// Status of the trusted origin. Values: ACTIVE, INACTIVE
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
 
         public OriginState()
         {

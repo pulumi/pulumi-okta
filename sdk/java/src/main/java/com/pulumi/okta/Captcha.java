@@ -12,7 +12,6 @@ import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.CaptchaState;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -84,42 +83,42 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="secretKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> secretKey;
+    private Output<String> secretKey;
 
     /**
      * @return Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
-    public Output<Optional<String>> secretKey() {
-        return Codegen.optional(this.secretKey);
+    public Output<String> secretKey() {
+        return this.secretKey;
     }
     /**
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
     @Export(name="siteKey", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> siteKey;
+    private Output<String> siteKey;
 
     /**
      * @return Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
-    public Output<Optional<String>> siteKey() {
-        return Codegen.optional(this.siteKey);
+    public Output<String> siteKey() {
+        return this.siteKey;
     }
     /**
      * Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> type;
+    private Output<String> type;
 
     /**
      * @return Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      * 
      */
-    public Output<Optional<String>> type() {
-        return Codegen.optional(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     /**
@@ -134,7 +133,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Captcha(java.lang.String name, @Nullable CaptchaArgs args) {
+    public Captcha(java.lang.String name, CaptchaArgs args) {
         this(name, args, null);
     }
     /**
@@ -143,7 +142,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Captcha(java.lang.String name, @Nullable CaptchaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Captcha(java.lang.String name, CaptchaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/captcha:Captcha", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -151,7 +150,7 @@ public class Captcha extends com.pulumi.resources.CustomResource {
         super("okta:index/captcha:Captcha", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static CaptchaArgs makeArgs(@Nullable CaptchaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static CaptchaArgs makeArgs(CaptchaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

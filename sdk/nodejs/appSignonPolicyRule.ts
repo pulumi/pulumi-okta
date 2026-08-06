@@ -118,7 +118,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
      */
     declare public readonly networkIncludes: pulumi.Output<string[] | undefined>;
     /**
-     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      */
     declare public readonly office365ClientIncludes: pulumi.Output<string[] | undefined>;
     declare public readonly platformIncludes: pulumi.Output<outputs.AppSignonPolicyRulePlatformInclude[] | undefined>;
@@ -318,7 +318,7 @@ export interface AppSignonPolicyRuleState {
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      */
     office365ClientIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[] | undefined>;
@@ -437,7 +437,7 @@ export interface AppSignonPolicyRuleArgs {
      */
     networkIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Office 365 client types to include. Valid values: WEB, MODERN_AUTH, EXCHANGE_ACTIVE_SYNC, AAD_JOIN. This condition is specific to Office 365 applications.
+     * Set of Office 365 Client IDs to include. Only available with Office 365 applications. Valid values include `WEB`, `MODERN_AUTH`, `ACTIVE_SYNC`, `AAD_JOIN`, `CERT_BASED_AUTH`.
      */
     office365ClientIncludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     platformIncludes?: pulumi.Input<pulumi.Input<inputs.AppSignonPolicyRulePlatformInclude>[] | undefined>;

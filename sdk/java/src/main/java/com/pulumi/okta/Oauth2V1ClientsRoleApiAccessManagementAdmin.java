@@ -13,6 +13,50 @@ import com.pulumi.okta.inputs.Oauth2V1ClientsRoleApiAccessManagementAdminState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+ * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.Oauth2V1ClientsRoleApiAccessManagementAdmin;
+ * import com.pulumi.okta.Oauth2V1ClientsRoleApiAccessManagementAdminArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Oauth2V1ClientsRoleApiAccessManagementAdmin("example", Oauth2V1ClientsRoleApiAccessManagementAdminArgs.builder()
+ *             .clientId("<client_id>")
+ *             .type("API_ACCESS_MANAGEMENT_ADMIN")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin example &lt;client_id&gt;/&lt;id&gt;
+ * ```
+ * 
+ */
 @ResourceType(type="okta:index/oauth2V1ClientsRoleApiAccessManagementAdmin:Oauth2V1ClientsRoleApiAccessManagementAdmin")
 public class Oauth2V1ClientsRoleApiAccessManagementAdmin extends com.pulumi.resources.CustomResource {
     /**
@@ -100,14 +144,14 @@ public class Oauth2V1ClientsRoleApiAccessManagementAdmin extends com.pulumi.reso
         return this.status;
     }
     /**
-     * Discriminator field identifying the variant type. Must be set to &#34;API_ACCESS_MANAGEMENT_ADMIN&#34;.
+     * Discriminator field identifying the variant type. Must be set to &#34;API*ACCESS*MANAGEMENT_ADMIN&#34;.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Discriminator field identifying the variant type. Must be set to &#34;API_ACCESS_MANAGEMENT_ADMIN&#34;.
+     * @return Discriminator field identifying the variant type. Must be set to &#34;API*ACCESS*MANAGEMENT_ADMIN&#34;.
      * 
      */
     public Output<String> type() {

@@ -5,6 +5,7 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -34,45 +35,45 @@ public final class CaptchaArgs extends com.pulumi.resources.ResourceArgs {
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
-    @Import(name="secretKey")
-    private @Nullable Output<String> secretKey;
+    @Import(name="secretKey", required=true)
+    private Output<String> secretKey;
 
     /**
      * @return Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      * 
      */
-    public Optional<Output<String>> secretKey() {
-        return Optional.ofNullable(this.secretKey);
+    public Output<String> secretKey() {
+        return this.secretKey;
     }
 
     /**
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
-    @Import(name="siteKey")
-    private @Nullable Output<String> siteKey;
+    @Import(name="siteKey", required=true)
+    private Output<String> siteKey;
 
     /**
      * @return Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      * 
      */
-    public Optional<Output<String>> siteKey() {
-        return Optional.ofNullable(this.siteKey);
+    public Output<String> siteKey() {
+        return this.siteKey;
     }
 
     /**
      * Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      * 
      */
-    @Import(name="type")
-    private @Nullable Output<String> type;
+    @Import(name="type", required=true)
+    private Output<String> type;
 
     /**
      * @return Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      * 
      */
-    public Optional<Output<String>> type() {
-        return Optional.ofNullable(this.type);
+    public Output<String> type() {
+        return this.type;
     }
 
     private CaptchaArgs() {}
@@ -129,7 +130,7 @@ public final class CaptchaArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder secretKey(@Nullable Output<String> secretKey) {
+        public Builder secretKey(Output<String> secretKey) {
             $.secretKey = secretKey;
             return this;
         }
@@ -150,7 +151,7 @@ public final class CaptchaArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder siteKey(@Nullable Output<String> siteKey) {
+        public Builder siteKey(Output<String> siteKey) {
             $.siteKey = siteKey;
             return this;
         }
@@ -171,7 +172,7 @@ public final class CaptchaArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder type(@Nullable Output<String> type) {
+        public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
@@ -187,6 +188,15 @@ public final class CaptchaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CaptchaArgs build() {
+            if ($.secretKey == null) {
+                throw new MissingRequiredPropertyException("CaptchaArgs", "secretKey");
+            }
+            if ($.siteKey == null) {
+                throw new MissingRequiredPropertyException("CaptchaArgs", "siteKey");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("CaptchaArgs", "type");
+            }
             return $;
         }
     }

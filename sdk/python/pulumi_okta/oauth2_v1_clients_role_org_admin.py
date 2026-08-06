@@ -220,7 +220,25 @@ class Oauth2V1ClientsRoleOrgAdmin(pulumi.CustomResource):
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Create a Oauth2V1ClientsRoleOrgAdmin resource with the given unique name, props, and options.
+        The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Oauth2V1ClientsRoleOrgAdmin("example",
+            client_id="<client_id>",
+            type="ORG_ADMIN")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/oauth2V1ClientsRoleOrgAdmin:Oauth2V1ClientsRoleOrgAdmin example <client_id>/<id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +254,25 @@ class Oauth2V1ClientsRoleOrgAdmin(pulumi.CustomResource):
                  args: Oauth2V1ClientsRoleOrgAdminArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Oauth2V1ClientsRoleOrgAdmin resource with the given unique name, props, and options.
+        The Client Role Assignments APIs allow you to assign roles and designate third-party admin status to public client apps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.Oauth2V1ClientsRoleOrgAdmin("example",
+            client_id="<client_id>",
+            type="ORG_ADMIN")
+        ```
+
+        ## Import
+
+        ```sh
+        $ pulumi import okta:index/oauth2V1ClientsRoleOrgAdmin:Oauth2V1ClientsRoleOrgAdmin example <client_id>/<id>
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param Oauth2V1ClientsRoleOrgAdminArgs args: The arguments to use to populate this resource's properties.

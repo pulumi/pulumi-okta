@@ -62,14 +62,14 @@ public final class Oauth2V1ClientsRoleHelpDeskAdminArgs extends com.pulumi.resou
     }
 
     /**
-     * Discriminator field identifying the variant type. Must be set to &#34;HELP_DESK_ADMIN&#34;.
+     * Discriminator field identifying the variant type. Must be set to &#34;HELP*DESK*ADMIN&#34;.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Discriminator field identifying the variant type. Must be set to &#34;HELP_DESK_ADMIN&#34;.
+     * @return Discriminator field identifying the variant type. Must be set to &#34;HELP*DESK*ADMIN&#34;.
      * 
      */
     public Output<String> type() {
@@ -167,7 +167,7 @@ public final class Oauth2V1ClientsRoleHelpDeskAdminArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type Discriminator field identifying the variant type. Must be set to &#34;HELP_DESK_ADMIN&#34;.
+         * @param type Discriminator field identifying the variant type. Must be set to &#34;HELP*DESK*ADMIN&#34;.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class Oauth2V1ClientsRoleHelpDeskAdminArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type Discriminator field identifying the variant type. Must be set to &#34;HELP_DESK_ADMIN&#34;.
+         * @param type Discriminator field identifying the variant type. Must be set to &#34;HELP*DESK*ADMIN&#34;.
          * 
          * @return builder
          * 

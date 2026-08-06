@@ -69,7 +69,6 @@ from .get_behaviours import *
 from .get_brand import *
 from .get_brands import *
 from .get_campaign import *
-from .get_captcha import *
 from .get_catalog_entry_default import *
 from .get_catalog_entry_user_access_request_fields import *
 from .get_default_signin_page import *
@@ -96,7 +95,6 @@ from .get_label import *
 from .get_log_stream import *
 from .get_network_zone import *
 from .get_oauth_authorization_server import *
-from .get_org_captcha import *
 from .get_org_metadata import *
 from .get_post_auth_session_policy import *
 from .get_principal_entitlements import *
@@ -124,7 +122,6 @@ from .get_template import *
 from .get_templates import *
 from .get_theme import *
 from .get_themes import *
-from .get_trusted_origin import *
 from .get_trusted_origins import *
 from .get_ui_schema import *
 from .get_user_security_questions import *
@@ -152,7 +149,6 @@ from .oauth2_v1_clients_role_report_admin import *
 from .oauth2_v1_clients_role_super_admin import *
 from .oauth2_v1_clients_role_user_admin import *
 from .oauth2_v1_clients_role_workflows_admin import *
-from .org_captcha import *
 from .org_configuration import *
 from .org_support import *
 from .policy_mfa_default import *
@@ -1053,14 +1049,6 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin": "Oauth2V1ClientsRoleWorkflowsAdmin"
-  }
- },
- {
-  "pkg": "okta",
-  "mod": "index/orgCaptcha",
-  "fqn": "pulumi_okta",
-  "classes": {
-   "okta:index/orgCaptcha:OrgCaptcha": "OrgCaptcha"
   }
  },
  {

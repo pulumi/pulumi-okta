@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -56,22 +57,31 @@ type Captcha struct {
 	// Name of the CAPTCHA
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
-	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
+	SecretKey pulumi.StringOutput `pulumi:"secretKey"`
 	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
-	SiteKey pulumi.StringPtrOutput `pulumi:"siteKey"`
+	SiteKey pulumi.StringOutput `pulumi:"siteKey"`
 	// Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewCaptcha registers a new resource with the given unique name, arguments, and options.
 func NewCaptcha(ctx *pulumi.Context,
 	name string, args *CaptchaArgs, opts ...pulumi.ResourceOption) (*Captcha, error) {
 	if args == nil {
-		args = &CaptchaArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.SecretKey == nil {
+		return nil, errors.New("invalid value for required argument 'SecretKey'")
+	}
+	if args.SiteKey == nil {
+		return nil, errors.New("invalid value for required argument 'SiteKey'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
 	if args.SecretKey != nil {
-		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringPtrInput)
+		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secretKey",
@@ -129,11 +139,11 @@ type captchaArgs struct {
 	// Name of the CAPTCHA
 	Name *string `pulumi:"name"`
 	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
-	SecretKey *string `pulumi:"secretKey"`
+	SecretKey string `pulumi:"secretKey"`
 	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
-	SiteKey *string `pulumi:"siteKey"`
+	SiteKey string `pulumi:"siteKey"`
 	// Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Captcha resource.
@@ -141,11 +151,11 @@ type CaptchaArgs struct {
 	// Name of the CAPTCHA
 	Name pulumi.StringPtrInput
 	// Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
-	SecretKey pulumi.StringPtrInput
+	SecretKey pulumi.StringInput
 	// Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
-	SiteKey pulumi.StringPtrInput
+	SiteKey pulumi.StringInput
 	// Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
-	Type pulumi.StringPtrInput
+	Type pulumi.StringInput
 }
 
 func (CaptchaArgs) ElementType() reflect.Type {
@@ -241,18 +251,18 @@ func (o CaptchaOutput) Name() pulumi.StringOutput {
 }
 
 // Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
-func (o CaptchaOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Captcha) pulumi.StringPtrOutput { return v.SecretKey }).(pulumi.StringPtrOutput)
+func (o CaptchaOutput) SecretKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.SecretKey }).(pulumi.StringOutput)
 }
 
 // Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
-func (o CaptchaOutput) SiteKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Captcha) pulumi.StringPtrOutput { return v.SiteKey }).(pulumi.StringPtrOutput)
+func (o CaptchaOutput) SiteKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.SiteKey }).(pulumi.StringOutput)
 }
 
 // Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
-func (o CaptchaOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Captcha) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+func (o CaptchaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Captcha) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type CaptchaArrayOutput struct{ *pulumi.OutputState }

@@ -45,8 +45,6 @@ import com.pulumi.okta.inputs.GetBrandArgs;
 import com.pulumi.okta.inputs.GetBrandPlainArgs;
 import com.pulumi.okta.inputs.GetCampaignArgs;
 import com.pulumi.okta.inputs.GetCampaignPlainArgs;
-import com.pulumi.okta.inputs.GetCaptchaArgs;
-import com.pulumi.okta.inputs.GetCaptchaPlainArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryDefaultArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryDefaultPlainArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
@@ -97,8 +95,6 @@ import com.pulumi.okta.inputs.GetNetworkZoneArgs;
 import com.pulumi.okta.inputs.GetNetworkZonePlainArgs;
 import com.pulumi.okta.inputs.GetOauthAuthorizationServerArgs;
 import com.pulumi.okta.inputs.GetOauthAuthorizationServerPlainArgs;
-import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
-import com.pulumi.okta.inputs.GetOrgCaptchaPlainArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataPlainArgs;
 import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
@@ -145,8 +141,6 @@ import com.pulumi.okta.inputs.GetThemeArgs;
 import com.pulumi.okta.inputs.GetThemePlainArgs;
 import com.pulumi.okta.inputs.GetThemesArgs;
 import com.pulumi.okta.inputs.GetThemesPlainArgs;
-import com.pulumi.okta.inputs.GetTrustedOriginArgs;
-import com.pulumi.okta.inputs.GetTrustedOriginPlainArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsPlainArgs;
 import com.pulumi.okta.inputs.GetUiSchemaArgs;
@@ -172,7 +166,6 @@ import com.pulumi.okta.outputs.GetBehavioursResult;
 import com.pulumi.okta.outputs.GetBrandResult;
 import com.pulumi.okta.outputs.GetBrandsResult;
 import com.pulumi.okta.outputs.GetCampaignResult;
-import com.pulumi.okta.outputs.GetCaptchaResult;
 import com.pulumi.okta.outputs.GetCatalogEntryDefaultResult;
 import com.pulumi.okta.outputs.GetCatalogEntryUserAccessRequestFieldsResult;
 import com.pulumi.okta.outputs.GetDefaultSigninPageResult;
@@ -199,7 +192,6 @@ import com.pulumi.okta.outputs.GetLabelResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOauthAuthorizationServerResult;
-import com.pulumi.okta.outputs.GetOrgCaptchaResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.outputs.GetPostAuthSessionPolicyResult;
 import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
@@ -227,7 +219,6 @@ import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
 import com.pulumi.okta.outputs.GetThemeResult;
 import com.pulumi.okta.outputs.GetThemesResult;
-import com.pulumi.okta.outputs.GetTrustedOriginResult;
 import com.pulumi.okta.outputs.GetTrustedOriginsResult;
 import com.pulumi.okta.outputs.GetUiSchemaResult;
 import com.pulumi.okta.outputs.GetUserSecurityQuestionsResult;
@@ -4298,21 +4289,6 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetCampaignResult> getCampaignPlain(GetCampaignPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getCampaign:getCampaign", TypeShape.of(GetCampaignResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetCaptchaResult> getCaptcha(GetCaptchaArgs args) {
-        return getCaptcha(args, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetCaptchaResult> getCaptchaPlain(GetCaptchaPlainArgs args) {
-        return getCaptchaPlain(args, InvokeOptions.Empty);
-    }
-    public static Output<GetCaptchaResult> getCaptcha(GetCaptchaArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("okta:index/getCaptcha:getCaptcha", TypeShape.of(GetCaptchaResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetCaptchaResult> getCaptcha(GetCaptchaArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("okta:index/getCaptcha:getCaptcha", TypeShape.of(GetCaptchaResult.class), args, Utilities.withVersion(options));
-    }
-    public static CompletableFuture<GetCaptchaResult> getCaptchaPlain(GetCaptchaPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("okta:index/getCaptcha:getCaptcha", TypeShape.of(GetCaptchaResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a catalog entry.
@@ -9364,27 +9340,6 @@ public final class OktaFunctions {
     }
     public static CompletableFuture<GetOauthAuthorizationServerResult> getOauthAuthorizationServerPlain(GetOauthAuthorizationServerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", TypeShape.of(GetOauthAuthorizationServerResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetOrgCaptchaResult> getOrgCaptcha() {
-        return getOrgCaptcha(GetOrgCaptchaArgs.Empty, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetOrgCaptchaResult> getOrgCaptchaPlain() {
-        return getOrgCaptchaPlain(GetOrgCaptchaPlainArgs.Empty, InvokeOptions.Empty);
-    }
-    public static Output<GetOrgCaptchaResult> getOrgCaptcha(GetOrgCaptchaArgs args) {
-        return getOrgCaptcha(args, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetOrgCaptchaResult> getOrgCaptchaPlain(GetOrgCaptchaPlainArgs args) {
-        return getOrgCaptchaPlain(args, InvokeOptions.Empty);
-    }
-    public static Output<GetOrgCaptchaResult> getOrgCaptcha(GetOrgCaptchaArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("okta:index/getOrgCaptcha:getOrgCaptcha", TypeShape.of(GetOrgCaptchaResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetOrgCaptchaResult> getOrgCaptcha(GetOrgCaptchaArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("okta:index/getOrgCaptcha:getOrgCaptcha", TypeShape.of(GetOrgCaptchaResult.class), args, Utilities.withVersion(options));
-    }
-    public static CompletableFuture<GetOrgCaptchaResult> getOrgCaptchaPlain(GetOrgCaptchaPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("okta:index/getOrgCaptcha:getOrgCaptcha", TypeShape.of(GetOrgCaptchaResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
@@ -15234,21 +15189,6 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetThemesResult> getThemesPlain(GetThemesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetTrustedOriginResult> getTrustedOrigin(GetTrustedOriginArgs args) {
-        return getTrustedOrigin(args, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetTrustedOriginResult> getTrustedOriginPlain(GetTrustedOriginPlainArgs args) {
-        return getTrustedOriginPlain(args, InvokeOptions.Empty);
-    }
-    public static Output<GetTrustedOriginResult> getTrustedOrigin(GetTrustedOriginArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("okta:index/getTrustedOrigin:getTrustedOrigin", TypeShape.of(GetTrustedOriginResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetTrustedOriginResult> getTrustedOrigin(GetTrustedOriginArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("okta:index/getTrustedOrigin:getTrustedOrigin", TypeShape.of(GetTrustedOriginResult.class), args, Utilities.withVersion(options));
-    }
-    public static CompletableFuture<GetTrustedOriginResult> getTrustedOriginPlain(GetTrustedOriginPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("okta:index/getTrustedOrigin:getTrustedOrigin", TypeShape.of(GetTrustedOriginResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get List of Trusted Origins using filters.
