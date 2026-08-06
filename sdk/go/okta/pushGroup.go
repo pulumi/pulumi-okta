@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]bool{
 //				"deelhr_link": true,
 //			})
 //			if err != nil {
@@ -56,8 +56,8 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewPushGroup(ctx, "sample", &okta.PushGroupArgs{
-//				AppId:                      test.ID(),
-//				SourceGroupId:              testGroup.ID(),
+//				AppId:                      test.ID().ToIDOutput().ToStringOutput(),
+//				SourceGroupId:              testGroup.ID().ToIDOutput().ToStringOutput(),
 //				Status:                     pulumi.String("ACTIVE"),
 //				DeleteTargetGroupOnDestroy: pulumi.Bool(true),
 //			})
@@ -65,8 +65,8 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewPushGroup(ctx, "ad_sample", &okta.PushGroupArgs{
-//				AppId:         test.ID(),
-//				SourceGroupId: testGroup.ID(),
+//				AppId:         test.ID().ToIDOutput().ToStringOutput(),
+//				SourceGroupId: testGroup.ID().ToIDOutput().ToStringOutput(),
 //				Status:        pulumi.String("ACTIVE"),
 //				AppConfig: &okta.PushGroupAppConfigArgs{
 //					Type:              pulumi.String("ACTIVE_DIRECTORY"),

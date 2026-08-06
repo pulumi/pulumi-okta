@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_ = okta.GetDomainOutput(ctx, okta.GetDomainOutputArgs{
-//				DomainIdOrName: example.ID(),
+//				DomainIdOrName: example.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			return nil
 //		})

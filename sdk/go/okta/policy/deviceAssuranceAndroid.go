@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeToset, err := std.Toset(ctx, map[string]interface{}{
+//			invokeToset, err := std.Toset(ctx, map[string][]string{
 //				"input": []string{
 //					"FULL",
 //					"USER",
@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeToset1, err := std.Toset(ctx, map[string]interface{}{
+//			invokeToset1, err := std.Toset(ctx, map[string][]string{
 //				"input": []string{
 //					"BIOMETRIC",
 //				},

@@ -42,7 +42,7 @@ import (
 //			}
 //			_ = policy.LookupRulePasswordOutput(ctx, policy.GetRulePasswordOutputArgs{
 //				PolicyId: pulumi.String(password.Id),
-//				Id:       exampleRulePassword.ID(),
+//				Id:       exampleRulePassword.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			return nil
 //		})

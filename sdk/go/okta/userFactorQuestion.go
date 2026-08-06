@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			example := okta.GetUserSecurityQuestionsOutput(ctx, okta.GetUserSecurityQuestionsOutputArgs{
-//				UserId: exampleUser.ID(),
+//				UserId: exampleUser.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			exampleFactor, err := factor.NewFactor(ctx, "example", &factor.FactorArgs{
 //				ProviderId: pulumi.String("okta_question"),
@@ -50,10 +50,10 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewUserFactorQuestion(ctx, "example", &okta.UserFactorQuestionArgs{
-//				UserId: exampleUser.ID(),
-//				Key: pulumi.String(example.ApplyT(func(example okta.GetUserSecurityQuestionsResult) (*string, error) {
+//				UserId: exampleUser.ID().ToIDOutput().ToStringOutput(),
+//				Key: example.ApplyT(func(example okta.GetUserSecurityQuestionsResult) (*string, error) {
 //					return example.Questions[0].Key, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //				Answer: pulumi.String("meatball"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFactor,

@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = app.NewOAuthRedirectUri(ctx, "test", &app.OAuthRedirectUriArgs{
-//				AppId: test.ID(),
+//				AppId: test.ID().ToIDOutput().ToStringOutput(),
 //				Uri:   pulumi.String("http://google.com"),
 //			})
 //			if err != nil {

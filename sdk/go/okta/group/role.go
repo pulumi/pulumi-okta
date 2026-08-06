@@ -77,9 +77,9 @@ import (
 //				return err
 //			}
 //			_, err = group.NewRole(ctx, "test", &group.RoleArgs{
-//				GroupId:       test.ID(),
-//				RoleId:        testAdminRoleCustom.ID(),
-//				ResourceSetId: testResourceSet.ID(),
+//				GroupId:       test.ID().ToIDOutput().ToStringOutput(),
+//				RoleId:        testAdminRoleCustom.ID().ToIDOutput().ToStringOutput(),
+//				ResourceSetId: testResourceSet.ID().ToIDOutput().ToStringOutput(),
 //				RoleType:      pulumi.String("CUSTOM"),
 //			})
 //			if err != nil {

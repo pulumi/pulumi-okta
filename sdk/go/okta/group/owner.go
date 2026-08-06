@@ -45,8 +45,8 @@ import (
 //				return err
 //			}
 //			_, err = group.NewOwner(ctx, "test", &group.OwnerArgs{
-//				GroupId:        testGroup.ID(),
-//				IdOfGroupOwner: test.ID(),
+//				GroupId:        testGroup.ID().ToIDOutput().ToStringOutput(),
+//				IdOfGroupOwner: test.ID().ToIDOutput().ToStringOutput(),
 //				Type:           pulumi.String("USER"),
 //			})
 //			if err != nil {

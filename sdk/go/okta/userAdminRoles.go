@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewUserAdminRoles(ctx, "test", &okta.UserAdminRolesArgs{
-//				UserId: test.ID(),
+//				UserId: test.ID().ToIDOutput().ToStringOutput(),
 //				AdminRoles: pulumi.StringArray{
 //					pulumi.String("APP_ADMIN"),
 //				},

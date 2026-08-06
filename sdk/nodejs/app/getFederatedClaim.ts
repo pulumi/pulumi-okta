@@ -49,8 +49,8 @@ import * as utilities from "../utilities";
  *     appId: testApp.id,
  *     id: exampleFederatedClaim.id,
  * });
- * export const claimName = example.apply(example => example.name);
- * export const claimExpression = example.apply(example => example.expression);
+ * export const claimName = example.name;
+ * export const claimExpression = example.expression;
  * ```
  */
 export function getFederatedClaim(args: GetFederatedClaimArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedClaimResult> {
@@ -141,8 +141,8 @@ export interface GetFederatedClaimResult {
  *     appId: testApp.id,
  *     id: exampleFederatedClaim.id,
  * });
- * export const claimName = example.apply(example => example.name);
- * export const claimExpression = example.apply(example => example.expression);
+ * export const claimName = example.name;
+ * export const claimExpression = example.expression;
  * ```
  */
 export function getFederatedClaimOutput(args: GetFederatedClaimOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedClaimResult> {
