@@ -74,12 +74,8 @@ type LookupRequestSequenceResult struct {
 }
 
 func LookupRequestSequenceOutput(ctx *pulumi.Context, args LookupRequestSequenceOutputArgs, opts ...pulumi.InvokeOption) LookupRequestSequenceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequestSequenceResultOutput, error) {
-			args := v.(LookupRequestSequenceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getRequestSequence:getRequestSequence", args, LookupRequestSequenceResultOutput{}, options).(LookupRequestSequenceResultOutput), nil
-		}).(LookupRequestSequenceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRequestSequence:getRequestSequence", args, LookupRequestSequenceResultOutput{}, options).(LookupRequestSequenceResultOutput)
 }
 
 // A collection of arguments for invoking getRequestSequence.

@@ -57,12 +57,8 @@ type GetOauthAuthorizationServerResult struct {
 }
 
 func GetOauthAuthorizationServerOutput(ctx *pulumi.Context, args GetOauthAuthorizationServerOutputArgs, opts ...pulumi.InvokeOption) GetOauthAuthorizationServerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOauthAuthorizationServerResultOutput, error) {
-			args := v.(GetOauthAuthorizationServerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", args, GetOauthAuthorizationServerResultOutput{}, options).(GetOauthAuthorizationServerResultOutput), nil
-		}).(GetOauthAuthorizationServerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", args, GetOauthAuthorizationServerResultOutput{}, options).(GetOauthAuthorizationServerResultOutput)
 }
 
 // A collection of arguments for invoking getOauthAuthorizationServer.

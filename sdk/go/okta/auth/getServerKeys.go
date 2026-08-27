@@ -88,12 +88,8 @@ type GetServerKeysResult struct {
 }
 
 func GetServerKeysOutput(ctx *pulumi.Context, args GetServerKeysOutputArgs, opts ...pulumi.InvokeOption) GetServerKeysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServerKeysResultOutput, error) {
-			args := v.(GetServerKeysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:auth/getServerKeys:getServerKeys", args, GetServerKeysResultOutput{}, options).(GetServerKeysResultOutput), nil
-		}).(GetServerKeysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:auth/getServerKeys:getServerKeys", args, GetServerKeysResultOutput{}, options).(GetServerKeysResultOutput)
 }
 
 // A collection of arguments for invoking getServerKeys.

@@ -69,12 +69,8 @@ type GetIamResourceSetResult struct {
 }
 
 func GetIamResourceSetOutput(ctx *pulumi.Context, args GetIamResourceSetOutputArgs, opts ...pulumi.InvokeOption) GetIamResourceSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIamResourceSetResultOutput, error) {
-			args := v.(GetIamResourceSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getIamResourceSet:getIamResourceSet", args, GetIamResourceSetResultOutput{}, options).(GetIamResourceSetResultOutput), nil
-		}).(GetIamResourceSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getIamResourceSet:getIamResourceSet", args, GetIamResourceSetResultOutput{}, options).(GetIamResourceSetResultOutput)
 }
 
 // A collection of arguments for invoking getIamResourceSet.

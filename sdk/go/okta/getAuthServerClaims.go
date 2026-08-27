@@ -65,12 +65,8 @@ type GetAuthServerClaimsResult struct {
 }
 
 func GetAuthServerClaimsOutput(ctx *pulumi.Context, args GetAuthServerClaimsOutputArgs, opts ...pulumi.InvokeOption) GetAuthServerClaimsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAuthServerClaimsResultOutput, error) {
-			args := v.(GetAuthServerClaimsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAuthServerClaims:getAuthServerClaims", args, GetAuthServerClaimsResultOutput{}, options).(GetAuthServerClaimsResultOutput), nil
-		}).(GetAuthServerClaimsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAuthServerClaims:getAuthServerClaims", args, GetAuthServerClaimsResultOutput{}, options).(GetAuthServerClaimsResultOutput)
 }
 
 // A collection of arguments for invoking getAuthServerClaims.

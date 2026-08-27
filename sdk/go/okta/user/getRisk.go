@@ -67,12 +67,8 @@ type LookupRiskResult struct {
 }
 
 func LookupRiskOutput(ctx *pulumi.Context, args LookupRiskOutputArgs, opts ...pulumi.InvokeOption) LookupRiskResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRiskResultOutput, error) {
-			args := v.(LookupRiskArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:user/getRisk:getRisk", args, LookupRiskResultOutput{}, options).(LookupRiskResultOutput), nil
-		}).(LookupRiskResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:user/getRisk:getRisk", args, LookupRiskResultOutput{}, options).(LookupRiskResultOutput)
 }
 
 // A collection of arguments for invoking getRisk.

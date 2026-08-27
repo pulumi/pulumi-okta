@@ -59,12 +59,8 @@ type GetIamAssigneesUserResult struct {
 }
 
 func GetIamAssigneesUserOutput(ctx *pulumi.Context, args GetIamAssigneesUserOutputArgs, opts ...pulumi.InvokeOption) GetIamAssigneesUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIamAssigneesUserResultOutput, error) {
-			args := v.(GetIamAssigneesUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getIamAssigneesUser:getIamAssigneesUser", args, GetIamAssigneesUserResultOutput{}, options).(GetIamAssigneesUserResultOutput), nil
-		}).(GetIamAssigneesUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getIamAssigneesUser:getIamAssigneesUser", args, GetIamAssigneesUserResultOutput{}, options).(GetIamAssigneesUserResultOutput)
 }
 
 // A collection of arguments for invoking getIamAssigneesUser.

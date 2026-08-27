@@ -145,12 +145,8 @@ type GetOauthResult struct {
 }
 
 func GetOauthOutput(ctx *pulumi.Context, args GetOauthOutputArgs, opts ...pulumi.InvokeOption) GetOauthResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOauthResultOutput, error) {
-			args := v.(GetOauthArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:app/getOauth:getOauth", args, GetOauthResultOutput{}, options).(GetOauthResultOutput), nil
-		}).(GetOauthResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:app/getOauth:getOauth", args, GetOauthResultOutput{}, options).(GetOauthResultOutput)
 }
 
 // A collection of arguments for invoking getOauth.

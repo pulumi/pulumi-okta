@@ -41,12 +41,8 @@ type LookupResourceOwnerResult struct {
 }
 
 func LookupResourceOwnerOutput(ctx *pulumi.Context, args LookupResourceOwnerOutputArgs, opts ...pulumi.InvokeOption) LookupResourceOwnerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceOwnerResultOutput, error) {
-			args := v.(LookupResourceOwnerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getResourceOwner:getResourceOwner", args, LookupResourceOwnerResultOutput{}, options).(LookupResourceOwnerResultOutput), nil
-		}).(LookupResourceOwnerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getResourceOwner:getResourceOwner", args, LookupResourceOwnerResultOutput{}, options).(LookupResourceOwnerResultOutput)
 }
 
 // A collection of arguments for invoking getResourceOwner.

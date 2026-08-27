@@ -74,12 +74,8 @@ type GetTemplateResult struct {
 }
 
 func GetTemplateOutput(ctx *pulumi.Context, args GetTemplateOutputArgs, opts ...pulumi.InvokeOption) GetTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTemplateResultOutput, error) {
-			args := v.(GetTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getTemplate:getTemplate", args, GetTemplateResultOutput{}, options).(GetTemplateResultOutput), nil
-		}).(GetTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getTemplate:getTemplate", args, GetTemplateResultOutput{}, options).(GetTemplateResultOutput)
 }
 
 // A collection of arguments for invoking getTemplate.

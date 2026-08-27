@@ -63,12 +63,8 @@ type GetAppUserAssignmentsResult struct {
 }
 
 func GetAppUserAssignmentsOutput(ctx *pulumi.Context, args GetAppUserAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetAppUserAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAppUserAssignmentsResultOutput, error) {
-			args := v.(GetAppUserAssignmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAppUserAssignments:getAppUserAssignments", args, GetAppUserAssignmentsResultOutput{}, options).(GetAppUserAssignmentsResultOutput), nil
-		}).(GetAppUserAssignmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAppUserAssignments:getAppUserAssignments", args, GetAppUserAssignmentsResultOutput{}, options).(GetAppUserAssignmentsResultOutput)
 }
 
 // A collection of arguments for invoking getAppUserAssignments.

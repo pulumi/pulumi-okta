@@ -60,12 +60,8 @@ type GetAppsResult struct {
 }
 
 func GetAppsOutput(ctx *pulumi.Context, args GetAppsOutputArgs, opts ...pulumi.InvokeOption) GetAppsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAppsResultOutput, error) {
-			args := v.(GetAppsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getApps:getApps", args, GetAppsResultOutput{}, options).(GetAppsResultOutput), nil
-		}).(GetAppsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getApps:getApps", args, GetAppsResultOutput{}, options).(GetAppsResultOutput)
 }
 
 // A collection of arguments for invoking getApps.

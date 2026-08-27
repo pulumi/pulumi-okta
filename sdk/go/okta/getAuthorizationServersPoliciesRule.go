@@ -89,12 +89,8 @@ type GetAuthorizationServersPoliciesRuleResult struct {
 }
 
 func GetAuthorizationServersPoliciesRuleOutput(ctx *pulumi.Context, args GetAuthorizationServersPoliciesRuleOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationServersPoliciesRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAuthorizationServersPoliciesRuleResultOutput, error) {
-			args := v.(GetAuthorizationServersPoliciesRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAuthorizationServersPoliciesRule:getAuthorizationServersPoliciesRule", args, GetAuthorizationServersPoliciesRuleResultOutput{}, options).(GetAuthorizationServersPoliciesRuleResultOutput), nil
-		}).(GetAuthorizationServersPoliciesRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAuthorizationServersPoliciesRule:getAuthorizationServersPoliciesRule", args, GetAuthorizationServersPoliciesRuleResultOutput{}, options).(GetAuthorizationServersPoliciesRuleResultOutput)
 }
 
 // A collection of arguments for invoking getAuthorizationServersPoliciesRule.

@@ -51,12 +51,8 @@ type LookupRealmAssignmentResult struct {
 }
 
 func LookupRealmAssignmentOutput(ctx *pulumi.Context, args LookupRealmAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupRealmAssignmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRealmAssignmentResultOutput, error) {
-			args := v.(LookupRealmAssignmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getRealmAssignment:getRealmAssignment", args, LookupRealmAssignmentResultOutput{}, options).(LookupRealmAssignmentResultOutput), nil
-		}).(LookupRealmAssignmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRealmAssignment:getRealmAssignment", args, LookupRealmAssignmentResultOutput{}, options).(LookupRealmAssignmentResultOutput)
 }
 
 // A collection of arguments for invoking getRealmAssignment.

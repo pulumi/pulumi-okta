@@ -71,12 +71,8 @@ type LookupSecurityEventsProviderResult struct {
 }
 
 func LookupSecurityEventsProviderOutput(ctx *pulumi.Context, args LookupSecurityEventsProviderOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityEventsProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityEventsProviderResultOutput, error) {
-			args := v.(LookupSecurityEventsProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getSecurityEventsProvider:getSecurityEventsProvider", args, LookupSecurityEventsProviderResultOutput{}, options).(LookupSecurityEventsProviderResultOutput), nil
-		}).(LookupSecurityEventsProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getSecurityEventsProvider:getSecurityEventsProvider", args, LookupSecurityEventsProviderResultOutput{}, options).(LookupSecurityEventsProviderResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityEventsProvider.

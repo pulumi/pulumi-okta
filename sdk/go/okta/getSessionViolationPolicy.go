@@ -65,10 +65,8 @@ type GetSessionViolationPolicyResult struct {
 }
 
 func GetSessionViolationPolicyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSessionViolationPolicyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSessionViolationPolicyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("okta:index/getSessionViolationPolicy:getSessionViolationPolicy", nil, GetSessionViolationPolicyResultOutput{}, options).(GetSessionViolationPolicyResultOutput), nil
-	}).(GetSessionViolationPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getSessionViolationPolicy:getSessionViolationPolicy", nil, GetSessionViolationPolicyResultOutput{}, options).(GetSessionViolationPolicyResultOutput)
 }
 
 // A collection of values returned by getSessionViolationPolicy.

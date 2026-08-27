@@ -81,12 +81,8 @@ type LookupRequestSettingResourceResult struct {
 }
 
 func LookupRequestSettingResourceOutput(ctx *pulumi.Context, args LookupRequestSettingResourceOutputArgs, opts ...pulumi.InvokeOption) LookupRequestSettingResourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequestSettingResourceResultOutput, error) {
-			args := v.(LookupRequestSettingResourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getRequestSettingResource:getRequestSettingResource", args, LookupRequestSettingResourceResultOutput{}, options).(LookupRequestSettingResourceResultOutput), nil
-		}).(LookupRequestSettingResourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRequestSettingResource:getRequestSettingResource", args, LookupRequestSettingResourceResultOutput{}, options).(LookupRequestSettingResourceResultOutput)
 }
 
 // A collection of arguments for invoking getRequestSettingResource.

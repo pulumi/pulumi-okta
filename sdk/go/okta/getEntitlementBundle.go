@@ -85,12 +85,8 @@ type LookupEntitlementBundleResult struct {
 }
 
 func LookupEntitlementBundleOutput(ctx *pulumi.Context, args LookupEntitlementBundleOutputArgs, opts ...pulumi.InvokeOption) LookupEntitlementBundleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEntitlementBundleResultOutput, error) {
-			args := v.(LookupEntitlementBundleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getEntitlementBundle:getEntitlementBundle", args, LookupEntitlementBundleResultOutput{}, options).(LookupEntitlementBundleResultOutput), nil
-		}).(LookupEntitlementBundleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getEntitlementBundle:getEntitlementBundle", args, LookupEntitlementBundleResultOutput{}, options).(LookupEntitlementBundleResultOutput)
 }
 
 // A collection of arguments for invoking getEntitlementBundle.

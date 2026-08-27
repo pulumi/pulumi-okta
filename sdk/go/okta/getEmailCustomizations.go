@@ -74,12 +74,8 @@ type GetEmailCustomizationsResult struct {
 }
 
 func GetEmailCustomizationsOutput(ctx *pulumi.Context, args GetEmailCustomizationsOutputArgs, opts ...pulumi.InvokeOption) GetEmailCustomizationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEmailCustomizationsResultOutput, error) {
-			args := v.(GetEmailCustomizationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getEmailCustomizations:getEmailCustomizations", args, GetEmailCustomizationsResultOutput{}, options).(GetEmailCustomizationsResultOutput), nil
-		}).(GetEmailCustomizationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getEmailCustomizations:getEmailCustomizations", args, GetEmailCustomizationsResultOutput{}, options).(GetEmailCustomizationsResultOutput)
 }
 
 // A collection of arguments for invoking getEmailCustomizations.

@@ -74,12 +74,8 @@ type LookupServerPolicyResult struct {
 }
 
 func LookupServerPolicyOutput(ctx *pulumi.Context, args LookupServerPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServerPolicyResultOutput, error) {
-			args := v.(LookupServerPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:auth/getServerPolicy:getServerPolicy", args, LookupServerPolicyResultOutput{}, options).(LookupServerPolicyResultOutput), nil
-		}).(LookupServerPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:auth/getServerPolicy:getServerPolicy", args, LookupServerPolicyResultOutput{}, options).(LookupServerPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getServerPolicy.

@@ -55,10 +55,8 @@ type LookupRateLimitAdminNotificationSettingsResult struct {
 }
 
 func LookupRateLimitAdminNotificationSettingsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupRateLimitAdminNotificationSettingsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupRateLimitAdminNotificationSettingsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("okta:index/getRateLimitAdminNotificationSettings:getRateLimitAdminNotificationSettings", nil, LookupRateLimitAdminNotificationSettingsResultOutput{}, options).(LookupRateLimitAdminNotificationSettingsResultOutput), nil
-	}).(LookupRateLimitAdminNotificationSettingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRateLimitAdminNotificationSettings:getRateLimitAdminNotificationSettings", nil, LookupRateLimitAdminNotificationSettingsResultOutput{}, options).(LookupRateLimitAdminNotificationSettingsResultOutput)
 }
 
 // A collection of values returned by getRateLimitAdminNotificationSettings.

@@ -63,12 +63,8 @@ type LookupAppGroupAssignmentsResult struct {
 }
 
 func LookupAppGroupAssignmentsOutput(ctx *pulumi.Context, args LookupAppGroupAssignmentsOutputArgs, opts ...pulumi.InvokeOption) LookupAppGroupAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAppGroupAssignmentsResultOutput, error) {
-			args := v.(LookupAppGroupAssignmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAppGroupAssignments:getAppGroupAssignments", args, LookupAppGroupAssignmentsResultOutput{}, options).(LookupAppGroupAssignmentsResultOutput), nil
-		}).(LookupAppGroupAssignmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAppGroupAssignments:getAppGroupAssignments", args, LookupAppGroupAssignmentsResultOutput{}, options).(LookupAppGroupAssignmentsResultOutput)
 }
 
 // A collection of arguments for invoking getAppGroupAssignments.

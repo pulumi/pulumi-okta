@@ -74,12 +74,8 @@ type GetIdentitySourceGroupsResult struct {
 }
 
 func GetIdentitySourceGroupsOutput(ctx *pulumi.Context, args GetIdentitySourceGroupsOutputArgs, opts ...pulumi.InvokeOption) GetIdentitySourceGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIdentitySourceGroupsResultOutput, error) {
-			args := v.(GetIdentitySourceGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getIdentitySourceGroups:getIdentitySourceGroups", args, GetIdentitySourceGroupsResultOutput{}, options).(GetIdentitySourceGroupsResultOutput), nil
-		}).(GetIdentitySourceGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getIdentitySourceGroups:getIdentitySourceGroups", args, GetIdentitySourceGroupsResultOutput{}, options).(GetIdentitySourceGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getIdentitySourceGroups.

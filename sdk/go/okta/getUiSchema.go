@@ -69,12 +69,8 @@ type LookupUiSchemaResult struct {
 }
 
 func LookupUiSchemaOutput(ctx *pulumi.Context, args LookupUiSchemaOutputArgs, opts ...pulumi.InvokeOption) LookupUiSchemaResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUiSchemaResultOutput, error) {
-			args := v.(LookupUiSchemaArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getUiSchema:getUiSchema", args, LookupUiSchemaResultOutput{}, options).(LookupUiSchemaResultOutput), nil
-		}).(LookupUiSchemaResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getUiSchema:getUiSchema", args, LookupUiSchemaResultOutput{}, options).(LookupUiSchemaResultOutput)
 }
 
 // A collection of arguments for invoking getUiSchema.

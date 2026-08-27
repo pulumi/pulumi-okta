@@ -37,12 +37,8 @@ type GetResourceLabelResult struct {
 }
 
 func GetResourceLabelOutput(ctx *pulumi.Context, args GetResourceLabelOutputArgs, opts ...pulumi.InvokeOption) GetResourceLabelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResourceLabelResultOutput, error) {
-			args := v.(GetResourceLabelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getResourceLabel:getResourceLabel", args, GetResourceLabelResultOutput{}, options).(GetResourceLabelResultOutput), nil
-		}).(GetResourceLabelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getResourceLabel:getResourceLabel", args, GetResourceLabelResultOutput{}, options).(GetResourceLabelResultOutput)
 }
 
 // A collection of arguments for invoking getResourceLabel.

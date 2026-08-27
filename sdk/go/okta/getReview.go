@@ -109,12 +109,8 @@ type LookupReviewResult struct {
 }
 
 func LookupReviewOutput(ctx *pulumi.Context, args LookupReviewOutputArgs, opts ...pulumi.InvokeOption) LookupReviewResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReviewResultOutput, error) {
-			args := v.(LookupReviewArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getReview:getReview", args, LookupReviewResultOutput{}, options).(LookupReviewResultOutput), nil
-		}).(LookupReviewResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getReview:getReview", args, LookupReviewResultOutput{}, options).(LookupReviewResultOutput)
 }
 
 // A collection of arguments for invoking getReview.

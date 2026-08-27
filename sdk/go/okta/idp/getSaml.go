@@ -90,12 +90,8 @@ type LookupSamlResult struct {
 }
 
 func LookupSamlOutput(ctx *pulumi.Context, args LookupSamlOutputArgs, opts ...pulumi.InvokeOption) LookupSamlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSamlResultOutput, error) {
-			args := v.(LookupSamlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:idp/getSaml:getSaml", args, LookupSamlResultOutput{}, options).(LookupSamlResultOutput), nil
-		}).(LookupSamlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:idp/getSaml:getSaml", args, LookupSamlResultOutput{}, options).(LookupSamlResultOutput)
 }
 
 // A collection of arguments for invoking getSaml.

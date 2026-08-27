@@ -79,12 +79,8 @@ type LookupApiServiceIntegrationResult struct {
 }
 
 func LookupApiServiceIntegrationOutput(ctx *pulumi.Context, args LookupApiServiceIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupApiServiceIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiServiceIntegrationResultOutput, error) {
-			args := v.(LookupApiServiceIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getApiServiceIntegration:getApiServiceIntegration", args, LookupApiServiceIntegrationResultOutput{}, options).(LookupApiServiceIntegrationResultOutput), nil
-		}).(LookupApiServiceIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getApiServiceIntegration:getApiServiceIntegration", args, LookupApiServiceIntegrationResultOutput{}, options).(LookupApiServiceIntegrationResultOutput)
 }
 
 // A collection of arguments for invoking getApiServiceIntegration.

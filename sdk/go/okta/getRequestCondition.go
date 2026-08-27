@@ -84,12 +84,8 @@ type LookupRequestConditionResult struct {
 }
 
 func LookupRequestConditionOutput(ctx *pulumi.Context, args LookupRequestConditionOutputArgs, opts ...pulumi.InvokeOption) LookupRequestConditionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequestConditionResultOutput, error) {
-			args := v.(LookupRequestConditionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getRequestCondition:getRequestCondition", args, LookupRequestConditionResultOutput{}, options).(LookupRequestConditionResultOutput), nil
-		}).(LookupRequestConditionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRequestCondition:getRequestCondition", args, LookupRequestConditionResultOutput{}, options).(LookupRequestConditionResultOutput)
 }
 
 // A collection of arguments for invoking getRequestCondition.

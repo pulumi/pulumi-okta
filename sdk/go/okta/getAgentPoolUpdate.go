@@ -90,12 +90,8 @@ type LookupAgentPoolUpdateResult struct {
 }
 
 func LookupAgentPoolUpdateOutput(ctx *pulumi.Context, args LookupAgentPoolUpdateOutputArgs, opts ...pulumi.InvokeOption) LookupAgentPoolUpdateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAgentPoolUpdateResultOutput, error) {
-			args := v.(LookupAgentPoolUpdateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAgentPoolUpdate:getAgentPoolUpdate", args, LookupAgentPoolUpdateResultOutput{}, options).(LookupAgentPoolUpdateResultOutput), nil
-		}).(LookupAgentPoolUpdateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAgentPoolUpdate:getAgentPoolUpdate", args, LookupAgentPoolUpdateResultOutput{}, options).(LookupAgentPoolUpdateResultOutput)
 }
 
 // A collection of arguments for invoking getAgentPoolUpdate.

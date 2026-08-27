@@ -85,12 +85,8 @@ type GetServerClientsResult struct {
 }
 
 func GetServerClientsOutput(ctx *pulumi.Context, args GetServerClientsOutputArgs, opts ...pulumi.InvokeOption) GetServerClientsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServerClientsResultOutput, error) {
-			args := v.(GetServerClientsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:auth/getServerClients:getServerClients", args, GetServerClientsResultOutput{}, options).(GetServerClientsResultOutput), nil
-		}).(GetServerClientsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:auth/getServerClients:getServerClients", args, GetServerClientsResultOutput{}, options).(GetServerClientsResultOutput)
 }
 
 // A collection of arguments for invoking getServerClients.

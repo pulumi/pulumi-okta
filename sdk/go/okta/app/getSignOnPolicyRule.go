@@ -97,12 +97,8 @@ type GetSignOnPolicyRuleResult struct {
 }
 
 func GetSignOnPolicyRuleOutput(ctx *pulumi.Context, args GetSignOnPolicyRuleOutputArgs, opts ...pulumi.InvokeOption) GetSignOnPolicyRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSignOnPolicyRuleResultOutput, error) {
-			args := v.(GetSignOnPolicyRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:app/getSignOnPolicyRule:getSignOnPolicyRule", args, GetSignOnPolicyRuleResultOutput{}, options).(GetSignOnPolicyRuleResultOutput), nil
-		}).(GetSignOnPolicyRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:app/getSignOnPolicyRule:getSignOnPolicyRule", args, GetSignOnPolicyRuleResultOutput{}, options).(GetSignOnPolicyRuleResultOutput)
 }
 
 // A collection of arguments for invoking getSignOnPolicyRule.

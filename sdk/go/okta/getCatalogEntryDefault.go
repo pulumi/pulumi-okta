@@ -75,12 +75,8 @@ type GetCatalogEntryDefaultResult struct {
 }
 
 func GetCatalogEntryDefaultOutput(ctx *pulumi.Context, args GetCatalogEntryDefaultOutputArgs, opts ...pulumi.InvokeOption) GetCatalogEntryDefaultResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCatalogEntryDefaultResultOutput, error) {
-			args := v.(GetCatalogEntryDefaultArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getCatalogEntryDefault:getCatalogEntryDefault", args, GetCatalogEntryDefaultResultOutput{}, options).(GetCatalogEntryDefaultResultOutput), nil
-		}).(GetCatalogEntryDefaultResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getCatalogEntryDefault:getCatalogEntryDefault", args, GetCatalogEntryDefaultResultOutput{}, options).(GetCatalogEntryDefaultResultOutput)
 }
 
 // A collection of arguments for invoking getCatalogEntryDefault.

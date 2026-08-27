@@ -71,12 +71,8 @@ type LookupHookKeyResult struct {
 }
 
 func LookupHookKeyOutput(ctx *pulumi.Context, args LookupHookKeyOutputArgs, opts ...pulumi.InvokeOption) LookupHookKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHookKeyResultOutput, error) {
-			args := v.(LookupHookKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getHookKey:getHookKey", args, LookupHookKeyResultOutput{}, options).(LookupHookKeyResultOutput), nil
-		}).(LookupHookKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getHookKey:getHookKey", args, LookupHookKeyResultOutput{}, options).(LookupHookKeyResultOutput)
 }
 
 // A collection of arguments for invoking getHookKey.

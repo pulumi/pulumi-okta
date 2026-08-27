@@ -122,12 +122,8 @@ type LookupFederatedClaimResult struct {
 }
 
 func LookupFederatedClaimOutput(ctx *pulumi.Context, args LookupFederatedClaimOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedClaimResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFederatedClaimResultOutput, error) {
-			args := v.(LookupFederatedClaimArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:app/getFederatedClaim:getFederatedClaim", args, LookupFederatedClaimResultOutput{}, options).(LookupFederatedClaimResultOutput), nil
-		}).(LookupFederatedClaimResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:app/getFederatedClaim:getFederatedClaim", args, LookupFederatedClaimResultOutput{}, options).(LookupFederatedClaimResultOutput)
 }
 
 // A collection of arguments for invoking getFederatedClaim.

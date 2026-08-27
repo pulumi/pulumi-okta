@@ -78,12 +78,8 @@ type LookupPrincipalRateLimitsResult struct {
 }
 
 func LookupPrincipalRateLimitsOutput(ctx *pulumi.Context, args LookupPrincipalRateLimitsOutputArgs, opts ...pulumi.InvokeOption) LookupPrincipalRateLimitsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrincipalRateLimitsResultOutput, error) {
-			args := v.(LookupPrincipalRateLimitsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", args, LookupPrincipalRateLimitsResultOutput{}, options).(LookupPrincipalRateLimitsResultOutput), nil
-		}).(LookupPrincipalRateLimitsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getPrincipalRateLimits:getPrincipalRateLimits", args, LookupPrincipalRateLimitsResultOutput{}, options).(LookupPrincipalRateLimitsResultOutput)
 }
 
 // A collection of arguments for invoking getPrincipalRateLimits.

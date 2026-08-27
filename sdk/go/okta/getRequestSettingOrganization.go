@@ -61,12 +61,8 @@ type LookupRequestSettingOrganizationResult struct {
 }
 
 func LookupRequestSettingOrganizationOutput(ctx *pulumi.Context, args LookupRequestSettingOrganizationOutputArgs, opts ...pulumi.InvokeOption) LookupRequestSettingOrganizationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequestSettingOrganizationResultOutput, error) {
-			args := v.(LookupRequestSettingOrganizationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getRequestSettingOrganization:getRequestSettingOrganization", args, LookupRequestSettingOrganizationResultOutput{}, options).(LookupRequestSettingOrganizationResultOutput), nil
-		}).(LookupRequestSettingOrganizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRequestSettingOrganization:getRequestSettingOrganization", args, LookupRequestSettingOrganizationResultOutput{}, options).(LookupRequestSettingOrganizationResultOutput)
 }
 
 // A collection of arguments for invoking getRequestSettingOrganization.

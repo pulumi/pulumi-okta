@@ -115,12 +115,8 @@ type LookupSocialResult struct {
 }
 
 func LookupSocialOutput(ctx *pulumi.Context, args LookupSocialOutputArgs, opts ...pulumi.InvokeOption) LookupSocialResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSocialResultOutput, error) {
-			args := v.(LookupSocialArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:idp/getSocial:getSocial", args, LookupSocialResultOutput{}, options).(LookupSocialResultOutput), nil
-		}).(LookupSocialResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:idp/getSocial:getSocial", args, LookupSocialResultOutput{}, options).(LookupSocialResultOutput)
 }
 
 // A collection of arguments for invoking getSocial.

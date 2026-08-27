@@ -49,12 +49,8 @@ type GetIdentitySourceSessionsResult struct {
 }
 
 func GetIdentitySourceSessionsOutput(ctx *pulumi.Context, args GetIdentitySourceSessionsOutputArgs, opts ...pulumi.InvokeOption) GetIdentitySourceSessionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIdentitySourceSessionsResultOutput, error) {
-			args := v.(GetIdentitySourceSessionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", args, GetIdentitySourceSessionsResultOutput{}, options).(GetIdentitySourceSessionsResultOutput), nil
-		}).(GetIdentitySourceSessionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", args, GetIdentitySourceSessionsResultOutput{}, options).(GetIdentitySourceSessionsResultOutput)
 }
 
 // A collection of arguments for invoking getIdentitySourceSessions.
