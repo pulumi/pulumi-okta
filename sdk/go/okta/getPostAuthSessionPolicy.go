@@ -59,10 +59,8 @@ type GetPostAuthSessionPolicyResult struct {
 }
 
 func GetPostAuthSessionPolicyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetPostAuthSessionPolicyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetPostAuthSessionPolicyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", nil, GetPostAuthSessionPolicyResultOutput{}, options).(GetPostAuthSessionPolicyResultOutput), nil
-	}).(GetPostAuthSessionPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getPostAuthSessionPolicy:getPostAuthSessionPolicy", nil, GetPostAuthSessionPolicyResultOutput{}, options).(GetPostAuthSessionPolicyResultOutput)
 }
 
 // A collection of values returned by getPostAuthSessionPolicy.

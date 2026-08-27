@@ -67,10 +67,8 @@ type GetEntityRiskPolicyResult struct {
 }
 
 func GetEntityRiskPolicyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetEntityRiskPolicyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetEntityRiskPolicyResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("okta:index/getEntityRiskPolicy:getEntityRiskPolicy", nil, GetEntityRiskPolicyResultOutput{}, options).(GetEntityRiskPolicyResultOutput), nil
-	}).(GetEntityRiskPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getEntityRiskPolicy:getEntityRiskPolicy", nil, GetEntityRiskPolicyResultOutput{}, options).(GetEntityRiskPolicyResultOutput)
 }
 
 // A collection of values returned by getEntityRiskPolicy.

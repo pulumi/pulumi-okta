@@ -118,12 +118,8 @@ type GetPrincipalEntitlementsResult struct {
 }
 
 func GetPrincipalEntitlementsOutput(ctx *pulumi.Context, args GetPrincipalEntitlementsOutputArgs, opts ...pulumi.InvokeOption) GetPrincipalEntitlementsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPrincipalEntitlementsResultOutput, error) {
-			args := v.(GetPrincipalEntitlementsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", args, GetPrincipalEntitlementsResultOutput{}, options).(GetPrincipalEntitlementsResultOutput), nil
-		}).(GetPrincipalEntitlementsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getPrincipalEntitlements:getPrincipalEntitlements", args, GetPrincipalEntitlementsResultOutput{}, options).(GetPrincipalEntitlementsResultOutput)
 }
 
 // A collection of arguments for invoking getPrincipalEntitlements.

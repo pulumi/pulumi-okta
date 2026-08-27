@@ -59,12 +59,8 @@ type GetDeviceAssurancePolicyResult struct {
 }
 
 func GetDeviceAssurancePolicyOutput(ctx *pulumi.Context, args GetDeviceAssurancePolicyOutputArgs, opts ...pulumi.InvokeOption) GetDeviceAssurancePolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDeviceAssurancePolicyResultOutput, error) {
-			args := v.(GetDeviceAssurancePolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", args, GetDeviceAssurancePolicyResultOutput{}, options).(GetDeviceAssurancePolicyResultOutput), nil
-		}).(GetDeviceAssurancePolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getDeviceAssurancePolicy:getDeviceAssurancePolicy", args, GetDeviceAssurancePolicyResultOutput{}, options).(GetDeviceAssurancePolicyResultOutput)
 }
 
 // A collection of arguments for invoking getDeviceAssurancePolicy.

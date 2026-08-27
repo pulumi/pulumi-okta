@@ -65,12 +65,8 @@ type GetPushGroupsResult struct {
 }
 
 func GetPushGroupsOutput(ctx *pulumi.Context, args GetPushGroupsOutputArgs, opts ...pulumi.InvokeOption) GetPushGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPushGroupsResultOutput, error) {
-			args := v.(GetPushGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getPushGroups:getPushGroups", args, GetPushGroupsResultOutput{}, options).(GetPushGroupsResultOutput), nil
-		}).(GetPushGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getPushGroups:getPushGroups", args, GetPushGroupsResultOutput{}, options).(GetPushGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getPushGroups.

@@ -45,12 +45,8 @@ type LookupLogStreamResult struct {
 }
 
 func LookupLogStreamOutput(ctx *pulumi.Context, args LookupLogStreamOutputArgs, opts ...pulumi.InvokeOption) LookupLogStreamResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLogStreamResultOutput, error) {
-			args := v.(LookupLogStreamArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getLogStream:getLogStream", args, LookupLogStreamResultOutput{}, options).(LookupLogStreamResultOutput), nil
-		}).(LookupLogStreamResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getLogStream:getLogStream", args, LookupLogStreamResultOutput{}, options).(LookupLogStreamResultOutput)
 }
 
 // A collection of arguments for invoking getLogStream.

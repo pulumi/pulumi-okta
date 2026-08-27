@@ -94,12 +94,8 @@ type GetNetworkZoneResult struct {
 }
 
 func GetNetworkZoneOutput(ctx *pulumi.Context, args GetNetworkZoneOutputArgs, opts ...pulumi.InvokeOption) GetNetworkZoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNetworkZoneResultOutput, error) {
-			args := v.(GetNetworkZoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getNetworkZone:getNetworkZone", args, GetNetworkZoneResultOutput{}, options).(GetNetworkZoneResultOutput), nil
-		}).(GetNetworkZoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getNetworkZone:getNetworkZone", args, GetNetworkZoneResultOutput{}, options).(GetNetworkZoneResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkZone.

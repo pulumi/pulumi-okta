@@ -68,12 +68,8 @@ type GetIdentitySourceUsersResult struct {
 }
 
 func GetIdentitySourceUsersOutput(ctx *pulumi.Context, args GetIdentitySourceUsersOutputArgs, opts ...pulumi.InvokeOption) GetIdentitySourceUsersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIdentitySourceUsersResultOutput, error) {
-			args := v.(GetIdentitySourceUsersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getIdentitySourceUsers:getIdentitySourceUsers", args, GetIdentitySourceUsersResultOutput{}, options).(GetIdentitySourceUsersResultOutput), nil
-		}).(GetIdentitySourceUsersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getIdentitySourceUsers:getIdentitySourceUsers", args, GetIdentitySourceUsersResultOutput{}, options).(GetIdentitySourceUsersResultOutput)
 }
 
 // A collection of arguments for invoking getIdentitySourceUsers.

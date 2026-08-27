@@ -83,12 +83,8 @@ type LookupRequestV2Result struct {
 }
 
 func LookupRequestV2Output(ctx *pulumi.Context, args LookupRequestV2OutputArgs, opts ...pulumi.InvokeOption) LookupRequestV2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequestV2ResultOutput, error) {
-			args := v.(LookupRequestV2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getRequestV2:getRequestV2", args, LookupRequestV2ResultOutput{}, options).(LookupRequestV2ResultOutput), nil
-		}).(LookupRequestV2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRequestV2:getRequestV2", args, LookupRequestV2ResultOutput{}, options).(LookupRequestV2ResultOutput)
 }
 
 // A collection of arguments for invoking getRequestV2.

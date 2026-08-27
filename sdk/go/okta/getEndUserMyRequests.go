@@ -126,12 +126,8 @@ type LookupEndUserMyRequestsResult struct {
 }
 
 func LookupEndUserMyRequestsOutput(ctx *pulumi.Context, args LookupEndUserMyRequestsOutputArgs, opts ...pulumi.InvokeOption) LookupEndUserMyRequestsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEndUserMyRequestsResultOutput, error) {
-			args := v.(LookupEndUserMyRequestsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getEndUserMyRequests:getEndUserMyRequests", args, LookupEndUserMyRequestsResultOutput{}, options).(LookupEndUserMyRequestsResultOutput), nil
-		}).(LookupEndUserMyRequestsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getEndUserMyRequests:getEndUserMyRequests", args, LookupEndUserMyRequestsResultOutput{}, options).(LookupEndUserMyRequestsResultOutput)
 }
 
 // A collection of arguments for invoking getEndUserMyRequests.

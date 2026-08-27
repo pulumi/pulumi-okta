@@ -69,12 +69,8 @@ type GetUserSecurityQuestionsResult struct {
 }
 
 func GetUserSecurityQuestionsOutput(ctx *pulumi.Context, args GetUserSecurityQuestionsOutputArgs, opts ...pulumi.InvokeOption) GetUserSecurityQuestionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserSecurityQuestionsResultOutput, error) {
-			args := v.(GetUserSecurityQuestionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args, GetUserSecurityQuestionsResultOutput{}, options).(GetUserSecurityQuestionsResultOutput), nil
-		}).(GetUserSecurityQuestionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getUserSecurityQuestions:getUserSecurityQuestions", args, GetUserSecurityQuestionsResultOutput{}, options).(GetUserSecurityQuestionsResultOutput)
 }
 
 // A collection of arguments for invoking getUserSecurityQuestions.

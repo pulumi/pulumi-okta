@@ -84,12 +84,8 @@ type LookupCampaignResult struct {
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCampaignResultOutput, error) {
-			args := v.(LookupCampaignArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getCampaign:getCampaign", args, LookupCampaignResultOutput{}, options).(LookupCampaignResultOutput), nil
-		}).(LookupCampaignResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getCampaign:getCampaign", args, LookupCampaignResultOutput{}, options).(LookupCampaignResultOutput)
 }
 
 // A collection of arguments for invoking getCampaign.

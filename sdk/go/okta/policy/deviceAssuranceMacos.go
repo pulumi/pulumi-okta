@@ -48,9 +48,9 @@ import (
 //			_, err = policy.NewDeviceAssuranceMacos(ctx, "example", &policy.DeviceAssuranceMacosArgs{
 //				Name:                                  pulumi.String("example"),
 //				OsVersion:                             pulumi.String("12.4.6"),
-//				DiskEncryptionTypes:                   pulumi.StringArray(invokeToset.Result),
+//				DiskEncryptionTypes:                   invokeToset.Result.(pulumi.StringArray),
 //				SecureHardwarePresent:                 pulumi.Bool(true),
-//				ScreenlockTypes:                       pulumi.StringArray(invokeToset1.Result),
+//				ScreenlockTypes:                       invokeToset1.Result.(pulumi.StringArray),
 //				ThirdPartySignalProviders:             pulumi.Bool(true),
 //				TpspBrowserVersion:                    pulumi.String("15393.27.0"),
 //				TpspBuiltinDnsClientEnabled:           pulumi.Bool(true),

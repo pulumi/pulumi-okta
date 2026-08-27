@@ -71,12 +71,8 @@ type GetIdentitySourceGroupMembershipsResult struct {
 }
 
 func GetIdentitySourceGroupMembershipsOutput(ctx *pulumi.Context, args GetIdentitySourceGroupMembershipsOutputArgs, opts ...pulumi.InvokeOption) GetIdentitySourceGroupMembershipsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIdentitySourceGroupMembershipsResultOutput, error) {
-			args := v.(GetIdentitySourceGroupMembershipsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships", args, GetIdentitySourceGroupMembershipsResultOutput{}, options).(GetIdentitySourceGroupMembershipsResultOutput), nil
-		}).(GetIdentitySourceGroupMembershipsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getIdentitySourceGroupMemberships:getIdentitySourceGroupMemberships", args, GetIdentitySourceGroupMembershipsResultOutput{}, options).(GetIdentitySourceGroupMembershipsResultOutput)
 }
 
 // A collection of arguments for invoking getIdentitySourceGroupMemberships.

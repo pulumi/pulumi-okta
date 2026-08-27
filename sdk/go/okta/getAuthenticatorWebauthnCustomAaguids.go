@@ -73,12 +73,8 @@ type GetAuthenticatorWebauthnCustomAaguidsResult struct {
 }
 
 func GetAuthenticatorWebauthnCustomAaguidsOutput(ctx *pulumi.Context, args GetAuthenticatorWebauthnCustomAaguidsOutputArgs, opts ...pulumi.InvokeOption) GetAuthenticatorWebauthnCustomAaguidsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAuthenticatorWebauthnCustomAaguidsResultOutput, error) {
-			args := v.(GetAuthenticatorWebauthnCustomAaguidsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids", args, GetAuthenticatorWebauthnCustomAaguidsResultOutput{}, options).(GetAuthenticatorWebauthnCustomAaguidsResultOutput), nil
-		}).(GetAuthenticatorWebauthnCustomAaguidsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAuthenticatorWebauthnCustomAaguids:getAuthenticatorWebauthnCustomAaguids", args, GetAuthenticatorWebauthnCustomAaguidsResultOutput{}, options).(GetAuthenticatorWebauthnCustomAaguidsResultOutput)
 }
 
 // A collection of arguments for invoking getAuthenticatorWebauthnCustomAaguids.

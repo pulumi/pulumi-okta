@@ -60,10 +60,8 @@ type GetUserProfileMappingSourceResult struct {
 }
 
 func GetUserProfileMappingSourceOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetUserProfileMappingSourceResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetUserProfileMappingSourceResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", nil, GetUserProfileMappingSourceResultOutput{}, options).(GetUserProfileMappingSourceResultOutput), nil
-	}).(GetUserProfileMappingSourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:user/getUserProfileMappingSource:getUserProfileMappingSource", nil, GetUserProfileMappingSourceResultOutput{}, options).(GetUserProfileMappingSourceResultOutput)
 }
 
 // A collection of values returned by getUserProfileMappingSource.

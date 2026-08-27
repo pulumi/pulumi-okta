@@ -45,12 +45,8 @@ type GetDefaultSigninPageResult struct {
 }
 
 func GetDefaultSigninPageOutput(ctx *pulumi.Context, args GetDefaultSigninPageOutputArgs, opts ...pulumi.InvokeOption) GetDefaultSigninPageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDefaultSigninPageResultOutput, error) {
-			args := v.(GetDefaultSigninPageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getDefaultSigninPage:getDefaultSigninPage", args, GetDefaultSigninPageResultOutput{}, options).(GetDefaultSigninPageResultOutput), nil
-		}).(GetDefaultSigninPageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getDefaultSigninPage:getDefaultSigninPage", args, GetDefaultSigninPageResultOutput{}, options).(GetDefaultSigninPageResultOutput)
 }
 
 // A collection of arguments for invoking getDefaultSigninPage.

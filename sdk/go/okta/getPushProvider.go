@@ -103,12 +103,8 @@ type LookupPushProviderResult struct {
 }
 
 func LookupPushProviderOutput(ctx *pulumi.Context, args LookupPushProviderOutputArgs, opts ...pulumi.InvokeOption) LookupPushProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPushProviderResultOutput, error) {
-			args := v.(LookupPushProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getPushProvider:getPushProvider", args, LookupPushProviderResultOutput{}, options).(LookupPushProviderResultOutput), nil
-		}).(LookupPushProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getPushProvider:getPushProvider", args, LookupPushProviderResultOutput{}, options).(LookupPushProviderResultOutput)
 }
 
 // A collection of arguments for invoking getPushProvider.

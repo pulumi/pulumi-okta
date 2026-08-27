@@ -69,12 +69,8 @@ type GetFeaturesResult struct {
 }
 
 func GetFeaturesOutput(ctx *pulumi.Context, args GetFeaturesOutputArgs, opts ...pulumi.InvokeOption) GetFeaturesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFeaturesResultOutput, error) {
-			args := v.(GetFeaturesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getFeatures:getFeatures", args, GetFeaturesResultOutput{}, options).(GetFeaturesResultOutput), nil
-		}).(GetFeaturesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getFeatures:getFeatures", args, GetFeaturesResultOutput{}, options).(GetFeaturesResultOutput)
 }
 
 // A collection of arguments for invoking getFeatures.

@@ -67,12 +67,8 @@ type LookupAdminRoleCustomResult struct {
 }
 
 func LookupAdminRoleCustomOutput(ctx *pulumi.Context, args LookupAdminRoleCustomOutputArgs, opts ...pulumi.InvokeOption) LookupAdminRoleCustomResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAdminRoleCustomResultOutput, error) {
-			args := v.(LookupAdminRoleCustomArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAdminRoleCustom:getAdminRoleCustom", args, LookupAdminRoleCustomResultOutput{}, options).(LookupAdminRoleCustomResultOutput), nil
-		}).(LookupAdminRoleCustomResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAdminRoleCustom:getAdminRoleCustom", args, LookupAdminRoleCustomResultOutput{}, options).(LookupAdminRoleCustomResultOutput)
 }
 
 // A collection of arguments for invoking getAdminRoleCustom.

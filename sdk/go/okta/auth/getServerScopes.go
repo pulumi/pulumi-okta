@@ -65,12 +65,8 @@ type GetServerScopesResult struct {
 }
 
 func GetServerScopesOutput(ctx *pulumi.Context, args GetServerScopesOutputArgs, opts ...pulumi.InvokeOption) GetServerScopesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServerScopesResultOutput, error) {
-			args := v.(GetServerScopesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:auth/getServerScopes:getServerScopes", args, GetServerScopesResultOutput{}, options).(GetServerScopesResultOutput), nil
-		}).(GetServerScopesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:auth/getServerScopes:getServerScopes", args, GetServerScopesResultOutput{}, options).(GetServerScopesResultOutput)
 }
 
 // A collection of arguments for invoking getServerScopes.

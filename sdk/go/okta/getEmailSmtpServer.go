@@ -81,12 +81,8 @@ type LookupEmailSmtpServerResult struct {
 }
 
 func LookupEmailSmtpServerOutput(ctx *pulumi.Context, args LookupEmailSmtpServerOutputArgs, opts ...pulumi.InvokeOption) LookupEmailSmtpServerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEmailSmtpServerResultOutput, error) {
-			args := v.(LookupEmailSmtpServerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getEmailSmtpServer:getEmailSmtpServer", args, LookupEmailSmtpServerResultOutput{}, options).(LookupEmailSmtpServerResultOutput), nil
-		}).(LookupEmailSmtpServerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getEmailSmtpServer:getEmailSmtpServer", args, LookupEmailSmtpServerResultOutput{}, options).(LookupEmailSmtpServerResultOutput)
 }
 
 // A collection of arguments for invoking getEmailSmtpServer.

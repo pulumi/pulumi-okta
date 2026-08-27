@@ -66,12 +66,8 @@ type GetCatalogEntryUserAccessRequestFieldsResult struct {
 }
 
 func GetCatalogEntryUserAccessRequestFieldsOutput(ctx *pulumi.Context, args GetCatalogEntryUserAccessRequestFieldsOutputArgs, opts ...pulumi.InvokeOption) GetCatalogEntryUserAccessRequestFieldsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCatalogEntryUserAccessRequestFieldsResultOutput, error) {
-			args := v.(GetCatalogEntryUserAccessRequestFieldsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", args, GetCatalogEntryUserAccessRequestFieldsResultOutput{}, options).(GetCatalogEntryUserAccessRequestFieldsResultOutput), nil
-		}).(GetCatalogEntryUserAccessRequestFieldsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getCatalogEntryUserAccessRequestFields:getCatalogEntryUserAccessRequestFields", args, GetCatalogEntryUserAccessRequestFieldsResultOutput{}, options).(GetCatalogEntryUserAccessRequestFieldsResultOutput)
 }
 
 // A collection of arguments for invoking getCatalogEntryUserAccessRequestFields.

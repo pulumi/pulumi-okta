@@ -47,12 +47,8 @@ type LookupBehaviourResult struct {
 }
 
 func LookupBehaviourOutput(ctx *pulumi.Context, args LookupBehaviourOutputArgs, opts ...pulumi.InvokeOption) LookupBehaviourResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBehaviourResultOutput, error) {
-			args := v.(LookupBehaviourArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getBehaviour:getBehaviour", args, LookupBehaviourResultOutput{}, options).(LookupBehaviourResultOutput), nil
-		}).(LookupBehaviourResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getBehaviour:getBehaviour", args, LookupBehaviourResultOutput{}, options).(LookupBehaviourResultOutput)
 }
 
 // A collection of arguments for invoking getBehaviour.

@@ -55,10 +55,8 @@ type LookupRateLimitWarningThresholdPercentageResult struct {
 }
 
 func LookupRateLimitWarningThresholdPercentageOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupRateLimitWarningThresholdPercentageResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupRateLimitWarningThresholdPercentageResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("okta:index/getRateLimitWarningThresholdPercentage:getRateLimitWarningThresholdPercentage", nil, LookupRateLimitWarningThresholdPercentageResultOutput{}, options).(LookupRateLimitWarningThresholdPercentageResultOutput), nil
-	}).(LookupRateLimitWarningThresholdPercentageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getRateLimitWarningThresholdPercentage:getRateLimitWarningThresholdPercentage", nil, LookupRateLimitWarningThresholdPercentageResultOutput{}, options).(LookupRateLimitWarningThresholdPercentageResultOutput)
 }
 
 // A collection of values returned by getRateLimitWarningThresholdPercentage.

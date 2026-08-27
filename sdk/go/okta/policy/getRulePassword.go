@@ -105,12 +105,8 @@ type LookupRulePasswordResult struct {
 }
 
 func LookupRulePasswordOutput(ctx *pulumi.Context, args LookupRulePasswordOutputArgs, opts ...pulumi.InvokeOption) LookupRulePasswordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRulePasswordResultOutput, error) {
-			args := v.(LookupRulePasswordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:policy/getRulePassword:getRulePassword", args, LookupRulePasswordResultOutput{}, options).(LookupRulePasswordResultOutput), nil
-		}).(LookupRulePasswordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:policy/getRulePassword:getRulePassword", args, LookupRulePasswordResultOutput{}, options).(LookupRulePasswordResultOutput)
 }
 
 // A collection of arguments for invoking getRulePassword.

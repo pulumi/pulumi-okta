@@ -41,12 +41,8 @@ type GetResourceOwnersCatalogResourceResult struct {
 }
 
 func GetResourceOwnersCatalogResourceOutput(ctx *pulumi.Context, args GetResourceOwnersCatalogResourceOutputArgs, opts ...pulumi.InvokeOption) GetResourceOwnersCatalogResourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResourceOwnersCatalogResourceResultOutput, error) {
-			args := v.(GetResourceOwnersCatalogResourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource", args, GetResourceOwnersCatalogResourceResultOutput{}, options).(GetResourceOwnersCatalogResourceResultOutput), nil
-		}).(GetResourceOwnersCatalogResourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getResourceOwnersCatalogResource:getResourceOwnersCatalogResource", args, GetResourceOwnersCatalogResourceResultOutput{}, options).(GetResourceOwnersCatalogResourceResultOutput)
 }
 
 // A collection of arguments for invoking getResourceOwnersCatalogResource.

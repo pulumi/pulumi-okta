@@ -48,10 +48,10 @@ import (
 //			_, err = policy.NewDeviceAssuranceAndroid(ctx, "example", &policy.DeviceAssuranceAndroidArgs{
 //				Name:                  pulumi.String("example"),
 //				OsVersion:             pulumi.String("12"),
-//				DiskEncryptionTypes:   pulumi.StringArray(invokeToset.Result),
+//				DiskEncryptionTypes:   invokeToset.Result.(pulumi.StringArray),
 //				Jailbreak:             pulumi.Bool(false),
 //				SecureHardwarePresent: pulumi.Bool(true),
-//				ScreenlockTypes:       pulumi.StringArray(invokeToset1.Result),
+//				ScreenlockTypes:       invokeToset1.Result.(pulumi.StringArray),
 //			})
 //			if err != nil {
 //				return err

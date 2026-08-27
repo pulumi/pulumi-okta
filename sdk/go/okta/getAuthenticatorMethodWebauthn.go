@@ -99,12 +99,8 @@ type LookupAuthenticatorMethodWebauthnResult struct {
 }
 
 func LookupAuthenticatorMethodWebauthnOutput(ctx *pulumi.Context, args LookupAuthenticatorMethodWebauthnOutputArgs, opts ...pulumi.InvokeOption) LookupAuthenticatorMethodWebauthnResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAuthenticatorMethodWebauthnResultOutput, error) {
-			args := v.(LookupAuthenticatorMethodWebauthnArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn", args, LookupAuthenticatorMethodWebauthnResultOutput{}, options).(LookupAuthenticatorMethodWebauthnResultOutput), nil
-		}).(LookupAuthenticatorMethodWebauthnResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("okta:index/getAuthenticatorMethodWebauthn:getAuthenticatorMethodWebauthn", args, LookupAuthenticatorMethodWebauthnResultOutput{}, options).(LookupAuthenticatorMethodWebauthnResultOutput)
 }
 
 // A collection of arguments for invoking getAuthenticatorMethodWebauthn.
