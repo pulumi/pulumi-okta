@@ -49,59 +49,59 @@ namespace Pulumi.Okta
     public sealed class GetOauthAuthorizationServerResult
     {
         public readonly string AuthorizationEndpoint;
-        public readonly ImmutableArray<string> BackchannelAuthenticationRequestSigningAlgValuesSupporteds;
-        public readonly ImmutableArray<string> BackchannelTokenDeliveryModesSupporteds;
+        public readonly ImmutableArray<string> BackchannelAuthenticationRequestSigningAlgValuesSupported;
+        public readonly ImmutableArray<string> BackchannelTokenDeliveryModesSupported;
         public readonly string? BaseUrl;
-        public readonly ImmutableArray<string> ClaimsSupporteds;
-        public readonly ImmutableArray<string> CodeChallengeMethodsSupporteds;
+        public readonly ImmutableArray<string> ClaimsSupported;
+        public readonly ImmutableArray<string> CodeChallengeMethodsSupported;
         public readonly string DeviceAuthorizationEndpoint;
-        public readonly ImmutableArray<string> DpopSigningAlgValuesSupporteds;
+        public readonly ImmutableArray<string> DpopSigningAlgValuesSupported;
         public readonly string EndSessionEndpoint;
-        public readonly ImmutableArray<string> GrantTypesSupporteds;
+        public readonly ImmutableArray<string> GrantTypesSupported;
         public readonly string Id;
         public readonly string IntrospectionEndpoint;
-        public readonly ImmutableArray<string> IntrospectionEndpointAuthMethodsSupporteds;
+        public readonly ImmutableArray<string> IntrospectionEndpointAuthMethodsSupported;
         public readonly string Issuer;
         public readonly string PushedAuthorizationRequestEndpoint;
         public readonly string RegistrationEndpoint;
-        public readonly ImmutableArray<string> RequestObjectSigningAlgValuesSupporteds;
+        public readonly ImmutableArray<string> RequestObjectSigningAlgValuesSupported;
         public readonly bool RequestParameterSupported;
-        public readonly ImmutableArray<string> ResponseModesSupporteds;
-        public readonly ImmutableArray<string> ResponseTypesSupporteds;
+        public readonly ImmutableArray<string> ResponseModesSupported;
+        public readonly ImmutableArray<string> ResponseTypesSupported;
         public readonly string RevocationEndpoint;
-        public readonly ImmutableArray<string> RevocationEndpointAuthMethodsSupporteds;
-        public readonly ImmutableArray<string> ScopesSupporteds;
-        public readonly ImmutableArray<string> SubjectTypesSupporteds;
+        public readonly ImmutableArray<string> RevocationEndpointAuthMethodsSupported;
+        public readonly ImmutableArray<string> ScopesSupported;
+        public readonly ImmutableArray<string> SubjectTypesSupported;
         public readonly string TokenEndpoint;
-        public readonly ImmutableArray<string> TokenEndpointAuthMethodsSupporteds;
+        public readonly ImmutableArray<string> TokenEndpointAuthMethodsSupported;
 
         [OutputConstructor]
         private GetOauthAuthorizationServerResult(
             string authorizationEndpoint,
 
-            ImmutableArray<string> backchannelAuthenticationRequestSigningAlgValuesSupporteds,
+            ImmutableArray<string> backchannelAuthenticationRequestSigningAlgValuesSupported,
 
-            ImmutableArray<string> backchannelTokenDeliveryModesSupporteds,
+            ImmutableArray<string> backchannelTokenDeliveryModesSupported,
 
             string? baseUrl,
 
-            ImmutableArray<string> claimsSupporteds,
+            ImmutableArray<string> claimsSupported,
 
-            ImmutableArray<string> codeChallengeMethodsSupporteds,
+            ImmutableArray<string> codeChallengeMethodsSupported,
 
             string deviceAuthorizationEndpoint,
 
-            ImmutableArray<string> dpopSigningAlgValuesSupporteds,
+            ImmutableArray<string> dpopSigningAlgValuesSupported,
 
             string endSessionEndpoint,
 
-            ImmutableArray<string> grantTypesSupporteds,
+            ImmutableArray<string> grantTypesSupported,
 
             string id,
 
             string introspectionEndpoint,
 
-            ImmutableArray<string> introspectionEndpointAuthMethodsSupporteds,
+            ImmutableArray<string> introspectionEndpointAuthMethodsSupported,
 
             string issuer,
 
@@ -109,52 +109,52 @@ namespace Pulumi.Okta
 
             string registrationEndpoint,
 
-            ImmutableArray<string> requestObjectSigningAlgValuesSupporteds,
+            ImmutableArray<string> requestObjectSigningAlgValuesSupported,
 
             bool requestParameterSupported,
 
-            ImmutableArray<string> responseModesSupporteds,
+            ImmutableArray<string> responseModesSupported,
 
-            ImmutableArray<string> responseTypesSupporteds,
+            ImmutableArray<string> responseTypesSupported,
 
             string revocationEndpoint,
 
-            ImmutableArray<string> revocationEndpointAuthMethodsSupporteds,
+            ImmutableArray<string> revocationEndpointAuthMethodsSupported,
 
-            ImmutableArray<string> scopesSupporteds,
+            ImmutableArray<string> scopesSupported,
 
-            ImmutableArray<string> subjectTypesSupporteds,
+            ImmutableArray<string> subjectTypesSupported,
 
             string tokenEndpoint,
 
-            ImmutableArray<string> tokenEndpointAuthMethodsSupporteds)
+            ImmutableArray<string> tokenEndpointAuthMethodsSupported)
         {
             AuthorizationEndpoint = authorizationEndpoint;
-            BackchannelAuthenticationRequestSigningAlgValuesSupporteds = backchannelAuthenticationRequestSigningAlgValuesSupporteds;
-            BackchannelTokenDeliveryModesSupporteds = backchannelTokenDeliveryModesSupporteds;
+            BackchannelAuthenticationRequestSigningAlgValuesSupported = backchannelAuthenticationRequestSigningAlgValuesSupported;
+            BackchannelTokenDeliveryModesSupported = backchannelTokenDeliveryModesSupported;
             BaseUrl = baseUrl;
-            ClaimsSupporteds = claimsSupporteds;
-            CodeChallengeMethodsSupporteds = codeChallengeMethodsSupporteds;
+            ClaimsSupported = claimsSupported;
+            CodeChallengeMethodsSupported = codeChallengeMethodsSupported;
             DeviceAuthorizationEndpoint = deviceAuthorizationEndpoint;
-            DpopSigningAlgValuesSupporteds = dpopSigningAlgValuesSupporteds;
+            DpopSigningAlgValuesSupported = dpopSigningAlgValuesSupported;
             EndSessionEndpoint = endSessionEndpoint;
-            GrantTypesSupporteds = grantTypesSupporteds;
+            GrantTypesSupported = grantTypesSupported;
             Id = id;
             IntrospectionEndpoint = introspectionEndpoint;
-            IntrospectionEndpointAuthMethodsSupporteds = introspectionEndpointAuthMethodsSupporteds;
+            IntrospectionEndpointAuthMethodsSupported = introspectionEndpointAuthMethodsSupported;
             Issuer = issuer;
             PushedAuthorizationRequestEndpoint = pushedAuthorizationRequestEndpoint;
             RegistrationEndpoint = registrationEndpoint;
-            RequestObjectSigningAlgValuesSupporteds = requestObjectSigningAlgValuesSupporteds;
+            RequestObjectSigningAlgValuesSupported = requestObjectSigningAlgValuesSupported;
             RequestParameterSupported = requestParameterSupported;
-            ResponseModesSupporteds = responseModesSupporteds;
-            ResponseTypesSupporteds = responseTypesSupporteds;
+            ResponseModesSupported = responseModesSupported;
+            ResponseTypesSupported = responseTypesSupported;
             RevocationEndpoint = revocationEndpoint;
-            RevocationEndpointAuthMethodsSupporteds = revocationEndpointAuthMethodsSupporteds;
-            ScopesSupporteds = scopesSupporteds;
-            SubjectTypesSupporteds = subjectTypesSupporteds;
+            RevocationEndpointAuthMethodsSupported = revocationEndpointAuthMethodsSupported;
+            ScopesSupported = scopesSupported;
+            SubjectTypesSupported = subjectTypesSupported;
             TokenEndpoint = tokenEndpoint;
-            TokenEndpointAuthMethodsSupporteds = tokenEndpointAuthMethodsSupporteds;
+            TokenEndpointAuthMethodsSupported = tokenEndpointAuthMethodsSupported;
         }
     }
 }

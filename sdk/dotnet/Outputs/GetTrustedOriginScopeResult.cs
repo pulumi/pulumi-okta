@@ -11,25 +11,25 @@ namespace Pulumi.Okta.Outputs
 {
 
     [OutputType]
-    public sealed class TemplateSmsTranslation
+    public sealed class GetTrustedOriginScopeResult
     {
         /// <summary>
-        /// The language to map the template to.
+        /// The allowed Okta apps for the trusted origin scope
         /// </summary>
-        public readonly string Language;
+        public readonly ImmutableArray<string> AllowedOktaApps;
         /// <summary>
-        /// The SMS message.
+        /// The scope type.
         /// </summary>
-        public readonly string Template;
+        public readonly string Type;
 
         [OutputConstructor]
-        private TemplateSmsTranslation(
-            string language,
+        private GetTrustedOriginScopeResult(
+            ImmutableArray<string> allowedOktaApps,
 
-            string template)
+            string type)
         {
-            Language = language;
-            Template = template;
+            AllowedOktaApps = allowedOktaApps;
+            Type = type;
         }
     }
 }

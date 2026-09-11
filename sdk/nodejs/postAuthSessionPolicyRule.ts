@@ -60,11 +60,11 @@ export class PostAuthSessionPolicyRule extends pulumi.CustomResource {
     /**
      * List of group IDs to exclude from this rule.
      */
-    declare public readonly groupsExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsExcluded: pulumi.Output<string[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     /**
      * Name of the policy rule.
      */
@@ -84,7 +84,7 @@ export class PostAuthSessionPolicyRule extends pulumi.CustomResource {
     /**
      * List of user IDs to exclude from this rule.
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a policy failure is detected.
      */
@@ -103,26 +103,26 @@ export class PostAuthSessionPolicyRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PostAuthSessionPolicyRuleState | undefined;
-            resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = state?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["name"] = state?.name;
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["status"] = state?.status;
             resourceInputs["terminateSession"] = state?.terminateSession;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
             resourceInputs["workflowId"] = state?.workflowId;
         } else {
             const args = argsOrState as PostAuthSessionPolicyRuleArgs | undefined;
             if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = args?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["name"] = args?.name;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["status"] = args?.status;
             resourceInputs["terminateSession"] = args?.terminateSession;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
             resourceInputs["workflowId"] = args?.workflowId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -137,11 +137,11 @@ export interface PostAuthSessionPolicyRuleState {
     /**
      * List of group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy rule.
      */
@@ -161,7 +161,7 @@ export interface PostAuthSessionPolicyRuleState {
     /**
      * List of user IDs to exclude from this rule.
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a policy failure is detected.
      */
@@ -175,11 +175,11 @@ export interface PostAuthSessionPolicyRuleArgs {
     /**
      * List of group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy rule.
      */
@@ -199,7 +199,7 @@ export interface PostAuthSessionPolicyRuleArgs {
     /**
      * List of user IDs to exclude from this rule.
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a policy failure is detected.
      */

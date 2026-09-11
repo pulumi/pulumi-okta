@@ -26,7 +26,7 @@ class PasswordArgs:
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -62,7 +62,7 @@ class PasswordArgs:
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
         :param pulumi.Input[_builtins.bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Default: `false`
@@ -103,8 +103,8 @@ class PasswordArgs:
             pulumi.set(__self__, "description", description)
         if email_recovery is not None:
             pulumi.set(__self__, "email_recovery", email_recovery)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password_auto_unlock_minutes is not None:
@@ -241,16 +241,16 @@ class PasswordArgs:
         pulumi.set(self, "email_recovery", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -563,7 +563,7 @@ class _PasswordState:
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -599,7 +599,7 @@ class _PasswordState:
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
         :param pulumi.Input[_builtins.bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Default: `false`
@@ -640,8 +640,8 @@ class _PasswordState:
             pulumi.set(__self__, "description", description)
         if email_recovery is not None:
             pulumi.set(__self__, "email_recovery", email_recovery)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password_auto_unlock_minutes is not None:
@@ -778,16 +778,16 @@ class _PasswordState:
         pulumi.set(self, "email_recovery", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1103,7 +1103,7 @@ class Password(pulumi.CustomResource):
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1144,7 +1144,7 @@ class Password(pulumi.CustomResource):
             status="ACTIVE",
             description="Example",
             password_history_count=4,
-            groups_includeds=[everyone["id"]])
+            groups_included=[everyone["id"]])
         ```
 
         ## Import
@@ -1163,7 +1163,7 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
         :param pulumi.Input[_builtins.bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Default: `false`
@@ -1210,7 +1210,7 @@ class Password(pulumi.CustomResource):
             status="ACTIVE",
             description="Example",
             password_history_count=4,
-            groups_includeds=[everyone["id"]])
+            groups_included=[everyone["id"]])
         ```
 
         ## Import
@@ -1242,7 +1242,7 @@ class Password(pulumi.CustomResource):
                  call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1284,7 +1284,7 @@ class Password(pulumi.CustomResource):
             __props__.__dict__["call_recovery"] = call_recovery
             __props__.__dict__["description"] = description
             __props__.__dict__["email_recovery"] = email_recovery
-            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["groups_included"] = groups_included
             __props__.__dict__["name"] = name
             __props__.__dict__["password_auto_unlock_minutes"] = password_auto_unlock_minutes
             __props__.__dict__["password_dictionary_lookup"] = password_dictionary_lookup
@@ -1327,7 +1327,7 @@ class Password(pulumi.CustomResource):
             call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
-            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1367,7 +1367,7 @@ class Password(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] call_recovery: Enable or disable voice call recovery: `ACTIVE` or `INACTIVE`. Default: `INACTIVE`
         :param pulumi.Input[_builtins.str] description: Policy Description
         :param pulumi.Input[_builtins.str] email_recovery: Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] password_auto_unlock_minutes: Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
         :param pulumi.Input[_builtins.bool] password_dictionary_lookup: Check Passwords Against Common Password Dictionary. Default: `false`
@@ -1405,7 +1405,7 @@ class Password(pulumi.CustomResource):
         __props__.__dict__["call_recovery"] = call_recovery
         __props__.__dict__["description"] = description
         __props__.__dict__["email_recovery"] = email_recovery
-        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["groups_included"] = groups_included
         __props__.__dict__["name"] = name
         __props__.__dict__["password_auto_unlock_minutes"] = password_auto_unlock_minutes
         __props__.__dict__["password_dictionary_lookup"] = password_dictionary_lookup
@@ -1490,12 +1490,12 @@ class Password(pulumi.CustomResource):
         return pulumi.get(self, "email_recovery")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter

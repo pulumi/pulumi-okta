@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -181,7 +181,7 @@ type RuleSignon struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 }
 
 // NewRuleSignon registers a new resource with the given unique name, arguments, and options.
@@ -268,7 +268,7 @@ type ruleSignonState struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 type RuleSignonState struct {
@@ -326,7 +326,7 @@ type RuleSignonState struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 }
 
 func (RuleSignonState) ElementType() reflect.Type {
@@ -388,7 +388,7 @@ type ruleSignonArgs struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 // The set of arguments for constructing a RuleSignon resource.
@@ -447,7 +447,7 @@ type RuleSignonArgs struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 }
 
 func (RuleSignonArgs) ElementType() reflect.Type {
@@ -660,8 +660,8 @@ func (o RuleSignonOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Set of User IDs to Exclude
-func (o RuleSignonOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o RuleSignonOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 type RuleSignonArrayOutput struct{ *pulumi.OutputState }

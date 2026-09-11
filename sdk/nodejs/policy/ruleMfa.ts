@@ -92,7 +92,7 @@ export class RuleMfa extends pulumi.CustomResource {
     /**
      * Set of User IDs to Exclude
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RuleMfa resource with the given unique name, arguments, and options.
@@ -117,7 +117,7 @@ export class RuleMfa extends pulumi.CustomResource {
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["status"] = state?.status;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
         } else {
             const args = argsOrState as RuleMfaArgs | undefined;
             resourceInputs["appExcludes"] = args?.appExcludes;
@@ -130,7 +130,7 @@ export class RuleMfa extends pulumi.CustomResource {
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["status"] = args?.status;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleMfa.__pulumiType, name, resourceInputs, opts);
@@ -190,7 +190,7 @@ export interface RuleMfaState {
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -246,5 +246,5 @@ export interface RuleMfaArgs {
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

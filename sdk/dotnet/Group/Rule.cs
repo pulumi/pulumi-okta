@@ -89,8 +89,8 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// The list of user IDs that would be excluded when rules are processed
         /// </summary>
-        [Output("usersExcludeds")]
-        public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
+        [Output("usersExcluded")]
+        public Output<ImmutableArray<string>> UsersExcluded { get; private set; } = null!;
 
 
         /// <summary>
@@ -180,16 +180,16 @@ namespace Pulumi.Okta.Group
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// The list of user IDs that would be excluded when rules are processed
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
         public RuleArgs()
@@ -242,16 +242,16 @@ namespace Pulumi.Okta.Group
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// The list of user IDs that would be excluded when rules are processed
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
         public RuleState()

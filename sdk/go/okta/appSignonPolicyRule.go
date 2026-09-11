@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,7 +41,7 @@ type AppSignonPolicyRule struct {
 	// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression pulumi.StringPtrOutput `pulumi:"customExpression"`
 	// List of device assurance IDs to include
-	DeviceAssurancesIncludeds pulumi.StringArrayOutput `pulumi:"deviceAssurancesIncludeds"`
+	DeviceAssurancesIncluded pulumi.StringArrayOutput `pulumi:"deviceAssurancesIncluded"`
 	// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
 	DeviceIsManaged pulumi.BoolPtrOutput `pulumi:"deviceIsManaged"`
 	// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
@@ -49,9 +49,9 @@ type AppSignonPolicyRule struct {
 	// The number of factors required to satisfy this assurance level
 	FactorMode pulumi.StringPtrOutput `pulumi:"factorMode"`
 	// List of group IDs to exclude
-	GroupsExcludeds pulumi.StringArrayOutput `pulumi:"groupsExcludeds"`
+	GroupsExcluded pulumi.StringArrayOutput `pulumi:"groupsExcluded"`
 	// List of group IDs to include
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod pulumi.StringPtrOutput `pulumi:"inactivityPeriod"`
 	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
@@ -82,13 +82,13 @@ type AppSignonPolicyRule struct {
 	// The Verification Method type
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// Set of User Type IDs to exclude
-	UserTypesExcludeds pulumi.StringArrayOutput `pulumi:"userTypesExcludeds"`
+	UserTypesExcluded pulumi.StringArrayOutput `pulumi:"userTypesExcluded"`
 	// Set of User Type IDs to include
-	UserTypesIncludeds pulumi.StringArrayOutput `pulumi:"userTypesIncludeds"`
+	UserTypesIncluded pulumi.StringArrayOutput `pulumi:"userTypesIncluded"`
 	// Set of User IDs to exclude
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 	// Set of User IDs to include
-	UsersIncludeds pulumi.StringArrayOutput `pulumi:"usersIncludeds"`
+	UsersIncluded pulumi.StringArrayOutput `pulumi:"usersIncluded"`
 }
 
 // NewAppSignonPolicyRule registers a new resource with the given unique name, arguments, and options.
@@ -133,7 +133,7 @@ type appSignonPolicyRuleState struct {
 	// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression *string `pulumi:"customExpression"`
 	// List of device assurance IDs to include
-	DeviceAssurancesIncludeds []string `pulumi:"deviceAssurancesIncludeds"`
+	DeviceAssurancesIncluded []string `pulumi:"deviceAssurancesIncluded"`
 	// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
 	DeviceIsManaged *bool `pulumi:"deviceIsManaged"`
 	// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
@@ -141,9 +141,9 @@ type appSignonPolicyRuleState struct {
 	// The number of factors required to satisfy this assurance level
 	FactorMode *string `pulumi:"factorMode"`
 	// List of group IDs to exclude
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// List of group IDs to include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod *string `pulumi:"inactivityPeriod"`
 	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
@@ -174,13 +174,13 @@ type appSignonPolicyRuleState struct {
 	// The Verification Method type
 	Type *string `pulumi:"type"`
 	// Set of User Type IDs to exclude
-	UserTypesExcludeds []string `pulumi:"userTypesExcludeds"`
+	UserTypesExcluded []string `pulumi:"userTypesExcluded"`
 	// Set of User Type IDs to include
-	UserTypesIncludeds []string `pulumi:"userTypesIncludeds"`
+	UserTypesIncluded []string `pulumi:"userTypesIncluded"`
 	// Set of User IDs to exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// Set of User IDs to include
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 }
 
 type AppSignonPolicyRuleState struct {
@@ -193,7 +193,7 @@ type AppSignonPolicyRuleState struct {
 	// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression pulumi.StringPtrInput
 	// List of device assurance IDs to include
-	DeviceAssurancesIncludeds pulumi.StringArrayInput
+	DeviceAssurancesIncluded pulumi.StringArrayInput
 	// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
 	DeviceIsManaged pulumi.BoolPtrInput
 	// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
@@ -201,9 +201,9 @@ type AppSignonPolicyRuleState struct {
 	// The number of factors required to satisfy this assurance level
 	FactorMode pulumi.StringPtrInput
 	// List of group IDs to exclude
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// List of group IDs to include
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod pulumi.StringPtrInput
 	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
@@ -234,13 +234,13 @@ type AppSignonPolicyRuleState struct {
 	// The Verification Method type
 	Type pulumi.StringPtrInput
 	// Set of User Type IDs to exclude
-	UserTypesExcludeds pulumi.StringArrayInput
+	UserTypesExcluded pulumi.StringArrayInput
 	// Set of User Type IDs to include
-	UserTypesIncludeds pulumi.StringArrayInput
+	UserTypesIncluded pulumi.StringArrayInput
 	// Set of User IDs to exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// Set of User IDs to include
-	UsersIncludeds pulumi.StringArrayInput
+	UsersIncluded pulumi.StringArrayInput
 }
 
 func (AppSignonPolicyRuleState) ElementType() reflect.Type {
@@ -257,7 +257,7 @@ type appSignonPolicyRuleArgs struct {
 	// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression *string `pulumi:"customExpression"`
 	// List of device assurance IDs to include
-	DeviceAssurancesIncludeds []string `pulumi:"deviceAssurancesIncludeds"`
+	DeviceAssurancesIncluded []string `pulumi:"deviceAssurancesIncluded"`
 	// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
 	DeviceIsManaged *bool `pulumi:"deviceIsManaged"`
 	// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
@@ -265,9 +265,9 @@ type appSignonPolicyRuleArgs struct {
 	// The number of factors required to satisfy this assurance level
 	FactorMode *string `pulumi:"factorMode"`
 	// List of group IDs to exclude
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// List of group IDs to include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod *string `pulumi:"inactivityPeriod"`
 	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
@@ -296,13 +296,13 @@ type appSignonPolicyRuleArgs struct {
 	// The Verification Method type
 	Type *string `pulumi:"type"`
 	// Set of User Type IDs to exclude
-	UserTypesExcludeds []string `pulumi:"userTypesExcludeds"`
+	UserTypesExcluded []string `pulumi:"userTypesExcluded"`
 	// Set of User Type IDs to include
-	UserTypesIncludeds []string `pulumi:"userTypesIncludeds"`
+	UserTypesIncluded []string `pulumi:"userTypesIncluded"`
 	// Set of User IDs to exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// Set of User IDs to include
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 }
 
 // The set of arguments for constructing a AppSignonPolicyRule resource.
@@ -316,7 +316,7 @@ type AppSignonPolicyRuleArgs struct {
 	// This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.
 	CustomExpression pulumi.StringPtrInput
 	// List of device assurance IDs to include
-	DeviceAssurancesIncludeds pulumi.StringArrayInput
+	DeviceAssurancesIncluded pulumi.StringArrayInput
 	// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
 	DeviceIsManaged pulumi.BoolPtrInput
 	// If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device.
@@ -324,9 +324,9 @@ type AppSignonPolicyRuleArgs struct {
 	// The number of factors required to satisfy this assurance level
 	FactorMode pulumi.StringPtrInput
 	// List of group IDs to exclude
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// List of group IDs to include
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
 	InactivityPeriod pulumi.StringPtrInput
 	// Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
@@ -355,13 +355,13 @@ type AppSignonPolicyRuleArgs struct {
 	// The Verification Method type
 	Type pulumi.StringPtrInput
 	// Set of User Type IDs to exclude
-	UserTypesExcludeds pulumi.StringArrayInput
+	UserTypesExcluded pulumi.StringArrayInput
 	// Set of User Type IDs to include
-	UserTypesIncludeds pulumi.StringArrayInput
+	UserTypesIncluded pulumi.StringArrayInput
 	// Set of User IDs to exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// Set of User IDs to include
-	UsersIncludeds pulumi.StringArrayInput
+	UsersIncluded pulumi.StringArrayInput
 }
 
 func (AppSignonPolicyRuleArgs) ElementType() reflect.Type {
@@ -472,8 +472,8 @@ func (o AppSignonPolicyRuleOutput) CustomExpression() pulumi.StringPtrOutput {
 }
 
 // List of device assurance IDs to include
-func (o AppSignonPolicyRuleOutput) DeviceAssurancesIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.DeviceAssurancesIncludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) DeviceAssurancesIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.DeviceAssurancesIncluded }).(pulumi.StringArrayOutput)
 }
 
 // If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
@@ -492,13 +492,13 @@ func (o AppSignonPolicyRuleOutput) FactorMode() pulumi.StringPtrOutput {
 }
 
 // List of group IDs to exclude
-func (o AppSignonPolicyRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) GroupsExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcluded }).(pulumi.StringArrayOutput)
 }
 
 // List of group IDs to include
-func (o AppSignonPolicyRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
@@ -576,23 +576,23 @@ func (o AppSignonPolicyRuleOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Set of User Type IDs to exclude
-func (o AppSignonPolicyRuleOutput) UserTypesExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UserTypesExcludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) UserTypesExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UserTypesExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of User Type IDs to include
-func (o AppSignonPolicyRuleOutput) UserTypesIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UserTypesIncludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) UserTypesIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UserTypesIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of User IDs to exclude
-func (o AppSignonPolicyRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of User IDs to include
-func (o AppSignonPolicyRuleOutput) UsersIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
+func (o AppSignonPolicyRuleOutput) UsersIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppSignonPolicyRule) pulumi.StringArrayOutput { return v.UsersIncluded }).(pulumi.StringArrayOutput)
 }
 
 type AppSignonPolicyRuleArrayOutput struct{ *pulumi.OutputState }

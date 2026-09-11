@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -13757,112 +13757,6 @@ func (o SecurityEventsProviderSettingsPtrOutput) WellKnownUrl() pulumi.StringPtr
 		}
 		return v.WellKnownUrl
 	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateSmsTranslation struct {
-	// The language to map the template to.
-	Language string `pulumi:"language"`
-	// The SMS message.
-	Template string `pulumi:"template"`
-}
-
-// TemplateSmsTranslationInput is an input type that accepts TemplateSmsTranslationArgs and TemplateSmsTranslationOutput values.
-// You can construct a concrete instance of `TemplateSmsTranslationInput` via:
-//
-//	TemplateSmsTranslationArgs{...}
-type TemplateSmsTranslationInput interface {
-	pulumi.Input
-
-	ToTemplateSmsTranslationOutput() TemplateSmsTranslationOutput
-	ToTemplateSmsTranslationOutputWithContext(context.Context) TemplateSmsTranslationOutput
-}
-
-type TemplateSmsTranslationArgs struct {
-	// The language to map the template to.
-	Language pulumi.StringInput `pulumi:"language"`
-	// The SMS message.
-	Template pulumi.StringInput `pulumi:"template"`
-}
-
-func (TemplateSmsTranslationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSmsTranslation)(nil)).Elem()
-}
-
-func (i TemplateSmsTranslationArgs) ToTemplateSmsTranslationOutput() TemplateSmsTranslationOutput {
-	return i.ToTemplateSmsTranslationOutputWithContext(context.Background())
-}
-
-func (i TemplateSmsTranslationArgs) ToTemplateSmsTranslationOutputWithContext(ctx context.Context) TemplateSmsTranslationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsTranslationOutput)
-}
-
-// TemplateSmsTranslationArrayInput is an input type that accepts TemplateSmsTranslationArray and TemplateSmsTranslationArrayOutput values.
-// You can construct a concrete instance of `TemplateSmsTranslationArrayInput` via:
-//
-//	TemplateSmsTranslationArray{ TemplateSmsTranslationArgs{...} }
-type TemplateSmsTranslationArrayInput interface {
-	pulumi.Input
-
-	ToTemplateSmsTranslationArrayOutput() TemplateSmsTranslationArrayOutput
-	ToTemplateSmsTranslationArrayOutputWithContext(context.Context) TemplateSmsTranslationArrayOutput
-}
-
-type TemplateSmsTranslationArray []TemplateSmsTranslationInput
-
-func (TemplateSmsTranslationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSmsTranslation)(nil)).Elem()
-}
-
-func (i TemplateSmsTranslationArray) ToTemplateSmsTranslationArrayOutput() TemplateSmsTranslationArrayOutput {
-	return i.ToTemplateSmsTranslationArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateSmsTranslationArray) ToTemplateSmsTranslationArrayOutputWithContext(ctx context.Context) TemplateSmsTranslationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSmsTranslationArrayOutput)
-}
-
-type TemplateSmsTranslationOutput struct{ *pulumi.OutputState }
-
-func (TemplateSmsTranslationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSmsTranslation)(nil)).Elem()
-}
-
-func (o TemplateSmsTranslationOutput) ToTemplateSmsTranslationOutput() TemplateSmsTranslationOutput {
-	return o
-}
-
-func (o TemplateSmsTranslationOutput) ToTemplateSmsTranslationOutputWithContext(ctx context.Context) TemplateSmsTranslationOutput {
-	return o
-}
-
-// The language to map the template to.
-func (o TemplateSmsTranslationOutput) Language() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSmsTranslation) string { return v.Language }).(pulumi.StringOutput)
-}
-
-// The SMS message.
-func (o TemplateSmsTranslationOutput) Template() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSmsTranslation) string { return v.Template }).(pulumi.StringOutput)
-}
-
-type TemplateSmsTranslationArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateSmsTranslationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSmsTranslation)(nil)).Elem()
-}
-
-func (o TemplateSmsTranslationArrayOutput) ToTemplateSmsTranslationArrayOutput() TemplateSmsTranslationArrayOutput {
-	return o
-}
-
-func (o TemplateSmsTranslationArrayOutput) ToTemplateSmsTranslationArrayOutputWithContext(ctx context.Context) TemplateSmsTranslationArrayOutput {
-	return o
-}
-
-func (o TemplateSmsTranslationArrayOutput) Index(i pulumi.IntInput) TemplateSmsTranslationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSmsTranslation {
-		return vs[0].([]TemplateSmsTranslation)[vs[1].(int)]
-	}).(TemplateSmsTranslationOutput)
 }
 
 type UiSchemaUiSchema struct {
@@ -33691,6 +33585,245 @@ func (o GetThemesThemeArrayOutput) Index(i pulumi.IntInput) GetThemesThemeOutput
 	}).(GetThemesThemeOutput)
 }
 
+type GetThreatInsightSettingsItem struct {
+	// Specifies how Okta responds to authentication requests from suspicious IPs.
+	Action string `pulumi:"action"`
+	// Timestamp when the ThreatInsight Configuration object was created.
+	Created string `pulumi:"created"`
+	// List of Network Zone IDs excluded from ThreatInsight evaluation.
+	ExcludeZones []string `pulumi:"excludeZones"`
+	// The unique identifier for the item.
+	Id string `pulumi:"id"`
+	// Timestamp when the ThreatInsight Configuration object was last updated.
+	LastUpdated string `pulumi:"lastUpdated"`
+}
+
+// GetThreatInsightSettingsItemInput is an input type that accepts GetThreatInsightSettingsItemArgs and GetThreatInsightSettingsItemOutput values.
+// You can construct a concrete instance of `GetThreatInsightSettingsItemInput` via:
+//
+//	GetThreatInsightSettingsItemArgs{...}
+type GetThreatInsightSettingsItemInput interface {
+	pulumi.Input
+
+	ToGetThreatInsightSettingsItemOutput() GetThreatInsightSettingsItemOutput
+	ToGetThreatInsightSettingsItemOutputWithContext(context.Context) GetThreatInsightSettingsItemOutput
+}
+
+type GetThreatInsightSettingsItemArgs struct {
+	// Specifies how Okta responds to authentication requests from suspicious IPs.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Timestamp when the ThreatInsight Configuration object was created.
+	Created pulumi.StringInput `pulumi:"created"`
+	// List of Network Zone IDs excluded from ThreatInsight evaluation.
+	ExcludeZones pulumi.StringArrayInput `pulumi:"excludeZones"`
+	// The unique identifier for the item.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Timestamp when the ThreatInsight Configuration object was last updated.
+	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
+}
+
+func (GetThreatInsightSettingsItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThreatInsightSettingsItem)(nil)).Elem()
+}
+
+func (i GetThreatInsightSettingsItemArgs) ToGetThreatInsightSettingsItemOutput() GetThreatInsightSettingsItemOutput {
+	return i.ToGetThreatInsightSettingsItemOutputWithContext(context.Background())
+}
+
+func (i GetThreatInsightSettingsItemArgs) ToGetThreatInsightSettingsItemOutputWithContext(ctx context.Context) GetThreatInsightSettingsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThreatInsightSettingsItemOutput)
+}
+
+// GetThreatInsightSettingsItemArrayInput is an input type that accepts GetThreatInsightSettingsItemArray and GetThreatInsightSettingsItemArrayOutput values.
+// You can construct a concrete instance of `GetThreatInsightSettingsItemArrayInput` via:
+//
+//	GetThreatInsightSettingsItemArray{ GetThreatInsightSettingsItemArgs{...} }
+type GetThreatInsightSettingsItemArrayInput interface {
+	pulumi.Input
+
+	ToGetThreatInsightSettingsItemArrayOutput() GetThreatInsightSettingsItemArrayOutput
+	ToGetThreatInsightSettingsItemArrayOutputWithContext(context.Context) GetThreatInsightSettingsItemArrayOutput
+}
+
+type GetThreatInsightSettingsItemArray []GetThreatInsightSettingsItemInput
+
+func (GetThreatInsightSettingsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThreatInsightSettingsItem)(nil)).Elem()
+}
+
+func (i GetThreatInsightSettingsItemArray) ToGetThreatInsightSettingsItemArrayOutput() GetThreatInsightSettingsItemArrayOutput {
+	return i.ToGetThreatInsightSettingsItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetThreatInsightSettingsItemArray) ToGetThreatInsightSettingsItemArrayOutputWithContext(ctx context.Context) GetThreatInsightSettingsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThreatInsightSettingsItemArrayOutput)
+}
+
+type GetThreatInsightSettingsItemOutput struct{ *pulumi.OutputState }
+
+func (GetThreatInsightSettingsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThreatInsightSettingsItem)(nil)).Elem()
+}
+
+func (o GetThreatInsightSettingsItemOutput) ToGetThreatInsightSettingsItemOutput() GetThreatInsightSettingsItemOutput {
+	return o
+}
+
+func (o GetThreatInsightSettingsItemOutput) ToGetThreatInsightSettingsItemOutputWithContext(ctx context.Context) GetThreatInsightSettingsItemOutput {
+	return o
+}
+
+// Specifies how Okta responds to authentication requests from suspicious IPs.
+func (o GetThreatInsightSettingsItemOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThreatInsightSettingsItem) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Timestamp when the ThreatInsight Configuration object was created.
+func (o GetThreatInsightSettingsItemOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThreatInsightSettingsItem) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// List of Network Zone IDs excluded from ThreatInsight evaluation.
+func (o GetThreatInsightSettingsItemOutput) ExcludeZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetThreatInsightSettingsItem) []string { return v.ExcludeZones }).(pulumi.StringArrayOutput)
+}
+
+// The unique identifier for the item.
+func (o GetThreatInsightSettingsItemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThreatInsightSettingsItem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Timestamp when the ThreatInsight Configuration object was last updated.
+func (o GetThreatInsightSettingsItemOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThreatInsightSettingsItem) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+type GetThreatInsightSettingsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThreatInsightSettingsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThreatInsightSettingsItem)(nil)).Elem()
+}
+
+func (o GetThreatInsightSettingsItemArrayOutput) ToGetThreatInsightSettingsItemArrayOutput() GetThreatInsightSettingsItemArrayOutput {
+	return o
+}
+
+func (o GetThreatInsightSettingsItemArrayOutput) ToGetThreatInsightSettingsItemArrayOutputWithContext(ctx context.Context) GetThreatInsightSettingsItemArrayOutput {
+	return o
+}
+
+func (o GetThreatInsightSettingsItemArrayOutput) Index(i pulumi.IntInput) GetThreatInsightSettingsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThreatInsightSettingsItem {
+		return vs[0].([]GetThreatInsightSettingsItem)[vs[1].(int)]
+	}).(GetThreatInsightSettingsItemOutput)
+}
+
+type GetTrustedOriginScope struct {
+	// The allowed Okta apps for the trusted origin scope
+	AllowedOktaApps []string `pulumi:"allowedOktaApps"`
+	// The scope type.
+	Type string `pulumi:"type"`
+}
+
+// GetTrustedOriginScopeInput is an input type that accepts GetTrustedOriginScopeArgs and GetTrustedOriginScopeOutput values.
+// You can construct a concrete instance of `GetTrustedOriginScopeInput` via:
+//
+//	GetTrustedOriginScopeArgs{...}
+type GetTrustedOriginScopeInput interface {
+	pulumi.Input
+
+	ToGetTrustedOriginScopeOutput() GetTrustedOriginScopeOutput
+	ToGetTrustedOriginScopeOutputWithContext(context.Context) GetTrustedOriginScopeOutput
+}
+
+type GetTrustedOriginScopeArgs struct {
+	// The allowed Okta apps for the trusted origin scope
+	AllowedOktaApps pulumi.StringArrayInput `pulumi:"allowedOktaApps"`
+	// The scope type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTrustedOriginScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrustedOriginScope)(nil)).Elem()
+}
+
+func (i GetTrustedOriginScopeArgs) ToGetTrustedOriginScopeOutput() GetTrustedOriginScopeOutput {
+	return i.ToGetTrustedOriginScopeOutputWithContext(context.Background())
+}
+
+func (i GetTrustedOriginScopeArgs) ToGetTrustedOriginScopeOutputWithContext(ctx context.Context) GetTrustedOriginScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrustedOriginScopeOutput)
+}
+
+// GetTrustedOriginScopeArrayInput is an input type that accepts GetTrustedOriginScopeArray and GetTrustedOriginScopeArrayOutput values.
+// You can construct a concrete instance of `GetTrustedOriginScopeArrayInput` via:
+//
+//	GetTrustedOriginScopeArray{ GetTrustedOriginScopeArgs{...} }
+type GetTrustedOriginScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetTrustedOriginScopeArrayOutput() GetTrustedOriginScopeArrayOutput
+	ToGetTrustedOriginScopeArrayOutputWithContext(context.Context) GetTrustedOriginScopeArrayOutput
+}
+
+type GetTrustedOriginScopeArray []GetTrustedOriginScopeInput
+
+func (GetTrustedOriginScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrustedOriginScope)(nil)).Elem()
+}
+
+func (i GetTrustedOriginScopeArray) ToGetTrustedOriginScopeArrayOutput() GetTrustedOriginScopeArrayOutput {
+	return i.ToGetTrustedOriginScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrustedOriginScopeArray) ToGetTrustedOriginScopeArrayOutputWithContext(ctx context.Context) GetTrustedOriginScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrustedOriginScopeArrayOutput)
+}
+
+type GetTrustedOriginScopeOutput struct{ *pulumi.OutputState }
+
+func (GetTrustedOriginScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrustedOriginScope)(nil)).Elem()
+}
+
+func (o GetTrustedOriginScopeOutput) ToGetTrustedOriginScopeOutput() GetTrustedOriginScopeOutput {
+	return o
+}
+
+func (o GetTrustedOriginScopeOutput) ToGetTrustedOriginScopeOutputWithContext(ctx context.Context) GetTrustedOriginScopeOutput {
+	return o
+}
+
+// The allowed Okta apps for the trusted origin scope
+func (o GetTrustedOriginScopeOutput) AllowedOktaApps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTrustedOriginScope) []string { return v.AllowedOktaApps }).(pulumi.StringArrayOutput)
+}
+
+// The scope type.
+func (o GetTrustedOriginScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrustedOriginScope) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTrustedOriginScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrustedOriginScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrustedOriginScope)(nil)).Elem()
+}
+
+func (o GetTrustedOriginScopeArrayOutput) ToGetTrustedOriginScopeArrayOutput() GetTrustedOriginScopeArrayOutput {
+	return o
+}
+
+func (o GetTrustedOriginScopeArrayOutput) ToGetTrustedOriginScopeArrayOutputWithContext(ctx context.Context) GetTrustedOriginScopeArrayOutput {
+	return o
+}
+
+func (o GetTrustedOriginScopeArrayOutput) Index(i pulumi.IntInput) GetTrustedOriginScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrustedOriginScope {
+		return vs[0].([]GetTrustedOriginScope)[vs[1].(int)]
+	}).(GetTrustedOriginScopeOutput)
+}
+
 type GetTrustedOriginsTrustedOrigin struct {
 	// Whether the Trusted Origin is active or not - can only be issued post-creation
 	Active bool `pulumi:"active"`
@@ -34554,8 +34687,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestV2RequesterFieldValueValueArrayInput)(nil)).Elem(), RequestV2RequesterFieldValueValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityEventsProviderSettingsInput)(nil)).Elem(), SecurityEventsProviderSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityEventsProviderSettingsPtrInput)(nil)).Elem(), SecurityEventsProviderSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationInput)(nil)).Elem(), TemplateSmsTranslationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmsTranslationArrayInput)(nil)).Elem(), TemplateSmsTranslationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaInput)(nil)).Elem(), UiSchemaUiSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaPtrInput)(nil)).Elem(), UiSchemaUiSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UiSchemaUiSchemaElementInput)(nil)).Elem(), UiSchemaUiSchemaElementArgs{})
@@ -34815,6 +34946,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesEmailTemplateArrayInput)(nil)).Elem(), GetTemplatesEmailTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeInput)(nil)).Elem(), GetThemesThemeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemesThemeArrayInput)(nil)).Elem(), GetThemesThemeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThreatInsightSettingsItemInput)(nil)).Elem(), GetThreatInsightSettingsItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThreatInsightSettingsItemArrayInput)(nil)).Elem(), GetThreatInsightSettingsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginScopeInput)(nil)).Elem(), GetTrustedOriginScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginScopeArrayInput)(nil)).Elem(), GetTrustedOriginScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrustedOriginsTrustedOriginArrayInput)(nil)).Elem(), GetTrustedOriginsTrustedOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUiSchemaUiSchemaInput)(nil)).Elem(), GetUiSchemaUiSchemaArgs{})
@@ -35003,8 +35138,6 @@ func init() {
 	pulumi.RegisterOutputType(RequestV2RequesterFieldValueValueArrayOutput{})
 	pulumi.RegisterOutputType(SecurityEventsProviderSettingsOutput{})
 	pulumi.RegisterOutputType(SecurityEventsProviderSettingsPtrOutput{})
-	pulumi.RegisterOutputType(TemplateSmsTranslationOutput{})
-	pulumi.RegisterOutputType(TemplateSmsTranslationArrayOutput{})
 	pulumi.RegisterOutputType(UiSchemaUiSchemaOutput{})
 	pulumi.RegisterOutputType(UiSchemaUiSchemaPtrOutput{})
 	pulumi.RegisterOutputType(UiSchemaUiSchemaElementOutput{})
@@ -35264,6 +35397,10 @@ func init() {
 	pulumi.RegisterOutputType(GetTemplatesEmailTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeOutput{})
 	pulumi.RegisterOutputType(GetThemesThemeArrayOutput{})
+	pulumi.RegisterOutputType(GetThreatInsightSettingsItemOutput{})
+	pulumi.RegisterOutputType(GetThreatInsightSettingsItemArrayOutput{})
+	pulumi.RegisterOutputType(GetTrustedOriginScopeOutput{})
+	pulumi.RegisterOutputType(GetTrustedOriginScopeArrayOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginOutput{})
 	pulumi.RegisterOutputType(GetTrustedOriginsTrustedOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetUiSchemaUiSchemaOutput{})

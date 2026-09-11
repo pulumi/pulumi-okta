@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/auth"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/auth"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = okta.NewTrustedServer(ctx, "example", &okta.TrustedServerArgs{
 //				AuthServerId: pulumi.Any(oktaAuthServer.Test1.Id),
-//				Trusteds: pulumi.StringArray{
+//				Trusted: pulumi.StringArray{
 //					oktaAuthServer.Test2.Id,
 //					oktaAuthServer.Test3.Id,
 //				},
@@ -83,7 +83,7 @@ type TrustedServer struct {
 	// Authorization server ID
 	AuthServerId pulumi.StringOutput `pulumi:"authServerId"`
 	// A list of the authorization server IDs user want to trust
-	Trusteds pulumi.StringArrayOutput `pulumi:"trusteds"`
+	Trusted pulumi.StringArrayOutput `pulumi:"trusted"`
 }
 
 // NewTrustedServer registers a new resource with the given unique name, arguments, and options.
@@ -96,8 +96,8 @@ func NewTrustedServer(ctx *pulumi.Context,
 	if args.AuthServerId == nil {
 		return nil, errors.New("invalid value for required argument 'AuthServerId'")
 	}
-	if args.Trusteds == nil {
-		return nil, errors.New("invalid value for required argument 'Trusteds'")
+	if args.Trusted == nil {
+		return nil, errors.New("invalid value for required argument 'Trusted'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustedServer
@@ -125,14 +125,14 @@ type trustedServerState struct {
 	// Authorization server ID
 	AuthServerId *string `pulumi:"authServerId"`
 	// A list of the authorization server IDs user want to trust
-	Trusteds []string `pulumi:"trusteds"`
+	Trusted []string `pulumi:"trusted"`
 }
 
 type TrustedServerState struct {
 	// Authorization server ID
 	AuthServerId pulumi.StringPtrInput
 	// A list of the authorization server IDs user want to trust
-	Trusteds pulumi.StringArrayInput
+	Trusted pulumi.StringArrayInput
 }
 
 func (TrustedServerState) ElementType() reflect.Type {
@@ -143,7 +143,7 @@ type trustedServerArgs struct {
 	// Authorization server ID
 	AuthServerId string `pulumi:"authServerId"`
 	// A list of the authorization server IDs user want to trust
-	Trusteds []string `pulumi:"trusteds"`
+	Trusted []string `pulumi:"trusted"`
 }
 
 // The set of arguments for constructing a TrustedServer resource.
@@ -151,7 +151,7 @@ type TrustedServerArgs struct {
 	// Authorization server ID
 	AuthServerId pulumi.StringInput
 	// A list of the authorization server IDs user want to trust
-	Trusteds pulumi.StringArrayInput
+	Trusted pulumi.StringArrayInput
 }
 
 func (TrustedServerArgs) ElementType() reflect.Type {
@@ -247,8 +247,8 @@ func (o TrustedServerOutput) AuthServerId() pulumi.StringOutput {
 }
 
 // A list of the authorization server IDs user want to trust
-func (o TrustedServerOutput) Trusteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *TrustedServer) pulumi.StringArrayOutput { return v.Trusteds }).(pulumi.StringArrayOutput)
+func (o TrustedServerOutput) Trusted() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TrustedServer) pulumi.StringArrayOutput { return v.Trusted }).(pulumi.StringArrayOutput)
 }
 
 type TrustedServerArrayOutput struct{ *pulumi.OutputState }

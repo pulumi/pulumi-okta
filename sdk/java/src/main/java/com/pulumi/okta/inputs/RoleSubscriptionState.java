@@ -6,6 +6,7 @@ package com.pulumi.okta.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,38 +17,29 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
     public static final RoleSubscriptionState Empty = new RoleSubscriptionState();
 
     /**
-     * Type of the notification. Valid values:
-     * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-     * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
-     * 	- &#39;APP_IMPORT&#39; - App user import status.
-     * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
-     * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
-     * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
-     * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
-     * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
-     * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
-     * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
-     * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
-     * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+     * An array of sources send notifications to users.
+     * 
+     */
+    @Import(name="channels")
+    private @Nullable Output<List<String>> channels;
+
+    /**
+     * @return An array of sources send notifications to users.
+     * 
+     */
+    public Optional<Output<List<String>>> channels() {
+        return Optional.ofNullable(this.channels);
+    }
+
+    /**
+     * Type of the notification
      * 
      */
     @Import(name="notificationType")
     private @Nullable Output<String> notificationType;
 
     /**
-     * @return Type of the notification. Valid values:
-     * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-     * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
-     * 	- &#39;APP_IMPORT&#39; - App user import status.
-     * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
-     * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
-     * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
-     * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
-     * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
-     * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
-     * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
-     * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
-     * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+     * @return Type of the notification
      * 
      */
     public Optional<Output<String>> notificationType() {
@@ -55,53 +47,29 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of the role. Valid values:
-     * 	&#39;API_ADMIN&#39;,
-     * 	&#39;APP_ADMIN&#39;,
-     * 	&#39;CUSTOM&#39;,
-     * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
-     * 	&#39;HELP_DESK_ADMIN&#39;,
-     * 	&#39;MOBILE_ADMIN&#39;,
-     * 	&#39;ORG_ADMIN&#39;,
-     * 	&#39;READ_ONLY_ADMIN&#39;,
-     * 	&#39;REPORT_ADMIN&#39;,
-     * 	&#39;SUPER_ADMIN&#39;,
-     * 	&#39;USER_ADMIN&#39;
-     * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+     * A reference to an existing role
      * 
      */
-    @Import(name="roleType")
-    private @Nullable Output<String> roleType;
+    @Import(name="roleRef")
+    private @Nullable Output<String> roleRef;
 
     /**
-     * @return Type of the role. Valid values:
-     * 	&#39;API_ADMIN&#39;,
-     * 	&#39;APP_ADMIN&#39;,
-     * 	&#39;CUSTOM&#39;,
-     * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
-     * 	&#39;HELP_DESK_ADMIN&#39;,
-     * 	&#39;MOBILE_ADMIN&#39;,
-     * 	&#39;ORG_ADMIN&#39;,
-     * 	&#39;READ_ONLY_ADMIN&#39;,
-     * 	&#39;REPORT_ADMIN&#39;,
-     * 	&#39;SUPER_ADMIN&#39;,
-     * 	&#39;USER_ADMIN&#39;
-     * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+     * @return A reference to an existing role
      * 
      */
-    public Optional<Output<String>> roleType() {
-        return Optional.ofNullable(this.roleType);
+    public Optional<Output<String>> roleRef() {
+        return Optional.ofNullable(this.roleRef);
     }
 
     /**
-     * Subscription status. Valid values: `subscribed`, `unsubscribed`.
+     * The status of the subscription
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Subscription status. Valid values: `subscribed`, `unsubscribed`.
+     * @return The status of the subscription
      * 
      */
     public Optional<Output<String>> status() {
@@ -111,8 +79,9 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
     private RoleSubscriptionState() {}
 
     private RoleSubscriptionState(RoleSubscriptionState $) {
+        this.channels = $.channels;
         this.notificationType = $.notificationType;
-        this.roleType = $.roleType;
+        this.roleRef = $.roleRef;
         this.status = $.status;
     }
 
@@ -135,19 +104,38 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationType Type of the notification. Valid values:
-         * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-         * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
-         * 	- &#39;APP_IMPORT&#39; - App user import status.
-         * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
-         * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
-         * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
-         * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
-         * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
-         * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
-         * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
-         * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
-         * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+         * @param channels An array of sources send notifications to users.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channels(@Nullable Output<List<String>> channels) {
+            $.channels = channels;
+            return this;
+        }
+
+        /**
+         * @param channels An array of sources send notifications to users.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channels(List<String> channels) {
+            return channels(Output.of(channels));
+        }
+
+        /**
+         * @param channels An array of sources send notifications to users.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder channels(String... channels) {
+            return channels(List.of(channels));
+        }
+
+        /**
+         * @param notificationType Type of the notification
          * 
          * @return builder
          * 
@@ -158,19 +146,7 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notificationType Type of the notification. Valid values:
-         * 	- &#39;CONNECTOR_AGENT&#39; -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-         * 	- &#39;USER_LOCKED_OUT&#39; - User lockouts.
-         * 	- &#39;APP_IMPORT&#39; - App user import status.
-         * 	- &#39;LDAP_AGENT&#39; - Disconnects and reconnects: LDAP agent.
-         * 	- &#39;AD_AGENT&#39; - Disconnects and reconnects: AD agent.
-         * 	- &#39;OKTA_ANNOUNCEMENT&#39; - Okta release notes and announcements.
-         * 	- &#39;OKTA_UPDATE&#39; - Scheduled system updates.
-         * 	- &#39;IWA_AGENT&#39; - Disconnects and reconnects: IWA agent.
-         * 	- &#39;USER_DEPROVISION&#39; - User deprovisions.
-         * 	- &#39;REPORT_SUSPICIOUS_ACTIVITY&#39; - User reporting of suspicious activity.
-         * 	- &#39;RATELIMIT_NOTIFICATION&#39; - Rate limit warning and violation.
-         * 	- &#39;AGENT_AUTO_UPDATE_NOTIFICATION&#39; - Agent auto-update notifications: AD Agent.
+         * @param notificationType Type of the notification
          * 
          * @return builder
          * 
@@ -180,52 +156,28 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleType Type of the role. Valid values:
-         * 	&#39;API_ADMIN&#39;,
-         * 	&#39;APP_ADMIN&#39;,
-         * 	&#39;CUSTOM&#39;,
-         * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
-         * 	&#39;HELP_DESK_ADMIN&#39;,
-         * 	&#39;MOBILE_ADMIN&#39;,
-         * 	&#39;ORG_ADMIN&#39;,
-         * 	&#39;READ_ONLY_ADMIN&#39;,
-         * 	&#39;REPORT_ADMIN&#39;,
-         * 	&#39;SUPER_ADMIN&#39;,
-         * 	&#39;USER_ADMIN&#39;
-         * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+         * @param roleRef A reference to an existing role
          * 
          * @return builder
          * 
          */
-        public Builder roleType(@Nullable Output<String> roleType) {
-            $.roleType = roleType;
+        public Builder roleRef(@Nullable Output<String> roleRef) {
+            $.roleRef = roleRef;
             return this;
         }
 
         /**
-         * @param roleType Type of the role. Valid values:
-         * 	&#39;API_ADMIN&#39;,
-         * 	&#39;APP_ADMIN&#39;,
-         * 	&#39;CUSTOM&#39;,
-         * 	&#39;GROUP_MEMBERSHIP_ADMIN&#39;,
-         * 	&#39;HELP_DESK_ADMIN&#39;,
-         * 	&#39;MOBILE_ADMIN&#39;,
-         * 	&#39;ORG_ADMIN&#39;,
-         * 	&#39;READ_ONLY_ADMIN&#39;,
-         * 	&#39;REPORT_ADMIN&#39;,
-         * 	&#39;SUPER_ADMIN&#39;,
-         * 	&#39;USER_ADMIN&#39;
-         * 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
+         * @param roleRef A reference to an existing role
          * 
          * @return builder
          * 
          */
-        public Builder roleType(String roleType) {
-            return roleType(Output.of(roleType));
+        public Builder roleRef(String roleRef) {
+            return roleRef(Output.of(roleRef));
         }
 
         /**
-         * @param status Subscription status. Valid values: `subscribed`, `unsubscribed`.
+         * @param status The status of the subscription
          * 
          * @return builder
          * 
@@ -236,7 +188,7 @@ public final class RoleSubscriptionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param status Subscription status. Valid values: `subscribed`, `unsubscribed`.
+         * @param status The status of the subscription
          * 
          * @return builder
          * 

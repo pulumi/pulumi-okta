@@ -58,7 +58,7 @@ namespace Pulumi.Okta
     ///     var example = new Okta.TrustedServer("example", new()
     ///     {
     ///         AuthServerId = oktaAuthServer.Test1.Id,
-    ///         Trusteds = new[]
+    ///         Trusted = new[]
     ///         {
     ///             oktaAuthServer.Test2.Id,
     ///             oktaAuthServer.Test3.Id,
@@ -80,8 +80,8 @@ namespace Pulumi.Okta
         /// <summary>
         /// A list of the authorization server IDs user want to trust
         /// </summary>
-        [Output("trusteds")]
-        public Output<ImmutableArray<string>> Trusteds { get; private set; } = null!;
+        [Output("trusted")]
+        public Output<ImmutableArray<string>> Trusted { get; private set; } = null!;
 
 
         /// <summary>
@@ -135,16 +135,16 @@ namespace Pulumi.Okta
         [Input("authServerId", required: true)]
         public Input<string> AuthServerId { get; set; } = null!;
 
-        [Input("trusteds", required: true)]
-        private InputList<string>? _trusteds;
+        [Input("trusted", required: true)]
+        private InputList<string>? _trusted;
 
         /// <summary>
         /// A list of the authorization server IDs user want to trust
         /// </summary>
-        public InputList<string> Trusteds
+        public InputList<string> Trusted
         {
-            get => _trusteds ?? (_trusteds = new InputList<string>());
-            set => _trusteds = value;
+            get => _trusted ?? (_trusted = new InputList<string>());
+            set => _trusted = value;
         }
 
         public TrustedServerArgs()
@@ -161,16 +161,16 @@ namespace Pulumi.Okta
         [Input("authServerId")]
         public Input<string>? AuthServerId { get; set; }
 
-        [Input("trusteds")]
-        private InputList<string>? _trusteds;
+        [Input("trusted")]
+        private InputList<string>? _trusted;
 
         /// <summary>
         /// A list of the authorization server IDs user want to trust
         /// </summary>
-        public InputList<string> Trusteds
+        public InputList<string> Trusted
         {
-            get => _trusteds ?? (_trusteds = new InputList<string>());
-            set => _trusteds = value;
+            get => _trusted ?? (_trusted = new InputList<string>());
+            set => _trusted = value;
         }
 
         public TrustedServerState()

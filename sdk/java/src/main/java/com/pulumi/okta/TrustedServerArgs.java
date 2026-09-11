@@ -34,22 +34,22 @@ public final class TrustedServerArgs extends com.pulumi.resources.ResourceArgs {
      * A list of the authorization server IDs user want to trust
      * 
      */
-    @Import(name="trusteds", required=true)
-    private Output<List<String>> trusteds;
+    @Import(name="trusted", required=true)
+    private Output<List<String>> trusted;
 
     /**
      * @return A list of the authorization server IDs user want to trust
      * 
      */
-    public Output<List<String>> trusteds() {
-        return this.trusteds;
+    public Output<List<String>> trusted() {
+        return this.trusted;
     }
 
     private TrustedServerArgs() {}
 
     private TrustedServerArgs(TrustedServerArgs $) {
         this.authServerId = $.authServerId;
-        this.trusteds = $.trusteds;
+        this.trusted = $.trusted;
     }
 
     public static Builder builder() {
@@ -92,42 +92,42 @@ public final class TrustedServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trusteds A list of the authorization server IDs user want to trust
+         * @param trusted A list of the authorization server IDs user want to trust
          * 
          * @return builder
          * 
          */
-        public Builder trusteds(Output<List<String>> trusteds) {
-            $.trusteds = trusteds;
+        public Builder trusted(Output<List<String>> trusted) {
+            $.trusted = trusted;
             return this;
         }
 
         /**
-         * @param trusteds A list of the authorization server IDs user want to trust
+         * @param trusted A list of the authorization server IDs user want to trust
          * 
          * @return builder
          * 
          */
-        public Builder trusteds(List<String> trusteds) {
-            return trusteds(Output.of(trusteds));
+        public Builder trusted(List<String> trusted) {
+            return trusted(Output.of(trusted));
         }
 
         /**
-         * @param trusteds A list of the authorization server IDs user want to trust
+         * @param trusted A list of the authorization server IDs user want to trust
          * 
          * @return builder
          * 
          */
-        public Builder trusteds(String... trusteds) {
-            return trusteds(List.of(trusteds));
+        public Builder trusted(String... trusted) {
+            return trusted(List.of(trusted));
         }
 
         public TrustedServerArgs build() {
             if ($.authServerId == null) {
                 throw new MissingRequiredPropertyException("TrustedServerArgs", "authServerId");
             }
-            if ($.trusteds == null) {
-                throw new MissingRequiredPropertyException("TrustedServerArgs", "trusteds");
+            if ($.trusted == null) {
+                throw new MissingRequiredPropertyException("TrustedServerArgs", "trusted");
             }
             return $;
         }

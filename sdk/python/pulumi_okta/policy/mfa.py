@@ -27,7 +27,7 @@ class MfaArgs:
                  fido_u2f: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  fido_webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  google_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  hotp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  is_oie: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -54,7 +54,7 @@ class MfaArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -79,8 +79,8 @@ class MfaArgs:
             pulumi.set(__self__, "fido_webauthn", fido_webauthn)
         if google_otp is not None:
             pulumi.set(__self__, "google_otp", google_otp)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if hotp is not None:
             pulumi.set(__self__, "hotp", hotp)
         if is_oie is not None:
@@ -204,16 +204,16 @@ class MfaArgs:
         pulumi.set(self, "google_otp", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -428,7 +428,7 @@ class _MfaState:
                  fido_u2f: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  fido_webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  google_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  hotp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  is_oie: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -455,7 +455,7 @@ class _MfaState:
 
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -480,8 +480,8 @@ class _MfaState:
             pulumi.set(__self__, "fido_webauthn", fido_webauthn)
         if google_otp is not None:
             pulumi.set(__self__, "google_otp", google_otp)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if hotp is not None:
             pulumi.set(__self__, "hotp", hotp)
         if is_oie is not None:
@@ -605,16 +605,16 @@ class _MfaState:
         pulumi.set(self, "google_otp", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -832,7 +832,7 @@ class Mfa(pulumi.CustomResource):
                  fido_u2f: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  fido_webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  google_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  hotp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  is_oie: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -869,7 +869,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -914,7 +914,7 @@ class Mfa(pulumi.CustomResource):
                  fido_u2f: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  fido_webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  google_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  hotp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  is_oie: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -953,7 +953,7 @@ class Mfa(pulumi.CustomResource):
             __props__.__dict__["fido_u2f"] = fido_u2f
             __props__.__dict__["fido_webauthn"] = fido_webauthn
             __props__.__dict__["google_otp"] = google_otp
-            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["groups_included"] = groups_included
             __props__.__dict__["hotp"] = hotp
             __props__.__dict__["is_oie"] = is_oie
             __props__.__dict__["name"] = name
@@ -993,7 +993,7 @@ class Mfa(pulumi.CustomResource):
             fido_u2f: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             fido_webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             google_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             hotp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             is_oie: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1024,7 +1024,7 @@ class Mfa(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] custom_apps: List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.bool] is_oie: Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -1042,7 +1042,7 @@ class Mfa(pulumi.CustomResource):
         __props__.__dict__["fido_u2f"] = fido_u2f
         __props__.__dict__["fido_webauthn"] = fido_webauthn
         __props__.__dict__["google_otp"] = google_otp
-        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["groups_included"] = groups_included
         __props__.__dict__["hotp"] = hotp
         __props__.__dict__["is_oie"] = is_oie
         __props__.__dict__["name"] = name
@@ -1114,12 +1114,12 @@ class Mfa(pulumi.CustomResource):
         return pulumi.get(self, "google_otp")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter

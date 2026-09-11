@@ -7,11 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get subscriptions of a Role with a specific type
+// Retrieves a subscription by notification type for a specified role.
 //
 // ## Example Usage
 //
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.GetRoleSubscription(ctx, &okta.LookupRoleSubscriptionArgs{
-//				NotificationType: "APP_IMPORT",
-//				RoleType:         "SUPER_ADMIN",
+//				RoleRef: "SUPER_ADMIN",
+//				Id:      "APP_IMPORT",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -51,22 +51,17 @@ func LookupRoleSubscription(ctx *pulumi.Context, args *LookupRoleSubscriptionArg
 
 // A collection of arguments for invoking getRoleSubscription.
 type LookupRoleSubscriptionArgs struct {
-	// Type of the notification
-	NotificationType string `pulumi:"notificationType"`
-	// Type of the role
-	RoleType string `pulumi:"roleType"`
+	Id      string `pulumi:"id"`
+	RoleRef string `pulumi:"roleRef"`
 }
 
 // A collection of values returned by getRoleSubscription.
 type LookupRoleSubscriptionResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Type of the notification
-	NotificationType string `pulumi:"notificationType"`
-	// Type of the role
-	RoleType string `pulumi:"roleType"`
-	// Status of subscription
-	Status string `pulumi:"status"`
+	Channels         []string `pulumi:"channels"`
+	Id               string   `pulumi:"id"`
+	NotificationType string   `pulumi:"notificationType"`
+	RoleRef          string   `pulumi:"roleRef"`
+	Status           string   `pulumi:"status"`
 }
 
 func LookupRoleSubscriptionOutput(ctx *pulumi.Context, args LookupRoleSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupRoleSubscriptionResultOutput {
@@ -76,10 +71,8 @@ func LookupRoleSubscriptionOutput(ctx *pulumi.Context, args LookupRoleSubscripti
 
 // A collection of arguments for invoking getRoleSubscription.
 type LookupRoleSubscriptionOutputArgs struct {
-	// Type of the notification
-	NotificationType pulumi.StringInput `pulumi:"notificationType"`
-	// Type of the role
-	RoleType pulumi.StringInput `pulumi:"roleType"`
+	Id      pulumi.StringInput `pulumi:"id"`
+	RoleRef pulumi.StringInput `pulumi:"roleRef"`
 }
 
 func (LookupRoleSubscriptionOutputArgs) ElementType() reflect.Type {
@@ -101,22 +94,22 @@ func (o LookupRoleSubscriptionResultOutput) ToLookupRoleSubscriptionResultOutput
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
+func (o LookupRoleSubscriptionResultOutput) Channels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRoleSubscriptionResult) []string { return v.Channels }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupRoleSubscriptionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Type of the notification
 func (o LookupRoleSubscriptionResultOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// Type of the role
-func (o LookupRoleSubscriptionResultOutput) RoleType() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.RoleType }).(pulumi.StringOutput)
+func (o LookupRoleSubscriptionResultOutput) RoleRef() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.RoleRef }).(pulumi.StringOutput)
 }
 
-// Status of subscription
 func (o LookupRoleSubscriptionResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleSubscriptionResult) string { return v.Status }).(pulumi.StringOutput)
 }

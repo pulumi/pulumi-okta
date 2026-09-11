@@ -177,8 +177,8 @@ namespace Pulumi.Okta.Policy
     [OutputType]
     public sealed class GetRulePasswordResult
     {
-        public readonly ImmutableArray<string> GroupsExcludeds;
-        public readonly ImmutableArray<string> GroupsIncludeds;
+        public readonly ImmutableArray<string> GroupsExcluded;
+        public readonly ImmutableArray<string> GroupsIncluded;
         /// <summary>
         /// The ID of this resource.
         /// </summary>
@@ -234,14 +234,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// User IDs excluded from this rule.
         /// </summary>
-        public readonly ImmutableArray<string> UsersExcludeds;
-        public readonly ImmutableArray<string> UsersIncludeds;
+        public readonly ImmutableArray<string> UsersExcluded;
+        public readonly ImmutableArray<string> UsersIncluded;
 
         [OutputConstructor]
         private GetRulePasswordResult(
-            ImmutableArray<string> groupsExcludeds,
+            ImmutableArray<string> groupsExcluded,
 
-            ImmutableArray<string> groupsIncludeds,
+            ImmutableArray<string> groupsIncluded,
 
             string id,
 
@@ -269,12 +269,12 @@ namespace Pulumi.Okta.Policy
 
             string status,
 
-            ImmutableArray<string> usersExcludeds,
+            ImmutableArray<string> usersExcluded,
 
-            ImmutableArray<string> usersIncludeds)
+            ImmutableArray<string> usersIncluded)
         {
-            GroupsExcludeds = groupsExcludeds;
-            GroupsIncludeds = groupsIncludeds;
+            GroupsExcluded = groupsExcluded;
+            GroupsIncluded = groupsIncluded;
             Id = id;
             Name = name;
             NetworkConnection = networkConnection;
@@ -288,8 +288,8 @@ namespace Pulumi.Okta.Policy
             PolicyId = policyId;
             Priority = priority;
             Status = status;
-            UsersExcludeds = usersExcludeds;
-            UsersIncludeds = usersIncludeds;
+            UsersExcluded = usersExcluded;
+            UsersIncluded = usersIncluded;
         }
     }
 }

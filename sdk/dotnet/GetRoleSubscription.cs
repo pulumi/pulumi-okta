@@ -12,7 +12,7 @@ namespace Pulumi.Okta
     public static class GetRoleSubscription
     {
         /// <summary>
-        /// Get subscriptions of a Role with a specific type
+        /// Retrieves a subscription by notification type for a specified role.
         /// 
         /// ## Example Usage
         /// 
@@ -26,8 +26,8 @@ namespace Pulumi.Okta
         /// {
         ///     var example = Okta.GetRoleSubscription.Invoke(new()
         ///     {
-        ///         NotificationType = "APP_IMPORT",
-        ///         RoleType = "SUPER_ADMIN",
+        ///         RoleRef = "SUPER_ADMIN",
+        ///         Id = "APP_IMPORT",
         ///     });
         /// 
         /// });
@@ -37,7 +37,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get subscriptions of a Role with a specific type
+        /// Retrieves a subscription by notification type for a specified role.
         /// 
         /// ## Example Usage
         /// 
@@ -51,8 +51,8 @@ namespace Pulumi.Okta
         /// {
         ///     var example = Okta.GetRoleSubscription.Invoke(new()
         ///     {
-        ///         NotificationType = "APP_IMPORT",
-        ///         RoleType = "SUPER_ADMIN",
+        ///         RoleRef = "SUPER_ADMIN",
+        ///         Id = "APP_IMPORT",
         ///     });
         /// 
         /// });
@@ -62,7 +62,7 @@ namespace Pulumi.Okta
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleSubscriptionResult>("okta:index/getRoleSubscription:getRoleSubscription", args ?? new GetRoleSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get subscriptions of a Role with a specific type
+        /// Retrieves a subscription by notification type for a specified role.
         /// 
         /// ## Example Usage
         /// 
@@ -76,8 +76,8 @@ namespace Pulumi.Okta
         /// {
         ///     var example = Okta.GetRoleSubscription.Invoke(new()
         ///     {
-        ///         NotificationType = "APP_IMPORT",
-        ///         RoleType = "SUPER_ADMIN",
+        ///         RoleRef = "SUPER_ADMIN",
+        ///         Id = "APP_IMPORT",
         ///     });
         /// 
         /// });
@@ -90,17 +90,11 @@ namespace Pulumi.Okta
 
     public sealed class GetRoleSubscriptionArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Type of the notification
-        /// </summary>
-        [Input("notificationType", required: true)]
-        public string NotificationType { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
-        /// <summary>
-        /// Type of the role
-        /// </summary>
-        [Input("roleType", required: true)]
-        public string RoleType { get; set; } = null!;
+        [Input("roleRef", required: true)]
+        public string RoleRef { get; set; } = null!;
 
         public GetRoleSubscriptionArgs()
         {
@@ -110,17 +104,11 @@ namespace Pulumi.Okta
 
     public sealed class GetRoleSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Type of the notification
-        /// </summary>
-        [Input("notificationType", required: true)]
-        public Input<string> NotificationType { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Type of the role
-        /// </summary>
-        [Input("roleType", required: true)]
-        public Input<string> RoleType { get; set; } = null!;
+        [Input("roleRef", required: true)]
+        public Input<string> RoleRef { get; set; } = null!;
 
         public GetRoleSubscriptionInvokeArgs()
         {
@@ -132,36 +120,28 @@ namespace Pulumi.Okta
     [OutputType]
     public sealed class GetRoleSubscriptionResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
+        public readonly ImmutableArray<string> Channels;
         public readonly string Id;
-        /// <summary>
-        /// Type of the notification
-        /// </summary>
         public readonly string NotificationType;
-        /// <summary>
-        /// Type of the role
-        /// </summary>
-        public readonly string RoleType;
-        /// <summary>
-        /// Status of subscription
-        /// </summary>
+        public readonly string RoleRef;
         public readonly string Status;
 
         [OutputConstructor]
         private GetRoleSubscriptionResult(
+            ImmutableArray<string> channels,
+
             string id,
 
             string notificationType,
 
-            string roleType,
+            string roleRef,
 
             string status)
         {
+            Channels = channels;
             Id = id;
             NotificationType = notificationType;
-            RoleType = roleType;
+            RoleRef = roleRef;
             Status = status;
         }
     }

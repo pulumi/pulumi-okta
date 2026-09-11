@@ -386,15 +386,15 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
      * Set of User IDs to Exclude
      * 
      */
-    @Import(name="usersExcludeds")
-    private @Nullable Output<List<String>> usersExcludeds;
+    @Import(name="usersExcluded")
+    private @Nullable Output<List<String>> usersExcluded;
 
     /**
      * @return Set of User IDs to Exclude
      * 
      */
-    public Optional<Output<List<String>>> usersExcludeds() {
-        return Optional.ofNullable(this.usersExcludeds);
+    public Optional<Output<List<String>>> usersExcluded() {
+        return Optional.ofNullable(this.usersExcluded);
     }
 
     private RuleSignonArgs() {}
@@ -423,7 +423,7 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         this.sessionLifetime = $.sessionLifetime;
         this.sessionPersistent = $.sessionPersistent;
         this.status = $.status;
-        this.usersExcludeds = $.usersExcludeds;
+        this.usersExcluded = $.usersExcluded;
     }
 
     public static Builder builder() {
@@ -1001,34 +1001,34 @@ public final class RuleSignonArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcluded Set of User IDs to Exclude
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(@Nullable Output<List<String>> usersExcludeds) {
-            $.usersExcludeds = usersExcludeds;
+        public Builder usersExcluded(@Nullable Output<List<String>> usersExcluded) {
+            $.usersExcluded = usersExcluded;
             return this;
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcluded Set of User IDs to Exclude
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(List<String> usersExcludeds) {
-            return usersExcludeds(Output.of(usersExcludeds));
+        public Builder usersExcluded(List<String> usersExcluded) {
+            return usersExcluded(Output.of(usersExcluded));
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcluded Set of User IDs to Exclude
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
 
         public RuleSignonArgs build() {

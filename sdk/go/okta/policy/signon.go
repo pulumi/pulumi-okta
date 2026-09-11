@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,7 +31,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Status:      pulumi.String("ACTIVE"),
 //				Description: pulumi.String("Example"),
-//				GroupsIncludeds: pulumi.StringArray{
+//				GroupsIncluded: pulumi.StringArray{
 //					everyone.Id,
 //				},
 //			})
@@ -55,7 +55,7 @@ type Signon struct {
 	// Policy Description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
 	// Policy Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -97,7 +97,7 @@ type signonState struct {
 	// Policy Description
 	Description *string `pulumi:"description"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Policy Name
 	Name *string `pulumi:"name"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -110,7 +110,7 @@ type SignonState struct {
 	// Policy Description
 	Description pulumi.StringPtrInput
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Policy Name
 	Name pulumi.StringPtrInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -127,7 +127,7 @@ type signonArgs struct {
 	// Policy Description
 	Description *string `pulumi:"description"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Policy Name
 	Name *string `pulumi:"name"`
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -141,7 +141,7 @@ type SignonArgs struct {
 	// Policy Description
 	Description pulumi.StringPtrInput
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Policy Name
 	Name pulumi.StringPtrInput
 	// Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
@@ -243,8 +243,8 @@ func (o SignonOutput) Description() pulumi.StringPtrOutput {
 }
 
 // List of Group IDs to Include
-func (o SignonOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Signon) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o SignonOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Signon) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Policy Name

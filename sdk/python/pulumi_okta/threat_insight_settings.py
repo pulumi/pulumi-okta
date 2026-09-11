@@ -20,16 +20,16 @@ __all__ = ['ThreatInsightSettingsArgs', 'ThreatInsightSettings']
 class ThreatInsightSettingsArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
-                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 exclude_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ThreatInsightSettings resource.
 
         :param pulumi.Input[_builtins.str] action: Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_zones: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
         """
         pulumi.set(__self__, "action", action)
-        if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+        if exclude_zones is not None:
+            pulumi.set(__self__, "exclude_zones", exclude_zones)
 
     @_builtins.property
     @pulumi.getter
@@ -44,33 +44,41 @@ class ThreatInsightSettingsArgs:
         pulumi.set(self, "action", value)
 
     @_builtins.property
-    @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="excludeZones")
+    def exclude_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
         """
-        return pulumi.get(self, "network_excludes")
+        return pulumi.get(self, "exclude_zones")
 
-    @network_excludes.setter
-    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "network_excludes", value)
+    @exclude_zones.setter
+    def exclude_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "exclude_zones", value)
 
 
 @pulumi.input_type
 class _ThreatInsightSettingsState:
     def __init__(__self__, *,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 created: pulumi.Input[Optional[_builtins.str]] = None,
+                 exclude_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 last_updated: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThreatInsightSettings resources.
 
         :param pulumi.Input[_builtins.str] action: Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        :param pulumi.Input[_builtins.str] created: Timestamp when the ThreatInsight Configuration object was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_zones: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+        :param pulumi.Input[_builtins.str] last_updated: Timestamp when the ThreatInsight Configuration object was last updated.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if network_excludes is not None:
-            pulumi.set(__self__, "network_excludes", network_excludes)
+        if created is not None:
+            pulumi.set(__self__, "created", created)
+        if exclude_zones is not None:
+            pulumi.set(__self__, "exclude_zones", exclude_zones)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
 
     @_builtins.property
     @pulumi.getter
@@ -85,16 +93,40 @@ class _ThreatInsightSettingsState:
         pulumi.set(self, "action", value)
 
     @_builtins.property
-    @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter
+    def created(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        Timestamp when the ThreatInsight Configuration object was created.
         """
-        return pulumi.get(self, "network_excludes")
+        return pulumi.get(self, "created")
 
-    @network_excludes.setter
-    def network_excludes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "network_excludes", value)
+    @created.setter
+    def created(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeZones")
+    def exclude_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+        """
+        return pulumi.get(self, "exclude_zones")
+
+    @exclude_zones.setter
+    def exclude_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "exclude_zones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Timestamp when the ThreatInsight Configuration object was last updated.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_updated", value)
 
 
 @pulumi.type_token("okta:index/threatInsightSettings:ThreatInsightSettings")
@@ -104,7 +136,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exclude_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages Okta Threat Insight Settings. This resource allows you to configure Threat Insight Settings.
@@ -128,7 +160,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
             ])
         example = okta.ThreatInsightSettings("example",
             action="block",
-            network_excludes=[ip_network_zone_example.id])
+            exclude_zones=[ip_network_zone_example.id])
         ```
 
         ## Import
@@ -141,7 +173,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_zones: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
         """
         ...
     @overload
@@ -171,7 +203,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
             ])
         example = okta.ThreatInsightSettings("example",
             action="block",
-            network_excludes=[ip_network_zone_example.id])
+            exclude_zones=[ip_network_zone_example.id])
         ```
 
         ## Import
@@ -197,7 +229,7 @@ class ThreatInsightSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exclude_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,7 +242,9 @@ class ThreatInsightSettings(pulumi.CustomResource):
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
-            __props__.__dict__["network_excludes"] = network_excludes
+            __props__.__dict__["exclude_zones"] = exclude_zones
+            __props__.__dict__["created"] = None
+            __props__.__dict__["last_updated"] = None
         super(ThreatInsightSettings, __self__).__init__(
             'okta:index/threatInsightSettings:ThreatInsightSettings',
             resource_name,
@@ -222,7 +256,9 @@ class ThreatInsightSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: pulumi.Input[Optional[_builtins.str]] = None,
-            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ThreatInsightSettings':
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            exclude_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None) -> 'ThreatInsightSettings':
         """
         Get an existing ThreatInsightSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -231,14 +267,18 @@ class ThreatInsightSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        :param pulumi.Input[_builtins.str] created: Timestamp when the ThreatInsight Configuration object was created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_zones: Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+        :param pulumi.Input[_builtins.str] last_updated: Timestamp when the ThreatInsight Configuration object was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ThreatInsightSettingsState.__new__(_ThreatInsightSettingsState)
 
         __props__.__dict__["action"] = action
-        __props__.__dict__["network_excludes"] = network_excludes
+        __props__.__dict__["created"] = created
+        __props__.__dict__["exclude_zones"] = exclude_zones
+        __props__.__dict__["last_updated"] = last_updated
         return ThreatInsightSettings(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -250,10 +290,26 @@ class ThreatInsightSettings(pulumi.CustomResource):
         return pulumi.get(self, "action")
 
     @_builtins.property
-    @pulumi.getter(name="networkExcludes")
-    def network_excludes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter
+    def created(self) -> pulumi.Output[_builtins.str]:
         """
-        Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        Timestamp when the ThreatInsight Configuration object was created.
         """
-        return pulumi.get(self, "network_excludes")
+        return pulumi.get(self, "created")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeZones")
+    def exclude_zones(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+        """
+        return pulumi.get(self, "exclude_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> pulumi.Output[_builtins.str]:
+        """
+        Timestamp when the ThreatInsight Configuration object was last updated.
+        """
+        return pulumi.get(self, "last_updated")
 

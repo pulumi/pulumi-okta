@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,9 +57,9 @@ type PostAuthSessionPolicyRule struct {
 	pulumi.CustomResourceState
 
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayOutput `pulumi:"groupsExcludeds"`
+	GroupsExcluded pulumi.StringArrayOutput `pulumi:"groupsExcluded"`
 	// List of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
 	// Name of the policy rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the Post Auth Session Policy. Use the `getPostAuthSessionPolicy` data source to get this ID.
@@ -69,7 +69,7 @@ type PostAuthSessionPolicyRule struct {
 	// When true, terminates the user's session when a policy failure is detected. Default is `false`.
 	TerminateSession pulumi.BoolOutput `pulumi:"terminateSession"`
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 	// ID of the Okta Workflow to run when a policy failure is detected.
 	WorkflowId pulumi.StringPtrOutput `pulumi:"workflowId"`
 }
@@ -108,9 +108,9 @@ func GetPostAuthSessionPolicyRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PostAuthSessionPolicyRule resources.
 type postAuthSessionPolicyRuleState struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// List of group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Name of the policy rule.
 	Name *string `pulumi:"name"`
 	// ID of the Post Auth Session Policy. Use the `getPostAuthSessionPolicy` data source to get this ID.
@@ -120,16 +120,16 @@ type postAuthSessionPolicyRuleState struct {
 	// When true, terminates the user's session when a policy failure is detected. Default is `false`.
 	TerminateSession *bool `pulumi:"terminateSession"`
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// ID of the Okta Workflow to run when a policy failure is detected.
 	WorkflowId *string `pulumi:"workflowId"`
 }
 
 type PostAuthSessionPolicyRuleState struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// List of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Name of the policy rule.
 	Name pulumi.StringPtrInput
 	// ID of the Post Auth Session Policy. Use the `getPostAuthSessionPolicy` data source to get this ID.
@@ -139,7 +139,7 @@ type PostAuthSessionPolicyRuleState struct {
 	// When true, terminates the user's session when a policy failure is detected. Default is `false`.
 	TerminateSession pulumi.BoolPtrInput
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// ID of the Okta Workflow to run when a policy failure is detected.
 	WorkflowId pulumi.StringPtrInput
 }
@@ -150,9 +150,9 @@ func (PostAuthSessionPolicyRuleState) ElementType() reflect.Type {
 
 type postAuthSessionPolicyRuleArgs struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// List of group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Name of the policy rule.
 	Name *string `pulumi:"name"`
 	// ID of the Post Auth Session Policy. Use the `getPostAuthSessionPolicy` data source to get this ID.
@@ -162,7 +162,7 @@ type postAuthSessionPolicyRuleArgs struct {
 	// When true, terminates the user's session when a policy failure is detected. Default is `false`.
 	TerminateSession *bool `pulumi:"terminateSession"`
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// ID of the Okta Workflow to run when a policy failure is detected.
 	WorkflowId *string `pulumi:"workflowId"`
 }
@@ -170,9 +170,9 @@ type postAuthSessionPolicyRuleArgs struct {
 // The set of arguments for constructing a PostAuthSessionPolicyRule resource.
 type PostAuthSessionPolicyRuleArgs struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// List of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Name of the policy rule.
 	Name pulumi.StringPtrInput
 	// ID of the Post Auth Session Policy. Use the `getPostAuthSessionPolicy` data source to get this ID.
@@ -182,7 +182,7 @@ type PostAuthSessionPolicyRuleArgs struct {
 	// When true, terminates the user's session when a policy failure is detected. Default is `false`.
 	TerminateSession pulumi.BoolPtrInput
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// ID of the Okta Workflow to run when a policy failure is detected.
 	WorkflowId pulumi.StringPtrInput
 }
@@ -275,13 +275,13 @@ func (o PostAuthSessionPolicyRuleOutput) ToPostAuthSessionPolicyRuleOutputWithCo
 }
 
 // List of group IDs to exclude from this rule.
-func (o PostAuthSessionPolicyRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PostAuthSessionPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+func (o PostAuthSessionPolicyRuleOutput) GroupsExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PostAuthSessionPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcluded }).(pulumi.StringArrayOutput)
 }
 
 // List of group IDs to include in this rule.
-func (o PostAuthSessionPolicyRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PostAuthSessionPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o PostAuthSessionPolicyRuleOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PostAuthSessionPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Name of the policy rule.
@@ -305,8 +305,8 @@ func (o PostAuthSessionPolicyRuleOutput) TerminateSession() pulumi.BoolOutput {
 }
 
 // List of user IDs to exclude from this rule.
-func (o PostAuthSessionPolicyRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PostAuthSessionPolicyRule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o PostAuthSessionPolicyRuleOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PostAuthSessionPolicyRule) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 // ID of the Okta Workflow to run when a policy failure is detected.

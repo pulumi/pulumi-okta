@@ -87,7 +87,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * The list of user IDs that would be excluded when rules are processed
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -108,7 +108,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["removeAssignedUsers"] = state?.removeAssignedUsers;
             resourceInputs["status"] = state?.status;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
         } else {
             const args = argsOrState as RuleArgs | undefined;
             if (args?.expressionValue === undefined && !opts.urn) {
@@ -123,7 +123,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["removeAssignedUsers"] = args?.removeAssignedUsers;
             resourceInputs["status"] = args?.status;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
@@ -161,7 +161,7 @@ export interface RuleState {
     /**
      * The list of user IDs that would be excluded when rules are processed
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -195,5 +195,5 @@ export interface RuleArgs {
     /**
      * The list of user IDs that would be excluded when rules are processed
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

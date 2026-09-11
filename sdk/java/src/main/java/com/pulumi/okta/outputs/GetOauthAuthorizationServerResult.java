@@ -15,62 +15,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetOauthAuthorizationServerResult {
     private String authorizationEndpoint;
-    private List<String> backchannelAuthenticationRequestSigningAlgValuesSupporteds;
-    private List<String> backchannelTokenDeliveryModesSupporteds;
+    private List<String> backchannelAuthenticationRequestSigningAlgValuesSupported;
+    private List<String> backchannelTokenDeliveryModesSupported;
     private @Nullable String baseUrl;
-    private List<String> claimsSupporteds;
-    private List<String> codeChallengeMethodsSupporteds;
+    private List<String> claimsSupported;
+    private List<String> codeChallengeMethodsSupported;
     private String deviceAuthorizationEndpoint;
-    private List<String> dpopSigningAlgValuesSupporteds;
+    private List<String> dpopSigningAlgValuesSupported;
     private String endSessionEndpoint;
-    private List<String> grantTypesSupporteds;
+    private List<String> grantTypesSupported;
     private String id;
     private String introspectionEndpoint;
-    private List<String> introspectionEndpointAuthMethodsSupporteds;
+    private List<String> introspectionEndpointAuthMethodsSupported;
     private String issuer;
     private String pushedAuthorizationRequestEndpoint;
     private String registrationEndpoint;
-    private List<String> requestObjectSigningAlgValuesSupporteds;
+    private List<String> requestObjectSigningAlgValuesSupported;
     private Boolean requestParameterSupported;
-    private List<String> responseModesSupporteds;
-    private List<String> responseTypesSupporteds;
+    private List<String> responseModesSupported;
+    private List<String> responseTypesSupported;
     private String revocationEndpoint;
-    private List<String> revocationEndpointAuthMethodsSupporteds;
-    private List<String> scopesSupporteds;
-    private List<String> subjectTypesSupporteds;
+    private List<String> revocationEndpointAuthMethodsSupported;
+    private List<String> scopesSupported;
+    private List<String> subjectTypesSupported;
     private String tokenEndpoint;
-    private List<String> tokenEndpointAuthMethodsSupporteds;
+    private List<String> tokenEndpointAuthMethodsSupported;
 
     private GetOauthAuthorizationServerResult() {}
     public String authorizationEndpoint() {
         return this.authorizationEndpoint;
     }
-    public List<String> backchannelAuthenticationRequestSigningAlgValuesSupporteds() {
-        return this.backchannelAuthenticationRequestSigningAlgValuesSupporteds;
+    public List<String> backchannelAuthenticationRequestSigningAlgValuesSupported() {
+        return this.backchannelAuthenticationRequestSigningAlgValuesSupported;
     }
-    public List<String> backchannelTokenDeliveryModesSupporteds() {
-        return this.backchannelTokenDeliveryModesSupporteds;
+    public List<String> backchannelTokenDeliveryModesSupported() {
+        return this.backchannelTokenDeliveryModesSupported;
     }
     public Optional<String> baseUrl() {
         return Optional.ofNullable(this.baseUrl);
     }
-    public List<String> claimsSupporteds() {
-        return this.claimsSupporteds;
+    public List<String> claimsSupported() {
+        return this.claimsSupported;
     }
-    public List<String> codeChallengeMethodsSupporteds() {
-        return this.codeChallengeMethodsSupporteds;
+    public List<String> codeChallengeMethodsSupported() {
+        return this.codeChallengeMethodsSupported;
     }
     public String deviceAuthorizationEndpoint() {
         return this.deviceAuthorizationEndpoint;
     }
-    public List<String> dpopSigningAlgValuesSupporteds() {
-        return this.dpopSigningAlgValuesSupporteds;
+    public List<String> dpopSigningAlgValuesSupported() {
+        return this.dpopSigningAlgValuesSupported;
     }
     public String endSessionEndpoint() {
         return this.endSessionEndpoint;
     }
-    public List<String> grantTypesSupporteds() {
-        return this.grantTypesSupporteds;
+    public List<String> grantTypesSupported() {
+        return this.grantTypesSupported;
     }
     public String id() {
         return this.id;
@@ -78,8 +78,8 @@ public final class GetOauthAuthorizationServerResult {
     public String introspectionEndpoint() {
         return this.introspectionEndpoint;
     }
-    public List<String> introspectionEndpointAuthMethodsSupporteds() {
-        return this.introspectionEndpointAuthMethodsSupporteds;
+    public List<String> introspectionEndpointAuthMethodsSupported() {
+        return this.introspectionEndpointAuthMethodsSupported;
     }
     public String issuer() {
         return this.issuer;
@@ -90,35 +90,35 @@ public final class GetOauthAuthorizationServerResult {
     public String registrationEndpoint() {
         return this.registrationEndpoint;
     }
-    public List<String> requestObjectSigningAlgValuesSupporteds() {
-        return this.requestObjectSigningAlgValuesSupporteds;
+    public List<String> requestObjectSigningAlgValuesSupported() {
+        return this.requestObjectSigningAlgValuesSupported;
     }
     public Boolean requestParameterSupported() {
         return this.requestParameterSupported;
     }
-    public List<String> responseModesSupporteds() {
-        return this.responseModesSupporteds;
+    public List<String> responseModesSupported() {
+        return this.responseModesSupported;
     }
-    public List<String> responseTypesSupporteds() {
-        return this.responseTypesSupporteds;
+    public List<String> responseTypesSupported() {
+        return this.responseTypesSupported;
     }
     public String revocationEndpoint() {
         return this.revocationEndpoint;
     }
-    public List<String> revocationEndpointAuthMethodsSupporteds() {
-        return this.revocationEndpointAuthMethodsSupporteds;
+    public List<String> revocationEndpointAuthMethodsSupported() {
+        return this.revocationEndpointAuthMethodsSupported;
     }
-    public List<String> scopesSupporteds() {
-        return this.scopesSupporteds;
+    public List<String> scopesSupported() {
+        return this.scopesSupported;
     }
-    public List<String> subjectTypesSupporteds() {
-        return this.subjectTypesSupporteds;
+    public List<String> subjectTypesSupported() {
+        return this.subjectTypesSupported;
     }
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
-    public List<String> tokenEndpointAuthMethodsSupporteds() {
-        return this.tokenEndpointAuthMethodsSupporteds;
+    public List<String> tokenEndpointAuthMethodsSupported() {
+        return this.tokenEndpointAuthMethodsSupported;
     }
 
     public static Builder builder() {
@@ -131,60 +131,60 @@ public final class GetOauthAuthorizationServerResult {
     @CustomType.Builder
     public static final class Builder {
         private String authorizationEndpoint;
-        private List<String> backchannelAuthenticationRequestSigningAlgValuesSupporteds;
-        private List<String> backchannelTokenDeliveryModesSupporteds;
+        private List<String> backchannelAuthenticationRequestSigningAlgValuesSupported;
+        private List<String> backchannelTokenDeliveryModesSupported;
         private @Nullable String baseUrl;
-        private List<String> claimsSupporteds;
-        private List<String> codeChallengeMethodsSupporteds;
+        private List<String> claimsSupported;
+        private List<String> codeChallengeMethodsSupported;
         private String deviceAuthorizationEndpoint;
-        private List<String> dpopSigningAlgValuesSupporteds;
+        private List<String> dpopSigningAlgValuesSupported;
         private String endSessionEndpoint;
-        private List<String> grantTypesSupporteds;
+        private List<String> grantTypesSupported;
         private String id;
         private String introspectionEndpoint;
-        private List<String> introspectionEndpointAuthMethodsSupporteds;
+        private List<String> introspectionEndpointAuthMethodsSupported;
         private String issuer;
         private String pushedAuthorizationRequestEndpoint;
         private String registrationEndpoint;
-        private List<String> requestObjectSigningAlgValuesSupporteds;
+        private List<String> requestObjectSigningAlgValuesSupported;
         private Boolean requestParameterSupported;
-        private List<String> responseModesSupporteds;
-        private List<String> responseTypesSupporteds;
+        private List<String> responseModesSupported;
+        private List<String> responseTypesSupported;
         private String revocationEndpoint;
-        private List<String> revocationEndpointAuthMethodsSupporteds;
-        private List<String> scopesSupporteds;
-        private List<String> subjectTypesSupporteds;
+        private List<String> revocationEndpointAuthMethodsSupported;
+        private List<String> scopesSupported;
+        private List<String> subjectTypesSupported;
         private String tokenEndpoint;
-        private List<String> tokenEndpointAuthMethodsSupporteds;
+        private List<String> tokenEndpointAuthMethodsSupported;
         public Builder() {}
         public Builder(GetOauthAuthorizationServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationEndpoint = defaults.authorizationEndpoint;
-    	      this.backchannelAuthenticationRequestSigningAlgValuesSupporteds = defaults.backchannelAuthenticationRequestSigningAlgValuesSupporteds;
-    	      this.backchannelTokenDeliveryModesSupporteds = defaults.backchannelTokenDeliveryModesSupporteds;
+    	      this.backchannelAuthenticationRequestSigningAlgValuesSupported = defaults.backchannelAuthenticationRequestSigningAlgValuesSupported;
+    	      this.backchannelTokenDeliveryModesSupported = defaults.backchannelTokenDeliveryModesSupported;
     	      this.baseUrl = defaults.baseUrl;
-    	      this.claimsSupporteds = defaults.claimsSupporteds;
-    	      this.codeChallengeMethodsSupporteds = defaults.codeChallengeMethodsSupporteds;
+    	      this.claimsSupported = defaults.claimsSupported;
+    	      this.codeChallengeMethodsSupported = defaults.codeChallengeMethodsSupported;
     	      this.deviceAuthorizationEndpoint = defaults.deviceAuthorizationEndpoint;
-    	      this.dpopSigningAlgValuesSupporteds = defaults.dpopSigningAlgValuesSupporteds;
+    	      this.dpopSigningAlgValuesSupported = defaults.dpopSigningAlgValuesSupported;
     	      this.endSessionEndpoint = defaults.endSessionEndpoint;
-    	      this.grantTypesSupporteds = defaults.grantTypesSupporteds;
+    	      this.grantTypesSupported = defaults.grantTypesSupported;
     	      this.id = defaults.id;
     	      this.introspectionEndpoint = defaults.introspectionEndpoint;
-    	      this.introspectionEndpointAuthMethodsSupporteds = defaults.introspectionEndpointAuthMethodsSupporteds;
+    	      this.introspectionEndpointAuthMethodsSupported = defaults.introspectionEndpointAuthMethodsSupported;
     	      this.issuer = defaults.issuer;
     	      this.pushedAuthorizationRequestEndpoint = defaults.pushedAuthorizationRequestEndpoint;
     	      this.registrationEndpoint = defaults.registrationEndpoint;
-    	      this.requestObjectSigningAlgValuesSupporteds = defaults.requestObjectSigningAlgValuesSupporteds;
+    	      this.requestObjectSigningAlgValuesSupported = defaults.requestObjectSigningAlgValuesSupported;
     	      this.requestParameterSupported = defaults.requestParameterSupported;
-    	      this.responseModesSupporteds = defaults.responseModesSupporteds;
-    	      this.responseTypesSupporteds = defaults.responseTypesSupporteds;
+    	      this.responseModesSupported = defaults.responseModesSupported;
+    	      this.responseTypesSupported = defaults.responseTypesSupported;
     	      this.revocationEndpoint = defaults.revocationEndpoint;
-    	      this.revocationEndpointAuthMethodsSupporteds = defaults.revocationEndpointAuthMethodsSupporteds;
-    	      this.scopesSupporteds = defaults.scopesSupporteds;
-    	      this.subjectTypesSupporteds = defaults.subjectTypesSupporteds;
+    	      this.revocationEndpointAuthMethodsSupported = defaults.revocationEndpointAuthMethodsSupported;
+    	      this.scopesSupported = defaults.scopesSupported;
+    	      this.subjectTypesSupported = defaults.subjectTypesSupported;
     	      this.tokenEndpoint = defaults.tokenEndpoint;
-    	      this.tokenEndpointAuthMethodsSupporteds = defaults.tokenEndpointAuthMethodsSupporteds;
+    	      this.tokenEndpointAuthMethodsSupported = defaults.tokenEndpointAuthMethodsSupported;
         }
 
         @CustomType.Setter
@@ -196,26 +196,26 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder backchannelAuthenticationRequestSigningAlgValuesSupporteds(List<String> backchannelAuthenticationRequestSigningAlgValuesSupporteds) {
-            if (backchannelAuthenticationRequestSigningAlgValuesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "backchannelAuthenticationRequestSigningAlgValuesSupporteds");
+        public Builder backchannelAuthenticationRequestSigningAlgValuesSupported(List<String> backchannelAuthenticationRequestSigningAlgValuesSupported) {
+            if (backchannelAuthenticationRequestSigningAlgValuesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "backchannelAuthenticationRequestSigningAlgValuesSupported");
             }
-            this.backchannelAuthenticationRequestSigningAlgValuesSupporteds = backchannelAuthenticationRequestSigningAlgValuesSupporteds;
+            this.backchannelAuthenticationRequestSigningAlgValuesSupported = backchannelAuthenticationRequestSigningAlgValuesSupported;
             return this;
         }
-        public Builder backchannelAuthenticationRequestSigningAlgValuesSupporteds(String... backchannelAuthenticationRequestSigningAlgValuesSupporteds) {
-            return backchannelAuthenticationRequestSigningAlgValuesSupporteds(List.of(backchannelAuthenticationRequestSigningAlgValuesSupporteds));
+        public Builder backchannelAuthenticationRequestSigningAlgValuesSupported(String... backchannelAuthenticationRequestSigningAlgValuesSupported) {
+            return backchannelAuthenticationRequestSigningAlgValuesSupported(List.of(backchannelAuthenticationRequestSigningAlgValuesSupported));
         }
         @CustomType.Setter
-        public Builder backchannelTokenDeliveryModesSupporteds(List<String> backchannelTokenDeliveryModesSupporteds) {
-            if (backchannelTokenDeliveryModesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "backchannelTokenDeliveryModesSupporteds");
+        public Builder backchannelTokenDeliveryModesSupported(List<String> backchannelTokenDeliveryModesSupported) {
+            if (backchannelTokenDeliveryModesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "backchannelTokenDeliveryModesSupported");
             }
-            this.backchannelTokenDeliveryModesSupporteds = backchannelTokenDeliveryModesSupporteds;
+            this.backchannelTokenDeliveryModesSupported = backchannelTokenDeliveryModesSupported;
             return this;
         }
-        public Builder backchannelTokenDeliveryModesSupporteds(String... backchannelTokenDeliveryModesSupporteds) {
-            return backchannelTokenDeliveryModesSupporteds(List.of(backchannelTokenDeliveryModesSupporteds));
+        public Builder backchannelTokenDeliveryModesSupported(String... backchannelTokenDeliveryModesSupported) {
+            return backchannelTokenDeliveryModesSupported(List.of(backchannelTokenDeliveryModesSupported));
         }
         @CustomType.Setter
         public Builder baseUrl(@Nullable String baseUrl) {
@@ -224,26 +224,26 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder claimsSupporteds(List<String> claimsSupporteds) {
-            if (claimsSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "claimsSupporteds");
+        public Builder claimsSupported(List<String> claimsSupported) {
+            if (claimsSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "claimsSupported");
             }
-            this.claimsSupporteds = claimsSupporteds;
+            this.claimsSupported = claimsSupported;
             return this;
         }
-        public Builder claimsSupporteds(String... claimsSupporteds) {
-            return claimsSupporteds(List.of(claimsSupporteds));
+        public Builder claimsSupported(String... claimsSupported) {
+            return claimsSupported(List.of(claimsSupported));
         }
         @CustomType.Setter
-        public Builder codeChallengeMethodsSupporteds(List<String> codeChallengeMethodsSupporteds) {
-            if (codeChallengeMethodsSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "codeChallengeMethodsSupporteds");
+        public Builder codeChallengeMethodsSupported(List<String> codeChallengeMethodsSupported) {
+            if (codeChallengeMethodsSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "codeChallengeMethodsSupported");
             }
-            this.codeChallengeMethodsSupporteds = codeChallengeMethodsSupporteds;
+            this.codeChallengeMethodsSupported = codeChallengeMethodsSupported;
             return this;
         }
-        public Builder codeChallengeMethodsSupporteds(String... codeChallengeMethodsSupporteds) {
-            return codeChallengeMethodsSupporteds(List.of(codeChallengeMethodsSupporteds));
+        public Builder codeChallengeMethodsSupported(String... codeChallengeMethodsSupported) {
+            return codeChallengeMethodsSupported(List.of(codeChallengeMethodsSupported));
         }
         @CustomType.Setter
         public Builder deviceAuthorizationEndpoint(String deviceAuthorizationEndpoint) {
@@ -254,15 +254,15 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder dpopSigningAlgValuesSupporteds(List<String> dpopSigningAlgValuesSupporteds) {
-            if (dpopSigningAlgValuesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "dpopSigningAlgValuesSupporteds");
+        public Builder dpopSigningAlgValuesSupported(List<String> dpopSigningAlgValuesSupported) {
+            if (dpopSigningAlgValuesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "dpopSigningAlgValuesSupported");
             }
-            this.dpopSigningAlgValuesSupporteds = dpopSigningAlgValuesSupporteds;
+            this.dpopSigningAlgValuesSupported = dpopSigningAlgValuesSupported;
             return this;
         }
-        public Builder dpopSigningAlgValuesSupporteds(String... dpopSigningAlgValuesSupporteds) {
-            return dpopSigningAlgValuesSupporteds(List.of(dpopSigningAlgValuesSupporteds));
+        public Builder dpopSigningAlgValuesSupported(String... dpopSigningAlgValuesSupported) {
+            return dpopSigningAlgValuesSupported(List.of(dpopSigningAlgValuesSupported));
         }
         @CustomType.Setter
         public Builder endSessionEndpoint(String endSessionEndpoint) {
@@ -273,15 +273,15 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder grantTypesSupporteds(List<String> grantTypesSupporteds) {
-            if (grantTypesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "grantTypesSupporteds");
+        public Builder grantTypesSupported(List<String> grantTypesSupported) {
+            if (grantTypesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "grantTypesSupported");
             }
-            this.grantTypesSupporteds = grantTypesSupporteds;
+            this.grantTypesSupported = grantTypesSupported;
             return this;
         }
-        public Builder grantTypesSupporteds(String... grantTypesSupporteds) {
-            return grantTypesSupporteds(List.of(grantTypesSupporteds));
+        public Builder grantTypesSupported(String... grantTypesSupported) {
+            return grantTypesSupported(List.of(grantTypesSupported));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -300,15 +300,15 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder introspectionEndpointAuthMethodsSupporteds(List<String> introspectionEndpointAuthMethodsSupporteds) {
-            if (introspectionEndpointAuthMethodsSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "introspectionEndpointAuthMethodsSupporteds");
+        public Builder introspectionEndpointAuthMethodsSupported(List<String> introspectionEndpointAuthMethodsSupported) {
+            if (introspectionEndpointAuthMethodsSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "introspectionEndpointAuthMethodsSupported");
             }
-            this.introspectionEndpointAuthMethodsSupporteds = introspectionEndpointAuthMethodsSupporteds;
+            this.introspectionEndpointAuthMethodsSupported = introspectionEndpointAuthMethodsSupported;
             return this;
         }
-        public Builder introspectionEndpointAuthMethodsSupporteds(String... introspectionEndpointAuthMethodsSupporteds) {
-            return introspectionEndpointAuthMethodsSupporteds(List.of(introspectionEndpointAuthMethodsSupporteds));
+        public Builder introspectionEndpointAuthMethodsSupported(String... introspectionEndpointAuthMethodsSupported) {
+            return introspectionEndpointAuthMethodsSupported(List.of(introspectionEndpointAuthMethodsSupported));
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
@@ -335,15 +335,15 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder requestObjectSigningAlgValuesSupporteds(List<String> requestObjectSigningAlgValuesSupporteds) {
-            if (requestObjectSigningAlgValuesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "requestObjectSigningAlgValuesSupporteds");
+        public Builder requestObjectSigningAlgValuesSupported(List<String> requestObjectSigningAlgValuesSupported) {
+            if (requestObjectSigningAlgValuesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "requestObjectSigningAlgValuesSupported");
             }
-            this.requestObjectSigningAlgValuesSupporteds = requestObjectSigningAlgValuesSupporteds;
+            this.requestObjectSigningAlgValuesSupported = requestObjectSigningAlgValuesSupported;
             return this;
         }
-        public Builder requestObjectSigningAlgValuesSupporteds(String... requestObjectSigningAlgValuesSupporteds) {
-            return requestObjectSigningAlgValuesSupporteds(List.of(requestObjectSigningAlgValuesSupporteds));
+        public Builder requestObjectSigningAlgValuesSupported(String... requestObjectSigningAlgValuesSupported) {
+            return requestObjectSigningAlgValuesSupported(List.of(requestObjectSigningAlgValuesSupported));
         }
         @CustomType.Setter
         public Builder requestParameterSupported(Boolean requestParameterSupported) {
@@ -354,26 +354,26 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder responseModesSupporteds(List<String> responseModesSupporteds) {
-            if (responseModesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "responseModesSupporteds");
+        public Builder responseModesSupported(List<String> responseModesSupported) {
+            if (responseModesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "responseModesSupported");
             }
-            this.responseModesSupporteds = responseModesSupporteds;
+            this.responseModesSupported = responseModesSupported;
             return this;
         }
-        public Builder responseModesSupporteds(String... responseModesSupporteds) {
-            return responseModesSupporteds(List.of(responseModesSupporteds));
+        public Builder responseModesSupported(String... responseModesSupported) {
+            return responseModesSupported(List.of(responseModesSupported));
         }
         @CustomType.Setter
-        public Builder responseTypesSupporteds(List<String> responseTypesSupporteds) {
-            if (responseTypesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "responseTypesSupporteds");
+        public Builder responseTypesSupported(List<String> responseTypesSupported) {
+            if (responseTypesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "responseTypesSupported");
             }
-            this.responseTypesSupporteds = responseTypesSupporteds;
+            this.responseTypesSupported = responseTypesSupported;
             return this;
         }
-        public Builder responseTypesSupporteds(String... responseTypesSupporteds) {
-            return responseTypesSupporteds(List.of(responseTypesSupporteds));
+        public Builder responseTypesSupported(String... responseTypesSupported) {
+            return responseTypesSupported(List.of(responseTypesSupported));
         }
         @CustomType.Setter
         public Builder revocationEndpoint(String revocationEndpoint) {
@@ -384,37 +384,37 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder revocationEndpointAuthMethodsSupporteds(List<String> revocationEndpointAuthMethodsSupporteds) {
-            if (revocationEndpointAuthMethodsSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "revocationEndpointAuthMethodsSupporteds");
+        public Builder revocationEndpointAuthMethodsSupported(List<String> revocationEndpointAuthMethodsSupported) {
+            if (revocationEndpointAuthMethodsSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "revocationEndpointAuthMethodsSupported");
             }
-            this.revocationEndpointAuthMethodsSupporteds = revocationEndpointAuthMethodsSupporteds;
+            this.revocationEndpointAuthMethodsSupported = revocationEndpointAuthMethodsSupported;
             return this;
         }
-        public Builder revocationEndpointAuthMethodsSupporteds(String... revocationEndpointAuthMethodsSupporteds) {
-            return revocationEndpointAuthMethodsSupporteds(List.of(revocationEndpointAuthMethodsSupporteds));
+        public Builder revocationEndpointAuthMethodsSupported(String... revocationEndpointAuthMethodsSupported) {
+            return revocationEndpointAuthMethodsSupported(List.of(revocationEndpointAuthMethodsSupported));
         }
         @CustomType.Setter
-        public Builder scopesSupporteds(List<String> scopesSupporteds) {
-            if (scopesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "scopesSupporteds");
+        public Builder scopesSupported(List<String> scopesSupported) {
+            if (scopesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "scopesSupported");
             }
-            this.scopesSupporteds = scopesSupporteds;
+            this.scopesSupported = scopesSupported;
             return this;
         }
-        public Builder scopesSupporteds(String... scopesSupporteds) {
-            return scopesSupporteds(List.of(scopesSupporteds));
+        public Builder scopesSupported(String... scopesSupported) {
+            return scopesSupported(List.of(scopesSupported));
         }
         @CustomType.Setter
-        public Builder subjectTypesSupporteds(List<String> subjectTypesSupporteds) {
-            if (subjectTypesSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "subjectTypesSupporteds");
+        public Builder subjectTypesSupported(List<String> subjectTypesSupported) {
+            if (subjectTypesSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "subjectTypesSupported");
             }
-            this.subjectTypesSupporteds = subjectTypesSupporteds;
+            this.subjectTypesSupported = subjectTypesSupported;
             return this;
         }
-        public Builder subjectTypesSupporteds(String... subjectTypesSupporteds) {
-            return subjectTypesSupporteds(List.of(subjectTypesSupporteds));
+        public Builder subjectTypesSupported(String... subjectTypesSupported) {
+            return subjectTypesSupported(List.of(subjectTypesSupported));
         }
         @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
@@ -425,44 +425,44 @@ public final class GetOauthAuthorizationServerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tokenEndpointAuthMethodsSupporteds(List<String> tokenEndpointAuthMethodsSupporteds) {
-            if (tokenEndpointAuthMethodsSupporteds == null) {
-              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "tokenEndpointAuthMethodsSupporteds");
+        public Builder tokenEndpointAuthMethodsSupported(List<String> tokenEndpointAuthMethodsSupported) {
+            if (tokenEndpointAuthMethodsSupported == null) {
+              throw new MissingRequiredPropertyException("GetOauthAuthorizationServerResult", "tokenEndpointAuthMethodsSupported");
             }
-            this.tokenEndpointAuthMethodsSupporteds = tokenEndpointAuthMethodsSupporteds;
+            this.tokenEndpointAuthMethodsSupported = tokenEndpointAuthMethodsSupported;
             return this;
         }
-        public Builder tokenEndpointAuthMethodsSupporteds(String... tokenEndpointAuthMethodsSupporteds) {
-            return tokenEndpointAuthMethodsSupporteds(List.of(tokenEndpointAuthMethodsSupporteds));
+        public Builder tokenEndpointAuthMethodsSupported(String... tokenEndpointAuthMethodsSupported) {
+            return tokenEndpointAuthMethodsSupported(List.of(tokenEndpointAuthMethodsSupported));
         }
         public GetOauthAuthorizationServerResult build() {
             final var _resultValue = new GetOauthAuthorizationServerResult();
             _resultValue.authorizationEndpoint = authorizationEndpoint;
-            _resultValue.backchannelAuthenticationRequestSigningAlgValuesSupporteds = backchannelAuthenticationRequestSigningAlgValuesSupporteds;
-            _resultValue.backchannelTokenDeliveryModesSupporteds = backchannelTokenDeliveryModesSupporteds;
+            _resultValue.backchannelAuthenticationRequestSigningAlgValuesSupported = backchannelAuthenticationRequestSigningAlgValuesSupported;
+            _resultValue.backchannelTokenDeliveryModesSupported = backchannelTokenDeliveryModesSupported;
             _resultValue.baseUrl = baseUrl;
-            _resultValue.claimsSupporteds = claimsSupporteds;
-            _resultValue.codeChallengeMethodsSupporteds = codeChallengeMethodsSupporteds;
+            _resultValue.claimsSupported = claimsSupported;
+            _resultValue.codeChallengeMethodsSupported = codeChallengeMethodsSupported;
             _resultValue.deviceAuthorizationEndpoint = deviceAuthorizationEndpoint;
-            _resultValue.dpopSigningAlgValuesSupporteds = dpopSigningAlgValuesSupporteds;
+            _resultValue.dpopSigningAlgValuesSupported = dpopSigningAlgValuesSupported;
             _resultValue.endSessionEndpoint = endSessionEndpoint;
-            _resultValue.grantTypesSupporteds = grantTypesSupporteds;
+            _resultValue.grantTypesSupported = grantTypesSupported;
             _resultValue.id = id;
             _resultValue.introspectionEndpoint = introspectionEndpoint;
-            _resultValue.introspectionEndpointAuthMethodsSupporteds = introspectionEndpointAuthMethodsSupporteds;
+            _resultValue.introspectionEndpointAuthMethodsSupported = introspectionEndpointAuthMethodsSupported;
             _resultValue.issuer = issuer;
             _resultValue.pushedAuthorizationRequestEndpoint = pushedAuthorizationRequestEndpoint;
             _resultValue.registrationEndpoint = registrationEndpoint;
-            _resultValue.requestObjectSigningAlgValuesSupporteds = requestObjectSigningAlgValuesSupporteds;
+            _resultValue.requestObjectSigningAlgValuesSupported = requestObjectSigningAlgValuesSupported;
             _resultValue.requestParameterSupported = requestParameterSupported;
-            _resultValue.responseModesSupporteds = responseModesSupporteds;
-            _resultValue.responseTypesSupporteds = responseTypesSupporteds;
+            _resultValue.responseModesSupported = responseModesSupported;
+            _resultValue.responseTypesSupported = responseTypesSupported;
             _resultValue.revocationEndpoint = revocationEndpoint;
-            _resultValue.revocationEndpointAuthMethodsSupporteds = revocationEndpointAuthMethodsSupporteds;
-            _resultValue.scopesSupporteds = scopesSupporteds;
-            _resultValue.subjectTypesSupporteds = subjectTypesSupporteds;
+            _resultValue.revocationEndpointAuthMethodsSupported = revocationEndpointAuthMethodsSupported;
+            _resultValue.scopesSupported = scopesSupported;
+            _resultValue.subjectTypesSupported = subjectTypesSupported;
             _resultValue.tokenEndpoint = tokenEndpoint;
-            _resultValue.tokenEndpointAuthMethodsSupporteds = tokenEndpointAuthMethodsSupporteds;
+            _resultValue.tokenEndpointAuthMethodsSupported = tokenEndpointAuthMethodsSupported;
             return _resultValue;
         }
     }

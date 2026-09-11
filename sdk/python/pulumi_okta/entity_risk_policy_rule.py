@@ -21,36 +21,36 @@ class EntityRiskPolicyRuleArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
                  risk_level: pulumi.Input[_builtins.str],
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_all_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EntityRiskPolicyRule resource.
 
         :param pulumi.Input[_builtins.str] policy_id: ID of the Entity Risk Policy. Use the `get_entity_risk_policy` data source to get this ID.
         :param pulumi.Input[_builtins.str] risk_level: Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule. Rules are evaluated in priority order.
         :param pulumi.Input[_builtins.str] status: Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_all_sessions: When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: List of user IDs to include from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: List of user IDs to include from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a risk event is detected.
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "risk_level", risk_level)
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -59,10 +59,10 @@ class EntityRiskPolicyRuleArgs:
             pulumi.set(__self__, "status", status)
         if terminate_all_sessions is not None:
             pulumi.set(__self__, "terminate_all_sessions", terminate_all_sessions)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
-        if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
+        if users_included is not None:
+            pulumi.set(__self__, "users_included", users_included)
         if workflow_id is not None:
             pulumi.set(__self__, "workflow_id", workflow_id)
 
@@ -91,28 +91,28 @@ class EntityRiskPolicyRuleArgs:
         pulumi.set(self, "risk_level", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
-    @groups_excludeds.setter
-    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_excludeds", value)
+    @groups_excluded.setter
+    def groups_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -163,28 +163,28 @@ class EntityRiskPolicyRuleArgs:
         pulumi.set(self, "terminate_all_sessions", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of user IDs to include from this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 
-    @users_includeds.setter
-    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_includeds", value)
+    @users_included.setter
+    def users_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_included", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowId")
@@ -202,36 +202,36 @@ class EntityRiskPolicyRuleArgs:
 @pulumi.input_type
 class _EntityRiskPolicyRuleState:
     def __init__(__self__, *,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  risk_level: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_all_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EntityRiskPolicyRule resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] policy_id: ID of the Entity Risk Policy. Use the `get_entity_risk_policy` data source to get this ID.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule. Rules are evaluated in priority order.
         :param pulumi.Input[_builtins.str] risk_level: Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.
         :param pulumi.Input[_builtins.str] status: Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_all_sessions: When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: List of user IDs to include from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: List of user IDs to include from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a risk event is detected.
         """
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_id is not None:
@@ -244,36 +244,36 @@ class _EntityRiskPolicyRuleState:
             pulumi.set(__self__, "status", status)
         if terminate_all_sessions is not None:
             pulumi.set(__self__, "terminate_all_sessions", terminate_all_sessions)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
-        if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
+        if users_included is not None:
+            pulumi.set(__self__, "users_included", users_included)
         if workflow_id is not None:
             pulumi.set(__self__, "workflow_id", workflow_id)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
-    @groups_excludeds.setter
-    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_excludeds", value)
+    @groups_excluded.setter
+    def groups_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -348,28 +348,28 @@ class _EntityRiskPolicyRuleState:
         pulumi.set(self, "terminate_all_sessions", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of user IDs to include from this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 
-    @users_includeds.setter
-    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_includeds", value)
+    @users_included.setter
+    def users_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_included", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowId")
@@ -390,16 +390,16 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  risk_level: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_all_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -436,7 +436,7 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
             name="Privileged Users - High Risk",
             risk_level="HIGH",
             terminate_all_sessions=True,
-            groups_includeds=[privileged_users.id])
+            groups_included=[privileged_users.id])
         ```
 
         ### Rule with Workflow Integration
@@ -464,16 +464,16 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] policy_id: ID of the Entity Risk Policy. Use the `get_entity_risk_policy` data source to get this ID.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule. Rules are evaluated in priority order.
         :param pulumi.Input[_builtins.str] risk_level: Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.
         :param pulumi.Input[_builtins.str] status: Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_all_sessions: When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: List of user IDs to include from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: List of user IDs to include from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a risk event is detected.
         """
         ...
@@ -516,7 +516,7 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
             name="Privileged Users - High Risk",
             risk_level="HIGH",
             terminate_all_sessions=True,
-            groups_includeds=[privileged_users.id])
+            groups_included=[privileged_users.id])
         ```
 
         ### Rule with Workflow Integration
@@ -557,16 +557,16 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  risk_level: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_all_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -577,8 +577,8 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EntityRiskPolicyRuleArgs.__new__(EntityRiskPolicyRuleArgs)
 
-            __props__.__dict__["groups_excludeds"] = groups_excludeds
-            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["groups_excluded"] = groups_excluded
+            __props__.__dict__["groups_included"] = groups_included
             __props__.__dict__["name"] = name
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
@@ -589,8 +589,8 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
             __props__.__dict__["risk_level"] = risk_level
             __props__.__dict__["status"] = status
             __props__.__dict__["terminate_all_sessions"] = terminate_all_sessions
-            __props__.__dict__["users_excludeds"] = users_excludeds
-            __props__.__dict__["users_includeds"] = users_includeds
+            __props__.__dict__["users_excluded"] = users_excluded
+            __props__.__dict__["users_included"] = users_included
             __props__.__dict__["workflow_id"] = workflow_id
         super(EntityRiskPolicyRule, __self__).__init__(
             'okta:index/entityRiskPolicyRule:EntityRiskPolicyRule',
@@ -602,16 +602,16 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             risk_level: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             terminate_all_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
-            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             workflow_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'EntityRiskPolicyRule':
         """
         Get an existing EntityRiskPolicyRule resource's state with the given name, id, and optional extra
@@ -620,50 +620,50 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] policy_id: ID of the Entity Risk Policy. Use the `get_entity_risk_policy` data source to get this ID.
         :param pulumi.Input[_builtins.int] priority: Priority of the rule. Rules are evaluated in priority order.
         :param pulumi.Input[_builtins.str] risk_level: Risk level to match. Valid values: `HIGH`, `MEDIUM`, `LOW`, `ANY`.
         :param pulumi.Input[_builtins.str] status: Status of the rule. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_all_sessions: When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: List of user IDs to include from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: List of user IDs to include from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a risk event is detected.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EntityRiskPolicyRuleState.__new__(_EntityRiskPolicyRuleState)
 
-        __props__.__dict__["groups_excludeds"] = groups_excludeds
-        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["groups_excluded"] = groups_excluded
+        __props__.__dict__["groups_included"] = groups_included
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["risk_level"] = risk_level
         __props__.__dict__["status"] = status
         __props__.__dict__["terminate_all_sessions"] = terminate_all_sessions
-        __props__.__dict__["users_excludeds"] = users_excludeds
-        __props__.__dict__["users_includeds"] = users_includeds
+        __props__.__dict__["users_excluded"] = users_excluded
+        __props__.__dict__["users_included"] = users_included
         __props__.__dict__["workflow_id"] = workflow_id
         return EntityRiskPolicyRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter
@@ -714,20 +714,20 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
         return pulumi.get(self, "terminate_all_sessions")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of user IDs to include from this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 
     @_builtins.property
     @pulumi.getter(name="workflowId")

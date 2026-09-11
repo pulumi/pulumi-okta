@@ -13,41 +13,25 @@ public final class GetRoleSubscriptionPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetRoleSubscriptionPlainArgs Empty = new GetRoleSubscriptionPlainArgs();
 
-    /**
-     * Type of the notification
-     * 
-     */
-    @Import(name="notificationType", required=true)
-    private String notificationType;
+    @Import(name="id", required=true)
+    private String id;
 
-    /**
-     * @return Type of the notification
-     * 
-     */
-    public String notificationType() {
-        return this.notificationType;
+    public String id() {
+        return this.id;
     }
 
-    /**
-     * Type of the role
-     * 
-     */
-    @Import(name="roleType", required=true)
-    private String roleType;
+    @Import(name="roleRef", required=true)
+    private String roleRef;
 
-    /**
-     * @return Type of the role
-     * 
-     */
-    public String roleType() {
-        return this.roleType;
+    public String roleRef() {
+        return this.roleRef;
     }
 
     private GetRoleSubscriptionPlainArgs() {}
 
     private GetRoleSubscriptionPlainArgs(GetRoleSubscriptionPlainArgs $) {
-        this.notificationType = $.notificationType;
-        this.roleType = $.roleType;
+        this.id = $.id;
+        this.roleRef = $.roleRef;
     }
 
     public static Builder builder() {
@@ -68,34 +52,22 @@ public final class GetRoleSubscriptionPlainArgs extends com.pulumi.resources.Inv
             $ = new GetRoleSubscriptionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param notificationType Type of the notification
-         * 
-         * @return builder
-         * 
-         */
-        public Builder notificationType(String notificationType) {
-            $.notificationType = notificationType;
+        public Builder id(String id) {
+            $.id = id;
             return this;
         }
 
-        /**
-         * @param roleType Type of the role
-         * 
-         * @return builder
-         * 
-         */
-        public Builder roleType(String roleType) {
-            $.roleType = roleType;
+        public Builder roleRef(String roleRef) {
+            $.roleRef = roleRef;
             return this;
         }
 
         public GetRoleSubscriptionPlainArgs build() {
-            if ($.notificationType == null) {
-                throw new MissingRequiredPropertyException("GetRoleSubscriptionPlainArgs", "notificationType");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetRoleSubscriptionPlainArgs", "id");
             }
-            if ($.roleType == null) {
-                throw new MissingRequiredPropertyException("GetRoleSubscriptionPlainArgs", "roleType");
+            if ($.roleRef == null) {
+                throw new MissingRequiredPropertyException("GetRoleSubscriptionPlainArgs", "roleRef");
             }
             return $;
         }

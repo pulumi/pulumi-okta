@@ -64,15 +64,15 @@ export class Captcha extends pulumi.CustomResource {
     /**
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
-    declare public readonly secretKey: pulumi.Output<string>;
+    declare public readonly secretKey: pulumi.Output<string | undefined>;
     /**
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
-    declare public readonly siteKey: pulumi.Output<string>;
+    declare public readonly siteKey: pulumi.Output<string | undefined>;
     /**
      * Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      */
-    declare public readonly type: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Captcha resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class Captcha extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CaptchaArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: CaptchaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CaptchaArgs | CaptchaState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -93,15 +93,6 @@ export class Captcha extends pulumi.CustomResource {
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as CaptchaArgs | undefined;
-            if (args?.secretKey === undefined && !opts.urn) {
-                throw new Error("Missing required property 'secretKey'");
-            }
-            if (args?.siteKey === undefined && !opts.urn) {
-                throw new Error("Missing required property 'siteKey'");
-            }
-            if (args?.type === undefined && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
             resourceInputs["name"] = args?.name;
             resourceInputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
             resourceInputs["siteKey"] = args?.siteKey;
@@ -147,13 +138,13 @@ export interface CaptchaArgs {
     /**
      * Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token
      */
-    secretKey: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page
      */
-    siteKey: pulumi.Input<string>;
+    siteKey?: pulumi.Input<string | undefined>;
     /**
      * Type of the captcha. Valid values: `HCAPTCHA`, `RECAPTCHA_V2`
      */
-    type: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

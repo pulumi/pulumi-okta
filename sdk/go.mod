@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-okta/sdk/v6
+module github.com/pulumi/pulumi-okta/sdk/v7
 
 go 1.25.11
 

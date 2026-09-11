@@ -193,8 +193,6 @@ __all__ = [
     'RequestV2RequesterFieldValueValueArgsDict',
     'SecurityEventsProviderSettingsArgs',
     'SecurityEventsProviderSettingsArgsDict',
-    'TemplateSmsTranslationArgs',
-    'TemplateSmsTranslationArgsDict',
     'UiSchemaUiSchemaArgs',
     'UiSchemaUiSchemaArgsDict',
     'UiSchemaUiSchemaElementArgs',
@@ -421,6 +419,10 @@ __all__ = [
     'GetReviewReviewerProfileArgsDict',
     'GetSecurityEventsProviderSettingsArgs',
     'GetSecurityEventsProviderSettingsArgsDict',
+    'GetThreatInsightSettingsItemArgs',
+    'GetThreatInsightSettingsItemArgsDict',
+    'GetTrustedOriginScopeArgs',
+    'GetTrustedOriginScopeArgsDict',
     'GetUiSchemaUiSchemaArgs',
     'GetUiSchemaUiSchemaArgsDict',
     'GetUiSchemaUiSchemaElementArgs',
@@ -6649,53 +6651,6 @@ class SecurityEventsProviderSettingsArgs:
     @well_known_url.setter
     def well_known_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "well_known_url", value)
-
-
-class TemplateSmsTranslationArgsDict(TypedDict):
-    language: pulumi.Input[_builtins.str]
-    """
-    The language to map the template to.
-    """
-    template: pulumi.Input[_builtins.str]
-    """
-    The SMS message.
-    """
-
-@pulumi.input_type
-class TemplateSmsTranslationArgs:
-    def __init__(__self__, *,
-                 language: pulumi.Input[_builtins.str],
-                 template: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] language: The language to map the template to.
-        :param pulumi.Input[_builtins.str] template: The SMS message.
-        """
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "template", template)
-
-    @_builtins.property
-    @pulumi.getter
-    def language(self) -> pulumi.Input[_builtins.str]:
-        """
-        The language to map the template to.
-        """
-        return pulumi.get(self, "language")
-
-    @language.setter
-    def language(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "language", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def template(self) -> pulumi.Input[_builtins.str]:
-        """
-        The SMS message.
-        """
-        return pulumi.get(self, "template")
-
-    @template.setter
-    def template(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "template", value)
 
 
 class UiSchemaUiSchemaArgsDict(TypedDict):
@@ -14009,6 +13964,157 @@ class GetSecurityEventsProviderSettingsArgs:
     @well_known_url.setter
     def well_known_url(self, value: _builtins.str):
         pulumi.set(self, "well_known_url", value)
+
+
+class GetThreatInsightSettingsItemArgsDict(TypedDict):
+    action: _builtins.str
+    """
+    Specifies how Okta responds to authentication requests from suspicious IPs.
+    """
+    created: _builtins.str
+    """
+    Timestamp when the ThreatInsight Configuration object was created.
+    """
+    exclude_zones: Sequence[_builtins.str]
+    """
+    List of Network Zone IDs excluded from ThreatInsight evaluation.
+    """
+    id: _builtins.str
+    """
+    The unique identifier for the item.
+    """
+    last_updated: _builtins.str
+    """
+    Timestamp when the ThreatInsight Configuration object was last updated.
+    """
+
+@pulumi.input_type
+class GetThreatInsightSettingsItemArgs:
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 created: _builtins.str,
+                 exclude_zones: Sequence[_builtins.str],
+                 id: _builtins.str,
+                 last_updated: _builtins.str):
+        """
+        :param _builtins.str action: Specifies how Okta responds to authentication requests from suspicious IPs.
+        :param _builtins.str created: Timestamp when the ThreatInsight Configuration object was created.
+        :param Sequence[_builtins.str] exclude_zones: List of Network Zone IDs excluded from ThreatInsight evaluation.
+        :param _builtins.str id: The unique identifier for the item.
+        :param _builtins.str last_updated: Timestamp when the ThreatInsight Configuration object was last updated.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "exclude_zones", exclude_zones)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_updated", last_updated)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        Specifies how Okta responds to authentication requests from suspicious IPs.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: _builtins.str):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> _builtins.str:
+        """
+        Timestamp when the ThreatInsight Configuration object was created.
+        """
+        return pulumi.get(self, "created")
+
+    @created.setter
+    def created(self, value: _builtins.str):
+        pulumi.set(self, "created", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeZones")
+    def exclude_zones(self) -> Sequence[_builtins.str]:
+        """
+        List of Network Zone IDs excluded from ThreatInsight evaluation.
+        """
+        return pulumi.get(self, "exclude_zones")
+
+    @exclude_zones.setter
+    def exclude_zones(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "exclude_zones", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier for the item.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: _builtins.str):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> _builtins.str:
+        """
+        Timestamp when the ThreatInsight Configuration object was last updated.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: _builtins.str):
+        pulumi.set(self, "last_updated", value)
+
+
+class GetTrustedOriginScopeArgsDict(TypedDict):
+    allowed_okta_apps: Sequence[_builtins.str]
+    """
+    The allowed Okta apps for the trusted origin scope
+    """
+    type: _builtins.str
+    """
+    The scope type.
+    """
+
+@pulumi.input_type
+class GetTrustedOriginScopeArgs:
+    def __init__(__self__, *,
+                 allowed_okta_apps: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] allowed_okta_apps: The allowed Okta apps for the trusted origin scope
+        :param _builtins.str type: The scope type.
+        """
+        pulumi.set(__self__, "allowed_okta_apps", allowed_okta_apps)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOktaApps")
+    def allowed_okta_apps(self) -> Sequence[_builtins.str]:
+        """
+        The allowed Okta apps for the trusted origin scope
+        """
+        return pulumi.get(self, "allowed_okta_apps")
+
+    @allowed_okta_apps.setter
+    def allowed_okta_apps(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "allowed_okta_apps", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The scope type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: _builtins.str):
+        pulumi.set(self, "type", value)
 
 
 class GetUiSchemaUiSchemaArgsDict(TypedDict):

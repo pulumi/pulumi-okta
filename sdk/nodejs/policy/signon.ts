@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     status: "ACTIVE",
  *     description: "Example",
- *     groupsIncludeds: [everyone.id],
+ *     groupsIncluded: [everyone.id],
  * });
  * ```
  *
@@ -62,7 +62,7 @@ export class Signon extends pulumi.CustomResource {
     /**
      * List of Group IDs to Include
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     /**
      * Policy Name
      */
@@ -90,14 +90,14 @@ export class Signon extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SignonState | undefined;
             resourceInputs["description"] = state?.description;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["name"] = state?.name;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as SignonArgs | undefined;
             resourceInputs["description"] = args?.description;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["name"] = args?.name;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["status"] = args?.status;
@@ -118,7 +118,7 @@ export interface SignonState {
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Name
      */
@@ -144,7 +144,7 @@ export interface SignonArgs {
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Name
      */

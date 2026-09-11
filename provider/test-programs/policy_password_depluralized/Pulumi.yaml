@@ -1,0 +1,19 @@
+name: policy_password_depluralizedQ2nR7xVbK4Lm
+runtime: yaml
+description: >-
+  Baseline for the v7 rename of the auto-pluralized property names. Spells
+  groupsIncluded the old way, groupsIncludeds, so the upgrade preview exercises
+  the rename against a stack created before it. The renamed source lives in
+  policy_password_depluralized_v7.
+resources:
+  oktaGroup:
+    type: okta:group:Group
+    properties:
+      description: A group referenced by a password policy
+  oktaPasswordPolicy:
+    type: okta:policy:Password
+    properties:
+      description: An example password policy
+      priority: 1
+      groupsIncludeds:
+        - ${oktaGroup.id}

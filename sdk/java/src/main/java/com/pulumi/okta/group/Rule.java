@@ -157,15 +157,15 @@ public class Rule extends com.pulumi.resources.CustomResource {
      * The list of user IDs that would be excluded when rules are processed
      * 
      */
-    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersExcludeds;
+    @Export(name="usersExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersExcluded;
 
     /**
      * @return The list of user IDs that would be excluded when rules are processed
      * 
      */
-    public Output<Optional<List<String>>> usersExcludeds() {
-        return Codegen.optional(this.usersExcludeds);
+    public Output<Optional<List<String>>> usersExcluded() {
+        return Codegen.optional(this.usersExcluded);
     }
 
     /**

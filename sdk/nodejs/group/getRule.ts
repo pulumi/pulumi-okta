@@ -77,7 +77,7 @@ export interface GetRuleResult {
     /**
      * The list of user IDs that would be excluded when rules are processed.
      */
-    readonly usersExcludeds: string[];
+    readonly usersExcluded: string[];
 }
 /**
  * Get a group rule from Okta.

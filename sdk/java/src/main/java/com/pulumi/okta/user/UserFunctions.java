@@ -11,6 +11,8 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.user.inputs.GetRiskArgs;
 import com.pulumi.okta.user.inputs.GetRiskPlainArgs;
+import com.pulumi.okta.user.inputs.GetSubscriptionArgs;
+import com.pulumi.okta.user.inputs.GetSubscriptionPlainArgs;
 import com.pulumi.okta.user.inputs.GetUserArgs;
 import com.pulumi.okta.user.inputs.GetUserPlainArgs;
 import com.pulumi.okta.user.inputs.GetUserTypeArgs;
@@ -18,6 +20,7 @@ import com.pulumi.okta.user.inputs.GetUserTypePlainArgs;
 import com.pulumi.okta.user.inputs.GetUsersArgs;
 import com.pulumi.okta.user.inputs.GetUsersPlainArgs;
 import com.pulumi.okta.user.outputs.GetRiskResult;
+import com.pulumi.okta.user.outputs.GetSubscriptionResult;
 import com.pulumi.okta.user.outputs.GetUserProfileMappingSourceResult;
 import com.pulumi.okta.user.outputs.GetUserResult;
 import com.pulumi.okta.user.outputs.GetUserTypeResult;
@@ -225,6 +228,211 @@ public final class UserFunctions {
      */
     public static CompletableFuture<GetRiskResult> getRiskPlain(GetRiskPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:user/getRisk:getRisk", TypeShape.of(GetRiskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a subscription by notification type for a specified user.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .userId("usr00000000000001")
+     *             .id("APP_IMPORT")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
+        return getSubscription(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a subscription by notification type for a specified user.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .userId("usr00000000000001")
+     *             .id("APP_IMPORT")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
+        return getSubscriptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves a subscription by notification type for a specified user.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .userId("usr00000000000001")
+     *             .id("APP_IMPORT")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a subscription by notification type for a specified user.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .userId("usr00000000000001")
+     *             .id("APP_IMPORT")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:user/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves a subscription by notification type for a specified user.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.user.UserFunctions;
+     * import com.pulumi.okta.user.inputs.GetSubscriptionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = UserFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .userId("usr00000000000001")
+     *             .id("APP_IMPORT")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:user/getSubscription:getSubscription", TypeShape.of(GetSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get a single users from Okta.

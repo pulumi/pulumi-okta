@@ -41,7 +41,7 @@ namespace Pulumi.Okta
     ///     var example = new Okta.ThreatInsightSettings("example", new()
     ///     {
     ///         Action = "block",
-    ///         NetworkExcludes = new[]
+    ///         ExcludeZones = new[]
     ///         {
     ///             ipNetworkZoneExample.Id,
     ///         },
@@ -66,10 +66,22 @@ namespace Pulumi.Okta
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        /// Timestamp when the ThreatInsight Configuration object was created.
         /// </summary>
-        [Output("networkExcludes")]
-        public Output<ImmutableArray<string>> NetworkExcludes { get; private set; } = null!;
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+        /// </summary>
+        [Output("excludeZones")]
+        public Output<ImmutableArray<string>> ExcludeZones { get; private set; } = null!;
+
+        /// <summary>
+        /// Timestamp when the ThreatInsight Configuration object was last updated.
+        /// </summary>
+        [Output("lastUpdated")]
+        public Output<string> LastUpdated { get; private set; } = null!;
 
 
         /// <summary>
@@ -123,16 +135,16 @@ namespace Pulumi.Okta
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        [Input("networkExcludes")]
-        private InputList<string>? _networkExcludes;
+        [Input("excludeZones")]
+        private InputList<string>? _excludeZones;
 
         /// <summary>
-        /// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        /// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
         /// </summary>
-        public InputList<string> NetworkExcludes
+        public InputList<string> ExcludeZones
         {
-            get => _networkExcludes ?? (_networkExcludes = new InputList<string>());
-            set => _networkExcludes = value;
+            get => _excludeZones ?? (_excludeZones = new InputList<string>());
+            set => _excludeZones = value;
         }
 
         public ThreatInsightSettingsArgs()
@@ -149,17 +161,29 @@ namespace Pulumi.Okta
         [Input("action")]
         public Input<string>? Action { get; set; }
 
-        [Input("networkExcludes")]
-        private InputList<string>? _networkExcludes;
+        /// <summary>
+        /// Timestamp when the ThreatInsight Configuration object was created.
+        /// </summary>
+        [Input("created")]
+        public Input<string>? Created { get; set; }
+
+        [Input("excludeZones")]
+        private InputList<string>? _excludeZones;
 
         /// <summary>
-        /// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+        /// Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
         /// </summary>
-        public InputList<string> NetworkExcludes
+        public InputList<string> ExcludeZones
         {
-            get => _networkExcludes ?? (_networkExcludes = new InputList<string>());
-            set => _networkExcludes = value;
+            get => _excludeZones ?? (_excludeZones = new InputList<string>());
+            set => _excludeZones = value;
         }
+
+        /// <summary>
+        /// Timestamp when the ThreatInsight Configuration object was last updated.
+        /// </summary>
+        [Input("lastUpdated")]
+        public Input<string>? LastUpdated { get; set; }
 
         public ThreatInsightSettingsState()
         {

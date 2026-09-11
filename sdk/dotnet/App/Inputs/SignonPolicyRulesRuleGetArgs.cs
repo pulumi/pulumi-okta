@@ -48,16 +48,16 @@ namespace Pulumi.Okta.App.Inputs
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
 
-        [Input("deviceAssurancesIncludeds")]
-        private InputList<string>? _deviceAssurancesIncludeds;
+        [Input("deviceAssurancesIncluded")]
+        private InputList<string>? _deviceAssurancesIncluded;
 
         /// <summary>
         /// Set of device assurance policy IDs to include.
         /// </summary>
-        public InputList<string> DeviceAssurancesIncludeds
+        public InputList<string> DeviceAssurancesIncluded
         {
-            get => _deviceAssurancesIncludeds ?? (_deviceAssurancesIncludeds = new InputList<string>());
-            set => _deviceAssurancesIncludeds = value;
+            get => _deviceAssurancesIncluded ?? (_deviceAssurancesIncluded = new InputList<string>());
+            set => _deviceAssurancesIncluded = value;
         }
 
         /// <summary>
@@ -78,28 +78,28 @@ namespace Pulumi.Okta.App.Inputs
         [Input("factorMode")]
         public Input<string>? FactorMode { get; set; }
 
-        [Input("groupsExcludeds")]
-        private InputList<string>? _groupsExcludeds;
+        [Input("groupsExcluded")]
+        private InputList<string>? _groupsExcluded;
 
         /// <summary>
         /// Set of group IDs to exclude from this rule.
         /// </summary>
-        public InputList<string> GroupsExcludeds
+        public InputList<string> GroupsExcluded
         {
-            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
-            set => _groupsExcludeds = value;
+            get => _groupsExcluded ?? (_groupsExcluded = new InputList<string>());
+            set => _groupsExcluded = value;
         }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// Set of group IDs to include in this rule.
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>
@@ -204,52 +204,52 @@ namespace Pulumi.Okta.App.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userTypesExcludeds")]
-        private InputList<string>? _userTypesExcludeds;
+        [Input("userTypesExcluded")]
+        private InputList<string>? _userTypesExcluded;
 
         /// <summary>
         /// Set of user type IDs to exclude.
         /// </summary>
-        public InputList<string> UserTypesExcludeds
+        public InputList<string> UserTypesExcluded
         {
-            get => _userTypesExcludeds ?? (_userTypesExcludeds = new InputList<string>());
-            set => _userTypesExcludeds = value;
+            get => _userTypesExcluded ?? (_userTypesExcluded = new InputList<string>());
+            set => _userTypesExcluded = value;
         }
 
-        [Input("userTypesIncludeds")]
-        private InputList<string>? _userTypesIncludeds;
+        [Input("userTypesIncluded")]
+        private InputList<string>? _userTypesIncluded;
 
         /// <summary>
         /// Set of user type IDs to include.
         /// </summary>
-        public InputList<string> UserTypesIncludeds
+        public InputList<string> UserTypesIncluded
         {
-            get => _userTypesIncludeds ?? (_userTypesIncludeds = new InputList<string>());
-            set => _userTypesIncludeds = value;
+            get => _userTypesIncluded ?? (_userTypesIncluded = new InputList<string>());
+            set => _userTypesIncluded = value;
         }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of user IDs to exclude from this rule.
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
-        [Input("usersIncludeds")]
-        private InputList<string>? _usersIncludeds;
+        [Input("usersIncluded")]
+        private InputList<string>? _usersIncluded;
 
         /// <summary>
         /// Set of user IDs to include in this rule.
         /// </summary>
-        public InputList<string> UsersIncludeds
+        public InputList<string> UsersIncluded
         {
-            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
-            set => _usersIncludeds = value;
+            get => _usersIncluded ?? (_usersIncluded = new InputList<string>());
+            set => _usersIncluded = value;
         }
 
         public SignonPolicyRulesRuleGetArgs()

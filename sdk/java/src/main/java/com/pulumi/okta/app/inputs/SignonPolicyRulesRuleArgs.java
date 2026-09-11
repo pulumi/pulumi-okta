@@ -85,15 +85,15 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
      * Set of device assurance policy IDs to include.
      * 
      */
-    @Import(name="deviceAssurancesIncludeds")
-    private @Nullable Output<List<String>> deviceAssurancesIncludeds;
+    @Import(name="deviceAssurancesIncluded")
+    private @Nullable Output<List<String>> deviceAssurancesIncluded;
 
     /**
      * @return Set of device assurance policy IDs to include.
      * 
      */
-    public Optional<Output<List<String>>> deviceAssurancesIncludeds() {
-        return Optional.ofNullable(this.deviceAssurancesIncludeds);
+    public Optional<Output<List<String>>> deviceAssurancesIncluded() {
+        return Optional.ofNullable(this.deviceAssurancesIncluded);
     }
 
     /**
@@ -145,30 +145,30 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
      * Set of group IDs to exclude from this rule.
      * 
      */
-    @Import(name="groupsExcludeds")
-    private @Nullable Output<List<String>> groupsExcludeds;
+    @Import(name="groupsExcluded")
+    private @Nullable Output<List<String>> groupsExcluded;
 
     /**
      * @return Set of group IDs to exclude from this rule.
      * 
      */
-    public Optional<Output<List<String>>> groupsExcludeds() {
-        return Optional.ofNullable(this.groupsExcludeds);
+    public Optional<Output<List<String>>> groupsExcluded() {
+        return Optional.ofNullable(this.groupsExcluded);
     }
 
     /**
      * Set of group IDs to include in this rule.
      * 
      */
-    @Import(name="groupsIncludeds")
-    private @Nullable Output<List<String>> groupsIncludeds;
+    @Import(name="groupsIncluded")
+    private @Nullable Output<List<String>> groupsIncluded;
 
     /**
      * @return Set of group IDs to include in this rule.
      * 
      */
-    public Optional<Output<List<String>>> groupsIncludeds() {
-        return Optional.ofNullable(this.groupsIncludeds);
+    public Optional<Output<List<String>>> groupsIncluded() {
+        return Optional.ofNullable(this.groupsIncluded);
     }
 
     /**
@@ -385,60 +385,60 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
      * Set of user type IDs to exclude.
      * 
      */
-    @Import(name="userTypesExcludeds")
-    private @Nullable Output<List<String>> userTypesExcludeds;
+    @Import(name="userTypesExcluded")
+    private @Nullable Output<List<String>> userTypesExcluded;
 
     /**
      * @return Set of user type IDs to exclude.
      * 
      */
-    public Optional<Output<List<String>>> userTypesExcludeds() {
-        return Optional.ofNullable(this.userTypesExcludeds);
+    public Optional<Output<List<String>>> userTypesExcluded() {
+        return Optional.ofNullable(this.userTypesExcluded);
     }
 
     /**
      * Set of user type IDs to include.
      * 
      */
-    @Import(name="userTypesIncludeds")
-    private @Nullable Output<List<String>> userTypesIncludeds;
+    @Import(name="userTypesIncluded")
+    private @Nullable Output<List<String>> userTypesIncluded;
 
     /**
      * @return Set of user type IDs to include.
      * 
      */
-    public Optional<Output<List<String>>> userTypesIncludeds() {
-        return Optional.ofNullable(this.userTypesIncludeds);
+    public Optional<Output<List<String>>> userTypesIncluded() {
+        return Optional.ofNullable(this.userTypesIncluded);
     }
 
     /**
      * Set of user IDs to exclude from this rule.
      * 
      */
-    @Import(name="usersExcludeds")
-    private @Nullable Output<List<String>> usersExcludeds;
+    @Import(name="usersExcluded")
+    private @Nullable Output<List<String>> usersExcluded;
 
     /**
      * @return Set of user IDs to exclude from this rule.
      * 
      */
-    public Optional<Output<List<String>>> usersExcludeds() {
-        return Optional.ofNullable(this.usersExcludeds);
+    public Optional<Output<List<String>>> usersExcluded() {
+        return Optional.ofNullable(this.usersExcluded);
     }
 
     /**
      * Set of user IDs to include in this rule.
      * 
      */
-    @Import(name="usersIncludeds")
-    private @Nullable Output<List<String>> usersIncludeds;
+    @Import(name="usersIncluded")
+    private @Nullable Output<List<String>> usersIncluded;
 
     /**
      * @return Set of user IDs to include in this rule.
      * 
      */
-    public Optional<Output<List<String>>> usersIncludeds() {
-        return Optional.ofNullable(this.usersIncludeds);
+    public Optional<Output<List<String>>> usersIncluded() {
+        return Optional.ofNullable(this.usersIncluded);
     }
 
     private SignonPolicyRulesRuleArgs() {}
@@ -448,12 +448,12 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         this.chains = $.chains;
         this.constraints = $.constraints;
         this.customExpression = $.customExpression;
-        this.deviceAssurancesIncludeds = $.deviceAssurancesIncludeds;
+        this.deviceAssurancesIncluded = $.deviceAssurancesIncluded;
         this.deviceIsManaged = $.deviceIsManaged;
         this.deviceIsRegistered = $.deviceIsRegistered;
         this.factorMode = $.factorMode;
-        this.groupsExcludeds = $.groupsExcludeds;
-        this.groupsIncludeds = $.groupsIncludeds;
+        this.groupsExcluded = $.groupsExcluded;
+        this.groupsIncluded = $.groupsIncluded;
         this.id = $.id;
         this.inactivityPeriod = $.inactivityPeriod;
         this.keepMeSignedIn = $.keepMeSignedIn;
@@ -468,10 +468,10 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         this.status = $.status;
         this.system = $.system;
         this.type = $.type;
-        this.userTypesExcludeds = $.userTypesExcludeds;
-        this.userTypesIncludeds = $.userTypesIncludeds;
-        this.usersExcludeds = $.usersExcludeds;
-        this.usersIncludeds = $.usersIncludeds;
+        this.userTypesExcluded = $.userTypesExcluded;
+        this.userTypesIncluded = $.userTypesIncluded;
+        this.usersExcluded = $.usersExcluded;
+        this.usersIncluded = $.usersIncluded;
     }
 
     public static Builder builder() {
@@ -597,34 +597,34 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param deviceAssurancesIncludeds Set of device assurance policy IDs to include.
+         * @param deviceAssurancesIncluded Set of device assurance policy IDs to include.
          * 
          * @return builder
          * 
          */
-        public Builder deviceAssurancesIncludeds(@Nullable Output<List<String>> deviceAssurancesIncludeds) {
-            $.deviceAssurancesIncludeds = deviceAssurancesIncludeds;
+        public Builder deviceAssurancesIncluded(@Nullable Output<List<String>> deviceAssurancesIncluded) {
+            $.deviceAssurancesIncluded = deviceAssurancesIncluded;
             return this;
         }
 
         /**
-         * @param deviceAssurancesIncludeds Set of device assurance policy IDs to include.
+         * @param deviceAssurancesIncluded Set of device assurance policy IDs to include.
          * 
          * @return builder
          * 
          */
-        public Builder deviceAssurancesIncludeds(List<String> deviceAssurancesIncludeds) {
-            return deviceAssurancesIncludeds(Output.of(deviceAssurancesIncludeds));
+        public Builder deviceAssurancesIncluded(List<String> deviceAssurancesIncluded) {
+            return deviceAssurancesIncluded(Output.of(deviceAssurancesIncluded));
         }
 
         /**
-         * @param deviceAssurancesIncludeds Set of device assurance policy IDs to include.
+         * @param deviceAssurancesIncluded Set of device assurance policy IDs to include.
          * 
          * @return builder
          * 
          */
-        public Builder deviceAssurancesIncludeds(String... deviceAssurancesIncludeds) {
-            return deviceAssurancesIncludeds(List.of(deviceAssurancesIncludeds));
+        public Builder deviceAssurancesIncluded(String... deviceAssurancesIncluded) {
+            return deviceAssurancesIncluded(List.of(deviceAssurancesIncluded));
         }
 
         /**
@@ -691,65 +691,65 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param groupsExcludeds Set of group IDs to exclude from this rule.
+         * @param groupsExcluded Set of group IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsExcludeds(@Nullable Output<List<String>> groupsExcludeds) {
-            $.groupsExcludeds = groupsExcludeds;
+        public Builder groupsExcluded(@Nullable Output<List<String>> groupsExcluded) {
+            $.groupsExcluded = groupsExcluded;
             return this;
         }
 
         /**
-         * @param groupsExcludeds Set of group IDs to exclude from this rule.
+         * @param groupsExcluded Set of group IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsExcludeds(List<String> groupsExcludeds) {
-            return groupsExcludeds(Output.of(groupsExcludeds));
+        public Builder groupsExcluded(List<String> groupsExcluded) {
+            return groupsExcluded(Output.of(groupsExcluded));
         }
 
         /**
-         * @param groupsExcludeds Set of group IDs to exclude from this rule.
+         * @param groupsExcluded Set of group IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsExcludeds(String... groupsExcludeds) {
-            return groupsExcludeds(List.of(groupsExcludeds));
+        public Builder groupsExcluded(String... groupsExcluded) {
+            return groupsExcluded(List.of(groupsExcluded));
         }
 
         /**
-         * @param groupsIncludeds Set of group IDs to include in this rule.
+         * @param groupsIncluded Set of group IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(@Nullable Output<List<String>> groupsIncludeds) {
-            $.groupsIncludeds = groupsIncludeds;
+        public Builder groupsIncluded(@Nullable Output<List<String>> groupsIncluded) {
+            $.groupsIncluded = groupsIncluded;
             return this;
         }
 
         /**
-         * @param groupsIncludeds Set of group IDs to include in this rule.
+         * @param groupsIncluded Set of group IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(List<String> groupsIncludeds) {
-            return groupsIncludeds(Output.of(groupsIncludeds));
+        public Builder groupsIncluded(List<String> groupsIncluded) {
+            return groupsIncluded(Output.of(groupsIncluded));
         }
 
         /**
-         * @param groupsIncludeds Set of group IDs to include in this rule.
+         * @param groupsIncluded Set of group IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(String... groupsIncludeds) {
-            return groupsIncludeds(List.of(groupsIncludeds));
+        public Builder groupsIncluded(String... groupsIncluded) {
+            return groupsIncluded(List.of(groupsIncluded));
         }
 
         /**
@@ -1077,127 +1077,127 @@ public final class SignonPolicyRulesRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userTypesExcludeds Set of user type IDs to exclude.
+         * @param userTypesExcluded Set of user type IDs to exclude.
          * 
          * @return builder
          * 
          */
-        public Builder userTypesExcludeds(@Nullable Output<List<String>> userTypesExcludeds) {
-            $.userTypesExcludeds = userTypesExcludeds;
+        public Builder userTypesExcluded(@Nullable Output<List<String>> userTypesExcluded) {
+            $.userTypesExcluded = userTypesExcluded;
             return this;
         }
 
         /**
-         * @param userTypesExcludeds Set of user type IDs to exclude.
+         * @param userTypesExcluded Set of user type IDs to exclude.
          * 
          * @return builder
          * 
          */
-        public Builder userTypesExcludeds(List<String> userTypesExcludeds) {
-            return userTypesExcludeds(Output.of(userTypesExcludeds));
+        public Builder userTypesExcluded(List<String> userTypesExcluded) {
+            return userTypesExcluded(Output.of(userTypesExcluded));
         }
 
         /**
-         * @param userTypesExcludeds Set of user type IDs to exclude.
+         * @param userTypesExcluded Set of user type IDs to exclude.
          * 
          * @return builder
          * 
          */
-        public Builder userTypesExcludeds(String... userTypesExcludeds) {
-            return userTypesExcludeds(List.of(userTypesExcludeds));
+        public Builder userTypesExcluded(String... userTypesExcluded) {
+            return userTypesExcluded(List.of(userTypesExcluded));
         }
 
         /**
-         * @param userTypesIncludeds Set of user type IDs to include.
+         * @param userTypesIncluded Set of user type IDs to include.
          * 
          * @return builder
          * 
          */
-        public Builder userTypesIncludeds(@Nullable Output<List<String>> userTypesIncludeds) {
-            $.userTypesIncludeds = userTypesIncludeds;
+        public Builder userTypesIncluded(@Nullable Output<List<String>> userTypesIncluded) {
+            $.userTypesIncluded = userTypesIncluded;
             return this;
         }
 
         /**
-         * @param userTypesIncludeds Set of user type IDs to include.
+         * @param userTypesIncluded Set of user type IDs to include.
          * 
          * @return builder
          * 
          */
-        public Builder userTypesIncludeds(List<String> userTypesIncludeds) {
-            return userTypesIncludeds(Output.of(userTypesIncludeds));
+        public Builder userTypesIncluded(List<String> userTypesIncluded) {
+            return userTypesIncluded(Output.of(userTypesIncluded));
         }
 
         /**
-         * @param userTypesIncludeds Set of user type IDs to include.
+         * @param userTypesIncluded Set of user type IDs to include.
          * 
          * @return builder
          * 
          */
-        public Builder userTypesIncludeds(String... userTypesIncludeds) {
-            return userTypesIncludeds(List.of(userTypesIncludeds));
+        public Builder userTypesIncluded(String... userTypesIncluded) {
+            return userTypesIncluded(List.of(userTypesIncluded));
         }
 
         /**
-         * @param usersExcludeds Set of user IDs to exclude from this rule.
+         * @param usersExcluded Set of user IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(@Nullable Output<List<String>> usersExcludeds) {
-            $.usersExcludeds = usersExcludeds;
+        public Builder usersExcluded(@Nullable Output<List<String>> usersExcluded) {
+            $.usersExcluded = usersExcluded;
             return this;
         }
 
         /**
-         * @param usersExcludeds Set of user IDs to exclude from this rule.
+         * @param usersExcluded Set of user IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(List<String> usersExcludeds) {
-            return usersExcludeds(Output.of(usersExcludeds));
+        public Builder usersExcluded(List<String> usersExcluded) {
+            return usersExcluded(Output.of(usersExcluded));
         }
 
         /**
-         * @param usersExcludeds Set of user IDs to exclude from this rule.
+         * @param usersExcluded Set of user IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
 
         /**
-         * @param usersIncludeds Set of user IDs to include in this rule.
+         * @param usersIncluded Set of user IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersIncludeds(@Nullable Output<List<String>> usersIncludeds) {
-            $.usersIncludeds = usersIncludeds;
+        public Builder usersIncluded(@Nullable Output<List<String>> usersIncluded) {
+            $.usersIncluded = usersIncluded;
             return this;
         }
 
         /**
-         * @param usersIncludeds Set of user IDs to include in this rule.
+         * @param usersIncluded Set of user IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersIncludeds(List<String> usersIncludeds) {
-            return usersIncludeds(Output.of(usersIncludeds));
+        public Builder usersIncluded(List<String> usersIncluded) {
+            return usersIncluded(Output.of(usersIncluded));
         }
 
         /**
-         * @param usersIncludeds Set of user IDs to include in this rule.
+         * @param usersIncluded Set of user IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersIncludeds(String... usersIncludeds) {
-            return usersIncludeds(List.of(usersIncludeds));
+        public Builder usersIncluded(String... usersIncluded) {
+            return usersIncluded(List.of(usersIncluded));
         }
 
         public SignonPolicyRulesRuleArgs build() {

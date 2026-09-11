@@ -21,8 +21,8 @@ __all__ = ['RulePasswordArgs', 'RulePassword']
 @pulumi.input_type
 class RulePasswordArgs:
     def __init__(__self__, *,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -35,13 +35,13 @@ class RulePasswordArgs:
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RulePassword resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: Set of Group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: Set of Group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: Set of Group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: Set of Group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -54,13 +54,13 @@ class RulePasswordArgs:
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: Set of User IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: Set of User IDs to include in this rule.
         """
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_connection is not None:
@@ -85,34 +85,34 @@ class RulePasswordArgs:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
-        if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
+        if users_included is not None:
+            pulumi.set(__self__, "users_included", users_included)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
-    @groups_excludeds.setter
-    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_excludeds", value)
+    @groups_excluded.setter
+    def groups_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -259,35 +259,35 @@ class RulePasswordArgs:
         pulumi.set(self, "status", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to include in this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 
-    @users_includeds.setter
-    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_includeds", value)
+    @users_included.setter
+    def users_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_included", value)
 
 
 @pulumi.input_type
 class _RulePasswordState:
     def __init__(__self__, *,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -300,13 +300,13 @@ class _RulePasswordState:
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RulePassword resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: Set of Group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: Set of Group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: Set of Group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: Set of Group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -319,13 +319,13 @@ class _RulePasswordState:
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: Set of User IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: Set of User IDs to include in this rule.
         """
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_connection is not None:
@@ -350,34 +350,34 @@ class _RulePasswordState:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
-        if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
+        if users_included is not None:
+            pulumi.set(__self__, "users_included", users_included)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
-    @groups_excludeds.setter
-    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_excludeds", value)
+    @groups_excluded.setter
+    def groups_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of Group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -524,28 +524,28 @@ class _RulePasswordState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to include in this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 
-    @users_includeds.setter
-    def users_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_includeds", value)
+    @users_included.setter
+    def users_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_included", value)
 
 
 @pulumi.type_token("okta:policy/rulePassword:RulePassword")
@@ -554,8 +554,8 @@ class RulePassword(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -568,8 +568,8 @@ class RulePassword(pulumi.CustomResource):
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.
@@ -629,8 +629,8 @@ class RulePassword(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: Set of Group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: Set of Group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: Set of Group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: Set of Group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -643,8 +643,8 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: Set of User IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: Set of User IDs to include in this rule.
         """
         ...
     @overload
@@ -723,8 +723,8 @@ class RulePassword(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -737,8 +737,8 @@ class RulePassword(pulumi.CustomResource):
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -748,8 +748,8 @@ class RulePassword(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RulePasswordArgs.__new__(RulePasswordArgs)
 
-            __props__.__dict__["groups_excludeds"] = groups_excludeds
-            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["groups_excluded"] = groups_excluded
+            __props__.__dict__["groups_included"] = groups_included
             __props__.__dict__["name"] = name
             __props__.__dict__["network_connection"] = network_connection
             __props__.__dict__["network_excludes"] = network_excludes
@@ -762,8 +762,8 @@ class RulePassword(pulumi.CustomResource):
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
-            __props__.__dict__["users_excludeds"] = users_excludeds
-            __props__.__dict__["users_includeds"] = users_includeds
+            __props__.__dict__["users_excluded"] = users_excluded
+            __props__.__dict__["users_included"] = users_included
         super(RulePassword, __self__).__init__(
             'okta:policy/rulePassword:RulePassword',
             resource_name,
@@ -774,8 +774,8 @@ class RulePassword(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_connection: pulumi.Input[Optional[_builtins.str]] = None,
             network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -788,8 +788,8 @@ class RulePassword(pulumi.CustomResource):
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            users_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RulePassword':
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RulePassword':
         """
         Get an existing RulePassword resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -797,8 +797,8 @@ class RulePassword(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: Set of Group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: Set of Group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: Set of Group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: Set of Group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: Required if `network_connection` = `ZONE`. Indicates the network zones to exclude.
@@ -811,15 +811,15 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_includeds: Set of User IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_included: Set of User IDs to include in this rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RulePasswordState.__new__(_RulePasswordState)
 
-        __props__.__dict__["groups_excludeds"] = groups_excludeds
-        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["groups_excluded"] = groups_excluded
+        __props__.__dict__["groups_included"] = groups_included
         __props__.__dict__["name"] = name
         __props__.__dict__["network_connection"] = network_connection
         __props__.__dict__["network_excludes"] = network_excludes
@@ -832,25 +832,25 @@ class RulePassword(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
-        __props__.__dict__["users_excludeds"] = users_excludeds
-        __props__.__dict__["users_includeds"] = users_includeds
+        __props__.__dict__["users_excluded"] = users_excluded
+        __props__.__dict__["users_included"] = users_included
         return RulePassword(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Set of Group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Set of Group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter
@@ -949,18 +949,18 @@ class RulePassword(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Set of User IDs to Exclude
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Set of User IDs to include in this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 

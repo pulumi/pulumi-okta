@@ -6,57 +6,30 @@ package com.pulumi.okta.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetRoleSubscriptionResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
+    private List<String> channels;
     private String id;
-    /**
-     * @return Type of the notification
-     * 
-     */
     private String notificationType;
-    /**
-     * @return Type of the role
-     * 
-     */
-    private String roleType;
-    /**
-     * @return Status of subscription
-     * 
-     */
+    private String roleRef;
     private String status;
 
     private GetRoleSubscriptionResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
+    public List<String> channels() {
+        return this.channels;
+    }
     public String id() {
         return this.id;
     }
-    /**
-     * @return Type of the notification
-     * 
-     */
     public String notificationType() {
         return this.notificationType;
     }
-    /**
-     * @return Type of the role
-     * 
-     */
-    public String roleType() {
-        return this.roleType;
+    public String roleRef() {
+        return this.roleRef;
     }
-    /**
-     * @return Status of subscription
-     * 
-     */
     public String status() {
         return this.status;
     }
@@ -70,19 +43,32 @@ public final class GetRoleSubscriptionResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> channels;
         private String id;
         private String notificationType;
-        private String roleType;
+        private String roleRef;
         private String status;
         public Builder() {}
         public Builder(GetRoleSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.channels = defaults.channels;
     	      this.id = defaults.id;
     	      this.notificationType = defaults.notificationType;
-    	      this.roleType = defaults.roleType;
+    	      this.roleRef = defaults.roleRef;
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
+        public Builder channels(List<String> channels) {
+            if (channels == null) {
+              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "channels");
+            }
+            this.channels = channels;
+            return this;
+        }
+        public Builder channels(String... channels) {
+            return channels(List.of(channels));
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -100,11 +86,11 @@ public final class GetRoleSubscriptionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder roleType(String roleType) {
-            if (roleType == null) {
-              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "roleType");
+        public Builder roleRef(String roleRef) {
+            if (roleRef == null) {
+              throw new MissingRequiredPropertyException("GetRoleSubscriptionResult", "roleRef");
             }
-            this.roleType = roleType;
+            this.roleRef = roleRef;
             return this;
         }
         @CustomType.Setter
@@ -117,9 +103,10 @@ public final class GetRoleSubscriptionResult {
         }
         public GetRoleSubscriptionResult build() {
             final var _resultValue = new GetRoleSubscriptionResult();
+            _resultValue.channels = channels;
             _resultValue.id = id;
             _resultValue.notificationType = notificationType;
-            _resultValue.roleType = roleType;
+            _resultValue.roleRef = roleRef;
             _resultValue.status = status;
             return _resultValue;
         }

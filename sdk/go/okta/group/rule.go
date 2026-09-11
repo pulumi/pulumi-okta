@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/group"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/group"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +71,7 @@ type Rule struct {
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The list of user IDs that would be excluded when rules are processed
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -123,7 +123,7 @@ type ruleState struct {
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The list of user IDs that would be excluded when rules are processed
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 type RuleState struct {
@@ -140,7 +140,7 @@ type RuleState struct {
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The list of user IDs that would be excluded when rules are processed
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -161,7 +161,7 @@ type ruleArgs struct {
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The list of user IDs that would be excluded when rules are processed
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -179,7 +179,7 @@ type RuleArgs struct {
 	// Default to `ACTIVE`
 	Status pulumi.StringPtrInput
 	// The list of user IDs that would be excluded when rules are processed
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {
@@ -300,8 +300,8 @@ func (o RuleOutput) Status() pulumi.StringPtrOutput {
 }
 
 // The list of user IDs that would be excluded when rules are processed
-func (o RuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o RuleOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 type RuleArrayOutput struct{ *pulumi.OutputState }

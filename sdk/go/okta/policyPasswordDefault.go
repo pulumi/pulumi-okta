@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/policy"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -37,7 +37,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			custom, err := policy.NewPassword(ctx, "custom", &policy.PasswordArgs{
 //				Name: pulumi.String("Custom Password Policy"),
-//				GroupsIncludeds: pulumi.StringArray{
+//				GroupsIncluded: pulumi.StringArray{
 //					example.Id,
 //				},
 //				Status:   pulumi.String("ACTIVE"),

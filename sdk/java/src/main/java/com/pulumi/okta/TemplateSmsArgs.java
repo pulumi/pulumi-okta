@@ -5,10 +5,8 @@ package com.pulumi.okta;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
-import com.pulumi.okta.inputs.TemplateSmsTranslationArgs;
 import java.lang.String;
-import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,53 +17,69 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
     public static final TemplateSmsArgs Empty = new TemplateSmsArgs();
 
     /**
-     * SMS default template
+     * Human-readable name of the Template
      * 
      */
-    @Import(name="template", required=true)
-    private Output<String> template;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
-     * @return SMS default template
+     * @return Human-readable name of the Template
      * 
      */
-    public Output<String> template() {
-        return this.template;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
-     * Set of translations for a particular template.
+     * Text of the Template, including any macros
+     * 
+     */
+    @Import(name="template")
+    private @Nullable Output<String> template;
+
+    /**
+     * @return Text of the Template, including any macros
+     * 
+     */
+    public Optional<Output<String>> template() {
+        return Optional.ofNullable(this.template);
+    }
+
+    /**
+     * Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
      * 
      */
     @Import(name="translations")
-    private @Nullable Output<List<TemplateSmsTranslationArgs>> translations;
+    private @Nullable Output<Map<String,String>> translations;
 
     /**
-     * @return Set of translations for a particular template.
+     * @return Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
      * 
      */
-    public Optional<Output<List<TemplateSmsTranslationArgs>>> translations() {
+    public Optional<Output<Map<String,String>>> translations() {
         return Optional.ofNullable(this.translations);
     }
 
     /**
-     * SMS template type
+     * Type of the Template
      * 
      */
-    @Import(name="type", required=true)
-    private Output<String> type;
+    @Import(name="type")
+    private @Nullable Output<String> type;
 
     /**
-     * @return SMS template type
+     * @return Type of the Template
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
     }
 
     private TemplateSmsArgs() {}
 
     private TemplateSmsArgs(TemplateSmsArgs $) {
+        this.name = $.name;
         this.template = $.template;
         this.translations = $.translations;
         this.type = $.type;
@@ -90,18 +104,39 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template SMS default template
+         * @param name Human-readable name of the Template
          * 
          * @return builder
          * 
          */
-        public Builder template(Output<String> template) {
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Human-readable name of the Template
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
+        /**
+         * @param template Text of the Template, including any macros
+         * 
+         * @return builder
+         * 
+         */
+        public Builder template(@Nullable Output<String> template) {
             $.template = template;
             return this;
         }
 
         /**
-         * @param template SMS default template
+         * @param template Text of the Template, including any macros
          * 
          * @return builder
          * 
@@ -111,49 +146,39 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param translations Set of translations for a particular template.
+         * @param translations Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
          * 
          * @return builder
          * 
          */
-        public Builder translations(@Nullable Output<List<TemplateSmsTranslationArgs>> translations) {
+        public Builder translations(@Nullable Output<Map<String,String>> translations) {
             $.translations = translations;
             return this;
         }
 
         /**
-         * @param translations Set of translations for a particular template.
+         * @param translations Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
          * 
          * @return builder
          * 
          */
-        public Builder translations(List<TemplateSmsTranslationArgs> translations) {
+        public Builder translations(Map<String,String> translations) {
             return translations(Output.of(translations));
         }
 
         /**
-         * @param translations Set of translations for a particular template.
+         * @param type Type of the Template
          * 
          * @return builder
          * 
          */
-        public Builder translations(TemplateSmsTranslationArgs... translations) {
-            return translations(List.of(translations));
-        }
-
-        /**
-         * @param type SMS template type
-         * 
-         * @return builder
-         * 
-         */
-        public Builder type(Output<String> type) {
+        public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
         /**
-         * @param type SMS template type
+         * @param type Type of the Template
          * 
          * @return builder
          * 
@@ -163,12 +188,6 @@ public final class TemplateSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TemplateSmsArgs build() {
-            if ($.template == null) {
-                throw new MissingRequiredPropertyException("TemplateSmsArgs", "template");
-            }
-            if ($.type == null) {
-                throw new MissingRequiredPropertyException("TemplateSmsArgs", "type");
-            }
             return $;
         }
     }

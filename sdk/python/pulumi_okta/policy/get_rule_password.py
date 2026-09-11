@@ -27,13 +27,13 @@ class GetRulePasswordResult:
     """
     A collection of values returned by getRulePassword.
     """
-    def __init__(__self__, groups_excludeds=None, groups_includeds=None, id=None, name=None, network_connection=None, network_excludes=None, network_includes=None, password_change=None, password_reset=None, password_reset_access_control=None, password_reset_requirements=None, password_unlock=None, policy_id=None, priority=None, status=None, users_excludeds=None, users_includeds=None):
-        if groups_excludeds and not isinstance(groups_excludeds, list):
-            raise TypeError("Expected argument 'groups_excludeds' to be a list")
-        pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds and not isinstance(groups_includeds, list):
-            raise TypeError("Expected argument 'groups_includeds' to be a list")
-        pulumi.set(__self__, "groups_includeds", groups_includeds)
+    def __init__(__self__, groups_excluded=None, groups_included=None, id=None, name=None, network_connection=None, network_excludes=None, network_includes=None, password_change=None, password_reset=None, password_reset_access_control=None, password_reset_requirements=None, password_unlock=None, policy_id=None, priority=None, status=None, users_excluded=None, users_included=None):
+        if groups_excluded and not isinstance(groups_excluded, list):
+            raise TypeError("Expected argument 'groups_excluded' to be a list")
+        pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included and not isinstance(groups_included, list):
+            raise TypeError("Expected argument 'groups_included' to be a list")
+        pulumi.set(__self__, "groups_included", groups_included)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -73,22 +73,22 @@ class GetRulePasswordResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if users_excludeds and not isinstance(users_excludeds, list):
-            raise TypeError("Expected argument 'users_excludeds' to be a list")
-        pulumi.set(__self__, "users_excludeds", users_excludeds)
-        if users_includeds and not isinstance(users_includeds, list):
-            raise TypeError("Expected argument 'users_includeds' to be a list")
-        pulumi.set(__self__, "users_includeds", users_includeds)
+        if users_excluded and not isinstance(users_excluded, list):
+            raise TypeError("Expected argument 'users_excluded' to be a list")
+        pulumi.set(__self__, "users_excluded", users_excluded)
+        if users_included and not isinstance(users_included, list):
+            raise TypeError("Expected argument 'users_included' to be a list")
+        pulumi.set(__self__, "users_included", users_included)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "groups_excludeds")
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "groups_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "groups_includeds")
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter
@@ -195,17 +195,17 @@ class GetRulePasswordResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Sequence[_builtins.str]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> Sequence[_builtins.str]:
         """
         User IDs excluded from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "users_includeds")
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "users_included")
 
 
 class AwaitableGetRulePasswordResult(GetRulePasswordResult):
@@ -214,8 +214,8 @@ class AwaitableGetRulePasswordResult(GetRulePasswordResult):
         if False:
             yield self
         return GetRulePasswordResult(
-            groups_excludeds=self.groups_excludeds,
-            groups_includeds=self.groups_includeds,
+            groups_excluded=self.groups_excluded,
+            groups_included=self.groups_included,
             id=self.id,
             name=self.name,
             network_connection=self.network_connection,
@@ -229,8 +229,8 @@ class AwaitableGetRulePasswordResult(GetRulePasswordResult):
             policy_id=self.policy_id,
             priority=self.priority,
             status=self.status,
-            users_excludeds=self.users_excludeds,
-            users_includeds=self.users_includeds)
+            users_excluded=self.users_excluded,
+            users_included=self.users_included)
 
 
 def get_rule_password(id: Optional[_builtins.str] = None,
@@ -267,8 +267,8 @@ def get_rule_password(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('okta:policy/getRulePassword:getRulePassword', __args__, opts=opts, typ=GetRulePasswordResult).value
 
     return AwaitableGetRulePasswordResult(
-        groups_excludeds=pulumi.get(__ret__, 'groups_excludeds'),
-        groups_includeds=pulumi.get(__ret__, 'groups_includeds'),
+        groups_excluded=pulumi.get(__ret__, 'groups_excluded'),
+        groups_included=pulumi.get(__ret__, 'groups_included'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_connection=pulumi.get(__ret__, 'network_connection'),
@@ -282,8 +282,8 @@ def get_rule_password(id: Optional[_builtins.str] = None,
         policy_id=pulumi.get(__ret__, 'policy_id'),
         priority=pulumi.get(__ret__, 'priority'),
         status=pulumi.get(__ret__, 'status'),
-        users_excludeds=pulumi.get(__ret__, 'users_excludeds'),
-        users_includeds=pulumi.get(__ret__, 'users_includeds'))
+        users_excluded=pulumi.get(__ret__, 'users_excluded'),
+        users_included=pulumi.get(__ret__, 'users_included'))
 def get_rule_password_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                              name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -317,8 +317,8 @@ def get_rule_password_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:policy/getRulePassword:getRulePassword', __args__, opts=opts, typ=GetRulePasswordResult)
     return __ret__.apply(lambda __response__: GetRulePasswordResult(
-        groups_excludeds=pulumi.get(__response__, 'groups_excludeds'),
-        groups_includeds=pulumi.get(__response__, 'groups_includeds'),
+        groups_excluded=pulumi.get(__response__, 'groups_excluded'),
+        groups_included=pulumi.get(__response__, 'groups_included'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         network_connection=pulumi.get(__response__, 'network_connection'),
@@ -332,5 +332,5 @@ def get_rule_password_output(id: pulumi.Input[Optional[_builtins.str]] = None,
         policy_id=pulumi.get(__response__, 'policy_id'),
         priority=pulumi.get(__response__, 'priority'),
         status=pulumi.get(__response__, 'status'),
-        users_excludeds=pulumi.get(__response__, 'users_excludeds'),
-        users_includeds=pulumi.get(__response__, 'users_includeds')))
+        users_excluded=pulumi.get(__response__, 'users_excluded'),
+        users_included=pulumi.get(__response__, 'users_included')))

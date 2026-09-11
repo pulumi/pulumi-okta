@@ -61,7 +61,7 @@ export class Mfa extends pulumi.CustomResource {
     /**
      * List of Group IDs to Include
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     declare public readonly hotp: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
@@ -117,7 +117,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["fidoU2f"] = state?.fidoU2f;
             resourceInputs["fidoWebauthn"] = state?.fidoWebauthn;
             resourceInputs["googleOtp"] = state?.googleOtp;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["hotp"] = state?.hotp;
             resourceInputs["isOie"] = state?.isOie;
             resourceInputs["name"] = state?.name;
@@ -149,7 +149,7 @@ export class Mfa extends pulumi.CustomResource {
             resourceInputs["fidoU2f"] = args?.fidoU2f;
             resourceInputs["fidoWebauthn"] = args?.fidoWebauthn;
             resourceInputs["googleOtp"] = args?.googleOtp;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["hotp"] = args?.hotp;
             resourceInputs["isOie"] = args?.isOie;
             resourceInputs["name"] = args?.name;
@@ -201,7 +201,7 @@ export interface MfaState {
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
@@ -261,7 +261,7 @@ export interface MfaArgs {
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     hotp?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?

@@ -59,8 +59,8 @@ export interface GetRulePasswordArgs {
  * A collection of values returned by getRulePassword.
  */
 export interface GetRulePasswordResult {
-    readonly groupsExcludeds: string[];
-    readonly groupsIncludeds: string[];
+    readonly groupsExcluded: string[];
+    readonly groupsIncluded: string[];
     /**
      * The ID of this resource.
      */
@@ -116,8 +116,8 @@ export interface GetRulePasswordResult {
     /**
      * User IDs excluded from this rule.
      */
-    readonly usersExcludeds: string[];
-    readonly usersIncludeds: string[];
+    readonly usersExcluded: string[];
+    readonly usersIncluded: string[];
 }
 /**
  * Get a Password Policy Rule from Okta.

@@ -10,9 +10,8 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.okta.TemplateSmsArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.TemplateSmsState;
-import com.pulumi.okta.outputs.TemplateSmsTranslation;
 import java.lang.String;
-import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -30,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.okta.TemplateSms;
  * import com.pulumi.okta.TemplateSmsArgs;
- * import com.pulumi.okta.inputs.TemplateSmsTranslationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -47,15 +45,10 @@ import javax.annotation.Nullable;
  *         var example = new TemplateSms("example", TemplateSmsArgs.builder()
  *             .type("SMS_VERIFY_CODE")
  *             .template("Your ${org.name} code is: ${code}")
- *             .translations(            
- *                 TemplateSmsTranslationArgs.builder()
- *                     .language("en")
- *                     .template("Your ${org.name} code is: ${code}")
- *                     .build(),
- *                 TemplateSmsTranslationArgs.builder()
- *                     .language("es")
- *                     .template("Tu código de ${org.name} es: ${code}.")
- *                     .build())
+ *             .translations(Map.ofEntries(
+ *                 Map.entry("en", "Your ${org.name} code is: ${code}"),
+ *                 Map.entry("es", "Tu código de ${org.name} es: ${code}.")
+ *             ))
  *             .build());
  * 
  *     }
@@ -66,53 +59,95 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import okta:index/templateSms:TemplateSms example &lt;template_type&gt;
+ * $ pulumi import okta:index/templateSms:TemplateSms example &lt;id&gt;
  * ```
  * 
  */
 @ResourceType(type="okta:index/templateSms:TemplateSms")
 public class TemplateSms extends com.pulumi.resources.CustomResource {
     /**
-     * SMS default template
+     * Created
+     * 
+     */
+    @Export(name="created", refs={String.class}, tree="[0]")
+    private Output<String> created;
+
+    /**
+     * @return Created
+     * 
+     */
+    public Output<String> created() {
+        return this.created;
+    }
+    /**
+     * LastUpdated
+     * 
+     */
+    @Export(name="lastUpdated", refs={String.class}, tree="[0]")
+    private Output<String> lastUpdated;
+
+    /**
+     * @return LastUpdated
+     * 
+     */
+    public Output<String> lastUpdated() {
+        return this.lastUpdated;
+    }
+    /**
+     * Human-readable name of the Template
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return Human-readable name of the Template
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
+    }
+    /**
+     * Text of the Template, including any macros
      * 
      */
     @Export(name="template", refs={String.class}, tree="[0]")
-    private Output<String> template;
+    private Output</* @Nullable */ String> template;
 
     /**
-     * @return SMS default template
+     * @return Text of the Template, including any macros
      * 
      */
-    public Output<String> template() {
-        return this.template;
+    public Output<Optional<String>> template() {
+        return Codegen.optional(this.template);
     }
     /**
-     * Set of translations for a particular template.
+     * Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
      * 
      */
-    @Export(name="translations", refs={List.class,TemplateSmsTranslation.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TemplateSmsTranslation>> translations;
+    @Export(name="translations", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> translations;
 
     /**
-     * @return Set of translations for a particular template.
+     * @return Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
      * 
      */
-    public Output<Optional<List<TemplateSmsTranslation>>> translations() {
+    public Output<Optional<Map<String,String>>> translations() {
         return Codegen.optional(this.translations);
     }
     /**
-     * SMS template type
+     * Type of the Template
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
+    private Output</* @Nullable */ String> type;
 
     /**
-     * @return SMS template type
+     * @return Type of the Template
      * 
      */
-    public Output<String> type() {
-        return this.type;
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**
@@ -127,7 +162,7 @@ public class TemplateSms extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TemplateSms(java.lang.String name, TemplateSmsArgs args) {
+    public TemplateSms(java.lang.String name, @Nullable TemplateSmsArgs args) {
         this(name, args, null);
     }
     /**
@@ -136,7 +171,7 @@ public class TemplateSms extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TemplateSms(java.lang.String name, TemplateSmsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public TemplateSms(java.lang.String name, @Nullable TemplateSmsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("okta:index/templateSms:TemplateSms", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -144,7 +179,7 @@ public class TemplateSms extends com.pulumi.resources.CustomResource {
         super("okta:index/templateSms:TemplateSms", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static TemplateSmsArgs makeArgs(TemplateSmsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static TemplateSmsArgs makeArgs(@Nullable TemplateSmsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

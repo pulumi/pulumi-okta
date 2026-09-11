@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  *             .name("Privileged Users - High Risk")
  *             .riskLevel("HIGH")
  *             .terminateAllSessions(true)
- *             .groupsIncludeds(privilegedUsers.id())
+ *             .groupsIncluded(privilegedUsers.id())
  *             .build());
  * 
  *     }
@@ -163,29 +163,29 @@ public class EntityRiskPolicyRule extends com.pulumi.resources.CustomResource {
      * List of group IDs to exclude from this rule.
      * 
      */
-    @Export(name="groupsExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsExcludeds;
+    @Export(name="groupsExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsExcluded;
 
     /**
      * @return List of group IDs to exclude from this rule.
      * 
      */
-    public Output<Optional<List<String>>> groupsExcludeds() {
-        return Codegen.optional(this.groupsExcludeds);
+    public Output<Optional<List<String>>> groupsExcluded() {
+        return Codegen.optional(this.groupsExcluded);
     }
     /**
      * List of group IDs to include in this rule.
      * 
      */
-    @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsIncludeds;
+    @Export(name="groupsIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsIncluded;
 
     /**
      * @return List of group IDs to include in this rule.
      * 
      */
-    public Output<Optional<List<String>>> groupsIncludeds() {
-        return Codegen.optional(this.groupsIncludeds);
+    public Output<Optional<List<String>>> groupsIncluded() {
+        return Codegen.optional(this.groupsIncluded);
     }
     /**
      * Name of the policy rule.
@@ -275,29 +275,29 @@ public class EntityRiskPolicyRule extends com.pulumi.resources.CustomResource {
      * List of user IDs to exclude from this rule.
      * 
      */
-    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersExcludeds;
+    @Export(name="usersExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersExcluded;
 
     /**
      * @return List of user IDs to exclude from this rule.
      * 
      */
-    public Output<Optional<List<String>>> usersExcludeds() {
-        return Codegen.optional(this.usersExcludeds);
+    public Output<Optional<List<String>>> usersExcluded() {
+        return Codegen.optional(this.usersExcluded);
     }
     /**
      * List of user IDs to include from this rule.
      * 
      */
-    @Export(name="usersIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersIncludeds;
+    @Export(name="usersIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersIncluded;
 
     /**
      * @return List of user IDs to include from this rule.
      * 
      */
-    public Output<Optional<List<String>>> usersIncludeds() {
-        return Codegen.optional(this.usersIncludeds);
+    public Output<Optional<List<String>>> usersIncluded() {
+        return Codegen.optional(this.usersIncluded);
     }
     /**
      * ID of the Okta Workflow to run when a risk event is detected.

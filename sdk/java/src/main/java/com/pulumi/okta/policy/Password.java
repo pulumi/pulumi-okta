@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .status("ACTIVE")
  *             .description("Example")
  *             .passwordHistoryCount(4)
- *             .groupsIncludeds(everyone.id())
+ *             .groupsIncluded(everyone.id())
  *             .build());
  * 
  *     }
@@ -168,15 +168,15 @@ public class Password extends com.pulumi.resources.CustomResource {
      * List of Group IDs to Include
      * 
      */
-    @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsIncludeds;
+    @Export(name="groupsIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsIncluded;
 
     /**
      * @return List of Group IDs to Include
      * 
      */
-    public Output<Optional<List<String>>> groupsIncludeds() {
-        return Codegen.optional(this.groupsIncludeds);
+    public Output<Optional<List<String>>> groupsIncluded() {
+        return Codegen.optional(this.groupsIncluded);
     }
     /**
      * Policy Name

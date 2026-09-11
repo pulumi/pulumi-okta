@@ -126,29 +126,29 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      * Set of Group IDs to exclude from this rule.
      * 
      */
-    @Export(name="groupsExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsExcludeds;
+    @Export(name="groupsExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsExcluded;
 
     /**
      * @return Set of Group IDs to exclude from this rule.
      * 
      */
-    public Output<Optional<List<String>>> groupsExcludeds() {
-        return Codegen.optional(this.groupsExcludeds);
+    public Output<Optional<List<String>>> groupsExcluded() {
+        return Codegen.optional(this.groupsExcluded);
     }
     /**
      * Set of Group IDs to include in this rule.
      * 
      */
-    @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsIncludeds;
+    @Export(name="groupsIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsIncluded;
 
     /**
      * @return Set of Group IDs to include in this rule.
      * 
      */
-    public Output<Optional<List<String>>> groupsIncludeds() {
-        return Codegen.optional(this.groupsIncludeds);
+    public Output<Optional<List<String>>> groupsIncluded() {
+        return Codegen.optional(this.groupsIncluded);
     }
     /**
      * Policy Rule Name
@@ -322,29 +322,29 @@ public class RulePassword extends com.pulumi.resources.CustomResource {
      * Set of User IDs to Exclude
      * 
      */
-    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersExcludeds;
+    @Export(name="usersExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersExcluded;
 
     /**
      * @return Set of User IDs to Exclude
      * 
      */
-    public Output<Optional<List<String>>> usersExcludeds() {
-        return Codegen.optional(this.usersExcludeds);
+    public Output<Optional<List<String>>> usersExcluded() {
+        return Codegen.optional(this.usersExcluded);
     }
     /**
      * Set of User IDs to include in this rule.
      * 
      */
-    @Export(name="usersIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersIncludeds;
+    @Export(name="usersIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersIncluded;
 
     /**
      * @return Set of User IDs to include in this rule.
      * 
      */
-    public Output<Optional<List<String>>> usersIncludeds() {
-        return Codegen.optional(this.usersIncludeds);
+    public Output<Optional<List<String>>> usersIncluded() {
+        return Codegen.optional(this.usersIncluded);
     }
 
     /**
