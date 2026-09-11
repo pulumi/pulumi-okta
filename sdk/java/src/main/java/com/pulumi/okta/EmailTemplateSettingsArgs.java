@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EmailTemplateSettingsArgs extends com.pulumi.resources.ResourceArgs {
@@ -33,15 +35,15 @@ public final class EmailTemplateSettingsArgs extends com.pulumi.resources.Resour
      * The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
      * 
      */
-    @Import(name="recipients", required=true)
-    private Output<String> recipients;
+    @Import(name="recipients")
+    private @Nullable Output<String> recipients;
 
     /**
      * @return The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
      * 
      */
-    public Output<String> recipients() {
-        return this.recipients;
+    public Optional<Output<String>> recipients() {
+        return Optional.ofNullable(this.recipients);
     }
 
     /**
@@ -112,7 +114,7 @@ public final class EmailTemplateSettingsArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder recipients(Output<String> recipients) {
+        public Builder recipients(@Nullable Output<String> recipients) {
             $.recipients = recipients;
             return this;
         }
@@ -151,9 +153,6 @@ public final class EmailTemplateSettingsArgs extends com.pulumi.resources.Resour
         public EmailTemplateSettingsArgs build() {
             if ($.brandId == null) {
                 throw new MissingRequiredPropertyException("EmailTemplateSettingsArgs", "brandId");
-            }
-            if ($.recipients == null) {
-                throw new MissingRequiredPropertyException("EmailTemplateSettingsArgs", "recipients");
             }
             if ($.templateName == null) {
                 throw new MissingRequiredPropertyException("EmailTemplateSettingsArgs", "templateName");

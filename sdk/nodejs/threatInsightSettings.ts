@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  * });
  * const example = new okta.ThreatInsightSettings("example", {
  *     action: "block",
- *     networkExcludes: [ipNetworkZoneExample.id],
+ *     excludeZones: [ipNetworkZoneExample.id],
  * });
  * ```
  *
@@ -70,9 +70,17 @@ export class ThreatInsightSettings extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<string>;
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * Timestamp when the ThreatInsight Configuration object was created.
      */
-    declare public readonly networkExcludes: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
+    /**
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+     */
+    declare public readonly excludeZones: pulumi.Output<string[] | undefined>;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was last updated.
+     */
+    declare public /*out*/ readonly lastUpdated: pulumi.Output<string>;
 
     /**
      * Create a ThreatInsightSettings resource with the given unique name, arguments, and options.
@@ -88,14 +96,18 @@ export class ThreatInsightSettings extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ThreatInsightSettingsState | undefined;
             resourceInputs["action"] = state?.action;
-            resourceInputs["networkExcludes"] = state?.networkExcludes;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["excludeZones"] = state?.excludeZones;
+            resourceInputs["lastUpdated"] = state?.lastUpdated;
         } else {
             const args = argsOrState as ThreatInsightSettingsArgs | undefined;
             if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
             resourceInputs["action"] = args?.action;
-            resourceInputs["networkExcludes"] = args?.networkExcludes;
+            resourceInputs["excludeZones"] = args?.excludeZones;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastUpdated"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ThreatInsightSettings.__pulumiType, name, resourceInputs, opts);
@@ -111,9 +123,17 @@ export interface ThreatInsightSettingsState {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * Timestamp when the ThreatInsight Configuration object was created.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    created?: pulumi.Input<string | undefined>;
+    /**
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+     */
+    excludeZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was last updated.
+     */
+    lastUpdated?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -125,7 +145,7 @@ export interface ThreatInsightSettingsArgs {
      */
     action: pulumi.Input<string>;
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
      */
-    networkExcludes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    excludeZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

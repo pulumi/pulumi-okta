@@ -10,6 +10,11 @@ export const getRisk: typeof import("./getRisk").getRisk = null as any;
 export const getRiskOutput: typeof import("./getRisk").getRiskOutput = null as any;
 utilities.lazyLoad(exports, ["getRisk","getRiskOutput"], () => require("./getRisk"));
 
+export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
+export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
+export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -35,6 +40,11 @@ export type Risk = import("./risk").Risk;
 export const Risk: typeof import("./risk").Risk = null as any;
 utilities.lazyLoad(exports, ["Risk"], () => require("./risk"));
 
+export { SubscriptionArgs, SubscriptionState } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -52,6 +62,8 @@ const _module = {
         switch (type) {
             case "okta:user/risk:Risk":
                 return new Risk(name, <any>undefined, { urn })
+            case "okta:user/subscription:Subscription":
+                return new Subscription(name, <any>undefined, { urn })
             case "okta:user/user:User":
                 return new User(name, <any>undefined, { urn })
             case "okta:user/userType:UserType":
@@ -62,5 +74,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("okta", "user/risk", _module)
+pulumi.runtime.registerResourceModule("okta", "user/subscription", _module)
 pulumi.runtime.registerResourceModule("okta", "user/user", _module)
 pulumi.runtime.registerResourceModule("okta", "user/userType", _module)

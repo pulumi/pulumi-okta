@@ -7,8 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,15 +30,9 @@ import (
 //			_, err := okta.NewTemplateSms(ctx, "example", &okta.TemplateSmsArgs{
 //				Type:     pulumi.String("SMS_VERIFY_CODE"),
 //				Template: pulumi.String("Your ${org.name} code is: ${code}"),
-//				Translations: okta.TemplateSmsTranslationArray{
-//					&okta.TemplateSmsTranslationArgs{
-//						Language: pulumi.String("en"),
-//						Template: pulumi.String("Your ${org.name} code is: ${code}"),
-//					},
-//					&okta.TemplateSmsTranslationArgs{
-//						Language: pulumi.String("es"),
-//						Template: pulumi.String("Tu código de ${org.name} es: ${code}."),
-//					},
+//				Translations: pulumi.StringMap{
+//					"en": pulumi.String("Your ${org.name} code is: ${code}"),
+//					"es": pulumi.String("Tu código de ${org.name} es: ${code}."),
 //				},
 //			})
 //			if err != nil {
@@ -54,32 +47,32 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/templateSms:TemplateSms example <template_type>
+// $ pulumi import okta:index/templateSms:TemplateSms example <id>
 // ```
 type TemplateSms struct {
 	pulumi.CustomResourceState
 
-	// SMS default template
-	Template pulumi.StringOutput `pulumi:"template"`
-	// Set of translations for a particular template.
-	Translations TemplateSmsTranslationArrayOutput `pulumi:"translations"`
-	// SMS template type
-	Type pulumi.StringOutput `pulumi:"type"`
+	// Created
+	Created pulumi.StringOutput `pulumi:"created"`
+	// LastUpdated
+	LastUpdated pulumi.StringOutput `pulumi:"lastUpdated"`
+	// Human-readable name of the Template
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Text of the Template, including any macros
+	Template pulumi.StringPtrOutput `pulumi:"template"`
+	// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+	Translations pulumi.StringMapOutput `pulumi:"translations"`
+	// Type of the Template
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewTemplateSms registers a new resource with the given unique name, arguments, and options.
 func NewTemplateSms(ctx *pulumi.Context,
 	name string, args *TemplateSmsArgs, opts ...pulumi.ResourceOption) (*TemplateSms, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TemplateSmsArgs{}
 	}
 
-	if args.Template == nil {
-		return nil, errors.New("invalid value for required argument 'Template'")
-	}
-	if args.Type == nil {
-		return nil, errors.New("invalid value for required argument 'Type'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TemplateSms
 	err := ctx.RegisterResource("okta:index/templateSms:TemplateSms", name, args, &resource, opts...)
@@ -103,20 +96,32 @@ func GetTemplateSms(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSms resources.
 type templateSmsState struct {
-	// SMS default template
+	// Created
+	Created *string `pulumi:"created"`
+	// LastUpdated
+	LastUpdated *string `pulumi:"lastUpdated"`
+	// Human-readable name of the Template
+	Name *string `pulumi:"name"`
+	// Text of the Template, including any macros
 	Template *string `pulumi:"template"`
-	// Set of translations for a particular template.
-	Translations []TemplateSmsTranslation `pulumi:"translations"`
-	// SMS template type
+	// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+	Translations map[string]string `pulumi:"translations"`
+	// Type of the Template
 	Type *string `pulumi:"type"`
 }
 
 type TemplateSmsState struct {
-	// SMS default template
+	// Created
+	Created pulumi.StringPtrInput
+	// LastUpdated
+	LastUpdated pulumi.StringPtrInput
+	// Human-readable name of the Template
+	Name pulumi.StringPtrInput
+	// Text of the Template, including any macros
 	Template pulumi.StringPtrInput
-	// Set of translations for a particular template.
-	Translations TemplateSmsTranslationArrayInput
-	// SMS template type
+	// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+	Translations pulumi.StringMapInput
+	// Type of the Template
 	Type pulumi.StringPtrInput
 }
 
@@ -125,22 +130,26 @@ func (TemplateSmsState) ElementType() reflect.Type {
 }
 
 type templateSmsArgs struct {
-	// SMS default template
-	Template string `pulumi:"template"`
-	// Set of translations for a particular template.
-	Translations []TemplateSmsTranslation `pulumi:"translations"`
-	// SMS template type
-	Type string `pulumi:"type"`
+	// Human-readable name of the Template
+	Name *string `pulumi:"name"`
+	// Text of the Template, including any macros
+	Template *string `pulumi:"template"`
+	// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+	Translations map[string]string `pulumi:"translations"`
+	// Type of the Template
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a TemplateSms resource.
 type TemplateSmsArgs struct {
-	// SMS default template
-	Template pulumi.StringInput
-	// Set of translations for a particular template.
-	Translations TemplateSmsTranslationArrayInput
-	// SMS template type
-	Type pulumi.StringInput
+	// Human-readable name of the Template
+	Name pulumi.StringPtrInput
+	// Text of the Template, including any macros
+	Template pulumi.StringPtrInput
+	// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+	Translations pulumi.StringMapInput
+	// Type of the Template
+	Type pulumi.StringPtrInput
 }
 
 func (TemplateSmsArgs) ElementType() reflect.Type {
@@ -230,19 +239,34 @@ func (o TemplateSmsOutput) ToTemplateSmsOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// SMS default template
-func (o TemplateSmsOutput) Template() pulumi.StringOutput {
-	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
+// Created
+func (o TemplateSmsOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
 }
 
-// Set of translations for a particular template.
-func (o TemplateSmsOutput) Translations() TemplateSmsTranslationArrayOutput {
-	return o.ApplyT(func(v *TemplateSms) TemplateSmsTranslationArrayOutput { return v.Translations }).(TemplateSmsTranslationArrayOutput)
+// LastUpdated
+func (o TemplateSmsOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
-// SMS template type
-func (o TemplateSmsOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+// Human-readable name of the Template
+func (o TemplateSmsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Text of the Template, including any macros
+func (o TemplateSmsOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+func (o TemplateSmsOutput) Translations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringMapOutput { return v.Translations }).(pulumi.StringMapOutput)
+}
+
+// Type of the Template
+func (o TemplateSmsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSms) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type TemplateSmsArrayOutput struct{ *pulumi.OutputState }

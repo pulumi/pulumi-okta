@@ -61,7 +61,7 @@ export class EmailTemplateSettings extends pulumi.CustomResource {
     /**
      * The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
      */
-    declare public readonly recipients: pulumi.Output<string>;
+    declare public readonly recipients: pulumi.Output<string | undefined>;
     /**
      * Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
      */
@@ -87,9 +87,6 @@ export class EmailTemplateSettings extends pulumi.CustomResource {
             const args = argsOrState as EmailTemplateSettingsArgs | undefined;
             if (args?.brandId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brandId'");
-            }
-            if (args?.recipients === undefined && !opts.urn) {
-                throw new Error("Missing required property 'recipients'");
             }
             if (args?.templateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
@@ -132,7 +129,7 @@ export interface EmailTemplateSettingsArgs {
     /**
      * The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
      */
-    recipients: pulumi.Input<string>;
+    recipients?: pulumi.Input<string | undefined>;
     /**
      * Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
      */

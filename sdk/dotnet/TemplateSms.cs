@@ -26,18 +26,10 @@ namespace Pulumi.Okta
     ///     {
     ///         Type = "SMS_VERIFY_CODE",
     ///         Template = "Your ${org.name} code is: ${code}",
-    ///         Translations = new[]
+    ///         Translations = 
     ///         {
-    ///             new Okta.Inputs.TemplateSmsTranslationArgs
-    ///             {
-    ///                 Language = "en",
-    ///                 Template = "Your ${org.name} code is: ${code}",
-    ///             },
-    ///             new Okta.Inputs.TemplateSmsTranslationArgs
-    ///             {
-    ///                 Language = "es",
-    ///                 Template = "Tu código de ${org.name} es: ${code}.",
-    ///             },
+    ///             { "en", "Your ${org.name} code is: ${code}" },
+    ///             { "es", "Tu código de ${org.name} es: ${code}." },
     ///         },
     ///     });
     /// 
@@ -47,29 +39,47 @@ namespace Pulumi.Okta
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import okta:index/templateSms:TemplateSms example &lt;template_type&gt;
+    /// $ pulumi import okta:index/templateSms:TemplateSms example &lt;id&gt;
     /// ```
     /// </summary>
     [OktaResourceType("okta:index/templateSms:TemplateSms")]
     public partial class TemplateSms : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// SMS default template
+        /// Created
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// LastUpdated
+        /// </summary>
+        [Output("lastUpdated")]
+        public Output<string> LastUpdated { get; private set; } = null!;
+
+        /// <summary>
+        /// Human-readable name of the Template
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Text of the Template, including any macros
         /// </summary>
         [Output("template")]
-        public Output<string> Template { get; private set; } = null!;
+        public Output<string?> Template { get; private set; } = null!;
 
         /// <summary>
-        /// Set of translations for a particular template.
+        /// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
         /// </summary>
         [Output("translations")]
-        public Output<ImmutableArray<Outputs.TemplateSmsTranslation>> Translations { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Translations { get; private set; } = null!;
 
         /// <summary>
-        /// SMS template type
+        /// Type of the Template
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,7 +89,7 @@ namespace Pulumi.Okta
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TemplateSms(string name, TemplateSmsArgs args, CustomResourceOptions? options = null)
+        public TemplateSms(string name, TemplateSmsArgs? args = null, CustomResourceOptions? options = null)
             : base("okta:index/templateSms:TemplateSms", name, args ?? new TemplateSmsArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -118,28 +128,34 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SMS default template
+        /// Human-readable name of the Template
         /// </summary>
-        [Input("template", required: true)]
-        public Input<string> Template { get; set; } = null!;
-
-        [Input("translations")]
-        private InputList<Inputs.TemplateSmsTranslationArgs>? _translations;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Set of translations for a particular template.
+        /// Text of the Template, including any macros
         /// </summary>
-        public InputList<Inputs.TemplateSmsTranslationArgs> Translations
+        [Input("template")]
+        public Input<string>? Template { get; set; }
+
+        [Input("translations")]
+        private InputMap<string>? _translations;
+
+        /// <summary>
+        /// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+        /// </summary>
+        public InputMap<string> Translations
         {
-            get => _translations ?? (_translations = new InputList<Inputs.TemplateSmsTranslationArgs>());
+            get => _translations ?? (_translations = new InputMap<string>());
             set => _translations = value;
         }
 
         /// <summary>
-        /// SMS template type
+        /// Type of the Template
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public TemplateSmsArgs()
         {
@@ -150,25 +166,43 @@ namespace Pulumi.Okta
     public sealed class TemplateSmsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SMS default template
+        /// Created
+        /// </summary>
+        [Input("created")]
+        public Input<string>? Created { get; set; }
+
+        /// <summary>
+        /// LastUpdated
+        /// </summary>
+        [Input("lastUpdated")]
+        public Input<string>? LastUpdated { get; set; }
+
+        /// <summary>
+        /// Human-readable name of the Template
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Text of the Template, including any macros
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
 
         [Input("translations")]
-        private InputList<Inputs.TemplateSmsTranslationGetArgs>? _translations;
+        private InputMap<string>? _translations;
 
         /// <summary>
-        /// Set of translations for a particular template.
+        /// Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
         /// </summary>
-        public InputList<Inputs.TemplateSmsTranslationGetArgs> Translations
+        public InputMap<string> Translations
         {
-            get => _translations ?? (_translations = new InputList<Inputs.TemplateSmsTranslationGetArgs>());
+            get => _translations ?? (_translations = new InputMap<string>());
             set => _translations = value;
         }
 
         /// <summary>
-        /// SMS template type
+        /// Type of the Template
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

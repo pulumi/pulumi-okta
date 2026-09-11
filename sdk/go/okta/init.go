@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -157,6 +157,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Oauth2V1ClientsRoleUserAdmin{}
 	case "okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin":
 		r = &Oauth2V1ClientsRoleWorkflowsAdmin{}
+	case "okta:index/orgCaptcha:OrgCaptcha":
+		r = &OrgCaptcha{}
 	case "okta:index/orgConfiguration:OrgConfiguration":
 		r = &OrgConfiguration{}
 	case "okta:index/orgSupport:OrgSupport":
@@ -604,6 +606,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/oauth2V1ClientsRoleWorkflowsAdmin",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/orgCaptcha",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

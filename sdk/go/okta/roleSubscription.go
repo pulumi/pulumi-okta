@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages group subscription.
+// Manages role subscription.
 //
-// This resource allows you to configure subscriptions of a Role with a specific type.
+// This resource allows you to configure subscriptions of a Role with a specific notification type.
 // Check [configure email notifications](https://help.okta.com/oie/en-us/Content/Topics/Security/custom-admin-role/administrator-email-settings.htm)
 // page regarding what notifications are available for specific admin roles.
 //
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,9 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := okta.NewRoleSubscription(ctx, "test", &okta.RoleSubscriptionArgs{
-//				RoleType:         pulumi.String("SUPER_ADMIN"),
+//				RoleRef:          pulumi.String("SUPER_ADMIN"),
 //				NotificationType: pulumi.String("APP_IMPORT"),
-//				Status:           pulumi.String("unsubscribed"),
 //			})
 //			if err != nil {
 //				return err
@@ -49,41 +48,19 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_type>/<notification_type>
+// $ pulumi import okta:index/roleSubscription:RoleSubscription example <role_ref>/<notification_type>
 // ```
 type RoleSubscription struct {
 	pulumi.CustomResourceState
 
-	// Type of the notification. Valid values:
-	// 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-	// 	- 'USER_LOCKED_OUT' - User lockouts.
-	// 	- 'APP_IMPORT' - App user import status.
-	// 	- 'LDAP_AGENT' - Disconnects and reconnects: LDAP agent.
-	// 	- 'AD_AGENT' - Disconnects and reconnects: AD agent.
-	// 	- 'OKTA_ANNOUNCEMENT' - Okta release notes and announcements.
-	// 	- 'OKTA_UPDATE' - Scheduled system updates.
-	// 	- 'IWA_AGENT' - Disconnects and reconnects: IWA agent.
-	// 	- 'USER_DEPROVISION' - User deprovisions.
-	// 	- 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity.
-	// 	- 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
-	// 	- 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+	// An array of sources send notifications to users.
+	Channels pulumi.StringArrayOutput `pulumi:"channels"`
+	// Type of the notification
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// Type of the role. Valid values:
-	// 	'API_ADMIN',
-	// 	'APP_ADMIN',
-	// 	'CUSTOM',
-	// 	'GROUP_MEMBERSHIP_ADMIN',
-	// 	'HELP_DESK_ADMIN',
-	// 	'MOBILE_ADMIN',
-	// 	'ORG_ADMIN',
-	// 	'READ_ONLY_ADMIN',
-	// 	'REPORT_ADMIN',
-	// 	'SUPER_ADMIN',
-	// 	'USER_ADMIN'
-	// 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
-	RoleType pulumi.StringOutput `pulumi:"roleType"`
-	// Subscription status. Valid values: `subscribed`, `unsubscribed`.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// A reference to an existing role
+	RoleRef pulumi.StringOutput `pulumi:"roleRef"`
+	// The status of the subscription
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewRoleSubscription registers a new resource with the given unique name, arguments, and options.
@@ -96,8 +73,8 @@ func NewRoleSubscription(ctx *pulumi.Context,
 	if args.NotificationType == nil {
 		return nil, errors.New("invalid value for required argument 'NotificationType'")
 	}
-	if args.RoleType == nil {
-		return nil, errors.New("invalid value for required argument 'RoleType'")
+	if args.RoleRef == nil {
+		return nil, errors.New("invalid value for required argument 'RoleRef'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleSubscription
@@ -122,68 +99,24 @@ func GetRoleSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleSubscription resources.
 type roleSubscriptionState struct {
-	// Type of the notification. Valid values:
-	// 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-	// 	- 'USER_LOCKED_OUT' - User lockouts.
-	// 	- 'APP_IMPORT' - App user import status.
-	// 	- 'LDAP_AGENT' - Disconnects and reconnects: LDAP agent.
-	// 	- 'AD_AGENT' - Disconnects and reconnects: AD agent.
-	// 	- 'OKTA_ANNOUNCEMENT' - Okta release notes and announcements.
-	// 	- 'OKTA_UPDATE' - Scheduled system updates.
-	// 	- 'IWA_AGENT' - Disconnects and reconnects: IWA agent.
-	// 	- 'USER_DEPROVISION' - User deprovisions.
-	// 	- 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity.
-	// 	- 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
-	// 	- 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+	// An array of sources send notifications to users.
+	Channels []string `pulumi:"channels"`
+	// Type of the notification
 	NotificationType *string `pulumi:"notificationType"`
-	// Type of the role. Valid values:
-	// 	'API_ADMIN',
-	// 	'APP_ADMIN',
-	// 	'CUSTOM',
-	// 	'GROUP_MEMBERSHIP_ADMIN',
-	// 	'HELP_DESK_ADMIN',
-	// 	'MOBILE_ADMIN',
-	// 	'ORG_ADMIN',
-	// 	'READ_ONLY_ADMIN',
-	// 	'REPORT_ADMIN',
-	// 	'SUPER_ADMIN',
-	// 	'USER_ADMIN'
-	// 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
-	RoleType *string `pulumi:"roleType"`
-	// Subscription status. Valid values: `subscribed`, `unsubscribed`.
+	// A reference to an existing role
+	RoleRef *string `pulumi:"roleRef"`
+	// The status of the subscription
 	Status *string `pulumi:"status"`
 }
 
 type RoleSubscriptionState struct {
-	// Type of the notification. Valid values:
-	// 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-	// 	- 'USER_LOCKED_OUT' - User lockouts.
-	// 	- 'APP_IMPORT' - App user import status.
-	// 	- 'LDAP_AGENT' - Disconnects and reconnects: LDAP agent.
-	// 	- 'AD_AGENT' - Disconnects and reconnects: AD agent.
-	// 	- 'OKTA_ANNOUNCEMENT' - Okta release notes and announcements.
-	// 	- 'OKTA_UPDATE' - Scheduled system updates.
-	// 	- 'IWA_AGENT' - Disconnects and reconnects: IWA agent.
-	// 	- 'USER_DEPROVISION' - User deprovisions.
-	// 	- 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity.
-	// 	- 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
-	// 	- 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+	// An array of sources send notifications to users.
+	Channels pulumi.StringArrayInput
+	// Type of the notification
 	NotificationType pulumi.StringPtrInput
-	// Type of the role. Valid values:
-	// 	'API_ADMIN',
-	// 	'APP_ADMIN',
-	// 	'CUSTOM',
-	// 	'GROUP_MEMBERSHIP_ADMIN',
-	// 	'HELP_DESK_ADMIN',
-	// 	'MOBILE_ADMIN',
-	// 	'ORG_ADMIN',
-	// 	'READ_ONLY_ADMIN',
-	// 	'REPORT_ADMIN',
-	// 	'SUPER_ADMIN',
-	// 	'USER_ADMIN'
-	// 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
-	RoleType pulumi.StringPtrInput
-	// Subscription status. Valid values: `subscribed`, `unsubscribed`.
+	// A reference to an existing role
+	RoleRef pulumi.StringPtrInput
+	// The status of the subscription
 	Status pulumi.StringPtrInput
 }
 
@@ -192,70 +125,22 @@ func (RoleSubscriptionState) ElementType() reflect.Type {
 }
 
 type roleSubscriptionArgs struct {
-	// Type of the notification. Valid values:
-	// 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-	// 	- 'USER_LOCKED_OUT' - User lockouts.
-	// 	- 'APP_IMPORT' - App user import status.
-	// 	- 'LDAP_AGENT' - Disconnects and reconnects: LDAP agent.
-	// 	- 'AD_AGENT' - Disconnects and reconnects: AD agent.
-	// 	- 'OKTA_ANNOUNCEMENT' - Okta release notes and announcements.
-	// 	- 'OKTA_UPDATE' - Scheduled system updates.
-	// 	- 'IWA_AGENT' - Disconnects and reconnects: IWA agent.
-	// 	- 'USER_DEPROVISION' - User deprovisions.
-	// 	- 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity.
-	// 	- 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
-	// 	- 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+	// An array of sources send notifications to users.
+	Channels []string `pulumi:"channels"`
+	// Type of the notification
 	NotificationType string `pulumi:"notificationType"`
-	// Type of the role. Valid values:
-	// 	'API_ADMIN',
-	// 	'APP_ADMIN',
-	// 	'CUSTOM',
-	// 	'GROUP_MEMBERSHIP_ADMIN',
-	// 	'HELP_DESK_ADMIN',
-	// 	'MOBILE_ADMIN',
-	// 	'ORG_ADMIN',
-	// 	'READ_ONLY_ADMIN',
-	// 	'REPORT_ADMIN',
-	// 	'SUPER_ADMIN',
-	// 	'USER_ADMIN'
-	// 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
-	RoleType string `pulumi:"roleType"`
-	// Subscription status. Valid values: `subscribed`, `unsubscribed`.
-	Status *string `pulumi:"status"`
+	// A reference to an existing role
+	RoleRef string `pulumi:"roleRef"`
 }
 
 // The set of arguments for constructing a RoleSubscription resource.
 type RoleSubscriptionArgs struct {
-	// Type of the notification. Valid values:
-	// 	- 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-	// 	- 'USER_LOCKED_OUT' - User lockouts.
-	// 	- 'APP_IMPORT' - App user import status.
-	// 	- 'LDAP_AGENT' - Disconnects and reconnects: LDAP agent.
-	// 	- 'AD_AGENT' - Disconnects and reconnects: AD agent.
-	// 	- 'OKTA_ANNOUNCEMENT' - Okta release notes and announcements.
-	// 	- 'OKTA_UPDATE' - Scheduled system updates.
-	// 	- 'IWA_AGENT' - Disconnects and reconnects: IWA agent.
-	// 	- 'USER_DEPROVISION' - User deprovisions.
-	// 	- 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity.
-	// 	- 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
-	// 	- 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+	// An array of sources send notifications to users.
+	Channels pulumi.StringArrayInput
+	// Type of the notification
 	NotificationType pulumi.StringInput
-	// Type of the role. Valid values:
-	// 	'API_ADMIN',
-	// 	'APP_ADMIN',
-	// 	'CUSTOM',
-	// 	'GROUP_MEMBERSHIP_ADMIN',
-	// 	'HELP_DESK_ADMIN',
-	// 	'MOBILE_ADMIN',
-	// 	'ORG_ADMIN',
-	// 	'READ_ONLY_ADMIN',
-	// 	'REPORT_ADMIN',
-	// 	'SUPER_ADMIN',
-	// 	'USER_ADMIN'
-	// 	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
-	RoleType pulumi.StringInput
-	// Subscription status. Valid values: `subscribed`, `unsubscribed`.
-	Status pulumi.StringPtrInput
+	// A reference to an existing role
+	RoleRef pulumi.StringInput
 }
 
 func (RoleSubscriptionArgs) ElementType() reflect.Type {
@@ -345,44 +230,24 @@ func (o RoleSubscriptionOutput) ToRoleSubscriptionOutputWithContext(ctx context.
 	return o
 }
 
-// Type of the notification. Valid values:
-//   - 'CONNECTOR_AGENT' -  Disconnects and reconnects: On-prem provisioning, on-prem MFA agents, and RADIUS server agent.
-//   - 'USER_LOCKED_OUT' - User lockouts.
-//   - 'APP_IMPORT' - App user import status.
-//   - 'LDAP_AGENT' - Disconnects and reconnects: LDAP agent.
-//   - 'AD_AGENT' - Disconnects and reconnects: AD agent.
-//   - 'OKTA_ANNOUNCEMENT' - Okta release notes and announcements.
-//   - 'OKTA_UPDATE' - Scheduled system updates.
-//   - 'IWA_AGENT' - Disconnects and reconnects: IWA agent.
-//   - 'USER_DEPROVISION' - User deprovisions.
-//   - 'REPORT_SUSPICIOUS_ACTIVITY' - User reporting of suspicious activity.
-//   - 'RATELIMIT_NOTIFICATION' - Rate limit warning and violation.
-//   - 'AGENT_AUTO_UPDATE_NOTIFICATION' - Agent auto-update notifications: AD Agent.
+// An array of sources send notifications to users.
+func (o RoleSubscriptionOutput) Channels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleSubscription) pulumi.StringArrayOutput { return v.Channels }).(pulumi.StringArrayOutput)
+}
+
+// Type of the notification
 func (o RoleSubscriptionOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
 }
 
-// Type of the role. Valid values:
-//
-//	'API_ADMIN',
-//	'APP_ADMIN',
-//	'CUSTOM',
-//	'GROUP_MEMBERSHIP_ADMIN',
-//	'HELP_DESK_ADMIN',
-//	'MOBILE_ADMIN',
-//	'ORG_ADMIN',
-//	'READ_ONLY_ADMIN',
-//	'REPORT_ADMIN',
-//	'SUPER_ADMIN',
-//	'USER_ADMIN'
-//	. See [API docs](https://developer.okta.com/docs/reference/api/admin-notifications/#role-types).
-func (o RoleSubscriptionOutput) RoleType() pulumi.StringOutput {
-	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.RoleType }).(pulumi.StringOutput)
+// A reference to an existing role
+func (o RoleSubscriptionOutput) RoleRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.RoleRef }).(pulumi.StringOutput)
 }
 
-// Subscription status. Valid values: `subscribed`, `unsubscribed`.
-func (o RoleSubscriptionOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleSubscription) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+// The status of the subscription
+func (o RoleSubscriptionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleSubscription) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 type RoleSubscriptionArrayOutput struct{ *pulumi.OutputState }

@@ -20,18 +20,19 @@ __all__ = ['EmailTemplateSettingsArgs', 'EmailTemplateSettings']
 class EmailTemplateSettingsArgs:
     def __init__(__self__, *,
                  brand_id: pulumi.Input[_builtins.str],
-                 recipients: pulumi.Input[_builtins.str],
-                 template_name: pulumi.Input[_builtins.str]):
+                 template_name: pulumi.Input[_builtins.str],
+                 recipients: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EmailTemplateSettings resource.
 
         :param pulumi.Input[_builtins.str] brand_id: The ID of the brand.
-        :param pulumi.Input[_builtins.str] recipients: The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
         :param pulumi.Input[_builtins.str] template_name: Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`
+        :param pulumi.Input[_builtins.str] recipients: The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
         """
         pulumi.set(__self__, "brand_id", brand_id)
-        pulumi.set(__self__, "recipients", recipients)
         pulumi.set(__self__, "template_name", template_name)
+        if recipients is not None:
+            pulumi.set(__self__, "recipients", recipients)
 
     @_builtins.property
     @pulumi.getter(name="brandId")
@@ -46,18 +47,6 @@ class EmailTemplateSettingsArgs:
         pulumi.set(self, "brand_id", value)
 
     @_builtins.property
-    @pulumi.getter
-    def recipients(self) -> pulumi.Input[_builtins.str]:
-        """
-        The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
-        """
-        return pulumi.get(self, "recipients")
-
-    @recipients.setter
-    def recipients(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "recipients", value)
-
-    @_builtins.property
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -68,6 +57,18 @@ class EmailTemplateSettingsArgs:
     @template_name.setter
     def template_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "template_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def recipients(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
+        """
+        return pulumi.get(self, "recipients")
+
+    @recipients.setter
+    def recipients(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "recipients", value)
 
 
 @pulumi.input_type
@@ -223,8 +224,6 @@ class EmailTemplateSettings(pulumi.CustomResource):
             if brand_id is None and not opts.urn:
                 raise TypeError("Missing required property 'brand_id'")
             __props__.__dict__["brand_id"] = brand_id
-            if recipients is None and not opts.urn:
-                raise TypeError("Missing required property 'recipients'")
             __props__.__dict__["recipients"] = recipients
             if template_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_name'")
@@ -272,7 +271,7 @@ class EmailTemplateSettings(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def recipients(self) -> pulumi.Output[_builtins.str]:
+    def recipients(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
         """

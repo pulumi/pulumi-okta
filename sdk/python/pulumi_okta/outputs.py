@@ -105,7 +105,6 @@ __all__ = [
     'RequestV2RequesterFieldValue',
     'RequestV2RequesterFieldValueValue',
     'SecurityEventsProviderSettings',
-    'TemplateSmsTranslation',
     'UiSchemaUiSchema',
     'UiSchemaUiSchemaElement',
     'UiSchemaUiSchemaElementOptions',
@@ -240,6 +239,8 @@ __all__ = [
     'GetSecurityEventsProviderSettingsResult',
     'GetTemplatesEmailTemplateResult',
     'GetThemesThemeResult',
+    'GetThreatInsightSettingsItemResult',
+    'GetTrustedOriginScopeResult',
     'GetTrustedOriginsTrustedOriginResult',
     'GetUiSchemaUiSchemaResult',
     'GetUiSchemaUiSchemaElementResult',
@@ -5360,35 +5361,6 @@ class SecurityEventsProviderSettings(dict):
         The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
         """
         return pulumi.get(self, "well_known_url")
-
-
-@pulumi.output_type
-class TemplateSmsTranslation(dict):
-    def __init__(__self__, *,
-                 language: _builtins.str,
-                 template: _builtins.str):
-        """
-        :param _builtins.str language: The language to map the template to.
-        :param _builtins.str template: The SMS message.
-        """
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "template", template)
-
-    @_builtins.property
-    @pulumi.getter
-    def language(self) -> _builtins.str:
-        """
-        The language to map the template to.
-        """
-        return pulumi.get(self, "language")
-
-    @_builtins.property
-    @pulumi.getter
-    def template(self) -> _builtins.str:
-        """
-        The SMS message.
-        """
-        return pulumi.get(self, "template")
 
 
 @pulumi.output_type
@@ -10840,6 +10812,97 @@ class GetThemesThemeResult(dict):
         Variant for the Okta Sign-In Page (`OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`)
         """
         return pulumi.get(self, "sign_in_page_touch_point_variant")
+
+
+@pulumi.output_type
+class GetThreatInsightSettingsItemResult(dict):
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 created: _builtins.str,
+                 exclude_zones: Sequence[_builtins.str],
+                 id: _builtins.str,
+                 last_updated: _builtins.str):
+        """
+        :param _builtins.str action: Specifies how Okta responds to authentication requests from suspicious IPs.
+        :param _builtins.str created: Timestamp when the ThreatInsight Configuration object was created.
+        :param Sequence[_builtins.str] exclude_zones: List of Network Zone IDs excluded from ThreatInsight evaluation.
+        :param _builtins.str id: The unique identifier for the item.
+        :param _builtins.str last_updated: Timestamp when the ThreatInsight Configuration object was last updated.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "exclude_zones", exclude_zones)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_updated", last_updated)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        Specifies how Okta responds to authentication requests from suspicious IPs.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> _builtins.str:
+        """
+        Timestamp when the ThreatInsight Configuration object was created.
+        """
+        return pulumi.get(self, "created")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeZones")
+    def exclude_zones(self) -> Sequence[_builtins.str]:
+        """
+        List of Network Zone IDs excluded from ThreatInsight evaluation.
+        """
+        return pulumi.get(self, "exclude_zones")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier for the item.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> _builtins.str:
+        """
+        Timestamp when the ThreatInsight Configuration object was last updated.
+        """
+        return pulumi.get(self, "last_updated")
+
+
+@pulumi.output_type
+class GetTrustedOriginScopeResult(dict):
+    def __init__(__self__, *,
+                 allowed_okta_apps: Sequence[_builtins.str],
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] allowed_okta_apps: The allowed Okta apps for the trusted origin scope
+        :param _builtins.str type: The scope type.
+        """
+        pulumi.set(__self__, "allowed_okta_apps", allowed_okta_apps)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOktaApps")
+    def allowed_okta_apps(self) -> Sequence[_builtins.str]:
+        """
+        The allowed Okta apps for the trusted origin scope
+        """
+        return pulumi.get(self, "allowed_okta_apps")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The scope type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

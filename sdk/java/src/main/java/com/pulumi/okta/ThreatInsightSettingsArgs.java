@@ -33,25 +33,25 @@ public final class ThreatInsightSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
      * 
      */
-    @Import(name="networkExcludes")
-    private @Nullable Output<List<String>> networkExcludes;
+    @Import(name="excludeZones")
+    private @Nullable Output<List<String>> excludeZones;
 
     /**
-     * @return Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * @return Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
      * 
      */
-    public Optional<Output<List<String>>> networkExcludes() {
-        return Optional.ofNullable(this.networkExcludes);
+    public Optional<Output<List<String>>> excludeZones() {
+        return Optional.ofNullable(this.excludeZones);
     }
 
     private ThreatInsightSettingsArgs() {}
 
     private ThreatInsightSettingsArgs(ThreatInsightSettingsArgs $) {
         this.action = $.action;
-        this.networkExcludes = $.networkExcludes;
+        this.excludeZones = $.excludeZones;
     }
 
     public static Builder builder() {
@@ -94,34 +94,34 @@ public final class ThreatInsightSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+         * @param excludeZones Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
          * 
          * @return builder
          * 
          */
-        public Builder networkExcludes(@Nullable Output<List<String>> networkExcludes) {
-            $.networkExcludes = networkExcludes;
+        public Builder excludeZones(@Nullable Output<List<String>> excludeZones) {
+            $.excludeZones = excludeZones;
             return this;
         }
 
         /**
-         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+         * @param excludeZones Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
          * 
          * @return builder
          * 
          */
-        public Builder networkExcludes(List<String> networkExcludes) {
-            return networkExcludes(Output.of(networkExcludes));
+        public Builder excludeZones(List<String> excludeZones) {
+            return excludeZones(Output.of(excludeZones));
         }
 
         /**
-         * @param networkExcludes Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+         * @param excludeZones Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
          * 
          * @return builder
          * 
          */
-        public Builder networkExcludes(String... networkExcludes) {
-            return networkExcludes(List.of(networkExcludes));
+        public Builder excludeZones(String... excludeZones) {
+            return excludeZones(List.of(excludeZones));
         }
 
         public ThreatInsightSettingsArgs build() {

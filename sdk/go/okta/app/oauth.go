@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/internal"
+	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,7 +39,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-jwks/sdk/go/jwks"
-//	"github.com/pulumi/pulumi-okta/sdk/v6/go/okta/app"
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/app"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"

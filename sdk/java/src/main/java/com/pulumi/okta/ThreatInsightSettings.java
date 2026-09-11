@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new ThreatInsightSettings("example", ThreatInsightSettingsArgs.builder()
  *             .action("block")
- *             .networkExcludes(ipNetworkZoneExample.id())
+ *             .excludeZones(ipNetworkZoneExample.id())
  *             .build());
  * 
  *     }
@@ -89,18 +89,46 @@ public class ThreatInsightSettings extends com.pulumi.resources.CustomResource {
         return this.action;
     }
     /**
-     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * Timestamp when the ThreatInsight Configuration object was created.
      * 
      */
-    @Export(name="networkExcludes", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> networkExcludes;
+    @Export(name="created", refs={String.class}, tree="[0]")
+    private Output<String> created;
 
     /**
-     * @return Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guarantee from the API sides
+     * @return Timestamp when the ThreatInsight Configuration object was created.
      * 
      */
-    public Output<Optional<List<String>>> networkExcludes() {
-        return Codegen.optional(this.networkExcludes);
+    public Output<String> created() {
+        return this.created;
+    }
+    /**
+     * Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+     * 
+     */
+    @Export(name="excludeZones", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> excludeZones;
+
+    /**
+     * @return Accepts a list of Network Zone IDs. Can only accept zones of `IP` type. IPs in the excluded Network Zones aren&#39;t logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn&#39;t accidentally logged or blocked. The ordering of the network zone is not guaranteed from the API side.
+     * 
+     */
+    public Output<Optional<List<String>>> excludeZones() {
+        return Codegen.optional(this.excludeZones);
+    }
+    /**
+     * Timestamp when the ThreatInsight Configuration object was last updated.
+     * 
+     */
+    @Export(name="lastUpdated", refs={String.class}, tree="[0]")
+    private Output<String> lastUpdated;
+
+    /**
+     * @return Timestamp when the ThreatInsight Configuration object was last updated.
+     * 
+     */
+    public Output<String> lastUpdated() {
+        return this.lastUpdated;
     }
 
     /**

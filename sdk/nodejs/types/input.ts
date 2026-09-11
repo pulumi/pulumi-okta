@@ -3420,6 +3420,74 @@ export interface GetSecurityEventsProviderSettingsArgs {
     wellKnownUrl?: pulumi.Input<string | undefined>;
 }
 
+export interface GetThreatInsightSettingsItem {
+    /**
+     * Specifies how Okta responds to authentication requests from suspicious IPs.
+     */
+    action?: string;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was created.
+     */
+    created?: string;
+    /**
+     * List of Network Zone IDs excluded from ThreatInsight evaluation.
+     */
+    excludeZones?: string[];
+    /**
+     * The unique identifier for the item.
+     */
+    id?: string;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was last updated.
+     */
+    lastUpdated?: string;
+}
+
+export interface GetThreatInsightSettingsItemArgs {
+    /**
+     * Specifies how Okta responds to authentication requests from suspicious IPs.
+     */
+    action?: pulumi.Input<string | undefined>;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was created.
+     */
+    created?: pulumi.Input<string | undefined>;
+    /**
+     * List of Network Zone IDs excluded from ThreatInsight evaluation.
+     */
+    excludeZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The unique identifier for the item.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was last updated.
+     */
+    lastUpdated?: pulumi.Input<string | undefined>;
+}
+
+export interface GetTrustedOriginScope {
+    /**
+     * The allowed Okta apps for the trusted origin scope
+     */
+    allowedOktaApps?: string[];
+    /**
+     * The scope type.
+     */
+    type?: string;
+}
+
+export interface GetTrustedOriginScopeArgs {
+    /**
+     * The allowed Okta apps for the trusted origin scope
+     */
+    allowedOktaApps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * The scope type.
+     */
+    type?: pulumi.Input<string | undefined>;
+}
+
 export interface GetUiSchemaUiSchema {
     /**
      * Specifies the button label for the Submit button at the bottom of the enrollment form.
@@ -4079,17 +4147,6 @@ export interface SecurityEventsProviderSettings {
      * The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
      */
     wellKnownUrl?: pulumi.Input<string | undefined>;
-}
-
-export interface TemplateSmsTranslation {
-    /**
-     * The language to map the template to.
-     */
-    language: pulumi.Input<string>;
-    /**
-     * The SMS message.
-     */
-    template: pulumi.Input<string>;
 }
 
 export interface UiSchemaUiSchema {
@@ -5650,6 +5707,19 @@ export namespace profile {
          */
         id: pulumi.Input<string>;
         pushStatus?: pulumi.Input<string | undefined>;
+    }
+}
+
+export namespace trustedorigin {
+    export interface OriginScope {
+        /**
+         * The allowed Okta apps for the trusted origin scope
+         */
+        allowedOktaApps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The scope type. Supported values: `CORS`, `REDIRECT`, `IFRAME_EMBED`
+         */
+        type?: pulumi.Input<string | undefined>;
     }
 }
 

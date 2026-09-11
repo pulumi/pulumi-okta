@@ -11,6 +11,7 @@ import com.pulumi.okta.EmailTemplateSettingsArgs;
 import com.pulumi.okta.Utilities;
 import com.pulumi.okta.inputs.EmailTemplateSettingsState;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -79,14 +80,14 @@ public class EmailTemplateSettings extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recipients", refs={String.class}, tree="[0]")
-    private Output<String> recipients;
+    private Output</* @Nullable */ String> recipients;
 
     /**
      * @return The recipients the emails of this template will be sent to - Valid values: `ALL_USERS`, `ADMINS_ONLY`, `NO_USERS`
      * 
      */
-    public Output<String> recipients() {
-        return this.recipients;
+    public Output<Optional<String>> recipients() {
+        return Codegen.optional(this.recipients);
     }
     /**
      * Email template name - Example values: `AccountLockout`,`ADForgotPassword`,`ADForgotPasswordDenied`,`ADSelfServiceUnlock`,`ADUserActivation`,`AuthenticatorEnrolled`,`AuthenticatorReset`,`ChangeEmailConfirmation`,`EmailChallenge`,`EmailChangeConfirmation`,`EmailFactorVerification`,`ForgotPassword`,`ForgotPasswordDenied`,`IGAReviewerEndNotification`,`IGAReviewerNotification`,`IGAReviewerPendingNotification`,`IGAReviewerReassigned`,`LDAPForgotPassword`,`LDAPForgotPasswordDenied`,`LDAPSelfServiceUnlock`,`LDAPUserActivation`,`MyAccountChangeConfirmation`,`NewSignOnNotification`,`OktaVerifyActivation`,`PasswordChanged`,`PasswordResetByAdmin`,`PendingEmailChange`,`RegistrationActivation`,`RegistrationEmailVerification`,`SelfServiceUnlock`,`SelfServiceUnlockOnUnlockedAccount`,`UserActivation`

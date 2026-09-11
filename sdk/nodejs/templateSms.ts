@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -18,23 +16,17 @@ import * as utilities from "./utilities";
  * const example = new okta.TemplateSms("example", {
  *     type: "SMS_VERIFY_CODE",
  *     template: "Your ${org.name} code is: ${code}",
- *     translations: [
- *         {
- *             language: "en",
- *             template: "Your ${org.name} code is: ${code}",
- *         },
- *         {
- *             language: "es",
- *             template: "Tu código de ${org.name} es: ${code}.",
- *         },
- *     ],
+ *     translations: {
+ *         en: "Your ${org.name} code is: ${code}",
+ *         es: "Tu código de ${org.name} es: ${code}.",
+ *     },
  * });
  * ```
  *
  * ## Import
  *
  * ```sh
- * $ pulumi import okta:index/templateSms:TemplateSms example <template_type>
+ * $ pulumi import okta:index/templateSms:TemplateSms example <id>
  * ```
  */
 export class TemplateSms extends pulumi.CustomResource {
@@ -66,17 +58,29 @@ export class TemplateSms extends pulumi.CustomResource {
     }
 
     /**
-     * SMS default template
+     * Created
      */
-    declare public readonly template: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
-     * Set of translations for a particular template.
+     * LastUpdated
      */
-    declare public readonly translations: pulumi.Output<outputs.TemplateSmsTranslation[] | undefined>;
+    declare public /*out*/ readonly lastUpdated: pulumi.Output<string>;
     /**
-     * SMS template type
+     * Human-readable name of the Template
      */
-    declare public readonly type: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    /**
+     * Text of the Template, including any macros
+     */
+    declare public readonly template: pulumi.Output<string | undefined>;
+    /**
+     * Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
+     */
+    declare public readonly translations: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Type of the Template
+     */
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a TemplateSms resource with the given unique name, arguments, and options.
@@ -85,26 +89,26 @@ export class TemplateSms extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TemplateSmsArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TemplateSmsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TemplateSmsArgs | TemplateSmsState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateSmsState | undefined;
+            resourceInputs["created"] = state?.created;
+            resourceInputs["lastUpdated"] = state?.lastUpdated;
+            resourceInputs["name"] = state?.name;
             resourceInputs["template"] = state?.template;
             resourceInputs["translations"] = state?.translations;
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as TemplateSmsArgs | undefined;
-            if (args?.template === undefined && !opts.urn) {
-                throw new Error("Missing required property 'template'");
-            }
-            if (args?.type === undefined && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
+            resourceInputs["name"] = args?.name;
             resourceInputs["template"] = args?.template;
             resourceInputs["translations"] = args?.translations;
             resourceInputs["type"] = args?.type;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastUpdated"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TemplateSms.__pulumiType, name, resourceInputs, opts);
@@ -116,15 +120,27 @@ export class TemplateSms extends pulumi.CustomResource {
  */
 export interface TemplateSmsState {
     /**
-     * SMS default template
+     * Created
+     */
+    created?: pulumi.Input<string | undefined>;
+    /**
+     * LastUpdated
+     */
+    lastUpdated?: pulumi.Input<string | undefined>;
+    /**
+     * Human-readable name of the Template
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * Text of the Template, including any macros
      */
     template?: pulumi.Input<string | undefined>;
     /**
-     * Set of translations for a particular template.
+     * Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
      */
-    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[] | undefined>;
+    translations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * SMS template type
+     * Type of the Template
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -134,15 +150,19 @@ export interface TemplateSmsState {
  */
 export interface TemplateSmsArgs {
     /**
-     * SMS default template
+     * Human-readable name of the Template
      */
-    template: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
-     * Set of translations for a particular template.
+     * Text of the Template, including any macros
      */
-    translations?: pulumi.Input<pulumi.Input<inputs.TemplateSmsTranslation>[] | undefined>;
+    template?: pulumi.Input<string | undefined>;
     /**
-     * SMS template type
+     * Template translations are optionally provided when you want to localize the SMS messages. Keys are IETF BCP 47 language tags, values are the translated template text.
      */
-    type: pulumi.Input<string>;
+    translations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Type of the Template
+     */
+    type?: pulumi.Input<string | undefined>;
 }

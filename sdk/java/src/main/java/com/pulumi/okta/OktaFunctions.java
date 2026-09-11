@@ -45,6 +45,8 @@ import com.pulumi.okta.inputs.GetBrandArgs;
 import com.pulumi.okta.inputs.GetBrandPlainArgs;
 import com.pulumi.okta.inputs.GetCampaignArgs;
 import com.pulumi.okta.inputs.GetCampaignPlainArgs;
+import com.pulumi.okta.inputs.GetCaptchaArgs;
+import com.pulumi.okta.inputs.GetCaptchaPlainArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryDefaultArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryDefaultPlainArgs;
 import com.pulumi.okta.inputs.GetCatalogEntryUserAccessRequestFieldsArgs;
@@ -95,6 +97,8 @@ import com.pulumi.okta.inputs.GetNetworkZoneArgs;
 import com.pulumi.okta.inputs.GetNetworkZonePlainArgs;
 import com.pulumi.okta.inputs.GetOauthAuthorizationServerArgs;
 import com.pulumi.okta.inputs.GetOauthAuthorizationServerPlainArgs;
+import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+import com.pulumi.okta.inputs.GetOrgCaptchaPlainArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataArgs;
 import com.pulumi.okta.inputs.GetOrgMetadataPlainArgs;
 import com.pulumi.okta.inputs.GetPrincipalEntitlementsArgs;
@@ -141,6 +145,10 @@ import com.pulumi.okta.inputs.GetThemeArgs;
 import com.pulumi.okta.inputs.GetThemePlainArgs;
 import com.pulumi.okta.inputs.GetThemesArgs;
 import com.pulumi.okta.inputs.GetThemesPlainArgs;
+import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+import com.pulumi.okta.inputs.GetThreatInsightSettingsPlainArgs;
+import com.pulumi.okta.inputs.GetTrustedOriginArgs;
+import com.pulumi.okta.inputs.GetTrustedOriginPlainArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsArgs;
 import com.pulumi.okta.inputs.GetTrustedOriginsPlainArgs;
 import com.pulumi.okta.inputs.GetUiSchemaArgs;
@@ -166,6 +174,7 @@ import com.pulumi.okta.outputs.GetBehavioursResult;
 import com.pulumi.okta.outputs.GetBrandResult;
 import com.pulumi.okta.outputs.GetBrandsResult;
 import com.pulumi.okta.outputs.GetCampaignResult;
+import com.pulumi.okta.outputs.GetCaptchaResult;
 import com.pulumi.okta.outputs.GetCatalogEntryDefaultResult;
 import com.pulumi.okta.outputs.GetCatalogEntryUserAccessRequestFieldsResult;
 import com.pulumi.okta.outputs.GetDefaultSigninPageResult;
@@ -192,6 +201,7 @@ import com.pulumi.okta.outputs.GetLabelResult;
 import com.pulumi.okta.outputs.GetLogStreamResult;
 import com.pulumi.okta.outputs.GetNetworkZoneResult;
 import com.pulumi.okta.outputs.GetOauthAuthorizationServerResult;
+import com.pulumi.okta.outputs.GetOrgCaptchaResult;
 import com.pulumi.okta.outputs.GetOrgMetadataResult;
 import com.pulumi.okta.outputs.GetPostAuthSessionPolicyResult;
 import com.pulumi.okta.outputs.GetPrincipalEntitlementsResult;
@@ -219,6 +229,8 @@ import com.pulumi.okta.outputs.GetTemplateResult;
 import com.pulumi.okta.outputs.GetTemplatesResult;
 import com.pulumi.okta.outputs.GetThemeResult;
 import com.pulumi.okta.outputs.GetThemesResult;
+import com.pulumi.okta.outputs.GetThreatInsightSettingsResult;
+import com.pulumi.okta.outputs.GetTrustedOriginResult;
 import com.pulumi.okta.outputs.GetTrustedOriginsResult;
 import com.pulumi.okta.outputs.GetUiSchemaResult;
 import com.pulumi.okta.outputs.GetUserSecurityQuestionsResult;
@@ -4289,6 +4301,251 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetCampaignResult> getCampaignPlain(GetCampaignPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getCampaign:getCampaign", TypeShape.of(GetCampaignResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the properties of a specified CAPTCHA instance
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getCaptcha(GetCaptchaArgs.builder()
+     *             .id(testCaptcha.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCaptchaResult> getCaptcha(GetCaptchaArgs args) {
+        return getCaptcha(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the properties of a specified CAPTCHA instance
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getCaptcha(GetCaptchaArgs.builder()
+     *             .id(testCaptcha.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCaptchaResult> getCaptchaPlain(GetCaptchaPlainArgs args) {
+        return getCaptchaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the properties of a specified CAPTCHA instance
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getCaptcha(GetCaptchaArgs.builder()
+     *             .id(testCaptcha.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCaptchaResult> getCaptcha(GetCaptchaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCaptcha:getCaptcha", TypeShape.of(GetCaptchaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the properties of a specified CAPTCHA instance
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getCaptcha(GetCaptchaArgs.builder()
+     *             .id(testCaptcha.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCaptchaResult> getCaptcha(GetCaptchaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getCaptcha:getCaptcha", TypeShape.of(GetCaptchaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the properties of a specified CAPTCHA instance
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getCaptcha(GetCaptchaArgs.builder()
+     *             .id(testCaptcha.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCaptchaResult> getCaptchaPlain(GetCaptchaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getCaptcha:getCaptcha", TypeShape.of(GetCaptchaResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves a catalog entry.
@@ -9342,6 +9599,391 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer", TypeShape.of(GetOauthAuthorizationServerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgCaptchaResult> getOrgCaptcha() {
+        return getOrgCaptcha(GetOrgCaptchaArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgCaptchaResult> getOrgCaptchaPlain() {
+        return getOrgCaptchaPlain(GetOrgCaptchaPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgCaptchaResult> getOrgCaptcha(GetOrgCaptchaArgs args) {
+        return getOrgCaptcha(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgCaptchaResult> getOrgCaptchaPlain(GetOrgCaptchaPlainArgs args) {
+        return getOrgCaptchaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgCaptchaResult> getOrgCaptcha(GetOrgCaptchaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getOrgCaptcha:getOrgCaptcha", TypeShape.of(GetOrgCaptchaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetOrgCaptchaResult> getOrgCaptcha(GetOrgCaptchaArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getOrgCaptcha:getOrgCaptcha", TypeShape.of(GetOrgCaptchaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the CAPTCHA settings object for your organization. &gt; **Note**: If the current organization hasn&#39;t configured CAPTCHA Settings, the request returns an empty object.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.Captcha;
+     * import com.pulumi.okta.CaptchaArgs;
+     * import com.pulumi.okta.OrgCaptcha;
+     * import com.pulumi.okta.OrgCaptchaArgs;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetOrgCaptchaArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var testCaptcha = new Captcha("testCaptcha", CaptchaArgs.builder()
+     *             .name("testAcc_replace_with_uuid")
+     *             .type("HCAPTCHA")
+     *             .siteKey("random_key")
+     *             .secretKey("random_secret_key")
+     *             .build());
+     * 
+     *         var testOrgCaptcha = new OrgCaptcha("testOrgCaptcha", OrgCaptchaArgs.builder()
+     *             .captchaId(testCaptcha.id())
+     *             .enabledPages("SIGN_IN")
+     *             .build());
+     * 
+     *         final var test = OktaFunctions.getOrgCaptcha(GetOrgCaptchaArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetOrgCaptchaResult> getOrgCaptchaPlain(GetOrgCaptchaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getOrgCaptcha:getOrgCaptcha", TypeShape.of(GetOrgCaptchaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Retrieves the well-known org metadata, which includes the id, configured custom domains, authentication pipeline, and various other org settings.
      * 
      */
@@ -13677,7 +14319,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invokeAsync("okta:index/getReview:getReview", TypeShape.of(GetReviewResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Retrieves a subscription by notification type for a specified role.
      * 
      * ## Example Usage
      * 
@@ -13704,8 +14346,8 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType("APP_IMPORT")
-     *             .roleType("SUPER_ADMIN")
+     *             .roleRef("SUPER_ADMIN")
+     *             .id("APP_IMPORT")
      *             .build());
      * 
      *     }
@@ -13718,7 +14360,7 @@ public final class OktaFunctions {
         return getRoleSubscription(args, InvokeOptions.Empty);
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Retrieves a subscription by notification type for a specified role.
      * 
      * ## Example Usage
      * 
@@ -13745,8 +14387,8 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType("APP_IMPORT")
-     *             .roleType("SUPER_ADMIN")
+     *             .roleRef("SUPER_ADMIN")
+     *             .id("APP_IMPORT")
      *             .build());
      * 
      *     }
@@ -13759,7 +14401,7 @@ public final class OktaFunctions {
         return getRoleSubscriptionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Retrieves a subscription by notification type for a specified role.
      * 
      * ## Example Usage
      * 
@@ -13786,8 +14428,8 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType("APP_IMPORT")
-     *             .roleType("SUPER_ADMIN")
+     *             .roleRef("SUPER_ADMIN")
+     *             .id("APP_IMPORT")
      *             .build());
      * 
      *     }
@@ -13800,7 +14442,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Retrieves a subscription by notification type for a specified role.
      * 
      * ## Example Usage
      * 
@@ -13827,8 +14469,8 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType("APP_IMPORT")
-     *             .roleType("SUPER_ADMIN")
+     *             .roleRef("SUPER_ADMIN")
+     *             .id("APP_IMPORT")
      *             .build());
      * 
      *     }
@@ -13841,7 +14483,7 @@ public final class OktaFunctions {
         return Deployment.getInstance().invoke("okta:index/getRoleSubscription:getRoleSubscription", TypeShape.of(GetRoleSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get subscriptions of a Role with a specific type
+     * Retrieves a subscription by notification type for a specified role.
      * 
      * ## Example Usage
      * 
@@ -13868,8 +14510,8 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OktaFunctions.getRoleSubscription(GetRoleSubscriptionArgs.builder()
-     *             .notificationType("APP_IMPORT")
-     *             .roleType("SUPER_ADMIN")
+     *             .roleRef("SUPER_ADMIN")
+     *             .id("APP_IMPORT")
      *             .build());
      * 
      *     }
@@ -15189,6 +15831,294 @@ public final class OktaFunctions {
      */
     public static CompletableFuture<GetThemesResult> getThemesPlain(GetThemesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("okta:index/getThemes:getThemes", TypeShape.of(GetThemesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetThreatInsightSettingsResult> getThreatInsightSettings() {
+        return getThreatInsightSettings(GetThreatInsightSettingsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetThreatInsightSettingsResult> getThreatInsightSettingsPlain() {
+        return getThreatInsightSettingsPlain(GetThreatInsightSettingsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetThreatInsightSettingsResult> getThreatInsightSettings(GetThreatInsightSettingsArgs args) {
+        return getThreatInsightSettings(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetThreatInsightSettingsResult> getThreatInsightSettingsPlain(GetThreatInsightSettingsPlainArgs args) {
+        return getThreatInsightSettingsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetThreatInsightSettingsResult> getThreatInsightSettings(GetThreatInsightSettingsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getThreatInsightSettings:getThreatInsightSettings", TypeShape.of(GetThreatInsightSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetThreatInsightSettingsResult> getThreatInsightSettings(GetThreatInsightSettingsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getThreatInsightSettings:getThreatInsightSettings", TypeShape.of(GetThreatInsightSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves Okta ThreatInsight Settings.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetThreatInsightSettingsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getThreatInsightSettings(GetThreatInsightSettingsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetThreatInsightSettingsResult> getThreatInsightSettingsPlain(GetThreatInsightSettingsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getThreatInsightSettings:getThreatInsightSettings", TypeShape.of(GetThreatInsightSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetTrustedOriginResult> getTrustedOrigin(GetTrustedOriginArgs args) {
+        return getTrustedOrigin(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetTrustedOriginResult> getTrustedOriginPlain(GetTrustedOriginPlainArgs args) {
+        return getTrustedOriginPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetTrustedOriginResult> getTrustedOrigin(GetTrustedOriginArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getTrustedOrigin:getTrustedOrigin", TypeShape.of(GetTrustedOriginResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetTrustedOriginResult> getTrustedOrigin(GetTrustedOriginArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("okta:index/getTrustedOrigin:getTrustedOrigin", TypeShape.of(GetTrustedOriginResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetTrustedOriginResult> getTrustedOriginPlain(GetTrustedOriginPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("okta:index/getTrustedOrigin:getTrustedOrigin", TypeShape.of(GetTrustedOriginResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get List of Trusted Origins using filters.

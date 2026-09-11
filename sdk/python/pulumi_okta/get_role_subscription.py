@@ -26,50 +26,46 @@ class GetRoleSubscriptionResult:
     """
     A collection of values returned by getRoleSubscription.
     """
-    def __init__(__self__, id=None, notification_type=None, role_type=None, status=None):
+    def __init__(__self__, channels=None, id=None, notification_type=None, role_ref=None, status=None):
+        if channels and not isinstance(channels, list):
+            raise TypeError("Expected argument 'channels' to be a list")
+        pulumi.set(__self__, "channels", channels)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if notification_type and not isinstance(notification_type, str):
             raise TypeError("Expected argument 'notification_type' to be a str")
         pulumi.set(__self__, "notification_type", notification_type)
-        if role_type and not isinstance(role_type, str):
-            raise TypeError("Expected argument 'role_type' to be a str")
-        pulumi.set(__self__, "role_type", role_type)
+        if role_ref and not isinstance(role_ref, str):
+            raise TypeError("Expected argument 'role_ref' to be a str")
+        pulumi.set(__self__, "role_ref", role_ref)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
+    def channels(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "channels")
+
+    @_builtins.property
+    @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> _builtins.str:
-        """
-        Type of the notification
-        """
         return pulumi.get(self, "notification_type")
 
     @_builtins.property
-    @pulumi.getter(name="roleType")
-    def role_type(self) -> _builtins.str:
-        """
-        Type of the role
-        """
-        return pulumi.get(self, "role_type")
+    @pulumi.getter(name="roleRef")
+    def role_ref(self) -> _builtins.str:
+        return pulumi.get(self, "role_ref")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
-        """
-        Status of subscription
-        """
         return pulumi.get(self, "status")
 
 
@@ -79,17 +75,18 @@ class AwaitableGetRoleSubscriptionResult(GetRoleSubscriptionResult):
         if False:
             yield self
         return GetRoleSubscriptionResult(
+            channels=self.channels,
             id=self.id,
             notification_type=self.notification_type,
-            role_type=self.role_type,
+            role_ref=self.role_ref,
             status=self.status)
 
 
-def get_role_subscription(notification_type: Optional[_builtins.str] = None,
-                          role_type: Optional[_builtins.str] = None,
+def get_role_subscription(id: Optional[_builtins.str] = None,
+                          role_ref: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleSubscriptionResult:
     """
-    Get subscriptions of a Role with a specific type
+    Retrieves a subscription by notification type for a specified role.
 
     ## Example Usage
 
@@ -97,30 +94,27 @@ def get_role_subscription(notification_type: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.get_role_subscription(notification_type="APP_IMPORT",
-        role_type="SUPER_ADMIN")
+    example = okta.get_role_subscription(role_ref="SUPER_ADMIN",
+        id="APP_IMPORT")
     ```
-
-
-    :param _builtins.str notification_type: Type of the notification
-    :param _builtins.str role_type: Type of the role
     """
     __args__ = dict()
-    __args__['notificationType'] = notification_type
-    __args__['roleType'] = role_type
+    __args__['id'] = id
+    __args__['roleRef'] = role_ref
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('okta:index/getRoleSubscription:getRoleSubscription', __args__, opts=opts, typ=GetRoleSubscriptionResult).value
 
     return AwaitableGetRoleSubscriptionResult(
+        channels=pulumi.get(__ret__, 'channels'),
         id=pulumi.get(__ret__, 'id'),
         notification_type=pulumi.get(__ret__, 'notification_type'),
-        role_type=pulumi.get(__ret__, 'role_type'),
+        role_ref=pulumi.get(__ret__, 'role_ref'),
         status=pulumi.get(__ret__, 'status'))
-def get_role_subscription_output(notification_type: pulumi.Input[Optional[_builtins.str]] = None,
-                                 role_type: pulumi.Input[Optional[_builtins.str]] = None,
+def get_role_subscription_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 role_ref: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleSubscriptionResult]:
     """
-    Get subscriptions of a Role with a specific type
+    Retrieves a subscription by notification type for a specified role.
 
     ## Example Usage
 
@@ -128,21 +122,18 @@ def get_role_subscription_output(notification_type: pulumi.Input[Optional[_built
     import pulumi
     import pulumi_okta as okta
 
-    example = okta.get_role_subscription(notification_type="APP_IMPORT",
-        role_type="SUPER_ADMIN")
+    example = okta.get_role_subscription(role_ref="SUPER_ADMIN",
+        id="APP_IMPORT")
     ```
-
-
-    :param _builtins.str notification_type: Type of the notification
-    :param _builtins.str role_type: Type of the role
     """
     __args__ = dict()
-    __args__['notificationType'] = notification_type
-    __args__['roleType'] = role_type
+    __args__['id'] = id
+    __args__['roleRef'] = role_ref
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('okta:index/getRoleSubscription:getRoleSubscription', __args__, opts=opts, typ=GetRoleSubscriptionResult)
     return __ret__.apply(lambda __response__: GetRoleSubscriptionResult(
+        channels=pulumi.get(__response__, 'channels'),
         id=pulumi.get(__response__, 'id'),
         notification_type=pulumi.get(__response__, 'notification_type'),
-        role_type=pulumi.get(__response__, 'role_type'),
+        role_ref=pulumi.get(__response__, 'role_ref'),
         status=pulumi.get(__response__, 'status')))

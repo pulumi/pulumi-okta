@@ -2354,6 +2354,40 @@ export interface GetThemesTheme {
     signInPageTouchPointVariant: string;
 }
 
+export interface GetThreatInsightSettingsItem {
+    /**
+     * Specifies how Okta responds to authentication requests from suspicious IPs.
+     */
+    action: string;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was created.
+     */
+    created: string;
+    /**
+     * List of Network Zone IDs excluded from ThreatInsight evaluation.
+     */
+    excludeZones: string[];
+    /**
+     * The unique identifier for the item.
+     */
+    id: string;
+    /**
+     * Timestamp when the ThreatInsight Configuration object was last updated.
+     */
+    lastUpdated: string;
+}
+
+export interface GetTrustedOriginScope {
+    /**
+     * The allowed Okta apps for the trusted origin scope
+     */
+    allowedOktaApps: string[];
+    /**
+     * The scope type.
+     */
+    type: string;
+}
+
 export interface GetTrustedOriginsTrustedOrigin {
     /**
      * Whether the Trusted Origin is active or not - can only be issued post-creation
@@ -2999,17 +3033,6 @@ export interface SecurityEventsProviderSettings {
      * The published well-known URL of the Security Events Provider (the SSF transmitter). Maximum length: 1000 characters.
      */
     wellKnownUrl?: string;
-}
-
-export interface TemplateSmsTranslation {
-    /**
-     * The language to map the template to.
-     */
-    language: string;
-    /**
-     * The SMS message.
-     */
-    template: string;
 }
 
 export interface UiSchemaUiSchema {
@@ -4251,6 +4274,20 @@ export namespace profile {
          */
         id: string;
         pushStatus?: string;
+    }
+
+}
+
+export namespace trustedorigin {
+    export interface OriginScope {
+        /**
+         * The allowed Okta apps for the trusted origin scope
+         */
+        allowedOktaApps?: string[];
+        /**
+         * The scope type. Supported values: `CORS`, `REDIRECT`, `IFRAME_EMBED`
+         */
+        type?: string;
     }
 
 }
