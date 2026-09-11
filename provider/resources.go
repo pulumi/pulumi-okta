@@ -39,7 +39,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-okta/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-okta/provider/v7/pkg/version"
 )
 
 // all of the token components used below.
