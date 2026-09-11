@@ -32,7 +32,7 @@ namespace Pulumi.Okta
     ///     var custom = new Okta.Policy.Password("custom", new()
     ///     {
     ///         Name = "Custom Password Policy",
-    ///         GroupsIncludeds = new[]
+    ///         GroupsIncluded = new[]
     ///         {
     ///             example.Id,
     ///         },

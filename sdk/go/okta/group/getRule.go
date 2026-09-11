@@ -73,7 +73,7 @@ type LookupRuleResult struct {
 	// Default to `ACTIVE`
 	Status *string `pulumi:"status"`
 	// The list of user IDs that would be excluded when rules are processed.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
@@ -141,8 +141,8 @@ func (o LookupRuleResultOutput) Status() pulumi.StringPtrOutput {
 }
 
 // The list of user IDs that would be excluded when rules are processed.
-func (o LookupRuleResultOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupRuleResult) []string { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o LookupRuleResultOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRuleResult) []string { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 func init() {

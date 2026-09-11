@@ -106,9 +106,9 @@ type RulePassword struct {
 	pulumi.CustomResourceState
 
 	// Set of Group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayOutput `pulumi:"groupsExcludeds"`
+	GroupsExcluded pulumi.StringArrayOutput `pulumi:"groupsExcluded"`
 	// Set of Group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
 	// Policy Rule Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
@@ -134,9 +134,9 @@ type RulePassword struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 	// Set of User IDs to include in this rule.
-	UsersIncludeds pulumi.StringArrayOutput `pulumi:"usersIncludeds"`
+	UsersIncluded pulumi.StringArrayOutput `pulumi:"usersIncluded"`
 }
 
 // NewRulePassword registers a new resource with the given unique name, arguments, and options.
@@ -170,9 +170,9 @@ func GetRulePassword(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RulePassword resources.
 type rulePasswordState struct {
 	// Set of Group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// Set of Group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
 	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
@@ -198,16 +198,16 @@ type rulePasswordState struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// Set of User IDs to include in this rule.
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 }
 
 type RulePasswordState struct {
 	// Set of Group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// Set of Group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
 	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
@@ -233,9 +233,9 @@ type RulePasswordState struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// Set of User IDs to include in this rule.
-	UsersIncludeds pulumi.StringArrayInput
+	UsersIncluded pulumi.StringArrayInput
 }
 
 func (RulePasswordState) ElementType() reflect.Type {
@@ -244,9 +244,9 @@ func (RulePasswordState) ElementType() reflect.Type {
 
 type rulePasswordArgs struct {
 	// Set of Group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// Set of Group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Policy Rule Name
 	Name *string `pulumi:"name"`
 	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
@@ -272,17 +272,17 @@ type rulePasswordArgs struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// Set of User IDs to include in this rule.
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 }
 
 // The set of arguments for constructing a RulePassword resource.
 type RulePasswordArgs struct {
 	// Set of Group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// Set of Group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Policy Rule Name
 	Name pulumi.StringPtrInput
 	// Network selection mode: `ANYWHERE`, `ZONE`. Default: `ANYWHERE`
@@ -308,9 +308,9 @@ type RulePasswordArgs struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// Set of User IDs to include in this rule.
-	UsersIncludeds pulumi.StringArrayInput
+	UsersIncluded pulumi.StringArrayInput
 }
 
 func (RulePasswordArgs) ElementType() reflect.Type {
@@ -401,13 +401,13 @@ func (o RulePasswordOutput) ToRulePasswordOutputWithContext(ctx context.Context)
 }
 
 // Set of Group IDs to exclude from this rule.
-func (o RulePasswordOutput) GroupsExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+func (o RulePasswordOutput) GroupsExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.GroupsExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of Group IDs to include in this rule.
-func (o RulePasswordOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o RulePasswordOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Policy Rule Name
@@ -471,13 +471,13 @@ func (o RulePasswordOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Set of User IDs to Exclude
-func (o RulePasswordOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o RulePasswordOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of User IDs to include in this rule.
-func (o RulePasswordOutput) UsersIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
+func (o RulePasswordOutput) UsersIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RulePassword) pulumi.StringArrayOutput { return v.UsersIncluded }).(pulumi.StringArrayOutput)
 }
 
 type RulePasswordArrayOutput struct{ *pulumi.OutputState }

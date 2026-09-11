@@ -33,7 +33,7 @@ import * as utilities from "./utilities";
  * });
  * const example = new okta.TrustedServer("example", {
  *     authServerId: oktaAuthServer.test1.id,
- *     trusteds: [
+ *     trusted: [
  *         oktaAuthServer.test2.id,
  *         oktaAuthServer.test3.id,
  *     ],
@@ -75,7 +75,7 @@ export class TrustedServer extends pulumi.CustomResource {
     /**
      * A list of the authorization server IDs user want to trust
      */
-    declare public readonly trusteds: pulumi.Output<string[]>;
+    declare public readonly trusted: pulumi.Output<string[]>;
 
     /**
      * Create a TrustedServer resource with the given unique name, arguments, and options.
@@ -91,17 +91,17 @@ export class TrustedServer extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TrustedServerState | undefined;
             resourceInputs["authServerId"] = state?.authServerId;
-            resourceInputs["trusteds"] = state?.trusteds;
+            resourceInputs["trusted"] = state?.trusted;
         } else {
             const args = argsOrState as TrustedServerArgs | undefined;
             if (args?.authServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authServerId'");
             }
-            if (args?.trusteds === undefined && !opts.urn) {
-                throw new Error("Missing required property 'trusteds'");
+            if (args?.trusted === undefined && !opts.urn) {
+                throw new Error("Missing required property 'trusted'");
             }
             resourceInputs["authServerId"] = args?.authServerId;
-            resourceInputs["trusteds"] = args?.trusteds;
+            resourceInputs["trusted"] = args?.trusted;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrustedServer.__pulumiType, name, resourceInputs, opts);
@@ -119,7 +119,7 @@ export interface TrustedServerState {
     /**
      * A list of the authorization server IDs user want to trust
      */
-    trusteds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    trusted?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface TrustedServerArgs {
     /**
      * A list of the authorization server IDs user want to trust
      */
-    trusteds: pulumi.Input<pulumi.Input<string>[]>;
+    trusted: pulumi.Input<pulumi.Input<string>[]>;
 }

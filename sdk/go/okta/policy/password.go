@@ -32,7 +32,7 @@ import (
 //				Status:               pulumi.String("ACTIVE"),
 //				Description:          pulumi.String("Example"),
 //				PasswordHistoryCount: pulumi.Int(4),
-//				GroupsIncludeds: pulumi.StringArray{
+//				GroupsIncluded: pulumi.StringArray{
 //					everyone.Id,
 //				},
 //			})
@@ -68,7 +68,7 @@ type Password struct {
 	// Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	EmailRecovery pulumi.StringPtrOutput `pulumi:"emailRecovery"`
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
 	// Policy Name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
@@ -166,7 +166,7 @@ type passwordState struct {
 	// Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	EmailRecovery *string `pulumi:"emailRecovery"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Policy Name
 	Name *string `pulumi:"name"`
 	// Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
@@ -235,7 +235,7 @@ type PasswordState struct {
 	// Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	EmailRecovery pulumi.StringPtrInput
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Policy Name
 	Name pulumi.StringPtrInput
 	// Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
@@ -308,7 +308,7 @@ type passwordArgs struct {
 	// Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	EmailRecovery *string `pulumi:"emailRecovery"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Policy Name
 	Name *string `pulumi:"name"`
 	// Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
@@ -378,7 +378,7 @@ type PasswordArgs struct {
 	// Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	EmailRecovery pulumi.StringPtrInput
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Policy Name
 	Name pulumi.StringPtrInput
 	// Number of minutes before a locked account is unlocked: 0 = no limit. Default: `0`
@@ -554,8 +554,8 @@ func (o PasswordOutput) EmailRecovery() pulumi.StringPtrOutput {
 }
 
 // List of Group IDs to Include
-func (o PasswordOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Password) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o PasswordOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Password) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Policy Name

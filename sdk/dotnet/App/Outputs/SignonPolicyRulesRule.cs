@@ -32,7 +32,7 @@ namespace Pulumi.Okta.App.Outputs
         /// <summary>
         /// Set of device assurance policy IDs to include.
         /// </summary>
-        public readonly ImmutableArray<string> DeviceAssurancesIncludeds;
+        public readonly ImmutableArray<string> DeviceAssurancesIncluded;
         /// <summary>
         /// Require device to be managed by a device management system.
         /// </summary>
@@ -48,11 +48,11 @@ namespace Pulumi.Okta.App.Outputs
         /// <summary>
         /// Set of group IDs to exclude from this rule.
         /// </summary>
-        public readonly ImmutableArray<string> GroupsExcludeds;
+        public readonly ImmutableArray<string> GroupsExcluded;
         /// <summary>
         /// Set of group IDs to include in this rule.
         /// </summary>
-        public readonly ImmutableArray<string> GroupsIncludeds;
+        public readonly ImmutableArray<string> GroupsIncluded;
         /// <summary>
         /// (String) - The ID of this resource (same as `PolicyId`).
         /// </summary>
@@ -112,19 +112,19 @@ namespace Pulumi.Okta.App.Outputs
         /// <summary>
         /// Set of user type IDs to exclude.
         /// </summary>
-        public readonly ImmutableArray<string> UserTypesExcludeds;
+        public readonly ImmutableArray<string> UserTypesExcluded;
         /// <summary>
         /// Set of user type IDs to include.
         /// </summary>
-        public readonly ImmutableArray<string> UserTypesIncludeds;
+        public readonly ImmutableArray<string> UserTypesIncluded;
         /// <summary>
         /// Set of user IDs to exclude from this rule.
         /// </summary>
-        public readonly ImmutableArray<string> UsersExcludeds;
+        public readonly ImmutableArray<string> UsersExcluded;
         /// <summary>
         /// Set of user IDs to include in this rule.
         /// </summary>
-        public readonly ImmutableArray<string> UsersIncludeds;
+        public readonly ImmutableArray<string> UsersIncluded;
 
         [OutputConstructor]
         private SignonPolicyRulesRule(
@@ -136,7 +136,7 @@ namespace Pulumi.Okta.App.Outputs
 
             string? customExpression,
 
-            ImmutableArray<string> deviceAssurancesIncludeds,
+            ImmutableArray<string> deviceAssurancesIncluded,
 
             bool? deviceIsManaged,
 
@@ -144,9 +144,9 @@ namespace Pulumi.Okta.App.Outputs
 
             string? factorMode,
 
-            ImmutableArray<string> groupsExcludeds,
+            ImmutableArray<string> groupsExcluded,
 
-            ImmutableArray<string> groupsIncludeds,
+            ImmutableArray<string> groupsIncluded,
 
             string? id,
 
@@ -176,24 +176,24 @@ namespace Pulumi.Okta.App.Outputs
 
             string? type,
 
-            ImmutableArray<string> userTypesExcludeds,
+            ImmutableArray<string> userTypesExcluded,
 
-            ImmutableArray<string> userTypesIncludeds,
+            ImmutableArray<string> userTypesIncluded,
 
-            ImmutableArray<string> usersExcludeds,
+            ImmutableArray<string> usersExcluded,
 
-            ImmutableArray<string> usersIncludeds)
+            ImmutableArray<string> usersIncluded)
         {
             Access = access;
             Chains = chains;
             Constraints = constraints;
             CustomExpression = customExpression;
-            DeviceAssurancesIncludeds = deviceAssurancesIncludeds;
+            DeviceAssurancesIncluded = deviceAssurancesIncluded;
             DeviceIsManaged = deviceIsManaged;
             DeviceIsRegistered = deviceIsRegistered;
             FactorMode = factorMode;
-            GroupsExcludeds = groupsExcludeds;
-            GroupsIncludeds = groupsIncludeds;
+            GroupsExcluded = groupsExcluded;
+            GroupsIncluded = groupsIncluded;
             Id = id;
             InactivityPeriod = inactivityPeriod;
             KeepMeSignedIn = keepMeSignedIn;
@@ -208,10 +208,10 @@ namespace Pulumi.Okta.App.Outputs
             Status = status;
             System = system;
             Type = type;
-            UserTypesExcludeds = userTypesExcludeds;
-            UserTypesIncludeds = userTypesIncludeds;
-            UsersExcludeds = usersExcludeds;
-            UsersIncludeds = usersIncludeds;
+            UserTypesExcluded = userTypesExcluded;
+            UserTypesIncluded = userTypesIncluded;
+            UsersExcluded = usersExcluded;
+            UsersIncluded = usersIncluded;
         }
     }
 }

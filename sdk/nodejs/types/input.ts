@@ -5450,7 +5450,7 @@ export namespace app {
         /**
          * Set of device assurance policy IDs to include.
          */
-        deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        deviceAssurancesIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Require device to be managed by a device management system.
          */
@@ -5466,11 +5466,11 @@ export namespace app {
         /**
          * Set of group IDs to exclude from this rule.
          */
-        groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of group IDs to include in this rule.
          */
-        groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * (String) - The ID of this resource (same as `policyId`).
          */
@@ -5530,19 +5530,19 @@ export namespace app {
         /**
          * Set of user type IDs to exclude.
          */
-        userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        userTypesExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of user type IDs to include.
          */
-        userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        userTypesIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of user IDs to exclude from this rule.
          */
-        usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * Set of user IDs to include in this rule.
          */
-        usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface SignonPolicyRulesRuleKeepMeSignedIn {

@@ -28,32 +28,32 @@ type GetOauthAuthorizationServerArgs struct {
 
 // A collection of values returned by getOauthAuthorizationServer.
 type GetOauthAuthorizationServerResult struct {
-	AuthorizationEndpoint                                      string   `pulumi:"authorizationEndpoint"`
-	BackchannelAuthenticationRequestSigningAlgValuesSupporteds []string `pulumi:"backchannelAuthenticationRequestSigningAlgValuesSupporteds"`
-	BackchannelTokenDeliveryModesSupporteds                    []string `pulumi:"backchannelTokenDeliveryModesSupporteds"`
-	BaseUrl                                                    *string  `pulumi:"baseUrl"`
-	ClaimsSupporteds                                           []string `pulumi:"claimsSupporteds"`
-	CodeChallengeMethodsSupporteds                             []string `pulumi:"codeChallengeMethodsSupporteds"`
-	DeviceAuthorizationEndpoint                                string   `pulumi:"deviceAuthorizationEndpoint"`
-	DpopSigningAlgValuesSupporteds                             []string `pulumi:"dpopSigningAlgValuesSupporteds"`
-	EndSessionEndpoint                                         string   `pulumi:"endSessionEndpoint"`
-	GrantTypesSupporteds                                       []string `pulumi:"grantTypesSupporteds"`
-	Id                                                         string   `pulumi:"id"`
-	IntrospectionEndpoint                                      string   `pulumi:"introspectionEndpoint"`
-	IntrospectionEndpointAuthMethodsSupporteds                 []string `pulumi:"introspectionEndpointAuthMethodsSupporteds"`
-	Issuer                                                     string   `pulumi:"issuer"`
-	PushedAuthorizationRequestEndpoint                         string   `pulumi:"pushedAuthorizationRequestEndpoint"`
-	RegistrationEndpoint                                       string   `pulumi:"registrationEndpoint"`
-	RequestObjectSigningAlgValuesSupporteds                    []string `pulumi:"requestObjectSigningAlgValuesSupporteds"`
-	RequestParameterSupported                                  bool     `pulumi:"requestParameterSupported"`
-	ResponseModesSupporteds                                    []string `pulumi:"responseModesSupporteds"`
-	ResponseTypesSupporteds                                    []string `pulumi:"responseTypesSupporteds"`
-	RevocationEndpoint                                         string   `pulumi:"revocationEndpoint"`
-	RevocationEndpointAuthMethodsSupporteds                    []string `pulumi:"revocationEndpointAuthMethodsSupporteds"`
-	ScopesSupporteds                                           []string `pulumi:"scopesSupporteds"`
-	SubjectTypesSupporteds                                     []string `pulumi:"subjectTypesSupporteds"`
-	TokenEndpoint                                              string   `pulumi:"tokenEndpoint"`
-	TokenEndpointAuthMethodsSupporteds                         []string `pulumi:"tokenEndpointAuthMethodsSupporteds"`
+	AuthorizationEndpoint                                     string   `pulumi:"authorizationEndpoint"`
+	BackchannelAuthenticationRequestSigningAlgValuesSupported []string `pulumi:"backchannelAuthenticationRequestSigningAlgValuesSupported"`
+	BackchannelTokenDeliveryModesSupported                    []string `pulumi:"backchannelTokenDeliveryModesSupported"`
+	BaseUrl                                                   *string  `pulumi:"baseUrl"`
+	ClaimsSupported                                           []string `pulumi:"claimsSupported"`
+	CodeChallengeMethodsSupported                             []string `pulumi:"codeChallengeMethodsSupported"`
+	DeviceAuthorizationEndpoint                               string   `pulumi:"deviceAuthorizationEndpoint"`
+	DpopSigningAlgValuesSupported                             []string `pulumi:"dpopSigningAlgValuesSupported"`
+	EndSessionEndpoint                                        string   `pulumi:"endSessionEndpoint"`
+	GrantTypesSupported                                       []string `pulumi:"grantTypesSupported"`
+	Id                                                        string   `pulumi:"id"`
+	IntrospectionEndpoint                                     string   `pulumi:"introspectionEndpoint"`
+	IntrospectionEndpointAuthMethodsSupported                 []string `pulumi:"introspectionEndpointAuthMethodsSupported"`
+	Issuer                                                    string   `pulumi:"issuer"`
+	PushedAuthorizationRequestEndpoint                        string   `pulumi:"pushedAuthorizationRequestEndpoint"`
+	RegistrationEndpoint                                      string   `pulumi:"registrationEndpoint"`
+	RequestObjectSigningAlgValuesSupported                    []string `pulumi:"requestObjectSigningAlgValuesSupported"`
+	RequestParameterSupported                                 bool     `pulumi:"requestParameterSupported"`
+	ResponseModesSupported                                    []string `pulumi:"responseModesSupported"`
+	ResponseTypesSupported                                    []string `pulumi:"responseTypesSupported"`
+	RevocationEndpoint                                        string   `pulumi:"revocationEndpoint"`
+	RevocationEndpointAuthMethodsSupported                    []string `pulumi:"revocationEndpointAuthMethodsSupported"`
+	ScopesSupported                                           []string `pulumi:"scopesSupported"`
+	SubjectTypesSupported                                     []string `pulumi:"subjectTypesSupported"`
+	TokenEndpoint                                             string   `pulumi:"tokenEndpoint"`
+	TokenEndpointAuthMethodsSupported                         []string `pulumi:"tokenEndpointAuthMethodsSupported"`
 }
 
 func GetOauthAuthorizationServerOutput(ctx *pulumi.Context, args GetOauthAuthorizationServerOutputArgs, opts ...pulumi.InvokeOption) GetOauthAuthorizationServerResultOutput {
@@ -89,42 +89,42 @@ func (o GetOauthAuthorizationServerResultOutput) AuthorizationEndpoint() pulumi.
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) BackchannelAuthenticationRequestSigningAlgValuesSupporteds() pulumi.StringArrayOutput {
+func (o GetOauthAuthorizationServerResultOutput) BackchannelAuthenticationRequestSigningAlgValuesSupported() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string {
-		return v.BackchannelAuthenticationRequestSigningAlgValuesSupporteds
+		return v.BackchannelAuthenticationRequestSigningAlgValuesSupported
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) BackchannelTokenDeliveryModesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.BackchannelTokenDeliveryModesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) BackchannelTokenDeliveryModesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.BackchannelTokenDeliveryModesSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) BaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) ClaimsSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ClaimsSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) ClaimsSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ClaimsSupported }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) CodeChallengeMethodsSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.CodeChallengeMethodsSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) CodeChallengeMethodsSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.CodeChallengeMethodsSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) DeviceAuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.DeviceAuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) DpopSigningAlgValuesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.DpopSigningAlgValuesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) DpopSigningAlgValuesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.DpopSigningAlgValuesSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) EndSessionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.EndSessionEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) GrantTypesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.GrantTypesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) GrantTypesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.GrantTypesSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) Id() pulumi.StringOutput {
@@ -135,10 +135,8 @@ func (o GetOauthAuthorizationServerResultOutput) IntrospectionEndpoint() pulumi.
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.IntrospectionEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) IntrospectionEndpointAuthMethodsSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string {
-		return v.IntrospectionEndpointAuthMethodsSupporteds
-	}).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) IntrospectionEndpointAuthMethodsSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.IntrospectionEndpointAuthMethodsSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) Issuer() pulumi.StringOutput {
@@ -153,44 +151,44 @@ func (o GetOauthAuthorizationServerResultOutput) RegistrationEndpoint() pulumi.S
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.RegistrationEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) RequestObjectSigningAlgValuesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.RequestObjectSigningAlgValuesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) RequestObjectSigningAlgValuesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.RequestObjectSigningAlgValuesSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) RequestParameterSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) bool { return v.RequestParameterSupported }).(pulumi.BoolOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) ResponseModesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ResponseModesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) ResponseModesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ResponseModesSupported }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) ResponseTypesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ResponseTypesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) ResponseTypesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ResponseTypesSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) RevocationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.RevocationEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) RevocationEndpointAuthMethodsSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.RevocationEndpointAuthMethodsSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) RevocationEndpointAuthMethodsSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.RevocationEndpointAuthMethodsSupported }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) ScopesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ScopesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) ScopesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.ScopesSupported }).(pulumi.StringArrayOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) SubjectTypesSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.SubjectTypesSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) SubjectTypesSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.SubjectTypesSupported }).(pulumi.StringArrayOutput)
 }
 
 func (o GetOauthAuthorizationServerResultOutput) TokenEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthAuthorizationServerResult) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
 
-func (o GetOauthAuthorizationServerResultOutput) TokenEndpointAuthMethodsSupporteds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.TokenEndpointAuthMethodsSupporteds }).(pulumi.StringArrayOutput)
+func (o GetOauthAuthorizationServerResultOutput) TokenEndpointAuthMethodsSupported() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOauthAuthorizationServerResult) []string { return v.TokenEndpointAuthMethodsSupported }).(pulumi.StringArrayOutput)
 }
 
 func init() {

@@ -101,15 +101,15 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * List of device assurance IDs to include
      * 
      */
-    @Export(name="deviceAssurancesIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> deviceAssurancesIncludeds;
+    @Export(name="deviceAssurancesIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> deviceAssurancesIncluded;
 
     /**
      * @return List of device assurance IDs to include
      * 
      */
-    public Output<Optional<List<String>>> deviceAssurancesIncludeds() {
-        return Codegen.optional(this.deviceAssurancesIncludeds);
+    public Output<Optional<List<String>>> deviceAssurancesIncluded() {
+        return Codegen.optional(this.deviceAssurancesIncluded);
     }
     /**
      * If the device is managed. A device is managed if it&#39;s managed by a device management system. When managed is passed, registered must also be included and must be set to true.
@@ -157,29 +157,29 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * List of group IDs to exclude
      * 
      */
-    @Export(name="groupsExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsExcludeds;
+    @Export(name="groupsExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsExcluded;
 
     /**
      * @return List of group IDs to exclude
      * 
      */
-    public Output<Optional<List<String>>> groupsExcludeds() {
-        return Codegen.optional(this.groupsExcludeds);
+    public Output<Optional<List<String>>> groupsExcluded() {
+        return Codegen.optional(this.groupsExcluded);
     }
     /**
      * List of group IDs to include
      * 
      */
-    @Export(name="groupsIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> groupsIncludeds;
+    @Export(name="groupsIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> groupsIncluded;
 
     /**
      * @return List of group IDs to include
      * 
      */
-    public Output<Optional<List<String>>> groupsIncludeds() {
-        return Codegen.optional(this.groupsIncludeds);
+    public Output<Optional<List<String>>> groupsIncluded() {
+        return Codegen.optional(this.groupsIncluded);
     }
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
@@ -387,57 +387,57 @@ public class AppSignonPolicyRule extends com.pulumi.resources.CustomResource {
      * Set of User Type IDs to exclude
      * 
      */
-    @Export(name="userTypesExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> userTypesExcludeds;
+    @Export(name="userTypesExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> userTypesExcluded;
 
     /**
      * @return Set of User Type IDs to exclude
      * 
      */
-    public Output<Optional<List<String>>> userTypesExcludeds() {
-        return Codegen.optional(this.userTypesExcludeds);
+    public Output<Optional<List<String>>> userTypesExcluded() {
+        return Codegen.optional(this.userTypesExcluded);
     }
     /**
      * Set of User Type IDs to include
      * 
      */
-    @Export(name="userTypesIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> userTypesIncludeds;
+    @Export(name="userTypesIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> userTypesIncluded;
 
     /**
      * @return Set of User Type IDs to include
      * 
      */
-    public Output<Optional<List<String>>> userTypesIncludeds() {
-        return Codegen.optional(this.userTypesIncludeds);
+    public Output<Optional<List<String>>> userTypesIncluded() {
+        return Codegen.optional(this.userTypesIncluded);
     }
     /**
      * Set of User IDs to exclude
      * 
      */
-    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersExcludeds;
+    @Export(name="usersExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersExcluded;
 
     /**
      * @return Set of User IDs to exclude
      * 
      */
-    public Output<Optional<List<String>>> usersExcludeds() {
-        return Codegen.optional(this.usersExcludeds);
+    public Output<Optional<List<String>>> usersExcluded() {
+        return Codegen.optional(this.usersExcluded);
     }
     /**
      * Set of User IDs to include
      * 
      */
-    @Export(name="usersIncludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersIncludeds;
+    @Export(name="usersIncluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersIncluded;
 
     /**
      * @return Set of User IDs to include
      * 
      */
-    public Output<Optional<List<String>>> usersIncludeds() {
-        return Codegen.optional(this.usersIncludeds);
+    public Output<Optional<List<String>>> usersIncluded() {
+        return Codegen.optional(this.usersIncluded);
     }
 
     /**

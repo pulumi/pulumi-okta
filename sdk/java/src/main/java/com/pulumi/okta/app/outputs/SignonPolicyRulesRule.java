@@ -41,7 +41,7 @@ public final class SignonPolicyRulesRule {
      * @return Set of device assurance policy IDs to include.
      * 
      */
-    private @Nullable List<String> deviceAssurancesIncludeds;
+    private @Nullable List<String> deviceAssurancesIncluded;
     /**
      * @return Require device to be managed by a device management system.
      * 
@@ -61,12 +61,12 @@ public final class SignonPolicyRulesRule {
      * @return Set of group IDs to exclude from this rule.
      * 
      */
-    private @Nullable List<String> groupsExcludeds;
+    private @Nullable List<String> groupsExcluded;
     /**
      * @return Set of group IDs to include in this rule.
      * 
      */
-    private @Nullable List<String> groupsIncludeds;
+    private @Nullable List<String> groupsIncluded;
     /**
      * @return (String) - The ID of this resource (same as `policyId`).
      * 
@@ -141,22 +141,22 @@ public final class SignonPolicyRulesRule {
      * @return Set of user type IDs to exclude.
      * 
      */
-    private @Nullable List<String> userTypesExcludeds;
+    private @Nullable List<String> userTypesExcluded;
     /**
      * @return Set of user type IDs to include.
      * 
      */
-    private @Nullable List<String> userTypesIncludeds;
+    private @Nullable List<String> userTypesIncluded;
     /**
      * @return Set of user IDs to exclude from this rule.
      * 
      */
-    private @Nullable List<String> usersExcludeds;
+    private @Nullable List<String> usersExcluded;
     /**
      * @return Set of user IDs to include in this rule.
      * 
      */
-    private @Nullable List<String> usersIncludeds;
+    private @Nullable List<String> usersIncluded;
 
     private SignonPolicyRulesRule() {}
     /**
@@ -191,8 +191,8 @@ public final class SignonPolicyRulesRule {
      * @return Set of device assurance policy IDs to include.
      * 
      */
-    public List<String> deviceAssurancesIncludeds() {
-        return this.deviceAssurancesIncludeds == null ? List.of() : this.deviceAssurancesIncludeds;
+    public List<String> deviceAssurancesIncluded() {
+        return this.deviceAssurancesIncluded == null ? List.of() : this.deviceAssurancesIncluded;
     }
     /**
      * @return Require device to be managed by a device management system.
@@ -219,15 +219,15 @@ public final class SignonPolicyRulesRule {
      * @return Set of group IDs to exclude from this rule.
      * 
      */
-    public List<String> groupsExcludeds() {
-        return this.groupsExcludeds == null ? List.of() : this.groupsExcludeds;
+    public List<String> groupsExcluded() {
+        return this.groupsExcluded == null ? List.of() : this.groupsExcluded;
     }
     /**
      * @return Set of group IDs to include in this rule.
      * 
      */
-    public List<String> groupsIncludeds() {
-        return this.groupsIncludeds == null ? List.of() : this.groupsIncludeds;
+    public List<String> groupsIncluded() {
+        return this.groupsIncluded == null ? List.of() : this.groupsIncluded;
     }
     /**
      * @return (String) - The ID of this resource (same as `policyId`).
@@ -331,29 +331,29 @@ public final class SignonPolicyRulesRule {
      * @return Set of user type IDs to exclude.
      * 
      */
-    public List<String> userTypesExcludeds() {
-        return this.userTypesExcludeds == null ? List.of() : this.userTypesExcludeds;
+    public List<String> userTypesExcluded() {
+        return this.userTypesExcluded == null ? List.of() : this.userTypesExcluded;
     }
     /**
      * @return Set of user type IDs to include.
      * 
      */
-    public List<String> userTypesIncludeds() {
-        return this.userTypesIncludeds == null ? List.of() : this.userTypesIncludeds;
+    public List<String> userTypesIncluded() {
+        return this.userTypesIncluded == null ? List.of() : this.userTypesIncluded;
     }
     /**
      * @return Set of user IDs to exclude from this rule.
      * 
      */
-    public List<String> usersExcludeds() {
-        return this.usersExcludeds == null ? List.of() : this.usersExcludeds;
+    public List<String> usersExcluded() {
+        return this.usersExcluded == null ? List.of() : this.usersExcluded;
     }
     /**
      * @return Set of user IDs to include in this rule.
      * 
      */
-    public List<String> usersIncludeds() {
-        return this.usersIncludeds == null ? List.of() : this.usersIncludeds;
+    public List<String> usersIncluded() {
+        return this.usersIncluded == null ? List.of() : this.usersIncluded;
     }
 
     public static Builder builder() {
@@ -369,12 +369,12 @@ public final class SignonPolicyRulesRule {
         private @Nullable List<String> chains;
         private @Nullable List<String> constraints;
         private @Nullable String customExpression;
-        private @Nullable List<String> deviceAssurancesIncludeds;
+        private @Nullable List<String> deviceAssurancesIncluded;
         private @Nullable Boolean deviceIsManaged;
         private @Nullable Boolean deviceIsRegistered;
         private @Nullable String factorMode;
-        private @Nullable List<String> groupsExcludeds;
-        private @Nullable List<String> groupsIncludeds;
+        private @Nullable List<String> groupsExcluded;
+        private @Nullable List<String> groupsIncluded;
         private @Nullable String id;
         private @Nullable String inactivityPeriod;
         private @Nullable SignonPolicyRulesRuleKeepMeSignedIn keepMeSignedIn;
@@ -389,10 +389,10 @@ public final class SignonPolicyRulesRule {
         private @Nullable String status;
         private @Nullable Boolean system;
         private @Nullable String type;
-        private @Nullable List<String> userTypesExcludeds;
-        private @Nullable List<String> userTypesIncludeds;
-        private @Nullable List<String> usersExcludeds;
-        private @Nullable List<String> usersIncludeds;
+        private @Nullable List<String> userTypesExcluded;
+        private @Nullable List<String> userTypesIncluded;
+        private @Nullable List<String> usersExcluded;
+        private @Nullable List<String> usersIncluded;
         public Builder() {}
         public Builder(SignonPolicyRulesRule defaults) {
     	      Objects.requireNonNull(defaults);
@@ -400,12 +400,12 @@ public final class SignonPolicyRulesRule {
     	      this.chains = defaults.chains;
     	      this.constraints = defaults.constraints;
     	      this.customExpression = defaults.customExpression;
-    	      this.deviceAssurancesIncludeds = defaults.deviceAssurancesIncludeds;
+    	      this.deviceAssurancesIncluded = defaults.deviceAssurancesIncluded;
     	      this.deviceIsManaged = defaults.deviceIsManaged;
     	      this.deviceIsRegistered = defaults.deviceIsRegistered;
     	      this.factorMode = defaults.factorMode;
-    	      this.groupsExcludeds = defaults.groupsExcludeds;
-    	      this.groupsIncludeds = defaults.groupsIncludeds;
+    	      this.groupsExcluded = defaults.groupsExcluded;
+    	      this.groupsIncluded = defaults.groupsIncluded;
     	      this.id = defaults.id;
     	      this.inactivityPeriod = defaults.inactivityPeriod;
     	      this.keepMeSignedIn = defaults.keepMeSignedIn;
@@ -420,10 +420,10 @@ public final class SignonPolicyRulesRule {
     	      this.status = defaults.status;
     	      this.system = defaults.system;
     	      this.type = defaults.type;
-    	      this.userTypesExcludeds = defaults.userTypesExcludeds;
-    	      this.userTypesIncludeds = defaults.userTypesIncludeds;
-    	      this.usersExcludeds = defaults.usersExcludeds;
-    	      this.usersIncludeds = defaults.usersIncludeds;
+    	      this.userTypesExcluded = defaults.userTypesExcluded;
+    	      this.userTypesIncluded = defaults.userTypesIncluded;
+    	      this.usersExcluded = defaults.usersExcluded;
+    	      this.usersIncluded = defaults.usersIncluded;
         }
 
         @CustomType.Setter
@@ -457,13 +457,13 @@ public final class SignonPolicyRulesRule {
             return this;
         }
         @CustomType.Setter
-        public Builder deviceAssurancesIncludeds(@Nullable List<String> deviceAssurancesIncludeds) {
+        public Builder deviceAssurancesIncluded(@Nullable List<String> deviceAssurancesIncluded) {
 
-            this.deviceAssurancesIncludeds = deviceAssurancesIncludeds;
+            this.deviceAssurancesIncluded = deviceAssurancesIncluded;
             return this;
         }
-        public Builder deviceAssurancesIncludeds(String... deviceAssurancesIncludeds) {
-            return deviceAssurancesIncludeds(List.of(deviceAssurancesIncludeds));
+        public Builder deviceAssurancesIncluded(String... deviceAssurancesIncluded) {
+            return deviceAssurancesIncluded(List.of(deviceAssurancesIncluded));
         }
         @CustomType.Setter
         public Builder deviceIsManaged(@Nullable Boolean deviceIsManaged) {
@@ -484,22 +484,22 @@ public final class SignonPolicyRulesRule {
             return this;
         }
         @CustomType.Setter
-        public Builder groupsExcludeds(@Nullable List<String> groupsExcludeds) {
+        public Builder groupsExcluded(@Nullable List<String> groupsExcluded) {
 
-            this.groupsExcludeds = groupsExcludeds;
+            this.groupsExcluded = groupsExcluded;
             return this;
         }
-        public Builder groupsExcludeds(String... groupsExcludeds) {
-            return groupsExcludeds(List.of(groupsExcludeds));
+        public Builder groupsExcluded(String... groupsExcluded) {
+            return groupsExcluded(List.of(groupsExcluded));
         }
         @CustomType.Setter
-        public Builder groupsIncludeds(@Nullable List<String> groupsIncludeds) {
+        public Builder groupsIncluded(@Nullable List<String> groupsIncluded) {
 
-            this.groupsIncludeds = groupsIncludeds;
+            this.groupsIncluded = groupsIncluded;
             return this;
         }
-        public Builder groupsIncludeds(String... groupsIncludeds) {
-            return groupsIncludeds(List.of(groupsIncludeds));
+        public Builder groupsIncluded(String... groupsIncluded) {
+            return groupsIncluded(List.of(groupsIncluded));
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
@@ -597,40 +597,40 @@ public final class SignonPolicyRulesRule {
             return this;
         }
         @CustomType.Setter
-        public Builder userTypesExcludeds(@Nullable List<String> userTypesExcludeds) {
+        public Builder userTypesExcluded(@Nullable List<String> userTypesExcluded) {
 
-            this.userTypesExcludeds = userTypesExcludeds;
+            this.userTypesExcluded = userTypesExcluded;
             return this;
         }
-        public Builder userTypesExcludeds(String... userTypesExcludeds) {
-            return userTypesExcludeds(List.of(userTypesExcludeds));
+        public Builder userTypesExcluded(String... userTypesExcluded) {
+            return userTypesExcluded(List.of(userTypesExcluded));
         }
         @CustomType.Setter
-        public Builder userTypesIncludeds(@Nullable List<String> userTypesIncludeds) {
+        public Builder userTypesIncluded(@Nullable List<String> userTypesIncluded) {
 
-            this.userTypesIncludeds = userTypesIncludeds;
+            this.userTypesIncluded = userTypesIncluded;
             return this;
         }
-        public Builder userTypesIncludeds(String... userTypesIncludeds) {
-            return userTypesIncludeds(List.of(userTypesIncludeds));
+        public Builder userTypesIncluded(String... userTypesIncluded) {
+            return userTypesIncluded(List.of(userTypesIncluded));
         }
         @CustomType.Setter
-        public Builder usersExcludeds(@Nullable List<String> usersExcludeds) {
+        public Builder usersExcluded(@Nullable List<String> usersExcluded) {
 
-            this.usersExcludeds = usersExcludeds;
+            this.usersExcluded = usersExcluded;
             return this;
         }
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
         @CustomType.Setter
-        public Builder usersIncludeds(@Nullable List<String> usersIncludeds) {
+        public Builder usersIncluded(@Nullable List<String> usersIncluded) {
 
-            this.usersIncludeds = usersIncludeds;
+            this.usersIncluded = usersIncluded;
             return this;
         }
-        public Builder usersIncludeds(String... usersIncludeds) {
-            return usersIncludeds(List.of(usersIncludeds));
+        public Builder usersIncluded(String... usersIncluded) {
+            return usersIncluded(List.of(usersIncluded));
         }
         public SignonPolicyRulesRule build() {
             final var _resultValue = new SignonPolicyRulesRule();
@@ -638,12 +638,12 @@ public final class SignonPolicyRulesRule {
             _resultValue.chains = chains;
             _resultValue.constraints = constraints;
             _resultValue.customExpression = customExpression;
-            _resultValue.deviceAssurancesIncludeds = deviceAssurancesIncludeds;
+            _resultValue.deviceAssurancesIncluded = deviceAssurancesIncluded;
             _resultValue.deviceIsManaged = deviceIsManaged;
             _resultValue.deviceIsRegistered = deviceIsRegistered;
             _resultValue.factorMode = factorMode;
-            _resultValue.groupsExcludeds = groupsExcludeds;
-            _resultValue.groupsIncludeds = groupsIncludeds;
+            _resultValue.groupsExcluded = groupsExcluded;
+            _resultValue.groupsIncluded = groupsIncluded;
             _resultValue.id = id;
             _resultValue.inactivityPeriod = inactivityPeriod;
             _resultValue.keepMeSignedIn = keepMeSignedIn;
@@ -658,10 +658,10 @@ public final class SignonPolicyRulesRule {
             _resultValue.status = status;
             _resultValue.system = system;
             _resultValue.type = type;
-            _resultValue.userTypesExcludeds = userTypesExcludeds;
-            _resultValue.userTypesIncludeds = userTypesIncludeds;
-            _resultValue.usersExcludeds = usersExcludeds;
-            _resultValue.usersIncludeds = usersIncludeds;
+            _resultValue.userTypesExcluded = userTypesExcluded;
+            _resultValue.userTypesIncluded = userTypesIncluded;
+            _resultValue.usersExcluded = usersExcluded;
+            _resultValue.usersIncluded = usersIncluded;
             return _resultValue;
         }
     }

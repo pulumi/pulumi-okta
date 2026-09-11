@@ -28,7 +28,7 @@ namespace Pulumi.Okta.Policy
     ///         Status = "ACTIVE",
     ///         Description = "Example",
     ///         PasswordHistoryCount = 4,
-    ///         GroupsIncludeds = new[]
+    ///         GroupsIncluded = new[]
     ///         {
     ///             everyone.Id,
     ///         },
@@ -91,8 +91,8 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// List of Group IDs to Include
         /// </summary>
-        [Output("groupsIncludeds")]
-        public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
+        [Output("groupsIncluded")]
+        public Output<ImmutableArray<string>> GroupsIncluded { get; private set; } = null!;
 
         /// <summary>
         /// Policy Name
@@ -332,16 +332,16 @@ namespace Pulumi.Okta.Policy
         [Input("emailRecovery")]
         public Input<string>? EmailRecovery { get; set; }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// List of Group IDs to Include
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>
@@ -550,16 +550,16 @@ namespace Pulumi.Okta.Policy
         [Input("emailRecovery")]
         public Input<string>? EmailRecovery { get; set; }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// List of Group IDs to Include
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>

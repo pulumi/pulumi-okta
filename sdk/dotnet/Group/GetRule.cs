@@ -168,7 +168,7 @@ namespace Pulumi.Okta.Group
         /// <summary>
         /// The list of user IDs that would be excluded when rules are processed.
         /// </summary>
-        public readonly ImmutableArray<string> UsersExcludeds;
+        public readonly ImmutableArray<string> UsersExcluded;
 
         [OutputConstructor]
         private GetRuleResult(
@@ -184,7 +184,7 @@ namespace Pulumi.Okta.Group
 
             string? status,
 
-            ImmutableArray<string> usersExcludeds)
+            ImmutableArray<string> usersExcluded)
         {
             ExpressionType = expressionType;
             ExpressionValue = expressionValue;
@@ -192,7 +192,7 @@ namespace Pulumi.Okta.Group
             Id = id;
             Name = name;
             Status = status;
-            UsersExcludeds = usersExcludeds;
+            UsersExcluded = usersExcluded;
         }
     }
 }

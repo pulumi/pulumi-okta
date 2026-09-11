@@ -22,30 +22,30 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
      * Set of Group IDs to exclude from this rule.
      * 
      */
-    @Import(name="groupsExcludeds")
-    private @Nullable Output<List<String>> groupsExcludeds;
+    @Import(name="groupsExcluded")
+    private @Nullable Output<List<String>> groupsExcluded;
 
     /**
      * @return Set of Group IDs to exclude from this rule.
      * 
      */
-    public Optional<Output<List<String>>> groupsExcludeds() {
-        return Optional.ofNullable(this.groupsExcludeds);
+    public Optional<Output<List<String>>> groupsExcluded() {
+        return Optional.ofNullable(this.groupsExcluded);
     }
 
     /**
      * Set of Group IDs to include in this rule.
      * 
      */
-    @Import(name="groupsIncludeds")
-    private @Nullable Output<List<String>> groupsIncludeds;
+    @Import(name="groupsIncluded")
+    private @Nullable Output<List<String>> groupsIncluded;
 
     /**
      * @return Set of Group IDs to include in this rule.
      * 
      */
-    public Optional<Output<List<String>>> groupsIncludeds() {
-        return Optional.ofNullable(this.groupsIncludeds);
+    public Optional<Output<List<String>>> groupsIncluded() {
+        return Optional.ofNullable(this.groupsIncluded);
     }
 
     /**
@@ -232,37 +232,37 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
      * Set of User IDs to Exclude
      * 
      */
-    @Import(name="usersExcludeds")
-    private @Nullable Output<List<String>> usersExcludeds;
+    @Import(name="usersExcluded")
+    private @Nullable Output<List<String>> usersExcluded;
 
     /**
      * @return Set of User IDs to Exclude
      * 
      */
-    public Optional<Output<List<String>>> usersExcludeds() {
-        return Optional.ofNullable(this.usersExcludeds);
+    public Optional<Output<List<String>>> usersExcluded() {
+        return Optional.ofNullable(this.usersExcluded);
     }
 
     /**
      * Set of User IDs to include in this rule.
      * 
      */
-    @Import(name="usersIncludeds")
-    private @Nullable Output<List<String>> usersIncludeds;
+    @Import(name="usersIncluded")
+    private @Nullable Output<List<String>> usersIncluded;
 
     /**
      * @return Set of User IDs to include in this rule.
      * 
      */
-    public Optional<Output<List<String>>> usersIncludeds() {
-        return Optional.ofNullable(this.usersIncludeds);
+    public Optional<Output<List<String>>> usersIncluded() {
+        return Optional.ofNullable(this.usersIncluded);
     }
 
     private RulePasswordArgs() {}
 
     private RulePasswordArgs(RulePasswordArgs $) {
-        this.groupsExcludeds = $.groupsExcludeds;
-        this.groupsIncludeds = $.groupsIncludeds;
+        this.groupsExcluded = $.groupsExcluded;
+        this.groupsIncluded = $.groupsIncluded;
         this.name = $.name;
         this.networkConnection = $.networkConnection;
         this.networkExcludes = $.networkExcludes;
@@ -275,8 +275,8 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         this.policyId = $.policyId;
         this.priority = $.priority;
         this.status = $.status;
-        this.usersExcludeds = $.usersExcludeds;
-        this.usersIncludeds = $.usersIncludeds;
+        this.usersExcluded = $.usersExcluded;
+        this.usersIncluded = $.usersIncluded;
     }
 
     public static Builder builder() {
@@ -298,65 +298,65 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsExcludeds Set of Group IDs to exclude from this rule.
+         * @param groupsExcluded Set of Group IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsExcludeds(@Nullable Output<List<String>> groupsExcludeds) {
-            $.groupsExcludeds = groupsExcludeds;
+        public Builder groupsExcluded(@Nullable Output<List<String>> groupsExcluded) {
+            $.groupsExcluded = groupsExcluded;
             return this;
         }
 
         /**
-         * @param groupsExcludeds Set of Group IDs to exclude from this rule.
+         * @param groupsExcluded Set of Group IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsExcludeds(List<String> groupsExcludeds) {
-            return groupsExcludeds(Output.of(groupsExcludeds));
+        public Builder groupsExcluded(List<String> groupsExcluded) {
+            return groupsExcluded(Output.of(groupsExcluded));
         }
 
         /**
-         * @param groupsExcludeds Set of Group IDs to exclude from this rule.
+         * @param groupsExcluded Set of Group IDs to exclude from this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsExcludeds(String... groupsExcludeds) {
-            return groupsExcludeds(List.of(groupsExcludeds));
+        public Builder groupsExcluded(String... groupsExcluded) {
+            return groupsExcluded(List.of(groupsExcluded));
         }
 
         /**
-         * @param groupsIncludeds Set of Group IDs to include in this rule.
+         * @param groupsIncluded Set of Group IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(@Nullable Output<List<String>> groupsIncludeds) {
-            $.groupsIncludeds = groupsIncludeds;
+        public Builder groupsIncluded(@Nullable Output<List<String>> groupsIncluded) {
+            $.groupsIncluded = groupsIncluded;
             return this;
         }
 
         /**
-         * @param groupsIncludeds Set of Group IDs to include in this rule.
+         * @param groupsIncluded Set of Group IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(List<String> groupsIncludeds) {
-            return groupsIncludeds(Output.of(groupsIncludeds));
+        public Builder groupsIncluded(List<String> groupsIncluded) {
+            return groupsIncluded(Output.of(groupsIncluded));
         }
 
         /**
-         * @param groupsIncludeds Set of Group IDs to include in this rule.
+         * @param groupsIncluded Set of Group IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(String... groupsIncludeds) {
-            return groupsIncludeds(List.of(groupsIncludeds));
+        public Builder groupsIncluded(String... groupsIncluded) {
+            return groupsIncluded(List.of(groupsIncluded));
         }
 
         /**
@@ -632,65 +632,65 @@ public final class RulePasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcluded Set of User IDs to Exclude
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(@Nullable Output<List<String>> usersExcludeds) {
-            $.usersExcludeds = usersExcludeds;
+        public Builder usersExcluded(@Nullable Output<List<String>> usersExcluded) {
+            $.usersExcluded = usersExcluded;
             return this;
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcluded Set of User IDs to Exclude
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(List<String> usersExcludeds) {
-            return usersExcludeds(Output.of(usersExcludeds));
+        public Builder usersExcluded(List<String> usersExcluded) {
+            return usersExcluded(Output.of(usersExcluded));
         }
 
         /**
-         * @param usersExcludeds Set of User IDs to Exclude
+         * @param usersExcluded Set of User IDs to Exclude
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
 
         /**
-         * @param usersIncludeds Set of User IDs to include in this rule.
+         * @param usersIncluded Set of User IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersIncludeds(@Nullable Output<List<String>> usersIncludeds) {
-            $.usersIncludeds = usersIncludeds;
+        public Builder usersIncluded(@Nullable Output<List<String>> usersIncluded) {
+            $.usersIncluded = usersIncluded;
             return this;
         }
 
         /**
-         * @param usersIncludeds Set of User IDs to include in this rule.
+         * @param usersIncluded Set of User IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersIncludeds(List<String> usersIncludeds) {
-            return usersIncludeds(Output.of(usersIncludeds));
+        public Builder usersIncluded(List<String> usersIncluded) {
+            return usersIncluded(Output.of(usersIncluded));
         }
 
         /**
-         * @param usersIncludeds Set of User IDs to include in this rule.
+         * @param usersIncluded Set of User IDs to include in this rule.
          * 
          * @return builder
          * 
          */
-        public Builder usersIncludeds(String... usersIncludeds) {
-            return usersIncludeds(List.of(usersIncludeds));
+        public Builder usersIncluded(String... usersIncluded) {
+            return usersIncluded(List.of(usersIncluded));
         }
 
         public RulePasswordArgs build() {

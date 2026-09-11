@@ -98,14 +98,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Set of Group IDs to exclude from this rule.
         /// </summary>
-        [Output("groupsExcludeds")]
-        public Output<ImmutableArray<string>> GroupsExcludeds { get; private set; } = null!;
+        [Output("groupsExcluded")]
+        public Output<ImmutableArray<string>> GroupsExcluded { get; private set; } = null!;
 
         /// <summary>
         /// Set of Group IDs to include in this rule.
         /// </summary>
-        [Output("groupsIncludeds")]
-        public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
+        [Output("groupsIncluded")]
+        public Output<ImmutableArray<string>> GroupsIncluded { get; private set; } = null!;
 
         /// <summary>
         /// Policy Rule Name
@@ -182,14 +182,14 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
-        [Output("usersExcludeds")]
-        public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
+        [Output("usersExcluded")]
+        public Output<ImmutableArray<string>> UsersExcluded { get; private set; } = null!;
 
         /// <summary>
         /// Set of User IDs to include in this rule.
         /// </summary>
-        [Output("usersIncludeds")]
-        public Output<ImmutableArray<string>> UsersIncludeds { get; private set; } = null!;
+        [Output("usersIncluded")]
+        public Output<ImmutableArray<string>> UsersIncluded { get; private set; } = null!;
 
 
         /// <summary>
@@ -237,28 +237,28 @@ namespace Pulumi.Okta.Policy
 
     public sealed class RulePasswordArgs : global::Pulumi.ResourceArgs
     {
-        [Input("groupsExcludeds")]
-        private InputList<string>? _groupsExcludeds;
+        [Input("groupsExcluded")]
+        private InputList<string>? _groupsExcluded;
 
         /// <summary>
         /// Set of Group IDs to exclude from this rule.
         /// </summary>
-        public InputList<string> GroupsExcludeds
+        public InputList<string> GroupsExcluded
         {
-            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
-            set => _groupsExcludeds = value;
+            get => _groupsExcluded ?? (_groupsExcluded = new InputList<string>());
+            set => _groupsExcluded = value;
         }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// Set of Group IDs to include in this rule.
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>
@@ -345,28 +345,28 @@ namespace Pulumi.Okta.Policy
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
-        [Input("usersIncludeds")]
-        private InputList<string>? _usersIncludeds;
+        [Input("usersIncluded")]
+        private InputList<string>? _usersIncluded;
 
         /// <summary>
         /// Set of User IDs to include in this rule.
         /// </summary>
-        public InputList<string> UsersIncludeds
+        public InputList<string> UsersIncluded
         {
-            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
-            set => _usersIncludeds = value;
+            get => _usersIncluded ?? (_usersIncluded = new InputList<string>());
+            set => _usersIncluded = value;
         }
 
         public RulePasswordArgs()
@@ -377,28 +377,28 @@ namespace Pulumi.Okta.Policy
 
     public sealed class RulePasswordState : global::Pulumi.ResourceArgs
     {
-        [Input("groupsExcludeds")]
-        private InputList<string>? _groupsExcludeds;
+        [Input("groupsExcluded")]
+        private InputList<string>? _groupsExcluded;
 
         /// <summary>
         /// Set of Group IDs to exclude from this rule.
         /// </summary>
-        public InputList<string> GroupsExcludeds
+        public InputList<string> GroupsExcluded
         {
-            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
-            set => _groupsExcludeds = value;
+            get => _groupsExcluded ?? (_groupsExcluded = new InputList<string>());
+            set => _groupsExcluded = value;
         }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// Set of Group IDs to include in this rule.
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>
@@ -485,28 +485,28 @@ namespace Pulumi.Okta.Policy
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
-        [Input("usersIncludeds")]
-        private InputList<string>? _usersIncludeds;
+        [Input("usersIncluded")]
+        private InputList<string>? _usersIncluded;
 
         /// <summary>
         /// Set of User IDs to include in this rule.
         /// </summary>
-        public InputList<string> UsersIncludeds
+        public InputList<string> UsersIncluded
         {
-            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
-            set => _usersIncludeds = value;
+            get => _usersIncluded ?? (_usersIncluded = new InputList<string>());
+            set => _usersIncluded = value;
         }
 
         public RulePasswordState()

@@ -24,31 +24,31 @@ export interface GetOauthAuthorizationServerArgs {
  */
 export interface GetOauthAuthorizationServerResult {
     readonly authorizationEndpoint: string;
-    readonly backchannelAuthenticationRequestSigningAlgValuesSupporteds: string[];
-    readonly backchannelTokenDeliveryModesSupporteds: string[];
+    readonly backchannelAuthenticationRequestSigningAlgValuesSupported: string[];
+    readonly backchannelTokenDeliveryModesSupported: string[];
     readonly baseUrl?: string;
-    readonly claimsSupporteds: string[];
-    readonly codeChallengeMethodsSupporteds: string[];
+    readonly claimsSupported: string[];
+    readonly codeChallengeMethodsSupported: string[];
     readonly deviceAuthorizationEndpoint: string;
-    readonly dpopSigningAlgValuesSupporteds: string[];
+    readonly dpopSigningAlgValuesSupported: string[];
     readonly endSessionEndpoint: string;
-    readonly grantTypesSupporteds: string[];
+    readonly grantTypesSupported: string[];
     readonly id: string;
     readonly introspectionEndpoint: string;
-    readonly introspectionEndpointAuthMethodsSupporteds: string[];
+    readonly introspectionEndpointAuthMethodsSupported: string[];
     readonly issuer: string;
     readonly pushedAuthorizationRequestEndpoint: string;
     readonly registrationEndpoint: string;
-    readonly requestObjectSigningAlgValuesSupporteds: string[];
+    readonly requestObjectSigningAlgValuesSupported: string[];
     readonly requestParameterSupported: boolean;
-    readonly responseModesSupporteds: string[];
-    readonly responseTypesSupporteds: string[];
+    readonly responseModesSupported: string[];
+    readonly responseTypesSupported: string[];
     readonly revocationEndpoint: string;
-    readonly revocationEndpointAuthMethodsSupporteds: string[];
-    readonly scopesSupporteds: string[];
-    readonly subjectTypesSupporteds: string[];
+    readonly revocationEndpointAuthMethodsSupported: string[];
+    readonly scopesSupported: string[];
+    readonly subjectTypesSupported: string[];
     readonly tokenEndpoint: string;
-    readonly tokenEndpointAuthMethodsSupporteds: string[];
+    readonly tokenEndpointAuthMethodsSupported: string[];
 }
 export function getOauthAuthorizationServerOutput(args?: GetOauthAuthorizationServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOauthAuthorizationServerResult> {
     args = args || {};

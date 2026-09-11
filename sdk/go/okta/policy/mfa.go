@@ -33,8 +33,8 @@ type Mfa struct {
 	FidoWebauthn pulumi.StringMapOutput      `pulumi:"fidoWebauthn"`
 	GoogleOtp    pulumi.StringMapOutput      `pulumi:"googleOtp"`
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
-	Hotp            pulumi.StringMapOutput   `pulumi:"hotp"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
+	Hotp           pulumi.StringMapOutput   `pulumi:"hotp"`
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie pulumi.BoolPtrOutput `pulumi:"isOie"`
 	// Policy Name
@@ -103,8 +103,8 @@ type mfaState struct {
 	FidoWebauthn map[string]string   `pulumi:"fidoWebauthn"`
 	GoogleOtp    map[string]string   `pulumi:"googleOtp"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string          `pulumi:"groupsIncludeds"`
-	Hotp            map[string]string `pulumi:"hotp"`
+	GroupsIncluded []string          `pulumi:"groupsIncluded"`
+	Hotp           map[string]string `pulumi:"hotp"`
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie *bool `pulumi:"isOie"`
 	// Policy Name
@@ -144,8 +144,8 @@ type MfaState struct {
 	FidoWebauthn pulumi.StringMapInput
 	GoogleOtp    pulumi.StringMapInput
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayInput
-	Hotp            pulumi.StringMapInput
+	GroupsIncluded pulumi.StringArrayInput
+	Hotp           pulumi.StringMapInput
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie pulumi.BoolPtrInput
 	// Policy Name
@@ -189,8 +189,8 @@ type mfaArgs struct {
 	FidoWebauthn map[string]string   `pulumi:"fidoWebauthn"`
 	GoogleOtp    map[string]string   `pulumi:"googleOtp"`
 	// List of Group IDs to Include
-	GroupsIncludeds []string          `pulumi:"groupsIncludeds"`
-	Hotp            map[string]string `pulumi:"hotp"`
+	GroupsIncluded []string          `pulumi:"groupsIncluded"`
+	Hotp           map[string]string `pulumi:"hotp"`
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie *bool `pulumi:"isOie"`
 	// Policy Name
@@ -231,8 +231,8 @@ type MfaArgs struct {
 	FidoWebauthn pulumi.StringMapInput
 	GoogleOtp    pulumi.StringMapInput
 	// List of Group IDs to Include
-	GroupsIncludeds pulumi.StringArrayInput
-	Hotp            pulumi.StringMapInput
+	GroupsIncluded pulumi.StringArrayInput
+	Hotp           pulumi.StringMapInput
 	// Is the policy using Okta Identity Engine (OIE) with authenticators instead of factors?
 	IsOie pulumi.BoolPtrInput
 	// Policy Name
@@ -382,8 +382,8 @@ func (o MfaOutput) GoogleOtp() pulumi.StringMapOutput {
 }
 
 // List of Group IDs to Include
-func (o MfaOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Mfa) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o MfaOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Mfa) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 func (o MfaOutput) Hotp() pulumi.StringMapOutput {

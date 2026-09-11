@@ -227,7 +227,7 @@ export class RuleSignon extends pulumi.CustomResource {
     /**
      * Set of User IDs to Exclude
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RuleSignon resource with the given unique name, arguments, and options.
@@ -265,7 +265,7 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["sessionLifetime"] = state?.sessionLifetime;
             resourceInputs["sessionPersistent"] = state?.sessionPersistent;
             resourceInputs["status"] = state?.status;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
         } else {
             const args = argsOrState as RuleSignonArgs | undefined;
             resourceInputs["access"] = args?.access;
@@ -291,7 +291,7 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["sessionLifetime"] = args?.sessionLifetime;
             resourceInputs["sessionPersistent"] = args?.sessionPersistent;
             resourceInputs["status"] = args?.status;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleSignon.__pulumiType, name, resourceInputs, opts);
@@ -404,7 +404,7 @@ export interface RuleSignonState {
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -513,5 +513,5 @@ export interface RuleSignonArgs {
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

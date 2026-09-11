@@ -47,7 +47,7 @@ public final class GetRuleResult {
      * @return The list of user IDs that would be excluded when rules are processed.
      * 
      */
-    private List<String> usersExcludeds;
+    private List<String> usersExcluded;
 
     private GetRuleResult() {}
     /**
@@ -96,8 +96,8 @@ public final class GetRuleResult {
      * @return The list of user IDs that would be excluded when rules are processed.
      * 
      */
-    public List<String> usersExcludeds() {
-        return this.usersExcludeds;
+    public List<String> usersExcluded() {
+        return this.usersExcluded;
     }
 
     public static Builder builder() {
@@ -115,7 +115,7 @@ public final class GetRuleResult {
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable String status;
-        private List<String> usersExcludeds;
+        private List<String> usersExcluded;
         public Builder() {}
         public Builder(GetRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,7 +125,7 @@ public final class GetRuleResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.status = defaults.status;
-    	      this.usersExcludeds = defaults.usersExcludeds;
+    	      this.usersExcluded = defaults.usersExcluded;
         }
 
         @CustomType.Setter
@@ -174,15 +174,15 @@ public final class GetRuleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder usersExcludeds(List<String> usersExcludeds) {
-            if (usersExcludeds == null) {
-              throw new MissingRequiredPropertyException("GetRuleResult", "usersExcludeds");
+        public Builder usersExcluded(List<String> usersExcluded) {
+            if (usersExcluded == null) {
+              throw new MissingRequiredPropertyException("GetRuleResult", "usersExcluded");
             }
-            this.usersExcludeds = usersExcludeds;
+            this.usersExcluded = usersExcluded;
             return this;
         }
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
         public GetRuleResult build() {
             final var _resultValue = new GetRuleResult();
@@ -192,7 +192,7 @@ public final class GetRuleResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.status = status;
-            _resultValue.usersExcludeds = usersExcludeds;
+            _resultValue.usersExcluded = usersExcluded;
             return _resultValue;
         }
     }

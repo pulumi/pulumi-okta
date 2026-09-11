@@ -278,8 +278,8 @@ namespace Pulumi.Okta.Policy
         /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
-        [Output("usersExcludeds")]
-        public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
+        [Output("usersExcluded")]
+        public Output<ImmutableArray<string>> UsersExcluded { get; private set; } = null!;
 
 
         /// <summary>
@@ -500,16 +500,16 @@ namespace Pulumi.Okta.Policy
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
         public RuleSignonArgs()
@@ -693,16 +693,16 @@ namespace Pulumi.Okta.Policy
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
         public RuleSignonState()

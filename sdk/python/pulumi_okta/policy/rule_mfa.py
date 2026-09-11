@@ -31,7 +31,7 @@ class RuleMfaArgs:
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RuleMfa resource.
 
@@ -51,7 +51,7 @@ class RuleMfaArgs:
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         if app_excludes is not None:
             pulumi.set(__self__, "app_excludes", app_excludes)
@@ -73,8 +73,8 @@ class RuleMfaArgs:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
 
     @_builtins.property
     @pulumi.getter(name="appExcludes")
@@ -203,16 +203,16 @@ class RuleMfaArgs:
         pulumi.set(self, "status", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
 
 @pulumi.input_type
@@ -228,7 +228,7 @@ class _RuleMfaState:
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleMfa resources.
 
@@ -248,7 +248,7 @@ class _RuleMfaState:
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         if app_excludes is not None:
             pulumi.set(__self__, "app_excludes", app_excludes)
@@ -270,8 +270,8 @@ class _RuleMfaState:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
             pulumi.set(__self__, "status", status)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
 
     @_builtins.property
     @pulumi.getter(name="appExcludes")
@@ -400,16 +400,16 @@ class _RuleMfaState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Set of User IDs to Exclude
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
 
 @pulumi.type_token("okta:policy/ruleMfa:RuleMfa")
@@ -428,7 +428,7 @@ class RuleMfa(pulumi.CustomResource):
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Creates an MFA Policy Rule. This resource allows you to create and configure an MFA Policy Rule.
@@ -458,7 +458,7 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         ...
     @overload
@@ -501,7 +501,7 @@ class RuleMfa(pulumi.CustomResource):
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -521,7 +521,7 @@ class RuleMfa(pulumi.CustomResource):
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
-            __props__.__dict__["users_excludeds"] = users_excludeds
+            __props__.__dict__["users_excluded"] = users_excluded
         super(RuleMfa, __self__).__init__(
             'okta:policy/ruleMfa:RuleMfa',
             resource_name,
@@ -542,7 +542,7 @@ class RuleMfa(pulumi.CustomResource):
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleMfa':
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleMfa':
         """
         Get an existing RuleMfa resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -566,7 +566,7 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: Set of User IDs to Exclude
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -582,7 +582,7 @@ class RuleMfa(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
-        __props__.__dict__["users_excludeds"] = users_excludeds
+        __props__.__dict__["users_excluded"] = users_excluded
         return RuleMfa(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -672,10 +672,10 @@ class RuleMfa(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         Set of User IDs to Exclude
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 

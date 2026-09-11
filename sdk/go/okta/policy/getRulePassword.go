@@ -71,8 +71,8 @@ type LookupRulePasswordArgs struct {
 
 // A collection of values returned by getRulePassword.
 type LookupRulePasswordResult struct {
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// The ID of this resource.
 	Id string `pulumi:"id"`
 	// Name of the rule.
@@ -100,8 +100,8 @@ type LookupRulePasswordResult struct {
 	// Status of the rule: `ACTIVE` or `INACTIVE`.
 	Status string `pulumi:"status"`
 	// User IDs excluded from this rule.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 }
 
 func LookupRulePasswordOutput(ctx *pulumi.Context, args LookupRulePasswordOutputArgs, opts ...pulumi.InvokeOption) LookupRulePasswordResultOutput {
@@ -138,12 +138,12 @@ func (o LookupRulePasswordResultOutput) ToLookupRulePasswordResultOutputWithCont
 	return o
 }
 
-func (o LookupRulePasswordResultOutput) GroupsExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+func (o LookupRulePasswordResultOutput) GroupsExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.GroupsExcluded }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupRulePasswordResultOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o LookupRulePasswordResultOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // The ID of this resource.
@@ -214,12 +214,12 @@ func (o LookupRulePasswordResultOutput) Status() pulumi.StringOutput {
 }
 
 // User IDs excluded from this rule.
-func (o LookupRulePasswordResultOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o LookupRulePasswordResultOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupRulePasswordResultOutput) UsersIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
+func (o LookupRulePasswordResultOutput) UsersIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupRulePasswordResult) []string { return v.UsersIncluded }).(pulumi.StringArrayOutput)
 }
 
 func init() {

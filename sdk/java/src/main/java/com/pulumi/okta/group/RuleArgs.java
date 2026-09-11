@@ -112,15 +112,15 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
      * The list of user IDs that would be excluded when rules are processed
      * 
      */
-    @Import(name="usersExcludeds")
-    private @Nullable Output<List<String>> usersExcludeds;
+    @Import(name="usersExcluded")
+    private @Nullable Output<List<String>> usersExcluded;
 
     /**
      * @return The list of user IDs that would be excluded when rules are processed
      * 
      */
-    public Optional<Output<List<String>>> usersExcludeds() {
-        return Optional.ofNullable(this.usersExcludeds);
+    public Optional<Output<List<String>>> usersExcluded() {
+        return Optional.ofNullable(this.usersExcluded);
     }
 
     private RuleArgs() {}
@@ -132,7 +132,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.removeAssignedUsers = $.removeAssignedUsers;
         this.status = $.status;
-        this.usersExcludeds = $.usersExcludeds;
+        this.usersExcluded = $.usersExcluded;
     }
 
     public static Builder builder() {
@@ -290,34 +290,34 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
+         * @param usersExcluded The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(@Nullable Output<List<String>> usersExcludeds) {
-            $.usersExcludeds = usersExcludeds;
+        public Builder usersExcluded(@Nullable Output<List<String>> usersExcluded) {
+            $.usersExcluded = usersExcluded;
             return this;
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
+         * @param usersExcluded The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(List<String> usersExcludeds) {
-            return usersExcludeds(Output.of(usersExcludeds));
+        public Builder usersExcluded(List<String> usersExcluded) {
+            return usersExcluded(Output.of(usersExcluded));
         }
 
         /**
-         * @param usersExcludeds The list of user IDs that would be excluded when rules are processed
+         * @param usersExcluded The list of user IDs that would be excluded when rules are processed
          * 
          * @return builder
          * 
          */
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
 
         public RuleArgs build() {

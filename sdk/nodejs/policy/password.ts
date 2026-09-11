@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     status: "ACTIVE",
  *     description: "Example",
  *     passwordHistoryCount: 4,
- *     groupsIncludeds: [everyone.id],
+ *     groupsIncluded: [everyone.id],
  * });
  * ```
  *
@@ -87,7 +87,7 @@ export class Password extends pulumi.CustomResource {
     /**
      * List of Group IDs to Include
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     /**
      * Policy Name
      */
@@ -209,7 +209,7 @@ export class Password extends pulumi.CustomResource {
             resourceInputs["callRecovery"] = state?.callRecovery;
             resourceInputs["description"] = state?.description;
             resourceInputs["emailRecovery"] = state?.emailRecovery;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["name"] = state?.name;
             resourceInputs["passwordAutoUnlockMinutes"] = state?.passwordAutoUnlockMinutes;
             resourceInputs["passwordDictionaryLookup"] = state?.passwordDictionaryLookup;
@@ -244,7 +244,7 @@ export class Password extends pulumi.CustomResource {
             resourceInputs["callRecovery"] = args?.callRecovery;
             resourceInputs["description"] = args?.description;
             resourceInputs["emailRecovery"] = args?.emailRecovery;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["name"] = args?.name;
             resourceInputs["passwordAutoUnlockMinutes"] = args?.passwordAutoUnlockMinutes;
             resourceInputs["passwordDictionaryLookup"] = args?.passwordDictionaryLookup;
@@ -311,7 +311,7 @@ export interface PasswordState {
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Name
      */
@@ -449,7 +449,7 @@ export interface PasswordArgs {
     /**
      * List of Group IDs to Include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Name
      */

@@ -26,46 +26,46 @@ class GetOauthAuthorizationServerResult:
     """
     A collection of values returned by getOauthAuthorizationServer.
     """
-    def __init__(__self__, authorization_endpoint=None, backchannel_authentication_request_signing_alg_values_supporteds=None, backchannel_token_delivery_modes_supporteds=None, base_url=None, claims_supporteds=None, code_challenge_methods_supporteds=None, device_authorization_endpoint=None, dpop_signing_alg_values_supporteds=None, end_session_endpoint=None, grant_types_supporteds=None, id=None, introspection_endpoint=None, introspection_endpoint_auth_methods_supporteds=None, issuer=None, pushed_authorization_request_endpoint=None, registration_endpoint=None, request_object_signing_alg_values_supporteds=None, request_parameter_supported=None, response_modes_supporteds=None, response_types_supporteds=None, revocation_endpoint=None, revocation_endpoint_auth_methods_supporteds=None, scopes_supporteds=None, subject_types_supporteds=None, token_endpoint=None, token_endpoint_auth_methods_supporteds=None):
+    def __init__(__self__, authorization_endpoint=None, backchannel_authentication_request_signing_alg_values_supported=None, backchannel_token_delivery_modes_supported=None, base_url=None, claims_supported=None, code_challenge_methods_supported=None, device_authorization_endpoint=None, dpop_signing_alg_values_supported=None, end_session_endpoint=None, grant_types_supported=None, id=None, introspection_endpoint=None, introspection_endpoint_auth_methods_supported=None, issuer=None, pushed_authorization_request_endpoint=None, registration_endpoint=None, request_object_signing_alg_values_supported=None, request_parameter_supported=None, response_modes_supported=None, response_types_supported=None, revocation_endpoint=None, revocation_endpoint_auth_methods_supported=None, scopes_supported=None, subject_types_supported=None, token_endpoint=None, token_endpoint_auth_methods_supported=None):
         if authorization_endpoint and not isinstance(authorization_endpoint, str):
             raise TypeError("Expected argument 'authorization_endpoint' to be a str")
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        if backchannel_authentication_request_signing_alg_values_supporteds and not isinstance(backchannel_authentication_request_signing_alg_values_supporteds, list):
-            raise TypeError("Expected argument 'backchannel_authentication_request_signing_alg_values_supporteds' to be a list")
-        pulumi.set(__self__, "backchannel_authentication_request_signing_alg_values_supporteds", backchannel_authentication_request_signing_alg_values_supporteds)
-        if backchannel_token_delivery_modes_supporteds and not isinstance(backchannel_token_delivery_modes_supporteds, list):
-            raise TypeError("Expected argument 'backchannel_token_delivery_modes_supporteds' to be a list")
-        pulumi.set(__self__, "backchannel_token_delivery_modes_supporteds", backchannel_token_delivery_modes_supporteds)
+        if backchannel_authentication_request_signing_alg_values_supported and not isinstance(backchannel_authentication_request_signing_alg_values_supported, list):
+            raise TypeError("Expected argument 'backchannel_authentication_request_signing_alg_values_supported' to be a list")
+        pulumi.set(__self__, "backchannel_authentication_request_signing_alg_values_supported", backchannel_authentication_request_signing_alg_values_supported)
+        if backchannel_token_delivery_modes_supported and not isinstance(backchannel_token_delivery_modes_supported, list):
+            raise TypeError("Expected argument 'backchannel_token_delivery_modes_supported' to be a list")
+        pulumi.set(__self__, "backchannel_token_delivery_modes_supported", backchannel_token_delivery_modes_supported)
         if base_url and not isinstance(base_url, str):
             raise TypeError("Expected argument 'base_url' to be a str")
         pulumi.set(__self__, "base_url", base_url)
-        if claims_supporteds and not isinstance(claims_supporteds, list):
-            raise TypeError("Expected argument 'claims_supporteds' to be a list")
-        pulumi.set(__self__, "claims_supporteds", claims_supporteds)
-        if code_challenge_methods_supporteds and not isinstance(code_challenge_methods_supporteds, list):
-            raise TypeError("Expected argument 'code_challenge_methods_supporteds' to be a list")
-        pulumi.set(__self__, "code_challenge_methods_supporteds", code_challenge_methods_supporteds)
+        if claims_supported and not isinstance(claims_supported, list):
+            raise TypeError("Expected argument 'claims_supported' to be a list")
+        pulumi.set(__self__, "claims_supported", claims_supported)
+        if code_challenge_methods_supported and not isinstance(code_challenge_methods_supported, list):
+            raise TypeError("Expected argument 'code_challenge_methods_supported' to be a list")
+        pulumi.set(__self__, "code_challenge_methods_supported", code_challenge_methods_supported)
         if device_authorization_endpoint and not isinstance(device_authorization_endpoint, str):
             raise TypeError("Expected argument 'device_authorization_endpoint' to be a str")
         pulumi.set(__self__, "device_authorization_endpoint", device_authorization_endpoint)
-        if dpop_signing_alg_values_supporteds and not isinstance(dpop_signing_alg_values_supporteds, list):
-            raise TypeError("Expected argument 'dpop_signing_alg_values_supporteds' to be a list")
-        pulumi.set(__self__, "dpop_signing_alg_values_supporteds", dpop_signing_alg_values_supporteds)
+        if dpop_signing_alg_values_supported and not isinstance(dpop_signing_alg_values_supported, list):
+            raise TypeError("Expected argument 'dpop_signing_alg_values_supported' to be a list")
+        pulumi.set(__self__, "dpop_signing_alg_values_supported", dpop_signing_alg_values_supported)
         if end_session_endpoint and not isinstance(end_session_endpoint, str):
             raise TypeError("Expected argument 'end_session_endpoint' to be a str")
         pulumi.set(__self__, "end_session_endpoint", end_session_endpoint)
-        if grant_types_supporteds and not isinstance(grant_types_supporteds, list):
-            raise TypeError("Expected argument 'grant_types_supporteds' to be a list")
-        pulumi.set(__self__, "grant_types_supporteds", grant_types_supporteds)
+        if grant_types_supported and not isinstance(grant_types_supported, list):
+            raise TypeError("Expected argument 'grant_types_supported' to be a list")
+        pulumi.set(__self__, "grant_types_supported", grant_types_supported)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if introspection_endpoint and not isinstance(introspection_endpoint, str):
             raise TypeError("Expected argument 'introspection_endpoint' to be a str")
         pulumi.set(__self__, "introspection_endpoint", introspection_endpoint)
-        if introspection_endpoint_auth_methods_supporteds and not isinstance(introspection_endpoint_auth_methods_supporteds, list):
-            raise TypeError("Expected argument 'introspection_endpoint_auth_methods_supporteds' to be a list")
-        pulumi.set(__self__, "introspection_endpoint_auth_methods_supporteds", introspection_endpoint_auth_methods_supporteds)
+        if introspection_endpoint_auth_methods_supported and not isinstance(introspection_endpoint_auth_methods_supported, list):
+            raise TypeError("Expected argument 'introspection_endpoint_auth_methods_supported' to be a list")
+        pulumi.set(__self__, "introspection_endpoint_auth_methods_supported", introspection_endpoint_auth_methods_supported)
         if issuer and not isinstance(issuer, str):
             raise TypeError("Expected argument 'issuer' to be a str")
         pulumi.set(__self__, "issuer", issuer)
@@ -75,36 +75,36 @@ class GetOauthAuthorizationServerResult:
         if registration_endpoint and not isinstance(registration_endpoint, str):
             raise TypeError("Expected argument 'registration_endpoint' to be a str")
         pulumi.set(__self__, "registration_endpoint", registration_endpoint)
-        if request_object_signing_alg_values_supporteds and not isinstance(request_object_signing_alg_values_supporteds, list):
-            raise TypeError("Expected argument 'request_object_signing_alg_values_supporteds' to be a list")
-        pulumi.set(__self__, "request_object_signing_alg_values_supporteds", request_object_signing_alg_values_supporteds)
+        if request_object_signing_alg_values_supported and not isinstance(request_object_signing_alg_values_supported, list):
+            raise TypeError("Expected argument 'request_object_signing_alg_values_supported' to be a list")
+        pulumi.set(__self__, "request_object_signing_alg_values_supported", request_object_signing_alg_values_supported)
         if request_parameter_supported and not isinstance(request_parameter_supported, bool):
             raise TypeError("Expected argument 'request_parameter_supported' to be a bool")
         pulumi.set(__self__, "request_parameter_supported", request_parameter_supported)
-        if response_modes_supporteds and not isinstance(response_modes_supporteds, list):
-            raise TypeError("Expected argument 'response_modes_supporteds' to be a list")
-        pulumi.set(__self__, "response_modes_supporteds", response_modes_supporteds)
-        if response_types_supporteds and not isinstance(response_types_supporteds, list):
-            raise TypeError("Expected argument 'response_types_supporteds' to be a list")
-        pulumi.set(__self__, "response_types_supporteds", response_types_supporteds)
+        if response_modes_supported and not isinstance(response_modes_supported, list):
+            raise TypeError("Expected argument 'response_modes_supported' to be a list")
+        pulumi.set(__self__, "response_modes_supported", response_modes_supported)
+        if response_types_supported and not isinstance(response_types_supported, list):
+            raise TypeError("Expected argument 'response_types_supported' to be a list")
+        pulumi.set(__self__, "response_types_supported", response_types_supported)
         if revocation_endpoint and not isinstance(revocation_endpoint, str):
             raise TypeError("Expected argument 'revocation_endpoint' to be a str")
         pulumi.set(__self__, "revocation_endpoint", revocation_endpoint)
-        if revocation_endpoint_auth_methods_supporteds and not isinstance(revocation_endpoint_auth_methods_supporteds, list):
-            raise TypeError("Expected argument 'revocation_endpoint_auth_methods_supporteds' to be a list")
-        pulumi.set(__self__, "revocation_endpoint_auth_methods_supporteds", revocation_endpoint_auth_methods_supporteds)
-        if scopes_supporteds and not isinstance(scopes_supporteds, list):
-            raise TypeError("Expected argument 'scopes_supporteds' to be a list")
-        pulumi.set(__self__, "scopes_supporteds", scopes_supporteds)
-        if subject_types_supporteds and not isinstance(subject_types_supporteds, list):
-            raise TypeError("Expected argument 'subject_types_supporteds' to be a list")
-        pulumi.set(__self__, "subject_types_supporteds", subject_types_supporteds)
+        if revocation_endpoint_auth_methods_supported and not isinstance(revocation_endpoint_auth_methods_supported, list):
+            raise TypeError("Expected argument 'revocation_endpoint_auth_methods_supported' to be a list")
+        pulumi.set(__self__, "revocation_endpoint_auth_methods_supported", revocation_endpoint_auth_methods_supported)
+        if scopes_supported and not isinstance(scopes_supported, list):
+            raise TypeError("Expected argument 'scopes_supported' to be a list")
+        pulumi.set(__self__, "scopes_supported", scopes_supported)
+        if subject_types_supported and not isinstance(subject_types_supported, list):
+            raise TypeError("Expected argument 'subject_types_supported' to be a list")
+        pulumi.set(__self__, "subject_types_supported", subject_types_supported)
         if token_endpoint and not isinstance(token_endpoint, str):
             raise TypeError("Expected argument 'token_endpoint' to be a str")
         pulumi.set(__self__, "token_endpoint", token_endpoint)
-        if token_endpoint_auth_methods_supporteds and not isinstance(token_endpoint_auth_methods_supporteds, list):
-            raise TypeError("Expected argument 'token_endpoint_auth_methods_supporteds' to be a list")
-        pulumi.set(__self__, "token_endpoint_auth_methods_supporteds", token_endpoint_auth_methods_supporteds)
+        if token_endpoint_auth_methods_supported and not isinstance(token_endpoint_auth_methods_supported, list):
+            raise TypeError("Expected argument 'token_endpoint_auth_methods_supported' to be a list")
+        pulumi.set(__self__, "token_endpoint_auth_methods_supported", token_endpoint_auth_methods_supported)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -112,14 +112,14 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="backchannelAuthenticationRequestSigningAlgValuesSupporteds")
-    def backchannel_authentication_request_signing_alg_values_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "backchannel_authentication_request_signing_alg_values_supporteds")
+    @pulumi.getter(name="backchannelAuthenticationRequestSigningAlgValuesSupported")
+    def backchannel_authentication_request_signing_alg_values_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "backchannel_authentication_request_signing_alg_values_supported")
 
     @_builtins.property
-    @pulumi.getter(name="backchannelTokenDeliveryModesSupporteds")
-    def backchannel_token_delivery_modes_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "backchannel_token_delivery_modes_supporteds")
+    @pulumi.getter(name="backchannelTokenDeliveryModesSupported")
+    def backchannel_token_delivery_modes_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "backchannel_token_delivery_modes_supported")
 
     @_builtins.property
     @pulumi.getter(name="baseUrl")
@@ -127,14 +127,14 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "base_url")
 
     @_builtins.property
-    @pulumi.getter(name="claimsSupporteds")
-    def claims_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "claims_supporteds")
+    @pulumi.getter(name="claimsSupported")
+    def claims_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "claims_supported")
 
     @_builtins.property
-    @pulumi.getter(name="codeChallengeMethodsSupporteds")
-    def code_challenge_methods_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "code_challenge_methods_supporteds")
+    @pulumi.getter(name="codeChallengeMethodsSupported")
+    def code_challenge_methods_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "code_challenge_methods_supported")
 
     @_builtins.property
     @pulumi.getter(name="deviceAuthorizationEndpoint")
@@ -142,9 +142,9 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "device_authorization_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="dpopSigningAlgValuesSupporteds")
-    def dpop_signing_alg_values_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "dpop_signing_alg_values_supporteds")
+    @pulumi.getter(name="dpopSigningAlgValuesSupported")
+    def dpop_signing_alg_values_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "dpop_signing_alg_values_supported")
 
     @_builtins.property
     @pulumi.getter(name="endSessionEndpoint")
@@ -152,9 +152,9 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "end_session_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="grantTypesSupporteds")
-    def grant_types_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "grant_types_supporteds")
+    @pulumi.getter(name="grantTypesSupported")
+    def grant_types_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "grant_types_supported")
 
     @_builtins.property
     @pulumi.getter
@@ -167,9 +167,9 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "introspection_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="introspectionEndpointAuthMethodsSupporteds")
-    def introspection_endpoint_auth_methods_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "introspection_endpoint_auth_methods_supporteds")
+    @pulumi.getter(name="introspectionEndpointAuthMethodsSupported")
+    def introspection_endpoint_auth_methods_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "introspection_endpoint_auth_methods_supported")
 
     @_builtins.property
     @pulumi.getter
@@ -187,9 +187,9 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "registration_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="requestObjectSigningAlgValuesSupporteds")
-    def request_object_signing_alg_values_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "request_object_signing_alg_values_supporteds")
+    @pulumi.getter(name="requestObjectSigningAlgValuesSupported")
+    def request_object_signing_alg_values_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "request_object_signing_alg_values_supported")
 
     @_builtins.property
     @pulumi.getter(name="requestParameterSupported")
@@ -197,14 +197,14 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "request_parameter_supported")
 
     @_builtins.property
-    @pulumi.getter(name="responseModesSupporteds")
-    def response_modes_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "response_modes_supporteds")
+    @pulumi.getter(name="responseModesSupported")
+    def response_modes_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "response_modes_supported")
 
     @_builtins.property
-    @pulumi.getter(name="responseTypesSupporteds")
-    def response_types_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "response_types_supporteds")
+    @pulumi.getter(name="responseTypesSupported")
+    def response_types_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "response_types_supported")
 
     @_builtins.property
     @pulumi.getter(name="revocationEndpoint")
@@ -212,19 +212,19 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "revocation_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="revocationEndpointAuthMethodsSupporteds")
-    def revocation_endpoint_auth_methods_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "revocation_endpoint_auth_methods_supporteds")
+    @pulumi.getter(name="revocationEndpointAuthMethodsSupported")
+    def revocation_endpoint_auth_methods_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "revocation_endpoint_auth_methods_supported")
 
     @_builtins.property
-    @pulumi.getter(name="scopesSupporteds")
-    def scopes_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "scopes_supporteds")
+    @pulumi.getter(name="scopesSupported")
+    def scopes_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "scopes_supported")
 
     @_builtins.property
-    @pulumi.getter(name="subjectTypesSupporteds")
-    def subject_types_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "subject_types_supporteds")
+    @pulumi.getter(name="subjectTypesSupported")
+    def subject_types_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subject_types_supported")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
@@ -232,9 +232,9 @@ class GetOauthAuthorizationServerResult:
         return pulumi.get(self, "token_endpoint")
 
     @_builtins.property
-    @pulumi.getter(name="tokenEndpointAuthMethodsSupporteds")
-    def token_endpoint_auth_methods_supporteds(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "token_endpoint_auth_methods_supporteds")
+    @pulumi.getter(name="tokenEndpointAuthMethodsSupported")
+    def token_endpoint_auth_methods_supported(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "token_endpoint_auth_methods_supported")
 
 
 class AwaitableGetOauthAuthorizationServerResult(GetOauthAuthorizationServerResult):
@@ -244,31 +244,31 @@ class AwaitableGetOauthAuthorizationServerResult(GetOauthAuthorizationServerResu
             yield self
         return GetOauthAuthorizationServerResult(
             authorization_endpoint=self.authorization_endpoint,
-            backchannel_authentication_request_signing_alg_values_supporteds=self.backchannel_authentication_request_signing_alg_values_supporteds,
-            backchannel_token_delivery_modes_supporteds=self.backchannel_token_delivery_modes_supporteds,
+            backchannel_authentication_request_signing_alg_values_supported=self.backchannel_authentication_request_signing_alg_values_supported,
+            backchannel_token_delivery_modes_supported=self.backchannel_token_delivery_modes_supported,
             base_url=self.base_url,
-            claims_supporteds=self.claims_supporteds,
-            code_challenge_methods_supporteds=self.code_challenge_methods_supporteds,
+            claims_supported=self.claims_supported,
+            code_challenge_methods_supported=self.code_challenge_methods_supported,
             device_authorization_endpoint=self.device_authorization_endpoint,
-            dpop_signing_alg_values_supporteds=self.dpop_signing_alg_values_supporteds,
+            dpop_signing_alg_values_supported=self.dpop_signing_alg_values_supported,
             end_session_endpoint=self.end_session_endpoint,
-            grant_types_supporteds=self.grant_types_supporteds,
+            grant_types_supported=self.grant_types_supported,
             id=self.id,
             introspection_endpoint=self.introspection_endpoint,
-            introspection_endpoint_auth_methods_supporteds=self.introspection_endpoint_auth_methods_supporteds,
+            introspection_endpoint_auth_methods_supported=self.introspection_endpoint_auth_methods_supported,
             issuer=self.issuer,
             pushed_authorization_request_endpoint=self.pushed_authorization_request_endpoint,
             registration_endpoint=self.registration_endpoint,
-            request_object_signing_alg_values_supporteds=self.request_object_signing_alg_values_supporteds,
+            request_object_signing_alg_values_supported=self.request_object_signing_alg_values_supported,
             request_parameter_supported=self.request_parameter_supported,
-            response_modes_supporteds=self.response_modes_supporteds,
-            response_types_supporteds=self.response_types_supporteds,
+            response_modes_supported=self.response_modes_supported,
+            response_types_supported=self.response_types_supported,
             revocation_endpoint=self.revocation_endpoint,
-            revocation_endpoint_auth_methods_supporteds=self.revocation_endpoint_auth_methods_supporteds,
-            scopes_supporteds=self.scopes_supporteds,
-            subject_types_supporteds=self.subject_types_supporteds,
+            revocation_endpoint_auth_methods_supported=self.revocation_endpoint_auth_methods_supported,
+            scopes_supported=self.scopes_supported,
+            subject_types_supported=self.subject_types_supported,
             token_endpoint=self.token_endpoint,
-            token_endpoint_auth_methods_supporteds=self.token_endpoint_auth_methods_supporteds)
+            token_endpoint_auth_methods_supported=self.token_endpoint_auth_methods_supported)
 
 
 def get_oauth_authorization_server(base_url: Optional[_builtins.str] = None,
@@ -283,31 +283,31 @@ def get_oauth_authorization_server(base_url: Optional[_builtins.str] = None,
 
     return AwaitableGetOauthAuthorizationServerResult(
         authorization_endpoint=pulumi.get(__ret__, 'authorization_endpoint'),
-        backchannel_authentication_request_signing_alg_values_supporteds=pulumi.get(__ret__, 'backchannel_authentication_request_signing_alg_values_supporteds'),
-        backchannel_token_delivery_modes_supporteds=pulumi.get(__ret__, 'backchannel_token_delivery_modes_supporteds'),
+        backchannel_authentication_request_signing_alg_values_supported=pulumi.get(__ret__, 'backchannel_authentication_request_signing_alg_values_supported'),
+        backchannel_token_delivery_modes_supported=pulumi.get(__ret__, 'backchannel_token_delivery_modes_supported'),
         base_url=pulumi.get(__ret__, 'base_url'),
-        claims_supporteds=pulumi.get(__ret__, 'claims_supporteds'),
-        code_challenge_methods_supporteds=pulumi.get(__ret__, 'code_challenge_methods_supporteds'),
+        claims_supported=pulumi.get(__ret__, 'claims_supported'),
+        code_challenge_methods_supported=pulumi.get(__ret__, 'code_challenge_methods_supported'),
         device_authorization_endpoint=pulumi.get(__ret__, 'device_authorization_endpoint'),
-        dpop_signing_alg_values_supporteds=pulumi.get(__ret__, 'dpop_signing_alg_values_supporteds'),
+        dpop_signing_alg_values_supported=pulumi.get(__ret__, 'dpop_signing_alg_values_supported'),
         end_session_endpoint=pulumi.get(__ret__, 'end_session_endpoint'),
-        grant_types_supporteds=pulumi.get(__ret__, 'grant_types_supporteds'),
+        grant_types_supported=pulumi.get(__ret__, 'grant_types_supported'),
         id=pulumi.get(__ret__, 'id'),
         introspection_endpoint=pulumi.get(__ret__, 'introspection_endpoint'),
-        introspection_endpoint_auth_methods_supporteds=pulumi.get(__ret__, 'introspection_endpoint_auth_methods_supporteds'),
+        introspection_endpoint_auth_methods_supported=pulumi.get(__ret__, 'introspection_endpoint_auth_methods_supported'),
         issuer=pulumi.get(__ret__, 'issuer'),
         pushed_authorization_request_endpoint=pulumi.get(__ret__, 'pushed_authorization_request_endpoint'),
         registration_endpoint=pulumi.get(__ret__, 'registration_endpoint'),
-        request_object_signing_alg_values_supporteds=pulumi.get(__ret__, 'request_object_signing_alg_values_supporteds'),
+        request_object_signing_alg_values_supported=pulumi.get(__ret__, 'request_object_signing_alg_values_supported'),
         request_parameter_supported=pulumi.get(__ret__, 'request_parameter_supported'),
-        response_modes_supporteds=pulumi.get(__ret__, 'response_modes_supporteds'),
-        response_types_supporteds=pulumi.get(__ret__, 'response_types_supporteds'),
+        response_modes_supported=pulumi.get(__ret__, 'response_modes_supported'),
+        response_types_supported=pulumi.get(__ret__, 'response_types_supported'),
         revocation_endpoint=pulumi.get(__ret__, 'revocation_endpoint'),
-        revocation_endpoint_auth_methods_supporteds=pulumi.get(__ret__, 'revocation_endpoint_auth_methods_supporteds'),
-        scopes_supporteds=pulumi.get(__ret__, 'scopes_supporteds'),
-        subject_types_supporteds=pulumi.get(__ret__, 'subject_types_supporteds'),
+        revocation_endpoint_auth_methods_supported=pulumi.get(__ret__, 'revocation_endpoint_auth_methods_supported'),
+        scopes_supported=pulumi.get(__ret__, 'scopes_supported'),
+        subject_types_supported=pulumi.get(__ret__, 'subject_types_supported'),
         token_endpoint=pulumi.get(__ret__, 'token_endpoint'),
-        token_endpoint_auth_methods_supporteds=pulumi.get(__ret__, 'token_endpoint_auth_methods_supporteds'))
+        token_endpoint_auth_methods_supported=pulumi.get(__ret__, 'token_endpoint_auth_methods_supported'))
 def get_oauth_authorization_server_output(base_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOauthAuthorizationServerResult]:
     """
@@ -319,28 +319,28 @@ def get_oauth_authorization_server_output(base_url: pulumi.Input[Optional[Option
     __ret__ = pulumi.runtime.invoke_output('okta:index/getOauthAuthorizationServer:getOauthAuthorizationServer', __args__, opts=opts, typ=GetOauthAuthorizationServerResult)
     return __ret__.apply(lambda __response__: GetOauthAuthorizationServerResult(
         authorization_endpoint=pulumi.get(__response__, 'authorization_endpoint'),
-        backchannel_authentication_request_signing_alg_values_supporteds=pulumi.get(__response__, 'backchannel_authentication_request_signing_alg_values_supporteds'),
-        backchannel_token_delivery_modes_supporteds=pulumi.get(__response__, 'backchannel_token_delivery_modes_supporteds'),
+        backchannel_authentication_request_signing_alg_values_supported=pulumi.get(__response__, 'backchannel_authentication_request_signing_alg_values_supported'),
+        backchannel_token_delivery_modes_supported=pulumi.get(__response__, 'backchannel_token_delivery_modes_supported'),
         base_url=pulumi.get(__response__, 'base_url'),
-        claims_supporteds=pulumi.get(__response__, 'claims_supporteds'),
-        code_challenge_methods_supporteds=pulumi.get(__response__, 'code_challenge_methods_supporteds'),
+        claims_supported=pulumi.get(__response__, 'claims_supported'),
+        code_challenge_methods_supported=pulumi.get(__response__, 'code_challenge_methods_supported'),
         device_authorization_endpoint=pulumi.get(__response__, 'device_authorization_endpoint'),
-        dpop_signing_alg_values_supporteds=pulumi.get(__response__, 'dpop_signing_alg_values_supporteds'),
+        dpop_signing_alg_values_supported=pulumi.get(__response__, 'dpop_signing_alg_values_supported'),
         end_session_endpoint=pulumi.get(__response__, 'end_session_endpoint'),
-        grant_types_supporteds=pulumi.get(__response__, 'grant_types_supporteds'),
+        grant_types_supported=pulumi.get(__response__, 'grant_types_supported'),
         id=pulumi.get(__response__, 'id'),
         introspection_endpoint=pulumi.get(__response__, 'introspection_endpoint'),
-        introspection_endpoint_auth_methods_supporteds=pulumi.get(__response__, 'introspection_endpoint_auth_methods_supporteds'),
+        introspection_endpoint_auth_methods_supported=pulumi.get(__response__, 'introspection_endpoint_auth_methods_supported'),
         issuer=pulumi.get(__response__, 'issuer'),
         pushed_authorization_request_endpoint=pulumi.get(__response__, 'pushed_authorization_request_endpoint'),
         registration_endpoint=pulumi.get(__response__, 'registration_endpoint'),
-        request_object_signing_alg_values_supporteds=pulumi.get(__response__, 'request_object_signing_alg_values_supporteds'),
+        request_object_signing_alg_values_supported=pulumi.get(__response__, 'request_object_signing_alg_values_supported'),
         request_parameter_supported=pulumi.get(__response__, 'request_parameter_supported'),
-        response_modes_supporteds=pulumi.get(__response__, 'response_modes_supporteds'),
-        response_types_supporteds=pulumi.get(__response__, 'response_types_supporteds'),
+        response_modes_supported=pulumi.get(__response__, 'response_modes_supported'),
+        response_types_supported=pulumi.get(__response__, 'response_types_supported'),
         revocation_endpoint=pulumi.get(__response__, 'revocation_endpoint'),
-        revocation_endpoint_auth_methods_supporteds=pulumi.get(__response__, 'revocation_endpoint_auth_methods_supporteds'),
-        scopes_supporteds=pulumi.get(__response__, 'scopes_supporteds'),
-        subject_types_supporteds=pulumi.get(__response__, 'subject_types_supporteds'),
+        revocation_endpoint_auth_methods_supported=pulumi.get(__response__, 'revocation_endpoint_auth_methods_supported'),
+        scopes_supported=pulumi.get(__response__, 'scopes_supported'),
+        subject_types_supported=pulumi.get(__response__, 'subject_types_supported'),
         token_endpoint=pulumi.get(__response__, 'token_endpoint'),
-        token_endpoint_auth_methods_supporteds=pulumi.get(__response__, 'token_endpoint_auth_methods_supporteds')))
+        token_endpoint_auth_methods_supported=pulumi.get(__response__, 'token_endpoint_auth_methods_supported')))

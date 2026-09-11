@@ -3750,7 +3750,7 @@ type SignonPolicyRulesRule struct {
 	// Custom Okta Expression Language condition for advanced matching.
 	CustomExpression *string `pulumi:"customExpression"`
 	// Set of device assurance policy IDs to include.
-	DeviceAssurancesIncludeds []string `pulumi:"deviceAssurancesIncludeds"`
+	DeviceAssurancesIncluded []string `pulumi:"deviceAssurancesIncluded"`
 	// Require device to be managed by a device management system.
 	DeviceIsManaged *bool `pulumi:"deviceIsManaged"`
 	// Require device to be registered with Okta Verify.
@@ -3758,9 +3758,9 @@ type SignonPolicyRulesRule struct {
 	// Number of factors required: 1FA or 2FA.
 	FactorMode *string `pulumi:"factorMode"`
 	// Set of group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// Set of group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// (String) - The ID of this resource (same as `policyId`).
 	Id *string `pulumi:"id"`
 	// Inactivity period before re-authentication in ISO 8601 duration format.
@@ -3790,13 +3790,13 @@ type SignonPolicyRulesRule struct {
 	// Verification method type.
 	Type *string `pulumi:"type"`
 	// Set of user type IDs to exclude.
-	UserTypesExcludeds []string `pulumi:"userTypesExcludeds"`
+	UserTypesExcluded []string `pulumi:"userTypesExcluded"`
 	// Set of user type IDs to include.
-	UserTypesIncludeds []string `pulumi:"userTypesIncludeds"`
+	UserTypesIncluded []string `pulumi:"userTypesIncluded"`
 	// Set of user IDs to exclude from this rule.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// Set of user IDs to include in this rule.
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 }
 
 // SignonPolicyRulesRuleInput is an input type that accepts SignonPolicyRulesRuleArgs and SignonPolicyRulesRuleOutput values.
@@ -3820,7 +3820,7 @@ type SignonPolicyRulesRuleArgs struct {
 	// Custom Okta Expression Language condition for advanced matching.
 	CustomExpression pulumi.StringPtrInput `pulumi:"customExpression"`
 	// Set of device assurance policy IDs to include.
-	DeviceAssurancesIncludeds pulumi.StringArrayInput `pulumi:"deviceAssurancesIncludeds"`
+	DeviceAssurancesIncluded pulumi.StringArrayInput `pulumi:"deviceAssurancesIncluded"`
 	// Require device to be managed by a device management system.
 	DeviceIsManaged pulumi.BoolPtrInput `pulumi:"deviceIsManaged"`
 	// Require device to be registered with Okta Verify.
@@ -3828,9 +3828,9 @@ type SignonPolicyRulesRuleArgs struct {
 	// Number of factors required: 1FA or 2FA.
 	FactorMode pulumi.StringPtrInput `pulumi:"factorMode"`
 	// Set of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput `pulumi:"groupsExcludeds"`
+	GroupsExcluded pulumi.StringArrayInput `pulumi:"groupsExcluded"`
 	// Set of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayInput `pulumi:"groupsIncluded"`
 	// (String) - The ID of this resource (same as `policyId`).
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Inactivity period before re-authentication in ISO 8601 duration format.
@@ -3860,13 +3860,13 @@ type SignonPolicyRulesRuleArgs struct {
 	// Verification method type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// Set of user type IDs to exclude.
-	UserTypesExcludeds pulumi.StringArrayInput `pulumi:"userTypesExcludeds"`
+	UserTypesExcluded pulumi.StringArrayInput `pulumi:"userTypesExcluded"`
 	// Set of user type IDs to include.
-	UserTypesIncludeds pulumi.StringArrayInput `pulumi:"userTypesIncludeds"`
+	UserTypesIncluded pulumi.StringArrayInput `pulumi:"userTypesIncluded"`
 	// Set of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayInput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayInput `pulumi:"usersExcluded"`
 	// Set of user IDs to include in this rule.
-	UsersIncludeds pulumi.StringArrayInput `pulumi:"usersIncludeds"`
+	UsersIncluded pulumi.StringArrayInput `pulumi:"usersIncluded"`
 }
 
 func (SignonPolicyRulesRuleArgs) ElementType() reflect.Type {
@@ -3941,8 +3941,8 @@ func (o SignonPolicyRulesRuleOutput) CustomExpression() pulumi.StringPtrOutput {
 }
 
 // Set of device assurance policy IDs to include.
-func (o SignonPolicyRulesRuleOutput) DeviceAssurancesIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.DeviceAssurancesIncludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) DeviceAssurancesIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.DeviceAssurancesIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Require device to be managed by a device management system.
@@ -3961,13 +3961,13 @@ func (o SignonPolicyRulesRuleOutput) FactorMode() pulumi.StringPtrOutput {
 }
 
 // Set of group IDs to exclude from this rule.
-func (o SignonPolicyRulesRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) GroupsExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.GroupsExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of group IDs to include in this rule.
-func (o SignonPolicyRulesRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // (String) - The ID of this resource (same as `policyId`).
@@ -4041,23 +4041,23 @@ func (o SignonPolicyRulesRuleOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Set of user type IDs to exclude.
-func (o SignonPolicyRulesRuleOutput) UserTypesExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UserTypesExcludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) UserTypesExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UserTypesExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of user type IDs to include.
-func (o SignonPolicyRulesRuleOutput) UserTypesIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UserTypesIncludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) UserTypesIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UserTypesIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of user IDs to exclude from this rule.
-func (o SignonPolicyRulesRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 // Set of user IDs to include in this rule.
-func (o SignonPolicyRulesRuleOutput) UsersIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
+func (o SignonPolicyRulesRuleOutput) UsersIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignonPolicyRulesRule) []string { return v.UsersIncluded }).(pulumi.StringArrayOutput)
 }
 
 type SignonPolicyRulesRuleArrayOutput struct{ *pulumi.OutputState }

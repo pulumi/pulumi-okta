@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new TrustedServer("example", TrustedServerArgs.builder()
  *             .authServerId(oktaAuthServer.test1().id())
- *             .trusteds(            
+ *             .trusted(            
  *                 oktaAuthServer.test2().id(),
  *                 oktaAuthServer.test3().id())
  *             .build());
@@ -97,15 +97,15 @@ public class TrustedServer extends com.pulumi.resources.CustomResource {
      * A list of the authorization server IDs user want to trust
      * 
      */
-    @Export(name="trusteds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> trusteds;
+    @Export(name="trusted", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> trusted;
 
     /**
      * @return A list of the authorization server IDs user want to trust
      * 
      */
-    public Output<List<String>> trusteds() {
-        return this.trusteds;
+    public Output<List<String>> trusted() {
+        return this.trusted;
     }
 
     /**

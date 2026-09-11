@@ -626,7 +626,7 @@
                     "type": "string",
                     "description": "Custom Okta Expression Language condition for advanced matching.\n"
                 },
-                "deviceAssurancesIncludeds": {
+                "deviceAssurancesIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -645,14 +645,14 @@
                     "type": "string",
                     "description": "Number of factors required: 1FA or 2FA.\n"
                 },
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of group IDs to exclude from this rule.\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -724,28 +724,28 @@
                     "type": "string",
                     "description": "Verification method type.\n"
                 },
-                "userTypesExcludeds": {
+                "userTypesExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of user type IDs to exclude.\n"
                 },
-                "userTypesIncludeds": {
+                "userTypesIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of user type IDs to include.\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of user IDs to exclude from this rule.\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -14057,7 +14057,7 @@
                     "type": "string",
                     "description": "Default to `ACTIVE`\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -14099,7 +14099,7 @@
                     "type": "string",
                     "description": "Default to `ACTIVE`\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -14142,7 +14142,7 @@
                         "type": "string",
                         "description": "Default to `ACTIVE`\n"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -16965,7 +16965,7 @@
                     "type": "string",
                     "description": "This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.\n"
                 },
-                "deviceAssurancesIncludeds": {
+                "deviceAssurancesIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -16984,14 +16984,14 @@
                     "type": "string",
                     "description": "The number of factors required to satisfy this assurance level\n"
                 },
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of group IDs to exclude\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -17069,28 +17069,28 @@
                     "type": "string",
                     "description": "The Verification Method type\n"
                 },
-                "userTypesExcludeds": {
+                "userTypesExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User Type IDs to exclude\n"
                 },
-                "userTypesIncludeds": {
+                "userTypesIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User Type IDs to include\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User IDs to exclude\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -17128,7 +17128,7 @@
                     "type": "string",
                     "description": "This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.\n"
                 },
-                "deviceAssurancesIncludeds": {
+                "deviceAssurancesIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -17147,14 +17147,14 @@
                     "type": "string",
                     "description": "The number of factors required to satisfy this assurance level\n"
                 },
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of group IDs to exclude\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -17229,28 +17229,28 @@
                     "type": "string",
                     "description": "The Verification Method type\n"
                 },
-                "userTypesExcludeds": {
+                "userTypesExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User Type IDs to exclude\n"
                 },
-                "userTypesIncludeds": {
+                "userTypesIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User Type IDs to include\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User IDs to exclude\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -17286,7 +17286,7 @@
                         "type": "string",
                         "description": "This is an optional advanced setting. If the expression is formatted incorrectly or conflicts with conditions set above, the rule may not match any users.\n"
                     },
-                    "deviceAssurancesIncludeds": {
+                    "deviceAssurancesIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -17305,14 +17305,14 @@
                         "type": "string",
                         "description": "The number of factors required to satisfy this assurance level\n"
                     },
-                    "groupsExcludeds": {
+                    "groupsExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "List of group IDs to exclude\n"
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -17391,28 +17391,28 @@
                         "type": "string",
                         "description": "The Verification Method type\n"
                     },
-                    "userTypesExcludeds": {
+                    "userTypesExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "Set of User Type IDs to exclude\n"
                     },
-                    "userTypesIncludeds": {
+                    "userTypesIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "Set of User Type IDs to include\n"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "Set of User IDs to exclude\n"
                     },
-                    "usersIncludeds": {
+                    "usersIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -20311,16 +20311,16 @@
             }
         },
         "okta:index/entityRiskPolicyRule:EntityRiskPolicyRule": {
-            "description": "Manages an Entity Risk Policy Rule. Entity Risk Policy rules define automated responses to identity threats detected by Okta's Identity Threat Protection (ITP).\n\n\u003e **NOTE:** Entity Risk Policy is automatically created when Identity Threat Protection (ITP) is enabled. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getEntityRiskPolicy`\" pulumi-lang-dotnet=\"`okta.getEntityRiskPolicy`\" pulumi-lang-go=\"`getEntityRiskPolicy`\" pulumi-lang-python=\"`get_entity_risk_policy`\" pulumi-lang-yaml=\"`okta.getEntityRiskPolicy`\" pulumi-lang-java=\"`okta.getEntityRiskPolicy`\" pulumi-lang-hcl=\"`data.okta_entity_risk_policy`\"\u003e`okta.getEntityRiskPolicy`\u003c/span\u003e data source to get the policy ID. The default policy rule (priority 99) cannot be imported or modified.\n\n## Example Usage\n\n### Basic Rule - Terminate Sessions on High Risk\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst highRisk = new okta.EntityRiskPolicyRule(\"high_risk\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"High Risk - Terminate Sessions\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nhigh_risk = okta.EntityRiskPolicyRule(\"high_risk\",\n    policy_id=example.id,\n    name=\"High Risk - Terminate Sessions\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var highRisk = new Okta.EntityRiskPolicyRule(\"high_risk\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"High Risk - Terminate Sessions\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"high_risk\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(example.Id),\n\t\t\tName:                 pulumi.String(\"High Risk - Terminate Sessions\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getentityriskpolicy\" \"example\" {\n}\n\nresource \"okta_entityriskpolicyrule\" \"high_risk\" {\n  policy_id              = data.okta_getentityriskpolicy.example.id\n  name                   = \"High Risk - Terminate Sessions\"\n  risk_level             = \"HIGH\"\n  terminate_all_sessions = true\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var highRisk = new EntityRiskPolicyRule(\"highRisk\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"High Risk - Terminate Sessions\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  highRisk:\n    type: okta:EntityRiskPolicyRule\n    name: high_risk\n    properties:\n      policyId: ${example.id}\n      name: High Risk - Terminate Sessions\n      riskLevel: HIGH\n      terminateAllSessions: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Rule with Group Targeting\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst privilegedUsers = okta.group.getGroup({\n    name: \"Privileged Users\",\n});\nconst privilegedHighRisk = new okta.EntityRiskPolicyRule(\"privileged_high_risk\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Privileged Users - High Risk\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n    groupsIncludeds: [privilegedUsers.then(privilegedUsers =\u003e privilegedUsers.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nprivileged_users = okta.group.get_group(name=\"Privileged Users\")\nprivileged_high_risk = okta.EntityRiskPolicyRule(\"privileged_high_risk\",\n    policy_id=example.id,\n    name=\"Privileged Users - High Risk\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True,\n    groups_includeds=[privileged_users.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var privilegedUsers = Okta.Group.GetGroup.Invoke(new()\n    {\n        Name = \"Privileged Users\",\n    });\n\n    var privilegedHighRisk = new Okta.EntityRiskPolicyRule(\"privileged_high_risk\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"Privileged Users - High Risk\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n        GroupsIncludeds = new[]\n        {\n            privilegedUsers.Apply(getGroupResult =\u003e getGroupResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tprivilegedUsers, err := group.LookupGroup(ctx, \u0026group.LookupGroupArgs{\n\t\t\tName: pulumi.StringRef(\"Privileged Users\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"privileged_high_risk\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(example.Id),\n\t\t\tName:                 pulumi.String(\"Privileged Users - High Risk\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\tpulumi.String(privilegedUsers.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getentityriskpolicy\" \"example\" {\n}\ndata \"okta_group_getgroup\" \"privilegedUsers\" {\n  name = \"Privileged Users\"\n}\n\nresource \"okta_entityriskpolicyrule\" \"privileged_high_risk\" {\n  policy_id              = data.okta_getentityriskpolicy.example.id\n  name                   = \"Privileged Users - High Risk\"\n  risk_level             = \"HIGH\"\n  terminate_all_sessions = true\n  groups_includeds       = [data.okta_group_getgroup.privilegedUsers.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.group.GroupFunctions;\nimport com.pulumi.okta.group.inputs.GetGroupArgs;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        final var privilegedUsers = GroupFunctions.getGroup(GetGroupArgs.builder()\n            .name(\"Privileged Users\")\n            .build());\n\n        var privilegedHighRisk = new EntityRiskPolicyRule(\"privilegedHighRisk\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Privileged Users - High Risk\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .groupsIncludeds(privilegedUsers.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  privilegedHighRisk:\n    type: okta:EntityRiskPolicyRule\n    name: privileged_high_risk\n    properties:\n      policyId: ${example.id}\n      name: Privileged Users - High Risk\n      riskLevel: HIGH\n      terminateAllSessions: true\n      groupsIncludeds:\n        - ${privilegedUsers.id}\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n  privilegedUsers:\n    fn::invoke:\n      function: okta:group:getGroup\n      arguments:\n        name: Privileged Users\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Rule with Workflow Integration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst workflowRule = new okta.EntityRiskPolicyRule(\"workflow_rule\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Low Risk - Run Workflow\",\n    riskLevel: \"LOW\",\n    workflowId: \"your-workflow-id\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nworkflow_rule = okta.EntityRiskPolicyRule(\"workflow_rule\",\n    policy_id=example.id,\n    name=\"Low Risk - Run Workflow\",\n    risk_level=\"LOW\",\n    workflow_id=\"your-workflow-id\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var workflowRule = new Okta.EntityRiskPolicyRule(\"workflow_rule\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"Low Risk - Run Workflow\",\n        RiskLevel = \"LOW\",\n        WorkflowId = \"your-workflow-id\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"workflow_rule\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:   pulumi.String(example.Id),\n\t\t\tName:       pulumi.String(\"Low Risk - Run Workflow\"),\n\t\t\tRiskLevel:  pulumi.String(\"LOW\"),\n\t\t\tWorkflowId: pulumi.String(\"your-workflow-id\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getentityriskpolicy\" \"example\" {\n}\n\nresource \"okta_entityriskpolicyrule\" \"workflow_rule\" {\n  policy_id   = data.okta_getentityriskpolicy.example.id\n  name        = \"Low Risk - Run Workflow\"\n  risk_level  = \"LOW\"\n  workflow_id = \"your-workflow-id\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var workflowRule = new EntityRiskPolicyRule(\"workflowRule\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Low Risk - Run Workflow\")\n            .riskLevel(\"LOW\")\n            .workflowId(\"your-workflow-id\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  workflowRule:\n    type: okta:EntityRiskPolicyRule\n    name: workflow_rule\n    properties:\n      policyId: ${example.id}\n      name: Low Risk - Run Workflow\n      riskLevel: LOW\n      workflowId: your-workflow-id\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nEntity Risk Policy Rules can be imported using the format `\u003cpolicy_id\u003e/\u003crule_id\u003e`:\n\n```sh\n$ pulumi import okta:index/entityRiskPolicyRule:EntityRiskPolicyRule example 00p1234567890/0pr1234567890\n```\n\n",
+            "description": "Manages an Entity Risk Policy Rule. Entity Risk Policy rules define automated responses to identity threats detected by Okta's Identity Threat Protection (ITP).\n\n\u003e **NOTE:** Entity Risk Policy is automatically created when Identity Threat Protection (ITP) is enabled. Use the \u003cspan pulumi-lang-nodejs=\"`okta.getEntityRiskPolicy`\" pulumi-lang-dotnet=\"`okta.getEntityRiskPolicy`\" pulumi-lang-go=\"`getEntityRiskPolicy`\" pulumi-lang-python=\"`get_entity_risk_policy`\" pulumi-lang-yaml=\"`okta.getEntityRiskPolicy`\" pulumi-lang-java=\"`okta.getEntityRiskPolicy`\" pulumi-lang-hcl=\"`data.okta_entity_risk_policy`\"\u003e`okta.getEntityRiskPolicy`\u003c/span\u003e data source to get the policy ID. The default policy rule (priority 99) cannot be imported or modified.\n\n## Example Usage\n\n### Basic Rule - Terminate Sessions on High Risk\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst highRisk = new okta.EntityRiskPolicyRule(\"high_risk\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"High Risk - Terminate Sessions\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nhigh_risk = okta.EntityRiskPolicyRule(\"high_risk\",\n    policy_id=example.id,\n    name=\"High Risk - Terminate Sessions\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var highRisk = new Okta.EntityRiskPolicyRule(\"high_risk\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"High Risk - Terminate Sessions\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"high_risk\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(example.Id),\n\t\t\tName:                 pulumi.String(\"High Risk - Terminate Sessions\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getentityriskpolicy\" \"example\" {\n}\n\nresource \"okta_entityriskpolicyrule\" \"high_risk\" {\n  policy_id              = data.okta_getentityriskpolicy.example.id\n  name                   = \"High Risk - Terminate Sessions\"\n  risk_level             = \"HIGH\"\n  terminate_all_sessions = true\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var highRisk = new EntityRiskPolicyRule(\"highRisk\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"High Risk - Terminate Sessions\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  highRisk:\n    type: okta:EntityRiskPolicyRule\n    name: high_risk\n    properties:\n      policyId: ${example.id}\n      name: High Risk - Terminate Sessions\n      riskLevel: HIGH\n      terminateAllSessions: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Rule with Group Targeting\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst privilegedUsers = okta.group.getGroup({\n    name: \"Privileged Users\",\n});\nconst privilegedHighRisk = new okta.EntityRiskPolicyRule(\"privileged_high_risk\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Privileged Users - High Risk\",\n    riskLevel: \"HIGH\",\n    terminateAllSessions: true,\n    groupsIncluded: [privilegedUsers.then(privilegedUsers =\u003e privilegedUsers.id)],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nprivileged_users = okta.group.get_group(name=\"Privileged Users\")\nprivileged_high_risk = okta.EntityRiskPolicyRule(\"privileged_high_risk\",\n    policy_id=example.id,\n    name=\"Privileged Users - High Risk\",\n    risk_level=\"HIGH\",\n    terminate_all_sessions=True,\n    groups_included=[privileged_users.id])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var privilegedUsers = Okta.Group.GetGroup.Invoke(new()\n    {\n        Name = \"Privileged Users\",\n    });\n\n    var privilegedHighRisk = new Okta.EntityRiskPolicyRule(\"privileged_high_risk\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"Privileged Users - High Risk\",\n        RiskLevel = \"HIGH\",\n        TerminateAllSessions = true,\n        GroupsIncluded = new[]\n        {\n            privilegedUsers.Apply(getGroupResult =\u003e getGroupResult.Id),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/group\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tprivilegedUsers, err := group.LookupGroup(ctx, \u0026group.LookupGroupArgs{\n\t\t\tName: pulumi.StringRef(\"Privileged Users\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"privileged_high_risk\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:             pulumi.String(example.Id),\n\t\t\tName:                 pulumi.String(\"Privileged Users - High Risk\"),\n\t\t\tRiskLevel:            pulumi.String(\"HIGH\"),\n\t\t\tTerminateAllSessions: pulumi.Bool(true),\n\t\t\tGroupsIncluded: pulumi.StringArray{\n\t\t\t\tpulumi.String(privilegedUsers.Id),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getentityriskpolicy\" \"example\" {\n}\ndata \"okta_group_getgroup\" \"privilegedUsers\" {\n  name = \"Privileged Users\"\n}\n\nresource \"okta_entityriskpolicyrule\" \"privileged_high_risk\" {\n  policy_id              = data.okta_getentityriskpolicy.example.id\n  name                   = \"Privileged Users - High Risk\"\n  risk_level             = \"HIGH\"\n  terminate_all_sessions = true\n  groups_included        = [data.okta_group_getgroup.privilegedUsers.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.group.GroupFunctions;\nimport com.pulumi.okta.group.inputs.GetGroupArgs;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        final var privilegedUsers = GroupFunctions.getGroup(GetGroupArgs.builder()\n            .name(\"Privileged Users\")\n            .build());\n\n        var privilegedHighRisk = new EntityRiskPolicyRule(\"privilegedHighRisk\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Privileged Users - High Risk\")\n            .riskLevel(\"HIGH\")\n            .terminateAllSessions(true)\n            .groupsIncluded(privilegedUsers.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  privilegedHighRisk:\n    type: okta:EntityRiskPolicyRule\n    name: privileged_high_risk\n    properties:\n      policyId: ${example.id}\n      name: Privileged Users - High Risk\n      riskLevel: HIGH\n      terminateAllSessions: true\n      groupsIncluded:\n        - ${privilegedUsers.id}\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n  privilegedUsers:\n    fn::invoke:\n      function: okta:group:getGroup\n      arguments:\n        name: Privileged Users\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### Rule with Workflow Integration\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getEntityRiskPolicy({});\nconst workflowRule = new okta.EntityRiskPolicyRule(\"workflow_rule\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Low Risk - Run Workflow\",\n    riskLevel: \"LOW\",\n    workflowId: \"your-workflow-id\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_entity_risk_policy()\nworkflow_rule = okta.EntityRiskPolicyRule(\"workflow_rule\",\n    policy_id=example.id,\n    name=\"Low Risk - Run Workflow\",\n    risk_level=\"LOW\",\n    workflow_id=\"your-workflow-id\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetEntityRiskPolicy.Invoke();\n\n    var workflowRule = new Okta.EntityRiskPolicyRule(\"workflow_rule\", new()\n    {\n        PolicyId = example.Apply(getEntityRiskPolicyResult =\u003e getEntityRiskPolicyResult.Id),\n        Name = \"Low Risk - Run Workflow\",\n        RiskLevel = \"LOW\",\n        WorkflowId = \"your-workflow-id\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetEntityRiskPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewEntityRiskPolicyRule(ctx, \"workflow_rule\", \u0026okta.EntityRiskPolicyRuleArgs{\n\t\t\tPolicyId:   pulumi.String(example.Id),\n\t\t\tName:       pulumi.String(\"Low Risk - Run Workflow\"),\n\t\t\tRiskLevel:  pulumi.String(\"LOW\"),\n\t\t\tWorkflowId: pulumi.String(\"your-workflow-id\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getentityriskpolicy\" \"example\" {\n}\n\nresource \"okta_entityriskpolicyrule\" \"workflow_rule\" {\n  policy_id   = data.okta_getentityriskpolicy.example.id\n  name        = \"Low Risk - Run Workflow\"\n  risk_level  = \"LOW\"\n  workflow_id = \"your-workflow-id\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.EntityRiskPolicyRule;\nimport com.pulumi.okta.EntityRiskPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getEntityRiskPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var workflowRule = new EntityRiskPolicyRule(\"workflowRule\", EntityRiskPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Low Risk - Run Workflow\")\n            .riskLevel(\"LOW\")\n            .workflowId(\"your-workflow-id\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  workflowRule:\n    type: okta:EntityRiskPolicyRule\n    name: workflow_rule\n    properties:\n      policyId: ${example.id}\n      name: Low Risk - Run Workflow\n      riskLevel: LOW\n      workflowId: your-workflow-id\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getEntityRiskPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\nEntity Risk Policy Rules can be imported using the format `\u003cpolicy_id\u003e/\u003crule_id\u003e`:\n\n```sh\n$ pulumi import okta:index/entityRiskPolicyRule:EntityRiskPolicyRule example 00p1234567890/0pr1234567890\n```\n\n",
             "properties": {
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of group IDs to exclude from this rule.\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -20351,14 +20351,14 @@
                     "type": "boolean",
                     "description": "When true, terminates all active sessions for the user when a risk event is detected. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of user IDs to exclude from this rule.\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -20379,14 +20379,14 @@
                 "terminateAllSessions"
             ],
             "inputProperties": {
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of group IDs to exclude from this rule.\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -20417,14 +20417,14 @@
                     "type": "boolean",
                     "description": "When true, terminates all active sessions for the user when a risk event is detected. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of user IDs to exclude from this rule.\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -20443,14 +20443,14 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering EntityRiskPolicyRule resources.\n",
                 "properties": {
-                    "groupsExcludeds": {
+                    "groupsExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "List of group IDs to exclude from this rule.\n"
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -20481,14 +20481,14 @@
                         "type": "boolean",
                         "description": "When true, terminates all active sessions for the user when a risk event is detected. Default: \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "List of user IDs to exclude from this rule.\n"
                     },
-                    "usersIncludeds": {
+                    "usersIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -24134,7 +24134,7 @@
             }
         },
         "okta:index/policyPasswordDefault:PolicyPasswordDefault": {
-            "description": "Configures the default password policy. This resource allows you to configure the default password policy.\n\n\u003e **Note:** If your configuration also manages other \u003cspan pulumi-lang-nodejs=\"`okta.policy.Password`\" pulumi-lang-dotnet=\"`okta.policy.Password`\" pulumi-lang-go=\"`policy.Password`\" pulumi-lang-python=\"`policy.Password`\" pulumi-lang-yaml=\"`okta.policy.Password`\" pulumi-lang-java=\"`okta.policy.Password`\" pulumi-lang-hcl=\"`okta_policy_password`\"\u003e`okta.policy.Password`\u003c/span\u003e resources, add\n\u003cspan pulumi-lang-nodejs=\"`dependsOn \" pulumi-lang-dotnet=\"`DependsOn \" pulumi-lang-go=\"`dependsOn \" pulumi-lang-python=\"`depends_on \" pulumi-lang-yaml=\"`dependsOn \" pulumi-lang-java=\"`dependsOn \" pulumi-lang-hcl=\"`depends_on \"\u003e`dependsOn \u003c/span\u003e= [okta_policy_password.\u003clast_policy\u003e]` pointing to the last non-default policy in your\ndependency chain. The default policy's \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\" pulumi-lang-hcl=\"`priority`\"\u003e`priority`\u003c/span\u003e is read-only and shifts whenever other password policies\nare created or deleted. Using \u003cspan pulumi-lang-nodejs=\"`dependsOn`\" pulumi-lang-dotnet=\"`DependsOn`\" pulumi-lang-go=\"`dependsOn`\" pulumi-lang-python=\"`depends_on`\" pulumi-lang-yaml=\"`dependsOn`\" pulumi-lang-java=\"`dependsOn`\" pulumi-lang-hcl=\"`depends_on`\"\u003e`dependsOn`\u003c/span\u003e ensures all sibling policies are fully created before this\nresource is read or updated, so the provider sees the correct priority value and the Okta API does not\nreject the request with E0000077.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst custom = new okta.policy.Password(\"custom\", {\n    name: \"Custom Password Policy\",\n    groupsIncludeds: [example.id],\n    status: \"ACTIVE\",\n    priority: 1,\n});\nconst _default = new okta.PolicyPasswordDefault(\"default\", {passwordHistoryCount: 5}, {\n    dependsOn: [custom],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ncustom = okta.policy.Password(\"custom\",\n    name=\"Custom Password Policy\",\n    groups_includeds=[example[\"id\"]],\n    status=\"ACTIVE\",\n    priority=1)\ndefault = okta.PolicyPasswordDefault(\"default\", password_history_count=5,\nopts = pulumi.ResourceOptions(depends_on=[custom]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var custom = new Okta.Policy.Password(\"custom\", new()\n    {\n        Name = \"Custom Password Policy\",\n        GroupsIncludeds = new[]\n        {\n            example.Id,\n        },\n        Status = \"ACTIVE\",\n        Priority = 1,\n    });\n\n    var @default = new Okta.PolicyPasswordDefault(\"default\", new()\n    {\n        PasswordHistoryCount = 5,\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            custom,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcustom, err := policy.NewPassword(ctx, \"custom\", \u0026policy.PasswordArgs{\n\t\t\tName: pulumi.String(\"Custom Password Policy\"),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\texample.Id,\n\t\t\t},\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPolicyPasswordDefault(ctx, \"default\", \u0026okta.PolicyPasswordDefaultArgs{\n\t\t\tPasswordHistoryCount: pulumi.Int(5),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tcustom,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_password\" \"custom\" {\n  name             = \"Custom Password Policy\"\n  groups_includeds = [example.id]\n  status           = \"ACTIVE\"\n  priority         = 1\n}\nresource \"okta_policypassworddefault\" \"default\" {\n  depends_on             = [okta_policy_password.custom]\n  password_history_count = 5\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Password;\nimport com.pulumi.okta.policy.PasswordArgs;\nimport com.pulumi.okta.PolicyPasswordDefault;\nimport com.pulumi.okta.PolicyPasswordDefaultArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var custom = new Password(\"custom\", PasswordArgs.builder()\n            .name(\"Custom Password Policy\")\n            .groupsIncludeds(example.id())\n            .status(\"ACTIVE\")\n            .priority(1)\n            .build());\n\n        var default_ = new PolicyPasswordDefault(\"default\", PolicyPasswordDefaultArgs.builder()\n            .passwordHistoryCount(5)\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(custom)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  custom:\n    type: okta:policy:Password\n    properties:\n      name: Custom Password Policy\n      groupsIncludeds:\n        - ${example.id}\n      status: ACTIVE\n      priority: 1\n  default:\n    type: okta:PolicyPasswordDefault\n    properties:\n      passwordHistoryCount: 5\n    options:\n      dependsOn:\n        - ${custom}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .\n```\n\n",
+            "description": "Configures the default password policy. This resource allows you to configure the default password policy.\n\n\u003e **Note:** If your configuration also manages other \u003cspan pulumi-lang-nodejs=\"`okta.policy.Password`\" pulumi-lang-dotnet=\"`okta.policy.Password`\" pulumi-lang-go=\"`policy.Password`\" pulumi-lang-python=\"`policy.Password`\" pulumi-lang-yaml=\"`okta.policy.Password`\" pulumi-lang-java=\"`okta.policy.Password`\" pulumi-lang-hcl=\"`okta_policy_password`\"\u003e`okta.policy.Password`\u003c/span\u003e resources, add\n\u003cspan pulumi-lang-nodejs=\"`dependsOn \" pulumi-lang-dotnet=\"`DependsOn \" pulumi-lang-go=\"`dependsOn \" pulumi-lang-python=\"`depends_on \" pulumi-lang-yaml=\"`dependsOn \" pulumi-lang-java=\"`dependsOn \" pulumi-lang-hcl=\"`depends_on \"\u003e`dependsOn \u003c/span\u003e= [okta_policy_password.\u003clast_policy\u003e]` pointing to the last non-default policy in your\ndependency chain. The default policy's \u003cspan pulumi-lang-nodejs=\"`priority`\" pulumi-lang-dotnet=\"`Priority`\" pulumi-lang-go=\"`priority`\" pulumi-lang-python=\"`priority`\" pulumi-lang-yaml=\"`priority`\" pulumi-lang-java=\"`priority`\" pulumi-lang-hcl=\"`priority`\"\u003e`priority`\u003c/span\u003e is read-only and shifts whenever other password policies\nare created or deleted. Using \u003cspan pulumi-lang-nodejs=\"`dependsOn`\" pulumi-lang-dotnet=\"`DependsOn`\" pulumi-lang-go=\"`dependsOn`\" pulumi-lang-python=\"`depends_on`\" pulumi-lang-yaml=\"`dependsOn`\" pulumi-lang-java=\"`dependsOn`\" pulumi-lang-hcl=\"`depends_on`\"\u003e`dependsOn`\u003c/span\u003e ensures all sibling policies are fully created before this\nresource is read or updated, so the provider sees the correct priority value and the Okta API does not\nreject the request with E0000077.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst custom = new okta.policy.Password(\"custom\", {\n    name: \"Custom Password Policy\",\n    groupsIncluded: [example.id],\n    status: \"ACTIVE\",\n    priority: 1,\n});\nconst _default = new okta.PolicyPasswordDefault(\"default\", {passwordHistoryCount: 5}, {\n    dependsOn: [custom],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ncustom = okta.policy.Password(\"custom\",\n    name=\"Custom Password Policy\",\n    groups_included=[example[\"id\"]],\n    status=\"ACTIVE\",\n    priority=1)\ndefault = okta.PolicyPasswordDefault(\"default\", password_history_count=5,\nopts = pulumi.ResourceOptions(depends_on=[custom]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var custom = new Okta.Policy.Password(\"custom\", new()\n    {\n        Name = \"Custom Password Policy\",\n        GroupsIncluded = new[]\n        {\n            example.Id,\n        },\n        Status = \"ACTIVE\",\n        Priority = 1,\n    });\n\n    var @default = new Okta.PolicyPasswordDefault(\"default\", new()\n    {\n        PasswordHistoryCount = 5,\n    }, new CustomResourceOptions\n    {\n        DependsOn =\n        {\n            custom,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tcustom, err := policy.NewPassword(ctx, \"custom\", \u0026policy.PasswordArgs{\n\t\t\tName: pulumi.String(\"Custom Password Policy\"),\n\t\t\tGroupsIncluded: pulumi.StringArray{\n\t\t\t\texample.Id,\n\t\t\t},\n\t\t\tStatus:   pulumi.String(\"ACTIVE\"),\n\t\t\tPriority: pulumi.Int(1),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPolicyPasswordDefault(ctx, \"default\", \u0026okta.PolicyPasswordDefaultArgs{\n\t\t\tPasswordHistoryCount: pulumi.Int(5),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tcustom,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_password\" \"custom\" {\n  name            = \"Custom Password Policy\"\n  groups_included = [example.id]\n  status          = \"ACTIVE\"\n  priority        = 1\n}\nresource \"okta_policypassworddefault\" \"default\" {\n  depends_on             = [okta_policy_password.custom]\n  password_history_count = 5\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Password;\nimport com.pulumi.okta.policy.PasswordArgs;\nimport com.pulumi.okta.PolicyPasswordDefault;\nimport com.pulumi.okta.PolicyPasswordDefaultArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var custom = new Password(\"custom\", PasswordArgs.builder()\n            .name(\"Custom Password Policy\")\n            .groupsIncluded(example.id())\n            .status(\"ACTIVE\")\n            .priority(1)\n            .build());\n\n        var default_ = new PolicyPasswordDefault(\"default\", PolicyPasswordDefaultArgs.builder()\n            .passwordHistoryCount(5)\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(custom)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  custom:\n    type: okta:policy:Password\n    properties:\n      name: Custom Password Policy\n      groupsIncluded:\n        - ${example.id}\n      status: ACTIVE\n      priority: 1\n  default:\n    type: okta:PolicyPasswordDefault\n    properties:\n      passwordHistoryCount: 5\n    options:\n      dependsOn:\n        - ${custom}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:index/policyPasswordDefault:PolicyPasswordDefault example .\n```\n\n",
             "properties": {
                 "breachedPasswordDelegatedWorkflowId": {
                     "type": "string",
@@ -24820,14 +24820,14 @@
         "okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule": {
             "description": "Manages the Post Auth Session Policy Rule. The Post Auth Session Policy has exactly one modifiable rule (non-default). This resource allows you to configure that rule.\n\n\u003e **IMPORTANT:** This resource cannot be created or deleted, only **imported** and updated. The Post Auth Session Policy rule is pre-provisioned by Okta. You must import the existing rule before managing it with Terraform.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = okta.getPostAuthSessionPolicy({});\nconst examplePostAuthSessionPolicyRule = new okta.PostAuthSessionPolicyRule(\"example\", {\n    policyId: example.then(example =\u003e example.id),\n    name: \"Session Protection Rule\",\n    terminateSession: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.get_post_auth_session_policy()\nexample_post_auth_session_policy_rule = okta.PostAuthSessionPolicyRule(\"example\",\n    policy_id=example.id,\n    name=\"Session Protection Rule\",\n    terminate_session=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = Okta.GetPostAuthSessionPolicy.Invoke();\n\n    var examplePostAuthSessionPolicyRule = new Okta.PostAuthSessionPolicyRule(\"example\", new()\n    {\n        PolicyId = example.Apply(getPostAuthSessionPolicyResult =\u003e getPostAuthSessionPolicyResult.Id),\n        Name = \"Session Protection Rule\",\n        TerminateSession = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texample, err := okta.GetPostAuthSessionPolicy(ctx, map[string]interface{}{}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewPostAuthSessionPolicyRule(ctx, \"example\", \u0026okta.PostAuthSessionPolicyRuleArgs{\n\t\t\tPolicyId:         pulumi.String(example.Id),\n\t\t\tName:             pulumi.String(\"Session Protection Rule\"),\n\t\t\tTerminateSession: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\ndata \"okta_getpostauthsessionpolicy\" \"example\" {\n}\n\nresource \"okta_postauthsessionpolicyrule\" \"example\" {\n  policy_id         = data.okta_getpostauthsessionpolicy.example.id\n  name              = \"Session Protection Rule\"\n  terminate_session = true\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.OktaFunctions;\nimport com.pulumi.okta.PostAuthSessionPolicyRule;\nimport com.pulumi.okta.PostAuthSessionPolicyRuleArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var example = OktaFunctions.getPostAuthSessionPolicy(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);\n\n        var examplePostAuthSessionPolicyRule = new PostAuthSessionPolicyRule(\"examplePostAuthSessionPolicyRule\", PostAuthSessionPolicyRuleArgs.builder()\n            .policyId(example.id())\n            .name(\"Session Protection Rule\")\n            .terminateSession(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  examplePostAuthSessionPolicyRule:\n    type: okta:PostAuthSessionPolicyRule\n    name: example\n    properties:\n      policyId: ${example.id}\n      name: Session Protection Rule\n      terminateSession: true\nvariables:\n  example:\n    fn::invoke:\n      function: okta:getPostAuthSessionPolicy\n      arguments: {}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Lifecycle\n\n- **Create**: Returns an error with the import command to use\n- **Update**: Updates the rule configuration in Okta\n- **Delete**: Removes the rule from Terraform state only (the rule remains in Okta)\n\n",
             "properties": {
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of group IDs to exclude from this rule.\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -24850,7 +24850,7 @@
                     "type": "boolean",
                     "description": "When true, terminates the user's session when a policy failure is detected. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -24869,14 +24869,14 @@
                 "terminateSession"
             ],
             "inputProperties": {
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "List of group IDs to exclude from this rule.\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -24899,7 +24899,7 @@
                     "type": "boolean",
                     "description": "When true, terminates the user's session when a policy failure is detected. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -24917,14 +24917,14 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering PostAuthSessionPolicyRule resources.\n",
                 "properties": {
-                    "groupsExcludeds": {
+                    "groupsExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "List of group IDs to exclude from this rule.\n"
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -24947,7 +24947,7 @@
                         "type": "boolean",
                         "description": "When true, terminates the user's session when a policy failure is detected. Default is \u003cspan pulumi-lang-nodejs=\"`false`\" pulumi-lang-dotnet=\"`False`\" pulumi-lang-go=\"`false`\" pulumi-lang-python=\"`false`\" pulumi-lang-yaml=\"`false`\" pulumi-lang-java=\"`false`\" pulumi-lang-hcl=\"`false`\"\u003e`false`\u003c/span\u003e.\n"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -27173,13 +27173,13 @@
             }
         },
         "okta:index/trustedServer:TrustedServer": {
-            "description": "Associated (Trusted) authorization servers allow you to designate a trusted authorization server that you associate with another authorization server.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test1 = new okta.auth.Server(\"test1\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst test2 = new okta.auth.Server(\"test2\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst test3 = new okta.auth.Server(\"test3\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst example = new okta.TrustedServer(\"example\", {\n    authServerId: oktaAuthServer.test1.id,\n    trusteds: [\n        oktaAuthServer.test2.id,\n        oktaAuthServer.test3.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest1 = okta.auth.Server(\"test1\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\ntest2 = okta.auth.Server(\"test2\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\ntest3 = okta.auth.Server(\"test3\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\nexample = okta.TrustedServer(\"example\",\n    auth_server_id=okta_auth_server[\"test1\"][\"id\"],\n    trusteds=[\n        okta_auth_server[\"test2\"][\"id\"],\n        okta_auth_server[\"test3\"][\"id\"],\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test1 = new Okta.Auth.Server(\"test1\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var test2 = new Okta.Auth.Server(\"test2\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var test3 = new Okta.Auth.Server(\"test3\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var example = new Okta.TrustedServer(\"example\", new()\n    {\n        AuthServerId = oktaAuthServer.Test1.Id,\n        Trusteds = new[]\n        {\n            oktaAuthServer.Test2.Id,\n            oktaAuthServer.Test3.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServer(ctx, \"test1\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = auth.NewServer(ctx, \"test2\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = auth.NewServer(ctx, \"test3\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewTrustedServer(ctx, \"example\", \u0026okta.TrustedServerArgs{\n\t\t\tAuthServerId: pulumi.Any(oktaAuthServer.Test1.Id),\n\t\t\tTrusteds: pulumi.StringArray{\n\t\t\t\toktaAuthServer.Test2.Id,\n\t\t\t\toktaAuthServer.Test3.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_auth_server\" \"test1\" {\n  audiences                 = [\"whatever.rise.zone\"]\n  credentials_rotation_mode = \"AUTO\"\n  description               = \"The best way to find out if you can trust somebody is to trust them.\"\n  name                      = \"testAcc-replace_with_uuid\"\n}\nresource \"okta_auth_server\" \"test2\" {\n  audiences                 = [\"whatever.rise.zone\"]\n  credentials_rotation_mode = \"AUTO\"\n  description               = \"The best way to find out if you can trust somebody is to trust them.\"\n  name                      = \"testAcc-replace_with_uuid\"\n}\nresource \"okta_auth_server\" \"test3\" {\n  audiences                 = [\"whatever.rise.zone\"]\n  credentials_rotation_mode = \"AUTO\"\n  description               = \"The best way to find out if you can trust somebody is to trust them.\"\n  name                      = \"testAcc-replace_with_uuid\"\n}\nresource \"okta_trustedserver\" \"example\" {\n  auth_server_id = oktaAuthServer.test1.id\n  trusteds       = [oktaAuthServer.test2.id, oktaAuthServer.test3.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.auth.Server;\nimport com.pulumi.okta.auth.ServerArgs;\nimport com.pulumi.okta.TrustedServer;\nimport com.pulumi.okta.TrustedServerArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test1 = new Server(\"test1\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var test2 = new Server(\"test2\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var test3 = new Server(\"test3\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var example = new TrustedServer(\"example\", TrustedServerArgs.builder()\n            .authServerId(oktaAuthServer.test1().id())\n            .trusteds(            \n                oktaAuthServer.test2().id(),\n                oktaAuthServer.test3().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test1:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  test2:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  test3:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  example:\n    type: okta:TrustedServer\n    properties:\n      authServerId: ${oktaAuthServer.test1.id}\n      trusteds:\n        - ${oktaAuthServer.test2.id}\n        - ${oktaAuthServer.test3.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+            "description": "Associated (Trusted) authorization servers allow you to designate a trusted authorization server that you associate with another authorization server.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst test1 = new okta.auth.Server(\"test1\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst test2 = new okta.auth.Server(\"test2\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst test3 = new okta.auth.Server(\"test3\", {\n    audiences: [\"whatever.rise.zone\"],\n    credentialsRotationMode: \"AUTO\",\n    description: \"The best way to find out if you can trust somebody is to trust them.\",\n    name: \"testAcc-replace_with_uuid\",\n});\nconst example = new okta.TrustedServer(\"example\", {\n    authServerId: oktaAuthServer.test1.id,\n    trusted: [\n        oktaAuthServer.test2.id,\n        oktaAuthServer.test3.id,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\ntest1 = okta.auth.Server(\"test1\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\ntest2 = okta.auth.Server(\"test2\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\ntest3 = okta.auth.Server(\"test3\",\n    audiences=[\"whatever.rise.zone\"],\n    credentials_rotation_mode=\"AUTO\",\n    description=\"The best way to find out if you can trust somebody is to trust them.\",\n    name=\"testAcc-replace_with_uuid\")\nexample = okta.TrustedServer(\"example\",\n    auth_server_id=okta_auth_server[\"test1\"][\"id\"],\n    trusted=[\n        okta_auth_server[\"test2\"][\"id\"],\n        okta_auth_server[\"test3\"][\"id\"],\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test1 = new Okta.Auth.Server(\"test1\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var test2 = new Okta.Auth.Server(\"test2\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var test3 = new Okta.Auth.Server(\"test3\", new()\n    {\n        Audiences = new[]\n        {\n            \"whatever.rise.zone\",\n        },\n        CredentialsRotationMode = \"AUTO\",\n        Description = \"The best way to find out if you can trust somebody is to trust them.\",\n        Name = \"testAcc-replace_with_uuid\",\n    });\n\n    var example = new Okta.TrustedServer(\"example\", new()\n    {\n        AuthServerId = oktaAuthServer.Test1.Id,\n        Trusted = new[]\n        {\n            oktaAuthServer.Test2.Id,\n            oktaAuthServer.Test3.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta\"\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/auth\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := auth.NewServer(ctx, \"test1\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = auth.NewServer(ctx, \"test2\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = auth.NewServer(ctx, \"test3\", \u0026auth.ServerArgs{\n\t\t\tAudiences: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"whatever.rise.zone\"),\n\t\t\t},\n\t\t\tCredentialsRotationMode: pulumi.String(\"AUTO\"),\n\t\t\tDescription:             pulumi.String(\"The best way to find out if you can trust somebody is to trust them.\"),\n\t\t\tName:                    pulumi.String(\"testAcc-replace_with_uuid\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = okta.NewTrustedServer(ctx, \"example\", \u0026okta.TrustedServerArgs{\n\t\t\tAuthServerId: pulumi.Any(oktaAuthServer.Test1.Id),\n\t\t\tTrusted: pulumi.StringArray{\n\t\t\t\toktaAuthServer.Test2.Id,\n\t\t\t\toktaAuthServer.Test3.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_auth_server\" \"test1\" {\n  audiences                 = [\"whatever.rise.zone\"]\n  credentials_rotation_mode = \"AUTO\"\n  description               = \"The best way to find out if you can trust somebody is to trust them.\"\n  name                      = \"testAcc-replace_with_uuid\"\n}\nresource \"okta_auth_server\" \"test2\" {\n  audiences                 = [\"whatever.rise.zone\"]\n  credentials_rotation_mode = \"AUTO\"\n  description               = \"The best way to find out if you can trust somebody is to trust them.\"\n  name                      = \"testAcc-replace_with_uuid\"\n}\nresource \"okta_auth_server\" \"test3\" {\n  audiences                 = [\"whatever.rise.zone\"]\n  credentials_rotation_mode = \"AUTO\"\n  description               = \"The best way to find out if you can trust somebody is to trust them.\"\n  name                      = \"testAcc-replace_with_uuid\"\n}\nresource \"okta_trustedserver\" \"example\" {\n  auth_server_id = oktaAuthServer.test1.id\n  trusted        = [oktaAuthServer.test2.id, oktaAuthServer.test3.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.auth.Server;\nimport com.pulumi.okta.auth.ServerArgs;\nimport com.pulumi.okta.TrustedServer;\nimport com.pulumi.okta.TrustedServerArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test1 = new Server(\"test1\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var test2 = new Server(\"test2\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var test3 = new Server(\"test3\", ServerArgs.builder()\n            .audiences(\"whatever.rise.zone\")\n            .credentialsRotationMode(\"AUTO\")\n            .description(\"The best way to find out if you can trust somebody is to trust them.\")\n            .name(\"testAcc-replace_with_uuid\")\n            .build());\n\n        var example = new TrustedServer(\"example\", TrustedServerArgs.builder()\n            .authServerId(oktaAuthServer.test1().id())\n            .trusted(            \n                oktaAuthServer.test2().id(),\n                oktaAuthServer.test3().id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test1:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  test2:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  test3:\n    type: okta:auth:Server\n    properties:\n      audiences:\n        - whatever.rise.zone\n      credentialsRotationMode: AUTO\n      description: The best way to find out if you can trust somebody is to trust them.\n      name: testAcc-replace_with_uuid\n  example:\n    type: okta:TrustedServer\n    properties:\n      authServerId: ${oktaAuthServer.test1.id}\n      trusted:\n        - ${oktaAuthServer.test2.id}\n        - ${oktaAuthServer.test3.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
             "properties": {
                 "authServerId": {
                     "type": "string",
                     "description": "Authorization server ID\n"
                 },
-                "trusteds": {
+                "trusted": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -27189,14 +27189,14 @@
             },
             "required": [
                 "authServerId",
-                "trusteds"
+                "trusted"
             ],
             "inputProperties": {
                 "authServerId": {
                     "type": "string",
                     "description": "Authorization server ID\n"
                 },
-                "trusteds": {
+                "trusted": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -27206,7 +27206,7 @@
             },
             "requiredInputs": [
                 "authServerId",
-                "trusteds"
+                "trusted"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering TrustedServer resources.\n",
@@ -27215,7 +27215,7 @@
                         "type": "string",
                         "description": "Authorization server ID\n"
                     },
-                    "trusteds": {
+                    "trusted": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -29569,7 +29569,7 @@
                         "type": "string"
                     }
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -29753,7 +29753,7 @@
                         "type": "string"
                     }
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -29936,7 +29936,7 @@
                             "type": "string"
                         }
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -30066,7 +30066,7 @@
             }
         },
         "okta:policy/password:Password": {
-            "description": "Creates a Password Policy. This resource allows you to create and configure a Password Policy.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Password(\"example\", {\n    name: \"example\",\n    status: \"ACTIVE\",\n    description: \"Example\",\n    passwordHistoryCount: 4,\n    groupsIncludeds: [everyone.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Password(\"example\",\n    name=\"example\",\n    status=\"ACTIVE\",\n    description=\"Example\",\n    password_history_count=4,\n    groups_includeds=[everyone[\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Policy.Password(\"example\", new()\n    {\n        Name = \"example\",\n        Status = \"ACTIVE\",\n        Description = \"Example\",\n        PasswordHistoryCount = 4,\n        GroupsIncludeds = new[]\n        {\n            everyone.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewPassword(ctx, \"example\", \u0026policy.PasswordArgs{\n\t\t\tName:                 pulumi.String(\"example\"),\n\t\t\tStatus:               pulumi.String(\"ACTIVE\"),\n\t\t\tDescription:          pulumi.String(\"Example\"),\n\t\t\tPasswordHistoryCount: pulumi.Int(4),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\teveryone.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_password\" \"example\" {\n  name                   = \"example\"\n  status                 = \"ACTIVE\"\n  description            = \"Example\"\n  password_history_count = 4\n  groups_includeds       = [everyone.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Password;\nimport com.pulumi.okta.policy.PasswordArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Password(\"example\", PasswordArgs.builder()\n            .name(\"example\")\n            .status(\"ACTIVE\")\n            .description(\"Example\")\n            .passwordHistoryCount(4)\n            .groupsIncludeds(everyone.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:Password\n    properties:\n      name: example\n      status: ACTIVE\n      description: Example\n      passwordHistoryCount: 4\n      groupsIncludeds:\n        - ${everyone.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/password:Password example \u003cpolicy_id\u003e\n```\n\n",
+            "description": "Creates a Password Policy. This resource allows you to create and configure a Password Policy.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Password(\"example\", {\n    name: \"example\",\n    status: \"ACTIVE\",\n    description: \"Example\",\n    passwordHistoryCount: 4,\n    groupsIncluded: [everyone.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Password(\"example\",\n    name=\"example\",\n    status=\"ACTIVE\",\n    description=\"Example\",\n    password_history_count=4,\n    groups_included=[everyone[\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Policy.Password(\"example\", new()\n    {\n        Name = \"example\",\n        Status = \"ACTIVE\",\n        Description = \"Example\",\n        PasswordHistoryCount = 4,\n        GroupsIncluded = new[]\n        {\n            everyone.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewPassword(ctx, \"example\", \u0026policy.PasswordArgs{\n\t\t\tName:                 pulumi.String(\"example\"),\n\t\t\tStatus:               pulumi.String(\"ACTIVE\"),\n\t\t\tDescription:          pulumi.String(\"Example\"),\n\t\t\tPasswordHistoryCount: pulumi.Int(4),\n\t\t\tGroupsIncluded: pulumi.StringArray{\n\t\t\t\teveryone.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_password\" \"example\" {\n  name                   = \"example\"\n  status                 = \"ACTIVE\"\n  description            = \"Example\"\n  password_history_count = 4\n  groups_included        = [everyone.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Password;\nimport com.pulumi.okta.policy.PasswordArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Password(\"example\", PasswordArgs.builder()\n            .name(\"example\")\n            .status(\"ACTIVE\")\n            .description(\"Example\")\n            .passwordHistoryCount(4)\n            .groupsIncluded(everyone.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:Password\n    properties:\n      name: example\n      status: ACTIVE\n      description: Example\n      passwordHistoryCount: 4\n      groupsIncluded:\n        - ${everyone.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/password:Password example \u003cpolicy_id\u003e\n```\n\n",
             "properties": {
                 "authProvider": {
                     "type": "string",
@@ -30096,7 +30096,7 @@
                     "type": "string",
                     "description": "Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -30239,7 +30239,7 @@
                     "type": "string",
                     "description": "Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -30381,7 +30381,7 @@
                         "type": "string",
                         "description": "Enable or disable email password recovery: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -30848,7 +30848,7 @@
                     "type": "string",
                     "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -30914,7 +30914,7 @@
                     "type": "string",
                     "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -30979,7 +30979,7 @@
                         "type": "string",
                         "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -30993,14 +30993,14 @@
         "okta:policy/rulePassword:RulePassword": {
             "description": "Creates a Password Policy Rule. This resource allows you to create and configure a Password Policy Rule.\n\n## Example Usage\n\n### AUTH_POLICY access control (delegates SSPR to authentication policy rules)\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleAuthPolicy = new okta.policy.RulePassword(\"example_auth_policy\", {\n    policyId: \"\u003cpolicy_id\u003e\",\n    name: \"example_auth_policy_rule\",\n    status: \"ACTIVE\",\n    passwordChange: \"ALLOW\",\n    passwordReset: \"ALLOW\",\n    passwordUnlock: \"DENY\",\n    passwordResetAccessControl: \"AUTH_POLICY\",\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_auth_policy = okta.policy.RulePassword(\"example_auth_policy\",\n    policy_id=\"\u003cpolicy_id\u003e\",\n    name=\"example_auth_policy_rule\",\n    status=\"ACTIVE\",\n    password_change=\"ALLOW\",\n    password_reset=\"ALLOW\",\n    password_unlock=\"DENY\",\n    password_reset_access_control=\"AUTH_POLICY\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleAuthPolicy = new Okta.Policy.RulePassword(\"example_auth_policy\", new()\n    {\n        PolicyId = \"\u003cpolicy_id\u003e\",\n        Name = \"example_auth_policy_rule\",\n        Status = \"ACTIVE\",\n        PasswordChange = \"ALLOW\",\n        PasswordReset = \"ALLOW\",\n        PasswordUnlock = \"DENY\",\n        PasswordResetAccessControl = \"AUTH_POLICY\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewRulePassword(ctx, \"example_auth_policy\", \u0026policy.RulePasswordArgs{\n\t\t\tPolicyId:                   pulumi.String(\"\u003cpolicy_id\u003e\"),\n\t\t\tName:                       pulumi.String(\"example_auth_policy_rule\"),\n\t\t\tStatus:                     pulumi.String(\"ACTIVE\"),\n\t\t\tPasswordChange:             pulumi.String(\"ALLOW\"),\n\t\t\tPasswordReset:              pulumi.String(\"ALLOW\"),\n\t\t\tPasswordUnlock:             pulumi.String(\"DENY\"),\n\t\t\tPasswordResetAccessControl: pulumi.String(\"AUTH_POLICY\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_rulepassword\" \"example_auth_policy\" {\n  policy_id                     = \"\u003cpolicy_id\u003e\"\n  name                          = \"example_auth_policy_rule\"\n  status                        = \"ACTIVE\"\n  password_change               = \"ALLOW\"\n  password_reset                = \"ALLOW\"\n  password_unlock               = \"DENY\"\n  password_reset_access_control = \"AUTH_POLICY\"\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.RulePassword;\nimport com.pulumi.okta.policy.RulePasswordArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleAuthPolicy = new RulePassword(\"exampleAuthPolicy\", RulePasswordArgs.builder()\n            .policyId(\"\u003cpolicy_id\u003e\")\n            .name(\"example_auth_policy_rule\")\n            .status(\"ACTIVE\")\n            .passwordChange(\"ALLOW\")\n            .passwordReset(\"ALLOW\")\n            .passwordUnlock(\"DENY\")\n            .passwordResetAccessControl(\"AUTH_POLICY\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleAuthPolicy:\n    type: okta:policy:RulePassword\n    name: example_auth_policy\n    properties:\n      policyId: \u003cpolicy_id\u003e\n      name: example_auth_policy_rule\n      status: ACTIVE\n      passwordChange: ALLOW\n      passwordReset: ALLOW\n      passwordUnlock: DENY\n      passwordResetAccessControl: AUTH_POLICY\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n### LEGACY access control with primary methods and step-up\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst exampleLegacy = new okta.policy.RulePassword(\"example_legacy\", {\n    policyId: \"\u003cpolicy_id\u003e\",\n    name: \"example_legacy_rule\",\n    status: \"ACTIVE\",\n    passwordChange: \"ALLOW\",\n    passwordReset: \"ALLOW\",\n    passwordUnlock: \"DENY\",\n    passwordResetAccessControl: \"LEGACY\",\n    passwordResetRequirement: {\n        methodConstraints: [{\n            method: \"otp\",\n            allowedAuthenticators: [\"google_otp\"],\n        }],\n        primaryMethods: [\n            \"otp\",\n            \"email\",\n        ],\n        stepUpEnabled: true,\n        stepUpMethods: [\"security_question\"],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample_legacy = okta.policy.RulePassword(\"example_legacy\",\n    policy_id=\"\u003cpolicy_id\u003e\",\n    name=\"example_legacy_rule\",\n    status=\"ACTIVE\",\n    password_change=\"ALLOW\",\n    password_reset=\"ALLOW\",\n    password_unlock=\"DENY\",\n    password_reset_access_control=\"LEGACY\",\n    password_reset_requirement={\n        \"method_constraints\": [{\n            \"method\": \"otp\",\n            \"allowed_authenticators\": [\"google_otp\"],\n        }],\n        \"primary_methods\": [\n            \"otp\",\n            \"email\",\n        ],\n        \"step_up_enabled\": True,\n        \"step_up_methods\": [\"security_question\"],\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleLegacy = new Okta.Policy.RulePassword(\"example_legacy\", new()\n    {\n        PolicyId = \"\u003cpolicy_id\u003e\",\n        Name = \"example_legacy_rule\",\n        Status = \"ACTIVE\",\n        PasswordChange = \"ALLOW\",\n        PasswordReset = \"ALLOW\",\n        PasswordUnlock = \"DENY\",\n        PasswordResetAccessControl = \"LEGACY\",\n        PasswordResetRequirement = new Okta.Policy.Inputs.RulePasswordPasswordResetRequirementArgs\n        {\n            MethodConstraints = new[]\n            {\n                new Okta.Policy.Inputs.RulePasswordPasswordResetRequirementMethodConstraintArgs\n                {\n                    Method = \"otp\",\n                    AllowedAuthenticators = new[]\n                    {\n                        \"google_otp\",\n                    },\n                },\n            },\n            PrimaryMethods = new[]\n            {\n                \"otp\",\n                \"email\",\n            },\n            StepUpEnabled = true,\n            StepUpMethods = new[]\n            {\n                \"security_question\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewRulePassword(ctx, \"example_legacy\", \u0026policy.RulePasswordArgs{\n\t\t\tPolicyId:                   pulumi.String(\"\u003cpolicy_id\u003e\"),\n\t\t\tName:                       pulumi.String(\"example_legacy_rule\"),\n\t\t\tStatus:                     pulumi.String(\"ACTIVE\"),\n\t\t\tPasswordChange:             pulumi.String(\"ALLOW\"),\n\t\t\tPasswordReset:              pulumi.String(\"ALLOW\"),\n\t\t\tPasswordUnlock:             pulumi.String(\"DENY\"),\n\t\t\tPasswordResetAccessControl: pulumi.String(\"LEGACY\"),\n\t\t\tPasswordResetRequirement: \u0026policy.RulePasswordPasswordResetRequirementArgs{\n\t\t\t\tMethodConstraints: policy.RulePasswordPasswordResetRequirementMethodConstraintArray{\n\t\t\t\t\t\u0026policy.RulePasswordPasswordResetRequirementMethodConstraintArgs{\n\t\t\t\t\t\tMethod: pulumi.String(\"otp\"),\n\t\t\t\t\t\tAllowedAuthenticators: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"google_otp\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tPrimaryMethods: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"otp\"),\n\t\t\t\t\tpulumi.String(\"email\"),\n\t\t\t\t},\n\t\t\t\tStepUpEnabled: pulumi.Bool(true),\n\t\t\t\tStepUpMethods: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"security_question\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_rulepassword\" \"example_legacy\" {\n  policy_id                     = \"\u003cpolicy_id\u003e\"\n  name                          = \"example_legacy_rule\"\n  status                        = \"ACTIVE\"\n  password_change               = \"ALLOW\"\n  password_reset                = \"ALLOW\"\n  password_unlock               = \"DENY\"\n  password_reset_access_control = \"LEGACY\"\n  password_reset_requirement = {\n    method_constraints = [{\n      \"method\"                = \"otp\"\n      \"allowedAuthenticators\" = [\"google_otp\"]\n    }]\n    primary_methods = [\"otp\", \"email\"]\n    step_up_enabled = true\n    step_up_methods = [\"security_question\"]\n  }\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.RulePassword;\nimport com.pulumi.okta.policy.RulePasswordArgs;\nimport com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementArgs;\nimport com.pulumi.okta.policy.inputs.RulePasswordPasswordResetRequirementMethodConstraintArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleLegacy = new RulePassword(\"exampleLegacy\", RulePasswordArgs.builder()\n            .policyId(\"\u003cpolicy_id\u003e\")\n            .name(\"example_legacy_rule\")\n            .status(\"ACTIVE\")\n            .passwordChange(\"ALLOW\")\n            .passwordReset(\"ALLOW\")\n            .passwordUnlock(\"DENY\")\n            .passwordResetAccessControl(\"LEGACY\")\n            .passwordResetRequirement(RulePasswordPasswordResetRequirementArgs.builder()\n                .methodConstraints(RulePasswordPasswordResetRequirementMethodConstraintArgs.builder()\n                    .method(\"otp\")\n                    .allowedAuthenticators(\"google_otp\")\n                    .build())\n                .primaryMethods(                \n                    \"otp\",\n                    \"email\")\n                .stepUpEnabled(true)\n                .stepUpMethods(\"security_question\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleLegacy:\n    type: okta:policy:RulePassword\n    name: example_legacy\n    properties:\n      policyId: \u003cpolicy_id\u003e\n      name: example_legacy_rule\n      status: ACTIVE\n      passwordChange: ALLOW\n      passwordReset: ALLOW\n      passwordUnlock: DENY\n      passwordResetAccessControl: LEGACY\n      passwordResetRequirement:\n        methodConstraints:\n          - method: otp\n            allowedAuthenticators:\n              - google_otp\n        primaryMethods:\n          - otp\n          - email\n        stepUpEnabled: true\n        stepUpMethods:\n          - security_question\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/rulePassword:RulePassword example \u003cpolicy_id\u003e/\u003crule_id\u003e\n```\n\n",
             "properties": {
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of Group IDs to exclude from this rule."
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31061,14 +31061,14 @@
                     "type": "string",
                     "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User IDs to Exclude\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31080,14 +31080,14 @@
                 "name"
             ],
             "inputProperties": {
-                "groupsExcludeds": {
+                "groupsExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of Group IDs to exclude from this rule."
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31150,14 +31150,14 @@
                     "type": "string",
                     "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "Set of User IDs to Exclude\n"
                 },
-                "usersIncludeds": {
+                "usersIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31168,14 +31168,14 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering RulePassword resources.\n",
                 "properties": {
-                    "groupsExcludeds": {
+                    "groupsExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "Set of Group IDs to exclude from this rule."
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -31238,14 +31238,14 @@
                         "type": "string",
                         "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`\n"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
                         "description": "Set of User IDs to Exclude\n"
                     },
-                    "usersIncludeds": {
+                    "usersIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -31367,7 +31367,7 @@
                     "type": "string",
                     "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31490,7 +31490,7 @@
                     "type": "string",
                     "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`"
                 },
-                "usersExcludeds": {
+                "usersExcluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31611,7 +31611,7 @@
                         "type": "string",
                         "description": "Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -31623,13 +31623,13 @@
             }
         },
         "okta:policy/signon:Signon": {
-            "description": "Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Signon(\"example\", {\n    name: \"example\",\n    status: \"ACTIVE\",\n    description: \"Example\",\n    groupsIncludeds: [everyone.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Signon(\"example\",\n    name=\"example\",\n    status=\"ACTIVE\",\n    description=\"Example\",\n    groups_includeds=[everyone[\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Policy.Signon(\"example\", new()\n    {\n        Name = \"example\",\n        Status = \"ACTIVE\",\n        Description = \"Example\",\n        GroupsIncludeds = new[]\n        {\n            everyone.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewSignon(ctx, \"example\", \u0026policy.SignonArgs{\n\t\t\tName:        pulumi.String(\"example\"),\n\t\t\tStatus:      pulumi.String(\"ACTIVE\"),\n\t\t\tDescription: pulumi.String(\"Example\"),\n\t\t\tGroupsIncludeds: pulumi.StringArray{\n\t\t\t\teveryone.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_signon\" \"example\" {\n  name             = \"example\"\n  status           = \"ACTIVE\"\n  description      = \"Example\"\n  groups_includeds = [everyone.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Signon;\nimport com.pulumi.okta.policy.SignonArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Signon(\"example\", SignonArgs.builder()\n            .name(\"example\")\n            .status(\"ACTIVE\")\n            .description(\"Example\")\n            .groupsIncludeds(everyone.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:Signon\n    properties:\n      name: example\n      status: ACTIVE\n      description: Example\n      groupsIncludeds:\n        - ${everyone.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/signon:Signon example \u003cpolicy_id\u003e\n```\n\n",
+            "description": "Creates a Sign On Policy. This resource allows you to create and configure a Sign On Policy.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as okta from \"@pulumi/okta\";\n\nconst example = new okta.policy.Signon(\"example\", {\n    name: \"example\",\n    status: \"ACTIVE\",\n    description: \"Example\",\n    groupsIncluded: [everyone.id],\n});\n```\n```python\nimport pulumi\nimport pulumi_okta as okta\n\nexample = okta.policy.Signon(\"example\",\n    name=\"example\",\n    status=\"ACTIVE\",\n    description=\"Example\",\n    groups_included=[everyone[\"id\"]])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Okta = Pulumi.Okta;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var example = new Okta.Policy.Signon(\"example\", new()\n    {\n        Name = \"example\",\n        Status = \"ACTIVE\",\n        Description = \"Example\",\n        GroupsIncluded = new[]\n        {\n            everyone.Id,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/policy\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := policy.NewSignon(ctx, \"example\", \u0026policy.SignonArgs{\n\t\t\tName:        pulumi.String(\"example\"),\n\t\t\tStatus:      pulumi.String(\"ACTIVE\"),\n\t\t\tDescription: pulumi.String(\"Example\"),\n\t\t\tGroupsIncluded: pulumi.StringArray{\n\t\t\t\teveryone.Id,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```hcl\npulumi {\n  required_providers {\n    okta = {\n      source = \"pulumi/okta\"\n    }\n  }\n}\n\nresource \"okta_policy_signon\" \"example\" {\n  name            = \"example\"\n  status          = \"ACTIVE\"\n  description     = \"Example\"\n  groups_included = [everyone.id]\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.okta.policy.Signon;\nimport com.pulumi.okta.policy.SignonArgs;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var example = new Signon(\"example\", SignonArgs.builder()\n            .name(\"example\")\n            .status(\"ACTIVE\")\n            .description(\"Example\")\n            .groupsIncluded(everyone.id())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  example:\n    type: okta:policy:Signon\n    properties:\n      name: example\n      status: ACTIVE\n      description: Example\n      groupsIncluded:\n        - ${everyone.id}\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n## Import\n\n```sh\n$ pulumi import okta:policy/signon:Signon example \u003cpolicy_id\u003e\n```\n\n",
             "properties": {
                 "description": {
                     "type": "string",
                     "description": "Policy Description\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31657,7 +31657,7 @@
                     "type": "string",
                     "description": "Policy Description\n"
                 },
-                "groupsIncludeds": {
+                "groupsIncluded": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -31684,7 +31684,7 @@
                         "type": "string",
                         "description": "Policy Description\n"
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "type": "array",
                         "items": {
                             "type": "string"
@@ -34263,7 +34263,7 @@
                         "description": "Default to `ACTIVE`\n",
                         "type": "string"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "description": "The list of user IDs that would be excluded when rules are processed.\n",
                         "items": {
                             "type": "string"
@@ -34275,7 +34275,7 @@
                     "expressionType",
                     "expressionValue",
                     "groupAssignments",
-                    "usersExcludeds"
+                    "usersExcluded"
                 ],
                 "type": "object"
             }
@@ -37590,13 +37590,13 @@
                     "authorizationEndpoint": {
                         "type": "string"
                     },
-                    "backchannelAuthenticationRequestSigningAlgValuesSupporteds": {
+                    "backchannelAuthenticationRequestSigningAlgValuesSupported": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "backchannelTokenDeliveryModesSupporteds": {
+                    "backchannelTokenDeliveryModesSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37605,13 +37605,13 @@
                     "baseUrl": {
                         "type": "string"
                     },
-                    "claimsSupporteds": {
+                    "claimsSupported": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "codeChallengeMethodsSupporteds": {
+                    "codeChallengeMethodsSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37620,7 +37620,7 @@
                     "deviceAuthorizationEndpoint": {
                         "type": "string"
                     },
-                    "dpopSigningAlgValuesSupporteds": {
+                    "dpopSigningAlgValuesSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37629,7 +37629,7 @@
                     "endSessionEndpoint": {
                         "type": "string"
                     },
-                    "grantTypesSupporteds": {
+                    "grantTypesSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37641,7 +37641,7 @@
                     "introspectionEndpoint": {
                         "type": "string"
                     },
-                    "introspectionEndpointAuthMethodsSupporteds": {
+                    "introspectionEndpointAuthMethodsSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37656,7 +37656,7 @@
                     "registrationEndpoint": {
                         "type": "string"
                     },
-                    "requestObjectSigningAlgValuesSupporteds": {
+                    "requestObjectSigningAlgValuesSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37665,13 +37665,13 @@
                     "requestParameterSupported": {
                         "type": "boolean"
                     },
-                    "responseModesSupporteds": {
+                    "responseModesSupported": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "responseTypesSupporteds": {
+                    "responseTypesSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37680,19 +37680,19 @@
                     "revocationEndpoint": {
                         "type": "string"
                     },
-                    "revocationEndpointAuthMethodsSupporteds": {
+                    "revocationEndpointAuthMethodsSupported": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "scopesSupporteds": {
+                    "scopesSupported": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "subjectTypesSupporteds": {
+                    "subjectTypesSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37701,7 +37701,7 @@
                     "tokenEndpoint": {
                         "type": "string"
                     },
-                    "tokenEndpointAuthMethodsSupporteds": {
+                    "tokenEndpointAuthMethodsSupported": {
                         "items": {
                             "type": "string"
                         },
@@ -37710,30 +37710,30 @@
                 },
                 "required": [
                     "authorizationEndpoint",
-                    "backchannelAuthenticationRequestSigningAlgValuesSupporteds",
-                    "backchannelTokenDeliveryModesSupporteds",
-                    "claimsSupporteds",
-                    "codeChallengeMethodsSupporteds",
+                    "backchannelAuthenticationRequestSigningAlgValuesSupported",
+                    "backchannelTokenDeliveryModesSupported",
+                    "claimsSupported",
+                    "codeChallengeMethodsSupported",
                     "deviceAuthorizationEndpoint",
-                    "dpopSigningAlgValuesSupporteds",
+                    "dpopSigningAlgValuesSupported",
                     "endSessionEndpoint",
-                    "grantTypesSupporteds",
+                    "grantTypesSupported",
                     "id",
                     "introspectionEndpoint",
-                    "introspectionEndpointAuthMethodsSupporteds",
+                    "introspectionEndpointAuthMethodsSupported",
                     "issuer",
                     "pushedAuthorizationRequestEndpoint",
                     "registrationEndpoint",
-                    "requestObjectSigningAlgValuesSupporteds",
+                    "requestObjectSigningAlgValuesSupported",
                     "requestParameterSupported",
-                    "responseModesSupporteds",
-                    "responseTypesSupporteds",
+                    "responseModesSupported",
+                    "responseTypesSupported",
                     "revocationEndpoint",
-                    "revocationEndpointAuthMethodsSupporteds",
-                    "scopesSupporteds",
-                    "subjectTypesSupporteds",
+                    "revocationEndpointAuthMethodsSupported",
+                    "scopesSupported",
+                    "subjectTypesSupported",
                     "tokenEndpoint",
-                    "tokenEndpointAuthMethodsSupporteds"
+                    "tokenEndpointAuthMethodsSupported"
                 ],
                 "type": "object"
             }
@@ -39621,13 +39621,13 @@
             "outputs": {
                 "description": "A collection of values returned by getRulePassword.\n",
                 "properties": {
-                    "groupsExcludeds": {
+                    "groupsExcluded": {
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "groupsIncludeds": {
+                    "groupsIncluded": {
                         "items": {
                             "type": "string"
                         },
@@ -39694,14 +39694,14 @@
                         "description": "Status of the rule: `ACTIVE` or `INACTIVE`.\n",
                         "type": "string"
                     },
-                    "usersExcludeds": {
+                    "usersExcluded": {
                         "description": "User IDs excluded from this rule.\n",
                         "items": {
                             "type": "string"
                         },
                         "type": "array"
                     },
-                    "usersIncludeds": {
+                    "usersIncluded": {
                         "items": {
                             "type": "string"
                         },
@@ -39709,8 +39709,8 @@
                     }
                 },
                 "required": [
-                    "groupsExcludeds",
-                    "groupsIncludeds",
+                    "groupsExcluded",
+                    "groupsIncluded",
                     "id",
                     "name",
                     "networkConnection",
@@ -39724,8 +39724,8 @@
                     "policyId",
                     "priority",
                     "status",
-                    "usersExcludeds",
-                    "usersIncludeds"
+                    "usersExcluded",
+                    "usersIncluded"
                 ],
                 "type": "object"
             }

@@ -26,7 +26,7 @@ class GetRuleResult:
     """
     A collection of values returned by getRule.
     """
-    def __init__(__self__, expression_type=None, expression_value=None, group_assignments=None, id=None, name=None, status=None, users_excludeds=None):
+    def __init__(__self__, expression_type=None, expression_value=None, group_assignments=None, id=None, name=None, status=None, users_excluded=None):
         if expression_type and not isinstance(expression_type, str):
             raise TypeError("Expected argument 'expression_type' to be a str")
         pulumi.set(__self__, "expression_type", expression_type)
@@ -45,9 +45,9 @@ class GetRuleResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if users_excludeds and not isinstance(users_excludeds, list):
-            raise TypeError("Expected argument 'users_excludeds' to be a list")
-        pulumi.set(__self__, "users_excludeds", users_excludeds)
+        if users_excluded and not isinstance(users_excluded, list):
+            raise TypeError("Expected argument 'users_excluded' to be a list")
+        pulumi.set(__self__, "users_excluded", users_excluded)
 
     @_builtins.property
     @pulumi.getter(name="expressionType")
@@ -98,12 +98,12 @@ class GetRuleResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Sequence[_builtins.str]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> Sequence[_builtins.str]:
         """
         The list of user IDs that would be excluded when rules are processed.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
 
 class AwaitableGetRuleResult(GetRuleResult):
@@ -118,7 +118,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             id=self.id,
             name=self.name,
             status=self.status,
-            users_excludeds=self.users_excludeds)
+            users_excluded=self.users_excluded)
 
 
 def get_rule(id: Optional[_builtins.str] = None,
@@ -156,7 +156,7 @@ def get_rule(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
-        users_excludeds=pulumi.get(__ret__, 'users_excludeds'))
+        users_excluded=pulumi.get(__ret__, 'users_excluded'))
 def get_rule_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -191,4 +191,4 @@ def get_rule_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
-        users_excludeds=pulumi.get(__response__, 'users_excludeds')))
+        users_excluded=pulumi.get(__response__, 'users_excluded')))

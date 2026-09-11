@@ -72,7 +72,7 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
     /**
      * List of device assurance IDs to include
      */
-    declare public readonly deviceAssurancesIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly deviceAssurancesIncluded: pulumi.Output<string[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
@@ -88,11 +88,11 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
     /**
      * List of group IDs to exclude
      */
-    declare public readonly groupsExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsExcluded: pulumi.Output<string[] | undefined>;
     /**
      * List of group IDs to include
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
@@ -153,19 +153,19 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
     /**
      * Set of User Type IDs to exclude
      */
-    declare public readonly userTypesExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly userTypesExcluded: pulumi.Output<string[] | undefined>;
     /**
      * Set of User Type IDs to include
      */
-    declare public readonly userTypesIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly userTypesIncluded: pulumi.Output<string[] | undefined>;
     /**
      * Set of User IDs to exclude
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
     /**
      * Set of User IDs to include
      */
-    declare public readonly usersIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersIncluded: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AppSignonPolicyRule resource with the given unique name, arguments, and options.
@@ -184,12 +184,12 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["chains"] = state?.chains;
             resourceInputs["constraints"] = state?.constraints;
             resourceInputs["customExpression"] = state?.customExpression;
-            resourceInputs["deviceAssurancesIncludeds"] = state?.deviceAssurancesIncludeds;
+            resourceInputs["deviceAssurancesIncluded"] = state?.deviceAssurancesIncluded;
             resourceInputs["deviceIsManaged"] = state?.deviceIsManaged;
             resourceInputs["deviceIsRegistered"] = state?.deviceIsRegistered;
             resourceInputs["factorMode"] = state?.factorMode;
-            resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = state?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["inactivityPeriod"] = state?.inactivityPeriod;
             resourceInputs["keepMeSignedIn"] = state?.keepMeSignedIn;
             resourceInputs["name"] = state?.name;
@@ -205,10 +205,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["status"] = state?.status;
             resourceInputs["system"] = state?.system;
             resourceInputs["type"] = state?.type;
-            resourceInputs["userTypesExcludeds"] = state?.userTypesExcludeds;
-            resourceInputs["userTypesIncludeds"] = state?.userTypesIncludeds;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
-            resourceInputs["usersIncludeds"] = state?.usersIncludeds;
+            resourceInputs["userTypesExcluded"] = state?.userTypesExcluded;
+            resourceInputs["userTypesIncluded"] = state?.userTypesIncluded;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
+            resourceInputs["usersIncluded"] = state?.usersIncluded;
         } else {
             const args = argsOrState as AppSignonPolicyRuleArgs | undefined;
             if (args?.policyId === undefined && !opts.urn) {
@@ -218,12 +218,12 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["chains"] = args?.chains;
             resourceInputs["constraints"] = args?.constraints;
             resourceInputs["customExpression"] = args?.customExpression;
-            resourceInputs["deviceAssurancesIncludeds"] = args?.deviceAssurancesIncludeds;
+            resourceInputs["deviceAssurancesIncluded"] = args?.deviceAssurancesIncluded;
             resourceInputs["deviceIsManaged"] = args?.deviceIsManaged;
             resourceInputs["deviceIsRegistered"] = args?.deviceIsRegistered;
             resourceInputs["factorMode"] = args?.factorMode;
-            resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = args?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["inactivityPeriod"] = args?.inactivityPeriod;
             resourceInputs["keepMeSignedIn"] = args?.keepMeSignedIn;
             resourceInputs["name"] = args?.name;
@@ -238,10 +238,10 @@ export class AppSignonPolicyRule extends pulumi.CustomResource {
             resourceInputs["riskScore"] = args?.riskScore;
             resourceInputs["status"] = args?.status;
             resourceInputs["type"] = args?.type;
-            resourceInputs["userTypesExcludeds"] = args?.userTypesExcludeds;
-            resourceInputs["userTypesIncludeds"] = args?.userTypesIncludeds;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
-            resourceInputs["usersIncludeds"] = args?.usersIncludeds;
+            resourceInputs["userTypesExcluded"] = args?.userTypesExcluded;
+            resourceInputs["userTypesIncluded"] = args?.userTypesIncluded;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
+            resourceInputs["usersIncluded"] = args?.usersIncluded;
             resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -272,7 +272,7 @@ export interface AppSignonPolicyRuleState {
     /**
      * List of device assurance IDs to include
      */
-    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    deviceAssurancesIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
@@ -288,11 +288,11 @@ export interface AppSignonPolicyRuleState {
     /**
      * List of group IDs to exclude
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
@@ -353,19 +353,19 @@ export interface AppSignonPolicyRuleState {
     /**
      * Set of User Type IDs to exclude
      */
-    userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    userTypesExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User Type IDs to include
      */
-    userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    userTypesIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -391,7 +391,7 @@ export interface AppSignonPolicyRuleArgs {
     /**
      * List of device assurance IDs to include
      */
-    deviceAssurancesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    deviceAssurancesIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
      */
@@ -407,11 +407,11 @@ export interface AppSignonPolicyRuleArgs {
     /**
      * List of group IDs to exclude
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
      */
@@ -468,17 +468,17 @@ export interface AppSignonPolicyRuleArgs {
     /**
      * Set of User Type IDs to exclude
      */
-    userTypesExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    userTypesExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User Type IDs to include
      */
-    userTypesIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    userTypesIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -81,7 +81,7 @@ import (
 //				Name:                 pulumi.String("Privileged Users - High Risk"),
 //				RiskLevel:            pulumi.String("HIGH"),
 //				TerminateAllSessions: pulumi.Bool(true),
-//				GroupsIncludeds: pulumi.StringArray{
+//				GroupsIncluded: pulumi.StringArray{
 //					pulumi.String(privilegedUsers.Id),
 //				},
 //			})
@@ -138,9 +138,9 @@ type EntityRiskPolicyRule struct {
 	pulumi.CustomResourceState
 
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayOutput `pulumi:"groupsExcludeds"`
+	GroupsExcluded pulumi.StringArrayOutput `pulumi:"groupsExcluded"`
 	// List of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayOutput `pulumi:"groupsIncludeds"`
+	GroupsIncluded pulumi.StringArrayOutput `pulumi:"groupsIncluded"`
 	// Name of the policy rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the Entity Risk Policy. Use the `getEntityRiskPolicy` data source to get this ID.
@@ -154,9 +154,9 @@ type EntityRiskPolicyRule struct {
 	// When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
 	TerminateAllSessions pulumi.BoolOutput `pulumi:"terminateAllSessions"`
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 	// List of user IDs to include from this rule.
-	UsersIncludeds pulumi.StringArrayOutput `pulumi:"usersIncludeds"`
+	UsersIncluded pulumi.StringArrayOutput `pulumi:"usersIncluded"`
 	// ID of the Okta Workflow to run when a risk event is detected.
 	WorkflowId pulumi.StringPtrOutput `pulumi:"workflowId"`
 }
@@ -198,9 +198,9 @@ func GetEntityRiskPolicyRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EntityRiskPolicyRule resources.
 type entityRiskPolicyRuleState struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// List of group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Name of the policy rule.
 	Name *string `pulumi:"name"`
 	// ID of the Entity Risk Policy. Use the `getEntityRiskPolicy` data source to get this ID.
@@ -214,18 +214,18 @@ type entityRiskPolicyRuleState struct {
 	// When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
 	TerminateAllSessions *bool `pulumi:"terminateAllSessions"`
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// List of user IDs to include from this rule.
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 	// ID of the Okta Workflow to run when a risk event is detected.
 	WorkflowId *string `pulumi:"workflowId"`
 }
 
 type EntityRiskPolicyRuleState struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// List of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Name of the policy rule.
 	Name pulumi.StringPtrInput
 	// ID of the Entity Risk Policy. Use the `getEntityRiskPolicy` data source to get this ID.
@@ -239,9 +239,9 @@ type EntityRiskPolicyRuleState struct {
 	// When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
 	TerminateAllSessions pulumi.BoolPtrInput
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// List of user IDs to include from this rule.
-	UsersIncludeds pulumi.StringArrayInput
+	UsersIncluded pulumi.StringArrayInput
 	// ID of the Okta Workflow to run when a risk event is detected.
 	WorkflowId pulumi.StringPtrInput
 }
@@ -252,9 +252,9 @@ func (EntityRiskPolicyRuleState) ElementType() reflect.Type {
 
 type entityRiskPolicyRuleArgs struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds []string `pulumi:"groupsExcludeds"`
+	GroupsExcluded []string `pulumi:"groupsExcluded"`
 	// List of group IDs to include in this rule.
-	GroupsIncludeds []string `pulumi:"groupsIncludeds"`
+	GroupsIncluded []string `pulumi:"groupsIncluded"`
 	// Name of the policy rule.
 	Name *string `pulumi:"name"`
 	// ID of the Entity Risk Policy. Use the `getEntityRiskPolicy` data source to get this ID.
@@ -268,9 +268,9 @@ type entityRiskPolicyRuleArgs struct {
 	// When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
 	TerminateAllSessions *bool `pulumi:"terminateAllSessions"`
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 	// List of user IDs to include from this rule.
-	UsersIncludeds []string `pulumi:"usersIncludeds"`
+	UsersIncluded []string `pulumi:"usersIncluded"`
 	// ID of the Okta Workflow to run when a risk event is detected.
 	WorkflowId *string `pulumi:"workflowId"`
 }
@@ -278,9 +278,9 @@ type entityRiskPolicyRuleArgs struct {
 // The set of arguments for constructing a EntityRiskPolicyRule resource.
 type EntityRiskPolicyRuleArgs struct {
 	// List of group IDs to exclude from this rule.
-	GroupsExcludeds pulumi.StringArrayInput
+	GroupsExcluded pulumi.StringArrayInput
 	// List of group IDs to include in this rule.
-	GroupsIncludeds pulumi.StringArrayInput
+	GroupsIncluded pulumi.StringArrayInput
 	// Name of the policy rule.
 	Name pulumi.StringPtrInput
 	// ID of the Entity Risk Policy. Use the `getEntityRiskPolicy` data source to get this ID.
@@ -294,9 +294,9 @@ type EntityRiskPolicyRuleArgs struct {
 	// When true, terminates all active sessions for the user when a risk event is detected. Default: `false`.
 	TerminateAllSessions pulumi.BoolPtrInput
 	// List of user IDs to exclude from this rule.
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 	// List of user IDs to include from this rule.
-	UsersIncludeds pulumi.StringArrayInput
+	UsersIncluded pulumi.StringArrayInput
 	// ID of the Okta Workflow to run when a risk event is detected.
 	WorkflowId pulumi.StringPtrInput
 }
@@ -389,13 +389,13 @@ func (o EntityRiskPolicyRuleOutput) ToEntityRiskPolicyRuleOutputWithContext(ctx 
 }
 
 // List of group IDs to exclude from this rule.
-func (o EntityRiskPolicyRuleOutput) GroupsExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcludeds }).(pulumi.StringArrayOutput)
+func (o EntityRiskPolicyRuleOutput) GroupsExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.GroupsExcluded }).(pulumi.StringArrayOutput)
 }
 
 // List of group IDs to include in this rule.
-func (o EntityRiskPolicyRuleOutput) GroupsIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncludeds }).(pulumi.StringArrayOutput)
+func (o EntityRiskPolicyRuleOutput) GroupsIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.GroupsIncluded }).(pulumi.StringArrayOutput)
 }
 
 // Name of the policy rule.
@@ -429,13 +429,13 @@ func (o EntityRiskPolicyRuleOutput) TerminateAllSessions() pulumi.BoolOutput {
 }
 
 // List of user IDs to exclude from this rule.
-func (o EntityRiskPolicyRuleOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o EntityRiskPolicyRuleOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 // List of user IDs to include from this rule.
-func (o EntityRiskPolicyRuleOutput) UsersIncludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.UsersIncludeds }).(pulumi.StringArrayOutput)
+func (o EntityRiskPolicyRuleOutput) UsersIncluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityRiskPolicyRule) pulumi.StringArrayOutput { return v.UsersIncluded }).(pulumi.StringArrayOutput)
 }
 
 // ID of the Okta Workflow to run when a risk event is detected.

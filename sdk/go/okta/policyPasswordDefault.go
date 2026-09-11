@@ -37,7 +37,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			custom, err := policy.NewPassword(ctx, "custom", &policy.PasswordArgs{
 //				Name: pulumi.String("Custom Password Policy"),
-//				GroupsIncludeds: pulumi.StringArray{
+//				GroupsIncluded: pulumi.StringArray{
 //					example.Id,
 //				},
 //				Status:   pulumi.String("ACTIVE"),

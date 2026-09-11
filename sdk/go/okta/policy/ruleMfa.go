@@ -48,7 +48,7 @@ type RuleMfa struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayOutput `pulumi:"usersExcludeds"`
+	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 }
 
 // NewRuleMfa registers a new resource with the given unique name, arguments, and options.
@@ -108,7 +108,7 @@ type ruleMfaState struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 type RuleMfaState struct {
@@ -139,7 +139,7 @@ type RuleMfaState struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 }
 
 func (RuleMfaState) ElementType() reflect.Type {
@@ -174,7 +174,7 @@ type ruleMfaArgs struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
 	// Set of User IDs to Exclude
-	UsersExcludeds []string `pulumi:"usersExcludeds"`
+	UsersExcluded []string `pulumi:"usersExcluded"`
 }
 
 // The set of arguments for constructing a RuleMfa resource.
@@ -206,7 +206,7 @@ type RuleMfaArgs struct {
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
 	// Set of User IDs to Exclude
-	UsersExcludeds pulumi.StringArrayInput
+	UsersExcluded pulumi.StringArrayInput
 }
 
 func (RuleMfaArgs) ElementType() reflect.Type {
@@ -353,8 +353,8 @@ func (o RuleMfaOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Set of User IDs to Exclude
-func (o RuleMfaOutput) UsersExcludeds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.UsersExcludeds }).(pulumi.StringArrayOutput)
+func (o RuleMfaOutput) UsersExcluded() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.StringArrayOutput { return v.UsersExcluded }).(pulumi.StringArrayOutput)
 }
 
 type RuleMfaArrayOutput struct{ *pulumi.OutputState }

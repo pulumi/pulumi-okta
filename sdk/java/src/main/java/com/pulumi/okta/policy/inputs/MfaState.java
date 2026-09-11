@@ -107,15 +107,15 @@ public final class MfaState extends com.pulumi.resources.ResourceArgs {
      * List of Group IDs to Include
      * 
      */
-    @Import(name="groupsIncludeds")
-    private @Nullable Output<List<String>> groupsIncludeds;
+    @Import(name="groupsIncluded")
+    private @Nullable Output<List<String>> groupsIncluded;
 
     /**
      * @return List of Group IDs to Include
      * 
      */
-    public Optional<Output<List<String>>> groupsIncludeds() {
-        return Optional.ofNullable(this.groupsIncludeds);
+    public Optional<Output<List<String>>> groupsIncluded() {
+        return Optional.ofNullable(this.groupsIncluded);
     }
 
     @Import(name="hotp")
@@ -308,7 +308,7 @@ public final class MfaState extends com.pulumi.resources.ResourceArgs {
         this.fidoU2f = $.fidoU2f;
         this.fidoWebauthn = $.fidoWebauthn;
         this.googleOtp = $.googleOtp;
-        this.groupsIncludeds = $.groupsIncludeds;
+        this.groupsIncluded = $.groupsIncluded;
         this.hotp = $.hotp;
         this.isOie = $.isOie;
         this.name = $.name;
@@ -477,34 +477,34 @@ public final class MfaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include
+         * @param groupsIncluded List of Group IDs to Include
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(@Nullable Output<List<String>> groupsIncludeds) {
-            $.groupsIncludeds = groupsIncludeds;
+        public Builder groupsIncluded(@Nullable Output<List<String>> groupsIncluded) {
+            $.groupsIncluded = groupsIncluded;
             return this;
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include
+         * @param groupsIncluded List of Group IDs to Include
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(List<String> groupsIncludeds) {
-            return groupsIncludeds(Output.of(groupsIncludeds));
+        public Builder groupsIncluded(List<String> groupsIncluded) {
+            return groupsIncluded(Output.of(groupsIncluded));
         }
 
         /**
-         * @param groupsIncludeds List of Group IDs to Include
+         * @param groupsIncluded List of Group IDs to Include
          * 
          * @return builder
          * 
          */
-        public Builder groupsIncludeds(String... groupsIncludeds) {
-            return groupsIncludeds(List.of(groupsIncludeds));
+        public Builder groupsIncluded(String... groupsIncluded) {
+            return groupsIncluded(List.of(groupsIncluded));
         }
 
         public Builder hotp(@Nullable Output<Map<String,String>> hotp) {

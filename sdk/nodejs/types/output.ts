@@ -3944,7 +3944,7 @@ export namespace app {
         /**
          * Set of device assurance policy IDs to include.
          */
-        deviceAssurancesIncludeds?: string[];
+        deviceAssurancesIncluded?: string[];
         /**
          * Require device to be managed by a device management system.
          */
@@ -3960,11 +3960,11 @@ export namespace app {
         /**
          * Set of group IDs to exclude from this rule.
          */
-        groupsExcludeds?: string[];
+        groupsExcluded?: string[];
         /**
          * Set of group IDs to include in this rule.
          */
-        groupsIncludeds?: string[];
+        groupsIncluded?: string[];
         /**
          * (String) - The ID of this resource (same as `policyId`).
          */
@@ -4024,19 +4024,19 @@ export namespace app {
         /**
          * Set of user type IDs to exclude.
          */
-        userTypesExcludeds?: string[];
+        userTypesExcluded?: string[];
         /**
          * Set of user type IDs to include.
          */
-        userTypesIncludeds?: string[];
+        userTypesIncluded?: string[];
         /**
          * Set of user IDs to exclude from this rule.
          */
-        usersExcludeds?: string[];
+        usersExcluded?: string[];
         /**
          * Set of user IDs to include in this rule.
          */
-        usersIncludeds?: string[];
+        usersIncluded?: string[];
     }
 
     export interface SignonPolicyRulesRuleKeepMeSignedIn {

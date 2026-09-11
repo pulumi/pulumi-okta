@@ -41,7 +41,7 @@ import * as utilities from "./utilities";
  *     name: "Privileged Users - High Risk",
  *     riskLevel: "HIGH",
  *     terminateAllSessions: true,
- *     groupsIncludeds: [privilegedUsers.then(privilegedUsers => privilegedUsers.id)],
+ *     groupsIncluded: [privilegedUsers.then(privilegedUsers => privilegedUsers.id)],
  * });
  * ```
  *
@@ -99,11 +99,11 @@ export class EntityRiskPolicyRule extends pulumi.CustomResource {
     /**
      * List of group IDs to exclude from this rule.
      */
-    declare public readonly groupsExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsExcluded: pulumi.Output<string[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     /**
      * Name of the policy rule.
      */
@@ -131,11 +131,11 @@ export class EntityRiskPolicyRule extends pulumi.CustomResource {
     /**
      * List of user IDs to exclude from this rule.
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
     /**
      * List of user IDs to include from this rule.
      */
-    declare public readonly usersIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersIncluded: pulumi.Output<string[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a risk event is detected.
      */
@@ -154,16 +154,16 @@ export class EntityRiskPolicyRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EntityRiskPolicyRuleState | undefined;
-            resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = state?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["name"] = state?.name;
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["riskLevel"] = state?.riskLevel;
             resourceInputs["status"] = state?.status;
             resourceInputs["terminateAllSessions"] = state?.terminateAllSessions;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
-            resourceInputs["usersIncludeds"] = state?.usersIncludeds;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
+            resourceInputs["usersIncluded"] = state?.usersIncluded;
             resourceInputs["workflowId"] = state?.workflowId;
         } else {
             const args = argsOrState as EntityRiskPolicyRuleArgs | undefined;
@@ -173,16 +173,16 @@ export class EntityRiskPolicyRule extends pulumi.CustomResource {
             if (args?.riskLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'riskLevel'");
             }
-            resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = args?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["name"] = args?.name;
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["riskLevel"] = args?.riskLevel;
             resourceInputs["status"] = args?.status;
             resourceInputs["terminateAllSessions"] = args?.terminateAllSessions;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
-            resourceInputs["usersIncludeds"] = args?.usersIncludeds;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
+            resourceInputs["usersIncluded"] = args?.usersIncluded;
             resourceInputs["workflowId"] = args?.workflowId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -197,11 +197,11 @@ export interface EntityRiskPolicyRuleState {
     /**
      * List of group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy rule.
      */
@@ -229,11 +229,11 @@ export interface EntityRiskPolicyRuleState {
     /**
      * List of user IDs to exclude from this rule.
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of user IDs to include from this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a risk event is detected.
      */
@@ -247,11 +247,11 @@ export interface EntityRiskPolicyRuleArgs {
     /**
      * List of group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the policy rule.
      */
@@ -279,11 +279,11 @@ export interface EntityRiskPolicyRuleArgs {
     /**
      * List of user IDs to exclude from this rule.
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of user IDs to include from this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * ID of the Okta Workflow to run when a risk event is detected.
      */

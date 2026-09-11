@@ -1046,7 +1046,7 @@ class PolicyPasswordDefault(pulumi.CustomResource):
 
         custom = okta.policy.Password("custom",
             name="Custom Password Policy",
-            groups_includeds=[example["id"]],
+            groups_included=[example["id"]],
             status="ACTIVE",
             priority=1)
         default = okta.PolicyPasswordDefault("default", password_history_count=5,
@@ -1114,7 +1114,7 @@ class PolicyPasswordDefault(pulumi.CustomResource):
 
         custom = okta.policy.Password("custom",
             name="Custom Password Policy",
-            groups_includeds=[example["id"]],
+            groups_included=[example["id"]],
             status="ACTIVE",
             priority=1)
         default = okta.PolicyPasswordDefault("default", password_history_count=5,

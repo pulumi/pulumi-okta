@@ -480,15 +480,15 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      * Set of User IDs to Exclude
      * 
      */
-    @Export(name="usersExcludeds", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> usersExcludeds;
+    @Export(name="usersExcluded", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> usersExcluded;
 
     /**
      * @return Set of User IDs to Exclude
      * 
      */
-    public Output<Optional<List<String>>> usersExcludeds() {
-        return Codegen.optional(this.usersExcludeds);
+    public Output<Optional<List<String>>> usersExcluded() {
+        return Codegen.optional(this.usersExcluded);
     }
 
     /**

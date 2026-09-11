@@ -62,6 +62,16 @@ const (
 	mainMod          = "Index"
 
 	idProperty = "idProperty"
+
+	groupsExcludedProperty = "groupsExcluded"
+	groupsIncludedProperty = "groupsIncluded"
+	usersExcludedProperty  = "usersExcluded"
+	usersIncludedProperty  = "usersIncluded"
+
+	groupsExcludedField = "groups_excluded"
+	groupsIncludedField = "groups_included"
+	usersExcludedField  = "users_excluded"
+	usersIncludedField  = "users_included"
 )
 
 var namespaceMap = map[string]string{
@@ -125,6 +135,83 @@ func Provider() tfbridge.ProviderInfo {
 			EditRules: editRules,
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
+			// Drop the trailing "s" the bridge's pluralizer adds to names that
+			// already read as plural.
+			"okta_app_signon_policy_rules": {
+				Fields: map[string]*info.Schema{
+					"rule": {
+						Elem: &info.Schema{
+							Fields: map[string]*info.Schema{
+								"device_assurances_included": {Name: "deviceAssurancesIncluded"},
+								groupsExcludedField:          {Name: groupsExcludedProperty},
+								groupsIncludedField:          {Name: groupsIncludedProperty},
+								"user_types_excluded":        {Name: "userTypesExcluded"},
+								"user_types_included":        {Name: "userTypesIncluded"},
+								usersExcludedField:           {Name: usersExcludedProperty},
+								usersIncludedField:           {Name: usersIncludedProperty},
+							},
+						},
+					},
+				},
+			},
+			"okta_entity_risk_policy_rule": {
+				Fields: map[string]*info.Schema{
+					groupsExcludedField: {Name: groupsExcludedProperty},
+					groupsIncludedField: {Name: groupsIncludedProperty},
+					usersExcludedField:  {Name: usersExcludedProperty},
+					usersIncludedField:  {Name: usersIncludedProperty},
+				},
+			},
+			"okta_group_rule": {
+				Fields: map[string]*info.Schema{
+					usersExcludedField: {Name: usersExcludedProperty},
+				},
+			},
+			"okta_policy_mfa": {
+				Fields: map[string]*info.Schema{
+					groupsIncludedField: {Name: groupsIncludedProperty},
+				},
+			},
+			"okta_policy_password": {
+				Fields: map[string]*info.Schema{
+					groupsIncludedField: {Name: groupsIncludedProperty},
+				},
+			},
+			"okta_policy_rule_mfa": {
+				Fields: map[string]*info.Schema{
+					usersExcludedField: {Name: usersExcludedProperty},
+				},
+			},
+			"okta_policy_rule_password": {
+				Fields: map[string]*info.Schema{
+					groupsExcludedField: {Name: groupsExcludedProperty},
+					groupsIncludedField: {Name: groupsIncludedProperty},
+					usersExcludedField:  {Name: usersExcludedProperty},
+					usersIncludedField:  {Name: usersIncludedProperty},
+				},
+			},
+			"okta_policy_rule_signon": {
+				Fields: map[string]*info.Schema{
+					usersExcludedField: {Name: usersExcludedProperty},
+				},
+			},
+			"okta_policy_signon": {
+				Fields: map[string]*info.Schema{
+					groupsIncludedField: {Name: groupsIncludedProperty},
+				},
+			},
+			"okta_post_auth_session_policy_rule": {
+				Fields: map[string]*info.Schema{
+					groupsExcludedField: {Name: groupsExcludedProperty},
+					groupsIncludedField: {Name: groupsIncludedProperty},
+					usersExcludedField:  {Name: usersExcludedProperty},
+				},
+			},
+			"okta_trusted_server": {
+				Fields: map[string]*info.Schema{
+					"trusted": {Name: "trusted"},
+				},
+			},
 			// App Resources
 			"okta_app_oauth":                          {Tok: makeResource(appMod, "OAuth")},
 			"okta_app_oauth_redirect_uri":             {Tok: makeResource(appMod, "OAuthRedirectUri")},
@@ -168,30 +255,41 @@ func Provider() tfbridge.ProviderInfo {
 			"okta_profile_mapping": {Tok: makeResource(profileMod, "Mapping")},
 
 			// All new resources will be put in top level package i.e. mainMod
-			"okta_event_hook":                     {Tok: makeResource(mainMod, "EventHook")},
-			"okta_template_sms":                   {Tok: makeResource(mainMod, "TemplateSms")},
-			"okta_admin_role_targets":             {Tok: makeResource(mainMod, "AdminRoleTargets")},
-			"okta_app_oauth_api_scope":            {Tok: makeResource(mainMod, "AppOauthApiScope")},
-			"okta_auth_server_default":            {Tok: makeResource(mainMod, "AuthServerDefault")},
-			"okta_policy_mfa_default":             {Tok: makeResource(mainMod, "PolicyMfaDefault")},
-			"okta_policy_password_default":        {Tok: makeResource(mainMod, "PolicyPasswordDefault")},
-			"okta_auth_server_claim_default":      {Tok: makeResource(mainMod, "AuthServerClaimDefault")},
-			"okta_behavior":                       {Tok: makeResource(mainMod, "Behaviour")},
-			"okta_app_shared_credentials":         {Tok: makeResource(mainMod, "AppSharedCredentials")},
-			"okta_app_user_base_schema_property":  {Tok: makeResource(mainMod, "AppUserBaseSchemaProperty")},
-			"okta_app_user_schema_property":       {Tok: makeResource(mainMod, "AppUserSchemaProperty")},
-			"okta_domain":                         {Tok: makeResource(mainMod, "Domain")},
-			"okta_app_group_assignments":          {Tok: makeResource(mainMod, "AppGroupAssignments")},
-			"okta_factor_totp":                    {Tok: makeResource(mainMod, "FactorTotp")},
-			"okta_group_memberships":              {Tok: makeResource(mainMod, "GroupMemberships")},
-			"okta_user_admin_roles":               {Tok: makeResource(mainMod, "UserAdminRoles")},
-			"okta_user_base_schema_property":      {Tok: makeResource(mainMod, "UserBaseSchemaProperty")},
-			"okta_user_factor_question":           {Tok: makeResource(mainMod, "UserFactorQuestion")},
-			"okta_user_group_memberships":         {Tok: makeResource(mainMod, "UserGroupMemberships")},
-			"okta_user_schema_property":           {Tok: makeResource(mainMod, "UserSchemaProperty")},
-			"okta_authenticator":                  {Tok: makeResource(mainMod, "Authenticator")},
-			"okta_app_saml_app_settings":          {Tok: makeResource(mainMod, "AppSamlAppSettings")},
-			"okta_app_signon_policy_rule":         {Tok: makeResource(mainMod, "AppSignonPolicyRule")},
+			"okta_event_hook":                    {Tok: makeResource(mainMod, "EventHook")},
+			"okta_template_sms":                  {Tok: makeResource(mainMod, "TemplateSms")},
+			"okta_admin_role_targets":            {Tok: makeResource(mainMod, "AdminRoleTargets")},
+			"okta_app_oauth_api_scope":           {Tok: makeResource(mainMod, "AppOauthApiScope")},
+			"okta_auth_server_default":           {Tok: makeResource(mainMod, "AuthServerDefault")},
+			"okta_policy_mfa_default":            {Tok: makeResource(mainMod, "PolicyMfaDefault")},
+			"okta_policy_password_default":       {Tok: makeResource(mainMod, "PolicyPasswordDefault")},
+			"okta_auth_server_claim_default":     {Tok: makeResource(mainMod, "AuthServerClaimDefault")},
+			"okta_behavior":                      {Tok: makeResource(mainMod, "Behaviour")},
+			"okta_app_shared_credentials":        {Tok: makeResource(mainMod, "AppSharedCredentials")},
+			"okta_app_user_base_schema_property": {Tok: makeResource(mainMod, "AppUserBaseSchemaProperty")},
+			"okta_app_user_schema_property":      {Tok: makeResource(mainMod, "AppUserSchemaProperty")},
+			"okta_domain":                        {Tok: makeResource(mainMod, "Domain")},
+			"okta_app_group_assignments":         {Tok: makeResource(mainMod, "AppGroupAssignments")},
+			"okta_factor_totp":                   {Tok: makeResource(mainMod, "FactorTotp")},
+			"okta_group_memberships":             {Tok: makeResource(mainMod, "GroupMemberships")},
+			"okta_user_admin_roles":              {Tok: makeResource(mainMod, "UserAdminRoles")},
+			"okta_user_base_schema_property":     {Tok: makeResource(mainMod, "UserBaseSchemaProperty")},
+			"okta_user_factor_question":          {Tok: makeResource(mainMod, "UserFactorQuestion")},
+			"okta_user_group_memberships":        {Tok: makeResource(mainMod, "UserGroupMemberships")},
+			"okta_user_schema_property":          {Tok: makeResource(mainMod, "UserSchemaProperty")},
+			"okta_authenticator":                 {Tok: makeResource(mainMod, "Authenticator")},
+			"okta_app_saml_app_settings":         {Tok: makeResource(mainMod, "AppSamlAppSettings")},
+			"okta_app_signon_policy_rule": {
+				Tok: makeResource(mainMod, "AppSignonPolicyRule"),
+				Fields: map[string]*info.Schema{
+					"device_assurances_included": {Name: "deviceAssurancesIncluded"},
+					groupsExcludedField:          {Name: groupsExcludedProperty},
+					groupsIncludedField:          {Name: groupsIncludedProperty},
+					"user_types_excluded":        {Name: "userTypesExcluded"},
+					"user_types_included":        {Name: "userTypesIncluded"},
+					usersExcludedField:           {Name: usersExcludedProperty},
+					usersIncludedField:           {Name: usersIncludedProperty},
+				},
+			},
 			"okta_app_signon_policy":              {Tok: makeResource(mainMod, "AppSignonPolicy")},
 			"okta_domain_certificate":             {Tok: makeResource(mainMod, "DomainCertificate")},
 			"okta_domain_verification":            {Tok: makeResource(mainMod, "DomainVerification")},
@@ -298,6 +396,43 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+			// Drop the trailing "s" the bridge's pluralizer adds to names that
+			// already read as plural.
+			"okta_group_rule": {
+				Fields: map[string]*info.Schema{
+					usersExcludedField: {Name: usersExcludedProperty},
+				},
+			},
+			"okta_oauth_authorization_server": {
+				Fields: map[string]*info.Schema{
+					"backchannel_authentication_request_signing_alg_values_supported": {
+						Name: "backchannelAuthenticationRequestSigningAlgValuesSupported",
+					},
+					"backchannel_token_delivery_modes_supported": {Name: "backchannelTokenDeliveryModesSupported"},
+					"claims_supported":                           {Name: "claimsSupported"},
+					"code_challenge_methods_supported":           {Name: "codeChallengeMethodsSupported"},
+					"dpop_signing_alg_values_supported":          {Name: "dpopSigningAlgValuesSupported"},
+					"grant_types_supported":                      {Name: "grantTypesSupported"},
+					"introspection_endpoint_auth_methods_supported": {
+						Name: "introspectionEndpointAuthMethodsSupported",
+					},
+					"request_object_signing_alg_values_supported": {Name: "requestObjectSigningAlgValuesSupported"},
+					"response_modes_supported":                    {Name: "responseModesSupported"},
+					"response_types_supported":                    {Name: "responseTypesSupported"},
+					"revocation_endpoint_auth_methods_supported":  {Name: "revocationEndpointAuthMethodsSupported"},
+					"scopes_supported":                            {Name: "scopesSupported"},
+					"subject_types_supported":                     {Name: "subjectTypesSupported"},
+					"token_endpoint_auth_methods_supported":       {Name: "tokenEndpointAuthMethodsSupported"},
+				},
+			},
+			"okta_policy_rule_password": {
+				Fields: map[string]*info.Schema{
+					groupsExcludedField: {Name: groupsExcludedProperty},
+					groupsIncludedField: {Name: groupsIncludedProperty},
+					usersExcludedField:  {Name: usersExcludedProperty},
+					usersIncludedField:  {Name: usersIncludedProperty},
+				},
+			},
 			// App DataSources
 			"okta_app": {
 				Tok: makeDataSource(appMod, "getApp"),

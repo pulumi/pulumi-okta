@@ -94,11 +94,11 @@ export class RulePassword extends pulumi.CustomResource {
     /**
      * Set of Group IDs to exclude from this rule.
      */
-    declare public readonly groupsExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsExcluded: pulumi.Output<string[] | undefined>;
     /**
      * Set of Group IDs to include in this rule.
      */
-    declare public readonly groupsIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly groupsIncluded: pulumi.Output<string[] | undefined>;
     /**
      * Policy Rule Name
      */
@@ -150,11 +150,11 @@ export class RulePassword extends pulumi.CustomResource {
     /**
      * Set of User IDs to Exclude
      */
-    declare public readonly usersExcludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
     /**
      * Set of User IDs to include in this rule.
      */
-    declare public readonly usersIncludeds: pulumi.Output<string[] | undefined>;
+    declare public readonly usersIncluded: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RulePassword resource with the given unique name, arguments, and options.
@@ -169,8 +169,8 @@ export class RulePassword extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulePasswordState | undefined;
-            resourceInputs["groupsExcludeds"] = state?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = state?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = state?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = state?.groupsIncluded;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkConnection"] = state?.networkConnection;
             resourceInputs["networkExcludes"] = state?.networkExcludes;
@@ -183,12 +183,12 @@ export class RulePassword extends pulumi.CustomResource {
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["status"] = state?.status;
-            resourceInputs["usersExcludeds"] = state?.usersExcludeds;
-            resourceInputs["usersIncludeds"] = state?.usersIncludeds;
+            resourceInputs["usersExcluded"] = state?.usersExcluded;
+            resourceInputs["usersIncluded"] = state?.usersIncluded;
         } else {
             const args = argsOrState as RulePasswordArgs | undefined;
-            resourceInputs["groupsExcludeds"] = args?.groupsExcludeds;
-            resourceInputs["groupsIncludeds"] = args?.groupsIncludeds;
+            resourceInputs["groupsExcluded"] = args?.groupsExcluded;
+            resourceInputs["groupsIncluded"] = args?.groupsIncluded;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConnection"] = args?.networkConnection;
             resourceInputs["networkExcludes"] = args?.networkExcludes;
@@ -201,8 +201,8 @@ export class RulePassword extends pulumi.CustomResource {
             resourceInputs["policyId"] = args?.policyId;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["status"] = args?.status;
-            resourceInputs["usersExcludeds"] = args?.usersExcludeds;
-            resourceInputs["usersIncludeds"] = args?.usersIncludeds;
+            resourceInputs["usersExcluded"] = args?.usersExcluded;
+            resourceInputs["usersIncluded"] = args?.usersIncluded;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RulePassword.__pulumiType, name, resourceInputs, opts);
@@ -216,11 +216,11 @@ export interface RulePasswordState {
     /**
      * Set of Group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of Group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Rule Name
      */
@@ -272,11 +272,11 @@ export interface RulePasswordState {
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include in this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -286,11 +286,11 @@ export interface RulePasswordArgs {
     /**
      * Set of Group IDs to exclude from this rule.
      */
-    groupsExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of Group IDs to include in this rule.
      */
-    groupsIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupsIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Policy Rule Name
      */
@@ -342,9 +342,9 @@ export interface RulePasswordArgs {
     /**
      * Set of User IDs to Exclude
      */
-    usersExcludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersExcluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Set of User IDs to include in this rule.
      */
-    usersIncludeds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    usersIncluded?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

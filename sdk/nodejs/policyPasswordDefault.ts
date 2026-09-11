@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *
  * const custom = new okta.policy.Password("custom", {
  *     name: "Custom Password Policy",
- *     groupsIncludeds: [example.id],
+ *     groupsIncluded: [example.id],
  *     status: "ACTIVE",
  *     priority: 1,
  * });

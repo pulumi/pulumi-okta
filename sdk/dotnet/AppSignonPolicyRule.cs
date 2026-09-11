@@ -58,8 +58,8 @@ namespace Pulumi.Okta
         /// <summary>
         /// List of device assurance IDs to include
         /// </summary>
-        [Output("deviceAssurancesIncludeds")]
-        public Output<ImmutableArray<string>> DeviceAssurancesIncludeds { get; private set; } = null!;
+        [Output("deviceAssurancesIncluded")]
+        public Output<ImmutableArray<string>> DeviceAssurancesIncluded { get; private set; } = null!;
 
         /// <summary>
         /// If the device is managed. A device is managed if it's managed by a device management system. When managed is passed, registered must also be included and must be set to true.
@@ -82,14 +82,14 @@ namespace Pulumi.Okta
         /// <summary>
         /// List of group IDs to exclude
         /// </summary>
-        [Output("groupsExcludeds")]
-        public Output<ImmutableArray<string>> GroupsExcludeds { get; private set; } = null!;
+        [Output("groupsExcluded")]
+        public Output<ImmutableArray<string>> GroupsExcluded { get; private set; } = null!;
 
         /// <summary>
         /// List of group IDs to include
         /// </summary>
-        [Output("groupsIncludeds")]
-        public Output<ImmutableArray<string>> GroupsIncludeds { get; private set; } = null!;
+        [Output("groupsIncluded")]
+        public Output<ImmutableArray<string>> GroupsIncluded { get; private set; } = null!;
 
         /// <summary>
         /// The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
@@ -181,26 +181,26 @@ namespace Pulumi.Okta
         /// <summary>
         /// Set of User Type IDs to exclude
         /// </summary>
-        [Output("userTypesExcludeds")]
-        public Output<ImmutableArray<string>> UserTypesExcludeds { get; private set; } = null!;
+        [Output("userTypesExcluded")]
+        public Output<ImmutableArray<string>> UserTypesExcluded { get; private set; } = null!;
 
         /// <summary>
         /// Set of User Type IDs to include
         /// </summary>
-        [Output("userTypesIncludeds")]
-        public Output<ImmutableArray<string>> UserTypesIncludeds { get; private set; } = null!;
+        [Output("userTypesIncluded")]
+        public Output<ImmutableArray<string>> UserTypesIncluded { get; private set; } = null!;
 
         /// <summary>
         /// Set of User IDs to exclude
         /// </summary>
-        [Output("usersExcludeds")]
-        public Output<ImmutableArray<string>> UsersExcludeds { get; private set; } = null!;
+        [Output("usersExcluded")]
+        public Output<ImmutableArray<string>> UsersExcluded { get; private set; } = null!;
 
         /// <summary>
         /// Set of User IDs to include
         /// </summary>
-        [Output("usersIncludeds")]
-        public Output<ImmutableArray<string>> UsersIncludeds { get; private set; } = null!;
+        [Output("usersIncluded")]
+        public Output<ImmutableArray<string>> UsersIncluded { get; private set; } = null!;
 
 
         /// <summary>
@@ -284,16 +284,16 @@ namespace Pulumi.Okta
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
 
-        [Input("deviceAssurancesIncludeds")]
-        private InputList<string>? _deviceAssurancesIncludeds;
+        [Input("deviceAssurancesIncluded")]
+        private InputList<string>? _deviceAssurancesIncluded;
 
         /// <summary>
         /// List of device assurance IDs to include
         /// </summary>
-        public InputList<string> DeviceAssurancesIncludeds
+        public InputList<string> DeviceAssurancesIncluded
         {
-            get => _deviceAssurancesIncludeds ?? (_deviceAssurancesIncludeds = new InputList<string>());
-            set => _deviceAssurancesIncludeds = value;
+            get => _deviceAssurancesIncluded ?? (_deviceAssurancesIncluded = new InputList<string>());
+            set => _deviceAssurancesIncluded = value;
         }
 
         /// <summary>
@@ -314,28 +314,28 @@ namespace Pulumi.Okta
         [Input("factorMode")]
         public Input<string>? FactorMode { get; set; }
 
-        [Input("groupsExcludeds")]
-        private InputList<string>? _groupsExcludeds;
+        [Input("groupsExcluded")]
+        private InputList<string>? _groupsExcluded;
 
         /// <summary>
         /// List of group IDs to exclude
         /// </summary>
-        public InputList<string> GroupsExcludeds
+        public InputList<string> GroupsExcluded
         {
-            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
-            set => _groupsExcludeds = value;
+            get => _groupsExcluded ?? (_groupsExcluded = new InputList<string>());
+            set => _groupsExcluded = value;
         }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// List of group IDs to include
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>
@@ -442,52 +442,52 @@ namespace Pulumi.Okta
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userTypesExcludeds")]
-        private InputList<string>? _userTypesExcludeds;
+        [Input("userTypesExcluded")]
+        private InputList<string>? _userTypesExcluded;
 
         /// <summary>
         /// Set of User Type IDs to exclude
         /// </summary>
-        public InputList<string> UserTypesExcludeds
+        public InputList<string> UserTypesExcluded
         {
-            get => _userTypesExcludeds ?? (_userTypesExcludeds = new InputList<string>());
-            set => _userTypesExcludeds = value;
+            get => _userTypesExcluded ?? (_userTypesExcluded = new InputList<string>());
+            set => _userTypesExcluded = value;
         }
 
-        [Input("userTypesIncludeds")]
-        private InputList<string>? _userTypesIncludeds;
+        [Input("userTypesIncluded")]
+        private InputList<string>? _userTypesIncluded;
 
         /// <summary>
         /// Set of User Type IDs to include
         /// </summary>
-        public InputList<string> UserTypesIncludeds
+        public InputList<string> UserTypesIncluded
         {
-            get => _userTypesIncludeds ?? (_userTypesIncludeds = new InputList<string>());
-            set => _userTypesIncludeds = value;
+            get => _userTypesIncluded ?? (_userTypesIncluded = new InputList<string>());
+            set => _userTypesIncluded = value;
         }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of User IDs to exclude
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
-        [Input("usersIncludeds")]
-        private InputList<string>? _usersIncludeds;
+        [Input("usersIncluded")]
+        private InputList<string>? _usersIncluded;
 
         /// <summary>
         /// Set of User IDs to include
         /// </summary>
-        public InputList<string> UsersIncludeds
+        public InputList<string> UsersIncluded
         {
-            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
-            set => _usersIncludeds = value;
+            get => _usersIncluded ?? (_usersIncluded = new InputList<string>());
+            set => _usersIncluded = value;
         }
 
         public AppSignonPolicyRuleArgs()
@@ -534,16 +534,16 @@ namespace Pulumi.Okta
         [Input("customExpression")]
         public Input<string>? CustomExpression { get; set; }
 
-        [Input("deviceAssurancesIncludeds")]
-        private InputList<string>? _deviceAssurancesIncludeds;
+        [Input("deviceAssurancesIncluded")]
+        private InputList<string>? _deviceAssurancesIncluded;
 
         /// <summary>
         /// List of device assurance IDs to include
         /// </summary>
-        public InputList<string> DeviceAssurancesIncludeds
+        public InputList<string> DeviceAssurancesIncluded
         {
-            get => _deviceAssurancesIncludeds ?? (_deviceAssurancesIncludeds = new InputList<string>());
-            set => _deviceAssurancesIncludeds = value;
+            get => _deviceAssurancesIncluded ?? (_deviceAssurancesIncluded = new InputList<string>());
+            set => _deviceAssurancesIncluded = value;
         }
 
         /// <summary>
@@ -564,28 +564,28 @@ namespace Pulumi.Okta
         [Input("factorMode")]
         public Input<string>? FactorMode { get; set; }
 
-        [Input("groupsExcludeds")]
-        private InputList<string>? _groupsExcludeds;
+        [Input("groupsExcluded")]
+        private InputList<string>? _groupsExcluded;
 
         /// <summary>
         /// List of group IDs to exclude
         /// </summary>
-        public InputList<string> GroupsExcludeds
+        public InputList<string> GroupsExcluded
         {
-            get => _groupsExcludeds ?? (_groupsExcludeds = new InputList<string>());
-            set => _groupsExcludeds = value;
+            get => _groupsExcluded ?? (_groupsExcluded = new InputList<string>());
+            set => _groupsExcluded = value;
         }
 
-        [Input("groupsIncludeds")]
-        private InputList<string>? _groupsIncludeds;
+        [Input("groupsIncluded")]
+        private InputList<string>? _groupsIncluded;
 
         /// <summary>
         /// List of group IDs to include
         /// </summary>
-        public InputList<string> GroupsIncludeds
+        public InputList<string> GroupsIncluded
         {
-            get => _groupsIncludeds ?? (_groupsIncludeds = new InputList<string>());
-            set => _groupsIncludeds = value;
+            get => _groupsIncluded ?? (_groupsIncluded = new InputList<string>());
+            set => _groupsIncluded = value;
         }
 
         /// <summary>
@@ -698,52 +698,52 @@ namespace Pulumi.Okta
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userTypesExcludeds")]
-        private InputList<string>? _userTypesExcludeds;
+        [Input("userTypesExcluded")]
+        private InputList<string>? _userTypesExcluded;
 
         /// <summary>
         /// Set of User Type IDs to exclude
         /// </summary>
-        public InputList<string> UserTypesExcludeds
+        public InputList<string> UserTypesExcluded
         {
-            get => _userTypesExcludeds ?? (_userTypesExcludeds = new InputList<string>());
-            set => _userTypesExcludeds = value;
+            get => _userTypesExcluded ?? (_userTypesExcluded = new InputList<string>());
+            set => _userTypesExcluded = value;
         }
 
-        [Input("userTypesIncludeds")]
-        private InputList<string>? _userTypesIncludeds;
+        [Input("userTypesIncluded")]
+        private InputList<string>? _userTypesIncluded;
 
         /// <summary>
         /// Set of User Type IDs to include
         /// </summary>
-        public InputList<string> UserTypesIncludeds
+        public InputList<string> UserTypesIncluded
         {
-            get => _userTypesIncludeds ?? (_userTypesIncludeds = new InputList<string>());
-            set => _userTypesIncludeds = value;
+            get => _userTypesIncluded ?? (_userTypesIncluded = new InputList<string>());
+            set => _userTypesIncluded = value;
         }
 
-        [Input("usersExcludeds")]
-        private InputList<string>? _usersExcludeds;
+        [Input("usersExcluded")]
+        private InputList<string>? _usersExcluded;
 
         /// <summary>
         /// Set of User IDs to exclude
         /// </summary>
-        public InputList<string> UsersExcludeds
+        public InputList<string> UsersExcluded
         {
-            get => _usersExcludeds ?? (_usersExcludeds = new InputList<string>());
-            set => _usersExcludeds = value;
+            get => _usersExcluded ?? (_usersExcluded = new InputList<string>());
+            set => _usersExcluded = value;
         }
 
-        [Input("usersIncludeds")]
-        private InputList<string>? _usersIncludeds;
+        [Input("usersIncluded")]
+        private InputList<string>? _usersIncluded;
 
         /// <summary>
         /// Set of User IDs to include
         /// </summary>
-        public InputList<string> UsersIncludeds
+        public InputList<string> UsersIncluded
         {
-            get => _usersIncludeds ?? (_usersIncludeds = new InputList<string>());
-            set => _usersIncludeds = value;
+            get => _usersIncluded ?? (_usersIncluded = new InputList<string>());
+            set => _usersIncluded = value;
         }
 
         public AppSignonPolicyRuleState()

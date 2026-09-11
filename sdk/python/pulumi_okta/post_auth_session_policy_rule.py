@@ -20,38 +20,38 @@ __all__ = ['PostAuthSessionPolicyRuleArgs', 'PostAuthSessionPolicyRule']
 class PostAuthSessionPolicyRuleArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[_builtins.str],
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_session: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PostAuthSessionPolicyRule resource.
 
         :param pulumi.Input[_builtins.str] policy_id: ID of the Post Auth Session Policy. Use the `get_post_auth_session_policy` data source to get this ID.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] status: Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_session: When true, terminates the user's session when a policy failure is detected. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a policy failure is detected.
         """
         pulumi.set(__self__, "policy_id", policy_id)
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if terminate_session is not None:
             pulumi.set(__self__, "terminate_session", terminate_session)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
         if workflow_id is not None:
             pulumi.set(__self__, "workflow_id", workflow_id)
 
@@ -68,28 +68,28 @@ class PostAuthSessionPolicyRuleArgs:
         pulumi.set(self, "policy_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
-    @groups_excludeds.setter
-    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_excludeds", value)
+    @groups_excluded.setter
+    def groups_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -128,16 +128,16 @@ class PostAuthSessionPolicyRuleArgs:
         pulumi.set(self, "terminate_session", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowId")
@@ -155,30 +155,30 @@ class PostAuthSessionPolicyRuleArgs:
 @pulumi.input_type
 class _PostAuthSessionPolicyRuleState:
     def __init__(__self__, *,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_session: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering PostAuthSessionPolicyRule resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] policy_id: ID of the Post Auth Session Policy. Use the `get_post_auth_session_policy` data source to get this ID.
         :param pulumi.Input[_builtins.str] status: Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_session: When true, terminates the user's session when a policy failure is detected. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a policy failure is detected.
         """
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_id is not None:
@@ -187,34 +187,34 @@ class _PostAuthSessionPolicyRuleState:
             pulumi.set(__self__, "status", status)
         if terminate_session is not None:
             pulumi.set(__self__, "terminate_session", terminate_session)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
         if workflow_id is not None:
             pulumi.set(__self__, "workflow_id", workflow_id)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
-    @groups_excludeds.setter
-    def groups_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_excludeds", value)
+    @groups_excluded.setter
+    def groups_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_excluded", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -265,16 +265,16 @@ class _PostAuthSessionPolicyRuleState:
         pulumi.set(self, "terminate_session", value)
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
-    @users_excludeds.setter
-    def users_excludeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "users_excludeds", value)
+    @users_excluded.setter
+    def users_excluded(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "users_excluded", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowId")
@@ -295,13 +295,13 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_session: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -331,13 +331,13 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] policy_id: ID of the Post Auth Session Policy. Use the `get_post_auth_session_policy` data source to get this ID.
         :param pulumi.Input[_builtins.str] status: Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_session: When true, terminates the user's session when a policy failure is detected. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a policy failure is detected.
         """
         ...
@@ -386,13 +386,13 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  terminate_session: pulumi.Input[Optional[_builtins.bool]] = None,
-                 users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -403,15 +403,15 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PostAuthSessionPolicyRuleArgs.__new__(PostAuthSessionPolicyRuleArgs)
 
-            __props__.__dict__["groups_excludeds"] = groups_excludeds
-            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["groups_excluded"] = groups_excluded
+            __props__.__dict__["groups_included"] = groups_included
             __props__.__dict__["name"] = name
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["status"] = status
             __props__.__dict__["terminate_session"] = terminate_session
-            __props__.__dict__["users_excludeds"] = users_excludeds
+            __props__.__dict__["users_excluded"] = users_excluded
             __props__.__dict__["workflow_id"] = workflow_id
         super(PostAuthSessionPolicyRule, __self__).__init__(
             'okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule',
@@ -423,13 +423,13 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            groups_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             terminate_session: pulumi.Input[Optional[_builtins.bool]] = None,
-            users_excludeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             workflow_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'PostAuthSessionPolicyRule':
         """
         Get an existing PostAuthSessionPolicyRule resource's state with the given name, id, and optional extra
@@ -438,44 +438,44 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excludeds: List of group IDs to exclude from this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of group IDs to include in this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include in this rule.
         :param pulumi.Input[_builtins.str] name: Name of the policy rule.
         :param pulumi.Input[_builtins.str] policy_id: ID of the Post Auth Session Policy. Use the `get_post_auth_session_policy` data source to get this ID.
         :param pulumi.Input[_builtins.str] status: Status of the rule: `ACTIVE` or `INACTIVE`. Default is `ACTIVE`.
         :param pulumi.Input[_builtins.bool] terminate_session: When true, terminates the user's session when a policy failure is detected. Default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excludeds: List of user IDs to exclude from this rule.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: List of user IDs to exclude from this rule.
         :param pulumi.Input[_builtins.str] workflow_id: ID of the Okta Workflow to run when a policy failure is detected.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _PostAuthSessionPolicyRuleState.__new__(_PostAuthSessionPolicyRuleState)
 
-        __props__.__dict__["groups_excludeds"] = groups_excludeds
-        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["groups_excluded"] = groups_excluded
+        __props__.__dict__["groups_included"] = groups_included
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["status"] = status
         __props__.__dict__["terminate_session"] = terminate_session
-        __props__.__dict__["users_excludeds"] = users_excludeds
+        __props__.__dict__["users_excluded"] = users_excluded
         __props__.__dict__["workflow_id"] = workflow_id
         return PostAuthSessionPolicyRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter
@@ -510,12 +510,12 @@ class PostAuthSessionPolicyRule(pulumi.CustomResource):
         return pulumi.get(self, "terminate_session")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
     @_builtins.property
     @pulumi.getter(name="workflowId")

@@ -20,7 +20,7 @@ __all__ = ['SignonArgs', 'Signon']
 class SignonArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None):
@@ -28,15 +28,15 @@ class SignonArgs:
         The set of arguments for constructing a Signon resource.
 
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[_builtins.str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -57,16 +57,16 @@ class SignonArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -109,7 +109,7 @@ class SignonArgs:
 class _SignonState:
     def __init__(__self__, *,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None):
@@ -117,15 +117,15 @@ class _SignonState:
         Input properties used for looking up and filtering Signon resources.
 
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[_builtins.str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -146,16 +146,16 @@ class _SignonState:
         pulumi.set(self, "description", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
-    @groups_includeds.setter
-    def groups_includeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "groups_includeds", value)
+    @groups_included.setter
+    def groups_included(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "groups_included", value)
 
     @_builtins.property
     @pulumi.getter
@@ -201,7 +201,7 @@ class Signon(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -219,7 +219,7 @@ class Signon(pulumi.CustomResource):
             name="example",
             status="ACTIVE",
             description="Example",
-            groups_includeds=[everyone["id"]])
+            groups_included=[everyone["id"]])
         ```
 
         ## Import
@@ -232,7 +232,7 @@ class Signon(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[_builtins.str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -256,7 +256,7 @@ class Signon(pulumi.CustomResource):
             name="example",
             status="ACTIVE",
             description="Example",
-            groups_includeds=[everyone["id"]])
+            groups_included=[everyone["id"]])
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class Signon(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -296,7 +296,7 @@ class Signon(pulumi.CustomResource):
             __props__ = SignonArgs.__new__(SignonArgs)
 
             __props__.__dict__["description"] = description
-            __props__.__dict__["groups_includeds"] = groups_includeds
+            __props__.__dict__["groups_included"] = groups_included
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
@@ -311,7 +311,7 @@ class Signon(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            groups_includeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Signon':
@@ -323,7 +323,7 @@ class Signon(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Policy Description
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_includeds: List of Group IDs to Include
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of Group IDs to Include
         :param pulumi.Input[_builtins.str] name: Policy Name
         :param pulumi.Input[_builtins.int] priority: Policy Priority, this attribute can be set to a valid priority. To avoid endless diff situation we error if an invalid priority is provided. API defaults it to the last (lowest) if not there.
         :param pulumi.Input[_builtins.str] status: Policy Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
@@ -333,7 +333,7 @@ class Signon(pulumi.CustomResource):
         __props__ = _SignonState.__new__(_SignonState)
 
         __props__.__dict__["description"] = description
-        __props__.__dict__["groups_includeds"] = groups_includeds
+        __props__.__dict__["groups_included"] = groups_included
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
@@ -348,12 +348,12 @@ class Signon(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of Group IDs to Include
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter

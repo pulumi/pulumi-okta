@@ -13,8 +13,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRulePasswordResult {
-    private List<String> groupsExcludeds;
-    private List<String> groupsIncludeds;
+    private List<String> groupsExcluded;
+    private List<String> groupsIncluded;
     /**
      * @return The ID of this resource.
      * 
@@ -84,15 +84,15 @@ public final class GetRulePasswordResult {
      * @return User IDs excluded from this rule.
      * 
      */
-    private List<String> usersExcludeds;
-    private List<String> usersIncludeds;
+    private List<String> usersExcluded;
+    private List<String> usersIncluded;
 
     private GetRulePasswordResult() {}
-    public List<String> groupsExcludeds() {
-        return this.groupsExcludeds;
+    public List<String> groupsExcluded() {
+        return this.groupsExcluded;
     }
-    public List<String> groupsIncludeds() {
-        return this.groupsIncludeds;
+    public List<String> groupsIncluded() {
+        return this.groupsIncluded;
     }
     /**
      * @return The ID of this resource.
@@ -189,11 +189,11 @@ public final class GetRulePasswordResult {
      * @return User IDs excluded from this rule.
      * 
      */
-    public List<String> usersExcludeds() {
-        return this.usersExcludeds;
+    public List<String> usersExcluded() {
+        return this.usersExcluded;
     }
-    public List<String> usersIncludeds() {
-        return this.usersIncludeds;
+    public List<String> usersIncluded() {
+        return this.usersIncluded;
     }
 
     public static Builder builder() {
@@ -205,8 +205,8 @@ public final class GetRulePasswordResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> groupsExcludeds;
-        private List<String> groupsIncludeds;
+        private List<String> groupsExcluded;
+        private List<String> groupsIncluded;
         private String id;
         private String name;
         private String networkConnection;
@@ -220,13 +220,13 @@ public final class GetRulePasswordResult {
         private String policyId;
         private Integer priority;
         private String status;
-        private List<String> usersExcludeds;
-        private List<String> usersIncludeds;
+        private List<String> usersExcluded;
+        private List<String> usersIncluded;
         public Builder() {}
         public Builder(GetRulePasswordResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.groupsExcludeds = defaults.groupsExcludeds;
-    	      this.groupsIncludeds = defaults.groupsIncludeds;
+    	      this.groupsExcluded = defaults.groupsExcluded;
+    	      this.groupsIncluded = defaults.groupsIncluded;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.networkConnection = defaults.networkConnection;
@@ -240,31 +240,31 @@ public final class GetRulePasswordResult {
     	      this.policyId = defaults.policyId;
     	      this.priority = defaults.priority;
     	      this.status = defaults.status;
-    	      this.usersExcludeds = defaults.usersExcludeds;
-    	      this.usersIncludeds = defaults.usersIncludeds;
+    	      this.usersExcluded = defaults.usersExcluded;
+    	      this.usersIncluded = defaults.usersIncluded;
         }
 
         @CustomType.Setter
-        public Builder groupsExcludeds(List<String> groupsExcludeds) {
-            if (groupsExcludeds == null) {
-              throw new MissingRequiredPropertyException("GetRulePasswordResult", "groupsExcludeds");
+        public Builder groupsExcluded(List<String> groupsExcluded) {
+            if (groupsExcluded == null) {
+              throw new MissingRequiredPropertyException("GetRulePasswordResult", "groupsExcluded");
             }
-            this.groupsExcludeds = groupsExcludeds;
+            this.groupsExcluded = groupsExcluded;
             return this;
         }
-        public Builder groupsExcludeds(String... groupsExcludeds) {
-            return groupsExcludeds(List.of(groupsExcludeds));
+        public Builder groupsExcluded(String... groupsExcluded) {
+            return groupsExcluded(List.of(groupsExcluded));
         }
         @CustomType.Setter
-        public Builder groupsIncludeds(List<String> groupsIncludeds) {
-            if (groupsIncludeds == null) {
-              throw new MissingRequiredPropertyException("GetRulePasswordResult", "groupsIncludeds");
+        public Builder groupsIncluded(List<String> groupsIncluded) {
+            if (groupsIncluded == null) {
+              throw new MissingRequiredPropertyException("GetRulePasswordResult", "groupsIncluded");
             }
-            this.groupsIncludeds = groupsIncludeds;
+            this.groupsIncluded = groupsIncluded;
             return this;
         }
-        public Builder groupsIncludeds(String... groupsIncludeds) {
-            return groupsIncludeds(List.of(groupsIncludeds));
+        public Builder groupsIncluded(String... groupsIncluded) {
+            return groupsIncluded(List.of(groupsIncluded));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -380,31 +380,31 @@ public final class GetRulePasswordResult {
             return this;
         }
         @CustomType.Setter
-        public Builder usersExcludeds(List<String> usersExcludeds) {
-            if (usersExcludeds == null) {
-              throw new MissingRequiredPropertyException("GetRulePasswordResult", "usersExcludeds");
+        public Builder usersExcluded(List<String> usersExcluded) {
+            if (usersExcluded == null) {
+              throw new MissingRequiredPropertyException("GetRulePasswordResult", "usersExcluded");
             }
-            this.usersExcludeds = usersExcludeds;
+            this.usersExcluded = usersExcluded;
             return this;
         }
-        public Builder usersExcludeds(String... usersExcludeds) {
-            return usersExcludeds(List.of(usersExcludeds));
+        public Builder usersExcluded(String... usersExcluded) {
+            return usersExcluded(List.of(usersExcluded));
         }
         @CustomType.Setter
-        public Builder usersIncludeds(List<String> usersIncludeds) {
-            if (usersIncludeds == null) {
-              throw new MissingRequiredPropertyException("GetRulePasswordResult", "usersIncludeds");
+        public Builder usersIncluded(List<String> usersIncluded) {
+            if (usersIncluded == null) {
+              throw new MissingRequiredPropertyException("GetRulePasswordResult", "usersIncluded");
             }
-            this.usersIncludeds = usersIncludeds;
+            this.usersIncluded = usersIncluded;
             return this;
         }
-        public Builder usersIncludeds(String... usersIncludeds) {
-            return usersIncludeds(List.of(usersIncludeds));
+        public Builder usersIncluded(String... usersIncluded) {
+            return usersIncluded(List.of(usersIncluded));
         }
         public GetRulePasswordResult build() {
             final var _resultValue = new GetRulePasswordResult();
-            _resultValue.groupsExcludeds = groupsExcludeds;
-            _resultValue.groupsIncludeds = groupsIncludeds;
+            _resultValue.groupsExcluded = groupsExcluded;
+            _resultValue.groupsIncluded = groupsIncluded;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.networkConnection = networkConnection;
@@ -418,8 +418,8 @@ public final class GetRulePasswordResult {
             _resultValue.policyId = policyId;
             _resultValue.priority = priority;
             _resultValue.status = status;
-            _resultValue.usersExcludeds = usersExcludeds;
-            _resultValue.usersIncludeds = usersIncludeds;
+            _resultValue.usersExcluded = usersExcluded;
+            _resultValue.usersIncluded = usersIncluded;
             return _resultValue;
         }
     }

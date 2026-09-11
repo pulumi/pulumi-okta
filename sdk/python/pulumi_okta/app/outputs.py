@@ -1339,18 +1339,18 @@ class SignonPolicyRulesRule(dict):
         suggest = None
         if key == "customExpression":
             suggest = "custom_expression"
-        elif key == "deviceAssurancesIncludeds":
-            suggest = "device_assurances_includeds"
+        elif key == "deviceAssurancesIncluded":
+            suggest = "device_assurances_included"
         elif key == "deviceIsManaged":
             suggest = "device_is_managed"
         elif key == "deviceIsRegistered":
             suggest = "device_is_registered"
         elif key == "factorMode":
             suggest = "factor_mode"
-        elif key == "groupsExcludeds":
-            suggest = "groups_excludeds"
-        elif key == "groupsIncludeds":
-            suggest = "groups_includeds"
+        elif key == "groupsExcluded":
+            suggest = "groups_excluded"
+        elif key == "groupsIncluded":
+            suggest = "groups_included"
         elif key == "inactivityPeriod":
             suggest = "inactivity_period"
         elif key == "keepMeSignedIn":
@@ -1367,14 +1367,14 @@ class SignonPolicyRulesRule(dict):
             suggest = "re_authentication_frequency"
         elif key == "riskScore":
             suggest = "risk_score"
-        elif key == "userTypesExcludeds":
-            suggest = "user_types_excludeds"
-        elif key == "userTypesIncludeds":
-            suggest = "user_types_includeds"
-        elif key == "usersExcludeds":
-            suggest = "users_excludeds"
-        elif key == "usersIncludeds":
-            suggest = "users_includeds"
+        elif key == "userTypesExcluded":
+            suggest = "user_types_excluded"
+        elif key == "userTypesIncluded":
+            suggest = "user_types_included"
+        elif key == "usersExcluded":
+            suggest = "users_excluded"
+        elif key == "usersIncluded":
+            suggest = "users_included"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SignonPolicyRulesRule. Access the value via the '{suggest}' property getter instead.")
@@ -1393,12 +1393,12 @@ class SignonPolicyRulesRule(dict):
                  chains: Optional[Sequence[_builtins.str]] = None,
                  constraints: Optional[Sequence[_builtins.str]] = None,
                  custom_expression: Optional[_builtins.str] = None,
-                 device_assurances_includeds: Optional[Sequence[_builtins.str]] = None,
+                 device_assurances_included: Optional[Sequence[_builtins.str]] = None,
                  device_is_managed: Optional[_builtins.bool] = None,
                  device_is_registered: Optional[_builtins.bool] = None,
                  factor_mode: Optional[_builtins.str] = None,
-                 groups_excludeds: Optional[Sequence[_builtins.str]] = None,
-                 groups_includeds: Optional[Sequence[_builtins.str]] = None,
+                 groups_excluded: Optional[Sequence[_builtins.str]] = None,
+                 groups_included: Optional[Sequence[_builtins.str]] = None,
                  id: Optional[_builtins.str] = None,
                  inactivity_period: Optional[_builtins.str] = None,
                  keep_me_signed_in: Optional['outputs.SignonPolicyRulesRuleKeepMeSignedIn'] = None,
@@ -1412,22 +1412,22 @@ class SignonPolicyRulesRule(dict):
                  status: Optional[_builtins.str] = None,
                  system: Optional[_builtins.bool] = None,
                  type: Optional[_builtins.str] = None,
-                 user_types_excludeds: Optional[Sequence[_builtins.str]] = None,
-                 user_types_includeds: Optional[Sequence[_builtins.str]] = None,
-                 users_excludeds: Optional[Sequence[_builtins.str]] = None,
-                 users_includeds: Optional[Sequence[_builtins.str]] = None):
+                 user_types_excluded: Optional[Sequence[_builtins.str]] = None,
+                 user_types_included: Optional[Sequence[_builtins.str]] = None,
+                 users_excluded: Optional[Sequence[_builtins.str]] = None,
+                 users_included: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str name: Policy Rule Name. Must be unique within the policy.
         :param _builtins.str access: Access decision: ALLOW or DENY.
         :param Sequence[_builtins.str] chains: List of authentication method chain objects as JSON-encoded strings. Use with `type = "AUTH_METHOD_CHAIN"` only.
         :param Sequence[_builtins.str] constraints: List of authenticator constraints as JSON-encoded strings.
         :param _builtins.str custom_expression: Custom Okta Expression Language condition for advanced matching.
-        :param Sequence[_builtins.str] device_assurances_includeds: Set of device assurance policy IDs to include.
+        :param Sequence[_builtins.str] device_assurances_included: Set of device assurance policy IDs to include.
         :param _builtins.bool device_is_managed: Require device to be managed by a device management system.
         :param _builtins.bool device_is_registered: Require device to be registered with Okta Verify.
         :param _builtins.str factor_mode: Number of factors required: 1FA or 2FA.
-        :param Sequence[_builtins.str] groups_excludeds: Set of group IDs to exclude from this rule.
-        :param Sequence[_builtins.str] groups_includeds: Set of group IDs to include in this rule.
+        :param Sequence[_builtins.str] groups_excluded: Set of group IDs to exclude from this rule.
+        :param Sequence[_builtins.str] groups_included: Set of group IDs to include in this rule.
         :param _builtins.str id: (String) - The ID of this resource (same as `policy_id`).
         :param _builtins.str inactivity_period: Inactivity period before re-authentication in ISO 8601 duration format.
         :param 'SignonPolicyRulesRuleKeepMeSignedInArgs' keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt, also known as the "Option to stay signed in". Requires the KMSI feature to be enabled on the Okta org.
@@ -1441,10 +1441,10 @@ class SignonPolicyRulesRule(dict):
         :param _builtins.str status: Status of the rule: ACTIVE or INACTIVE.
         :param _builtins.bool system: Whether this is a system rule (e.g., Catch-all Rule). System rules cannot be modified.
         :param _builtins.str type: Verification method type.
-        :param Sequence[_builtins.str] user_types_excludeds: Set of user type IDs to exclude.
-        :param Sequence[_builtins.str] user_types_includeds: Set of user type IDs to include.
-        :param Sequence[_builtins.str] users_excludeds: Set of user IDs to exclude from this rule.
-        :param Sequence[_builtins.str] users_includeds: Set of user IDs to include in this rule.
+        :param Sequence[_builtins.str] user_types_excluded: Set of user type IDs to exclude.
+        :param Sequence[_builtins.str] user_types_included: Set of user type IDs to include.
+        :param Sequence[_builtins.str] users_excluded: Set of user IDs to exclude from this rule.
+        :param Sequence[_builtins.str] users_included: Set of user IDs to include in this rule.
         """
         pulumi.set(__self__, "name", name)
         if access is not None:
@@ -1455,18 +1455,18 @@ class SignonPolicyRulesRule(dict):
             pulumi.set(__self__, "constraints", constraints)
         if custom_expression is not None:
             pulumi.set(__self__, "custom_expression", custom_expression)
-        if device_assurances_includeds is not None:
-            pulumi.set(__self__, "device_assurances_includeds", device_assurances_includeds)
+        if device_assurances_included is not None:
+            pulumi.set(__self__, "device_assurances_included", device_assurances_included)
         if device_is_managed is not None:
             pulumi.set(__self__, "device_is_managed", device_is_managed)
         if device_is_registered is not None:
             pulumi.set(__self__, "device_is_registered", device_is_registered)
         if factor_mode is not None:
             pulumi.set(__self__, "factor_mode", factor_mode)
-        if groups_excludeds is not None:
-            pulumi.set(__self__, "groups_excludeds", groups_excludeds)
-        if groups_includeds is not None:
-            pulumi.set(__self__, "groups_includeds", groups_includeds)
+        if groups_excluded is not None:
+            pulumi.set(__self__, "groups_excluded", groups_excluded)
+        if groups_included is not None:
+            pulumi.set(__self__, "groups_included", groups_included)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if inactivity_period is not None:
@@ -1493,14 +1493,14 @@ class SignonPolicyRulesRule(dict):
             pulumi.set(__self__, "system", system)
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if user_types_excludeds is not None:
-            pulumi.set(__self__, "user_types_excludeds", user_types_excludeds)
-        if user_types_includeds is not None:
-            pulumi.set(__self__, "user_types_includeds", user_types_includeds)
-        if users_excludeds is not None:
-            pulumi.set(__self__, "users_excludeds", users_excludeds)
-        if users_includeds is not None:
-            pulumi.set(__self__, "users_includeds", users_includeds)
+        if user_types_excluded is not None:
+            pulumi.set(__self__, "user_types_excluded", user_types_excluded)
+        if user_types_included is not None:
+            pulumi.set(__self__, "user_types_included", user_types_included)
+        if users_excluded is not None:
+            pulumi.set(__self__, "users_excluded", users_excluded)
+        if users_included is not None:
+            pulumi.set(__self__, "users_included", users_included)
 
     @_builtins.property
     @pulumi.getter
@@ -1543,12 +1543,12 @@ class SignonPolicyRulesRule(dict):
         return pulumi.get(self, "custom_expression")
 
     @_builtins.property
-    @pulumi.getter(name="deviceAssurancesIncludeds")
-    def device_assurances_includeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="deviceAssurancesIncluded")
+    def device_assurances_included(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of device assurance policy IDs to include.
         """
-        return pulumi.get(self, "device_assurances_includeds")
+        return pulumi.get(self, "device_assurances_included")
 
     @_builtins.property
     @pulumi.getter(name="deviceIsManaged")
@@ -1575,20 +1575,20 @@ class SignonPolicyRulesRule(dict):
         return pulumi.get(self, "factor_mode")
 
     @_builtins.property
-    @pulumi.getter(name="groupsExcludeds")
-    def groups_excludeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="groupsExcluded")
+    def groups_excluded(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of group IDs to exclude from this rule.
         """
-        return pulumi.get(self, "groups_excludeds")
+        return pulumi.get(self, "groups_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="groupsIncludeds")
-    def groups_includeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="groupsIncluded")
+    def groups_included(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of group IDs to include in this rule.
         """
-        return pulumi.get(self, "groups_includeds")
+        return pulumi.get(self, "groups_included")
 
     @_builtins.property
     @pulumi.getter
@@ -1695,36 +1695,36 @@ class SignonPolicyRulesRule(dict):
         return pulumi.get(self, "type")
 
     @_builtins.property
-    @pulumi.getter(name="userTypesExcludeds")
-    def user_types_excludeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="userTypesExcluded")
+    def user_types_excluded(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of user type IDs to exclude.
         """
-        return pulumi.get(self, "user_types_excludeds")
+        return pulumi.get(self, "user_types_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="userTypesIncludeds")
-    def user_types_includeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="userTypesIncluded")
+    def user_types_included(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of user type IDs to include.
         """
-        return pulumi.get(self, "user_types_includeds")
+        return pulumi.get(self, "user_types_included")
 
     @_builtins.property
-    @pulumi.getter(name="usersExcludeds")
-    def users_excludeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="usersExcluded")
+    def users_excluded(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of user IDs to exclude from this rule.
         """
-        return pulumi.get(self, "users_excludeds")
+        return pulumi.get(self, "users_excluded")
 
     @_builtins.property
-    @pulumi.getter(name="usersIncludeds")
-    def users_includeds(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="usersIncluded")
+    def users_included(self) -> Optional[Sequence[_builtins.str]]:
         """
         Set of user IDs to include in this rule.
         """
-        return pulumi.get(self, "users_includeds")
+        return pulumi.get(self, "users_included")
 
 
 @pulumi.output_type
