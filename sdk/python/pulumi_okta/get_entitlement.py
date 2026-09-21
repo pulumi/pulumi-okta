@@ -115,8 +115,8 @@ class AwaitableGetEntitlementResult(GetEntitlementResult):
 
 
 def get_entitlement(id: Optional[_builtins.str] = None,
-                    parent: Optional[Union['GetEntitlementParentArgs', 'GetEntitlementParentArgsDict']] = None,
-                    values: Optional[Sequence[Union['GetEntitlementValueArgs', 'GetEntitlementValueArgsDict']]] = None,
+                    parent: Optional[Union['GetEntitlementParentArgs', 'GetEntitlementParentArgsDict', 'outputs.GetEntitlementParentResult']] = None,
+                    values: Optional[Sequence[Union['GetEntitlementValueArgs', 'GetEntitlementValueArgsDict', 'outputs.GetEntitlementValueResult']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitlementResult:
     """
     Get the entitlement belonging to an Okta organization.
@@ -150,8 +150,8 @@ def get_entitlement(id: Optional[_builtins.str] = None,
         parent_resource_orn=pulumi.get(__ret__, 'parent_resource_orn'),
         values=pulumi.get(__ret__, 'values'))
 def get_entitlement_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                           parent: pulumi.Input[Optional[Optional[Union['GetEntitlementParentArgs', 'GetEntitlementParentArgsDict']]]] = None,
-                           values: pulumi.Input[Optional[Optional[Sequence[Union['GetEntitlementValueArgs', 'GetEntitlementValueArgsDict']]]]] = None,
+                           parent: pulumi.Input[Optional[Optional[Union['GetEntitlementParentArgs', 'GetEntitlementParentArgsDict', 'outputs.GetEntitlementParentResult']]]] = None,
+                           values: pulumi.Input[Optional[Optional[Sequence[Union['GetEntitlementValueArgs', 'GetEntitlementValueArgsDict', 'outputs.GetEntitlementValueResult']]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitlementResult]:
     """
     Get the entitlement belonging to an Okta organization.

@@ -563,7 +563,7 @@ class RulePassword(pulumi.CustomResource):
                  password_change: pulumi.Input[Optional[_builtins.str]] = None,
                  password_reset: pulumi.Input[Optional[_builtins.str]] = None,
                  password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
-                 password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
+                 password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict', 'outputs.RulePasswordPasswordResetRequirement']]] = None,
                  password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -638,7 +638,7 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] password_change: Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] password_reset: Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] password_reset_access_control: Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
-        :param pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']] password_reset_requirement: Self-service password reset (SSPR) requirement settings. Use only when `password_reset_access_control = "LEGACY"`.
+        :param pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict', 'outputs.RulePasswordPasswordResetRequirement']] password_reset_requirement: Self-service password reset (SSPR) requirement settings. Use only when `password_reset_access_control = "LEGACY"`.
         :param pulumi.Input[_builtins.str] password_unlock: Allow or deny a user to unlock. Default: `DENY`
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
@@ -732,7 +732,7 @@ class RulePassword(pulumi.CustomResource):
                  password_change: pulumi.Input[Optional[_builtins.str]] = None,
                  password_reset: pulumi.Input[Optional[_builtins.str]] = None,
                  password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
-                 password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
+                 password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict', 'outputs.RulePasswordPasswordResetRequirement']]] = None,
                  password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -783,7 +783,7 @@ class RulePassword(pulumi.CustomResource):
             password_change: pulumi.Input[Optional[_builtins.str]] = None,
             password_reset: pulumi.Input[Optional[_builtins.str]] = None,
             password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
-            password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']]] = None,
+            password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict', 'outputs.RulePasswordPasswordResetRequirement']]] = None,
             password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
@@ -806,7 +806,7 @@ class RulePassword(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] password_change: Allow or deny a user to change their password: `ALLOW` or `DENY`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] password_reset: Allow or deny a user to reset their password: `ALLOW` or `DENY`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] password_reset_access_control: Determines whether the Self-Service Password Reset (SSPR) access is governed by an authentication policy or legacy behavior. Options: `LEGACY`, `AUTH_POLICY`.
-        :param pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict']] password_reset_requirement: Self-service password reset (SSPR) requirement settings. Use only when `password_reset_access_control = "LEGACY"`.
+        :param pulumi.Input[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict', 'outputs.RulePasswordPasswordResetRequirement']] password_reset_requirement: Self-service password reset (SSPR) requirement settings. Use only when `password_reset_access_control = "LEGACY"`.
         :param pulumi.Input[_builtins.str] password_unlock: Allow or deny a user to unlock. Default: `DENY`
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.

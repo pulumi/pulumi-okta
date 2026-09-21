@@ -99,7 +99,7 @@ class AwaitableGetPushProviderResult(GetPushProviderResult):
             provider_type=self.provider_type)
 
 
-def get_push_provider(configuration: Optional[Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict']] = None,
+def get_push_provider(configuration: Optional[Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict', 'outputs.GetPushProviderConfigurationResult']] = None,
                       id: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPushProviderResult:
     """
@@ -130,7 +130,7 @@ def get_push_provider(configuration: Optional[Union['GetPushProviderConfiguratio
     ```
 
 
-    :param Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict'] configuration: Configuration details for the push provider. The structure depends on the provider type.
+    :param Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict', 'outputs.GetPushProviderConfigurationResult'] configuration: Configuration details for the push provider. The structure depends on the provider type.
     :param _builtins.str id: The unique identifier of the push provider to retrieve.
     """
     __args__ = dict()
@@ -145,7 +145,7 @@ def get_push_provider(configuration: Optional[Union['GetPushProviderConfiguratio
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'),
         provider_type=pulumi.get(__ret__, 'provider_type'))
-def get_push_provider_output(configuration: pulumi.Input[Optional[Optional[Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict']]]] = None,
+def get_push_provider_output(configuration: pulumi.Input[Optional[Optional[Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict', 'outputs.GetPushProviderConfigurationResult']]]] = None,
                              id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPushProviderResult]:
     """
@@ -176,7 +176,7 @@ def get_push_provider_output(configuration: pulumi.Input[Optional[Optional[Union
     ```
 
 
-    :param Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict'] configuration: Configuration details for the push provider. The structure depends on the provider type.
+    :param Union['GetPushProviderConfigurationArgs', 'GetPushProviderConfigurationArgsDict', 'outputs.GetPushProviderConfigurationResult'] configuration: Configuration details for the push provider. The structure depends on the provider type.
     :param _builtins.str id: The unique identifier of the push provider to retrieve.
     """
     __args__ = dict()

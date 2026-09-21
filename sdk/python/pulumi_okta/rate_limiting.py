@@ -98,7 +98,7 @@ class RateLimiting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
+                 use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict', 'outputs.RateLimitingUseCaseModeOverrides']]] = None,
                  __props__=None):
         """
         Manages per-client rate limiting settings for your Okta organization.
@@ -142,7 +142,7 @@ class RateLimiting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+        :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict', 'outputs.RateLimitingUseCaseModeOverrides']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         ...
     @overload
@@ -206,7 +206,7 @@ class RateLimiting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None,
+                 use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict', 'outputs.RateLimitingUseCaseModeOverrides']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,7 +231,7 @@ class RateLimiting(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']]] = None) -> 'RateLimiting':
+            use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict', 'outputs.RateLimitingUseCaseModeOverrides']]] = None) -> 'RateLimiting':
         """
         Get an existing RateLimiting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -239,7 +239,7 @@ class RateLimiting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
+        :param pulumi.Input[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict', 'outputs.RateLimitingUseCaseModeOverrides']] use_case_mode_overrides: A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

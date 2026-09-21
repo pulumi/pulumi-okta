@@ -210,7 +210,7 @@ class Features(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 capabilities: pulumi.Input[Optional[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict']]] = None,
+                 capabilities: pulumi.Input[Optional[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict', 'outputs.FeaturesCapabilities']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -360,7 +360,7 @@ class Features(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to configure features for.
-        :param pulumi.Input[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict']] capabilities: Configuration block for feature capabilities. See Capabilities below.
+        :param pulumi.Input[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict', 'outputs.FeaturesCapabilities']] capabilities: Configuration block for feature capabilities. See Capabilities below.
         :param pulumi.Input[_builtins.str] description: Description of the feature.
         :param pulumi.Input[_builtins.str] name: The name of the feature to configure. Valid values:
                * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.
@@ -531,7 +531,7 @@ class Features(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 capabilities: pulumi.Input[Optional[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict']]] = None,
+                 capabilities: pulumi.Input[Optional[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict', 'outputs.FeaturesCapabilities']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -562,7 +562,7 @@ class Features(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: pulumi.Input[Optional[_builtins.str]] = None,
-            capabilities: pulumi.Input[Optional[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict']]] = None,
+            capabilities: pulumi.Input[Optional[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict', 'outputs.FeaturesCapabilities']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Features':
@@ -574,7 +574,7 @@ class Features(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to configure features for.
-        :param pulumi.Input[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict']] capabilities: Configuration block for feature capabilities. See Capabilities below.
+        :param pulumi.Input[Union['FeaturesCapabilitiesArgs', 'FeaturesCapabilitiesArgsDict', 'outputs.FeaturesCapabilities']] capabilities: Configuration block for feature capabilities. See Capabilities below.
         :param pulumi.Input[_builtins.str] description: Description of the feature.
         :param pulumi.Input[_builtins.str] name: The name of the feature to configure. Valid values:
                * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.

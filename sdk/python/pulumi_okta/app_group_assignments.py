@@ -106,7 +106,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict', 'outputs.AppGroupAssignmentsGroup']]]]] = None,
                  __props__=None):
         """
         Assigns groups to an application. This resource allows you to create multiple App Group assignments.
@@ -190,7 +190,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]] groups: A group to assign to this application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict', 'outputs.AppGroupAssignmentsGroup']]]] groups: A group to assign to this application
         """
         ...
     @overload
@@ -293,7 +293,7 @@ class AppGroupAssignments(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict', 'outputs.AppGroupAssignmentsGroup']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,7 +318,7 @@ class AppGroupAssignments(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: pulumi.Input[Optional[_builtins.str]] = None,
-            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]]] = None) -> 'AppGroupAssignments':
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict', 'outputs.AppGroupAssignmentsGroup']]]]] = None) -> 'AppGroupAssignments':
         """
         Get an existing AppGroupAssignments resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -327,7 +327,7 @@ class AppGroupAssignments(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The ID of the application to assign a group to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict']]]] groups: A group to assign to this application
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict', 'outputs.AppGroupAssignmentsGroup']]]] groups: A group to assign to this application
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

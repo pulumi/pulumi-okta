@@ -61,7 +61,7 @@ class AwaitableGetResourceLabelResult(GetResourceLabelResult):
 
 
 def get_resource_label(id: Optional[_builtins.str] = None,
-                       items: Optional[Sequence[Union['GetResourceLabelItemArgs', 'GetResourceLabelItemArgsDict']]] = None,
+                       items: Optional[Sequence[Union['GetResourceLabelItemArgs', 'GetResourceLabelItemArgsDict', 'outputs.GetResourceLabelItemResult']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceLabelResult:
     """
     Lists all labeled resources  > **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.
@@ -79,7 +79,7 @@ def get_resource_label(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         items=pulumi.get(__ret__, 'items'))
 def get_resource_label_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              items: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceLabelItemArgs', 'GetResourceLabelItemArgsDict']]]]] = None,
+                              items: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceLabelItemArgs', 'GetResourceLabelItemArgsDict', 'outputs.GetResourceLabelItemResult']]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceLabelResult]:
     """
     Lists all labeled resources  > **Note:** If you create a custom admin role to view labeled resources, ensure that the custom role has permissions to view the resource and governance labels.

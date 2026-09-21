@@ -249,14 +249,14 @@ class AwaitableGetReviewResult(GetReviewResult):
             reviewer_type=self.reviewer_type)
 
 
-def get_review(all_reviewer_levels: Optional[Sequence[Union['GetReviewAllReviewerLevelArgs', 'GetReviewAllReviewerLevelArgsDict']]] = None,
-               entitlement_bundle: Optional[Union['GetReviewEntitlementBundleArgs', 'GetReviewEntitlementBundleArgsDict']] = None,
-               entitlement_value: Optional[Union['GetReviewEntitlementValueArgs', 'GetReviewEntitlementValueArgsDict']] = None,
+def get_review(all_reviewer_levels: Optional[Sequence[Union['GetReviewAllReviewerLevelArgs', 'GetReviewAllReviewerLevelArgsDict', 'outputs.GetReviewAllReviewerLevelResult']]] = None,
+               entitlement_bundle: Optional[Union['GetReviewEntitlementBundleArgs', 'GetReviewEntitlementBundleArgsDict', 'outputs.GetReviewEntitlementBundleResult']] = None,
+               entitlement_value: Optional[Union['GetReviewEntitlementValueArgs', 'GetReviewEntitlementValueArgsDict', 'outputs.GetReviewEntitlementValueResult']] = None,
                id: Optional[_builtins.str] = None,
-               links: Optional[Union['GetReviewLinksArgs', 'GetReviewLinksArgsDict']] = None,
-               note: Optional[Union['GetReviewNoteArgs', 'GetReviewNoteArgsDict']] = None,
-               principal_profile: Optional[Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict']] = None,
-               reviewer_profile: Optional[Union['GetReviewReviewerProfileArgs', 'GetReviewReviewerProfileArgsDict']] = None,
+               links: Optional[Union['GetReviewLinksArgs', 'GetReviewLinksArgsDict', 'outputs.GetReviewLinksResult']] = None,
+               note: Optional[Union['GetReviewNoteArgs', 'GetReviewNoteArgsDict', 'outputs.GetReviewNoteResult']] = None,
+               principal_profile: Optional[Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict', 'outputs.GetReviewPrincipalProfileResult']] = None,
+               reviewer_profile: Optional[Union['GetReviewReviewerProfileArgs', 'GetReviewReviewerProfileArgsDict', 'outputs.GetReviewReviewerProfileResult']] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReviewResult:
     """
     Get the reviews belonging to a campaign
@@ -284,7 +284,7 @@ def get_review(all_reviewer_levels: Optional[Sequence[Union['GetReviewAllReviewe
 
 
     :param _builtins.str id: The ID of  review.
-    :param Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict'] principal_profile: A limited set of properties from the user profile who created the review.
+    :param Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict', 'outputs.GetReviewPrincipalProfileResult'] principal_profile: A limited set of properties from the user profile who created the review.
     """
     __args__ = dict()
     __args__['allReviewerLevels'] = all_reviewer_levels
@@ -318,14 +318,14 @@ def get_review(all_reviewer_levels: Optional[Sequence[Union['GetReviewAllReviewe
         resource_id=pulumi.get(__ret__, 'resource_id'),
         reviewer_profile=pulumi.get(__ret__, 'reviewer_profile'),
         reviewer_type=pulumi.get(__ret__, 'reviewer_type'))
-def get_review_output(all_reviewer_levels: pulumi.Input[Optional[Optional[Sequence[Union['GetReviewAllReviewerLevelArgs', 'GetReviewAllReviewerLevelArgsDict']]]]] = None,
-                      entitlement_bundle: pulumi.Input[Optional[Optional[Union['GetReviewEntitlementBundleArgs', 'GetReviewEntitlementBundleArgsDict']]]] = None,
-                      entitlement_value: pulumi.Input[Optional[Optional[Union['GetReviewEntitlementValueArgs', 'GetReviewEntitlementValueArgsDict']]]] = None,
+def get_review_output(all_reviewer_levels: pulumi.Input[Optional[Optional[Sequence[Union['GetReviewAllReviewerLevelArgs', 'GetReviewAllReviewerLevelArgsDict', 'outputs.GetReviewAllReviewerLevelResult']]]]] = None,
+                      entitlement_bundle: pulumi.Input[Optional[Optional[Union['GetReviewEntitlementBundleArgs', 'GetReviewEntitlementBundleArgsDict', 'outputs.GetReviewEntitlementBundleResult']]]] = None,
+                      entitlement_value: pulumi.Input[Optional[Optional[Union['GetReviewEntitlementValueArgs', 'GetReviewEntitlementValueArgsDict', 'outputs.GetReviewEntitlementValueResult']]]] = None,
                       id: pulumi.Input[Optional[_builtins.str]] = None,
-                      links: pulumi.Input[Optional[Optional[Union['GetReviewLinksArgs', 'GetReviewLinksArgsDict']]]] = None,
-                      note: pulumi.Input[Optional[Optional[Union['GetReviewNoteArgs', 'GetReviewNoteArgsDict']]]] = None,
-                      principal_profile: pulumi.Input[Optional[Optional[Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict']]]] = None,
-                      reviewer_profile: pulumi.Input[Optional[Optional[Union['GetReviewReviewerProfileArgs', 'GetReviewReviewerProfileArgsDict']]]] = None,
+                      links: pulumi.Input[Optional[Optional[Union['GetReviewLinksArgs', 'GetReviewLinksArgsDict', 'outputs.GetReviewLinksResult']]]] = None,
+                      note: pulumi.Input[Optional[Optional[Union['GetReviewNoteArgs', 'GetReviewNoteArgsDict', 'outputs.GetReviewNoteResult']]]] = None,
+                      principal_profile: pulumi.Input[Optional[Optional[Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict', 'outputs.GetReviewPrincipalProfileResult']]]] = None,
+                      reviewer_profile: pulumi.Input[Optional[Optional[Union['GetReviewReviewerProfileArgs', 'GetReviewReviewerProfileArgsDict', 'outputs.GetReviewReviewerProfileResult']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReviewResult]:
     """
     Get the reviews belonging to a campaign
@@ -353,7 +353,7 @@ def get_review_output(all_reviewer_levels: pulumi.Input[Optional[Optional[Sequen
 
 
     :param _builtins.str id: The ID of  review.
-    :param Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict'] principal_profile: A limited set of properties from the user profile who created the review.
+    :param Union['GetReviewPrincipalProfileArgs', 'GetReviewPrincipalProfileArgsDict', 'outputs.GetReviewPrincipalProfileResult'] principal_profile: A limited set of properties from the user profile who created the review.
     """
     __args__ = dict()
     __args__['allReviewerLevels'] = all_reviewer_levels

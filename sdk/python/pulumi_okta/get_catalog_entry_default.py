@@ -141,9 +141,9 @@ class AwaitableGetCatalogEntryDefaultResult(GetCatalogEntryDefaultResult):
             requestable=self.requestable)
 
 
-def get_catalog_entry_default(counts: Optional[Union['GetCatalogEntryDefaultCountsArgs', 'GetCatalogEntryDefaultCountsArgsDict']] = None,
+def get_catalog_entry_default(counts: Optional[Union['GetCatalogEntryDefaultCountsArgs', 'GetCatalogEntryDefaultCountsArgsDict', 'outputs.GetCatalogEntryDefaultCountsResult']] = None,
                               entry_id: Optional[_builtins.str] = None,
-                              links: Optional[Union['GetCatalogEntryDefaultLinksArgs', 'GetCatalogEntryDefaultLinksArgsDict']] = None,
+                              links: Optional[Union['GetCatalogEntryDefaultLinksArgs', 'GetCatalogEntryDefaultLinksArgsDict', 'outputs.GetCatalogEntryDefaultLinksResult']] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogEntryDefaultResult:
     """
     Retrieves a catalog entry.
@@ -177,9 +177,9 @@ def get_catalog_entry_default(counts: Optional[Union['GetCatalogEntryDefaultCoun
         name=pulumi.get(__ret__, 'name'),
         parent=pulumi.get(__ret__, 'parent'),
         requestable=pulumi.get(__ret__, 'requestable'))
-def get_catalog_entry_default_output(counts: pulumi.Input[Optional[Optional[Union['GetCatalogEntryDefaultCountsArgs', 'GetCatalogEntryDefaultCountsArgsDict']]]] = None,
+def get_catalog_entry_default_output(counts: pulumi.Input[Optional[Optional[Union['GetCatalogEntryDefaultCountsArgs', 'GetCatalogEntryDefaultCountsArgsDict', 'outputs.GetCatalogEntryDefaultCountsResult']]]] = None,
                                      entry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                     links: pulumi.Input[Optional[Optional[Union['GetCatalogEntryDefaultLinksArgs', 'GetCatalogEntryDefaultLinksArgsDict']]]] = None,
+                                     links: pulumi.Input[Optional[Optional[Union['GetCatalogEntryDefaultLinksArgs', 'GetCatalogEntryDefaultLinksArgsDict', 'outputs.GetCatalogEntryDefaultLinksResult']]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogEntryDefaultResult]:
     """
     Retrieves a catalog entry.

@@ -183,10 +183,10 @@ class AwaitableGetAgentPoolUpdateResult(GetAgentPoolUpdateResult):
             target_version=self.target_version)
 
 
-def get_agent_pool_update(agents: Optional[Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict']]] = None,
+def get_agent_pool_update(agents: Optional[Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict', 'outputs.GetAgentPoolUpdateAgentResult']]] = None,
                           id: Optional[_builtins.str] = None,
                           pool_id: Optional[_builtins.str] = None,
-                          schedule: Optional[Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict']] = None,
+                          schedule: Optional[Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict', 'outputs.GetAgentPoolUpdateScheduleResult']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolUpdateResult:
     """
     Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
@@ -202,10 +202,10 @@ def get_agent_pool_update(agents: Optional[Sequence[Union['GetAgentPoolUpdateAge
     ```
 
 
-    :param Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict']] agents: The agents associated with the agent pool update.
+    :param Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict', 'outputs.GetAgentPoolUpdateAgentResult']] agents: The agents associated with the agent pool update.
     :param _builtins.str id: The unique identifier of the agent pool update.
     :param _builtins.str pool_id: The unique identifier of the agent pool.
-    :param Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict'] schedule: The schedule configuration for the agent pool update.
+    :param Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict', 'outputs.GetAgentPoolUpdateScheduleResult'] schedule: The schedule configuration for the agent pool update.
     """
     __args__ = dict()
     __args__['agents'] = agents
@@ -228,10 +228,10 @@ def get_agent_pool_update(agents: Optional[Sequence[Union['GetAgentPoolUpdateAge
         sort_order=pulumi.get(__ret__, 'sort_order'),
         status=pulumi.get(__ret__, 'status'),
         target_version=pulumi.get(__ret__, 'target_version'))
-def get_agent_pool_update_output(agents: pulumi.Input[Optional[Optional[Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict']]]]] = None,
+def get_agent_pool_update_output(agents: pulumi.Input[Optional[Optional[Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict', 'outputs.GetAgentPoolUpdateAgentResult']]]]] = None,
                                  id: pulumi.Input[Optional[_builtins.str]] = None,
                                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                 schedule: pulumi.Input[Optional[Optional[Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict']]]] = None,
+                                 schedule: pulumi.Input[Optional[Optional[Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict', 'outputs.GetAgentPoolUpdateScheduleResult']]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolUpdateResult]:
     """
     Retrieves an Okta Agent Pool Update. Agent pool updates allow you to schedule and manage updates for agent pools.
@@ -247,10 +247,10 @@ def get_agent_pool_update_output(agents: pulumi.Input[Optional[Optional[Sequence
     ```
 
 
-    :param Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict']] agents: The agents associated with the agent pool update.
+    :param Sequence[Union['GetAgentPoolUpdateAgentArgs', 'GetAgentPoolUpdateAgentArgsDict', 'outputs.GetAgentPoolUpdateAgentResult']] agents: The agents associated with the agent pool update.
     :param _builtins.str id: The unique identifier of the agent pool update.
     :param _builtins.str pool_id: The unique identifier of the agent pool.
-    :param Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict'] schedule: The schedule configuration for the agent pool update.
+    :param Union['GetAgentPoolUpdateScheduleArgs', 'GetAgentPoolUpdateScheduleArgsDict', 'outputs.GetAgentPoolUpdateScheduleResult'] schedule: The schedule configuration for the agent pool update.
     """
     __args__ = dict()
     __args__['agents'] = agents

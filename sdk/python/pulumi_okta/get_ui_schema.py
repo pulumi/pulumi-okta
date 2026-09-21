@@ -88,7 +88,7 @@ class AwaitableGetUiSchemaResult(GetUiSchemaResult):
 
 
 def get_ui_schema(id: Optional[_builtins.str] = None,
-                  ui_schema: Optional[Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict']] = None,
+                  ui_schema: Optional[Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict', 'outputs.GetUiSchemaUiSchemaResult']] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUiSchemaResult:
     """
     Use this data source to retrieve information about an Okta UI Schema.
@@ -104,7 +104,7 @@ def get_ui_schema(id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str id: The ID property of an UI Schema.
-    :param Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict'] ui_schema: - (Object) Representation of a resource.
+    :param Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict', 'outputs.GetUiSchemaUiSchemaResult'] ui_schema: - (Object) Representation of a resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -118,7 +118,7 @@ def get_ui_schema(id: Optional[_builtins.str] = None,
         last_updated=pulumi.get(__ret__, 'last_updated'),
         ui_schema=pulumi.get(__ret__, 'ui_schema'))
 def get_ui_schema_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                         ui_schema: pulumi.Input[Optional[Optional[Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict']]]] = None,
+                         ui_schema: pulumi.Input[Optional[Optional[Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict', 'outputs.GetUiSchemaUiSchemaResult']]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUiSchemaResult]:
     """
     Use this data source to retrieve information about an Okta UI Schema.
@@ -134,7 +134,7 @@ def get_ui_schema_output(id: pulumi.Input[Optional[_builtins.str]] = None,
 
 
     :param _builtins.str id: The ID property of an UI Schema.
-    :param Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict'] ui_schema: - (Object) Representation of a resource.
+    :param Union['GetUiSchemaUiSchemaArgs', 'GetUiSchemaUiSchemaArgsDict', 'outputs.GetUiSchemaUiSchemaResult'] ui_schema: - (Object) Representation of a resource.
     """
     __args__ = dict()
     __args__['id'] = id

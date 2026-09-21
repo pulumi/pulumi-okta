@@ -325,7 +325,7 @@ class Feature(pulumi.CustomResource):
             life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
             mode: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            stage: pulumi.Input[Optional[Union['FeatureStageArgs', 'FeatureStageArgsDict']]] = None,
+            stage: pulumi.Input[Optional[Union['FeatureStageArgs', 'FeatureStageArgsDict', 'outputs.FeatureStage']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Feature':
         """
@@ -340,7 +340,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] life_cycle: Whether to `ENABLE` or `DISABLE` the feature
         :param pulumi.Input[_builtins.bool] mode: Indicates if you want to force enable or disable a feature. Value is `true` meaning force
         :param pulumi.Input[_builtins.str] name: Name of the feature.
-        :param pulumi.Input[Union['FeatureStageArgs', 'FeatureStageArgsDict']] stage: Current release cycle stage of a feature.
+        :param pulumi.Input[Union['FeatureStageArgs', 'FeatureStageArgsDict', 'outputs.FeatureStage']] stage: Current release cycle stage of a feature.
         :param pulumi.Input[_builtins.str] status: The feature status.
         :param pulumi.Input[_builtins.str] type: Type of feature.
         """

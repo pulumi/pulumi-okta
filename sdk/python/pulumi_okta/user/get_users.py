@@ -140,7 +140,7 @@ def get_users(compound_search_operator: Optional[_builtins.str] = None,
               group_id: Optional[_builtins.str] = None,
               include_groups: Optional[_builtins.bool] = None,
               include_roles: Optional[_builtins.bool] = None,
-              searches: Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]] = None,
+              searches: Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict', 'outputs.GetUsersSearchResult']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Get a list of users from Okta.
@@ -151,7 +151,7 @@ def get_users(compound_search_operator: Optional[_builtins.str] = None,
     :param _builtins.str group_id: Find users based on group membership using the id of the group.
     :param _builtins.bool include_groups: Fetch group memberships for each user
     :param _builtins.bool include_roles: Fetch user roles for each user
-    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict', 'outputs.GetUsersSearchResult']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
     __args__ = dict()
     __args__['compoundSearchOperator'] = compound_search_operator
@@ -177,7 +177,7 @@ def get_users_output(compound_search_operator: pulumi.Input[Optional[Optional[_b
                      group_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      include_groups: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      include_roles: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                     searches: pulumi.Input[Optional[Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']]]]] = None,
+                     searches: pulumi.Input[Optional[Optional[Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict', 'outputs.GetUsersSearchResult']]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Get a list of users from Okta.
@@ -188,7 +188,7 @@ def get_users_output(compound_search_operator: pulumi.Input[Optional[Optional[_b
     :param _builtins.str group_id: Find users based on group membership using the id of the group.
     :param _builtins.bool include_groups: Fetch group memberships for each user
     :param _builtins.bool include_roles: Fetch user roles for each user
-    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
+    :param Sequence[Union['GetUsersSearchArgs', 'GetUsersSearchArgsDict', 'outputs.GetUsersSearchResult']] searches: Filter to find user/users. Each filter will be concatenated with the compound search operator. Please be aware profile properties must match what is in Okta, which is likely camel case. Expression is a free form expression filter https://developer.okta.com/docs/reference/core-okta-api/#filter . The set name/value/comparison properties will be ignored if expression is present
     """
     __args__ = dict()
     __args__['compoundSearchOperator'] = compound_search_operator

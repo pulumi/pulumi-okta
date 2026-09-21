@@ -201,8 +201,8 @@ class AuthenticatorWebauthnCustomAaguid(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aaguid: pulumi.Input[Optional[_builtins.str]] = None,
-                 attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict']]]]] = None,
-                 authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict']]] = None,
+                 attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAttestationRootCertificate']]]]] = None,
+                 authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics']]] = None,
                  authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -265,8 +265,8 @@ class AuthenticatorWebauthnCustomAaguid(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aaguid: The Authenticator Attestation Globally Unique Identifier (AAGUID). A 128-bit identifier indicating the authenticator model.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict']]]] attestation_root_certificates: List of attestation root certificates. **Required** for AAGUIDs that exist in the FIDO Metadata Service (MDS) with certificates.
-        :param pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict']] authenticator_characteristics: Properties of the custom AAGUID authenticator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAttestationRootCertificate']]]] attestation_root_certificates: List of attestation root certificates. **Required** for AAGUIDs that exist in the FIDO Metadata Service (MDS) with certificates.
+        :param pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics']] authenticator_characteristics: Properties of the custom AAGUID authenticator.
         :param pulumi.Input[_builtins.str] authenticator_id: The ID of the WebAuthn authenticator.
         :param pulumi.Input[_builtins.str] name: The product name associated with this AAGUID.
         """
@@ -348,8 +348,8 @@ class AuthenticatorWebauthnCustomAaguid(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aaguid: pulumi.Input[Optional[_builtins.str]] = None,
-                 attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict']]]]] = None,
-                 authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict']]] = None,
+                 attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAttestationRootCertificate']]]]] = None,
+                 authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics']]] = None,
                  authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -381,8 +381,8 @@ class AuthenticatorWebauthnCustomAaguid(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             aaguid: pulumi.Input[Optional[_builtins.str]] = None,
-            attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict']]]]] = None,
-            authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict']]] = None,
+            attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAttestationRootCertificate']]]]] = None,
+            authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics']]] = None,
             authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'AuthenticatorWebauthnCustomAaguid':
         """
@@ -393,8 +393,8 @@ class AuthenticatorWebauthnCustomAaguid(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aaguid: The Authenticator Attestation Globally Unique Identifier (AAGUID). A 128-bit identifier indicating the authenticator model.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict']]]] attestation_root_certificates: List of attestation root certificates. **Required** for AAGUIDs that exist in the FIDO Metadata Service (MDS) with certificates.
-        :param pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict']] authenticator_characteristics: Properties of the custom AAGUID authenticator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAttestationRootCertificate']]]] attestation_root_certificates: List of attestation root certificates. **Required** for AAGUIDs that exist in the FIDO Metadata Service (MDS) with certificates.
+        :param pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics']] authenticator_characteristics: Properties of the custom AAGUID authenticator.
         :param pulumi.Input[_builtins.str] authenticator_id: The ID of the WebAuthn authenticator.
         :param pulumi.Input[_builtins.str] name: The product name associated with this AAGUID.
         """

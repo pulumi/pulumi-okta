@@ -264,7 +264,7 @@ class PushGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
+                 app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict', 'outputs.PushGroupAppConfig']]] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -318,7 +318,7 @@ class PushGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']] app_config: Additional app configuration for group push mappings. Currently only required for Active Directory.
+        :param pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict', 'outputs.PushGroupAppConfig']] app_config: Additional app configuration for group push mappings. Currently only required for Active Directory.
         :param pulumi.Input[_builtins.str] app_id: The ID of the Okta Application.
         :param pulumi.Input[_builtins.bool] delete_target_group_on_destroy: Whether to delete the target group when the push group mapping is destroyed. Default is true.
         :param pulumi.Input[_builtins.str] source_group_id: The ID of the source group in Okta.
@@ -391,7 +391,7 @@ class PushGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
+                 app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict', 'outputs.PushGroupAppConfig']]] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -428,7 +428,7 @@ class PushGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']]] = None,
+            app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict', 'outputs.PushGroupAppConfig']]] = None,
             app_id: pulumi.Input[Optional[_builtins.str]] = None,
             delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -442,7 +442,7 @@ class PushGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict']] app_config: Additional app configuration for group push mappings. Currently only required for Active Directory.
+        :param pulumi.Input[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict', 'outputs.PushGroupAppConfig']] app_config: Additional app configuration for group push mappings. Currently only required for Active Directory.
         :param pulumi.Input[_builtins.str] app_id: The ID of the Okta Application.
         :param pulumi.Input[_builtins.bool] delete_target_group_on_destroy: Whether to delete the target group when the push group mapping is destroyed. Default is true.
         :param pulumi.Input[_builtins.str] source_group_id: The ID of the source group in Okta.

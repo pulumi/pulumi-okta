@@ -112,7 +112,7 @@ class AwaitableGetApiTokenResult(GetApiTokenResult):
 
 
 def get_api_token(id: Optional[_builtins.str] = None,
-                  network: Optional[Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict']] = None,
+                  network: Optional[Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict', 'outputs.GetApiTokenNetworkResult']] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTokenResult:
     """
     Use this data source to retrieve information about an Okta API token.
@@ -128,7 +128,7 @@ def get_api_token(id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str id: The unique identifier of the API token.
-    :param Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict'] network: The network configuration of the API token.
+    :param Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict', 'outputs.GetApiTokenNetworkResult'] network: The network configuration of the API token.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -144,7 +144,7 @@ def get_api_token(id: Optional[_builtins.str] = None,
         network=pulumi.get(__ret__, 'network'),
         user_id=pulumi.get(__ret__, 'user_id'))
 def get_api_token_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                         network: pulumi.Input[Optional[Optional[Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict']]]] = None,
+                         network: pulumi.Input[Optional[Optional[Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict', 'outputs.GetApiTokenNetworkResult']]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiTokenResult]:
     """
     Use this data source to retrieve information about an Okta API token.
@@ -160,7 +160,7 @@ def get_api_token_output(id: pulumi.Input[Optional[_builtins.str]] = None,
 
 
     :param _builtins.str id: The unique identifier of the API token.
-    :param Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict'] network: The network configuration of the API token.
+    :param Union['GetApiTokenNetworkArgs', 'GetApiTokenNetworkArgsDict', 'outputs.GetApiTokenNetworkResult'] network: The network configuration of the API token.
     """
     __args__ = dict()
     __args__['id'] = id

@@ -122,7 +122,7 @@ class EndUserMyRequests(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  entry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.EndUserMyRequestsRequesterFieldValue']]]]] = None,
                  __props__=None):
         """
         Manages an End User Request in Okta Identity Governance. This resource allows you to create access requests on behalf of end users through the Okta Identity Governance system.
@@ -229,7 +229,7 @@ class EndUserMyRequests(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] entry_id: The ID of the catalog entry for which the request is being made.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]] requester_field_values: The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.EndUserMyRequestsRequesterFieldValue']]]] requester_field_values: The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
         """
         ...
     @overload
@@ -355,7 +355,7 @@ class EndUserMyRequests(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  entry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.EndUserMyRequestsRequesterFieldValue']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -381,7 +381,7 @@ class EndUserMyRequests(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             entry_id: pulumi.Input[Optional[_builtins.str]] = None,
-            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
+            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.EndUserMyRequestsRequesterFieldValue']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EndUserMyRequests':
         """
         Get an existing EndUserMyRequests resource's state with the given name, id, and optional extra
@@ -391,7 +391,7 @@ class EndUserMyRequests(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] entry_id: The ID of the catalog entry for which the request is being made.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict']]]] requester_field_values: The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.EndUserMyRequestsRequesterFieldValue']]]] requester_field_values: The requester input fields required by the approval system. Note: The fields required are determined by the approval system.
         :param pulumi.Input[_builtins.str] status: The status of the request. Possible values include: `APPROVED`, `CANCELED`, `DENIED`, `EXPIRED`, `PENDING`, `REJECTED`, `SUBMITTED`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

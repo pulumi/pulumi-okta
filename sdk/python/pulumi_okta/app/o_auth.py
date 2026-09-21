@@ -1912,12 +1912,12 @@ class OAuth(pulumi.CustomResource):
                  frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
+                 groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict', 'outputs.OAuthGroupsClaim']]] = None,
                  hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
                  hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
                  implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
                  issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
+                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict', 'outputs.OAuthJwk']]]]] = None,
                  jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
                  login_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1925,7 +1925,7 @@ class OAuth(pulumi.CustomResource):
                  login_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  logo: pulumi.Input[Optional[_builtins.str]] = None,
                  logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict', 'outputs.OAuthNetwork']]] = None,
                  omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
                  pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2053,12 +2053,12 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict', 'outputs.OAuthGroupsClaim']] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
         :param pulumi.Input[_builtins.str] issuer_mode: *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]] jwks: JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwks_uri instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict', 'outputs.OAuthJwk']]]] jwks: JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwks_uri instead.
         :param pulumi.Input[_builtins.str] jwks_uri: URL reference to JWKS
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] login_mode: The type of Idp-Initiated login that the client supports, if any
@@ -2066,7 +2066,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] login_uri: URI that initiates login.
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
-        :param pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']] network: Network restrictions for the application client. Only one `network` block may be defined.
+        :param pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict', 'outputs.OAuthNetwork']] network: Network restrictions for the application client. Only one `network` block may be defined.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object
@@ -2208,12 +2208,12 @@ class OAuth(pulumi.CustomResource):
                  frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
+                 groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict', 'outputs.OAuthGroupsClaim']]] = None,
                  hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
                  hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
                  implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
                  issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
+                 jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict', 'outputs.OAuthJwk']]]]] = None,
                  jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  label: pulumi.Input[Optional[_builtins.str]] = None,
                  login_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2221,7 +2221,7 @@ class OAuth(pulumi.CustomResource):
                  login_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  logo: pulumi.Input[Optional[_builtins.str]] = None,
                  logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict', 'outputs.OAuthNetwork']]] = None,
                  omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
                  pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2348,12 +2348,12 @@ class OAuth(pulumi.CustomResource):
             frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
             frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
             grant_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']]] = None,
+            groups_claim: pulumi.Input[Optional[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict', 'outputs.OAuthGroupsClaim']]] = None,
             hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
             hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
             implicit_assignment: pulumi.Input[Optional[_builtins.bool]] = None,
             issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]]] = None,
+            jwks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict', 'outputs.OAuthJwk']]]]] = None,
             jwks_uri: pulumi.Input[Optional[_builtins.str]] = None,
             label: pulumi.Input[Optional[_builtins.str]] = None,
             login_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2363,7 +2363,7 @@ class OAuth(pulumi.CustomResource):
             logo_uri: pulumi.Input[Optional[_builtins.str]] = None,
             logo_url: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict', 'outputs.OAuthNetwork']]] = None,
             omit_secret: pulumi.Input[Optional[_builtins.bool]] = None,
             participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
             pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2419,12 +2419,12 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_types: List of OAuth 2.0 grant types. Conditional validation params found here https://developer.okta.com/docs/api/resources/apps#credentials-settings-details. Defaults to minimum requirements per app type.
-        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict']] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
+        :param pulumi.Input[Union['OAuthGroupsClaimArgs', 'OAuthGroupsClaimArgsDict', 'outputs.OAuthGroupsClaim']] groups_claim: **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`private_key` or `access_token`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfigured_app` is set. Use `auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
         :param pulumi.Input[_builtins.bool] hide_ios: Do not display application icon on mobile app
         :param pulumi.Input[_builtins.bool] hide_web: Do not display application icon to users
         :param pulumi.Input[_builtins.bool] implicit_assignment: *Early Access Property*. Enable Federation Broker Mode.
         :param pulumi.Input[_builtins.str] issuer_mode: *Early Access Property*. Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict']]]] jwks: JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwks_uri instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OAuthJwkArgs', 'OAuthJwkArgsDict', 'outputs.OAuthJwk']]]] jwks: JSON Web Key Set (JWKS) for application. Note: Inline JWKS may have compatibility issues with v6 SDK. Consider using jwks_uri instead.
         :param pulumi.Input[_builtins.str] jwks_uri: URL reference to JWKS
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] login_mode: The type of Idp-Initiated login that the client supports, if any
@@ -2434,7 +2434,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] logo_uri: URI that references a logo for the client.
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo
         :param pulumi.Input[_builtins.str] name: Name of the app.
-        :param pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict']] network: Network restrictions for the application client. Only one `network` block may be defined.
+        :param pulumi.Input[Union['OAuthNetworkArgs', 'OAuthNetworkArgsDict', 'outputs.OAuthNetwork']] network: Network restrictions for the application client. Only one `network` block may be defined.
         :param pulumi.Input[_builtins.bool] omit_secret: This tells the provider not manage the client*secret value in state. When this is false (the default), it will cause the auto-generated client*secret to be persisted in the client_secret attribute in state. This also means that every time an update to this app is run, this value is also set on the API. If this changes from false => true, the `client_secret` is dropped from state and the secret at the time of the apply is what remains. If this is ever changes from true => false your app will be recreated, due to the need to regenerate a secret we can store in state.
         :param pulumi.Input[_builtins.bool] participate_slo: *Early Access Property*. Allows the app to participate in front-channel Single Logout. Note: You can only enable participate*slo for web and browser application types. When set to true, frontchannel*logout_uri must also be provided. Enable `SINGLE_LOGOUT_SUPPORT` feature flag in your org to use this property.
         :param pulumi.Input[_builtins.bool] pkce_required: Require Proof Key for Code Exchange (PKCE) for additional verification key rotation mode. See: https://developer.okta.com/docs/reference/api/apps/#oauth-credential-object

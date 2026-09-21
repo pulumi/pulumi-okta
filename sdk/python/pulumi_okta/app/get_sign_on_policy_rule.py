@@ -153,8 +153,8 @@ class AwaitableGetSignOnPolicyRuleResult(GetSignOnPolicyRuleResult):
             system=self.system)
 
 
-def get_sign_on_policy_rule(actions: Optional[Union['GetSignOnPolicyRuleActionsArgs', 'GetSignOnPolicyRuleActionsArgsDict']] = None,
-                            conditions: Optional[Union['GetSignOnPolicyRuleConditionsArgs', 'GetSignOnPolicyRuleConditionsArgsDict']] = None,
+def get_sign_on_policy_rule(actions: Optional[Union['GetSignOnPolicyRuleActionsArgs', 'GetSignOnPolicyRuleActionsArgsDict', 'outputs.GetSignOnPolicyRuleActionsResult']] = None,
+                            conditions: Optional[Union['GetSignOnPolicyRuleConditionsArgs', 'GetSignOnPolicyRuleConditionsArgsDict', 'outputs.GetSignOnPolicyRuleConditionsResult']] = None,
                             id: Optional[_builtins.str] = None,
                             policy_id: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignOnPolicyRuleResult:
@@ -203,8 +203,8 @@ def get_sign_on_policy_rule(actions: Optional[Union['GetSignOnPolicyRuleActionsA
         priority=pulumi.get(__ret__, 'priority'),
         status=pulumi.get(__ret__, 'status'),
         system=pulumi.get(__ret__, 'system'))
-def get_sign_on_policy_rule_output(actions: pulumi.Input[Optional[Optional[Union['GetSignOnPolicyRuleActionsArgs', 'GetSignOnPolicyRuleActionsArgsDict']]]] = None,
-                                   conditions: pulumi.Input[Optional[Optional[Union['GetSignOnPolicyRuleConditionsArgs', 'GetSignOnPolicyRuleConditionsArgsDict']]]] = None,
+def get_sign_on_policy_rule_output(actions: pulumi.Input[Optional[Optional[Union['GetSignOnPolicyRuleActionsArgs', 'GetSignOnPolicyRuleActionsArgsDict', 'outputs.GetSignOnPolicyRuleActionsResult']]]] = None,
+                                   conditions: pulumi.Input[Optional[Optional[Union['GetSignOnPolicyRuleConditionsArgs', 'GetSignOnPolicyRuleConditionsArgsDict', 'outputs.GetSignOnPolicyRuleConditionsResult']]]] = None,
                                    id: pulumi.Input[Optional[_builtins.str]] = None,
                                    policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignOnPolicyRuleResult]:

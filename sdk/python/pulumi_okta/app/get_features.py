@@ -106,7 +106,7 @@ class AwaitableGetFeaturesResult(GetFeaturesResult):
 
 
 def get_features(app_id: Optional[_builtins.str] = None,
-                 capabilities: Optional[Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict']] = None,
+                 capabilities: Optional[Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict', 'outputs.GetFeaturesCapabilitiesResult']] = None,
                  name: Optional[_builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFeaturesResult:
     """
@@ -150,7 +150,7 @@ def get_features(app_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str app_id: The ID of the application to retrieve features for.
-    :param Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict'] capabilities: A block containing the feature capabilities configuration. See Capabilities below.
+    :param Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict', 'outputs.GetFeaturesCapabilitiesResult'] capabilities: A block containing the feature capabilities configuration. See Capabilities below.
     :param _builtins.str name: The name of the feature to retrieve. Valid values include:
            * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.
            * `INBOUND_PROVISIONING` - User profiles are imported from the third-party app into Okta.
@@ -170,7 +170,7 @@ def get_features(app_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'))
 def get_features_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                        capabilities: pulumi.Input[Optional[Optional[Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict']]]] = None,
+                        capabilities: pulumi.Input[Optional[Optional[Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict', 'outputs.GetFeaturesCapabilitiesResult']]]] = None,
                         name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeaturesResult]:
     """
@@ -214,7 +214,7 @@ def get_features_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
 
 
     :param _builtins.str app_id: The ID of the application to retrieve features for.
-    :param Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict'] capabilities: A block containing the feature capabilities configuration. See Capabilities below.
+    :param Union['GetFeaturesCapabilitiesArgs', 'GetFeaturesCapabilitiesArgsDict', 'outputs.GetFeaturesCapabilitiesResult'] capabilities: A block containing the feature capabilities configuration. See Capabilities below.
     :param _builtins.str name: The name of the feature to retrieve. Valid values include:
            * `USER_PROVISIONING` - User profiles are pushed from Okta to the third-party app.
            * `INBOUND_PROVISIONING` - User profiles are imported from the third-party app into Okta.

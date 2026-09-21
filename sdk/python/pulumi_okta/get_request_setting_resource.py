@@ -112,11 +112,11 @@ class AwaitableGetRequestSettingResourceResult(GetRequestSettingResourceResult):
 
 
 def get_request_setting_resource(id: Optional[_builtins.str] = None,
-                                 request_on_behalf_of_settings: Optional[Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict']] = None,
-                                 risk_settings: Optional[Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict']] = None,
-                                 valid_access_duration_settings: Optional[Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict']] = None,
-                                 valid_access_scope_settings: Optional[Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict']]] = None,
-                                 valid_requester_settings: Optional[Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict']]] = None,
+                                 request_on_behalf_of_settings: Optional[Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict', 'outputs.GetRequestSettingResourceRequestOnBehalfOfSettingsResult']] = None,
+                                 risk_settings: Optional[Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict', 'outputs.GetRequestSettingResourceRiskSettingsResult']] = None,
+                                 valid_access_duration_settings: Optional[Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict', 'outputs.GetRequestSettingResourceValidAccessDurationSettingsResult']] = None,
+                                 valid_access_scope_settings: Optional[Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict', 'outputs.GetRequestSettingResourceValidAccessScopeSettingResult']]] = None,
+                                 valid_requester_settings: Optional[Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict', 'outputs.GetRequestSettingResourceValidRequesterSettingResult']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequestSettingResourceResult:
     """
     Retrieves the request settings for a resource.
@@ -132,11 +132,11 @@ def get_request_setting_resource(id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str id: The resource ID of the request settings to retrieve. This is the unique identifier for the resource in Okta.
-    :param Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict'] request_on_behalf_of_settings: Risk settings for the resource.
-    :param Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict'] risk_settings: Risk settings for the resource.
-    :param Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict'] valid_access_duration_settings: Specifies if and for whom a requester may request the resource for.
-    :param Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict']] valid_access_scope_settings: Risk settings for the resource.
-    :param Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict']] valid_requester_settings: Risk settings for the resource.
+    :param Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict', 'outputs.GetRequestSettingResourceRequestOnBehalfOfSettingsResult'] request_on_behalf_of_settings: Risk settings for the resource.
+    :param Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict', 'outputs.GetRequestSettingResourceRiskSettingsResult'] risk_settings: Risk settings for the resource.
+    :param Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict', 'outputs.GetRequestSettingResourceValidAccessDurationSettingsResult'] valid_access_duration_settings: Specifies if and for whom a requester may request the resource for.
+    :param Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict', 'outputs.GetRequestSettingResourceValidAccessScopeSettingResult']] valid_access_scope_settings: Risk settings for the resource.
+    :param Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict', 'outputs.GetRequestSettingResourceValidRequesterSettingResult']] valid_requester_settings: Risk settings for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -156,11 +156,11 @@ def get_request_setting_resource(id: Optional[_builtins.str] = None,
         valid_access_scope_settings=pulumi.get(__ret__, 'valid_access_scope_settings'),
         valid_requester_settings=pulumi.get(__ret__, 'valid_requester_settings'))
 def get_request_setting_resource_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                                        request_on_behalf_of_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict']]]] = None,
-                                        risk_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict']]]] = None,
-                                        valid_access_duration_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict']]]] = None,
-                                        valid_access_scope_settings: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict']]]]] = None,
-                                        valid_requester_settings: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict']]]]] = None,
+                                        request_on_behalf_of_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict', 'outputs.GetRequestSettingResourceRequestOnBehalfOfSettingsResult']]]] = None,
+                                        risk_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict', 'outputs.GetRequestSettingResourceRiskSettingsResult']]]] = None,
+                                        valid_access_duration_settings: pulumi.Input[Optional[Optional[Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict', 'outputs.GetRequestSettingResourceValidAccessDurationSettingsResult']]]] = None,
+                                        valid_access_scope_settings: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict', 'outputs.GetRequestSettingResourceValidAccessScopeSettingResult']]]]] = None,
+                                        valid_requester_settings: pulumi.Input[Optional[Optional[Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict', 'outputs.GetRequestSettingResourceValidRequesterSettingResult']]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestSettingResourceResult]:
     """
     Retrieves the request settings for a resource.
@@ -176,11 +176,11 @@ def get_request_setting_resource_output(id: pulumi.Input[Optional[_builtins.str]
 
 
     :param _builtins.str id: The resource ID of the request settings to retrieve. This is the unique identifier for the resource in Okta.
-    :param Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict'] request_on_behalf_of_settings: Risk settings for the resource.
-    :param Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict'] risk_settings: Risk settings for the resource.
-    :param Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict'] valid_access_duration_settings: Specifies if and for whom a requester may request the resource for.
-    :param Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict']] valid_access_scope_settings: Risk settings for the resource.
-    :param Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict']] valid_requester_settings: Risk settings for the resource.
+    :param Union['GetRequestSettingResourceRequestOnBehalfOfSettingsArgs', 'GetRequestSettingResourceRequestOnBehalfOfSettingsArgsDict', 'outputs.GetRequestSettingResourceRequestOnBehalfOfSettingsResult'] request_on_behalf_of_settings: Risk settings for the resource.
+    :param Union['GetRequestSettingResourceRiskSettingsArgs', 'GetRequestSettingResourceRiskSettingsArgsDict', 'outputs.GetRequestSettingResourceRiskSettingsResult'] risk_settings: Risk settings for the resource.
+    :param Union['GetRequestSettingResourceValidAccessDurationSettingsArgs', 'GetRequestSettingResourceValidAccessDurationSettingsArgsDict', 'outputs.GetRequestSettingResourceValidAccessDurationSettingsResult'] valid_access_duration_settings: Specifies if and for whom a requester may request the resource for.
+    :param Sequence[Union['GetRequestSettingResourceValidAccessScopeSettingArgs', 'GetRequestSettingResourceValidAccessScopeSettingArgsDict', 'outputs.GetRequestSettingResourceValidAccessScopeSettingResult']] valid_access_scope_settings: Risk settings for the resource.
+    :param Sequence[Union['GetRequestSettingResourceValidRequesterSettingArgs', 'GetRequestSettingResourceValidRequesterSettingArgsDict', 'outputs.GetRequestSettingResourceValidRequesterSettingResult']] valid_requester_settings: Risk settings for the resource.
     """
     __args__ = dict()
     __args__['id'] = id

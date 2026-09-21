@@ -206,9 +206,9 @@ class CustomizedSigninPage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  brand_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_security_policy_setting: pulumi.Input[Optional[Union['CustomizedSigninPageContentSecurityPolicySettingArgs', 'CustomizedSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional[Union['CustomizedSigninPageContentSecurityPolicySettingArgs', 'CustomizedSigninPageContentSecurityPolicySettingArgsDict', 'outputs.CustomizedSigninPageContentSecurityPolicySetting']]] = None,
                  page_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 widget_customizations: pulumi.Input[Optional[Union['CustomizedSigninPageWidgetCustomizationsArgs', 'CustomizedSigninPageWidgetCustomizationsArgsDict']]] = None,
+                 widget_customizations: pulumi.Input[Optional[Union['CustomizedSigninPageWidgetCustomizationsArgs', 'CustomizedSigninPageWidgetCustomizationsArgsDict', 'outputs.CustomizedSigninPageWidgetCustomizations']]] = None,
                  widget_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -396,9 +396,9 @@ class CustomizedSigninPage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  brand_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_security_policy_setting: pulumi.Input[Optional[Union['CustomizedSigninPageContentSecurityPolicySettingArgs', 'CustomizedSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional[Union['CustomizedSigninPageContentSecurityPolicySettingArgs', 'CustomizedSigninPageContentSecurityPolicySettingArgsDict', 'outputs.CustomizedSigninPageContentSecurityPolicySetting']]] = None,
                  page_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 widget_customizations: pulumi.Input[Optional[Union['CustomizedSigninPageWidgetCustomizationsArgs', 'CustomizedSigninPageWidgetCustomizationsArgsDict']]] = None,
+                 widget_customizations: pulumi.Input[Optional[Union['CustomizedSigninPageWidgetCustomizationsArgs', 'CustomizedSigninPageWidgetCustomizationsArgsDict', 'outputs.CustomizedSigninPageWidgetCustomizations']]] = None,
                  widget_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -427,9 +427,9 @@ class CustomizedSigninPage(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             brand_id: pulumi.Input[Optional[_builtins.str]] = None,
-            content_security_policy_setting: pulumi.Input[Optional[Union['CustomizedSigninPageContentSecurityPolicySettingArgs', 'CustomizedSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+            content_security_policy_setting: pulumi.Input[Optional[Union['CustomizedSigninPageContentSecurityPolicySettingArgs', 'CustomizedSigninPageContentSecurityPolicySettingArgsDict', 'outputs.CustomizedSigninPageContentSecurityPolicySetting']]] = None,
             page_content: pulumi.Input[Optional[_builtins.str]] = None,
-            widget_customizations: pulumi.Input[Optional[Union['CustomizedSigninPageWidgetCustomizationsArgs', 'CustomizedSigninPageWidgetCustomizationsArgsDict']]] = None,
+            widget_customizations: pulumi.Input[Optional[Union['CustomizedSigninPageWidgetCustomizationsArgs', 'CustomizedSigninPageWidgetCustomizationsArgsDict', 'outputs.CustomizedSigninPageWidgetCustomizations']]] = None,
             widget_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomizedSigninPage':
         """
         Get an existing CustomizedSigninPage resource's state with the given name, id, and optional extra

@@ -186,7 +186,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict', 'outputs.SecurityEventsProviderSettings']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -236,7 +236,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] is_enabled: Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
         :param pulumi.Input[_builtins.str] name: The name of the Security Events Provider instance.
-        :param pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']] settings: Information about the Security Events Provider for signal ingestion.
+        :param pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict', 'outputs.SecurityEventsProviderSettings']] settings: Information about the Security Events Provider for signal ingestion.
         :param pulumi.Input[_builtins.str] type: The application type of the Security Events Provider.
         """
         ...
@@ -305,7 +305,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict', 'outputs.SecurityEventsProviderSettings']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -337,7 +337,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']]] = None,
+            settings: pulumi.Input[Optional[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict', 'outputs.SecurityEventsProviderSettings']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecurityEventsProvider':
         """
@@ -349,7 +349,7 @@ class SecurityEventsProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] is_enabled: Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
         :param pulumi.Input[_builtins.str] name: The name of the Security Events Provider instance.
-        :param pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict']] settings: Information about the Security Events Provider for signal ingestion.
+        :param pulumi.Input[Union['SecurityEventsProviderSettingsArgs', 'SecurityEventsProviderSettingsArgsDict', 'outputs.SecurityEventsProviderSettings']] settings: Information about the Security Events Provider for signal ingestion.
         :param pulumi.Input[_builtins.str] status: Indicates whether the Security Events Provider is active or not.
         :param pulumi.Input[_builtins.str] type: The application type of the Security Events Provider.
         """

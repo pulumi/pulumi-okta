@@ -330,9 +330,9 @@ class RequestV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
-                 requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
-                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
+                 requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict', 'outputs.RequestV2Requested']]] = None,
+                 requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict', 'outputs.RequestV2RequestedFor']]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict', 'outputs.RequestV2RequesterFieldValue']]]]] = None,
                  __props__=None):
         """
         Manage the access request process. This resource allows you to create and read an Okta [request](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Requests/#tag/Requests).
@@ -363,9 +363,9 @@ class RequestV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']] requested: A representation of a resource that can be requested for access.
-        :param pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']] requested_for: A representation of a principal.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]] requester_field_values: The requester input fields required by the approval system.
+        :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict', 'outputs.RequestV2Requested']] requested: A representation of a resource that can be requested for access.
+        :param pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict', 'outputs.RequestV2RequestedFor']] requested_for: A representation of a principal.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict', 'outputs.RequestV2RequesterFieldValue']]]] requester_field_values: The requester input fields required by the approval system.
         """
         ...
     @overload
@@ -415,9 +415,9 @@ class RequestV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
-                 requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
-                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
+                 requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict', 'outputs.RequestV2Requested']]] = None,
+                 requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict', 'outputs.RequestV2RequestedFor']]] = None,
+                 requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict', 'outputs.RequestV2RequesterFieldValue']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -459,9 +459,9 @@ class RequestV2(pulumi.CustomResource):
             granted: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
-            requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']]] = None,
-            requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']]] = None,
-            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]]] = None,
+            requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict', 'outputs.RequestV2Requested']]] = None,
+            requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict', 'outputs.RequestV2RequestedFor']]] = None,
+            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict', 'outputs.RequestV2RequesterFieldValue']]]]] = None,
             resolved: pulumi.Input[Optional[_builtins.str]] = None,
             revocation_scheduled: pulumi.Input[Optional[_builtins.str]] = None,
             revocation_status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -481,9 +481,9 @@ class RequestV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] granted: The date the approved access was granted. Only set if request . Status is APPROVED.
         :param pulumi.Input[_builtins.str] last_updated: The date and time when the request condition was last updated.
         :param pulumi.Input[_builtins.str] last_updated_by: The id of the user who last updated the request condition.
-        :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict']] requested: A representation of a resource that can be requested for access.
-        :param pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict']] requested_for: A representation of a principal.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict']]]] requester_field_values: The requester input fields required by the approval system.
+        :param pulumi.Input[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict', 'outputs.RequestV2Requested']] requested: A representation of a resource that can be requested for access.
+        :param pulumi.Input[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict', 'outputs.RequestV2RequestedFor']] requested_for: A representation of a principal.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict', 'outputs.RequestV2RequesterFieldValue']]]] requester_field_values: The requester input fields required by the approval system.
         :param pulumi.Input[_builtins.str] resolved: The date the request was resolved.
         :param pulumi.Input[_builtins.str] revocation_scheduled: The date the request was scheduled for revocation.
         :param pulumi.Input[_builtins.str] revocation_status: The revocation status of the request.

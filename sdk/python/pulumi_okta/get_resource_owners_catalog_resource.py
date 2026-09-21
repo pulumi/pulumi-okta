@@ -73,7 +73,7 @@ class AwaitableGetResourceOwnersCatalogResourceResult(GetResourceOwnersCatalogRe
 
 
 def get_resource_owners_catalog_resource(id: Optional[_builtins.str] = None,
-                                         items: Optional[Sequence[Union['GetResourceOwnersCatalogResourceItemArgs', 'GetResourceOwnersCatalogResourceItemArgsDict']]] = None,
+                                         items: Optional[Sequence[Union['GetResourceOwnersCatalogResourceItemArgs', 'GetResourceOwnersCatalogResourceItemArgsDict', 'outputs.GetResourceOwnersCatalogResourceItemResult']]] = None,
                                          parent_resource_orn: Optional[_builtins.str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceOwnersCatalogResourceResult:
     """
@@ -95,7 +95,7 @@ def get_resource_owners_catalog_resource(id: Optional[_builtins.str] = None,
         items=pulumi.get(__ret__, 'items'),
         parent_resource_orn=pulumi.get(__ret__, 'parent_resource_orn'))
 def get_resource_owners_catalog_resource_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                items: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceOwnersCatalogResourceItemArgs', 'GetResourceOwnersCatalogResourceItemArgsDict']]]]] = None,
+                                                items: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceOwnersCatalogResourceItemArgs', 'GetResourceOwnersCatalogResourceItemArgsDict', 'outputs.GetResourceOwnersCatalogResourceItemResult']]]]] = None,
                                                 parent_resource_orn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceOwnersCatalogResourceResult]:
     """

@@ -1833,12 +1833,12 @@ class Saml(pulumi.CustomResource):
                  accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
                  accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
                  acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
+                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict', 'outputs.SamlAcsEndpointsIndex']]]]] = None,
                  admin_note: pulumi.Input[Optional[_builtins.str]] = None,
                  app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
                  assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
-                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
+                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict', 'outputs.SamlAttributeStatement']]]]] = None,
                  audience: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1901,7 +1901,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict', 'outputs.SamlAcsEndpointsIndex']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
@@ -1996,12 +1996,12 @@ class Saml(pulumi.CustomResource):
                  accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
                  accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
                  acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
+                 acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict', 'outputs.SamlAcsEndpointsIndex']]]]] = None,
                  admin_note: pulumi.Input[Optional[_builtins.str]] = None,
                  app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
                  assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
-                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
+                 attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict', 'outputs.SamlAttributeStatement']]]]] = None,
                  audience: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2127,12 +2127,12 @@ class Saml(pulumi.CustomResource):
             accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
             accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
             acs_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]]] = None,
+            acs_endpoints_indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict', 'outputs.SamlAcsEndpointsIndex']]]]] = None,
             admin_note: pulumi.Input[Optional[_builtins.str]] = None,
             app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
             app_settings_json: pulumi.Input[Optional[_builtins.str]] = None,
             assertion_signed: pulumi.Input[Optional[_builtins.bool]] = None,
-            attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict']]]]] = None,
+            attribute_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlAttributeStatementArgs', 'SamlAttributeStatementArgsDict', 'outputs.SamlAttributeStatement']]]]] = None,
             audience: pulumi.Input[Optional[_builtins.str]] = None,
             authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
             authn_context_class_ref: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2157,7 +2157,7 @@ class Saml(pulumi.CustomResource):
             key_id: pulumi.Input[Optional[_builtins.str]] = None,
             key_name: pulumi.Input[Optional[_builtins.str]] = None,
             key_years_valid: pulumi.Input[Optional[_builtins.int]] = None,
-            keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict']]]]] = None,
+            keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict', 'outputs.SamlKey']]]]] = None,
             label: pulumi.Input[Optional[_builtins.str]] = None,
             logo: pulumi.Input[Optional[_builtins.str]] = None,
             logo_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2196,7 +2196,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accessibility_login_redirect_url: Custom login page URL
         :param pulumi.Input[_builtins.bool] accessibility_self_service: Enable self service. Default is `false`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] acs_endpoints: An array of ACS endpoints. You can configure a maximum of 100 endpoints.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlAcsEndpointsIndexArgs', 'SamlAcsEndpointsIndexArgsDict', 'outputs.SamlAcsEndpointsIndex']]]] acs_endpoints_indices: ACS endpoints along with custom index as a set of maps called `acs_endpoints_indices` in JSON format.
         :param pulumi.Input[_builtins.str] admin_note: Application notes for admins.
         :param pulumi.Input[_builtins.str] app_links_json: Displays specific appLinks for the app. The value for each application link should be boolean.
         :param pulumi.Input[_builtins.str] app_settings_json: Application settings in JSON format
@@ -2225,7 +2225,7 @@ class Saml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_id: Certificate ID
         :param pulumi.Input[_builtins.str] key_name: Certificate name. This modulates the rotation of keys. New name == new key. Required to be set with `key_years_valid`
         :param pulumi.Input[_builtins.int] key_years_valid: Number of years the certificate is valid (2 - 10 years).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict']]]] keys: Application keys
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SamlKeyArgs', 'SamlKeyArgsDict', 'outputs.SamlKey']]]] keys: Application keys
         :param pulumi.Input[_builtins.str] label: The Application's display name.
         :param pulumi.Input[_builtins.str] logo: Local file path to the logo. The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.
         :param pulumi.Input[_builtins.str] logo_url: URL of the application's logo

@@ -297,13 +297,13 @@ class IdentitySourceImport(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict']]] = None,
-                 delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict']]] = None,
-                 delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict']]] = None,
+                 delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict', 'outputs.IdentitySourceImportDeleteGroupMemberships']]] = None,
+                 delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict', 'outputs.IdentitySourceImportDeleteGroups']]] = None,
+                 delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict', 'outputs.IdentitySourceImportDeleteUsers']]] = None,
                  identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict']]] = None,
-                 upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict']]] = None,
-                 upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict']]] = None,
+                 upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict', 'outputs.IdentitySourceImportUpsertGroupMemberships']]] = None,
+                 upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict', 'outputs.IdentitySourceImportUpsertGroups']]] = None,
+                 upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict', 'outputs.IdentitySourceImportUpsertUsers']]] = None,
                  __props__=None):
         """
         Orchestrates a full Okta Identity Source import job in one resource. On each apply it:
@@ -389,13 +389,13 @@ class IdentitySourceImport(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict']] delete_group_memberships: Group memberships to delete in Okta.
-        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict']] delete_groups: Groups to delete from Okta.
-        :param pulumi.Input[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict']] delete_users: Users to delete from Okta.
+        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict', 'outputs.IdentitySourceImportDeleteGroupMemberships']] delete_group_memberships: Group memberships to delete in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict', 'outputs.IdentitySourceImportDeleteGroups']] delete_groups: Groups to delete from Okta.
+        :param pulumi.Input[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict', 'outputs.IdentitySourceImportDeleteUsers']] delete_users: Users to delete from Okta.
         :param pulumi.Input[_builtins.str] identity_source_id: ID of the identity source. Forces replacement when changed.
-        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict']] upsert_group_memberships: Group memberships to create or update in Okta.
-        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict']] upsert_groups: Groups to create or update in Okta.
-        :param pulumi.Input[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict']] upsert_users: Users to create or update in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict', 'outputs.IdentitySourceImportUpsertGroupMemberships']] upsert_group_memberships: Group memberships to create or update in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict', 'outputs.IdentitySourceImportUpsertGroups']] upsert_groups: Groups to create or update in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict', 'outputs.IdentitySourceImportUpsertUsers']] upsert_users: Users to create or update in Okta.
         """
         ...
     @overload
@@ -500,13 +500,13 @@ class IdentitySourceImport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict']]] = None,
-                 delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict']]] = None,
-                 delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict']]] = None,
+                 delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict', 'outputs.IdentitySourceImportDeleteGroupMemberships']]] = None,
+                 delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict', 'outputs.IdentitySourceImportDeleteGroups']]] = None,
+                 delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict', 'outputs.IdentitySourceImportDeleteUsers']]] = None,
                  identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict']]] = None,
-                 upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict']]] = None,
-                 upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict']]] = None,
+                 upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict', 'outputs.IdentitySourceImportUpsertGroupMemberships']]] = None,
+                 upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict', 'outputs.IdentitySourceImportUpsertGroups']]] = None,
+                 upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict', 'outputs.IdentitySourceImportUpsertUsers']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,15 +537,15 @@ class IdentitySourceImport(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict']]] = None,
-            delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict']]] = None,
-            delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict']]] = None,
+            delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict', 'outputs.IdentitySourceImportDeleteGroupMemberships']]] = None,
+            delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict', 'outputs.IdentitySourceImportDeleteGroups']]] = None,
+            delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict', 'outputs.IdentitySourceImportDeleteUsers']]] = None,
             identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
             session_id: pulumi.Input[Optional[_builtins.str]] = None,
             session_status: pulumi.Input[Optional[_builtins.str]] = None,
-            upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict']]] = None,
-            upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict']]] = None,
-            upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict']]] = None) -> 'IdentitySourceImport':
+            upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict', 'outputs.IdentitySourceImportUpsertGroupMemberships']]] = None,
+            upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict', 'outputs.IdentitySourceImportUpsertGroups']]] = None,
+            upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict', 'outputs.IdentitySourceImportUpsertUsers']]] = None) -> 'IdentitySourceImport':
         """
         Get an existing IdentitySourceImport resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -553,15 +553,15 @@ class IdentitySourceImport(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict']] delete_group_memberships: Group memberships to delete in Okta.
-        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict']] delete_groups: Groups to delete from Okta.
-        :param pulumi.Input[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict']] delete_users: Users to delete from Okta.
+        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict', 'outputs.IdentitySourceImportDeleteGroupMemberships']] delete_group_memberships: Group memberships to delete in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict', 'outputs.IdentitySourceImportDeleteGroups']] delete_groups: Groups to delete from Okta.
+        :param pulumi.Input[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict', 'outputs.IdentitySourceImportDeleteUsers']] delete_users: Users to delete from Okta.
         :param pulumi.Input[_builtins.str] identity_source_id: ID of the identity source. Forces replacement when changed.
         :param pulumi.Input[_builtins.str] session_id: Session ID created for this import job.
         :param pulumi.Input[_builtins.str] session_status: Status of the import session after triggering (e.g. `IN_PROGRESS`, `COMPLETED`).
-        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict']] upsert_group_memberships: Group memberships to create or update in Okta.
-        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict']] upsert_groups: Groups to create or update in Okta.
-        :param pulumi.Input[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict']] upsert_users: Users to create or update in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict', 'outputs.IdentitySourceImportUpsertGroupMemberships']] upsert_group_memberships: Group memberships to create or update in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict', 'outputs.IdentitySourceImportUpsertGroups']] upsert_groups: Groups to create or update in Okta.
+        :param pulumi.Input[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict', 'outputs.IdentitySourceImportUpsertUsers']] upsert_users: Users to create or update in Okta.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

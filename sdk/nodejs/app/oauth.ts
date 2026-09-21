@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
  * // https://github.com/iwarapter/terraform-provider-jwks
  * //
- * const jwksFromKey = jwks.FromKey({
+ * const jwksFromKey = jwks.fromKey({
  *     key: rsa.privateKeyPem,
  *     kid: "my-kid",
  * });

@@ -70,7 +70,7 @@ class AwaitableGetAuthenticatorWebauthnCustomAaguidsResult(GetAuthenticatorWebau
 
 
 def get_authenticator_webauthn_custom_aaguids(authenticator_id: Optional[_builtins.str] = None,
-                                              custom_aaguids: Optional[Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict']]] = None,
+                                              custom_aaguids: Optional[Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict', 'outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidResult']]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthenticatorWebauthnCustomAaguidsResult:
     """
     > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -89,7 +89,7 @@ def get_authenticator_webauthn_custom_aaguids(authenticator_id: Optional[_builti
 
 
     :param _builtins.str authenticator_id: The ID of the WebAuthn authenticator.
-    :param Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict']] custom_aaguids: List of custom AAGUIDs configured for this authenticator. Each element contains:
+    :param Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict', 'outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidResult']] custom_aaguids: List of custom AAGUIDs configured for this authenticator. Each element contains:
     """
     __args__ = dict()
     __args__['authenticatorId'] = authenticator_id
@@ -102,7 +102,7 @@ def get_authenticator_webauthn_custom_aaguids(authenticator_id: Optional[_builti
         custom_aaguids=pulumi.get(__ret__, 'custom_aaguids'),
         id=pulumi.get(__ret__, 'id'))
 def get_authenticator_webauthn_custom_aaguids_output(authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     custom_aaguids: pulumi.Input[Optional[Optional[Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict']]]]] = None,
+                                                     custom_aaguids: pulumi.Input[Optional[Optional[Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict', 'outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidResult']]]]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticatorWebauthnCustomAaguidsResult]:
     """
     > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -121,7 +121,7 @@ def get_authenticator_webauthn_custom_aaguids_output(authenticator_id: pulumi.In
 
 
     :param _builtins.str authenticator_id: The ID of the WebAuthn authenticator.
-    :param Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict']] custom_aaguids: List of custom AAGUIDs configured for this authenticator. Each element contains:
+    :param Sequence[Union['GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgs', 'GetAuthenticatorWebauthnCustomAaguidsCustomAaguidArgsDict', 'outputs.GetAuthenticatorWebauthnCustomAaguidsCustomAaguidResult']] custom_aaguids: List of custom AAGUIDs configured for this authenticator. Each element contains:
     """
     __args__ = dict()
     __args__['authenticatorId'] = authenticator_id

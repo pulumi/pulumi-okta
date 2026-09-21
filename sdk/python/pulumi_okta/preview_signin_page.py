@@ -204,9 +204,9 @@ class PreviewSigninPage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  brand_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict', 'outputs.PreviewSigninPageContentSecurityPolicySetting']]] = None,
                  page_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
+                 widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict', 'outputs.PreviewSigninPageWidgetCustomizations']]] = None,
                  widget_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -382,9 +382,9 @@ class PreviewSigninPage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  brand_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+                 content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict', 'outputs.PreviewSigninPageContentSecurityPolicySetting']]] = None,
                  page_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
+                 widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict', 'outputs.PreviewSigninPageWidgetCustomizations']]] = None,
                  widget_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -417,9 +417,9 @@ class PreviewSigninPage(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             brand_id: pulumi.Input[Optional[_builtins.str]] = None,
-            content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict']]] = None,
+            content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict', 'outputs.PreviewSigninPageContentSecurityPolicySetting']]] = None,
             page_content: pulumi.Input[Optional[_builtins.str]] = None,
-            widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict']]] = None,
+            widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict', 'outputs.PreviewSigninPageWidgetCustomizations']]] = None,
             widget_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'PreviewSigninPage':
         """
         Get an existing PreviewSigninPage resource's state with the given name, id, and optional extra

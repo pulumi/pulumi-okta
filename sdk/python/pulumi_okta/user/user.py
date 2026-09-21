@@ -1591,7 +1591,7 @@ class User(pulumi.CustomResource):
                  old_password: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
+                 password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict', 'outputs.UserPasswordHash']]] = None,
                  password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  postal_address: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1607,7 +1607,7 @@ class User(pulumi.CustomResource):
                  street_address: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
+                 type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict', 'outputs.UserType']]] = None,
                  user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  zip_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1696,7 +1696,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] old_password: Old User Password. Should be only set in case the password was not changed using the provider. fter successful password change this field should be removed and `password` field should be used for further changes.
         :param pulumi.Input[_builtins.str] organization: User organization
         :param pulumi.Input[_builtins.str] password: User Password
-        :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict', 'outputs.UserPasswordHash']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[_builtins.str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[_builtins.str] postal_address: User mailing address
         :param pulumi.Input[_builtins.str] preferred_language: User preferred language
@@ -1712,7 +1712,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
-        :param pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']] type: Specifies a user type other than the default user type
+        :param pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict', 'outputs.UserType']] type: Specifies a user type other than the default user type
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """
@@ -1820,7 +1820,7 @@ class User(pulumi.CustomResource):
                  old_password: pulumi.Input[Optional[_builtins.str]] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
+                 password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict', 'outputs.UserPasswordHash']]] = None,
                  password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  postal_address: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1836,7 +1836,7 @@ class User(pulumi.CustomResource):
                  street_address: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
+                 type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict', 'outputs.UserType']]] = None,
                  user_type: pulumi.Input[Optional[_builtins.str]] = None,
                  zip_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -1949,7 +1949,7 @@ class User(pulumi.CustomResource):
             organization: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
             password_changed: pulumi.Input[Optional[_builtins.str]] = None,
-            password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']]] = None,
+            password_hash: pulumi.Input[Optional[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict', 'outputs.UserPasswordHash']]] = None,
             password_inline_hook: pulumi.Input[Optional[_builtins.str]] = None,
             postal_address: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_language: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1967,7 +1967,7 @@ class User(pulumi.CustomResource):
             street_address: pulumi.Input[Optional[_builtins.str]] = None,
             timezone: pulumi.Input[Optional[_builtins.str]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None,
-            type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict']]] = None,
+            type: pulumi.Input[Optional[Union['UserTypeArgs', 'UserTypeArgsDict', 'outputs.UserType']]] = None,
             user_type: pulumi.Input[Optional[_builtins.str]] = None,
             zip_code: pulumi.Input[Optional[_builtins.str]] = None) -> 'User':
         """
@@ -2007,7 +2007,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] organization: User organization
         :param pulumi.Input[_builtins.str] password: User Password
         :param pulumi.Input[_builtins.str] password_changed: The timestamp when the user's password was last changed
-        :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict']] password_hash: Specifies a hashed password to import into Okta.
+        :param pulumi.Input[Union['UserPasswordHashArgs', 'UserPasswordHashArgsDict', 'outputs.UserPasswordHash']] password_hash: Specifies a hashed password to import into Okta.
         :param pulumi.Input[_builtins.str] password_inline_hook: Specifies that a Password Import Inline Hook should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. When updating a user with a password hook the user must be in the `STAGED` status. The `password` field should not be specified when using Password Import Inline Hook.
         :param pulumi.Input[_builtins.str] postal_address: User mailing address
         :param pulumi.Input[_builtins.str] preferred_language: User preferred language
@@ -2025,7 +2025,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] street_address: User street address
         :param pulumi.Input[_builtins.str] timezone: User default timezone
         :param pulumi.Input[_builtins.str] title: User title
-        :param pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict']] type: Specifies a user type other than the default user type
+        :param pulumi.Input[Union['UserTypeArgs', 'UserTypeArgsDict', 'outputs.UserType']] type: Specifies a user type other than the default user type
         :param pulumi.Input[_builtins.str] user_type: User employee type
         :param pulumi.Input[_builtins.str] zip_code: User zipcode or postal code
         """

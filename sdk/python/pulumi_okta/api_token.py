@@ -237,7 +237,7 @@ class ApiToken(pulumi.CustomResource):
                  created: pulumi.Input[Optional[_builtins.str]] = None,
                  id_property: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict', 'outputs.ApiTokenNetwork']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -283,7 +283,7 @@ class ApiToken(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created: The date and time the API token was created.
         :param pulumi.Input[_builtins.str] id_property: The ID of the API token.
         :param pulumi.Input[_builtins.str] name: The name of the API token.
-        :param pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']] network: The Network Condition of the API Token.
+        :param pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict', 'outputs.ApiTokenNetwork']] network: The Network Condition of the API Token.
         :param pulumi.Input[_builtins.str] user_id: The userId of the user who created the API Token.
         """
         ...
@@ -348,7 +348,7 @@ class ApiToken(pulumi.CustomResource):
                  created: pulumi.Input[Optional[_builtins.str]] = None,
                  id_property: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
+                 network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict', 'outputs.ApiTokenNetwork']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -381,7 +381,7 @@ class ApiToken(pulumi.CustomResource):
             created: pulumi.Input[Optional[_builtins.str]] = None,
             id_property: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']]] = None,
+            network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict', 'outputs.ApiTokenNetwork']]] = None,
             user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiToken':
         """
         Get an existing ApiToken resource's state with the given name, id, and optional extra
@@ -394,7 +394,7 @@ class ApiToken(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created: The date and time the API token was created.
         :param pulumi.Input[_builtins.str] id_property: The ID of the API token.
         :param pulumi.Input[_builtins.str] name: The name of the API token.
-        :param pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict']] network: The Network Condition of the API Token.
+        :param pulumi.Input[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict', 'outputs.ApiTokenNetwork']] network: The Network Condition of the API Token.
         :param pulumi.Input[_builtins.str] user_id: The userId of the user who created the API Token.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

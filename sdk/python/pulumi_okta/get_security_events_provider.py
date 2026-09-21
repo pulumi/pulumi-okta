@@ -109,7 +109,7 @@ class AwaitableGetSecurityEventsProviderResult(GetSecurityEventsProviderResult):
 
 
 def get_security_events_provider(id: Optional[_builtins.str] = None,
-                                 settings: Optional[Union['GetSecurityEventsProviderSettingsArgs', 'GetSecurityEventsProviderSettingsArgsDict']] = None,
+                                 settings: Optional[Union['GetSecurityEventsProviderSettingsArgs', 'GetSecurityEventsProviderSettingsArgsDict', 'outputs.GetSecurityEventsProviderSettingsResult']] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityEventsProviderResult:
     """
     Get information about a Security Events Provider instance for signal ingestion.
@@ -140,7 +140,7 @@ def get_security_events_provider(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_events_provider_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                                        settings: pulumi.Input[Optional[Optional[Union['GetSecurityEventsProviderSettingsArgs', 'GetSecurityEventsProviderSettingsArgsDict']]]] = None,
+                                        settings: pulumi.Input[Optional[Optional[Union['GetSecurityEventsProviderSettingsArgs', 'GetSecurityEventsProviderSettingsArgsDict', 'outputs.GetSecurityEventsProviderSettingsResult']]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityEventsProviderResult]:
     """
     Get information about a Security Events Provider instance for signal ingestion.
