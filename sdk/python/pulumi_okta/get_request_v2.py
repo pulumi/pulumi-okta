@@ -148,9 +148,9 @@ class AwaitableGetRequestV2Result(GetRequestV2Result):
 
 
 def get_request_v2(id: Optional[_builtins.str] = None,
-                   requested: Optional[Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict']] = None,
-                   requested_by: Optional[Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict']] = None,
-                   requested_for: Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict']] = None,
+                   requested: Optional[Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict', 'outputs.GetRequestV2RequestedResult']] = None,
+                   requested_by: Optional[Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict', 'outputs.GetRequestV2RequestedByResult']] = None,
+                   requested_for: Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict', 'outputs.GetRequestV2RequestedForResult']] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequestV2Result:
     """
     Retrieves the full representation of a specific request.
@@ -166,9 +166,9 @@ def get_request_v2(id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str id: The ID of the request.
-    :param Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict'] requested: A representation of a resource that can be requested for access.
-    :param Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict'] requested_by: A representation of a principal.
-    :param Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict'] requested_for: A representation of a principal.
+    :param Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict', 'outputs.GetRequestV2RequestedResult'] requested: A representation of a resource that can be requested for access.
+    :param Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict', 'outputs.GetRequestV2RequestedByResult'] requested_by: A representation of a principal.
+    :param Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict', 'outputs.GetRequestV2RequestedForResult'] requested_for: A representation of a principal.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -189,9 +189,9 @@ def get_request_v2(id: Optional[_builtins.str] = None,
         requested_for=pulumi.get(__ret__, 'requested_for'),
         status=pulumi.get(__ret__, 'status'))
 def get_request_v2_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                          requested: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict']]]] = None,
-                          requested_by: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict']]]] = None,
-                          requested_for: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict']]]] = None,
+                          requested: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict', 'outputs.GetRequestV2RequestedResult']]]] = None,
+                          requested_by: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict', 'outputs.GetRequestV2RequestedByResult']]]] = None,
+                          requested_for: pulumi.Input[Optional[Optional[Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict', 'outputs.GetRequestV2RequestedForResult']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestV2Result]:
     """
     Retrieves the full representation of a specific request.
@@ -207,9 +207,9 @@ def get_request_v2_output(id: pulumi.Input[Optional[_builtins.str]] = None,
 
 
     :param _builtins.str id: The ID of the request.
-    :param Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict'] requested: A representation of a resource that can be requested for access.
-    :param Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict'] requested_by: A representation of a principal.
-    :param Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict'] requested_for: A representation of a principal.
+    :param Union['GetRequestV2RequestedArgs', 'GetRequestV2RequestedArgsDict', 'outputs.GetRequestV2RequestedResult'] requested: A representation of a resource that can be requested for access.
+    :param Union['GetRequestV2RequestedByArgs', 'GetRequestV2RequestedByArgsDict', 'outputs.GetRequestV2RequestedByResult'] requested_by: A representation of a principal.
+    :param Union['GetRequestV2RequestedForArgs', 'GetRequestV2RequestedForArgsDict', 'outputs.GetRequestV2RequestedForResult'] requested_for: A representation of a principal.
     """
     __args__ = dict()
     __args__['id'] = id

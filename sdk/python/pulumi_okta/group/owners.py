@@ -106,7 +106,7 @@ class Owners(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict', 'outputs.OwnersOwner']]]]] = None,
                  __props__=None):
         """
         Manage owners for a group in bulk. Uses the group_id as the resource ID. The resource is authoritative: any owners on the group not declared in configuration will be removed.
@@ -152,7 +152,7 @@ class Owners(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The ID of the Okta group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]] owners: Desired owners for the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict', 'outputs.OwnersOwner']]]] owners: Desired owners for the group.
         """
         ...
     @overload
@@ -217,7 +217,7 @@ class Owners(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None,
+                 owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict', 'outputs.OwnersOwner']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,7 +242,7 @@ class Owners(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group_id: pulumi.Input[Optional[_builtins.str]] = None,
-            owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]]] = None) -> 'Owners':
+            owners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict', 'outputs.OwnersOwner']]]]] = None) -> 'Owners':
         """
         Get an existing Owners resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -251,7 +251,7 @@ class Owners(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The ID of the Okta group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict']]]] owners: Desired owners for the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OwnersOwnerArgs', 'OwnersOwnerArgsDict', 'outputs.OwnersOwner']]]] owners: Desired owners for the group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

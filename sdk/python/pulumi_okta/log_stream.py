@@ -162,7 +162,7 @@ class LogStream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict', 'outputs.LogStreamSettings']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -214,7 +214,7 @@ class LogStream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict']]] = None,
+                 settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict', 'outputs.LogStreamSettings']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -243,7 +243,7 @@ class LogStream(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict']]] = None,
+            settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict', 'outputs.LogStreamSettings']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'LogStream':
         """

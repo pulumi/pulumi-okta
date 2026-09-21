@@ -177,9 +177,9 @@ class AwaitableGetAuthorizationServersPoliciesRuleResult(GetAuthorizationServers
             type=self.type)
 
 
-def get_authorization_servers_policies_rule(actions: Optional[Union['GetAuthorizationServersPoliciesRuleActionsArgs', 'GetAuthorizationServersPoliciesRuleActionsArgsDict']] = None,
+def get_authorization_servers_policies_rule(actions: Optional[Union['GetAuthorizationServersPoliciesRuleActionsArgs', 'GetAuthorizationServersPoliciesRuleActionsArgsDict', 'outputs.GetAuthorizationServersPoliciesRuleActionsResult']] = None,
                                             auth_server_id: Optional[_builtins.str] = None,
-                                            conditions: Optional[Union['GetAuthorizationServersPoliciesRuleConditionsArgs', 'GetAuthorizationServersPoliciesRuleConditionsArgsDict']] = None,
+                                            conditions: Optional[Union['GetAuthorizationServersPoliciesRuleConditionsArgs', 'GetAuthorizationServersPoliciesRuleConditionsArgsDict', 'outputs.GetAuthorizationServersPoliciesRuleConditionsResult']] = None,
                                             id: Optional[_builtins.str] = None,
                                             policy_id: Optional[_builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServersPoliciesRuleResult:
@@ -224,9 +224,9 @@ def get_authorization_servers_policies_rule(actions: Optional[Union['GetAuthoriz
         status=pulumi.get(__ret__, 'status'),
         system=pulumi.get(__ret__, 'system'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorization_servers_policies_rule_output(actions: pulumi.Input[Optional[Optional[Union['GetAuthorizationServersPoliciesRuleActionsArgs', 'GetAuthorizationServersPoliciesRuleActionsArgsDict']]]] = None,
+def get_authorization_servers_policies_rule_output(actions: pulumi.Input[Optional[Optional[Union['GetAuthorizationServersPoliciesRuleActionsArgs', 'GetAuthorizationServersPoliciesRuleActionsArgsDict', 'outputs.GetAuthorizationServersPoliciesRuleActionsResult']]]] = None,
                                                    auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                                   conditions: pulumi.Input[Optional[Optional[Union['GetAuthorizationServersPoliciesRuleConditionsArgs', 'GetAuthorizationServersPoliciesRuleConditionsArgsDict']]]] = None,
+                                                   conditions: pulumi.Input[Optional[Optional[Union['GetAuthorizationServersPoliciesRuleConditionsArgs', 'GetAuthorizationServersPoliciesRuleConditionsArgsDict', 'outputs.GetAuthorizationServersPoliciesRuleConditionsResult']]]] = None,
                                                    id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationServersPoliciesRuleResult]:

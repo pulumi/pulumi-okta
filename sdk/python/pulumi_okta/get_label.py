@@ -88,14 +88,14 @@ class AwaitableGetLabelResult(GetLabelResult):
 
 
 def get_label(id: Optional[_builtins.str] = None,
-              values: Optional[Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict']]] = None,
+              values: Optional[Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict', 'outputs.GetLabelValueResult']]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelResult:
     """
     Retrieves a single label
 
 
     :param _builtins.str id: The ID of the data source.
-    :param Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict']] values: List of label values
+    :param Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict', 'outputs.GetLabelValueResult']] values: List of label values
     """
     __args__ = dict()
     __args__['id'] = id
@@ -109,14 +109,14 @@ def get_label(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         values=pulumi.get(__ret__, 'values'))
 def get_label_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                     values: pulumi.Input[Optional[Optional[Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict']]]]] = None,
+                     values: pulumi.Input[Optional[Optional[Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict', 'outputs.GetLabelValueResult']]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabelResult]:
     """
     Retrieves a single label
 
 
     :param _builtins.str id: The ID of the data source.
-    :param Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict']] values: List of label values
+    :param Sequence[Union['GetLabelValueArgs', 'GetLabelValueArgsDict', 'outputs.GetLabelValueResult']] values: List of label values
     """
     __args__ = dict()
     __args__['id'] = id

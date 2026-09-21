@@ -186,7 +186,7 @@ class Connection(pulumi.CustomResource):
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  base_url: pulumi.Input[Optional[_builtins.str]] = None,
                  id_property: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict', 'outputs.ConnectionProfile']]] = None,
                  __props__=None):
         """
         Manages Okta App Connection configurations for provisioning. This resource allows you to configure and manage provisioning connections for applications, including authentication schemes and connection activation/deactivation.
@@ -261,7 +261,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action: The action to perform on the connection. Valid values are `activate` or `deactivate`.
         :param pulumi.Input[_builtins.str] base_url: The base URL for the provisioning connection.
         :param pulumi.Input[_builtins.str] id_property: The application ID.
-        :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']] profile: Profile configuration for the app connection.
+        :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict', 'outputs.ConnectionProfile']] profile: Profile configuration for the app connection.
         """
         ...
     @overload
@@ -355,7 +355,7 @@ class Connection(pulumi.CustomResource):
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  base_url: pulumi.Input[Optional[_builtins.str]] = None,
                  id_property: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict', 'outputs.ConnectionProfile']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,7 +389,7 @@ class Connection(pulumi.CustomResource):
             action: pulumi.Input[Optional[_builtins.str]] = None,
             base_url: pulumi.Input[Optional[_builtins.str]] = None,
             id_property: pulumi.Input[Optional[_builtins.str]] = None,
-            profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']]] = None,
+            profile: pulumi.Input[Optional[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict', 'outputs.ConnectionProfile']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Connection':
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
@@ -401,7 +401,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action: The action to perform on the connection. Valid values are `activate` or `deactivate`.
         :param pulumi.Input[_builtins.str] base_url: The base URL for the provisioning connection.
         :param pulumi.Input[_builtins.str] id_property: The application ID.
-        :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict']] profile: Profile configuration for the app connection.
+        :param pulumi.Input[Union['ConnectionProfileArgs', 'ConnectionProfileArgsDict', 'outputs.ConnectionProfile']] profile: Profile configuration for the app connection.
         :param pulumi.Input[_builtins.str] status: Provisioning connection status.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

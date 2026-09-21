@@ -170,7 +170,7 @@ class IdentitySourceUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source_user_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict', 'outputs.IdentitySourceUserProfile']]] = None,
                  __props__=None):
         """
         Manages an individual user in an Okta Identity Source. This resource creates or updates a single user record directly in the identity source (without requiring a session), using the external ID as the unique key.
@@ -205,7 +205,7 @@ class IdentitySourceUser(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] identity_source_id: ID of the identity source. Forces replacement when changed.
         :param pulumi.Input[_builtins.str] identity_source_user_id: The external ID of the user in the identity source. Used as the resource identifier. Forces replacement when changed.
-        :param pulumi.Input[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict']] profile: User profile attributes.
+        :param pulumi.Input[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict', 'outputs.IdentitySourceUserProfile']] profile: User profile attributes.
         """
         ...
     @overload
@@ -259,7 +259,7 @@ class IdentitySourceUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source_user_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict', 'outputs.IdentitySourceUserProfile']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -292,7 +292,7 @@ class IdentitySourceUser(pulumi.CustomResource):
             identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
             identity_source_user_id: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated: pulumi.Input[Optional[_builtins.str]] = None,
-            profile: pulumi.Input[Optional[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict']]] = None) -> 'IdentitySourceUser':
+            profile: pulumi.Input[Optional[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict', 'outputs.IdentitySourceUserProfile']]] = None) -> 'IdentitySourceUser':
         """
         Get an existing IdentitySourceUser resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -304,7 +304,7 @@ class IdentitySourceUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] identity_source_id: ID of the identity source. Forces replacement when changed.
         :param pulumi.Input[_builtins.str] identity_source_user_id: The external ID of the user in the identity source. Used as the resource identifier. Forces replacement when changed.
         :param pulumi.Input[_builtins.str] last_updated: Timestamp when the user was last updated in the identity source (RFC3339).
-        :param pulumi.Input[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict']] profile: User profile attributes.
+        :param pulumi.Input[Union['IdentitySourceUserProfileArgs', 'IdentitySourceUserProfileArgsDict', 'outputs.IdentitySourceUserProfile']] profile: User profile attributes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

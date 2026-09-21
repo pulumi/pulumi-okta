@@ -64,7 +64,7 @@ class AwaitableGetThreatInsightSettingsResult(GetThreatInsightSettingsResult):
 
 
 def get_threat_insight_settings(id: Optional[_builtins.str] = None,
-                                items: Optional[Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict']]] = None,
+                                items: Optional[Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict', 'outputs.GetThreatInsightSettingsItemResult']]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThreatInsightSettingsResult:
     """
     Retrieves Okta ThreatInsight Settings.
@@ -80,7 +80,7 @@ def get_threat_insight_settings(id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str id: Unique identifier of the threat*insight*settings.
-    :param Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict']] items: List of ThreatInsight settings.
+    :param Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict', 'outputs.GetThreatInsightSettingsItemResult']] items: List of ThreatInsight settings.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -92,7 +92,7 @@ def get_threat_insight_settings(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         items=pulumi.get(__ret__, 'items'))
 def get_threat_insight_settings_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                       items: pulumi.Input[Optional[Optional[Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict']]]]] = None,
+                                       items: pulumi.Input[Optional[Optional[Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict', 'outputs.GetThreatInsightSettingsItemResult']]]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThreatInsightSettingsResult]:
     """
     Retrieves Okta ThreatInsight Settings.
@@ -108,7 +108,7 @@ def get_threat_insight_settings_output(id: pulumi.Input[Optional[Optional[_built
 
 
     :param _builtins.str id: Unique identifier of the threat*insight*settings.
-    :param Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict']] items: List of ThreatInsight settings.
+    :param Sequence[Union['GetThreatInsightSettingsItemArgs', 'GetThreatInsightSettingsItemArgsDict', 'outputs.GetThreatInsightSettingsItemResult']] items: List of ThreatInsight settings.
     """
     __args__ = dict()
     __args__['id'] = id

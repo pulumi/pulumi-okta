@@ -171,9 +171,9 @@ class AwaitableGetEntitlementBundleResult(GetEntitlementBundleResult):
             target_resource_orn=self.target_resource_orn)
 
 
-def get_entitlement_bundle(entitlements: Optional[Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict']]] = None,
+def get_entitlement_bundle(entitlements: Optional[Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict', 'outputs.GetEntitlementBundleEntitlementResult']]] = None,
                            id: Optional[_builtins.str] = None,
-                           target: Optional[Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict']] = None,
+                           target: Optional[Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict', 'outputs.GetEntitlementBundleTargetResult']] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitlementBundleResult:
     """
     Get the entitlement bundle for the given id.
@@ -188,9 +188,9 @@ def get_entitlement_bundle(entitlements: Optional[Sequence[Union['GetEntitlement
     ```
 
 
-    :param Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict']] entitlements: List of entitlements in the bundle
+    :param Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict', 'outputs.GetEntitlementBundleEntitlementResult']] entitlements: List of entitlements in the bundle
     :param _builtins.str id: The ID of this resource.
-    :param Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict'] target: Representation of a resource
+    :param Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict', 'outputs.GetEntitlementBundleTargetResult'] target: Representation of a resource
     """
     __args__ = dict()
     __args__['entitlements'] = entitlements
@@ -211,9 +211,9 @@ def get_entitlement_bundle(entitlements: Optional[Sequence[Union['GetEntitlement
         status=pulumi.get(__ret__, 'status'),
         target=pulumi.get(__ret__, 'target'),
         target_resource_orn=pulumi.get(__ret__, 'target_resource_orn'))
-def get_entitlement_bundle_output(entitlements: pulumi.Input[Optional[Optional[Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict']]]]] = None,
+def get_entitlement_bundle_output(entitlements: pulumi.Input[Optional[Optional[Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict', 'outputs.GetEntitlementBundleEntitlementResult']]]]] = None,
                                   id: pulumi.Input[Optional[_builtins.str]] = None,
-                                  target: pulumi.Input[Optional[Optional[Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict']]]] = None,
+                                  target: pulumi.Input[Optional[Optional[Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict', 'outputs.GetEntitlementBundleTargetResult']]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitlementBundleResult]:
     """
     Get the entitlement bundle for the given id.
@@ -228,9 +228,9 @@ def get_entitlement_bundle_output(entitlements: pulumi.Input[Optional[Optional[S
     ```
 
 
-    :param Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict']] entitlements: List of entitlements in the bundle
+    :param Sequence[Union['GetEntitlementBundleEntitlementArgs', 'GetEntitlementBundleEntitlementArgsDict', 'outputs.GetEntitlementBundleEntitlementResult']] entitlements: List of entitlements in the bundle
     :param _builtins.str id: The ID of this resource.
-    :param Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict'] target: Representation of a resource
+    :param Union['GetEntitlementBundleTargetArgs', 'GetEntitlementBundleTargetArgsDict', 'outputs.GetEntitlementBundleTargetResult'] target: Representation of a resource
     """
     __args__ = dict()
     __args__['entitlements'] = entitlements

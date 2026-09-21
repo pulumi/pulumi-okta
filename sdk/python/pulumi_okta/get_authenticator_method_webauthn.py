@@ -213,9 +213,9 @@ class AwaitableGetAuthenticatorMethodWebauthnResult(GetAuthenticatorMethodWebaut
             user_verification_for_verify=self.user_verification_for_verify)
 
 
-def get_authenticator_method_webauthn(aaguid_groups: Optional[Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict']]] = None,
+def get_authenticator_method_webauthn(aaguid_groups: Optional[Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.GetAuthenticatorMethodWebauthnAaguidGroupResult']]] = None,
                                       authenticator_id: Optional[_builtins.str] = None,
-                                      rp_id: Optional[Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict']] = None,
+                                      rp_id: Optional[Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.GetAuthenticatorMethodWebauthnRpIdResult']] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthenticatorMethodWebauthnResult:
     """
     > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -233,9 +233,9 @@ def get_authenticator_method_webauthn(aaguid_groups: Optional[Sequence[Union['Ge
     ```
 
 
-    :param Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict']] aaguid_groups: The FIDO2 AAGUID groups. Each element contains:
+    :param Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.GetAuthenticatorMethodWebauthnAaguidGroupResult']] aaguid_groups: The FIDO2 AAGUID groups. Each element contains:
     :param _builtins.str authenticator_id: The ID of the WebAuthn authenticator.
-    :param Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict'] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
+    :param Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.GetAuthenticatorMethodWebauthnRpIdResult'] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
     """
     __args__ = dict()
     __args__['aaguidGroups'] = aaguid_groups
@@ -260,9 +260,9 @@ def get_authenticator_method_webauthn(aaguid_groups: Optional[Sequence[Union['Ge
         status=pulumi.get(__ret__, 'status'),
         user_verification=pulumi.get(__ret__, 'user_verification'),
         user_verification_for_verify=pulumi.get(__ret__, 'user_verification_for_verify'))
-def get_authenticator_method_webauthn_output(aaguid_groups: pulumi.Input[Optional[Optional[Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict']]]]] = None,
+def get_authenticator_method_webauthn_output(aaguid_groups: pulumi.Input[Optional[Optional[Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.GetAuthenticatorMethodWebauthnAaguidGroupResult']]]]] = None,
                                              authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                             rp_id: pulumi.Input[Optional[Optional[Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict']]]] = None,
+                                             rp_id: pulumi.Input[Optional[Optional[Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.GetAuthenticatorMethodWebauthnRpIdResult']]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticatorMethodWebauthnResult]:
     """
     > **WARNING:** This feature is only available as a part of the Identity Engine. Contact support for further information.
@@ -280,9 +280,9 @@ def get_authenticator_method_webauthn_output(aaguid_groups: pulumi.Input[Optiona
     ```
 
 
-    :param Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict']] aaguid_groups: The FIDO2 AAGUID groups. Each element contains:
+    :param Sequence[Union['GetAuthenticatorMethodWebauthnAaguidGroupArgs', 'GetAuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.GetAuthenticatorMethodWebauthnAaguidGroupResult']] aaguid_groups: The FIDO2 AAGUID groups. Each element contains:
     :param _builtins.str authenticator_id: The ID of the WebAuthn authenticator.
-    :param Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict'] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
+    :param Union['GetAuthenticatorMethodWebauthnRpIdArgs', 'GetAuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.GetAuthenticatorMethodWebauthnRpIdResult'] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
     """
     __args__ = dict()
     __args__['aaguidGroups'] = aaguid_groups

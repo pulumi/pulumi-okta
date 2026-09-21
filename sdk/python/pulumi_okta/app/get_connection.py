@@ -102,7 +102,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
 def get_connection(auth_scheme: Optional[_builtins.str] = None,
                    base_url: Optional[_builtins.str] = None,
                    id: Optional[_builtins.str] = None,
-                   profile: Optional[Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict']] = None,
+                   profile: Optional[Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict', 'outputs.GetConnectionProfileResult']] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     Retrieves the default provisioning connection for an app.
@@ -123,7 +123,7 @@ def get_connection(auth_scheme: Optional[_builtins.str] = None,
     :param _builtins.str auth_scheme: A token is used to authenticate with the app. This property is only returned for the TOKEN authentication scheme.
     :param _builtins.str base_url: The base URL for the provisioning connection.
     :param _builtins.str id: The application ID for which to retrieve the provisioning connection information.
-    :param Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict'] profile: Profile information for the app connection.
+    :param Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict', 'outputs.GetConnectionProfileResult'] profile: Profile information for the app connection.
     """
     __args__ = dict()
     __args__['authScheme'] = auth_scheme
@@ -142,7 +142,7 @@ def get_connection(auth_scheme: Optional[_builtins.str] = None,
 def get_connection_output(auth_scheme: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           base_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           id: pulumi.Input[Optional[_builtins.str]] = None,
-                          profile: pulumi.Input[Optional[Optional[Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict']]]] = None,
+                          profile: pulumi.Input[Optional[Optional[Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict', 'outputs.GetConnectionProfileResult']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieves the default provisioning connection for an app.
@@ -163,7 +163,7 @@ def get_connection_output(auth_scheme: pulumi.Input[Optional[Optional[_builtins.
     :param _builtins.str auth_scheme: A token is used to authenticate with the app. This property is only returned for the TOKEN authentication scheme.
     :param _builtins.str base_url: The base URL for the provisioning connection.
     :param _builtins.str id: The application ID for which to retrieve the provisioning connection information.
-    :param Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict'] profile: Profile information for the app connection.
+    :param Union['GetConnectionProfileArgs', 'GetConnectionProfileArgsDict', 'outputs.GetConnectionProfileResult'] profile: Profile information for the app connection.
     """
     __args__ = dict()
     __args__['authScheme'] = auth_scheme

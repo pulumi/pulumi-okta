@@ -247,7 +247,7 @@ class EventHook(pulumi.CustomResource):
                  auth: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  channel: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict']]]]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict', 'outputs.EventHookHeader']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -293,7 +293,7 @@ class EventHook(pulumi.CustomResource):
                	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] channel: Details of the endpoint the event hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict']]]] headers: Map of headers to send along in event hook request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict', 'outputs.EventHookHeader']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[_builtins.str] name: The event hook display name.
         :param pulumi.Input[_builtins.str] status: Default to `ACTIVE`
         """
@@ -355,7 +355,7 @@ class EventHook(pulumi.CustomResource):
                  auth: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  channel: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict']]]]] = None,
+                 headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict', 'outputs.EventHookHeader']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -390,7 +390,7 @@ class EventHook(pulumi.CustomResource):
             auth: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             channel: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict']]]]] = None,
+            headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict', 'outputs.EventHookHeader']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventHook':
         """
@@ -406,7 +406,7 @@ class EventHook(pulumi.CustomResource):
                	- 'type' - (Optional) The type of hook to trigger. Currently, the only supported type is 'HTTP'.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] channel: Details of the endpoint the event hook will hit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: The events that will be delivered to this hook. [See here for a list of supported events](https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict']]]] headers: Map of headers to send along in event hook request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict', 'outputs.EventHookHeader']]]] headers: Map of headers to send along in event hook request.
         :param pulumi.Input[_builtins.str] name: The event hook display name.
         :param pulumi.Input[_builtins.str] status: Default to `ACTIVE`
         """

@@ -320,7 +320,7 @@ class EmailDomain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             brand_id: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            dns_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict']]]]] = None,
+            dns_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict', 'outputs.EmailDomainDnsValidationRecord']]]]] = None,
             domain: pulumi.Input[Optional[_builtins.str]] = None,
             user_name: pulumi.Input[Optional[_builtins.str]] = None,
             validation_status: pulumi.Input[Optional[_builtins.str]] = None) -> 'EmailDomain':
@@ -333,7 +333,7 @@ class EmailDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] brand_id: Brand id of the email domain.
         :param pulumi.Input[_builtins.str] display_name: Display name of the email domain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict']]]] dns_validation_records: TXT and cname records to be registered for the email Domain
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict', 'outputs.EmailDomainDnsValidationRecord']]]] dns_validation_records: TXT and cname records to be registered for the email Domain
         :param pulumi.Input[_builtins.str] domain: Mail domain to send from.
         :param pulumi.Input[_builtins.str] user_name: User name of the email domain.
         :param pulumi.Input[_builtins.str] validation_status: Status of the email domain. Values: NOT*STARTED, IN*PROGRESS, VERIFIED, COMPLETED

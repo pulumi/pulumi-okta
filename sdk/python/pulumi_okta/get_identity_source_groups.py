@@ -87,7 +87,7 @@ class AwaitableGetIdentitySourceGroupsResult(GetIdentitySourceGroupsResult):
 def get_identity_source_groups(external_id: Optional[_builtins.str] = None,
                                id: Optional[_builtins.str] = None,
                                identity_source_id: Optional[_builtins.str] = None,
-                               profile: Optional[Union['GetIdentitySourceGroupsProfileArgs', 'GetIdentitySourceGroupsProfileArgsDict']] = None,
+                               profile: Optional[Union['GetIdentitySourceGroupsProfileArgs', 'GetIdentitySourceGroupsProfileArgsDict', 'outputs.GetIdentitySourceGroupsProfileResult']] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentitySourceGroupsResult:
     """
     Retrieves a group record from an Okta Identity Source by external ID.
@@ -125,7 +125,7 @@ def get_identity_source_groups(external_id: Optional[_builtins.str] = None,
 def get_identity_source_groups_output(external_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                      profile: pulumi.Input[Optional[Optional[Union['GetIdentitySourceGroupsProfileArgs', 'GetIdentitySourceGroupsProfileArgsDict']]]] = None,
+                                      profile: pulumi.Input[Optional[Optional[Union['GetIdentitySourceGroupsProfileArgs', 'GetIdentitySourceGroupsProfileArgsDict', 'outputs.GetIdentitySourceGroupsProfileResult']]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentitySourceGroupsResult]:
     """
     Retrieves a group record from an Okta Identity Source by external ID.

@@ -58,7 +58,7 @@ class AwaitableGetIamAssigneesUserResult(GetIamAssigneesUserResult):
 
 
 def get_iam_assignees_user(id: Optional[_builtins.str] = None,
-                           items: Optional[Sequence[Union['GetIamAssigneesUserItemArgs', 'GetIamAssigneesUserItemArgsDict']]] = None,
+                           items: Optional[Sequence[Union['GetIamAssigneesUserItemArgs', 'GetIamAssigneesUserItemArgsDict', 'outputs.GetIamAssigneesUserItemResult']]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIamAssigneesUserResult:
     """
     Use this data source to list all Okta users that have IAM role assignments.
@@ -82,7 +82,7 @@ def get_iam_assignees_user(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         items=pulumi.get(__ret__, 'items'))
 def get_iam_assignees_user_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                  items: pulumi.Input[Optional[Optional[Sequence[Union['GetIamAssigneesUserItemArgs', 'GetIamAssigneesUserItemArgsDict']]]]] = None,
+                                  items: pulumi.Input[Optional[Optional[Sequence[Union['GetIamAssigneesUserItemArgs', 'GetIamAssigneesUserItemArgsDict', 'outputs.GetIamAssigneesUserItemResult']]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamAssigneesUserResult]:
     """
     Use this data source to list all Okta users that have IAM role assignments.

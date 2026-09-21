@@ -106,7 +106,7 @@ class SignonPolicyRules(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict', 'outputs.SignonPolicyRulesRule']]]]] = None,
                  __props__=None):
         """
         ## # app.SignonPolicyRules
@@ -301,7 +301,7 @@ class SignonPolicyRules(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy to manage rules for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]] rules: List of policy rules. Rules are processed in priority order (lowest number = highest priority).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict', 'outputs.SignonPolicyRulesRule']]]] rules: List of policy rules. Rules are processed in priority order (lowest number = highest priority).
         """
         ...
     @overload
@@ -515,7 +515,7 @@ class SignonPolicyRules(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict', 'outputs.SignonPolicyRulesRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -540,7 +540,7 @@ class SignonPolicyRules(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]]] = None) -> 'SignonPolicyRules':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict', 'outputs.SignonPolicyRulesRule']]]]] = None) -> 'SignonPolicyRules':
         """
         Get an existing SignonPolicyRules resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -549,7 +549,7 @@ class SignonPolicyRules(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy to manage rules for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict']]]] rules: List of policy rules. Rules are processed in priority order (lowest number = highest priority).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SignonPolicyRulesRuleArgs', 'SignonPolicyRulesRuleArgsDict', 'outputs.SignonPolicyRulesRule']]]] rules: List of policy rules. Rules are processed in priority order (lowest number = highest priority).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

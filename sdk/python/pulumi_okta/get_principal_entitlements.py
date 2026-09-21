@@ -87,9 +87,9 @@ class AwaitableGetPrincipalEntitlementsResult(GetPrincipalEntitlementsResult):
             target_principal=self.target_principal)
 
 
-def get_principal_entitlements(datas: Optional[Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict']]] = None,
-                               parent: Optional[Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict']] = None,
-                               target_principal: Optional[Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict']] = None,
+def get_principal_entitlements(datas: Optional[Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict', 'outputs.GetPrincipalEntitlementsDataResult']]] = None,
+                               parent: Optional[Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict', 'outputs.GetPrincipalEntitlementsParentResult']] = None,
+                               target_principal: Optional[Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict', 'outputs.GetPrincipalEntitlementsTargetPrincipalResult']] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrincipalEntitlementsResult:
     """
     Get the entitlements for a user and resource after evaluating all grants.
@@ -151,9 +151,9 @@ def get_principal_entitlements(datas: Optional[Sequence[Union['GetPrincipalEntit
     - `name` (String) The name of the value.
 
 
-    :param Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict']] datas: Principal entitlements list.
-    :param Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict'] parent: Representation of a resource.
-    :param Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict'] target_principal: Representation of a principal.
+    :param Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict', 'outputs.GetPrincipalEntitlementsDataResult']] datas: Principal entitlements list.
+    :param Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict', 'outputs.GetPrincipalEntitlementsParentResult'] parent: Representation of a resource.
+    :param Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict', 'outputs.GetPrincipalEntitlementsTargetPrincipalResult'] target_principal: Representation of a principal.
     """
     __args__ = dict()
     __args__['datas'] = datas
@@ -167,9 +167,9 @@ def get_principal_entitlements(datas: Optional[Sequence[Union['GetPrincipalEntit
         id=pulumi.get(__ret__, 'id'),
         parent=pulumi.get(__ret__, 'parent'),
         target_principal=pulumi.get(__ret__, 'target_principal'))
-def get_principal_entitlements_output(datas: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict']]]]] = None,
-                                      parent: pulumi.Input[Optional[Optional[Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict']]]] = None,
-                                      target_principal: pulumi.Input[Optional[Optional[Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict']]]] = None,
+def get_principal_entitlements_output(datas: pulumi.Input[Optional[Optional[Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict', 'outputs.GetPrincipalEntitlementsDataResult']]]]] = None,
+                                      parent: pulumi.Input[Optional[Optional[Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict', 'outputs.GetPrincipalEntitlementsParentResult']]]] = None,
+                                      target_principal: pulumi.Input[Optional[Optional[Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict', 'outputs.GetPrincipalEntitlementsTargetPrincipalResult']]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalEntitlementsResult]:
     """
     Get the entitlements for a user and resource after evaluating all grants.
@@ -231,9 +231,9 @@ def get_principal_entitlements_output(datas: pulumi.Input[Optional[Optional[Sequ
     - `name` (String) The name of the value.
 
 
-    :param Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict']] datas: Principal entitlements list.
-    :param Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict'] parent: Representation of a resource.
-    :param Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict'] target_principal: Representation of a principal.
+    :param Sequence[Union['GetPrincipalEntitlementsDataArgs', 'GetPrincipalEntitlementsDataArgsDict', 'outputs.GetPrincipalEntitlementsDataResult']] datas: Principal entitlements list.
+    :param Union['GetPrincipalEntitlementsParentArgs', 'GetPrincipalEntitlementsParentArgsDict', 'outputs.GetPrincipalEntitlementsParentResult'] parent: Representation of a resource.
+    :param Union['GetPrincipalEntitlementsTargetPrincipalArgs', 'GetPrincipalEntitlementsTargetPrincipalArgsDict', 'outputs.GetPrincipalEntitlementsTargetPrincipalResult'] target_principal: Representation of a principal.
     """
     __args__ = dict()
     __args__['datas'] = datas

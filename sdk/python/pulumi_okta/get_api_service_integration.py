@@ -102,7 +102,7 @@ class AwaitableGetApiServiceIntegrationResult(GetApiServiceIntegrationResult):
             type=self.type)
 
 
-def get_api_service_integration(granted_scopes: Optional[Sequence[Union['GetApiServiceIntegrationGrantedScopeArgs', 'GetApiServiceIntegrationGrantedScopeArgsDict']]] = None,
+def get_api_service_integration(granted_scopes: Optional[Sequence[Union['GetApiServiceIntegrationGrantedScopeArgs', 'GetApiServiceIntegrationGrantedScopeArgsDict', 'outputs.GetApiServiceIntegrationGrantedScopeResult']]] = None,
                                 id: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiServiceIntegrationResult:
     """
@@ -144,7 +144,7 @@ def get_api_service_integration(granted_scopes: Optional[Sequence[Union['GetApiS
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_service_integration_output(granted_scopes: pulumi.Input[Optional[Optional[Sequence[Union['GetApiServiceIntegrationGrantedScopeArgs', 'GetApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+def get_api_service_integration_output(granted_scopes: pulumi.Input[Optional[Optional[Sequence[Union['GetApiServiceIntegrationGrantedScopeArgs', 'GetApiServiceIntegrationGrantedScopeArgsDict', 'outputs.GetApiServiceIntegrationGrantedScopeResult']]]]] = None,
                                        id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiServiceIntegrationResult]:
     """

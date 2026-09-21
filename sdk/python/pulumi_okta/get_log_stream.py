@@ -98,7 +98,7 @@ class AwaitableGetLogStreamResult(GetLogStreamResult):
 
 def get_log_stream(id: Optional[_builtins.str] = None,
                    name: Optional[_builtins.str] = None,
-                   settings: Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict']] = None,
+                   settings: Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict', 'outputs.GetLogStreamSettingsResult']] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogStreamResult:
     """
     Log Streams
@@ -122,7 +122,7 @@ def get_log_stream(id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_log_stream_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                          settings: pulumi.Input[Optional[Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict']]]] = None,
+                          settings: pulumi.Input[Optional[Optional[Union['GetLogStreamSettingsArgs', 'GetLogStreamSettingsArgsDict', 'outputs.GetLogStreamSettingsResult']]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogStreamResult]:
     """
     Log Streams

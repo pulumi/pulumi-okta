@@ -162,7 +162,7 @@ class AwaitableGetDeviceAssurancePolicyResult(GetDeviceAssurancePolicyResult):
 def get_device_assurance_policy(id: Optional[_builtins.str] = None,
                                 name: Optional[_builtins.str] = None,
                                 secure_hardware_present: Optional[_builtins.bool] = None,
-                                third_party_signal_provider: Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict']] = None,
+                                third_party_signal_provider: Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict', 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderResult']] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceAssurancePolicyResult:
     """
     Get a policy assurance from Okta.
@@ -171,7 +171,7 @@ def get_device_assurance_policy(id: Optional[_builtins.str] = None,
     :param _builtins.str id: ID of the user type to retrieve, conflicts with `name`.
     :param _builtins.str name: Name of user type to retrieve, conflicts with `id`.
     :param _builtins.bool secure_hardware_present: Indicates if the device contains a secure hardware functionality
-    :param Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict'] third_party_signal_provider: Indicates if the device contains a secure hardware functionality
+    :param Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict', 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderResult'] third_party_signal_provider: Indicates if the device contains a secure hardware functionality
     """
     __args__ = dict()
     __args__['id'] = id
@@ -195,7 +195,7 @@ def get_device_assurance_policy(id: Optional[_builtins.str] = None,
 def get_device_assurance_policy_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        secure_hardware_present: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                       third_party_signal_provider: pulumi.Input[Optional[Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict']]]] = None,
+                                       third_party_signal_provider: pulumi.Input[Optional[Optional[Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict', 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderResult']]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceAssurancePolicyResult]:
     """
     Get a policy assurance from Okta.
@@ -204,7 +204,7 @@ def get_device_assurance_policy_output(id: pulumi.Input[Optional[Optional[_built
     :param _builtins.str id: ID of the user type to retrieve, conflicts with `name`.
     :param _builtins.str name: Name of user type to retrieve, conflicts with `id`.
     :param _builtins.bool secure_hardware_present: Indicates if the device contains a secure hardware functionality
-    :param Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict'] third_party_signal_provider: Indicates if the device contains a secure hardware functionality
+    :param Union['GetDeviceAssurancePolicyThirdPartySignalProviderArgs', 'GetDeviceAssurancePolicyThirdPartySignalProviderArgsDict', 'outputs.GetDeviceAssurancePolicyThirdPartySignalProviderResult'] third_party_signal_provider: Indicates if the device contains a secure hardware functionality
     """
     __args__ = dict()
     __args__['id'] = id

@@ -235,7 +235,7 @@ class Origin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict', 'outputs.OriginScope']]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -266,7 +266,7 @@ class Origin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Unique name for the trusted origin
         :param pulumi.Input[_builtins.str] origin: Unique origin URL for the trusted origin.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]] scopes: Array of scope types that this trusted origin is used for
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict', 'outputs.OriginScope']]]] scopes: Array of scope types that this trusted origin is used for
         :param pulumi.Input[_builtins.str] status: Status of the trusted origin. Values: ACTIVE, INACTIVE
         """
         ...
@@ -316,7 +316,7 @@ class Origin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict', 'outputs.OriginScope']]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -353,7 +353,7 @@ class Origin(pulumi.CustomResource):
             last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             origin: pulumi.Input[Optional[_builtins.str]] = None,
-            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict', 'outputs.OriginScope']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Origin':
         """
         Get an existing Origin resource's state with the given name, id, and optional extra
@@ -368,7 +368,7 @@ class Origin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_updated_by: The ID of the user who last updated the trusted origin
         :param pulumi.Input[_builtins.str] name: Unique name for the trusted origin
         :param pulumi.Input[_builtins.str] origin: Unique origin URL for the trusted origin.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict']]]] scopes: Array of scope types that this trusted origin is used for
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict', 'outputs.OriginScope']]]] scopes: Array of scope types that this trusted origin is used for
         :param pulumi.Input[_builtins.str] status: Status of the trusted origin. Values: ACTIVE, INACTIVE
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

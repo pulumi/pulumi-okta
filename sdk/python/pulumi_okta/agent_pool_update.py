@@ -442,7 +442,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
+                 agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict', 'outputs.AgentPoolUpdateAgent']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -450,7 +450,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
                  notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  reason: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict', 'outputs.AgentPoolUpdateSchedule']]] = None,
                  sort_order: pulumi.Input[Optional[_builtins.int]] = None,
                  target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -490,7 +490,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_type: Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]] agents: The agents associated with the agent pool update.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict', 'outputs.AgentPoolUpdateAgent']]]] agents: The agents associated with the agent pool update.
         :param pulumi.Input[_builtins.str] description: The description of the agent pool update.
         :param pulumi.Input[_builtins.bool] enabled: Whether auto-update is enabled for the agent pool.
         :param pulumi.Input[_builtins.str] name: The name of the agent pool update.
@@ -498,7 +498,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] notify_on_completion: Whether to send notifications when the update completes.
         :param pulumi.Input[_builtins.str] pool_id: The unique identifier of the agent pool to update.
         :param pulumi.Input[_builtins.str] reason: Reason for the update.
-        :param pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']] schedule: The schedule configuration for the agent pool update.
+        :param pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict', 'outputs.AgentPoolUpdateSchedule']] schedule: The schedule configuration for the agent pool update.
         :param pulumi.Input[_builtins.int] sort_order: Specifies the sort order.
         :param pulumi.Input[_builtins.str] target_version: The agent version to update to.
         """
@@ -557,7 +557,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
+                 agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict', 'outputs.AgentPoolUpdateAgent']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -565,7 +565,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
                  notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
                  pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  reason: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict', 'outputs.AgentPoolUpdateSchedule']]] = None,
                  sort_order: pulumi.Input[Optional[_builtins.int]] = None,
                  target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -603,7 +603,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_type: pulumi.Input[Optional[_builtins.str]] = None,
-            agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]]] = None,
+            agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict', 'outputs.AgentPoolUpdateAgent']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -611,7 +611,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
             notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
             pool_id: pulumi.Input[Optional[_builtins.str]] = None,
             reason: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']]] = None,
+            schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict', 'outputs.AgentPoolUpdateSchedule']]] = None,
             sort_order: pulumi.Input[Optional[_builtins.int]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             target_version: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentPoolUpdate':
@@ -623,7 +623,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_type: Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict']]]] agents: The agents associated with the agent pool update.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict', 'outputs.AgentPoolUpdateAgent']]]] agents: The agents associated with the agent pool update.
         :param pulumi.Input[_builtins.str] description: The description of the agent pool update.
         :param pulumi.Input[_builtins.bool] enabled: Whether auto-update is enabled for the agent pool.
         :param pulumi.Input[_builtins.str] name: The name of the agent pool update.
@@ -631,7 +631,7 @@ class AgentPoolUpdate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] notify_on_completion: Whether to send notifications when the update completes.
         :param pulumi.Input[_builtins.str] pool_id: The unique identifier of the agent pool to update.
         :param pulumi.Input[_builtins.str] reason: Reason for the update.
-        :param pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict']] schedule: The schedule configuration for the agent pool update.
+        :param pulumi.Input[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict', 'outputs.AgentPoolUpdateSchedule']] schedule: The schedule configuration for the agent pool update.
         :param pulumi.Input[_builtins.int] sort_order: Specifies the sort order.
         :param pulumi.Input[_builtins.str] status: The status of the agent pool update (e.g., Scheduled, InProgress, Completed, Failed).
         :param pulumi.Input[_builtins.str] target_version: The agent version to update to.

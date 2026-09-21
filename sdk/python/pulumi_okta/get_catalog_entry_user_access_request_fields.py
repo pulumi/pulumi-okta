@@ -81,7 +81,7 @@ class AwaitableGetCatalogEntryUserAccessRequestFieldsResult(GetCatalogEntryUserA
             user_id=self.user_id)
 
 
-def get_catalog_entry_user_access_request_fields(datas: Optional[Sequence[Union['GetCatalogEntryUserAccessRequestFieldsDataArgs', 'GetCatalogEntryUserAccessRequestFieldsDataArgsDict']]] = None,
+def get_catalog_entry_user_access_request_fields(datas: Optional[Sequence[Union['GetCatalogEntryUserAccessRequestFieldsDataArgs', 'GetCatalogEntryUserAccessRequestFieldsDataArgsDict', 'outputs.GetCatalogEntryUserAccessRequestFieldsDataResult']]] = None,
                                                  entry_id: Optional[_builtins.str] = None,
                                                  user_id: Optional[_builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogEntryUserAccessRequestFieldsResult:
@@ -113,7 +113,7 @@ def get_catalog_entry_user_access_request_fields(datas: Optional[Sequence[Union[
         entry_id=pulumi.get(__ret__, 'entry_id'),
         id=pulumi.get(__ret__, 'id'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_catalog_entry_user_access_request_fields_output(datas: pulumi.Input[Optional[Optional[Sequence[Union['GetCatalogEntryUserAccessRequestFieldsDataArgs', 'GetCatalogEntryUserAccessRequestFieldsDataArgsDict']]]]] = None,
+def get_catalog_entry_user_access_request_fields_output(datas: pulumi.Input[Optional[Optional[Sequence[Union['GetCatalogEntryUserAccessRequestFieldsDataArgs', 'GetCatalogEntryUserAccessRequestFieldsDataArgsDict', 'outputs.GetCatalogEntryUserAccessRequestFieldsDataResult']]]]] = None,
                                                         entry_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                         user_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogEntryUserAccessRequestFieldsResult]:

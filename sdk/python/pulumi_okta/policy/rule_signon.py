@@ -841,7 +841,7 @@ class RuleSignon(pulumi.CustomResource):
                  access: pulumi.Input[Optional[_builtins.str]] = None,
                  authtype: pulumi.Input[Optional[_builtins.str]] = None,
                  behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
+                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict', 'outputs.RuleSignonFactorSequence']]]]] = None,
                  identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
@@ -956,7 +956,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict', 'outputs.RuleSignonFactorSequence']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
                	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
                	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
                	- 'secondary_criteria' - (Optional) Additional authentication steps.
@@ -1095,7 +1095,7 @@ class RuleSignon(pulumi.CustomResource):
                  access: pulumi.Input[Optional[_builtins.str]] = None,
                  authtype: pulumi.Input[Optional[_builtins.str]] = None,
                  behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
+                 factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict', 'outputs.RuleSignonFactorSequence']]]]] = None,
                  identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1162,7 +1162,7 @@ class RuleSignon(pulumi.CustomResource):
             access: pulumi.Input[Optional[_builtins.str]] = None,
             authtype: pulumi.Input[Optional[_builtins.str]] = None,
             behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]]] = None,
+            factor_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict', 'outputs.RuleSignonFactorSequence']]]]] = None,
             identity_provider: pulumi.Input[Optional[_builtins.str]] = None,
             identity_provider_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             mfa_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1193,7 +1193,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access: Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
         :param pulumi.Input[_builtins.str] authtype: Authentication entrypoint: `ANY`, `RADIUS` or `LDAP_INTERFACE`. Default: `ANY`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] behaviors: List of behavior IDs
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSignonFactorSequenceArgs', 'RuleSignonFactorSequenceArgsDict', 'outputs.RuleSignonFactorSequence']]]] factor_sequences: Auth factor sequences. Should be set if 'access = "CHALLENGE"'.
                	- 'primary_criteria_provider' - (Required) Primary provider of the auth section.
                	- 'primary_criteria_factor_type' - (Required) Primary factor type of the auth section.
                	- 'secondary_criteria' - (Optional) Additional authentication steps.

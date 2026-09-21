@@ -123,7 +123,7 @@ class Label(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict']]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict', 'outputs.LabelValue']]]]] = None,
                  __props__=None):
         """
         Manages an Label resource.
@@ -132,7 +132,7 @@ class Label(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Key name of the label
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict']]]] values: List of label values
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict', 'outputs.LabelValue']]]] values: List of label values
         """
         ...
     @overload
@@ -160,7 +160,7 @@ class Label(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict']]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict', 'outputs.LabelValue']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -185,7 +185,7 @@ class Label(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             label_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict']]]]] = None) -> 'Label':
+            values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict', 'outputs.LabelValue']]]]] = None) -> 'Label':
         """
         Get an existing Label resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -195,7 +195,7 @@ class Label(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] label_id: The ID of a label
         :param pulumi.Input[_builtins.str] name: Key name of the label
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict']]]] values: List of label values
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LabelValueArgs', 'LabelValueArgsDict', 'outputs.LabelValue']]]] values: List of label values
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

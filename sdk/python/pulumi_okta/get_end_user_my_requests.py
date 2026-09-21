@@ -224,11 +224,11 @@ class AwaitableGetEndUserMyRequestsResult(GetEndUserMyRequestsResult):
 
 def get_end_user_my_requests(entry_id: Optional[_builtins.str] = None,
                              id: Optional[_builtins.str] = None,
-                             requested: Optional[Union['GetEndUserMyRequestsRequestedArgs', 'GetEndUserMyRequestsRequestedArgsDict']] = None,
-                             requested_by: Optional[Union['GetEndUserMyRequestsRequestedByArgs', 'GetEndUserMyRequestsRequestedByArgsDict']] = None,
-                             requested_for: Optional[Union['GetEndUserMyRequestsRequestedForArgs', 'GetEndUserMyRequestsRequestedForArgsDict']] = None,
-                             requester_field_values: Optional[Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict']]] = None,
-                             risk_assessment: Optional[Union['GetEndUserMyRequestsRiskAssessmentArgs', 'GetEndUserMyRequestsRiskAssessmentArgsDict']] = None,
+                             requested: Optional[Union['GetEndUserMyRequestsRequestedArgs', 'GetEndUserMyRequestsRequestedArgsDict', 'outputs.GetEndUserMyRequestsRequestedResult']] = None,
+                             requested_by: Optional[Union['GetEndUserMyRequestsRequestedByArgs', 'GetEndUserMyRequestsRequestedByArgsDict', 'outputs.GetEndUserMyRequestsRequestedByResult']] = None,
+                             requested_for: Optional[Union['GetEndUserMyRequestsRequestedForArgs', 'GetEndUserMyRequestsRequestedForArgsDict', 'outputs.GetEndUserMyRequestsRequestedForResult']] = None,
+                             requester_field_values: Optional[Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.GetEndUserMyRequestsRequesterFieldValueResult']]] = None,
+                             risk_assessment: Optional[Union['GetEndUserMyRequestsRiskAssessmentArgs', 'GetEndUserMyRequestsRiskAssessmentArgsDict', 'outputs.GetEndUserMyRequestsRiskAssessmentResult']] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndUserMyRequestsResult:
     """
     Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
@@ -281,7 +281,7 @@ def get_end_user_my_requests(entry_id: Optional[_builtins.str] = None,
 
     :param _builtins.str entry_id: The ID of the catalog entry for which the request was made.
     :param _builtins.str id: The ID of the request to retrieve.
-    :param Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict']] requester_field_values: The requester input fields and their values from the request.
+    :param Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.GetEndUserMyRequestsRequesterFieldValueResult']] requester_field_values: The requester input fields and their values from the request.
     """
     __args__ = dict()
     __args__['entryId'] = entry_id
@@ -316,11 +316,11 @@ def get_end_user_my_requests(entry_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_end_user_my_requests_output(entry_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     id: pulumi.Input[Optional[_builtins.str]] = None,
-                                    requested: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedArgs', 'GetEndUserMyRequestsRequestedArgsDict']]]] = None,
-                                    requested_by: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedByArgs', 'GetEndUserMyRequestsRequestedByArgsDict']]]] = None,
-                                    requested_for: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedForArgs', 'GetEndUserMyRequestsRequestedForArgsDict']]]] = None,
-                                    requester_field_values: pulumi.Input[Optional[Optional[Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict']]]]] = None,
-                                    risk_assessment: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRiskAssessmentArgs', 'GetEndUserMyRequestsRiskAssessmentArgsDict']]]] = None,
+                                    requested: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedArgs', 'GetEndUserMyRequestsRequestedArgsDict', 'outputs.GetEndUserMyRequestsRequestedResult']]]] = None,
+                                    requested_by: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedByArgs', 'GetEndUserMyRequestsRequestedByArgsDict', 'outputs.GetEndUserMyRequestsRequestedByResult']]]] = None,
+                                    requested_for: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRequestedForArgs', 'GetEndUserMyRequestsRequestedForArgsDict', 'outputs.GetEndUserMyRequestsRequestedForResult']]]] = None,
+                                    requester_field_values: pulumi.Input[Optional[Optional[Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.GetEndUserMyRequestsRequesterFieldValueResult']]]]] = None,
+                                    risk_assessment: pulumi.Input[Optional[Optional[Union['GetEndUserMyRequestsRiskAssessmentArgs', 'GetEndUserMyRequestsRiskAssessmentArgsDict', 'outputs.GetEndUserMyRequestsRiskAssessmentResult']]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndUserMyRequestsResult]:
     """
     Get an End User Request from Okta Identity Governance. This data source allows you to retrieve information about existing access requests in the Okta Identity Governance system.
@@ -373,7 +373,7 @@ def get_end_user_my_requests_output(entry_id: pulumi.Input[Optional[_builtins.st
 
     :param _builtins.str entry_id: The ID of the catalog entry for which the request was made.
     :param _builtins.str id: The ID of the request to retrieve.
-    :param Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict']] requester_field_values: The requester input fields and their values from the request.
+    :param Sequence[Union['GetEndUserMyRequestsRequesterFieldValueArgs', 'GetEndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.GetEndUserMyRequestsRequesterFieldValueResult']] requester_field_values: The requester input fields and their values from the request.
     """
     __args__ = dict()
     __args__['entryId'] = entry_id

@@ -324,10 +324,10 @@ class Entitlement(pulumi.CustomResource):
                  external_value: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
+                 parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict', 'outputs.EntitlementParent']]] = None,
                  parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict', 'outputs.EntitlementValue']]]]] = None,
                  __props__=None):
         """
         Manages Entitlement. This resource allows you to create and configure an Okta [Entitlement](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Entitlements/).
@@ -355,7 +355,7 @@ class Entitlement(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] external_value: The value of an entitlement property.
         :param pulumi.Input[_builtins.bool] multi_value: The property that determines if the entitlement property can hold multiple values.
         :param pulumi.Input[_builtins.str] name: The display name for an entitlement property.
-        :param pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']] parent: Representation of a resource
+        :param pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict', 'outputs.EntitlementParent']] parent: Representation of a resource
         :param pulumi.Input[_builtins.str] parent_resource_orn: The Okta app instance, in ORN format.
         :param pulumi.Input[_builtins.str] value: The value of the entitlement property.
         """
@@ -404,10 +404,10 @@ class Entitlement(pulumi.CustomResource):
                  external_value: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
+                 parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict', 'outputs.EntitlementParent']]] = None,
                  parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict', 'outputs.EntitlementValue']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -447,10 +447,10 @@ class Entitlement(pulumi.CustomResource):
             external_value: pulumi.Input[Optional[_builtins.str]] = None,
             multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']]] = None,
+            parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict', 'outputs.EntitlementParent']]] = None,
             parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
             value: pulumi.Input[Optional[_builtins.str]] = None,
-            values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict']]]]] = None) -> 'Entitlement':
+            values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict', 'outputs.EntitlementValue']]]]] = None) -> 'Entitlement':
         """
         Get an existing Entitlement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -463,7 +463,7 @@ class Entitlement(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] external_value: The value of an entitlement property.
         :param pulumi.Input[_builtins.bool] multi_value: The property that determines if the entitlement property can hold multiple values.
         :param pulumi.Input[_builtins.str] name: The display name for an entitlement property.
-        :param pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict']] parent: Representation of a resource
+        :param pulumi.Input[Union['EntitlementParentArgs', 'EntitlementParentArgsDict', 'outputs.EntitlementParent']] parent: Representation of a resource
         :param pulumi.Input[_builtins.str] parent_resource_orn: The Okta app instance, in ORN format.
         :param pulumi.Input[_builtins.str] value: The value of the entitlement property.
         """

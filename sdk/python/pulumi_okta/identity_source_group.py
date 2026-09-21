@@ -138,7 +138,7 @@ class IdentitySourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict', 'outputs.IdentitySourceGroupProfile']]] = None,
                  __props__=None):
         """
         Manages a group within an Okta Identity Source. Groups created here are staged for import via a session; use `IdentitySourceImport` to trigger the actual sync into Okta.
@@ -171,7 +171,7 @@ class IdentitySourceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] external_id: The external ID of the group in the upstream identity provider. Acts as the natural key for this resource. Forces replacement when changed.
         :param pulumi.Input[_builtins.str] identity_source_id: ID of the identity source. Forces replacement when changed.
-        :param pulumi.Input[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict']] profile: Display attributes for the group.
+        :param pulumi.Input[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict', 'outputs.IdentitySourceGroupProfile']] profile: Display attributes for the group.
         """
         ...
     @overload
@@ -223,7 +223,7 @@ class IdentitySourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict', 'outputs.IdentitySourceGroupProfile']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -252,7 +252,7 @@ class IdentitySourceGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             external_id: pulumi.Input[Optional[_builtins.str]] = None,
             identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
-            profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict']]] = None) -> 'IdentitySourceGroup':
+            profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict', 'outputs.IdentitySourceGroupProfile']]] = None) -> 'IdentitySourceGroup':
         """
         Get an existing IdentitySourceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -262,7 +262,7 @@ class IdentitySourceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] external_id: The external ID of the group in the upstream identity provider. Acts as the natural key for this resource. Forces replacement when changed.
         :param pulumi.Input[_builtins.str] identity_source_id: ID of the identity source. Forces replacement when changed.
-        :param pulumi.Input[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict']] profile: Display attributes for the group.
+        :param pulumi.Input[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict', 'outputs.IdentitySourceGroupProfile']] profile: Display attributes for the group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

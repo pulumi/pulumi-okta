@@ -956,13 +956,13 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
-                 keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict', 'outputs.AppSignonPolicyRuleKeepMeSignedIn']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict', 'outputs.AppSignonPolicyRulePlatformInclude']]]]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  re_authentication_frequency: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1007,7 +1007,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include
         :param pulumi.Input[_builtins.str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
-        :param pulumi.Input[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        :param pulumi.Input[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict', 'outputs.AppSignonPolicyRuleKeepMeSignedIn']] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude
@@ -1076,13 +1076,13 @@ class AppSignonPolicyRule(pulumi.CustomResource):
                  groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
-                 keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']]] = None,
+                 keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict', 'outputs.AppSignonPolicyRuleKeepMeSignedIn']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_connection: pulumi.Input[Optional[_builtins.str]] = None,
                  network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
+                 platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict', 'outputs.AppSignonPolicyRulePlatformInclude']]]]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  re_authentication_frequency: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1154,13 +1154,13 @@ class AppSignonPolicyRule(pulumi.CustomResource):
             groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
-            keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']]] = None,
+            keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict', 'outputs.AppSignonPolicyRuleKeepMeSignedIn']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_connection: pulumi.Input[Optional[_builtins.str]] = None,
             network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict']]]]] = None,
+            platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict', 'outputs.AppSignonPolicyRulePlatformInclude']]]]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             re_authentication_frequency: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1190,7 +1190,7 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_excluded: List of group IDs to exclude
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] groups_included: List of group IDs to include
         :param pulumi.Input[_builtins.str] inactivity_period: The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.
-        :param pulumi.Input[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict']] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
+        :param pulumi.Input[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict', 'outputs.AppSignonPolicyRuleKeepMeSignedIn']] keep_me_signed_in: Controls the post-authentication Keep Me Signed In (KMSI) prompt. Requires the KMSI feature to be enabled on the Okta org.
         :param pulumi.Input[_builtins.str] name: Policy Rule Name
         :param pulumi.Input[_builtins.str] network_connection: Network selection mode: ANYWHERE, ZONE, ON*NETWORK, or OFF*NETWORK.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_excludes: The zones to exclude

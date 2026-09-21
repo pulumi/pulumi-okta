@@ -409,7 +409,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
+                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict', 'outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]]] = None,
                  progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
                  target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -485,7 +485,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enroll_authenticator_types: Enrolls authenticator types
         :param pulumi.Input[_builtins.str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict', 'outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
                	- 'label' - (Required) A display-friendly label for this property
                	- 'name' - (Required) The name of a User Profile property
                	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.
@@ -583,7 +583,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
                  enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
+                 profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict', 'outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]]] = None,
                  progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
                  target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -629,7 +629,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
             inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-            profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]]] = None,
+            profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict', 'outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]]] = None,
             progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -648,7 +648,7 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] inline_hook_id: ID of a Registration Inline Hook
         :param pulumi.Input[_builtins.str] name: Name of the rule
         :param pulumi.Input[_builtins.str] policy_id: ID of the policy
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict', 'outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]] profile_attributes: A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.
                	- 'label' - (Required) A display-friendly label for this property
                	- 'name' - (Required) The name of a User Profile property
                	- 'required' - (Required) Indicates if this property is required for enrollment. Default is 'false'.

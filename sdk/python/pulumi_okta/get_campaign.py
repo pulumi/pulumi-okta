@@ -189,12 +189,12 @@ class AwaitableGetCampaignResult(GetCampaignResult):
 def get_campaign(campaign_type: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
-                 notification_settings: Optional[Union['GetCampaignNotificationSettingsArgs', 'GetCampaignNotificationSettingsArgsDict']] = None,
-                 principal_scope_settings: Optional[Union['GetCampaignPrincipalScopeSettingsArgs', 'GetCampaignPrincipalScopeSettingsArgsDict']] = None,
-                 remediation_settings: Optional[Union['GetCampaignRemediationSettingsArgs', 'GetCampaignRemediationSettingsArgsDict']] = None,
-                 resource_settings: Optional[Union['GetCampaignResourceSettingsArgs', 'GetCampaignResourceSettingsArgsDict']] = None,
-                 reviewer_settings: Optional[Union['GetCampaignReviewerSettingsArgs', 'GetCampaignReviewerSettingsArgsDict']] = None,
-                 schedule_settings: Optional[Union['GetCampaignScheduleSettingsArgs', 'GetCampaignScheduleSettingsArgsDict']] = None,
+                 notification_settings: Optional[Union['GetCampaignNotificationSettingsArgs', 'GetCampaignNotificationSettingsArgsDict', 'outputs.GetCampaignNotificationSettingsResult']] = None,
+                 principal_scope_settings: Optional[Union['GetCampaignPrincipalScopeSettingsArgs', 'GetCampaignPrincipalScopeSettingsArgsDict', 'outputs.GetCampaignPrincipalScopeSettingsResult']] = None,
+                 remediation_settings: Optional[Union['GetCampaignRemediationSettingsArgs', 'GetCampaignRemediationSettingsArgsDict', 'outputs.GetCampaignRemediationSettingsResult']] = None,
+                 resource_settings: Optional[Union['GetCampaignResourceSettingsArgs', 'GetCampaignResourceSettingsArgsDict', 'outputs.GetCampaignResourceSettingsResult']] = None,
+                 reviewer_settings: Optional[Union['GetCampaignReviewerSettingsArgs', 'GetCampaignReviewerSettingsArgsDict', 'outputs.GetCampaignReviewerSettingsResult']] = None,
+                 schedule_settings: Optional[Union['GetCampaignScheduleSettingsArgs', 'GetCampaignScheduleSettingsArgsDict', 'outputs.GetCampaignScheduleSettingsResult']] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCampaignResult:
     """
     Get the campaign belonging to an Okta organization.
@@ -244,12 +244,12 @@ def get_campaign(campaign_type: Optional[_builtins.str] = None,
 def get_campaign_output(campaign_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         description: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                        notification_settings: pulumi.Input[Optional[Optional[Union['GetCampaignNotificationSettingsArgs', 'GetCampaignNotificationSettingsArgsDict']]]] = None,
-                        principal_scope_settings: pulumi.Input[Optional[Optional[Union['GetCampaignPrincipalScopeSettingsArgs', 'GetCampaignPrincipalScopeSettingsArgsDict']]]] = None,
-                        remediation_settings: pulumi.Input[Optional[Optional[Union['GetCampaignRemediationSettingsArgs', 'GetCampaignRemediationSettingsArgsDict']]]] = None,
-                        resource_settings: pulumi.Input[Optional[Optional[Union['GetCampaignResourceSettingsArgs', 'GetCampaignResourceSettingsArgsDict']]]] = None,
-                        reviewer_settings: pulumi.Input[Optional[Optional[Union['GetCampaignReviewerSettingsArgs', 'GetCampaignReviewerSettingsArgsDict']]]] = None,
-                        schedule_settings: pulumi.Input[Optional[Optional[Union['GetCampaignScheduleSettingsArgs', 'GetCampaignScheduleSettingsArgsDict']]]] = None,
+                        notification_settings: pulumi.Input[Optional[Optional[Union['GetCampaignNotificationSettingsArgs', 'GetCampaignNotificationSettingsArgsDict', 'outputs.GetCampaignNotificationSettingsResult']]]] = None,
+                        principal_scope_settings: pulumi.Input[Optional[Optional[Union['GetCampaignPrincipalScopeSettingsArgs', 'GetCampaignPrincipalScopeSettingsArgsDict', 'outputs.GetCampaignPrincipalScopeSettingsResult']]]] = None,
+                        remediation_settings: pulumi.Input[Optional[Optional[Union['GetCampaignRemediationSettingsArgs', 'GetCampaignRemediationSettingsArgsDict', 'outputs.GetCampaignRemediationSettingsResult']]]] = None,
+                        resource_settings: pulumi.Input[Optional[Optional[Union['GetCampaignResourceSettingsArgs', 'GetCampaignResourceSettingsArgsDict', 'outputs.GetCampaignResourceSettingsResult']]]] = None,
+                        reviewer_settings: pulumi.Input[Optional[Optional[Union['GetCampaignReviewerSettingsArgs', 'GetCampaignReviewerSettingsArgsDict', 'outputs.GetCampaignReviewerSettingsResult']]]] = None,
+                        schedule_settings: pulumi.Input[Optional[Optional[Union['GetCampaignScheduleSettingsArgs', 'GetCampaignScheduleSettingsArgsDict', 'outputs.GetCampaignScheduleSettingsResult']]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCampaignResult]:
     """
     Get the campaign belonging to an Okta organization.

@@ -165,9 +165,9 @@ class AwaitableGetRequestConditionResult(GetRequestConditionResult):
             status=self.status)
 
 
-def get_request_condition(access_scope_settings: Optional[Union['GetRequestConditionAccessScopeSettingsArgs', 'GetRequestConditionAccessScopeSettingsArgsDict']] = None,
+def get_request_condition(access_scope_settings: Optional[Union['GetRequestConditionAccessScopeSettingsArgs', 'GetRequestConditionAccessScopeSettingsArgsDict', 'outputs.GetRequestConditionAccessScopeSettingsResult']] = None,
                           id: Optional[_builtins.str] = None,
-                          requester_settings: Optional[Union['GetRequestConditionRequesterSettingsArgs', 'GetRequestConditionRequesterSettingsArgsDict']] = None,
+                          requester_settings: Optional[Union['GetRequestConditionRequesterSettingsArgs', 'GetRequestConditionRequesterSettingsArgsDict', 'outputs.GetRequestConditionRequesterSettingsResult']] = None,
                           resource_id: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequestConditionResult:
     """
@@ -207,9 +207,9 @@ def get_request_condition(access_scope_settings: Optional[Union['GetRequestCondi
         requester_settings=pulumi.get(__ret__, 'requester_settings'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_request_condition_output(access_scope_settings: pulumi.Input[Optional[Optional[Union['GetRequestConditionAccessScopeSettingsArgs', 'GetRequestConditionAccessScopeSettingsArgsDict']]]] = None,
+def get_request_condition_output(access_scope_settings: pulumi.Input[Optional[Optional[Union['GetRequestConditionAccessScopeSettingsArgs', 'GetRequestConditionAccessScopeSettingsArgsDict', 'outputs.GetRequestConditionAccessScopeSettingsResult']]]] = None,
                                  id: pulumi.Input[Optional[_builtins.str]] = None,
-                                 requester_settings: pulumi.Input[Optional[Optional[Union['GetRequestConditionRequesterSettingsArgs', 'GetRequestConditionRequesterSettingsArgsDict']]]] = None,
+                                 requester_settings: pulumi.Input[Optional[Optional[Union['GetRequestConditionRequesterSettingsArgs', 'GetRequestConditionRequesterSettingsArgsDict', 'outputs.GetRequestConditionRequesterSettingsResult']]]] = None,
                                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestConditionResult]:
     """

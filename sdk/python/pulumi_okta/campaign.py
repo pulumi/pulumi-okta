@@ -390,12 +390,12 @@ class Campaign(pulumi.CustomResource):
                  campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
-                 principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
-                 remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
-                 resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
-                 reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
-                 schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict', 'outputs.CampaignNotificationSettings']]] = None,
+                 principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict', 'outputs.CampaignPrincipalScopeSettings']]] = None,
+                 remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict', 'outputs.CampaignRemediationSettings']]] = None,
+                 resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict', 'outputs.CampaignResourceSettings']]] = None,
+                 reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict', 'outputs.CampaignReviewerSettings']]] = None,
+                 schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict', 'outputs.CampaignScheduleSettings']]] = None,
                  skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -423,11 +423,11 @@ class Campaign(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] campaign_type: Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
         :param pulumi.Input[_builtins.str] description: Human readable description.
         :param pulumi.Input[_builtins.str] name: Name of the campaign
-        :param pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']] principal_scope_settings: User scope specific settings
-        :param pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']] remediation_settings: Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
-        :param pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']] resource_settings: Resource specific properties.
-        :param pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']] reviewer_settings: Identifies the kind of reviewer for Access Certification.
-        :param pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']] schedule_settings: Scheduler specific settings.
+        :param pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict', 'outputs.CampaignPrincipalScopeSettings']] principal_scope_settings: User scope specific settings
+        :param pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict', 'outputs.CampaignRemediationSettings']] remediation_settings: Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
+        :param pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict', 'outputs.CampaignResourceSettings']] resource_settings: Resource specific properties.
+        :param pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict', 'outputs.CampaignReviewerSettings']] reviewer_settings: Identifies the kind of reviewer for Access Certification.
+        :param pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict', 'outputs.CampaignScheduleSettings']] schedule_settings: Scheduler specific settings.
         :param pulumi.Input[_builtins.bool] skip_remediation: If true, skip remediation when ending the campaign (only applicable if remediationSetting.noResponse=DENY).
         """
         ...
@@ -474,12 +474,12 @@ class Campaign(pulumi.CustomResource):
                  campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
-                 principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
-                 remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
-                 resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
-                 reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
-                 schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict', 'outputs.CampaignNotificationSettings']]] = None,
+                 principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict', 'outputs.CampaignPrincipalScopeSettings']]] = None,
+                 remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict', 'outputs.CampaignRemediationSettings']]] = None,
+                 resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict', 'outputs.CampaignResourceSettings']]] = None,
+                 reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict', 'outputs.CampaignReviewerSettings']]] = None,
+                 schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict', 'outputs.CampaignScheduleSettings']]] = None,
                  skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -515,12 +515,12 @@ class Campaign(pulumi.CustomResource):
             campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict']]] = None,
-            principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']]] = None,
-            remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']]] = None,
-            resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']]] = None,
-            reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']]] = None,
-            schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']]] = None,
+            notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict', 'outputs.CampaignNotificationSettings']]] = None,
+            principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict', 'outputs.CampaignPrincipalScopeSettings']]] = None,
+            remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict', 'outputs.CampaignRemediationSettings']]] = None,
+            resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict', 'outputs.CampaignResourceSettings']]] = None,
+            reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict', 'outputs.CampaignReviewerSettings']]] = None,
+            schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict', 'outputs.CampaignScheduleSettings']]] = None,
             skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Campaign':
         """
         Get an existing Campaign resource's state with the given name, id, and optional extra
@@ -533,11 +533,11 @@ class Campaign(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] campaign_type: Identifies if it is a resource campaign or a user campaign. By default, it is "RESOURCE". Enum: "RESOURCE", "USER".
         :param pulumi.Input[_builtins.str] description: Human readable description.
         :param pulumi.Input[_builtins.str] name: Name of the campaign
-        :param pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict']] principal_scope_settings: User scope specific settings
-        :param pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict']] remediation_settings: Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
-        :param pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict']] resource_settings: Resource specific properties.
-        :param pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict']] reviewer_settings: Identifies the kind of reviewer for Access Certification.
-        :param pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict']] schedule_settings: Scheduler specific settings.
+        :param pulumi.Input[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict', 'outputs.CampaignPrincipalScopeSettings']] principal_scope_settings: User scope specific settings
+        :param pulumi.Input[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict', 'outputs.CampaignRemediationSettings']] remediation_settings: Specify the action to be taken after a reviewer makes a decision to APPROVE or REVOKE the access, or if the campaign was CLOSED and there was no response from the reviewer.
+        :param pulumi.Input[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict', 'outputs.CampaignResourceSettings']] resource_settings: Resource specific properties.
+        :param pulumi.Input[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict', 'outputs.CampaignReviewerSettings']] reviewer_settings: Identifies the kind of reviewer for Access Certification.
+        :param pulumi.Input[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict', 'outputs.CampaignScheduleSettings']] schedule_settings: Scheduler specific settings.
         :param pulumi.Input[_builtins.bool] skip_remediation: If true, skip remediation when ending the campaign (only applicable if remediationSetting.noResponse=DENY).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

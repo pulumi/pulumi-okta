@@ -121,7 +121,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict', 'outputs.ApiServiceIntegrationGrantedScope']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -166,7 +166,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict', 'outputs.ApiServiceIntegrationGrantedScope']]]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
         :param pulumi.Input[_builtins.str] type: The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
         """
         ...
@@ -230,7 +230,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+                 granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict', 'outputs.ApiServiceIntegrationGrantedScope']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -256,7 +256,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]]] = None,
+            granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict', 'outputs.ApiServiceIntegrationGrantedScope']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiServiceIntegration':
         """
@@ -266,7 +266,7 @@ class ApiServiceIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict']]]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict', 'outputs.ApiServiceIntegrationGrantedScope']]]] granted_scopes: The list of Okta management scopes granted to the API Service Integration instance.
         :param pulumi.Input[_builtins.str] name: The name of the API service integration that corresponds with the type property.
         :param pulumi.Input[_builtins.str] type: The type of the API service integration. This string is an underscore-concatenated, lowercased API service integration name.
         """

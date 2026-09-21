@@ -73,7 +73,7 @@ class AwaitableGetResourceOwnerResult(GetResourceOwnerResult):
 
 
 def get_resource_owner(id: Optional[_builtins.str] = None,
-                       items: Optional[Sequence[Union['GetResourceOwnerItemArgs', 'GetResourceOwnerItemArgsDict']]] = None,
+                       items: Optional[Sequence[Union['GetResourceOwnerItemArgs', 'GetResourceOwnerItemArgsDict', 'outputs.GetResourceOwnerItemResult']]] = None,
                        parent_resource_orn: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceOwnerResult:
     """
@@ -95,7 +95,7 @@ def get_resource_owner(id: Optional[_builtins.str] = None,
         items=pulumi.get(__ret__, 'items'),
         parent_resource_orn=pulumi.get(__ret__, 'parent_resource_orn'))
 def get_resource_owner_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              items: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceOwnerItemArgs', 'GetResourceOwnerItemArgsDict']]]]] = None,
+                              items: pulumi.Input[Optional[Optional[Sequence[Union['GetResourceOwnerItemArgs', 'GetResourceOwnerItemArgsDict', 'outputs.GetResourceOwnerItemResult']]]]] = None,
                               parent_resource_orn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceOwnerResult]:
     """

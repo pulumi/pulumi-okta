@@ -235,10 +235,10 @@ class EntitlementBundle(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict', 'outputs.EntitlementBundleEntitlement']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
+                 target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict', 'outputs.EntitlementBundleTarget']]] = None,
                  target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -263,10 +263,10 @@ class EntitlementBundle(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of an entitlement property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]] entitlements: List of entitlements in the bundle
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict', 'outputs.EntitlementBundleEntitlement']]]] entitlements: List of entitlements in the bundle
         :param pulumi.Input[_builtins.str] name: The display name for an entitlement bundle.
         :param pulumi.Input[_builtins.str] status: The status of the entitlement bundle.
-        :param pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']] target: Representation of a resource
+        :param pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict', 'outputs.EntitlementBundleTarget']] target: Representation of a resource
         :param pulumi.Input[_builtins.str] target_resource_orn: The ORN of the target resource. Required when updating the entitlement bundle.
         """
         ...
@@ -310,10 +310,10 @@ class EntitlementBundle(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict', 'outputs.EntitlementBundleEntitlement']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
+                 target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict', 'outputs.EntitlementBundleTarget']]] = None,
                  target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -341,10 +341,10 @@ class EntitlementBundle(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]]] = None,
+            entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict', 'outputs.EntitlementBundleEntitlement']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']]] = None,
+            target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict', 'outputs.EntitlementBundleTarget']]] = None,
             target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None) -> 'EntitlementBundle':
         """
         Get an existing EntitlementBundle resource's state with the given name, id, and optional extra
@@ -354,10 +354,10 @@ class EntitlementBundle(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of an entitlement property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict']]]] entitlements: List of entitlements in the bundle
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict', 'outputs.EntitlementBundleEntitlement']]]] entitlements: List of entitlements in the bundle
         :param pulumi.Input[_builtins.str] name: The display name for an entitlement bundle.
         :param pulumi.Input[_builtins.str] status: The status of the entitlement bundle.
-        :param pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict']] target: Representation of a resource
+        :param pulumi.Input[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict', 'outputs.EntitlementBundleTarget']] target: Representation of a resource
         :param pulumi.Input[_builtins.str] target_resource_orn: The ORN of the target resource. Required when updating the entitlement bundle.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

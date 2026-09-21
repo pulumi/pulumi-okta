@@ -266,7 +266,7 @@ class Mapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
                  delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
-                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict', 'outputs.MappingMapping']]]]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -372,7 +372,7 @@ class Mapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
                  delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
-                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
+                 mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict', 'outputs.MappingMapping']]]]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -409,7 +409,7 @@ class Mapping(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
             delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
-            mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict']]]]] = None,
+            mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict', 'outputs.MappingMapping']]]]] = None,
             source_id: pulumi.Input[Optional[_builtins.str]] = None,
             source_name: pulumi.Input[Optional[_builtins.str]] = None,
             source_type: pulumi.Input[Optional[_builtins.str]] = None,

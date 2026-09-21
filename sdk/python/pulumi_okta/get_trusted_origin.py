@@ -121,7 +121,7 @@ class AwaitableGetTrustedOriginResult(GetTrustedOriginResult):
 
 
 def get_trusted_origin(id: Optional[_builtins.str] = None,
-                       scopes: Optional[Sequence[Union['GetTrustedOriginScopeArgs', 'GetTrustedOriginScopeArgsDict']]] = None,
+                       scopes: Optional[Sequence[Union['GetTrustedOriginScopeArgs', 'GetTrustedOriginScopeArgsDict', 'outputs.GetTrustedOriginScopeResult']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedOriginResult:
     """
     Use this data source to access information about an existing resource.
@@ -143,7 +143,7 @@ def get_trusted_origin(id: Optional[_builtins.str] = None,
         scopes=pulumi.get(__ret__, 'scopes'),
         status=pulumi.get(__ret__, 'status'))
 def get_trusted_origin_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                              scopes: pulumi.Input[Optional[Optional[Sequence[Union['GetTrustedOriginScopeArgs', 'GetTrustedOriginScopeArgsDict']]]]] = None,
+                              scopes: pulumi.Input[Optional[Optional[Sequence[Union['GetTrustedOriginScopeArgs', 'GetTrustedOriginScopeArgsDict', 'outputs.GetTrustedOriginScopeResult']]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedOriginResult]:
     """
     Use this data source to access information about an existing resource.

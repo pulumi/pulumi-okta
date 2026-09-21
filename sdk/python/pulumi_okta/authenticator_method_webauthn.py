@@ -473,7 +473,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict']]]]] = None,
+                 aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.AuthenticatorMethodWebauthnAaguidGroup']]]]] = None,
                  allow_syncable_passkeys: pulumi.Input[Optional[_builtins.bool]] = None,
                  attachment: pulumi.Input[Optional[_builtins.str]] = None,
                  authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -482,7 +482,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
                  fips_compliant: pulumi.Input[Optional[_builtins.bool]] = None,
                  hardware_protected: pulumi.Input[Optional[_builtins.bool]] = None,
                  resident_key_requirement: pulumi.Input[Optional[_builtins.str]] = None,
-                 rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict']]] = None,
+                 rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.AuthenticatorMethodWebauthnRpId']]] = None,
                  show_sign_in_with_a_passkey_button: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_verification: pulumi.Input[Optional[_builtins.str]] = None,
                  user_verification_for_verify: pulumi.Input[Optional[_builtins.str]] = None,
@@ -523,7 +523,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict']]]] aaguid_groups: List of AAGUID group configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.AuthenticatorMethodWebauthnAaguidGroup']]]] aaguid_groups: List of AAGUID group configurations.
         :param pulumi.Input[_builtins.bool] allow_syncable_passkeys: Whether syncable passkeys are allowed.
         :param pulumi.Input[_builtins.str] attachment: Method attachment setting.
         :param pulumi.Input[_builtins.str] authenticator_id: The ID of the WebAuthn authenticator.
@@ -532,7 +532,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] fips_compliant: Whether the authenticator must be FIPS compliant.
         :param pulumi.Input[_builtins.bool] hardware_protected: Whether the authenticator must store the private key on hardware.
         :param pulumi.Input[_builtins.str] resident_key_requirement: Resident key requirement. Values: `REQUIRED`, `DISCOURAGED`, `PREFERRED`.
-        :param pulumi.Input[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict']] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
+        :param pulumi.Input[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.AuthenticatorMethodWebauthnRpId']] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
         :param pulumi.Input[_builtins.bool] show_sign_in_with_a_passkey_button: Whether to show the "Sign in with a Passkey" button.
         :param pulumi.Input[_builtins.str] user_verification: User verification setting for enrollment. Values: `DISCOURAGED`, `PREFERRED`, `REQUIRED`.
         :param pulumi.Input[_builtins.str] user_verification_for_verify: User verification setting for authentication (verification).
@@ -592,7 +592,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict']]]]] = None,
+                 aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.AuthenticatorMethodWebauthnAaguidGroup']]]]] = None,
                  allow_syncable_passkeys: pulumi.Input[Optional[_builtins.bool]] = None,
                  attachment: pulumi.Input[Optional[_builtins.str]] = None,
                  authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -601,7 +601,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
                  fips_compliant: pulumi.Input[Optional[_builtins.bool]] = None,
                  hardware_protected: pulumi.Input[Optional[_builtins.bool]] = None,
                  resident_key_requirement: pulumi.Input[Optional[_builtins.str]] = None,
-                 rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict']]] = None,
+                 rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.AuthenticatorMethodWebauthnRpId']]] = None,
                  show_sign_in_with_a_passkey_button: pulumi.Input[Optional[_builtins.bool]] = None,
                  user_verification: pulumi.Input[Optional[_builtins.str]] = None,
                  user_verification_for_verify: pulumi.Input[Optional[_builtins.str]] = None,
@@ -640,7 +640,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict']]]]] = None,
+            aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.AuthenticatorMethodWebauthnAaguidGroup']]]]] = None,
             allow_syncable_passkeys: pulumi.Input[Optional[_builtins.bool]] = None,
             attachment: pulumi.Input[Optional[_builtins.str]] = None,
             authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -649,7 +649,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
             fips_compliant: pulumi.Input[Optional[_builtins.bool]] = None,
             hardware_protected: pulumi.Input[Optional[_builtins.bool]] = None,
             resident_key_requirement: pulumi.Input[Optional[_builtins.str]] = None,
-            rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict']]] = None,
+            rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.AuthenticatorMethodWebauthnRpId']]] = None,
             show_sign_in_with_a_passkey_button: pulumi.Input[Optional[_builtins.bool]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             user_verification: pulumi.Input[Optional[_builtins.str]] = None,
@@ -661,7 +661,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict']]]] aaguid_groups: List of AAGUID group configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.AuthenticatorMethodWebauthnAaguidGroup']]]] aaguid_groups: List of AAGUID group configurations.
         :param pulumi.Input[_builtins.bool] allow_syncable_passkeys: Whether syncable passkeys are allowed.
         :param pulumi.Input[_builtins.str] attachment: Method attachment setting.
         :param pulumi.Input[_builtins.str] authenticator_id: The ID of the WebAuthn authenticator.
@@ -670,7 +670,7 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] fips_compliant: Whether the authenticator must be FIPS compliant.
         :param pulumi.Input[_builtins.bool] hardware_protected: Whether the authenticator must store the private key on hardware.
         :param pulumi.Input[_builtins.str] resident_key_requirement: Resident key requirement. Values: `REQUIRED`, `DISCOURAGED`, `PREFERRED`.
-        :param pulumi.Input[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict']] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
+        :param pulumi.Input[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.AuthenticatorMethodWebauthnRpId']] rp_id: The Relying Party (RP) ID configuration for WebAuthn. Contains:
         :param pulumi.Input[_builtins.bool] show_sign_in_with_a_passkey_button: Whether to show the "Sign in with a Passkey" button.
         :param pulumi.Input[_builtins.str] status: The status of the WebAuthn method (`ACTIVE` or `INACTIVE`).
         :param pulumi.Input[_builtins.str] user_verification: User verification setting for enrollment. Values: `DISCOURAGED`, `PREFERRED`, `REQUIRED`.
