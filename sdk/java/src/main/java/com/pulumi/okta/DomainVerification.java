@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDomainVerification = new DomainVerification("exampleDomainVerification", DomainVerificationArgs.builder()
- *             .domainId(test.id())
+ *             .domainId(test.get("id"))
  *             .build());
  * 
  *     }

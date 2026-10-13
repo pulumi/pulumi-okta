@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example1 = new SamlKey("example1", SamlKeyArgs.builder()
- *             .x5cs(example.certificate())
+ *             .x5cs(example.get("certificate"))
  *             .build());
  * 
  *         var example2 = new SamlKey("example2", SamlKeyArgs.builder()

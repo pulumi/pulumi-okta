@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .status("ACTIVE")
  *             .description("Example")
  *             .passwordHistoryCount(4)
- *             .groupsIncluded(everyone.id())
+ *             .groupsIncluded(everyone.get("id"))
  *             .build());
  * 
  *     }

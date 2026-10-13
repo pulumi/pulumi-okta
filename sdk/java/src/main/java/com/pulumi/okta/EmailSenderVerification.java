@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEmailSenderVerification = new EmailSenderVerification("exampleEmailSenderVerification", EmailSenderVerificationArgs.builder()
- *             .senderId(valid.id())
+ *             .senderId(valid.get("id"))
  *             .build());
  * 
  *     }}{@code

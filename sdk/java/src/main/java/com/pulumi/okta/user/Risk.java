@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Risk("example", RiskArgs.builder()
- *             .userId(exampleOktaUser.id())
+ *             .userId(exampleOktaUser.get("id"))
  *             .riskLevel("HIGH")
  *             .build());
  * 

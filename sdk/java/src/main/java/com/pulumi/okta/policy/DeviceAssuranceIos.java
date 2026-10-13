@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .osVersion("12.4.5")
  *             .jailbreak(false)
- *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList("BIOMETRIC"))).result())
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList("BIOMETRIC"))).get("result"))
  *             .build());
  * 
  *     }

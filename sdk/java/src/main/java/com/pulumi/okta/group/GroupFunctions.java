@@ -616,7 +616,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }
@@ -656,7 +656,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }
@@ -696,7 +696,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }
@@ -736,7 +736,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }
@@ -776,7 +776,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }
@@ -816,7 +816,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }
@@ -856,7 +856,7 @@ public final class GroupFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = GroupFunctions.getRule(GetRuleArgs.builder()
-     *             .id(example.id())
+     *             .id(example.get("id"))
      *             .build());
      * 
      *     }

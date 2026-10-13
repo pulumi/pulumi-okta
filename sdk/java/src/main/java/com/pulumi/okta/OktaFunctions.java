@@ -1136,7 +1136,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1176,7 +1176,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1216,7 +1216,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1256,7 +1256,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1296,7 +1296,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppGroupAssignments(GetAppGroupAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1576,7 +1576,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1616,7 +1616,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1656,7 +1656,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1696,7 +1696,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -1736,7 +1736,7 @@ public final class OktaFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = OktaFunctions.getAppUserAssignments(GetAppUserAssignmentsArgs.builder()
-     *             .id(testOktaAppOauth.id())
+     *             .id(testOktaAppOauth.get("id"))
      *             .build());
      * 
      *     }
@@ -15438,7 +15438,7 @@ public final class OktaFunctions {
      * 
      *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
      *             .brandId(test.brands()[0].id())
-     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .themeId(testOktaThemes.get("themes")[0].get("id"))
      *             .build());
      * 
      *     }
@@ -15481,7 +15481,7 @@ public final class OktaFunctions {
      * 
      *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
      *             .brandId(test.brands()[0].id())
-     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .themeId(testOktaThemes.get("themes")[0].get("id"))
      *             .build());
      * 
      *     }
@@ -15524,7 +15524,7 @@ public final class OktaFunctions {
      * 
      *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
      *             .brandId(test.brands()[0].id())
-     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .themeId(testOktaThemes.get("themes")[0].get("id"))
      *             .build());
      * 
      *     }
@@ -15567,7 +15567,7 @@ public final class OktaFunctions {
      * 
      *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
      *             .brandId(test.brands()[0].id())
-     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .themeId(testOktaThemes.get("themes")[0].get("id"))
      *             .build());
      * 
      *     }
@@ -15610,7 +15610,7 @@ public final class OktaFunctions {
      * 
      *         final var testGetTheme = OktaFunctions.getTheme(GetThemeArgs.builder()
      *             .brandId(test.brands()[0].id())
-     *             .themeId(testOktaThemes.themes()[0].id())
+     *             .themeId(testOktaThemes.get("themes")[0].get("id"))
      *             .build());
      * 
      *     }

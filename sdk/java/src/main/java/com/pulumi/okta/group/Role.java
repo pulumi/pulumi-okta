@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .resources(StdFunctions.format(Map.ofEntries(
  *                 Map.entry("input", "%s/api/v1/users"),
  *                 Map.entry("args", Arrays.asList("https://tien-oie-2023-26-26.oktapreview.com"))
- *             )).result())
+ *             )).get("result"))
  *             .build());
  * 
  *         var testAdminRoleCustom = new AdminRoleCustom("testAdminRoleCustom", AdminRoleCustomArgs.builder()

@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  *
  * const test = okta.getBrands({});
  * // resource has been imported into current state:
- * // $ terraform import okta_theme.example <theme id>
+ * // $ pulumi import okta_theme.example <theme id>
  * const example = new okta.Theme("example", {
  *     brandId: test.then(test => test.brands?.[0]?.id),
  *     logo: "path/to/logo.png",

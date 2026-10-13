@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCustomizedSigninPage = new CustomizedSigninPage("testCustomizedSigninPage", CustomizedSigninPageArgs.builder()
- *             .brandId(oktaBrand.test().id())
+ *             .brandId(oktaBrand.get("test").get("id"))
  *             .pageContent("""
  * <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  * <html>

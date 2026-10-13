@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/users"),
  *                     Map.entry("args", Arrays.asList(orgUrl))
- *                 )).result(),
+ *                 )).get("result"),
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/apps/%s"),
  *                     Map.entry("args", Arrays.asList(                    
  *                         orgUrl,
  *                         testSwa.id()))
- *                 )).result())
+ *                 )).get("result"))
  *             .build());
  * 
  *         // this user will have `CUSTOM` role assigned, but it won't appear in the `admin_roles` for that user,
@@ -115,13 +115,13 @@ import javax.annotation.Nullable;
  *                     Map.entry("args", Arrays.asList(                    
  *                         orgUrl,
  *                         testUser.id()))
- *                 )).result(),
+ *                 )).get("result"),
  *                 StdFunctions.format(Map.ofEntries(
  *                     Map.entry("input", "%s/api/v1/groups/%s"),
  *                     Map.entry("args", Arrays.asList(                    
  *                         orgUrl,
  *                         testGroup.id()))
- *                 )).result())
+ *                 )).get("result"))
  *             .build());
  * 
  *     }}{@code

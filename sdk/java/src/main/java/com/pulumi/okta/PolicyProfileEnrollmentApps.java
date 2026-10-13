@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicyProfileEnrollmentApps = new PolicyProfileEnrollmentApps("examplePolicyProfileEnrollmentApps", PolicyProfileEnrollmentAppsArgs.builder()
- *             .policyId(exampleOktaPolicy.id())
+ *             .policyId(exampleOktaPolicy.get("id"))
  *             .apps(id)
  *             .build());
  * 

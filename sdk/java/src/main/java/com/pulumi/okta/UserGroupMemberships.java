@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  *         var testUserGroupMemberships = new UserGroupMemberships("testUserGroupMemberships", UserGroupMembershipsArgs.builder()
  *             .userId(test.id())
  *             .groups(            
- *                 test1.id(),
- *                 test2.id())
+ *                 test1.get("id"),
+ *                 test2.get("id"))
  *             .build());
  * 
  *     }}{@code

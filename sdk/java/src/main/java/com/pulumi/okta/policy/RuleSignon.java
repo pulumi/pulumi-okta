@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .authtype("RADIUS")
  *             .name("Example Policy Rule")
  *             .networkConnection("ANYWHERE")
- *             .policyId(exampleOktaPolicySignon.id())
+ *             .policyId(exampleOktaPolicySignon.get("id"))
  *             .status("ACTIVE")
  *             .riscLevel("HIGH")
  *             .behaviors(newCity.id())

@@ -31,7 +31,7 @@ namespace Pulumi.Okta
     ///     var test = Okta.GetBrands.Invoke();
     /// 
     ///     // resource has been imported into current state:
-    ///     // $ terraform import okta_theme.example &lt;theme id&gt;
+    ///     // $ pulumi import okta_theme.example &lt;theme id&gt;
     ///     var example = new Okta.Theme("example", new()
     ///     {
     ///         BrandId = test.Apply(getBrandsResult =&gt; getBrandsResult.Brands[0]?.Id),

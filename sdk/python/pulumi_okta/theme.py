@@ -550,7 +550,7 @@ class Theme(pulumi.CustomResource):
 
         test = okta.get_brands()
         # resource has been imported into current state:
-        # $ terraform import okta_theme.example <theme id>
+        # $ pulumi import okta_theme.example <theme id>
         example = okta.Theme("example",
             brand_id=test.brands[0].id,
             logo="path/to/logo.png",
@@ -610,7 +610,7 @@ class Theme(pulumi.CustomResource):
 
         test = okta.get_brands()
         # resource has been imported into current state:
-        # $ terraform import okta_theme.example <theme id>
+        # $ pulumi import okta_theme.example <theme id>
         example = okta.Theme("example",
             brand_id=test.brands[0].id,
             logo="path/to/logo.png",

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var custom = new Password("custom", PasswordArgs.builder()
  *             .name("Custom Password Policy")
- *             .groupsIncluded(example.id())
+ *             .groupsIncluded(example.get("id"))
  *             .status("ACTIVE")
  *             .priority(1)
  *             .build());

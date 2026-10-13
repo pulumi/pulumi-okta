@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *             .osVersion("12")
  *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", Arrays.asList(            
  *                 "FULL",
- *                 "USER"))).result())
+ *                 "USER"))).get("result"))
  *             .jailbreak(false)
  *             .secureHardwarePresent(true)
- *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList("BIOMETRIC"))).result())
+ *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList("BIOMETRIC"))).get("result"))
  *             .build());
  * 
  *     }

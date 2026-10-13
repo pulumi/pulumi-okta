@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  *         var example = new DeviceAssuranceWindows("example", DeviceAssuranceWindowsArgs.builder()
  *             .name("example")
  *             .osVersion("12.4.6")
- *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", Arrays.asList("ALL_INTERNAL_VOLUMES"))).result())
+ *             .diskEncryptionTypes(StdFunctions.toset(Map.of("input", Arrays.asList("ALL_INTERNAL_VOLUMES"))).get("result"))
  *             .secureHardwarePresent(true)
  *             .screenlockTypes(StdFunctions.toset(Map.of("input", Arrays.asList(            
  *                 "BIOMETRIC",
- *                 "PASSCODE"))).result())
+ *                 "PASSCODE"))).get("result"))
  *             .thirdPartySignalProviders(true)
  *             .tpspBrowserVersion("15393.27.0")
  *             .tpspBuiltinDnsClientEnabled(true)
