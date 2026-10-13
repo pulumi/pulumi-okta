@@ -57,7 +57,7 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
-     *             .userId(exampleOktaUser.id())
+     *             .userId(exampleOktaUser.get("id"))
      *             .build());
      * 
      *     }
@@ -97,7 +97,7 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
-     *             .userId(exampleOktaUser.id())
+     *             .userId(exampleOktaUser.get("id"))
      *             .build());
      * 
      *     }
@@ -137,7 +137,7 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
-     *             .userId(exampleOktaUser.id())
+     *             .userId(exampleOktaUser.get("id"))
      *             .build());
      * 
      *     }
@@ -177,7 +177,7 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
-     *             .userId(exampleOktaUser.id())
+     *             .userId(exampleOktaUser.get("id"))
      *             .build());
      * 
      *     }
@@ -217,7 +217,7 @@ public final class UserFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = UserFunctions.getRisk(GetRiskArgs.builder()
-     *             .userId(exampleOktaUser.id())
+     *             .userId(exampleOktaUser.get("id"))
      *             .build());
      * 
      *     }

@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  *             .primaryName(padishah.primaryName())
  *             .primaryUserId(emperor.id())
  *             .associatedUserIds(            
- *                 sardaukars[0].id(),
- *                 sardaukars[1].id(),
- *                 sardaukars[2].id(),
- *                 sardaukars[3].id(),
- *                 sardaukars[4].id())
+ *                 sardaukars.get(0).id(),
+ *                 sardaukars.get(1).id(),
+ *                 sardaukars.get(2).id(),
+ *                 sardaukars.get(3).id(),
+ *                 sardaukars.get(4).id())
  *             .build());
  * 
  *     }}{@code

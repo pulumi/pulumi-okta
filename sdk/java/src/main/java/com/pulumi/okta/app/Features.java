@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var userProvisioning = new Features("userProvisioning", FeaturesArgs.builder()
- *             .appId(example.id())
+ *             .appId(example.get("id"))
  *             .name("USER_PROVISIONING")
  *             .status("ENABLED")
  *             .capabilities(FeaturesCapabilitiesArgs.builder()
@@ -119,7 +119,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var inboundProvisioning = new Features("inboundProvisioning", FeaturesArgs.builder()
- *             .appId(example.id())
+ *             .appId(example.get("id"))
  *             .name("INBOUND_PROVISIONING")
  *             .status("ENABLED")
  *             .capabilities(FeaturesCapabilitiesArgs.builder()
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var completeProvisioning = new Features("completeProvisioning", FeaturesArgs.builder()
- *             .appId(example.id())
+ *             .appId(example.get("id"))
  *             .name("USER_PROVISIONING")
  *             .status("ENABLED")
  *             .capabilities(FeaturesCapabilitiesArgs.builder()

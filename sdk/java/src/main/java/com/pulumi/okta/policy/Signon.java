@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .status("ACTIVE")
  *             .description("Example")
- *             .groupsIncluded(everyone.id())
+ *             .groupsIncluded(everyone.get("id"))
  *             .build());
  * 
  *     }

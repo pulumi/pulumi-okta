@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new DomainCertificate("test", DomainCertificateArgs.builder()
- *             .domainId(testOktaDomain.id())
+ *             .domainId(testOktaDomain.get("id"))
  *             .type("PEM")
  *             .certificate("""
  * -----BEGIN CERTIFICATE-----

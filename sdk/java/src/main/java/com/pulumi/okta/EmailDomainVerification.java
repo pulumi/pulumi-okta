@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEmailDomainVerification = new EmailDomainVerification("exampleEmailDomainVerification", EmailDomainVerificationArgs.builder()
- *             .emailDomainId(valid.id())
+ *             .emailDomainId(valid.get("id"))
  *             .build());
  * 
  *     }

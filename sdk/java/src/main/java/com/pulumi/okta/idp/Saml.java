@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .ssoDestination("https://idp.example.com")
  *             .ssoBinding("HTTP-POST")
  *             .usernameTemplate("idpuser.email")
- *             .kid(test.id())
+ *             .kid(test.get("id"))
  *             .issuer("https://idp.example.com")
  *             .requestSignatureScope("REQUEST")
  *             .responseSignatureScope("ANY")

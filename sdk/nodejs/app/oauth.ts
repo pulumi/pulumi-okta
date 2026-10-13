@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  * // NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
  * // to the state file and shouldn't be persisted. Instead, save the secrets into
  * // a secrets manager to be reused.
- * // https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+ * // https://registry.pulumi.io/providers/pulumi/tls/latest/docs/resources/private_key
  * //
- * // NOTE: Even though tls is a Hashicorp provider you should still audit its code
+ * // NOTE: Even though tls is a Pulumi provider you should still audit its code
  * // to be satisfied with its security.
- * // https://github.com/hashicorp/terraform-provider-tls
+ * // https://github.com/pulumi/pulumi-provider-tls
  * //
  * const rsa = new tls.index.PrivateKey("rsa", {
  *     algorithm: "RSA",
@@ -50,15 +50,15 @@ import * as utilities from "../utilities";
  * });
  * //
  * // Pretty print a PEM with TF show and jq
- * // terraform show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
+ * // pulumi show -json | jq -r '.values.root_module.resources[] | select(.address == "tls_private_key.rsa").values.private_key_pem'
  * //
  * // Delete the secrets explicitly or just remove them from the config and run
  * // apply again.
  * // pulumi up -destroy -auto-approve -target=tls_private_key.rsa
  * // NOTE: Even though the iwarapter/jwks is listed in the registry you should
  * // still audit its code to be satisfied with its security.
- * // https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
- * // https://github.com/iwarapter/terraform-provider-jwks
+ * // https://registry.pulumi.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+ * // https://github.com/iwarapter/pulumi-provider-jwks
  * //
  * const jwksFromKey = jwks.fromKey({
  *     key: rsa.privateKeyPem,
@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * const jwks2 = std.jsondecode({
  *     input: jwksFromKey.jwks,
  * }).result;
- * // https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+ * // https://registry.pulumi.io/providers/okta/okta/latest/docs/resources/app_oauth
  * const app = new okta.app.OAuth("app", {
  *     label: "My OAuth App",
  *     type: "service",

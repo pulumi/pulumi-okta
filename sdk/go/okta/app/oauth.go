@@ -51,11 +51,11 @@ import (
 //			// NOTE: Example to generate a PEM easily as a tool. These secrets will be saved
 //			// to the state file and shouldn't be persisted. Instead, save the secrets into
 //			// a secrets manager to be reused.
-//			// https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key
+//			// https://registry.pulumi.io/providers/pulumi/tls/latest/docs/resources/private_key
 //			//
-//			// NOTE: Even though tls is a Hashicorp provider you should still audit its code
+//			// NOTE: Even though tls is a Pulumi provider you should still audit its code
 //			// to be satisfied with its security.
-//			// https://github.com/hashicorp/terraform-provider-tls
+//			// https://github.com/pulumi/pulumi-provider-tls
 //			rsa, err := tls.NewPrivateKey(ctx, "rsa", &tls.PrivateKeyArgs{
 //				Algorithm: "RSA",
 //				RsaBits:   4096,
@@ -65,8 +65,8 @@ import (
 //			}
 //			// NOTE: Even though the iwarapter/jwks is listed in the registry you should
 //			// still audit its code to be satisfied with its security.
-//			// https://registry.terraform.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
-//			// https://github.com/iwarapter/terraform-provider-jwks
+//			// https://registry.pulumi.io/providers/iwarapter/jwks/latest/docs/data-sources/from_key
+//			// https://github.com/iwarapter/pulumi-provider-jwks
 //			jwksFromKey, err := jwks.FromKey(ctx, map[string]interface{}{
 //				"key": rsa.PrivateKeyPem,
 //				"kid": "my-kid",
@@ -77,7 +77,7 @@ import (
 //			jwks2 := std.Jsondecode(ctx, map[string]interface{}{
 //				"input": jwksFromKey.Jwks,
 //			}, nil).Result
-//			// https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth
+//			// https://registry.pulumi.io/providers/okta/okta/latest/docs/resources/app_oauth
 //			_, err = app.NewOAuth(ctx, "app", &app.OAuthArgs{
 //				Label: pulumi.String("My OAuth App"),
 //				Type:  pulumi.String("service"),

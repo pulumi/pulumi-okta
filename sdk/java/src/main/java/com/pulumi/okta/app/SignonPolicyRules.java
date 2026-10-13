@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SignonPolicyRules("example", SignonPolicyRulesArgs.builder()
- *             .policyId(exampleOktaAppSignonPolicy.id())
+ *             .policyId(exampleOktaAppSignonPolicy.get("id"))
  *             .rules(            
  *                 SignonPolicyRulesRuleArgs.builder()
  *                     .name("High Priority Rule")
@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var migrated = new SignonPolicyRules("migrated", SignonPolicyRulesArgs.builder()
- *             .policyId(myPolicy.id())
+ *             .policyId(myPolicy.get("id"))
  *             .rules(            
  *                 SignonPolicyRulesRuleArgs.builder()
  *                     .name("High Priority Rule")

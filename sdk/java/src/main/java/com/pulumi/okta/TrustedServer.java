@@ -65,10 +65,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new TrustedServer("example", TrustedServerArgs.builder()
- *             .authServerId(oktaAuthServer.test1().id())
+ *             .authServerId(oktaAuthServer.get("test1").get("id"))
  *             .trusted(            
- *                 oktaAuthServer.test2().id(),
- *                 oktaAuthServer.test3().id())
+ *                 oktaAuthServer.get("test2").get("id"),
+ *                 oktaAuthServer.get("test3").get("id"))
  *             .build());
  * 
  *     }

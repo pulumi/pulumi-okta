@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("Example Realm Assignment")
  *             .priority(55)
  *             .status("ACTIVE")
- *             .profileSourceId(testOktaIdpSaml.id())
+ *             .profileSourceId(testOktaIdpSaml.get("id"))
  *             .conditionExpression("user.profile.login.contains(\"}{@literal @}{@code example.com\")")
  *             .realmId(example.id())
  *             .build());

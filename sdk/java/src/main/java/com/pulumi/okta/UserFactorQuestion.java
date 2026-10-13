@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUserFactorQuestion = new UserFactorQuestion("exampleUserFactorQuestion", UserFactorQuestionArgs.builder()
  *             .userId(exampleUser.id())
- *             .key(example.applyValue(_example -> _example.questions()[0].key()))
+ *             .key(example.applyValue(_example -> _example.questions().get(0).key()))
  *             .answer("meatball")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFactor)

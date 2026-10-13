@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         final var test = OktaFunctions.getBrands(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         // resource has been imported into current state:
- *         // $ terraform import okta_theme.example <theme id>
+ *         // $ pulumi import okta_theme.example <theme id>
  *         var example = new Theme("example", ThemeArgs.builder()
  *             .brandId(test.brands()[0].id())
  *             .logo("path/to/logo.png")

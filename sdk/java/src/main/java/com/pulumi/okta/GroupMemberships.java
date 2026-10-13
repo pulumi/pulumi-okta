@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *         var testGroupMemberships = new GroupMemberships("testGroupMemberships", GroupMembershipsArgs.builder()
  *             .groupId(test.id())
  *             .users(            
- *                 test1.id(),
- *                 test2.id())
+ *                 test1.get("id"),
+ *                 test2.get("id"))
  *             .build());
  * 
  *     }

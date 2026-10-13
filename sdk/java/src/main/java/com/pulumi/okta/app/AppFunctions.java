@@ -598,7 +598,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("USER_PROVISIONING")
      *             .build());
      * 
@@ -634,7 +634,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("INBOUND_PROVISIONING")
      *             .build());
      * 
@@ -713,7 +713,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("USER_PROVISIONING")
      *             .build());
      * 
@@ -749,7 +749,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("INBOUND_PROVISIONING")
      *             .build());
      * 
@@ -828,7 +828,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("USER_PROVISIONING")
      *             .build());
      * 
@@ -864,7 +864,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("INBOUND_PROVISIONING")
      *             .build());
      * 
@@ -943,7 +943,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("USER_PROVISIONING")
      *             .build());
      * 
@@ -979,7 +979,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("INBOUND_PROVISIONING")
      *             .build());
      * 
@@ -1058,7 +1058,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var userProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("USER_PROVISIONING")
      *             .build());
      * 
@@ -1094,7 +1094,7 @@ public final class AppFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var inboundProvisioning = AppFunctions.getFeatures(GetFeaturesArgs.builder()
-     *             .appId(example.id())
+     *             .appId(example.get("id"))
      *             .name("INBOUND_PROVISIONING")
      *             .build());
      * 

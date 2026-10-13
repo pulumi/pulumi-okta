@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .type("string")
  *             .required(true)
  *             .master("OKTA")
- *             .userType(exampleOktaUserType.id())
+ *             .userType(exampleOktaUserType.get("id"))
  *             .build());
  * 
  *     }

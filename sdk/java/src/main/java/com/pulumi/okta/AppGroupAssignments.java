@@ -54,9 +54,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         for (var i = 0; i < com.pulumi.std.StdFunctions(Map.of("input", Arrays.asList(        
  *             "group-a",
- *             "group-b"))).result(); i++) {
+ *             "group-b"))).get("result"); i++) {
  *             new AppGroupAssignments("this-" + i, AppGroupAssignmentsArgs.builder()
- *                 .appId(thisOktaAppBookmark.id())
+ *                 .appId(thisOktaAppBookmark.get("id"))
  *                 .groups(AppGroupAssignmentsGroupArgs.builder()
  *                     .id(range.value())
  *                     .build())

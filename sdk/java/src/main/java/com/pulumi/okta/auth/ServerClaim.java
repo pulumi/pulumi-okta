@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .authServerId("<auth server id>")
  *             .name("staff")
  *             .value("String.substringAfter(user.email, \"}{@literal @}{@code \") == \"example.com\"")
- *             .scopes(exampleOktaAuthServerScope.name())
+ *             .scopes(exampleOktaAuthServerScope.get("name"))
  *             .claimType("IDENTITY")
  *             .build());
  * 

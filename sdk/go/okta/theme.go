@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			// resource has been imported into current state:
-//			// $ terraform import okta_theme.example <theme id>
+//			// $ pulumi import okta_theme.example <theme id>
 //			_, err = okta.NewTheme(ctx, "example", &okta.ThemeArgs{
 //				BrandId:                           pulumi.String(test.Brands[0].Id),
 //				Logo:                              pulumi.String("path/to/logo.png"),

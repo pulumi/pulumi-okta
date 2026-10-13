@@ -91,13 +91,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Before
  *         var example = new CaptchaOrgWideSettings("example", CaptchaOrgWideSettingsArgs.builder()
- *             .captchaId(exampleOktaCaptcha.id())
+ *             .captchaId(exampleOktaCaptcha.get("id"))
  *             .enabledFors("SIGN_IN")
  *             .build());
  * 
  *         // After
  *         var exampleOrgCaptcha = new OrgCaptcha("exampleOrgCaptcha", OrgCaptchaArgs.builder()
- *             .captchaId(exampleOktaCaptcha.id())
+ *             .captchaId(exampleOktaCaptcha.get("id"))
  *             .enabledPages("SIGN_IN")
  *             .build());
  * 

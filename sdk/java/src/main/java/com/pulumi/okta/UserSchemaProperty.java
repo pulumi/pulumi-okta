@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .description("My custom property name")
  *             .master("OKTA")
  *             .scope("SELF")
- *             .userType(exampleOktaUserType.id())
+ *             .userType(exampleOktaUserType.get("id"))
  *             .build());
  * 
  *     }
