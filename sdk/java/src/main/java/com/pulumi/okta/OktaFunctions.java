@@ -3195,6 +3195,37 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour() {
         return getBehaviour(GetBehaviourArgs.Empty, InvokeOptions.Empty);
@@ -3203,6 +3234,37 @@ public final class OktaFunctions {
      * Get a behavior by name or ID.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain() {
@@ -3213,6 +3275,37 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args) {
         return getBehaviour(args, InvokeOptions.Empty);
@@ -3221,6 +3314,37 @@ public final class OktaFunctions {
      * Get a behavior by name or ID.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain(GetBehaviourPlainArgs args) {
@@ -3231,6 +3355,37 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
@@ -3240,6 +3395,37 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetBehaviourResult> getBehaviour(GetBehaviourArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getBehaviour:getBehaviour", TypeShape.of(GetBehaviourResult.class), args, Utilities.withVersion(options));
@@ -3248,6 +3434,37 @@ public final class OktaFunctions {
      * Get a behavior by name or ID.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetBehaviourArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OktaFunctions.getBehaviour(GetBehaviourArgs.builder()
+     *             .label("New City")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetBehaviourResult> getBehaviourPlain(GetBehaviourPlainArgs args, InvokeOptions options) {
@@ -8963,6 +9180,44 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Look up the most recent session
+     *         final var latest = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .build());
+     * 
+     *         // Look up a specific session by ID
+     *         final var byId = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .id("<session-id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetIdentitySourceSessionsResult> getIdentitySourceSessions(GetIdentitySourceSessionsArgs args) {
         return getIdentitySourceSessions(args, InvokeOptions.Empty);
@@ -8971,6 +9226,44 @@ public final class OktaFunctions {
      * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Look up the most recent session
+     *         final var latest = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .build());
+     * 
+     *         // Look up a specific session by ID
+     *         final var byId = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .id("<session-id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetIdentitySourceSessionsResult> getIdentitySourceSessionsPlain(GetIdentitySourceSessionsPlainArgs args) {
@@ -8981,6 +9274,44 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Look up the most recent session
+     *         final var latest = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .build());
+     * 
+     *         // Look up a specific session by ID
+     *         final var byId = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .id("<session-id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetIdentitySourceSessionsResult> getIdentitySourceSessions(GetIdentitySourceSessionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", TypeShape.of(GetIdentitySourceSessionsResult.class), args, Utilities.withVersion(options));
@@ -8990,6 +9321,44 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Look up the most recent session
+     *         final var latest = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .build());
+     * 
+     *         // Look up a specific session by ID
+     *         final var byId = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .id("<session-id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetIdentitySourceSessionsResult> getIdentitySourceSessions(GetIdentitySourceSessionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", TypeShape.of(GetIdentitySourceSessionsResult.class), args, Utilities.withVersion(options));
@@ -8998,6 +9367,44 @@ public final class OktaFunctions {
      * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetIdentitySourceSessionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Look up the most recent session
+     *         final var latest = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .build());
+     * 
+     *         // Look up a specific session by ID
+     *         final var byId = OktaFunctions.getIdentitySourceSessions(GetIdentitySourceSessionsArgs.builder()
+     *             .identitySourceId("<identity-source-id>")
+     *             .id("<session-id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetIdentitySourceSessionsResult> getIdentitySourceSessionsPlain(GetIdentitySourceSessionsPlainArgs args, InvokeOptions options) {
@@ -12775,6 +13182,41 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment() {
         return getRealmAssignment(GetRealmAssignmentArgs.Empty, InvokeOptions.Empty);
@@ -12783,6 +13225,41 @@ public final class OktaFunctions {
      * Get a realm assignment from Okta.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain() {
@@ -12793,6 +13270,41 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args) {
         return getRealmAssignment(args, InvokeOptions.Empty);
@@ -12801,6 +13313,41 @@ public final class OktaFunctions {
      * Get a realm assignment from Okta.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args) {
@@ -12811,6 +13358,41 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
@@ -12820,6 +13402,41 @@ public final class OktaFunctions {
      * 
      * ## Example Usage
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      */
     public static Output<GetRealmAssignmentResult> getRealmAssignment(GetRealmAssignmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("okta:index/getRealmAssignment:getRealmAssignment", TypeShape.of(GetRealmAssignmentResult.class), args, Utilities.withVersion(options));
@@ -12828,6 +13445,41 @@ public final class OktaFunctions {
      * Get a realm assignment from Okta.
      * 
      * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.okta.OktaFunctions;
+     * import com.pulumi.okta.inputs.GetRealmAssignmentArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleName = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .name("Example Realm Assignment")
+     *             .build());
+     * 
+     *         final var exampleId = OktaFunctions.getRealmAssignment(GetRealmAssignmentArgs.builder()
+     *             .id("<realm_assignment_id>")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      */
     public static CompletableFuture<GetRealmAssignmentResult> getRealmAssignmentPlain(GetRealmAssignmentPlainArgs args, InvokeOptions options) {

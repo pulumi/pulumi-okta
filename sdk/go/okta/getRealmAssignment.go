@@ -14,6 +14,36 @@ import (
 // Get a realm assignment from Okta.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetRealmAssignment(ctx, &okta.LookupRealmAssignmentArgs{
+//				Name: pulumi.StringRef("Example Realm Assignment"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = okta.GetRealmAssignment(ctx, &okta.LookupRealmAssignmentArgs{
+//				Id: "<realm_assignment_id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRealmAssignment(ctx *pulumi.Context, args *LookupRealmAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRealmAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRealmAssignmentResult

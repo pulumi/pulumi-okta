@@ -14,6 +14,39 @@ import (
 // Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Look up the most recent session
+//			_, err := okta.GetIdentitySourceSessions(ctx, &okta.GetIdentitySourceSessionsArgs{
+//				IdentitySourceId: "<identity-source-id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Look up a specific session by ID
+//			_, err = okta.GetIdentitySourceSessions(ctx, &okta.GetIdentitySourceSessionsArgs{
+//				IdentitySourceId: "<identity-source-id>",
+//				Id:               "<session-id>",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetIdentitySourceSessions(ctx *pulumi.Context, args *GetIdentitySourceSessionsArgs, opts ...pulumi.InvokeOption) (*GetIdentitySourceSessionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIdentitySourceSessionsResult

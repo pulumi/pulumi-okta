@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_ = okta.GetCaptchaOutput(ctx, okta.GetCaptchaOutputArgs{
-//				Id: testCaptcha.ID().ToIDOutput().ToStringOutput(),
+//				Id: testCaptcha.ID(),
 //			}, nil)
 //			return nil
 //		})

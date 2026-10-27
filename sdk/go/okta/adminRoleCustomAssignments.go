@@ -128,8 +128,8 @@ import (
 //			}
 //			// this user and group will manage the set of resources based on the permissions specified in the custom role
 //			_, err = okta.NewAdminRoleCustomAssignments(ctx, "test", &okta.AdminRoleCustomAssignmentsArgs{
-//				ResourceSetId: testResourceSet.ID().ToIDOutput().ToStringOutput(),
-//				CustomRoleId:  test.ID().ToIDOutput().ToStringOutput(),
+//				ResourceSetId: testResourceSet.ID(),
+//				CustomRoleId:  test.ID(),
 //				Members: pulumi.StringArray{
 //					invokeFormat2.Result,
 //					invokeFormat3.Result,

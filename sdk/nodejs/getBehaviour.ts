@@ -8,6 +8,15 @@ import * as utilities from "./utilities";
  * Get a behavior by name or ID.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getBehaviour({
+ *     label: "New City",
+ * });
+ * ```
  */
 export function getBehaviour(args?: GetBehaviourArgs, opts?: pulumi.InvokeOptions): Promise<GetBehaviourResult> {
     args = args || {};
@@ -61,6 +70,15 @@ export interface GetBehaviourResult {
  * Get a behavior by name or ID.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = okta.getBehaviour({
+ *     label: "New City",
+ * });
+ * ```
  */
 export function getBehaviourOutput(args?: GetBehaviourOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBehaviourResult> {
     args = args || {};

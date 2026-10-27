@@ -14,6 +14,30 @@ import (
 // Get a behavior by name or ID.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := okta.GetBehaviour(ctx, &okta.LookupBehaviourArgs{
+//				Label: "New City",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBehaviour(ctx *pulumi.Context, args *LookupBehaviourArgs, opts ...pulumi.InvokeOption) (*LookupBehaviourResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBehaviourResult

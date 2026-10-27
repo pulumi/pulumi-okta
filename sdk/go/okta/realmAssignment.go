@@ -41,7 +41,7 @@ import (
 //				Status:              pulumi.String("ACTIVE"),
 //				ProfileSourceId:     pulumi.Any(testOktaIdpSaml.Id),
 //				ConditionExpression: pulumi.String("user.profile.login.contains(\"@example.com\")"),
-//				RealmId:             example.ID().ToIDOutput().ToStringOutput(),
+//				RealmId:             example.ID(),
 //			})
 //			if err != nil {
 //				return err

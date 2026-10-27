@@ -15,6 +15,27 @@ namespace Pulumi.Okta
         /// Get a realm assignment from Okta.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleName = Okta.GetRealmAssignment.Invoke(new()
+        ///     {
+        ///         Name = "Example Realm Assignment",
+        ///     });
+        /// 
+        ///     var exampleId = Okta.GetRealmAssignment.Invoke(new()
+        ///     {
+        ///         Id = "&lt;realm_assignment_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetRealmAssignmentResult> InvokeAsync(GetRealmAssignmentArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentArgs(), options.WithDefaults());
@@ -23,6 +44,27 @@ namespace Pulumi.Okta
         /// Get a realm assignment from Okta.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleName = Okta.GetRealmAssignment.Invoke(new()
+        ///     {
+        ///         Name = "Example Realm Assignment",
+        ///     });
+        /// 
+        ///     var exampleId = Okta.GetRealmAssignment.Invoke(new()
+        ///     {
+        ///         Id = "&lt;realm_assignment_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRealmAssignmentResult> Invoke(GetRealmAssignmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentInvokeArgs(), options.WithDefaults());
@@ -31,6 +73,27 @@ namespace Pulumi.Okta
         /// Get a realm assignment from Okta.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleName = Okta.GetRealmAssignment.Invoke(new()
+        ///     {
+        ///         Name = "Example Realm Assignment",
+        ///     });
+        /// 
+        ///     var exampleId = Okta.GetRealmAssignment.Invoke(new()
+        ///     {
+        ///         Id = "&lt;realm_assignment_id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetRealmAssignmentResult> Invoke(GetRealmAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealmAssignmentResult>("okta:index/getRealmAssignment:getRealmAssignment", args ?? new GetRealmAssignmentInvokeArgs(), options.WithDefaults());

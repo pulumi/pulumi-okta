@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			exampleFederatedClaim, err := app.NewFederatedClaim(ctx, "example", &app.FederatedClaimArgs{
-//				AppId:      testApp.ID().ToIDOutput().ToStringOutput(),
+//				AppId:      testApp.ID(),
 //				Name:       pulumi.String("role_last_name"),
 //				Expression: pulumi.String("user.profile.lastName"),
 //			})
@@ -81,8 +81,8 @@ import (
 //				return err
 //			}
 //			example := app.LookupFederatedClaimOutput(ctx, app.GetFederatedClaimOutputArgs{
-//				AppId: testApp.ID().ToIDOutput().ToStringOutput(),
-//				Id:    exampleFederatedClaim.ID().ToIDOutput().ToStringOutput(),
+//				AppId: testApp.ID(),
+//				Id:    exampleFederatedClaim.ID(),
 //			}, nil)
 //			ctx.Export("claimName", example.Name())
 //			ctx.Export("claimExpression", example.Expression())

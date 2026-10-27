@@ -15,6 +15,22 @@ namespace Pulumi.Okta
         /// Get a behavior by name or ID.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetBehaviour.Invoke(new()
+        ///     {
+        ///         Label = "New City",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetBehaviourResult> InvokeAsync(GetBehaviourArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourArgs(), options.WithDefaults());
@@ -23,6 +39,22 @@ namespace Pulumi.Okta
         /// Get a behavior by name or ID.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetBehaviour.Invoke(new()
+        ///     {
+        ///         Label = "New City",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());
@@ -31,6 +63,22 @@ namespace Pulumi.Okta
         /// Get a behavior by name or ID.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Okta.GetBehaviour.Invoke(new()
+        ///     {
+        ///         Label = "New City",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetBehaviourResult> Invoke(GetBehaviourInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBehaviourResult>("okta:index/getBehaviour:getBehaviour", args ?? new GetBehaviourInvokeArgs(), options.WithDefaults());
