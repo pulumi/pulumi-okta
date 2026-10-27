@@ -140,6 +140,14 @@ def get_realm_assignment(name: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_name = okta.get_realm_assignment(name="Example Realm Assignment")
+    example_id = okta.get_realm_assignment(id="<realm_assignment_id>")
+    ```
+
 
     :param _builtins.str name: The name of the Okta Realm Assignment.
     """
@@ -163,6 +171,14 @@ def get_realm_assignment_output(name: pulumi.Input[Optional[Optional[_builtins.s
     Get a realm assignment from Okta.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example_name = okta.get_realm_assignment(name="Example Realm Assignment")
+    example_id = okta.get_realm_assignment(id="<realm_assignment_id>")
+    ```
 
 
     :param _builtins.str name: The name of the Okta Realm Assignment.

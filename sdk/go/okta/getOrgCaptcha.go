@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewOrgCaptcha(ctx, "test", &okta.OrgCaptchaArgs{
-//				CaptchaId: testCaptcha.ID().ToIDOutput().ToStringOutput(),
+//				CaptchaId: testCaptcha.ID(),
 //				EnabledPages: pulumi.StringArray{
 //					pulumi.String("SIGN_IN"),
 //				},

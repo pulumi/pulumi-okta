@@ -126,6 +126,17 @@ def get_identity_source_sessions(identity_source_id: Optional[_builtins.str] = N
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    # Look up the most recent session
+    latest = okta.get_identity_source_sessions(identity_source_id="<identity-source-id>")
+    # Look up a specific session by ID
+    by_id = okta.get_identity_source_sessions(identity_source_id="<identity-source-id>",
+        id="<session-id>")
+    ```
+
 
     :param _builtins.str identity_source_id: ID of the identity source.
     """
@@ -150,6 +161,17 @@ def get_identity_source_sessions_output(identity_source_id: pulumi.Input[Optiona
     Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    # Look up the most recent session
+    latest = okta.get_identity_source_sessions(identity_source_id="<identity-source-id>")
+    # Look up a specific session by ID
+    by_id = okta.get_identity_source_sessions(identity_source_id="<identity-source-id>",
+        id="<session-id>")
+    ```
 
 
     :param _builtins.str identity_source_id: ID of the identity source.

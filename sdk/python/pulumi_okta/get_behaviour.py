@@ -105,6 +105,13 @@ def get_behaviour(id: Optional[_builtins.str] = None,
 
     ## Example Usage
 
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.get_behaviour(label="New City")
+    ```
+
 
     :param _builtins.str id: Behavior ID.
     :param _builtins.str name: Behavior name.
@@ -128,6 +135,13 @@ def get_behaviour_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = N
     Get a behavior by name or ID.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_okta as okta
+
+    example = okta.get_behaviour(label="New City")
+    ```
 
 
     :param _builtins.str id: Behavior ID.

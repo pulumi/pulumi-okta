@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_ = okta.GetUserSecurityQuestionsOutput(ctx, okta.GetUserSecurityQuestionsOutputArgs{
-//				UserId: exampleUser.ID().ToIDOutput().ToStringOutput(),
+//				UserId: exampleUser.ID(),
 //			}, nil)
 //			return nil
 //		})

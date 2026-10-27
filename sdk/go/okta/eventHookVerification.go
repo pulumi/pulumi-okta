@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewEventHookVerification(ctx, "example", &okta.EventHookVerificationArgs{
-//				EventHookId: example.ID().ToIDOutput().ToStringOutput(),
+//				EventHookId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

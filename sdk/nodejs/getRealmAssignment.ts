@@ -8,6 +8,18 @@ import * as utilities from "./utilities";
  * Get a realm assignment from Okta.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleName = okta.getRealmAssignment({
+ *     name: "Example Realm Assignment",
+ * });
+ * const exampleId = okta.getRealmAssignment({
+ *     id: "<realm_assignment_id>",
+ * });
+ * ```
  */
 export function getRealmAssignment(args?: GetRealmAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRealmAssignmentResult> {
     args = args || {};
@@ -68,6 +80,18 @@ export interface GetRealmAssignmentResult {
  * Get a realm assignment from Okta.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const exampleName = okta.getRealmAssignment({
+ *     name: "Example Realm Assignment",
+ * });
+ * const exampleId = okta.getRealmAssignment({
+ *     id: "<realm_assignment_id>",
+ * });
+ * ```
  */
 export function getRealmAssignmentOutput(args?: GetRealmAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRealmAssignmentResult> {
     args = args || {};

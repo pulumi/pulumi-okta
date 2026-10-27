@@ -15,6 +15,30 @@ namespace Pulumi.Okta
         /// Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `Id` is specified.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Look up the most recent session
+        ///     var latest = Okta.GetIdentitySourceSessions.Invoke(new()
+        ///     {
+        ///         IdentitySourceId = "&lt;identity-source-id&gt;",
+        ///     });
+        /// 
+        ///     // Look up a specific session by ID
+        ///     var byId = Okta.GetIdentitySourceSessions.Invoke(new()
+        ///     {
+        ///         IdentitySourceId = "&lt;identity-source-id&gt;",
+        ///         Id = "&lt;session-id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetIdentitySourceSessionsResult> InvokeAsync(GetIdentitySourceSessionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentitySourceSessionsResult>("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", args ?? new GetIdentitySourceSessionsArgs(), options.WithDefaults());
@@ -23,6 +47,30 @@ namespace Pulumi.Okta
         /// Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `Id` is specified.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Look up the most recent session
+        ///     var latest = Okta.GetIdentitySourceSessions.Invoke(new()
+        ///     {
+        ///         IdentitySourceId = "&lt;identity-source-id&gt;",
+        ///     });
+        /// 
+        ///     // Look up a specific session by ID
+        ///     var byId = Okta.GetIdentitySourceSessions.Invoke(new()
+        ///     {
+        ///         IdentitySourceId = "&lt;identity-source-id&gt;",
+        ///         Id = "&lt;session-id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetIdentitySourceSessionsResult> Invoke(GetIdentitySourceSessionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentitySourceSessionsResult>("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", args ?? new GetIdentitySourceSessionsInvokeArgs(), options.WithDefaults());
@@ -31,6 +79,30 @@ namespace Pulumi.Okta
         /// Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `Id` is specified.
         /// 
         /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Okta = Pulumi.Okta;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Look up the most recent session
+        ///     var latest = Okta.GetIdentitySourceSessions.Invoke(new()
+        ///     {
+        ///         IdentitySourceId = "&lt;identity-source-id&gt;",
+        ///     });
+        /// 
+        ///     // Look up a specific session by ID
+        ///     var byId = Okta.GetIdentitySourceSessions.Invoke(new()
+        ///     {
+        ///         IdentitySourceId = "&lt;identity-source-id&gt;",
+        ///         Id = "&lt;session-id&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetIdentitySourceSessionsResult> Invoke(GetIdentitySourceSessionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentitySourceSessionsResult>("okta:index/getIdentitySourceSessions:getIdentitySourceSessions", args ?? new GetIdentitySourceSessionsInvokeArgs(), options.WithDefaults());

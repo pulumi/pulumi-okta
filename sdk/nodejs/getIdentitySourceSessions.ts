@@ -8,6 +8,21 @@ import * as utilities from "./utilities";
  * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * // Look up the most recent session
+ * const latest = okta.getIdentitySourceSessions({
+ *     identitySourceId: "<identity-source-id>",
+ * });
+ * // Look up a specific session by ID
+ * const byId = okta.getIdentitySourceSessions({
+ *     identitySourceId: "<identity-source-id>",
+ *     id: "<session-id>",
+ * });
+ * ```
  */
 export function getIdentitySourceSessions(args: GetIdentitySourceSessionsArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentitySourceSessionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +77,21 @@ export interface GetIdentitySourceSessionsResult {
  * Retrieves an identity source session by ID, or the most recently created session for the given identity source if no `id` is specified.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * // Look up the most recent session
+ * const latest = okta.getIdentitySourceSessions({
+ *     identitySourceId: "<identity-source-id>",
+ * });
+ * // Look up a specific session by ID
+ * const byId = okta.getIdentitySourceSessions({
+ *     identitySourceId: "<identity-source-id>",
+ *     id: "<session-id>",
+ * });
+ * ```
  */
 export function getIdentitySourceSessionsOutput(args: GetIdentitySourceSessionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentitySourceSessionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

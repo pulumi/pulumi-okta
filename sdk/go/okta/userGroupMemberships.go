@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = okta.NewUserGroupMemberships(ctx, "test", &okta.UserGroupMembershipsArgs{
-//				UserId: test.ID().ToIDOutput().ToStringOutput(),
+//				UserId: test.ID(),
 //				Groups: pulumi.StringArray{
 //					test1.Id,
 //					test2.Id,

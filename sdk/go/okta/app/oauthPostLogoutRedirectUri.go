@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = app.NewOAuthPostLogoutRedirectUri(ctx, "test", &app.OAuthPostLogoutRedirectUriArgs{
-//				AppId: test.ID().ToIDOutput().ToStringOutput(),
+//				AppId: test.ID(),
 //				Uri:   pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {

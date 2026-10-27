@@ -54,15 +54,15 @@ import (
 //				return err
 //			}
 //			_, err = group.NewOwners(ctx, "owners", &group.OwnersArgs{
-//				GroupId: grp.ID().ToIDOutput().ToStringOutput(),
+//				GroupId: grp.ID(),
 //				Owners: group.OwnersOwnerArray{
 //					&group.OwnersOwnerArgs{
 //						Type: pulumi.String("USER"),
-//						Id:   owner1.ID().ToIDOutput().ToStringOutput(),
+//						Id:   owner1.ID(),
 //					},
 //					&group.OwnersOwnerArgs{
 //						Type: pulumi.String("USER"),
-//						Id:   owner2.ID().ToIDOutput().ToStringOutput(),
+//						Id:   owner2.ID(),
 //					},
 //				},
 //			})

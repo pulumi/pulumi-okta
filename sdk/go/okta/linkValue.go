@@ -68,13 +68,13 @@ import (
 //			}
 //			_, err = okta.NewLinkValue(ctx, "example", &okta.LinkValueArgs{
 //				PrimaryName:   padishah.PrimaryName,
-//				PrimaryUserId: emperor.ID().ToIDOutput().ToStringOutput(),
+//				PrimaryUserId: emperor.ID(),
 //				AssociatedUserIds: pulumi.StringArray{
-//					sardaukars[0].ID().ToIDOutput().ToStringOutput(),
-//					sardaukars[1].ID().ToIDOutput().ToStringOutput(),
-//					sardaukars[2].ID().ToIDOutput().ToStringOutput(),
-//					sardaukars[3].ID().ToIDOutput().ToStringOutput(),
-//					sardaukars[4].ID().ToIDOutput().ToStringOutput(),
+//					sardaukars[0].ID(),
+//					sardaukars[1].ID(),
+//					sardaukars[2].ID(),
+//					sardaukars[3].ID(),
+//					sardaukars[4].ID(),
 //				},
 //			})
 //			if err != nil {
