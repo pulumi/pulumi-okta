@@ -11,7 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel` to an empty string, since this feature is not enabled.
+// Creates a Sign On Policy Rule. In case 'Invalid condition type specified: riskScore.' error is thrown, set 'risc_level' to an empty string, since this feature is not enabled.
+// A policy's default rule (the rule named 'Default Rule') can be imported and updated as a custom rule, but it can not be created, renamed or deleted.
+// Okta manages these fields on a default rule, so values configured for them are ignored: 'priority', 'network_connection', 'network_includes',
+// 'network_excludes', 'users_excluded' and 'session_persistent'.
+// Removing a default rule from your configuration drops it from Terraform state without deleting it from Okta.
 //
 // ## Example Usage
 //
@@ -180,6 +184,8 @@ type RuleSignon struct {
 	SessionPersistent pulumi.BoolPtrOutput `pulumi:"sessionPersistent"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+	System pulumi.BoolOutput `pulumi:"system"`
 	// Set of User IDs to Exclude
 	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 }
@@ -267,6 +273,8 @@ type ruleSignonState struct {
 	SessionPersistent *bool `pulumi:"sessionPersistent"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
+	// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+	System *bool `pulumi:"system"`
 	// Set of User IDs to Exclude
 	UsersExcluded []string `pulumi:"usersExcluded"`
 }
@@ -325,6 +333,8 @@ type RuleSignonState struct {
 	SessionPersistent pulumi.BoolPtrInput
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
+	// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+	System pulumi.BoolPtrInput
 	// Set of User IDs to Exclude
 	UsersExcluded pulumi.StringArrayInput
 }
@@ -657,6 +667,11 @@ func (o RuleSignonOutput) SessionPersistent() pulumi.BoolPtrOutput {
 // Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 func (o RuleSignonOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSignon) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+func (o RuleSignonOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RuleSignon) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 // Set of User IDs to Exclude

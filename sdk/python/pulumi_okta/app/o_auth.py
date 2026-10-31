@@ -39,6 +39,7 @@ class OAuthArgs:
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpop_bound_access_tokens: pulumi.Input[Optional[_builtins.bool]] = None,
                  enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
                  frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -102,6 +103,7 @@ class OAuthArgs:
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
+        :param pulumi.Input[_builtins.bool] dpop_bound_access_tokens: Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -174,6 +176,8 @@ class OAuthArgs:
             pulumi.set(__self__, "client_uri", client_uri)
         if consent_method is not None:
             pulumi.set(__self__, "consent_method", consent_method)
+        if dpop_bound_access_tokens is not None:
+            pulumi.set(__self__, "dpop_bound_access_tokens", dpop_bound_access_tokens)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if frontchannel_logout_session_required is not None:
@@ -472,6 +476,18 @@ class OAuthArgs:
     @consent_method.setter
     def consent_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consent_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dpopBoundAccessTokens")
+    def dpop_bound_access_tokens(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        """
+        return pulumi.get(self, "dpop_bound_access_tokens")
+
+    @dpop_bound_access_tokens.setter
+    def dpop_bound_access_tokens(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "dpop_bound_access_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
@@ -939,6 +955,7 @@ class _OAuthState:
                  client_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  client_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpop_bound_access_tokens: pulumi.Input[Optional[_builtins.bool]] = None,
                  enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
                  frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1006,6 +1023,7 @@ class _OAuthState:
         :param pulumi.Input[_builtins.str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
+        :param pulumi.Input[_builtins.bool] dpop_bound_access_tokens: Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -1083,6 +1101,8 @@ class _OAuthState:
             pulumi.set(__self__, "client_uri", client_uri)
         if consent_method is not None:
             pulumi.set(__self__, "consent_method", consent_method)
+        if dpop_bound_access_tokens is not None:
+            pulumi.set(__self__, "dpop_bound_access_tokens", dpop_bound_access_tokens)
         if enduser_note is not None:
             pulumi.set(__self__, "enduser_note", enduser_note)
         if frontchannel_logout_session_required is not None:
@@ -1379,6 +1399,18 @@ class _OAuthState:
     @consent_method.setter
     def consent_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consent_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dpopBoundAccessTokens")
+    def dpop_bound_access_tokens(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        """
+        return pulumi.get(self, "dpop_bound_access_tokens")
+
+    @dpop_bound_access_tokens.setter
+    def dpop_bound_access_tokens(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "dpop_bound_access_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")
@@ -1908,6 +1940,7 @@ class OAuth(pulumi.CustomResource):
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpop_bound_access_tokens: pulumi.Input[Optional[_builtins.bool]] = None,
                  enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
                  frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1957,6 +1990,40 @@ class OAuth(pulumi.CustomResource):
         > `app.OAuthRedirectUri` has been marked deprecated and will be removed
         in the v5 release of the provider. Operators should manage the redirect URIs for
         an oauth app directly on that resource.
+
+        ### DPoP (Demonstrating Proof-of-Possession)
+
+        Set `dpop_bound_access_tokens = true` to require DPoP for this client. The
+        authorization server then rejects token requests from the client that don't
+        carry a `DPoP` header.
+
+        The attribute is `Optional` and `Computed`. Leaving it out of the config means
+        the provider tracks whatever the org reports rather than forcing it to `false`,
+        so a value set outside of Terraform is not clobbered on the next apply. To
+        manage the setting as code, declare it explicitly:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.OAuth("example",
+            label="Example App",
+            type="web",
+            grant_types=["authorization_code"],
+            redirect_uris=["https://example.com/callback"],
+            response_types=["code"],
+            dpop_bound_access_tokens=True)
+        ```
+
+        > When `dpop_bound_access_tokens` is `true` the Okta API does not allow
+        `client_credentials` or `implicit` in `grant_types`.
+
+        ### Resetting client secret
+
+        If the client secret needs to be reset run an apply with `omit_secret` set to
+        true in the resource. This causes `client_secret` to be set to blank. Remove
+        `omit_secret` and run apply again. The resource will set a new `client_secret`
+        for the app.
 
         ### Private Keys
 
@@ -2049,6 +2116,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_id: OAuth client ID. If set during creation, app is created with this id.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
+        :param pulumi.Input[_builtins.bool] dpop_bound_access_tokens: Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -2104,6 +2172,40 @@ class OAuth(pulumi.CustomResource):
         > `app.OAuthRedirectUri` has been marked deprecated and will be removed
         in the v5 release of the provider. Operators should manage the redirect URIs for
         an oauth app directly on that resource.
+
+        ### DPoP (Demonstrating Proof-of-Possession)
+
+        Set `dpop_bound_access_tokens = true` to require DPoP for this client. The
+        authorization server then rejects token requests from the client that don't
+        carry a `DPoP` header.
+
+        The attribute is `Optional` and `Computed`. Leaving it out of the config means
+        the provider tracks whatever the org reports rather than forcing it to `false`,
+        so a value set outside of Terraform is not clobbered on the next apply. To
+        manage the setting as code, declare it explicitly:
+
+        ```python
+        import pulumi
+        import pulumi_okta as okta
+
+        example = okta.app.OAuth("example",
+            label="Example App",
+            type="web",
+            grant_types=["authorization_code"],
+            redirect_uris=["https://example.com/callback"],
+            response_types=["code"],
+            dpop_bound_access_tokens=True)
+        ```
+
+        > When `dpop_bound_access_tokens` is `true` the Okta API does not allow
+        `client_credentials` or `implicit` in `grant_types`.
+
+        ### Resetting client secret
+
+        If the client secret needs to be reset run an apply with `omit_secret` set to
+        true in the resource. This causes `client_secret` to be set to blank. Remove
+        `omit_secret` and run apply again. The resource will set a new `client_secret`
+        for the app.
 
         ### Private Keys
 
@@ -2204,6 +2306,7 @@ class OAuth(pulumi.CustomResource):
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 dpop_bound_access_tokens: pulumi.Input[Optional[_builtins.bool]] = None,
                  enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
                  frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2268,6 +2371,7 @@ class OAuth(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["client_uri"] = client_uri
             __props__.__dict__["consent_method"] = consent_method
+            __props__.__dict__["dpop_bound_access_tokens"] = dpop_bound_access_tokens
             __props__.__dict__["enduser_note"] = enduser_note
             __props__.__dict__["frontchannel_logout_session_required"] = frontchannel_logout_session_required
             __props__.__dict__["frontchannel_logout_uri"] = frontchannel_logout_uri
@@ -2344,6 +2448,7 @@ class OAuth(pulumi.CustomResource):
             client_secret: pulumi.Input[Optional[_builtins.str]] = None,
             client_uri: pulumi.Input[Optional[_builtins.str]] = None,
             consent_method: pulumi.Input[Optional[_builtins.str]] = None,
+            dpop_bound_access_tokens: pulumi.Input[Optional[_builtins.bool]] = None,
             enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
             frontchannel_logout_session_required: pulumi.Input[Optional[_builtins.bool]] = None,
             frontchannel_logout_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2415,6 +2520,7 @@ class OAuth(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_secret: OAuth client secret value, this is output only. This will be in plain text in your statefile unless you set omit_secret above.
         :param pulumi.Input[_builtins.str] client_uri: URI to a web page providing information about the client.
         :param pulumi.Input[_builtins.str] consent_method: *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
+        :param pulumi.Input[_builtins.bool] dpop_bound_access_tokens: Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
         :param pulumi.Input[_builtins.str] enduser_note: Application notes for end users.
         :param pulumi.Input[_builtins.bool] frontchannel_logout_session_required: *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
         :param pulumi.Input[_builtins.str] frontchannel_logout_uri: *Early Access Property*. URL where Okta sends the logout request. Required when participate_slo is true.
@@ -2479,6 +2585,7 @@ class OAuth(pulumi.CustomResource):
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["client_uri"] = client_uri
         __props__.__dict__["consent_method"] = consent_method
+        __props__.__dict__["dpop_bound_access_tokens"] = dpop_bound_access_tokens
         __props__.__dict__["enduser_note"] = enduser_note
         __props__.__dict__["frontchannel_logout_session_required"] = frontchannel_logout_session_required
         __props__.__dict__["frontchannel_logout_uri"] = frontchannel_logout_uri
@@ -2663,6 +2770,14 @@ class OAuth(pulumi.CustomResource):
         *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
         """
         return pulumi.get(self, "consent_method")
+
+    @_builtins.property
+    @pulumi.getter(name="dpopBoundAccessTokens")
+    def dpop_bound_access_tokens(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        """
+        return pulumi.get(self, "dpop_bound_access_tokens")
 
     @_builtins.property
     @pulumi.getter(name="enduserNote")

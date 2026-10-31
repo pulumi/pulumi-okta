@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.okta.policy.inputs.RuleMfaAppExcludeArgs;
 import com.pulumi.okta.policy.inputs.RuleMfaAppIncludeArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -182,6 +183,21 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    @Import(name="system")
+    private @Nullable Output<Boolean> system;
+
+    /**
+     * @return Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    public Optional<Output<Boolean>> system() {
+        return Optional.ofNullable(this.system);
+    }
+
+    /**
      * Set of User IDs to Exclude
      * 
      */
@@ -209,6 +225,7 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
         this.policyId = $.policyId;
         this.priority = $.priority;
         this.status = $.status;
+        this.system = $.system;
         this.usersExcluded = $.usersExcluded;
     }
 
@@ -496,6 +513,27 @@ public final class RuleMfaState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param system Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(@Nullable Output<Boolean> system) {
+            $.system = system;
+            return this;
+        }
+
+        /**
+         * @param system Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(Boolean system) {
+            return system(Output.of(system));
         }
 
         /**

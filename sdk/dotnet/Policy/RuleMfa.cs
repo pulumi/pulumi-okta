@@ -88,6 +88,12 @@ namespace Pulumi.Okta.Policy
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        /// </summary>
+        [Output("system")]
+        public Output<bool> System { get; private set; } = null!;
+
+        /// <summary>
         /// Set of User IDs to Exclude
         /// </summary>
         [Output("usersExcluded")]
@@ -338,6 +344,12 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        /// </summary>
+        [Input("system")]
+        public Input<bool>? System { get; set; }
 
         [Input("usersExcluded")]
         private InputList<string>? _usersExcluded;

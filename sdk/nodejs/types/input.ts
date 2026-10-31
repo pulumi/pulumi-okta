@@ -4020,6 +4020,102 @@ export interface RequestConditionRequesterSettingsId {
     id?: pulumi.Input<string | undefined>;
 }
 
+export interface RequestConditionsCondition {
+    /**
+     * Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+     */
+    accessDurationSettings?: pulumi.Input<inputs.RequestConditionsConditionAccessDurationSettings | undefined>;
+    accessScopeSettings?: pulumi.Input<inputs.RequestConditionsConditionAccessScopeSettings | undefined>;
+    /**
+     * The ID of the approval sequence.
+     */
+    approvalSequenceId: pulumi.Input<string>;
+    /**
+     * The ISO 8601 formatted date and time when the condition was created.
+     */
+    created?: pulumi.Input<string | undefined>;
+    /**
+     * The id of the Okta user who created the condition.
+     */
+    createdBy?: pulumi.Input<string | undefined>;
+    /**
+     * The description of the request condition.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * The id of the request condition.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The ISO 8601 formatted date and time when the condition was last updated.
+     */
+    lastUpdated?: pulumi.Input<string | undefined>;
+    /**
+     * The id of the Okta user who last updated the condition.
+     */
+    lastUpdatedBy?: pulumi.Input<string | undefined>;
+    /**
+     * The name of the request condition. Must be unique within the resource.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+     */
+    priority?: pulumi.Input<number | undefined>;
+    requesterSettings?: pulumi.Input<inputs.RequestConditionsConditionRequesterSettings | undefined>;
+    /**
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+     */
+    status?: pulumi.Input<string | undefined>;
+}
+
+export interface RequestConditionsConditionAccessDurationSettings {
+    /**
+     * The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+     */
+    duration?: pulumi.Input<string | undefined>;
+    /**
+     * Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+     */
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface RequestConditionsConditionAccessScopeSettings {
+    /**
+     * The group or entitlement bundle IDs. Each block contains an `id`.
+     */
+    ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionsConditionAccessScopeSettingsId>[] | undefined>;
+    /**
+     * Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface RequestConditionsConditionAccessScopeSettingsId {
+    /**
+     * The ID of this resource (same as `resourceId`).
+     */
+    id?: pulumi.Input<string | undefined>;
+}
+
+export interface RequestConditionsConditionRequesterSettings {
+    /**
+     * The group IDs. Each block contains an `id`.
+     */
+    ids?: pulumi.Input<pulumi.Input<inputs.RequestConditionsConditionRequesterSettingsId>[] | undefined>;
+    /**
+     * Enum: `EVERYONE`, `GROUPS`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface RequestConditionsConditionRequesterSettingsId {
+    /**
+     * The ID of this resource (same as `resourceId`).
+     */
+    id?: pulumi.Input<string | undefined>;
+}
+
 export interface RequestSettingResourceRequestOnBehalfOfSettings {
     /**
      * Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.

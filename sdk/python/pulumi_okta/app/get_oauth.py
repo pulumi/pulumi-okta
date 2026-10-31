@@ -27,7 +27,7 @@ class GetOauthResult:
     """
     A collection of values returned by getOauth.
     """
-    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, grant_types=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, networks=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, wildcard_redirect=None):
+    def __init__(__self__, active_only=None, auto_submit_toolbar=None, client_id=None, client_secret=None, client_uri=None, dpop_bound_access_tokens=None, grant_types=None, hide_ios=None, hide_web=None, id=None, label=None, label_prefix=None, links=None, login_mode=None, login_scopes=None, login_uri=None, logo_uri=None, name=None, networks=None, policy_uri=None, post_logout_redirect_uris=None, redirect_uris=None, response_types=None, skip_groups=None, skip_users=None, status=None, type=None, wildcard_redirect=None):
         if active_only and not isinstance(active_only, bool):
             raise TypeError("Expected argument 'active_only' to be a bool")
         pulumi.set(__self__, "active_only", active_only)
@@ -43,6 +43,9 @@ class GetOauthResult:
         if client_uri and not isinstance(client_uri, str):
             raise TypeError("Expected argument 'client_uri' to be a str")
         pulumi.set(__self__, "client_uri", client_uri)
+        if dpop_bound_access_tokens and not isinstance(dpop_bound_access_tokens, bool):
+            raise TypeError("Expected argument 'dpop_bound_access_tokens' to be a bool")
+        pulumi.set(__self__, "dpop_bound_access_tokens", dpop_bound_access_tokens)
         if grant_types and not isinstance(grant_types, list):
             raise TypeError("Expected argument 'grant_types' to be a list")
         pulumi.set(__self__, "grant_types", grant_types)
@@ -149,6 +152,14 @@ class GetOauthResult:
         URI to a web page providing information about the client.
         """
         return pulumi.get(self, "client_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="dpopBoundAccessTokens")
+    def dpop_bound_access_tokens(self) -> _builtins.bool:
+        """
+        Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        """
+        return pulumi.get(self, "dpop_bound_access_tokens")
 
     @_builtins.property
     @pulumi.getter(name="grantTypes")
@@ -347,6 +358,7 @@ class AwaitableGetOauthResult(GetOauthResult):
             client_id=self.client_id,
             client_secret=self.client_secret,
             client_uri=self.client_uri,
+            dpop_bound_access_tokens=self.dpop_bound_access_tokens,
             grant_types=self.grant_types,
             hide_ios=self.hide_ios,
             hide_web=self.hide_web,
@@ -421,6 +433,7 @@ def get_oauth(active_only: Optional[_builtins.bool] = None,
         client_id=pulumi.get(__ret__, 'client_id'),
         client_secret=pulumi.get(__ret__, 'client_secret'),
         client_uri=pulumi.get(__ret__, 'client_uri'),
+        dpop_bound_access_tokens=pulumi.get(__ret__, 'dpop_bound_access_tokens'),
         grant_types=pulumi.get(__ret__, 'grant_types'),
         hide_ios=pulumi.get(__ret__, 'hide_ios'),
         hide_web=pulumi.get(__ret__, 'hide_web'),
@@ -492,6 +505,7 @@ def get_oauth_output(active_only: pulumi.Input[Optional[Optional[_builtins.bool]
         client_id=pulumi.get(__response__, 'client_id'),
         client_secret=pulumi.get(__response__, 'client_secret'),
         client_uri=pulumi.get(__response__, 'client_uri'),
+        dpop_bound_access_tokens=pulumi.get(__response__, 'dpop_bound_access_tokens'),
         grant_types=pulumi.get(__response__, 'grant_types'),
         hide_ios=pulumi.get(__response__, 'hide_ios'),
         hide_web=pulumi.get(__response__, 'hide_web'),

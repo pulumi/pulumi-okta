@@ -12,6 +12,7 @@ import com.pulumi.okta.policy.RuleMfaArgs;
 import com.pulumi.okta.policy.inputs.RuleMfaState;
 import com.pulumi.okta.policy.outputs.RuleMfaAppExclude;
 import com.pulumi.okta.policy.outputs.RuleMfaAppInclude;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -181,6 +182,20 @@ public class RuleMfa extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
+    }
+    /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    @Export(name="system", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> system;
+
+    /**
+     * @return Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    public Output<Boolean> system() {
+        return this.system;
     }
     /**
      * Set of User IDs to Exclude

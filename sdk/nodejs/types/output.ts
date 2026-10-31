@@ -2906,6 +2906,102 @@ export interface RequestConditionRequesterSettingsId {
     id?: string;
 }
 
+export interface RequestConditionsCondition {
+    /**
+     * Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+     */
+    accessDurationSettings?: outputs.RequestConditionsConditionAccessDurationSettings;
+    accessScopeSettings?: outputs.RequestConditionsConditionAccessScopeSettings;
+    /**
+     * The ID of the approval sequence.
+     */
+    approvalSequenceId: string;
+    /**
+     * The ISO 8601 formatted date and time when the condition was created.
+     */
+    created: string;
+    /**
+     * The id of the Okta user who created the condition.
+     */
+    createdBy: string;
+    /**
+     * The description of the request condition.
+     */
+    description?: string;
+    /**
+     * The id of the request condition.
+     */
+    id: string;
+    /**
+     * The ISO 8601 formatted date and time when the condition was last updated.
+     */
+    lastUpdated: string;
+    /**
+     * The id of the Okta user who last updated the condition.
+     */
+    lastUpdatedBy: string;
+    /**
+     * The name of the request condition. Must be unique within the resource.
+     */
+    name: string;
+    /**
+     * The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+     */
+    priority: number;
+    requesterSettings?: outputs.RequestConditionsConditionRequesterSettings;
+    /**
+     * Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+     */
+    status: string;
+}
+
+export interface RequestConditionsConditionAccessDurationSettings {
+    /**
+     * The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+     */
+    duration?: string;
+    /**
+     * Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+     */
+    type?: string;
+}
+
+export interface RequestConditionsConditionAccessScopeSettings {
+    /**
+     * The group or entitlement bundle IDs. Each block contains an `id`.
+     */
+    ids?: outputs.RequestConditionsConditionAccessScopeSettingsId[];
+    /**
+     * Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+     */
+    type: string;
+}
+
+export interface RequestConditionsConditionAccessScopeSettingsId {
+    /**
+     * The ID of this resource (same as `resourceId`).
+     */
+    id?: string;
+}
+
+export interface RequestConditionsConditionRequesterSettings {
+    /**
+     * The group IDs. Each block contains an `id`.
+     */
+    ids?: outputs.RequestConditionsConditionRequesterSettingsId[];
+    /**
+     * Enum: `EVERYONE`, `GROUPS`.
+     */
+    type: string;
+}
+
+export interface RequestConditionsConditionRequesterSettingsId {
+    /**
+     * The ID of this resource (same as `resourceId`).
+     */
+    id?: string;
+}
+
 export interface RequestSettingResourceRequestOnBehalfOfSettings {
     /**
      * Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.

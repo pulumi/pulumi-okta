@@ -47,6 +47,8 @@ type RuleMfa struct {
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+	System pulumi.BoolOutput `pulumi:"system"`
 	// Set of User IDs to Exclude
 	UsersExcluded pulumi.StringArrayOutput `pulumi:"usersExcluded"`
 }
@@ -107,6 +109,8 @@ type ruleMfaState struct {
 	Priority *int `pulumi:"priority"`
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status *string `pulumi:"status"`
+	// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+	System *bool `pulumi:"system"`
 	// Set of User IDs to Exclude
 	UsersExcluded []string `pulumi:"usersExcluded"`
 }
@@ -138,6 +142,8 @@ type RuleMfaState struct {
 	Priority pulumi.IntPtrInput
 	// Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 	Status pulumi.StringPtrInput
+	// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+	System pulumi.BoolPtrInput
 	// Set of User IDs to Exclude
 	UsersExcluded pulumi.StringArrayInput
 }
@@ -350,6 +356,11 @@ func (o RuleMfaOutput) Priority() pulumi.IntPtrOutput {
 // Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
 func (o RuleMfaOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleMfa) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+func (o RuleMfaOutput) System() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RuleMfa) pulumi.BoolOutput { return v.System }).(pulumi.BoolOutput)
 }
 
 // Set of User IDs to Exclude

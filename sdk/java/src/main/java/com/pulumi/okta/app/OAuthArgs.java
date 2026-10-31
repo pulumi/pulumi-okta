@@ -273,6 +273,21 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+     * 
+     */
+    @Import(name="dpopBoundAccessTokens")
+    private @Nullable Output<Boolean> dpopBoundAccessTokens;
+
+    /**
+     * @return Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+     * 
+     */
+    public Optional<Output<Boolean>> dpopBoundAccessTokens() {
+        return Optional.ofNullable(this.dpopBoundAccessTokens);
+    }
+
+    /**
      * Application notes for end users.
      * 
      */
@@ -884,6 +899,7 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
         this.clientId = $.clientId;
         this.clientUri = $.clientUri;
         this.consentMethod = $.consentMethod;
+        this.dpopBoundAccessTokens = $.dpopBoundAccessTokens;
         this.enduserNote = $.enduserNote;
         this.frontchannelLogoutSessionRequired = $.frontchannelLogoutSessionRequired;
         this.frontchannelLogoutUri = $.frontchannelLogoutUri;
@@ -1287,6 +1303,27 @@ public final class OAuthArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder consentMethod(String consentMethod) {
             return consentMethod(Output.of(consentMethod));
+        }
+
+        /**
+         * @param dpopBoundAccessTokens Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dpopBoundAccessTokens(@Nullable Output<Boolean> dpopBoundAccessTokens) {
+            $.dpopBoundAccessTokens = dpopBoundAccessTokens;
+            return this;
+        }
+
+        /**
+         * @param dpopBoundAccessTokens Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dpopBoundAccessTokens(Boolean dpopBoundAccessTokens) {
+            return dpopBoundAccessTokens(Output.of(dpopBoundAccessTokens));
         }
 
         /**

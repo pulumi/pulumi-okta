@@ -12229,6 +12229,877 @@ func (o RequestConditionRequesterSettingsIdArrayOutput) Index(i pulumi.IntInput)
 	}).(RequestConditionRequesterSettingsIdOutput)
 }
 
+type RequestConditionsCondition struct {
+	// Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+	AccessDurationSettings *RequestConditionsConditionAccessDurationSettings `pulumi:"accessDurationSettings"`
+	AccessScopeSettings    *RequestConditionsConditionAccessScopeSettings    `pulumi:"accessScopeSettings"`
+	// The ID of the approval sequence.
+	ApprovalSequenceId string `pulumi:"approvalSequenceId"`
+	// The ISO 8601 formatted date and time when the condition was created.
+	Created *string `pulumi:"created"`
+	// The id of the Okta user who created the condition.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The description of the request condition.
+	Description *string `pulumi:"description"`
+	// The id of the request condition.
+	Id *string `pulumi:"id"`
+	// The ISO 8601 formatted date and time when the condition was last updated.
+	LastUpdated *string `pulumi:"lastUpdated"`
+	// The id of the Okta user who last updated the condition.
+	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
+	// The name of the request condition. Must be unique within the resource.
+	Name string `pulumi:"name"`
+	// The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+	Priority          *int                                         `pulumi:"priority"`
+	RequesterSettings *RequestConditionsConditionRequesterSettings `pulumi:"requesterSettings"`
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+	Status *string `pulumi:"status"`
+}
+
+// RequestConditionsConditionInput is an input type that accepts RequestConditionsConditionArgs and RequestConditionsConditionOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionInput` via:
+//
+//	RequestConditionsConditionArgs{...}
+type RequestConditionsConditionInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionOutput() RequestConditionsConditionOutput
+	ToRequestConditionsConditionOutputWithContext(context.Context) RequestConditionsConditionOutput
+}
+
+type RequestConditionsConditionArgs struct {
+	// Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+	AccessDurationSettings RequestConditionsConditionAccessDurationSettingsPtrInput `pulumi:"accessDurationSettings"`
+	AccessScopeSettings    RequestConditionsConditionAccessScopeSettingsPtrInput    `pulumi:"accessScopeSettings"`
+	// The ID of the approval sequence.
+	ApprovalSequenceId pulumi.StringInput `pulumi:"approvalSequenceId"`
+	// The ISO 8601 formatted date and time when the condition was created.
+	Created pulumi.StringPtrInput `pulumi:"created"`
+	// The id of the Okta user who created the condition.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The description of the request condition.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The id of the request condition.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The ISO 8601 formatted date and time when the condition was last updated.
+	LastUpdated pulumi.StringPtrInput `pulumi:"lastUpdated"`
+	// The id of the Okta user who last updated the condition.
+	LastUpdatedBy pulumi.StringPtrInput `pulumi:"lastUpdatedBy"`
+	// The name of the request condition. Must be unique within the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+	Priority          pulumi.IntPtrInput                                  `pulumi:"priority"`
+	RequesterSettings RequestConditionsConditionRequesterSettingsPtrInput `pulumi:"requesterSettings"`
+	// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (RequestConditionsConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsCondition)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionArgs) ToRequestConditionsConditionOutput() RequestConditionsConditionOutput {
+	return i.ToRequestConditionsConditionOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionArgs) ToRequestConditionsConditionOutputWithContext(ctx context.Context) RequestConditionsConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionOutput)
+}
+
+// RequestConditionsConditionArrayInput is an input type that accepts RequestConditionsConditionArray and RequestConditionsConditionArrayOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionArrayInput` via:
+//
+//	RequestConditionsConditionArray{ RequestConditionsConditionArgs{...} }
+type RequestConditionsConditionArrayInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionArrayOutput() RequestConditionsConditionArrayOutput
+	ToRequestConditionsConditionArrayOutputWithContext(context.Context) RequestConditionsConditionArrayOutput
+}
+
+type RequestConditionsConditionArray []RequestConditionsConditionInput
+
+func (RequestConditionsConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionsCondition)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionArray) ToRequestConditionsConditionArrayOutput() RequestConditionsConditionArrayOutput {
+	return i.ToRequestConditionsConditionArrayOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionArray) ToRequestConditionsConditionArrayOutputWithContext(ctx context.Context) RequestConditionsConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionArrayOutput)
+}
+
+type RequestConditionsConditionOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsCondition)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionOutput) ToRequestConditionsConditionOutput() RequestConditionsConditionOutput {
+	return o
+}
+
+func (o RequestConditionsConditionOutput) ToRequestConditionsConditionOutputWithContext(ctx context.Context) RequestConditionsConditionOutput {
+	return o
+}
+
+// Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+func (o RequestConditionsConditionOutput) AccessDurationSettings() RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *RequestConditionsConditionAccessDurationSettings {
+		return v.AccessDurationSettings
+	}).(RequestConditionsConditionAccessDurationSettingsPtrOutput)
+}
+
+func (o RequestConditionsConditionOutput) AccessScopeSettings() RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *RequestConditionsConditionAccessScopeSettings {
+		return v.AccessScopeSettings
+	}).(RequestConditionsConditionAccessScopeSettingsPtrOutput)
+}
+
+// The ID of the approval sequence.
+func (o RequestConditionsConditionOutput) ApprovalSequenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) string { return v.ApprovalSequenceId }).(pulumi.StringOutput)
+}
+
+// The ISO 8601 formatted date and time when the condition was created.
+func (o RequestConditionsConditionOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// The id of the Okta user who created the condition.
+func (o RequestConditionsConditionOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The description of the request condition.
+func (o RequestConditionsConditionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The id of the request condition.
+func (o RequestConditionsConditionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The ISO 8601 formatted date and time when the condition was last updated.
+func (o RequestConditionsConditionOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+// The id of the Okta user who last updated the condition.
+func (o RequestConditionsConditionOutput) LastUpdatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.LastUpdatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The name of the request condition. Must be unique within the resource.
+func (o RequestConditionsConditionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+func (o RequestConditionsConditionOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o RequestConditionsConditionOutput) RequesterSettings() RequestConditionsConditionRequesterSettingsPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *RequestConditionsConditionRequesterSettings {
+		return v.RequesterSettings
+	}).(RequestConditionsConditionRequesterSettingsPtrOutput)
+}
+
+// Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+func (o RequestConditionsConditionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsCondition) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionsCondition)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionArrayOutput) ToRequestConditionsConditionArrayOutput() RequestConditionsConditionArrayOutput {
+	return o
+}
+
+func (o RequestConditionsConditionArrayOutput) ToRequestConditionsConditionArrayOutputWithContext(ctx context.Context) RequestConditionsConditionArrayOutput {
+	return o
+}
+
+func (o RequestConditionsConditionArrayOutput) Index(i pulumi.IntInput) RequestConditionsConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestConditionsCondition {
+		return vs[0].([]RequestConditionsCondition)[vs[1].(int)]
+	}).(RequestConditionsConditionOutput)
+}
+
+type RequestConditionsConditionAccessDurationSettings struct {
+	// The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+	Duration *string `pulumi:"duration"`
+	// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+	Type *string `pulumi:"type"`
+}
+
+// RequestConditionsConditionAccessDurationSettingsInput is an input type that accepts RequestConditionsConditionAccessDurationSettingsArgs and RequestConditionsConditionAccessDurationSettingsOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionAccessDurationSettingsInput` via:
+//
+//	RequestConditionsConditionAccessDurationSettingsArgs{...}
+type RequestConditionsConditionAccessDurationSettingsInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionAccessDurationSettingsOutput() RequestConditionsConditionAccessDurationSettingsOutput
+	ToRequestConditionsConditionAccessDurationSettingsOutputWithContext(context.Context) RequestConditionsConditionAccessDurationSettingsOutput
+}
+
+type RequestConditionsConditionAccessDurationSettingsArgs struct {
+	// The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RequestConditionsConditionAccessDurationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionAccessDurationSettingsArgs) ToRequestConditionsConditionAccessDurationSettingsOutput() RequestConditionsConditionAccessDurationSettingsOutput {
+	return i.ToRequestConditionsConditionAccessDurationSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionAccessDurationSettingsArgs) ToRequestConditionsConditionAccessDurationSettingsOutputWithContext(ctx context.Context) RequestConditionsConditionAccessDurationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessDurationSettingsOutput)
+}
+
+func (i RequestConditionsConditionAccessDurationSettingsArgs) ToRequestConditionsConditionAccessDurationSettingsPtrOutput() RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return i.ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionAccessDurationSettingsArgs) ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessDurationSettingsOutput).ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestConditionsConditionAccessDurationSettingsPtrInput is an input type that accepts RequestConditionsConditionAccessDurationSettingsArgs, RequestConditionsConditionAccessDurationSettingsPtr and RequestConditionsConditionAccessDurationSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionAccessDurationSettingsPtrInput` via:
+//
+//	        RequestConditionsConditionAccessDurationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestConditionsConditionAccessDurationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionAccessDurationSettingsPtrOutput() RequestConditionsConditionAccessDurationSettingsPtrOutput
+	ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(context.Context) RequestConditionsConditionAccessDurationSettingsPtrOutput
+}
+
+type requestConditionsConditionAccessDurationSettingsPtrType RequestConditionsConditionAccessDurationSettingsArgs
+
+func RequestConditionsConditionAccessDurationSettingsPtr(v *RequestConditionsConditionAccessDurationSettingsArgs) RequestConditionsConditionAccessDurationSettingsPtrInput {
+	return (*requestConditionsConditionAccessDurationSettingsPtrType)(v)
+}
+
+func (*requestConditionsConditionAccessDurationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionsConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (i *requestConditionsConditionAccessDurationSettingsPtrType) ToRequestConditionsConditionAccessDurationSettingsPtrOutput() RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return i.ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestConditionsConditionAccessDurationSettingsPtrType) ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessDurationSettingsPtrOutput)
+}
+
+type RequestConditionsConditionAccessDurationSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionAccessDurationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsOutput) ToRequestConditionsConditionAccessDurationSettingsOutput() RequestConditionsConditionAccessDurationSettingsOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsOutput) ToRequestConditionsConditionAccessDurationSettingsOutputWithContext(ctx context.Context) RequestConditionsConditionAccessDurationSettingsOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsOutput) ToRequestConditionsConditionAccessDurationSettingsPtrOutput() RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return o.ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsOutput) ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestConditionsConditionAccessDurationSettings) *RequestConditionsConditionAccessDurationSettings {
+		return &v
+	}).(RequestConditionsConditionAccessDurationSettingsPtrOutput)
+}
+
+// The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+func (o RequestConditionsConditionAccessDurationSettingsOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsConditionAccessDurationSettings) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+func (o RequestConditionsConditionAccessDurationSettingsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsConditionAccessDurationSettings) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionAccessDurationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionAccessDurationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionsConditionAccessDurationSettings)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsPtrOutput) ToRequestConditionsConditionAccessDurationSettingsPtrOutput() RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsPtrOutput) ToRequestConditionsConditionAccessDurationSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessDurationSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessDurationSettingsPtrOutput) Elem() RequestConditionsConditionAccessDurationSettingsOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionAccessDurationSettings) RequestConditionsConditionAccessDurationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestConditionsConditionAccessDurationSettings
+		return ret
+	}).(RequestConditionsConditionAccessDurationSettingsOutput)
+}
+
+// The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+func (o RequestConditionsConditionAccessDurationSettingsPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+func (o RequestConditionsConditionAccessDurationSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionAccessDurationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionAccessScopeSettings struct {
+	// The group or entitlement bundle IDs. Each block contains an `id`.
+	Ids []RequestConditionsConditionAccessScopeSettingsId `pulumi:"ids"`
+	// Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+	Type string `pulumi:"type"`
+}
+
+// RequestConditionsConditionAccessScopeSettingsInput is an input type that accepts RequestConditionsConditionAccessScopeSettingsArgs and RequestConditionsConditionAccessScopeSettingsOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionAccessScopeSettingsInput` via:
+//
+//	RequestConditionsConditionAccessScopeSettingsArgs{...}
+type RequestConditionsConditionAccessScopeSettingsInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionAccessScopeSettingsOutput() RequestConditionsConditionAccessScopeSettingsOutput
+	ToRequestConditionsConditionAccessScopeSettingsOutputWithContext(context.Context) RequestConditionsConditionAccessScopeSettingsOutput
+}
+
+type RequestConditionsConditionAccessScopeSettingsArgs struct {
+	// The group or entitlement bundle IDs. Each block contains an `id`.
+	Ids RequestConditionsConditionAccessScopeSettingsIdArrayInput `pulumi:"ids"`
+	// Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RequestConditionsConditionAccessScopeSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsArgs) ToRequestConditionsConditionAccessScopeSettingsOutput() RequestConditionsConditionAccessScopeSettingsOutput {
+	return i.ToRequestConditionsConditionAccessScopeSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsArgs) ToRequestConditionsConditionAccessScopeSettingsOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessScopeSettingsOutput)
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsArgs) ToRequestConditionsConditionAccessScopeSettingsPtrOutput() RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return i.ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsArgs) ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessScopeSettingsOutput).ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestConditionsConditionAccessScopeSettingsPtrInput is an input type that accepts RequestConditionsConditionAccessScopeSettingsArgs, RequestConditionsConditionAccessScopeSettingsPtr and RequestConditionsConditionAccessScopeSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionAccessScopeSettingsPtrInput` via:
+//
+//	        RequestConditionsConditionAccessScopeSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestConditionsConditionAccessScopeSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionAccessScopeSettingsPtrOutput() RequestConditionsConditionAccessScopeSettingsPtrOutput
+	ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(context.Context) RequestConditionsConditionAccessScopeSettingsPtrOutput
+}
+
+type requestConditionsConditionAccessScopeSettingsPtrType RequestConditionsConditionAccessScopeSettingsArgs
+
+func RequestConditionsConditionAccessScopeSettingsPtr(v *RequestConditionsConditionAccessScopeSettingsArgs) RequestConditionsConditionAccessScopeSettingsPtrInput {
+	return (*requestConditionsConditionAccessScopeSettingsPtrType)(v)
+}
+
+func (*requestConditionsConditionAccessScopeSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionsConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (i *requestConditionsConditionAccessScopeSettingsPtrType) ToRequestConditionsConditionAccessScopeSettingsPtrOutput() RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return i.ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestConditionsConditionAccessScopeSettingsPtrType) ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessScopeSettingsPtrOutput)
+}
+
+type RequestConditionsConditionAccessScopeSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionAccessScopeSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsOutput) ToRequestConditionsConditionAccessScopeSettingsOutput() RequestConditionsConditionAccessScopeSettingsOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsOutput) ToRequestConditionsConditionAccessScopeSettingsOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsOutput) ToRequestConditionsConditionAccessScopeSettingsPtrOutput() RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return o.ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsOutput) ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestConditionsConditionAccessScopeSettings) *RequestConditionsConditionAccessScopeSettings {
+		return &v
+	}).(RequestConditionsConditionAccessScopeSettingsPtrOutput)
+}
+
+// The group or entitlement bundle IDs. Each block contains an `id`.
+func (o RequestConditionsConditionAccessScopeSettingsOutput) Ids() RequestConditionsConditionAccessScopeSettingsIdArrayOutput {
+	return o.ApplyT(func(v RequestConditionsConditionAccessScopeSettings) []RequestConditionsConditionAccessScopeSettingsId {
+		return v.Ids
+	}).(RequestConditionsConditionAccessScopeSettingsIdArrayOutput)
+}
+
+// Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+func (o RequestConditionsConditionAccessScopeSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestConditionsConditionAccessScopeSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RequestConditionsConditionAccessScopeSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionAccessScopeSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionsConditionAccessScopeSettings)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsPtrOutput) ToRequestConditionsConditionAccessScopeSettingsPtrOutput() RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsPtrOutput) ToRequestConditionsConditionAccessScopeSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsPtrOutput) Elem() RequestConditionsConditionAccessScopeSettingsOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionAccessScopeSettings) RequestConditionsConditionAccessScopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestConditionsConditionAccessScopeSettings
+		return ret
+	}).(RequestConditionsConditionAccessScopeSettingsOutput)
+}
+
+// The group or entitlement bundle IDs. Each block contains an `id`.
+func (o RequestConditionsConditionAccessScopeSettingsPtrOutput) Ids() RequestConditionsConditionAccessScopeSettingsIdArrayOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionAccessScopeSettings) []RequestConditionsConditionAccessScopeSettingsId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(RequestConditionsConditionAccessScopeSettingsIdArrayOutput)
+}
+
+// Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+func (o RequestConditionsConditionAccessScopeSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionAccessScopeSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionAccessScopeSettingsId struct {
+	// The ID of this resource (same as `resourceId`).
+	Id *string `pulumi:"id"`
+}
+
+// RequestConditionsConditionAccessScopeSettingsIdInput is an input type that accepts RequestConditionsConditionAccessScopeSettingsIdArgs and RequestConditionsConditionAccessScopeSettingsIdOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionAccessScopeSettingsIdInput` via:
+//
+//	RequestConditionsConditionAccessScopeSettingsIdArgs{...}
+type RequestConditionsConditionAccessScopeSettingsIdInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionAccessScopeSettingsIdOutput() RequestConditionsConditionAccessScopeSettingsIdOutput
+	ToRequestConditionsConditionAccessScopeSettingsIdOutputWithContext(context.Context) RequestConditionsConditionAccessScopeSettingsIdOutput
+}
+
+type RequestConditionsConditionAccessScopeSettingsIdArgs struct {
+	// The ID of this resource (same as `resourceId`).
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (RequestConditionsConditionAccessScopeSettingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsIdArgs) ToRequestConditionsConditionAccessScopeSettingsIdOutput() RequestConditionsConditionAccessScopeSettingsIdOutput {
+	return i.ToRequestConditionsConditionAccessScopeSettingsIdOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsIdArgs) ToRequestConditionsConditionAccessScopeSettingsIdOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessScopeSettingsIdOutput)
+}
+
+// RequestConditionsConditionAccessScopeSettingsIdArrayInput is an input type that accepts RequestConditionsConditionAccessScopeSettingsIdArray and RequestConditionsConditionAccessScopeSettingsIdArrayOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionAccessScopeSettingsIdArrayInput` via:
+//
+//	RequestConditionsConditionAccessScopeSettingsIdArray{ RequestConditionsConditionAccessScopeSettingsIdArgs{...} }
+type RequestConditionsConditionAccessScopeSettingsIdArrayInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionAccessScopeSettingsIdArrayOutput() RequestConditionsConditionAccessScopeSettingsIdArrayOutput
+	ToRequestConditionsConditionAccessScopeSettingsIdArrayOutputWithContext(context.Context) RequestConditionsConditionAccessScopeSettingsIdArrayOutput
+}
+
+type RequestConditionsConditionAccessScopeSettingsIdArray []RequestConditionsConditionAccessScopeSettingsIdInput
+
+func (RequestConditionsConditionAccessScopeSettingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionsConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsIdArray) ToRequestConditionsConditionAccessScopeSettingsIdArrayOutput() RequestConditionsConditionAccessScopeSettingsIdArrayOutput {
+	return i.ToRequestConditionsConditionAccessScopeSettingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionAccessScopeSettingsIdArray) ToRequestConditionsConditionAccessScopeSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionAccessScopeSettingsIdArrayOutput)
+}
+
+type RequestConditionsConditionAccessScopeSettingsIdOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionAccessScopeSettingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsIdOutput) ToRequestConditionsConditionAccessScopeSettingsIdOutput() RequestConditionsConditionAccessScopeSettingsIdOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsIdOutput) ToRequestConditionsConditionAccessScopeSettingsIdOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsIdOutput {
+	return o
+}
+
+// The ID of this resource (same as `resourceId`).
+func (o RequestConditionsConditionAccessScopeSettingsIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsConditionAccessScopeSettingsId) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionAccessScopeSettingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionAccessScopeSettingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionsConditionAccessScopeSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsIdArrayOutput) ToRequestConditionsConditionAccessScopeSettingsIdArrayOutput() RequestConditionsConditionAccessScopeSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsIdArrayOutput) ToRequestConditionsConditionAccessScopeSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionsConditionAccessScopeSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionsConditionAccessScopeSettingsIdArrayOutput) Index(i pulumi.IntInput) RequestConditionsConditionAccessScopeSettingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestConditionsConditionAccessScopeSettingsId {
+		return vs[0].([]RequestConditionsConditionAccessScopeSettingsId)[vs[1].(int)]
+	}).(RequestConditionsConditionAccessScopeSettingsIdOutput)
+}
+
+type RequestConditionsConditionRequesterSettings struct {
+	// The group IDs. Each block contains an `id`.
+	Ids []RequestConditionsConditionRequesterSettingsId `pulumi:"ids"`
+	// Enum: `EVERYONE`, `GROUPS`.
+	Type string `pulumi:"type"`
+}
+
+// RequestConditionsConditionRequesterSettingsInput is an input type that accepts RequestConditionsConditionRequesterSettingsArgs and RequestConditionsConditionRequesterSettingsOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionRequesterSettingsInput` via:
+//
+//	RequestConditionsConditionRequesterSettingsArgs{...}
+type RequestConditionsConditionRequesterSettingsInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionRequesterSettingsOutput() RequestConditionsConditionRequesterSettingsOutput
+	ToRequestConditionsConditionRequesterSettingsOutputWithContext(context.Context) RequestConditionsConditionRequesterSettingsOutput
+}
+
+type RequestConditionsConditionRequesterSettingsArgs struct {
+	// The group IDs. Each block contains an `id`.
+	Ids RequestConditionsConditionRequesterSettingsIdArrayInput `pulumi:"ids"`
+	// Enum: `EVERYONE`, `GROUPS`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RequestConditionsConditionRequesterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionRequesterSettings)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionRequesterSettingsArgs) ToRequestConditionsConditionRequesterSettingsOutput() RequestConditionsConditionRequesterSettingsOutput {
+	return i.ToRequestConditionsConditionRequesterSettingsOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionRequesterSettingsArgs) ToRequestConditionsConditionRequesterSettingsOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionRequesterSettingsOutput)
+}
+
+func (i RequestConditionsConditionRequesterSettingsArgs) ToRequestConditionsConditionRequesterSettingsPtrOutput() RequestConditionsConditionRequesterSettingsPtrOutput {
+	return i.ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionRequesterSettingsArgs) ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionRequesterSettingsOutput).ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(ctx)
+}
+
+// RequestConditionsConditionRequesterSettingsPtrInput is an input type that accepts RequestConditionsConditionRequesterSettingsArgs, RequestConditionsConditionRequesterSettingsPtr and RequestConditionsConditionRequesterSettingsPtrOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionRequesterSettingsPtrInput` via:
+//
+//	        RequestConditionsConditionRequesterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RequestConditionsConditionRequesterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionRequesterSettingsPtrOutput() RequestConditionsConditionRequesterSettingsPtrOutput
+	ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(context.Context) RequestConditionsConditionRequesterSettingsPtrOutput
+}
+
+type requestConditionsConditionRequesterSettingsPtrType RequestConditionsConditionRequesterSettingsArgs
+
+func RequestConditionsConditionRequesterSettingsPtr(v *RequestConditionsConditionRequesterSettingsArgs) RequestConditionsConditionRequesterSettingsPtrInput {
+	return (*requestConditionsConditionRequesterSettingsPtrType)(v)
+}
+
+func (*requestConditionsConditionRequesterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionsConditionRequesterSettings)(nil)).Elem()
+}
+
+func (i *requestConditionsConditionRequesterSettingsPtrType) ToRequestConditionsConditionRequesterSettingsPtrOutput() RequestConditionsConditionRequesterSettingsPtrOutput {
+	return i.ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *requestConditionsConditionRequesterSettingsPtrType) ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionRequesterSettingsPtrOutput)
+}
+
+type RequestConditionsConditionRequesterSettingsOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionRequesterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionRequesterSettings)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionRequesterSettingsOutput) ToRequestConditionsConditionRequesterSettingsOutput() RequestConditionsConditionRequesterSettingsOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsOutput) ToRequestConditionsConditionRequesterSettingsOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsOutput) ToRequestConditionsConditionRequesterSettingsPtrOutput() RequestConditionsConditionRequesterSettingsPtrOutput {
+	return o.ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RequestConditionsConditionRequesterSettingsOutput) ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestConditionsConditionRequesterSettings) *RequestConditionsConditionRequesterSettings {
+		return &v
+	}).(RequestConditionsConditionRequesterSettingsPtrOutput)
+}
+
+// The group IDs. Each block contains an `id`.
+func (o RequestConditionsConditionRequesterSettingsOutput) Ids() RequestConditionsConditionRequesterSettingsIdArrayOutput {
+	return o.ApplyT(func(v RequestConditionsConditionRequesterSettings) []RequestConditionsConditionRequesterSettingsId {
+		return v.Ids
+	}).(RequestConditionsConditionRequesterSettingsIdArrayOutput)
+}
+
+// Enum: `EVERYONE`, `GROUPS`.
+func (o RequestConditionsConditionRequesterSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestConditionsConditionRequesterSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RequestConditionsConditionRequesterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionRequesterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestConditionsConditionRequesterSettings)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionRequesterSettingsPtrOutput) ToRequestConditionsConditionRequesterSettingsPtrOutput() RequestConditionsConditionRequesterSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsPtrOutput) ToRequestConditionsConditionRequesterSettingsPtrOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsPtrOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsPtrOutput) Elem() RequestConditionsConditionRequesterSettingsOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionRequesterSettings) RequestConditionsConditionRequesterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RequestConditionsConditionRequesterSettings
+		return ret
+	}).(RequestConditionsConditionRequesterSettingsOutput)
+}
+
+// The group IDs. Each block contains an `id`.
+func (o RequestConditionsConditionRequesterSettingsPtrOutput) Ids() RequestConditionsConditionRequesterSettingsIdArrayOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionRequesterSettings) []RequestConditionsConditionRequesterSettingsId {
+		if v == nil {
+			return nil
+		}
+		return v.Ids
+	}).(RequestConditionsConditionRequesterSettingsIdArrayOutput)
+}
+
+// Enum: `EVERYONE`, `GROUPS`.
+func (o RequestConditionsConditionRequesterSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestConditionsConditionRequesterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionRequesterSettingsId struct {
+	// The ID of this resource (same as `resourceId`).
+	Id *string `pulumi:"id"`
+}
+
+// RequestConditionsConditionRequesterSettingsIdInput is an input type that accepts RequestConditionsConditionRequesterSettingsIdArgs and RequestConditionsConditionRequesterSettingsIdOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionRequesterSettingsIdInput` via:
+//
+//	RequestConditionsConditionRequesterSettingsIdArgs{...}
+type RequestConditionsConditionRequesterSettingsIdInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionRequesterSettingsIdOutput() RequestConditionsConditionRequesterSettingsIdOutput
+	ToRequestConditionsConditionRequesterSettingsIdOutputWithContext(context.Context) RequestConditionsConditionRequesterSettingsIdOutput
+}
+
+type RequestConditionsConditionRequesterSettingsIdArgs struct {
+	// The ID of this resource (same as `resourceId`).
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (RequestConditionsConditionRequesterSettingsIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionRequesterSettingsIdArgs) ToRequestConditionsConditionRequesterSettingsIdOutput() RequestConditionsConditionRequesterSettingsIdOutput {
+	return i.ToRequestConditionsConditionRequesterSettingsIdOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionRequesterSettingsIdArgs) ToRequestConditionsConditionRequesterSettingsIdOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionRequesterSettingsIdOutput)
+}
+
+// RequestConditionsConditionRequesterSettingsIdArrayInput is an input type that accepts RequestConditionsConditionRequesterSettingsIdArray and RequestConditionsConditionRequesterSettingsIdArrayOutput values.
+// You can construct a concrete instance of `RequestConditionsConditionRequesterSettingsIdArrayInput` via:
+//
+//	RequestConditionsConditionRequesterSettingsIdArray{ RequestConditionsConditionRequesterSettingsIdArgs{...} }
+type RequestConditionsConditionRequesterSettingsIdArrayInput interface {
+	pulumi.Input
+
+	ToRequestConditionsConditionRequesterSettingsIdArrayOutput() RequestConditionsConditionRequesterSettingsIdArrayOutput
+	ToRequestConditionsConditionRequesterSettingsIdArrayOutputWithContext(context.Context) RequestConditionsConditionRequesterSettingsIdArrayOutput
+}
+
+type RequestConditionsConditionRequesterSettingsIdArray []RequestConditionsConditionRequesterSettingsIdInput
+
+func (RequestConditionsConditionRequesterSettingsIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionsConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (i RequestConditionsConditionRequesterSettingsIdArray) ToRequestConditionsConditionRequesterSettingsIdArrayOutput() RequestConditionsConditionRequesterSettingsIdArrayOutput {
+	return i.ToRequestConditionsConditionRequesterSettingsIdArrayOutputWithContext(context.Background())
+}
+
+func (i RequestConditionsConditionRequesterSettingsIdArray) ToRequestConditionsConditionRequesterSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestConditionsConditionRequesterSettingsIdArrayOutput)
+}
+
+type RequestConditionsConditionRequesterSettingsIdOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionRequesterSettingsIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestConditionsConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionRequesterSettingsIdOutput) ToRequestConditionsConditionRequesterSettingsIdOutput() RequestConditionsConditionRequesterSettingsIdOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsIdOutput) ToRequestConditionsConditionRequesterSettingsIdOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsIdOutput {
+	return o
+}
+
+// The ID of this resource (same as `resourceId`).
+func (o RequestConditionsConditionRequesterSettingsIdOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestConditionsConditionRequesterSettingsId) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type RequestConditionsConditionRequesterSettingsIdArrayOutput struct{ *pulumi.OutputState }
+
+func (RequestConditionsConditionRequesterSettingsIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RequestConditionsConditionRequesterSettingsId)(nil)).Elem()
+}
+
+func (o RequestConditionsConditionRequesterSettingsIdArrayOutput) ToRequestConditionsConditionRequesterSettingsIdArrayOutput() RequestConditionsConditionRequesterSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsIdArrayOutput) ToRequestConditionsConditionRequesterSettingsIdArrayOutputWithContext(ctx context.Context) RequestConditionsConditionRequesterSettingsIdArrayOutput {
+	return o
+}
+
+func (o RequestConditionsConditionRequesterSettingsIdArrayOutput) Index(i pulumi.IntInput) RequestConditionsConditionRequesterSettingsIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RequestConditionsConditionRequesterSettingsId {
+		return vs[0].([]RequestConditionsConditionRequesterSettingsId)[vs[1].(int)]
+	}).(RequestConditionsConditionRequesterSettingsIdOutput)
+}
+
 type RequestSettingResourceRequestOnBehalfOfSettings struct {
 	// Indicates that users who can request this resource could also request for another requester of the same resource. This property can only be true.
 	Allowed *bool `pulumi:"allowed"`
@@ -34667,6 +35538,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsPtrInput)(nil)).Elem(), RequestConditionRequesterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsIdInput)(nil)).Elem(), RequestConditionRequesterSettingsIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionRequesterSettingsIdArrayInput)(nil)).Elem(), RequestConditionRequesterSettingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionInput)(nil)).Elem(), RequestConditionsConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionArrayInput)(nil)).Elem(), RequestConditionsConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionAccessDurationSettingsInput)(nil)).Elem(), RequestConditionsConditionAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionAccessDurationSettingsPtrInput)(nil)).Elem(), RequestConditionsConditionAccessDurationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionAccessScopeSettingsInput)(nil)).Elem(), RequestConditionsConditionAccessScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionAccessScopeSettingsPtrInput)(nil)).Elem(), RequestConditionsConditionAccessScopeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionAccessScopeSettingsIdInput)(nil)).Elem(), RequestConditionsConditionAccessScopeSettingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionAccessScopeSettingsIdArrayInput)(nil)).Elem(), RequestConditionsConditionAccessScopeSettingsIdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionRequesterSettingsInput)(nil)).Elem(), RequestConditionsConditionRequesterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionRequesterSettingsPtrInput)(nil)).Elem(), RequestConditionsConditionRequesterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionRequesterSettingsIdInput)(nil)).Elem(), RequestConditionsConditionRequesterSettingsIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestConditionsConditionRequesterSettingsIdArrayInput)(nil)).Elem(), RequestConditionsConditionRequesterSettingsIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsPtrInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RequestSettingResourceRequestOnBehalfOfSettingsOnlyForInput)(nil)).Elem(), RequestSettingResourceRequestOnBehalfOfSettingsOnlyForArgs{})
@@ -35118,6 +36001,18 @@ func init() {
 	pulumi.RegisterOutputType(RequestConditionRequesterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(RequestConditionRequesterSettingsIdOutput{})
 	pulumi.RegisterOutputType(RequestConditionRequesterSettingsIdArrayOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionArrayOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionAccessDurationSettingsOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionAccessDurationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionAccessScopeSettingsOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionAccessScopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionAccessScopeSettingsIdOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionAccessScopeSettingsIdArrayOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionRequesterSettingsOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionRequesterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionRequesterSettingsIdOutput{})
+	pulumi.RegisterOutputType(RequestConditionsConditionRequesterSettingsIdArrayOutput{})
 	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsOutput{})
 	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsPtrOutput{})
 	pulumi.RegisterOutputType(RequestSettingResourceRequestOnBehalfOfSettingsOnlyForOutput{})

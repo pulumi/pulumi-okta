@@ -21,6 +21,62 @@ import (
 // in the v5 release of the provider. Operators should manage the redirect URIs for
 // an oauth app directly on that resource.
 //
+// ### DPoP (Demonstrating Proof-of-Possession)
+//
+// Set `dpopBoundAccessTokens = true` to require DPoP for this client. The
+// authorization server then rejects token requests from the client that don't
+// carry a `DPoP` header.
+//
+// The attribute is `Optional` and `Computed`. Leaving it out of the config means
+// the provider tracks whatever the org reports rather than forcing it to `false`,
+// so a value set outside of Terraform is not clobbered on the next apply. To
+// manage the setting as code, declare it explicitly:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-okta/sdk/v7/go/okta/app"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := app.NewOAuth(ctx, "example", &app.OAuthArgs{
+//				Label: pulumi.String("Example App"),
+//				Type:  pulumi.String("web"),
+//				GrantTypes: pulumi.StringArray{
+//					pulumi.String("authorization_code"),
+//				},
+//				RedirectUris: pulumi.StringArray{
+//					pulumi.String("https://example.com/callback"),
+//				},
+//				ResponseTypes: pulumi.StringArray{
+//					pulumi.String("code"),
+//				},
+//				DpopBoundAccessTokens: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > When `dpopBoundAccessTokens` is `true` the Okta API does not allow
+// `clientCredentials` or `implicit` in `grantTypes`.
+//
+// ### Resetting client secret
+//
+// If the client secret needs to be reset run an apply with `omitSecret` set to
+// true in the resource. This causes `clientSecret` to be set to blank. Remove
+// `omitSecret` and run apply again. The resource will set a new `clientSecret`
+// for the app.
+//
 // ### Private Keys
 //
 // The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
@@ -153,6 +209,8 @@ type OAuth struct {
 	ClientUri pulumi.StringPtrOutput `pulumi:"clientUri"`
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod pulumi.StringPtrOutput `pulumi:"consentMethod"`
+	// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+	DpopBoundAccessTokens pulumi.BoolOutput `pulumi:"dpopBoundAccessTokens"`
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrOutput `pulumi:"enduserNote"`
 	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
@@ -328,6 +386,8 @@ type oauthState struct {
 	ClientUri *string `pulumi:"clientUri"`
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod *string `pulumi:"consentMethod"`
+	// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+	DpopBoundAccessTokens *bool `pulumi:"dpopBoundAccessTokens"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
@@ -456,6 +516,8 @@ type OAuthState struct {
 	ClientUri pulumi.StringPtrInput
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod pulumi.StringPtrInput
+	// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+	DpopBoundAccessTokens pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
@@ -586,6 +648,8 @@ type oauthArgs struct {
 	ClientUri *string `pulumi:"clientUri"`
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod *string `pulumi:"consentMethod"`
+	// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+	DpopBoundAccessTokens *bool `pulumi:"dpopBoundAccessTokens"`
 	// Application notes for end users.
 	EnduserNote *string `pulumi:"enduserNote"`
 	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
@@ -707,6 +771,8 @@ type OAuthArgs struct {
 	ClientUri pulumi.StringPtrInput
 	// *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 	ConsentMethod pulumi.StringPtrInput
+	// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+	DpopBoundAccessTokens pulumi.BoolPtrInput
 	// Application notes for end users.
 	EnduserNote pulumi.StringPtrInput
 	// *Early Access Property*. Determines whether Okta sends sid and iss in the logout request.
@@ -965,6 +1031,11 @@ func (o OAuthOutput) ClientUri() pulumi.StringPtrOutput {
 // *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
 func (o OAuthOutput) ConsentMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth) pulumi.StringPtrOutput { return v.ConsentMethod }).(pulumi.StringPtrOutput)
+}
+
+// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+func (o OAuthOutput) DpopBoundAccessTokens() pulumi.BoolOutput {
+	return o.ApplyT(func(v *OAuth) pulumi.BoolOutput { return v.DpopBoundAccessTokens }).(pulumi.BoolOutput)
 }
 
 // Application notes for end users.

@@ -19,7 +19,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel` to an empty string, since this feature is not enabled.
+ * Creates a Sign On Policy Rule. In case &#39;Invalid condition type specified: riskScore.&#39; error is thrown, set &#39;risc_level&#39; to an empty string, since this feature is not enabled.
+ * A policy&#39;s default rule (the rule named &#39;Default Rule&#39;) can be imported and updated as a custom rule, but it can not be created, renamed or deleted.
+ * Okta manages these fields on a default rule, so values configured for them are ignored: &#39;priority&#39;, &#39;network_connection&#39;, &#39;network_includes&#39;,
+ * &#39;network_excludes&#39;, &#39;users_excluded&#39; and &#39;session_persistent&#39;.
+ * Removing a default rule from your configuration drops it from Terraform state without deleting it from Okta.
  * 
  * ## Example Usage
  * 
@@ -475,6 +479,20 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
+    }
+    /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    @Export(name="system", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> system;
+
+    /**
+     * @return Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    public Output<Boolean> system() {
+        return this.system;
     }
     /**
      * Set of User IDs to Exclude
