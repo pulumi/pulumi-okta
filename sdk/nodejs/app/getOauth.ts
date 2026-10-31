@@ -99,6 +99,10 @@ export interface GetOauthResult {
      */
     readonly clientUri: string;
     /**
+     * Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+     */
+    readonly dpopBoundAccessTokens: boolean;
+    /**
      * List of OAuth 2.0 grant types
      */
     readonly grantTypes: string[];

@@ -195,6 +195,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RealmAssignment{}
 	case "okta:index/requestCondition:RequestCondition":
 		r = &RequestCondition{}
+	case "okta:index/requestConditions:RequestConditions":
+		r = &RequestConditions{}
 	case "okta:index/requestSequence:RequestSequence":
 		r = &RequestSequence{}
 	case "okta:index/requestSettingOrganization:RequestSettingOrganization":
@@ -701,6 +703,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"okta",
 		"index/requestCondition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"okta",
+		"index/requestConditions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

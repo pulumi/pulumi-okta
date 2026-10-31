@@ -87,6 +87,8 @@ type GetOauthResult struct {
 	ClientSecret string `pulumi:"clientSecret"`
 	// URI to a web page providing information about the client.
 	ClientUri string `pulumi:"clientUri"`
+	// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+	DpopBoundAccessTokens bool `pulumi:"dpopBoundAccessTokens"`
 	// List of OAuth 2.0 grant types
 	GrantTypes []string `pulumi:"grantTypes"`
 	// Do not display application icon on mobile app
@@ -218,6 +220,11 @@ func (o GetOauthResultOutput) ClientSecret() pulumi.StringOutput {
 // URI to a web page providing information about the client.
 func (o GetOauthResultOutput) ClientUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOauthResult) string { return v.ClientUri }).(pulumi.StringOutput)
+}
+
+// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+func (o GetOauthResultOutput) DpopBoundAccessTokens() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOauthResult) bool { return v.DpopBoundAccessTokens }).(pulumi.BoolOutput)
 }
 
 // List of OAuth 2.0 grant types

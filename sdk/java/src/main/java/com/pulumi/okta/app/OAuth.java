@@ -30,6 +30,63 @@ import javax.annotation.Nullable;
  * in the v5 release of the provider. Operators should manage the redirect URIs for
  * an oauth app directly on that resource.
  * 
+ * ### DPoP (Demonstrating Proof-of-Possession)
+ * 
+ * Set `dpopBoundAccessTokens = true` to require DPoP for this client. The
+ * authorization server then rejects token requests from the client that don&#39;t
+ * carry a `DPoP` header.
+ * 
+ * The attribute is `Optional` and `Computed`. Leaving it out of the config means
+ * the provider tracks whatever the org reports rather than forcing it to `false`,
+ * so a value set outside of Terraform is not clobbered on the next apply. To
+ * manage the setting as code, declare it explicitly:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.okta.app.OAuth;
+ * import com.pulumi.okta.app.OAuthArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OAuth("example", OAuthArgs.builder()
+ *             .label("Example App")
+ *             .type("web")
+ *             .grantTypes("authorization_code")
+ *             .redirectUris("https://example.com/callback")
+ *             .responseTypes("code")
+ *             .dpopBoundAccessTokens(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * &gt; When `dpopBoundAccessTokens` is `true` the Okta API does not allow
+ * `clientCredentials` or `implicit` in `grantTypes`.
+ * 
+ * ### Resetting client secret
+ * 
+ * If the client secret needs to be reset run an apply with `omitSecret` set to
+ * true in the resource. This causes `clientSecret` to be set to blank. Remove
+ * `omitSecret` and run apply again. The resource will set a new `clientSecret`
+ * for the app.
+ * 
  * ### Private Keys
  * 
  * The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
@@ -378,6 +435,20 @@ public class OAuth extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> consentMethod() {
         return Codegen.optional(this.consentMethod);
+    }
+    /**
+     * Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+     * 
+     */
+    @Export(name="dpopBoundAccessTokens", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> dpopBoundAccessTokens;
+
+    /**
+     * @return Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+     * 
+     */
+    public Output<Boolean> dpopBoundAccessTokens() {
+        return this.dpopBoundAccessTokens;
     }
     /**
      * Application notes for end users.

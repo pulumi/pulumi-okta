@@ -41,6 +41,11 @@ public final class GetOauthResult {
      */
     private String clientUri;
     /**
+     * @return Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+     * 
+     */
+    private Boolean dpopBoundAccessTokens;
+    /**
      * @return List of OAuth 2.0 grant types
      * 
      */
@@ -201,6 +206,13 @@ public final class GetOauthResult {
      */
     public String clientUri() {
         return this.clientUri;
+    }
+    /**
+     * @return Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don&#39;t contain the DPoP header.
+     * 
+     */
+    public Boolean dpopBoundAccessTokens() {
+        return this.dpopBoundAccessTokens;
     }
     /**
      * @return List of OAuth 2.0 grant types
@@ -386,6 +398,7 @@ public final class GetOauthResult {
         private String clientId;
         private String clientSecret;
         private String clientUri;
+        private Boolean dpopBoundAccessTokens;
         private List<String> grantTypes;
         private Boolean hideIos;
         private Boolean hideWeb;
@@ -416,6 +429,7 @@ public final class GetOauthResult {
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
     	      this.clientUri = defaults.clientUri;
+    	      this.dpopBoundAccessTokens = defaults.dpopBoundAccessTokens;
     	      this.grantTypes = defaults.grantTypes;
     	      this.hideIos = defaults.hideIos;
     	      this.hideWeb = defaults.hideWeb;
@@ -476,6 +490,14 @@ public final class GetOauthResult {
               throw new MissingRequiredPropertyException("GetOauthResult", "clientUri");
             }
             this.clientUri = clientUri;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dpopBoundAccessTokens(Boolean dpopBoundAccessTokens) {
+            if (dpopBoundAccessTokens == null) {
+              throw new MissingRequiredPropertyException("GetOauthResult", "dpopBoundAccessTokens");
+            }
+            this.dpopBoundAccessTokens = dpopBoundAccessTokens;
             return this;
         }
         @CustomType.Setter
@@ -669,6 +691,7 @@ public final class GetOauthResult {
             _resultValue.clientId = clientId;
             _resultValue.clientSecret = clientSecret;
             _resultValue.clientUri = clientUri;
+            _resultValue.dpopBoundAccessTokens = dpopBoundAccessTokens;
             _resultValue.grantTypes = grantTypes;
             _resultValue.hideIos = hideIos;
             _resultValue.hideWeb = hideWeb;

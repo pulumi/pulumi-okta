@@ -90,6 +90,10 @@ export class RuleMfa extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     */
+    declare public /*out*/ readonly system: pulumi.Output<boolean>;
+    /**
      * Set of User IDs to Exclude
      */
     declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
@@ -117,6 +121,7 @@ export class RuleMfa extends pulumi.CustomResource {
             resourceInputs["policyId"] = state?.policyId;
             resourceInputs["priority"] = state?.priority;
             resourceInputs["status"] = state?.status;
+            resourceInputs["system"] = state?.system;
             resourceInputs["usersExcluded"] = state?.usersExcluded;
         } else {
             const args = argsOrState as RuleMfaArgs | undefined;
@@ -131,6 +136,7 @@ export class RuleMfa extends pulumi.CustomResource {
             resourceInputs["priority"] = args?.priority;
             resourceInputs["status"] = args?.status;
             resourceInputs["usersExcluded"] = args?.usersExcluded;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleMfa.__pulumiType, name, resourceInputs, opts);
@@ -187,6 +193,10 @@ export interface RuleMfaState {
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     */
+    system?: pulumi.Input<boolean | undefined>;
     /**
      * Set of User IDs to Exclude
      */

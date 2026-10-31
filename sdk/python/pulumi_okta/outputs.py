@@ -95,6 +95,12 @@ __all__ = [
     'RequestConditionAccessScopeSettingsId',
     'RequestConditionRequesterSettings',
     'RequestConditionRequesterSettingsId',
+    'RequestConditionsCondition',
+    'RequestConditionsConditionAccessDurationSettings',
+    'RequestConditionsConditionAccessScopeSettings',
+    'RequestConditionsConditionAccessScopeSettingsId',
+    'RequestConditionsConditionRequesterSettings',
+    'RequestConditionsConditionRequesterSettingsId',
     'RequestSettingResourceRequestOnBehalfOfSettings',
     'RequestSettingResourceRequestOnBehalfOfSettingsOnlyFor',
     'RequestSettingResourceRiskSettings',
@@ -4867,6 +4873,317 @@ class RequestConditionRequesterSettingsId(dict):
     def id(self) -> Optional[_builtins.str]:
         """
         Request condition id.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RequestConditionsCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "approvalSequenceId":
+            suggest = "approval_sequence_id"
+        elif key == "accessDurationSettings":
+            suggest = "access_duration_settings"
+        elif key == "accessScopeSettings":
+            suggest = "access_scope_settings"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+        elif key == "lastUpdatedBy":
+            suggest = "last_updated_by"
+        elif key == "requesterSettings":
+            suggest = "requester_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestConditionsCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestConditionsCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestConditionsCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 approval_sequence_id: _builtins.str,
+                 name: _builtins.str,
+                 access_duration_settings: Optional['outputs.RequestConditionsConditionAccessDurationSettings'] = None,
+                 access_scope_settings: Optional['outputs.RequestConditionsConditionAccessScopeSettings'] = None,
+                 created: Optional[_builtins.str] = None,
+                 created_by: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 last_updated: Optional[_builtins.str] = None,
+                 last_updated_by: Optional[_builtins.str] = None,
+                 priority: Optional[_builtins.int] = None,
+                 requester_settings: Optional['outputs.RequestConditionsConditionRequesterSettings'] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str approval_sequence_id: The ID of the approval sequence.
+        :param _builtins.str name: The name of the request condition. Must be unique within the resource.
+        :param 'RequestConditionsConditionAccessDurationSettingsArgs' access_duration_settings: Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+        :param _builtins.str created: The ISO 8601 formatted date and time when the condition was created.
+        :param _builtins.str created_by: The id of the Okta user who created the condition.
+        :param _builtins.str description: The description of the request condition.
+        :param _builtins.str id: The id of the request condition.
+        :param _builtins.str last_updated: The ISO 8601 formatted date and time when the condition was last updated.
+        :param _builtins.str last_updated_by: The id of the Okta user who last updated the condition.
+        :param _builtins.int priority: The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+        :param _builtins.str status: Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+        """
+        pulumi.set(__self__, "approval_sequence_id", approval_sequence_id)
+        pulumi.set(__self__, "name", name)
+        if access_duration_settings is not None:
+            pulumi.set(__self__, "access_duration_settings", access_duration_settings)
+        if access_scope_settings is not None:
+            pulumi.set(__self__, "access_scope_settings", access_scope_settings)
+        if created is not None:
+            pulumi.set(__self__, "created", created)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if last_updated_by is not None:
+            pulumi.set(__self__, "last_updated_by", last_updated_by)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if requester_settings is not None:
+            pulumi.set(__self__, "requester_settings", requester_settings)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="approvalSequenceId")
+    def approval_sequence_id(self) -> _builtins.str:
+        """
+        The ID of the approval sequence.
+        """
+        return pulumi.get(self, "approval_sequence_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the request condition. Must be unique within the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="accessDurationSettings")
+    def access_duration_settings(self) -> Optional['outputs.RequestConditionsConditionAccessDurationSettings']:
+        """
+        Settings that control who may specify the access duration allowed by this request condition, and what duration may be requested.
+        """
+        return pulumi.get(self, "access_duration_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="accessScopeSettings")
+    def access_scope_settings(self) -> Optional['outputs.RequestConditionsConditionAccessScopeSettings']:
+        return pulumi.get(self, "access_scope_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def created(self) -> Optional[_builtins.str]:
+        """
+        The ISO 8601 formatted date and time when the condition was created.
+        """
+        return pulumi.get(self, "created")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The id of the Okta user who created the condition.
+        """
+        return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the request condition.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The id of the request condition.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[_builtins.str]:
+        """
+        The ISO 8601 formatted date and time when the condition was last updated.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedBy")
+    def last_updated_by(self) -> Optional[_builtins.str]:
+        """
+        The id of the Okta user who last updated the condition.
+        """
+        return pulumi.get(self, "last_updated_by")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> Optional[_builtins.int]:
+        """
+        The priority of the condition. The smaller the number, the higher the priority. Must be unique within the resource. Only the relative order matters: Okta ranks the conditions `0, 1, 2, ...` in this order, so `priority = 1, 2, 3` and `priority = 10, 20, 30` produce the same result. The configured values are kept in state, and drift is reported only when the order in Okta differs.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="requesterSettings")
+    def requester_settings(self) -> Optional['outputs.RequestConditionsConditionRequesterSettings']:
+        return pulumi.get(self, "requester_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Status of the condition. Valid values: `ACTIVE`, `INACTIVE`. Default is `INACTIVE`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RequestConditionsConditionAccessDurationSettings(dict):
+    def __init__(__self__, *,
+                 duration: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str duration: The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+        :param _builtins.str type: Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> Optional[_builtins.str]:
+        """
+        The duration set by the admin for access durations. Use ISO 8601 notation for duration values.
+        """
+        return pulumi.get(self, "duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Enum: `ADMIN_FIXED_DURATION`, `REQUESTER_SPECIFIED_DURATION`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RequestConditionsConditionAccessScopeSettings(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 ids: Optional[Sequence['outputs.RequestConditionsConditionAccessScopeSettingsId']] = None):
+        """
+        :param _builtins.str type: Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+        :param Sequence['RequestConditionsConditionAccessScopeSettingsIdArgs'] ids: The group or entitlement bundle IDs. Each block contains an `id`.
+        """
+        pulumi.set(__self__, "type", type)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Enum: `RESOURCE_DEFAULT`, `GROUPS`, `ENTITLEMENT_BUNDLES`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence['outputs.RequestConditionsConditionAccessScopeSettingsId']]:
+        """
+        The group or entitlement bundle IDs. Each block contains an `id`.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class RequestConditionsConditionAccessScopeSettingsId(dict):
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The ID of this resource (same as `resource_id`).
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of this resource (same as `resource_id`).
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RequestConditionsConditionRequesterSettings(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 ids: Optional[Sequence['outputs.RequestConditionsConditionRequesterSettingsId']] = None):
+        """
+        :param _builtins.str type: Enum: `EVERYONE`, `GROUPS`.
+        :param Sequence['RequestConditionsConditionRequesterSettingsIdArgs'] ids: The group IDs. Each block contains an `id`.
+        """
+        pulumi.set(__self__, "type", type)
+        if ids is not None:
+            pulumi.set(__self__, "ids", ids)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Enum: `EVERYONE`, `GROUPS`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def ids(self) -> Optional[Sequence['outputs.RequestConditionsConditionRequesterSettingsId']]:
+        """
+        The group IDs. Each block contains an `id`.
+        """
+        return pulumi.get(self, "ids")
+
+
+@pulumi.output_type
+class RequestConditionsConditionRequesterSettingsId(dict):
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str id: The ID of this resource (same as `resource_id`).
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The ID of this resource (same as `resource_id`).
         """
         return pulumi.get(self, "id")
 

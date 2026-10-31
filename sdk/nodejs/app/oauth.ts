@@ -16,6 +16,41 @@ import * as utilities from "../utilities";
  * in the v5 release of the provider. Operators should manage the redirect URIs for
  * an oauth app directly on that resource.
  *
+ * ### DPoP (Demonstrating Proof-of-Possession)
+ *
+ * Set `dpopBoundAccessTokens = true` to require DPoP for this client. The
+ * authorization server then rejects token requests from the client that don't
+ * carry a `DPoP` header.
+ *
+ * The attribute is `Optional` and `Computed`. Leaving it out of the config means
+ * the provider tracks whatever the org reports rather than forcing it to `false`,
+ * so a value set outside of Terraform is not clobbered on the next apply. To
+ * manage the setting as code, declare it explicitly:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as okta from "@pulumi/okta";
+ *
+ * const example = new okta.app.OAuth("example", {
+ *     label: "Example App",
+ *     type: "web",
+ *     grantTypes: ["authorization_code"],
+ *     redirectUris: ["https://example.com/callback"],
+ *     responseTypes: ["code"],
+ *     dpopBoundAccessTokens: true,
+ * });
+ * ```
+ *
+ * > When `dpopBoundAccessTokens` is `true` the Okta API does not allow
+ * `clientCredentials` or `implicit` in `grantTypes`.
+ *
+ * ### Resetting client secret
+ *
+ * If the client secret needs to be reset run an apply with `omitSecret` set to
+ * true in the resource. This causes `clientSecret` to be set to blank. Remove
+ * `omitSecret` and run apply again. The resource will set a new `clientSecret`
+ * for the app.
+ *
  * ### Private Keys
  *
  * The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
@@ -190,6 +225,10 @@ export class OAuth extends pulumi.CustomResource {
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
     declare public readonly consentMethod: pulumi.Output<string | undefined>;
+    /**
+     * Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+     */
+    declare public readonly dpopBoundAccessTokens: pulumi.Output<boolean>;
     /**
      * Application notes for end users.
      */
@@ -391,6 +430,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["clientSecret"] = state?.clientSecret;
             resourceInputs["clientUri"] = state?.clientUri;
             resourceInputs["consentMethod"] = state?.consentMethod;
+            resourceInputs["dpopBoundAccessTokens"] = state?.dpopBoundAccessTokens;
             resourceInputs["enduserNote"] = state?.enduserNote;
             resourceInputs["frontchannelLogoutSessionRequired"] = state?.frontchannelLogoutSessionRequired;
             resourceInputs["frontchannelLogoutUri"] = state?.frontchannelLogoutUri;
@@ -457,6 +497,7 @@ export class OAuth extends pulumi.CustomResource {
             resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientUri"] = args?.clientUri;
             resourceInputs["consentMethod"] = args?.consentMethod;
+            resourceInputs["dpopBoundAccessTokens"] = args?.dpopBoundAccessTokens;
             resourceInputs["enduserNote"] = args?.enduserNote;
             resourceInputs["frontchannelLogoutSessionRequired"] = args?.frontchannelLogoutSessionRequired;
             resourceInputs["frontchannelLogoutUri"] = args?.frontchannelLogoutUri;
@@ -585,6 +626,10 @@ export interface OAuthState {
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
     consentMethod?: pulumi.Input<string | undefined>;
+    /**
+     * Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+     */
+    dpopBoundAccessTokens?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for end users.
      */
@@ -830,6 +875,10 @@ export interface OAuthArgs {
      * *Early Access Property*. Indicates whether user consent is required or implicit. Valid values: REQUIRED, TRUSTED. Default value is TRUSTED. Note: Enable `API_ACCESS_MANAGEMENT`, `API_ACCESS_MANAGEMENT_CONSENT` feature flags in your org to use this property.
      */
     consentMethod?: pulumi.Input<string | undefined>;
+    /**
+     * Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+     */
+    dpopBoundAccessTokens?: pulumi.Input<boolean | undefined>;
     /**
      * Application notes for end users.
      */

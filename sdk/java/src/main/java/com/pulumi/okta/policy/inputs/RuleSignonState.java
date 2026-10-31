@@ -383,6 +383,21 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    @Import(name="system")
+    private @Nullable Output<Boolean> system;
+
+    /**
+     * @return Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     * 
+     */
+    public Optional<Output<Boolean>> system() {
+        return Optional.ofNullable(this.system);
+    }
+
+    /**
      * Set of User IDs to Exclude
      * 
      */
@@ -423,6 +438,7 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
         this.sessionLifetime = $.sessionLifetime;
         this.sessionPersistent = $.sessionPersistent;
         this.status = $.status;
+        this.system = $.system;
         this.usersExcluded = $.usersExcluded;
     }
 
@@ -998,6 +1014,27 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param system Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(@Nullable Output<Boolean> system) {
+            $.system = system;
+            return this;
+        }
+
+        /**
+         * @param system Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder system(Boolean system) {
+            return system(Output.of(system));
         }
 
         /**

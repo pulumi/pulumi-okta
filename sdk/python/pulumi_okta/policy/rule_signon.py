@@ -451,6 +451,7 @@ class _RuleSignonState:
                  session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
                  session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 system: pulumi.Input[Optional[_builtins.bool]] = None,
                  users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleSignon resources.
@@ -483,6 +484,7 @@ class _RuleSignonState:
         :param pulumi.Input[_builtins.int] session_lifetime: Max minutes a session is active: Disable = 0. Default: `120`
         :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
+        :param pulumi.Input[_builtins.bool] system: Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         if access is not None:
@@ -534,6 +536,8 @@ class _RuleSignonState:
             pulumi.set(__self__, "session_persistent", session_persistent)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
         if users_excluded is not None:
             pulumi.set(__self__, "users_excluded", users_excluded)
 
@@ -820,6 +824,18 @@ class _RuleSignonState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter
+    def system(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "system", value)
+
+    @_builtins.property
     @pulumi.getter(name="usersExcluded")
     def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -864,7 +880,11 @@ class RuleSignon(pulumi.CustomResource):
                  users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level` to an empty string, since this feature is not enabled.
+        Creates a Sign On Policy Rule. In case 'Invalid condition type specified: riskScore.' error is thrown, set 'risc_level' to an empty string, since this feature is not enabled.
+        A policy's default rule (the rule named 'Default Rule') can be imported and updated as a custom rule, but it can not be created, renamed or deleted.
+        Okta manages these fields on a default rule, so values configured for them are ignored: 'priority', 'network_connection', 'network_includes',
+        'network_excludes', 'users_excluded' and 'session_persistent'.
+        Removing a default rule from your configuration drops it from Terraform state without deleting it from Okta.
 
         ## Example Usage
 
@@ -990,7 +1010,11 @@ class RuleSignon(pulumi.CustomResource):
                  args: Optional[RuleSignonArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `risc_level` to an empty string, since this feature is not enabled.
+        Creates a Sign On Policy Rule. In case 'Invalid condition type specified: riskScore.' error is thrown, set 'risc_level' to an empty string, since this feature is not enabled.
+        A policy's default rule (the rule named 'Default Rule') can be imported and updated as a custom rule, but it can not be created, renamed or deleted.
+        Okta manages these fields on a default rule, so values configured for them are ignored: 'priority', 'network_connection', 'network_includes',
+        'network_excludes', 'users_excluded' and 'session_persistent'.
+        Removing a default rule from your configuration drops it from Terraform state without deleting it from Okta.
 
         ## Example Usage
 
@@ -1149,6 +1173,7 @@ class RuleSignon(pulumi.CustomResource):
             __props__.__dict__["session_persistent"] = session_persistent
             __props__.__dict__["status"] = status
             __props__.__dict__["users_excluded"] = users_excluded
+            __props__.__dict__["system"] = None
         super(RuleSignon, __self__).__init__(
             'okta:policy/ruleSignon:RuleSignon',
             resource_name,
@@ -1182,6 +1207,7 @@ class RuleSignon(pulumi.CustomResource):
             session_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
             session_persistent: pulumi.Input[Optional[_builtins.bool]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
             users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleSignon':
         """
         Get an existing RuleSignon resource's state with the given name, id, and optional extra
@@ -1218,6 +1244,7 @@ class RuleSignon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] session_lifetime: Max minutes a session is active: Disable = 0. Default: `120`
         :param pulumi.Input[_builtins.bool] session_persistent: Whether session cookies will last across browser sessions. Okta Administrators can never have persistent session cookies. Default: `false`
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
+        :param pulumi.Input[_builtins.bool] system: Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1247,6 +1274,7 @@ class RuleSignon(pulumi.CustomResource):
         __props__.__dict__["session_lifetime"] = session_lifetime
         __props__.__dict__["session_persistent"] = session_persistent
         __props__.__dict__["status"] = status
+        __props__.__dict__["system"] = system
         __props__.__dict__["users_excluded"] = users_excluded
         return RuleSignon(resource_name, opts=opts, __props__=__props__)
 
@@ -1439,6 +1467,14 @@ class RuleSignon(pulumi.CustomResource):
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        """
+        return pulumi.get(self, "system")
 
     @_builtins.property
     @pulumi.getter(name="usersExcluded")

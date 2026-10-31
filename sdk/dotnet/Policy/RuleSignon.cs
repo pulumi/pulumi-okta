@@ -10,7 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Okta.Policy
 {
     /// <summary>
-    /// Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `RiscLevel` to an empty string, since this feature is not enabled.
+    /// Creates a Sign On Policy Rule. In case 'Invalid condition type specified: riskScore.' error is thrown, set 'risc_level' to an empty string, since this feature is not enabled.
+    /// A policy's default rule (the rule named 'Default Rule') can be imported and updated as a custom rule, but it can not be created, renamed or deleted.
+    /// Okta manages these fields on a default rule, so values configured for them are ignored: 'priority', 'network_connection', 'network_includes',
+    /// 'network_excludes', 'users_excluded' and 'session_persistent'.
+    /// Removing a default rule from your configuration drops it from Terraform state without deleting it from Okta.
     /// 
     /// ## Example Usage
     /// 
@@ -274,6 +278,12 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        /// </summary>
+        [Output("system")]
+        public Output<bool> System { get; private set; } = null!;
 
         /// <summary>
         /// Set of User IDs to Exclude
@@ -692,6 +702,12 @@ namespace Pulumi.Okta.Policy
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        /// </summary>
+        [Input("system")]
+        public Input<bool>? System { get; set; }
 
         [Input("usersExcluded")]
         private InputList<string>? _usersExcluded;

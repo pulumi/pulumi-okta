@@ -228,6 +228,7 @@ class _RuleMfaState:
                  policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 system: pulumi.Input[Optional[_builtins.bool]] = None,
                  users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering RuleMfa resources.
@@ -248,6 +249,7 @@ class _RuleMfaState:
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
+        :param pulumi.Input[_builtins.bool] system: Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         if app_excludes is not None:
@@ -270,6 +272,8 @@ class _RuleMfaState:
             pulumi.set(__self__, "priority", priority)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
         if users_excluded is not None:
             pulumi.set(__self__, "users_excluded", users_excluded)
 
@@ -400,6 +404,18 @@ class _RuleMfaState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter
+    def system(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "system", value)
+
+    @_builtins.property
     @pulumi.getter(name="usersExcluded")
     def users_excluded(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -522,6 +538,7 @@ class RuleMfa(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["status"] = status
             __props__.__dict__["users_excluded"] = users_excluded
+            __props__.__dict__["system"] = None
         super(RuleMfa, __self__).__init__(
             'okta:policy/ruleMfa:RuleMfa',
             resource_name,
@@ -542,6 +559,7 @@ class RuleMfa(pulumi.CustomResource):
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
             users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'RuleMfa':
         """
         Get an existing RuleMfa resource's state with the given name, id, and optional extra
@@ -566,6 +584,7 @@ class RuleMfa(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_id: Policy ID of the Rule
         :param pulumi.Input[_builtins.int] priority: Rule priority. This attribute can be set to a valid priority. To avoid an endless diff situation an error is thrown if an invalid property is provided. The Okta API defaults to the last (lowest) if not provided.
         :param pulumi.Input[_builtins.str] status: Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
+        :param pulumi.Input[_builtins.bool] system: Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] users_excluded: Set of User IDs to Exclude
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -582,6 +601,7 @@ class RuleMfa(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         __props__.__dict__["priority"] = priority
         __props__.__dict__["status"] = status
+        __props__.__dict__["system"] = system
         __props__.__dict__["users_excluded"] = users_excluded
         return RuleMfa(resource_name, opts=opts, __props__=__props__)
 
@@ -670,6 +690,14 @@ class RuleMfa(pulumi.CustomResource):
         Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+        """
+        return pulumi.get(self, "system")
 
     @_builtins.property
     @pulumi.getter(name="usersExcluded")

@@ -7,7 +7,11 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Creates a Sign On Policy Rule. In case `Invalid condition type specified: riskScore.` error is thrown, set `riscLevel` to an empty string, since this feature is not enabled.
+ * Creates a Sign On Policy Rule. In case 'Invalid condition type specified: riskScore.' error is thrown, set 'risc_level' to an empty string, since this feature is not enabled.
+ * A policy's default rule (the rule named 'Default Rule') can be imported and updated as a custom rule, but it can not be created, renamed or deleted.
+ * Okta manages these fields on a default rule, so values configured for them are ignored: 'priority', 'network_connection', 'network_includes',
+ * 'network_excludes', 'users_excluded' and 'session_persistent'.
+ * Removing a default rule from your configuration drops it from Terraform state without deleting it from Okta.
  *
  * ## Example Usage
  *
@@ -225,6 +229,10 @@ export class RuleSignon extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     */
+    declare public /*out*/ readonly system: pulumi.Output<boolean>;
+    /**
      * Set of User IDs to Exclude
      */
     declare public readonly usersExcluded: pulumi.Output<string[] | undefined>;
@@ -265,6 +273,7 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["sessionLifetime"] = state?.sessionLifetime;
             resourceInputs["sessionPersistent"] = state?.sessionPersistent;
             resourceInputs["status"] = state?.status;
+            resourceInputs["system"] = state?.system;
             resourceInputs["usersExcluded"] = state?.usersExcluded;
         } else {
             const args = argsOrState as RuleSignonArgs | undefined;
@@ -292,6 +301,7 @@ export class RuleSignon extends pulumi.CustomResource {
             resourceInputs["sessionPersistent"] = args?.sessionPersistent;
             resourceInputs["status"] = args?.status;
             resourceInputs["usersExcluded"] = args?.usersExcluded;
+            resourceInputs["system"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RuleSignon.__pulumiType, name, resourceInputs, opts);
@@ -401,6 +411,10 @@ export interface RuleSignonState {
      * Policy Rule Status: `ACTIVE` or `INACTIVE`. Default: `ACTIVE`
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Whether this is the system (default) rule of its policy. Okta creates and deletes default rules itself; Terraform can update one but can not create, rename or delete it.
+     */
+    system?: pulumi.Input<boolean | undefined>;
     /**
      * Set of User IDs to Exclude
      */

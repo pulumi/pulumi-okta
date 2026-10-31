@@ -838,6 +838,11 @@ export type RequestCondition = import("./requestCondition").RequestCondition;
 export const RequestCondition: typeof import("./requestCondition").RequestCondition = null as any;
 utilities.lazyLoad(exports, ["RequestCondition"], () => require("./requestCondition"));
 
+export { RequestConditionsArgs, RequestConditionsState } from "./requestConditions";
+export type RequestConditions = import("./requestConditions").RequestConditions;
+export const RequestConditions: typeof import("./requestConditions").RequestConditions = null as any;
+utilities.lazyLoad(exports, ["RequestConditions"], () => require("./requestConditions"));
+
 export { RequestSequenceArgs, RequestSequenceState } from "./requestSequence";
 export type RequestSequence = import("./requestSequence").RequestSequence;
 export const RequestSequence: typeof import("./requestSequence").RequestSequence = null as any;
@@ -1153,6 +1158,8 @@ const _module = {
                 return new RealmAssignment(name, <any>undefined, { urn })
             case "okta:index/requestCondition:RequestCondition":
                 return new RequestCondition(name, <any>undefined, { urn })
+            case "okta:index/requestConditions:RequestConditions":
+                return new RequestConditions(name, <any>undefined, { urn })
             case "okta:index/requestSequence:RequestSequence":
                 return new RequestSequence(name, <any>undefined, { urn })
             case "okta:index/requestSettingOrganization:RequestSettingOrganization":
@@ -1287,6 +1294,7 @@ pulumi.runtime.registerResourceModule("okta", "index/rateLimiting", _module)
 pulumi.runtime.registerResourceModule("okta", "index/realm", _module)
 pulumi.runtime.registerResourceModule("okta", "index/realmAssignment", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestCondition", _module)
+pulumi.runtime.registerResourceModule("okta", "index/requestConditions", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestSequence", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestSettingOrganization", _module)
 pulumi.runtime.registerResourceModule("okta", "index/requestSettingResource", _module)

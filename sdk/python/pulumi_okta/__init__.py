@@ -173,6 +173,7 @@ from .rate_limiting import *
 from .realm import *
 from .realm_assignment import *
 from .request_condition import *
+from .request_conditions import *
 from .request_sequence import *
 from .request_setting_organization import *
 from .request_setting_resource import *
@@ -1206,6 +1207,14 @@ _utilities.register(
   "fqn": "pulumi_okta",
   "classes": {
    "okta:index/requestCondition:RequestCondition": "RequestCondition"
+  }
+ },
+ {
+  "pkg": "okta",
+  "mod": "index/requestConditions",
+  "fqn": "pulumi_okta",
+  "classes": {
+   "okta:index/requestConditions:RequestConditions": "RequestConditions"
   }
  },
  {

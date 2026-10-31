@@ -1434,6 +1434,33 @@
                     }
                 }
             },
+            "okta_request_conditions": {
+                "current": "okta:index/requestConditions:RequestConditions",
+                "majorVersion": 7,
+                "fields": {
+                    "condition": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "access_scope_settings": {
+                                    "fields": {
+                                        "ids": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                },
+                                "requester_settings": {
+                                    "fields": {
+                                        "ids": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "okta_request_sequence": {
                 "current": "okta:index/requestSequence:RequestSequence",
                 "majorVersion": 7,
@@ -3081,6 +3108,7 @@
             "okta_realm": {},
             "okta_realm_assignment": {},
             "okta_request_condition": {},
+            "okta_request_conditions": {},
             "okta_request_sequence": {
                 "fields": {
                     "id": {
@@ -3240,6 +3268,7 @@
             "okta:index/realm:Realm": 1,
             "okta:index/realmAssignment:RealmAssignment": 1,
             "okta:index/requestCondition:RequestCondition": 1,
+            "okta:index/requestConditions:RequestConditions": 1,
             "okta:index/requestSequence:RequestSequence": 1,
             "okta:index/requestSettingOrganization:RequestSettingOrganization": 1,
             "okta:index/requestSettingResource:RequestSettingResource": 1,

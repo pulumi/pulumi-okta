@@ -212,6 +212,10 @@ namespace Pulumi.Okta.App
         /// </summary>
         public readonly string ClientUri;
         /// <summary>
+        /// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        /// </summary>
+        public readonly bool DpopBoundAccessTokens;
+        /// <summary>
         /// List of OAuth 2.0 grant types
         /// </summary>
         public readonly ImmutableArray<string> GrantTypes;
@@ -319,6 +323,8 @@ namespace Pulumi.Okta.App
 
             string clientUri,
 
+            bool dpopBoundAccessTokens,
+
             ImmutableArray<string> grantTypes,
 
             bool hideIos,
@@ -368,6 +374,7 @@ namespace Pulumi.Okta.App
             ClientId = clientId;
             ClientSecret = clientSecret;
             ClientUri = clientUri;
+            DpopBoundAccessTokens = dpopBoundAccessTokens;
             GrantTypes = grantTypes;
             HideIos = hideIos;
             HideWeb = hideWeb;

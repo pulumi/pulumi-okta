@@ -19,6 +19,57 @@ namespace Pulumi.Okta.App
     /// in the v5 release of the provider. Operators should manage the redirect URIs for
     /// an oauth app directly on that resource.
     /// 
+    /// ### DPoP (Demonstrating Proof-of-Possession)
+    /// 
+    /// Set `DpopBoundAccessTokens = true` to require DPoP for this client. The
+    /// authorization server then rejects token requests from the client that don't
+    /// carry a `DPoP` header.
+    /// 
+    /// The attribute is `Optional` and `Computed`. Leaving it out of the config means
+    /// the provider tracks whatever the org reports rather than forcing it to `False`,
+    /// so a value set outside of Terraform is not clobbered on the next apply. To
+    /// manage the setting as code, declare it explicitly:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Okta = Pulumi.Okta;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Okta.App.OAuth("example", new()
+    ///     {
+    ///         Label = "Example App",
+    ///         Type = "web",
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "authorization_code",
+    ///         },
+    ///         RedirectUris = new[]
+    ///         {
+    ///             "https://example.com/callback",
+    ///         },
+    ///         ResponseTypes = new[]
+    ///         {
+    ///             "code",
+    ///         },
+    ///         DpopBoundAccessTokens = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; When `DpopBoundAccessTokens` is `True` the Okta API does not allow
+    /// `ClientCredentials` or `Implicit` in `GrantTypes`.
+    /// 
+    /// ### Resetting client secret
+    /// 
+    /// If the client secret needs to be reset run an apply with `OmitSecret` set to
+    /// true in the resource. This causes `ClientSecret` to be set to blank. Remove
+    /// `OmitSecret` and run apply again. The resource will set a new `ClientSecret`
+    /// for the app.
+    /// 
     /// ### Private Keys
     /// 
     /// The private key format that an Okta OAuth app expects is PKCS#8 (unencrypted).
@@ -224,6 +275,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Output("consentMethod")]
         public Output<string?> ConsentMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        /// </summary>
+        [Output("dpopBoundAccessTokens")]
+        public Output<bool> DpopBoundAccessTokens { get; private set; } = null!;
 
         /// <summary>
         /// Application notes for end users.
@@ -651,6 +708,12 @@ namespace Pulumi.Okta.App
         public Input<string>? ConsentMethod { get; set; }
 
         /// <summary>
+        /// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        /// </summary>
+        [Input("dpopBoundAccessTokens")]
+        public Input<bool>? DpopBoundAccessTokens { get; set; }
+
+        /// <summary>
         /// Application notes for end users.
         /// </summary>
         [Input("enduserNote")]
@@ -1064,6 +1127,12 @@ namespace Pulumi.Okta.App
         /// </summary>
         [Input("consentMethod")]
         public Input<string>? ConsentMethod { get; set; }
+
+        /// <summary>
+        /// Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If true, the authorization server rejects token requests from this client that don't contain the DPoP header.
+        /// </summary>
+        [Input("dpopBoundAccessTokens")]
+        public Input<bool>? DpopBoundAccessTokens { get; set; }
 
         /// <summary>
         /// Application notes for end users.
