@@ -166,6 +166,12 @@ func (SessionViolationPolicyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionViolationPolicyRuleState)(nil)).Elem()
 }
 
+// SessionViolationPolicyRuleExists checks whether an existing SessionViolationPolicyRule resource with the given ID exists.
+func SessionViolationPolicyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SessionViolationPolicyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule", id, state, "", opts...)
+}
+
 type sessionViolationPolicyRuleArgs struct {
 	// The minimum risk level that triggers the rule. Valid values: `LOW`, `MEDIUM`, `HIGH`.
 	MinRiskLevel string `pulumi:"minRiskLevel"`

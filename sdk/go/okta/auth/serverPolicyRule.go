@@ -225,6 +225,12 @@ func (ServerPolicyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverPolicyRuleState)(nil)).Elem()
 }
 
+// ServerPolicyRuleExists checks whether an existing ServerPolicyRule resource with the given ID exists.
+func ServerPolicyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerPolicyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:auth/serverPolicyRule:ServerPolicyRule", id, state, "", opts...)
+}
+
 type serverPolicyRuleArgs struct {
 	// Lifetime of access token. Can be set to a value between 5 and 1440 minutes. Default is `60`.
 	AccessTokenLifetimeMinutes *int `pulumi:"accessTokenLifetimeMinutes"`

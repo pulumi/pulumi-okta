@@ -149,6 +149,12 @@ func (EntitlementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entitlementState)(nil)).Elem()
 }
 
+// EntitlementExists checks whether an existing Entitlement resource with the given ID exists.
+func EntitlementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntitlementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/entitlement:Entitlement", id, state, "", opts...)
+}
+
 type entitlementArgs struct {
 	// The data type of the entitlement property. If the entitlement property is multivalued, the data type is replaced with an array. Enum: "array", "string".
 	DataType string `pulumi:"dataType"`

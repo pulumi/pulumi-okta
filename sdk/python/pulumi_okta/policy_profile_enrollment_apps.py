@@ -257,6 +257,18 @@ class PolicyProfileEnrollmentApps(pulumi.CustomResource):
         __props__.__dict__["policy_id"] = policy_id
         return PolicyProfileEnrollmentApps(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            apps: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            default_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apps"] = apps
+        __props__["defaultPolicyId"] = default_policy_id
+        __props__["policyId"] = policy_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def apps(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

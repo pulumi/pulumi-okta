@@ -1243,6 +1243,70 @@ class AppSignonPolicyRule(pulumi.CustomResource):
         __props__.__dict__["users_included"] = users_included
         return AppSignonPolicyRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access: pulumi.Input[Optional[_builtins.str]] = None,
+            chains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            constraints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            custom_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            device_assurances_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            device_is_managed: pulumi.Input[Optional[_builtins.bool]] = None,
+            device_is_registered: pulumi.Input[Optional[_builtins.bool]] = None,
+            factor_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inactivity_period: pulumi.Input[Optional[_builtins.str]] = None,
+            keep_me_signed_in: pulumi.Input[Optional[Union['AppSignonPolicyRuleKeepMeSignedInArgs', 'AppSignonPolicyRuleKeepMeSignedInArgsDict', 'outputs.AppSignonPolicyRuleKeepMeSignedIn']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            office365_client_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppSignonPolicyRulePlatformIncludeArgs', 'AppSignonPolicyRulePlatformIncludeArgsDict', 'outputs.AppSignonPolicyRulePlatformInclude']]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            re_authentication_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            risk_score: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_types_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_types_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["access"] = access
+        __props__["chains"] = chains
+        __props__["constraints"] = constraints
+        __props__["customExpression"] = custom_expression
+        __props__["deviceAssurancesIncluded"] = device_assurances_included
+        __props__["deviceIsManaged"] = device_is_managed
+        __props__["deviceIsRegistered"] = device_is_registered
+        __props__["factorMode"] = factor_mode
+        __props__["groupsExcluded"] = groups_excluded
+        __props__["groupsIncluded"] = groups_included
+        __props__["inactivityPeriod"] = inactivity_period
+        __props__["keepMeSignedIn"] = keep_me_signed_in
+        __props__["name"] = name
+        __props__["networkConnection"] = network_connection
+        __props__["networkExcludes"] = network_excludes
+        __props__["networkIncludes"] = network_includes
+        __props__["office365ClientIncludes"] = office365_client_includes
+        __props__["platformIncludes"] = platform_includes
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["reAuthenticationFrequency"] = re_authentication_frequency
+        __props__["riskScore"] = risk_score
+        __props__["status"] = status
+        __props__["system"] = system
+        __props__["type"] = type
+        __props__["userTypesExcluded"] = user_types_excluded
+        __props__["userTypesIncluded"] = user_types_included
+        __props__["usersExcluded"] = users_excluded
+        __props__["usersIncluded"] = users_included
+        return pulumi.runtime.exists_resource(None, 'okta:index/appSignonPolicyRule:AppSignonPolicyRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def access(self) -> pulumi.Output[Optional[_builtins.str]]:

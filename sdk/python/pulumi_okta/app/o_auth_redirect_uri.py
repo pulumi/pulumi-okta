@@ -240,6 +240,16 @@ class OAuthRedirectUri(pulumi.CustomResource):
         __props__.__dict__["uri"] = uri
         return OAuthRedirectUri(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            uri: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["uri"] = uri
+        return pulumi.runtime.exists_resource(None, 'okta:app/oAuthRedirectUri:OAuthRedirectUri', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

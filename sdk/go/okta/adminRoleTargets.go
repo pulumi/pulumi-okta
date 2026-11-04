@@ -133,6 +133,12 @@ func (AdminRoleTargetsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminRoleTargetsState)(nil)).Elem()
 }
 
+// AdminRoleTargetsExists checks whether an existing AdminRoleTargets resource with the given ID exists.
+func AdminRoleTargetsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdminRoleTargetsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/adminRoleTargets:AdminRoleTargets", id, state, "", opts...)
+}
+
 type adminRoleTargetsArgs struct {
 	// List of app names (name represents set of app instances) or a combination of app name and app instance ID (like 'salesforce' or 'facebook.0oapsqQ6dv19pqyEo0g3')
 	Apps []string `pulumi:"apps"`

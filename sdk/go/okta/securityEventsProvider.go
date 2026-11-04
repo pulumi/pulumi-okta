@@ -164,6 +164,12 @@ func (SecurityEventsProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityEventsProviderState)(nil)).Elem()
 }
 
+// SecurityEventsProviderExists checks whether an existing SecurityEventsProvider resource with the given ID exists.
+func SecurityEventsProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityEventsProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/securityEventsProvider:SecurityEventsProvider", id, state, "", opts...)
+}
+
 type securityEventsProviderArgs struct {
 	// Whether or not the Security Events Provider is enabled. Valid values: `ACTIVE`, `INACTIVE`.
 	IsEnabled string `pulumi:"isEnabled"`

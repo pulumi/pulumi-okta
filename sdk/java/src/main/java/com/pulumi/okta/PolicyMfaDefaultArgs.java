@@ -41,20 +41,18 @@ public final class PolicyMfaDefaultArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * @deprecated
-     * Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+     * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
      * 
      */
-    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead */
+    @Deprecated
     @Import(name="externalIdp")
     private @Nullable Output<Map<String,String>> externalIdp;
 
     /**
-     * @deprecated
-     * Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+     * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
      * 
      */
-    @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead */
+    @Deprecated
     public Optional<Output<Map<String,String>>> externalIdp() {
         return Optional.ofNullable(this.externalIdp);
     }
@@ -312,11 +310,10 @@ public final class PolicyMfaDefaultArgs extends com.pulumi.resources.ResourceArg
         /**
          * @return builder
          * 
-         * @deprecated
-         * Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+         * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
          * 
          */
-        @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead */
+        @Deprecated
         public Builder externalIdp(@Nullable Output<Map<String,String>> externalIdp) {
             $.externalIdp = externalIdp;
             return this;
@@ -325,11 +322,10 @@ public final class PolicyMfaDefaultArgs extends com.pulumi.resources.ResourceArg
         /**
          * @return builder
          * 
-         * @deprecated
-         * Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
+         * @deprecated Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead
          * 
          */
-        @Deprecated /* Since okta now support multiple external_idps, this will be deprecated. Please use `externalIdps` instead */
+        @Deprecated
         public Builder externalIdp(Map<String,String> externalIdp) {
             return externalIdp(Output.of(externalIdp));
         }

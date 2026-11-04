@@ -176,6 +176,12 @@ func (MfaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mfaState)(nil)).Elem()
 }
 
+// MfaExists checks whether an existing Mfa resource with the given ID exists.
+func MfaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MfaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/mfa:Mfa", id, state, "", opts...)
+}
+
 type mfaArgs struct {
 	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
 	CustomApps []map[string]string `pulumi:"customApps"`

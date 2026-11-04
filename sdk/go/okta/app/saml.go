@@ -469,6 +469,12 @@ func (SamlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlState)(nil)).Elem()
 }
 
+// SamlExists checks whether an existing Saml resource with the given ID exists.
+func SamlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/saml:Saml", id, state, "", opts...)
+}
+
 type samlArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

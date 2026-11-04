@@ -484,6 +484,36 @@ class Review(pulumi.CustomResource):
         __props__.__dict__["reviewer_type"] = reviewer_type
         return Review(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            campaign_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            decision: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            note: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            review_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reviewer_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reviewer_level: pulumi.Input[Optional[_builtins.str]] = None,
+            reviewer_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["campaignId"] = campaign_id
+        __props__["created"] = created
+        __props__["createdBy"] = created_by
+        __props__["decision"] = decision
+        __props__["lastUpdated"] = last_updated
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["note"] = note
+        __props__["resourceId"] = resource_id
+        __props__["reviewIds"] = review_ids
+        __props__["reviewerId"] = reviewer_id
+        __props__["reviewerLevel"] = reviewer_level
+        __props__["reviewerType"] = reviewer_type
+        return pulumi.runtime.exists_resource(None, 'okta:index/review:Review', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="campaignId")
     def campaign_id(self) -> pulumi.Output[_builtins.str]:

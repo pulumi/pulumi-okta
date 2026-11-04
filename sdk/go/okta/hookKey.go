@@ -122,6 +122,12 @@ func (HookKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hookKeyState)(nil)).Elem()
 }
 
+// HookKeyExists checks whether an existing HookKey resource with the given ID exists.
+func HookKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HookKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/hookKey:HookKey", id, state, "", opts...)
+}
+
 type hookKeyArgs struct {
 	// Display name for the key. Must be between 1 and 255 characters.
 	Name *string `pulumi:"name"`

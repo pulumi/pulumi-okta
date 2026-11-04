@@ -64,22 +64,20 @@ public final class GetAppsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      * 
-     * @deprecated
-     * Use `q` instead. This attribute will be removed in a future version.
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      * 
      */
-    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+    @Deprecated
     @Import(name="labelPrefix")
     private @Nullable Output<String> labelPrefix;
 
     /**
      * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      * 
-     * @deprecated
-     * Use `q` instead. This attribute will be removed in a future version.
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      * 
      */
-    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+    @Deprecated
     public Optional<Output<String>> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
     }
@@ -211,11 +209,10 @@ public final class GetAppsArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `q` instead. This attribute will be removed in a future version.
+         * @deprecated Use `q` instead. This attribute will be removed in a future version.
          * 
          */
-        @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+        @Deprecated
         public Builder labelPrefix(@Nullable Output<String> labelPrefix) {
             $.labelPrefix = labelPrefix;
             return this;
@@ -226,11 +223,10 @@ public final class GetAppsArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `q` instead. This attribute will be removed in a future version.
+         * @deprecated Use `q` instead. This attribute will be removed in a future version.
          * 
          */
-        @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+        @Deprecated
         public Builder labelPrefix(String labelPrefix) {
             return labelPrefix(Output.of(labelPrefix));
         }

@@ -605,6 +605,36 @@ class RuleMfa(pulumi.CustomResource):
         __props__.__dict__["users_excluded"] = users_excluded
         return RuleMfa(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppExcludeArgs', 'RuleMfaAppExcludeArgsDict', 'outputs.RuleMfaAppExclude']]]]] = None,
+            app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleMfaAppIncludeArgs', 'RuleMfaAppIncludeArgsDict', 'outputs.RuleMfaAppInclude']]]]] = None,
+            enroll: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appExcludes"] = app_excludes
+        __props__["appIncludes"] = app_includes
+        __props__["enroll"] = enroll
+        __props__["name"] = name
+        __props__["networkConnection"] = network_connection
+        __props__["networkExcludes"] = network_excludes
+        __props__["networkIncludes"] = network_includes
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["status"] = status
+        __props__["system"] = system
+        __props__["usersExcluded"] = users_excluded
+        return pulumi.runtime.exists_resource(None, 'okta:policy/ruleMfa:RuleMfa', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appExcludes")
     def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleMfaAppExclude']]]:

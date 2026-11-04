@@ -89,11 +89,10 @@ public final class GetSamlResult {
     /**
      * @return Groups associated with the application
      * 
-     * @deprecated
-     * The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
+     * @deprecated The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
      */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments` */
+    @Deprecated
     private List<String> groups;
     /**
      * @return Do not display application icon on mobile app
@@ -132,7 +131,7 @@ public final class GetSamlResult {
     private String keyId;
     /**
      * @return The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			uses the ?q=&#92;n&#92;n query parameter exposed by Okta&#39;s API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
@@ -196,20 +195,18 @@ public final class GetSamlResult {
     /**
      * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because groups has been removed, this attribute is a no op and will be removed
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     private @Nullable Boolean skipGroups;
     /**
      * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     private @Nullable Boolean skipUsers;
     /**
      * @return SAML SP issuer ID
@@ -259,11 +256,10 @@ public final class GetSamlResult {
     /**
      * @return Users associated with the application
      * 
-     * @deprecated
-     * The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
+     * @deprecated The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
      */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments` */
+    @Deprecated
     private List<String> users;
 
     private GetSamlResult() {}
@@ -371,11 +367,10 @@ public final class GetSamlResult {
     /**
      * @return Groups associated with the application
      * 
-     * @deprecated
-     * The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
+     * @deprecated The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments`
      * 
      */
-    @Deprecated /* The `groups` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.AppGroupAssignments` */
+    @Deprecated
     public List<String> groups() {
         return this.groups;
     }
@@ -430,7 +425,7 @@ public final class GetSamlResult {
     }
     /**
      * @return The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			uses the ?q=&#92;n&#92;n query parameter exposed by Okta&#39;s API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
@@ -518,22 +513,20 @@ public final class GetSamlResult {
     /**
      * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because groups has been removed, this attribute is a no op and will be removed
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Boolean> skipGroups() {
         return Optional.ofNullable(this.skipGroups);
     }
     /**
      * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Boolean> skipUsers() {
         return Optional.ofNullable(this.skipUsers);
     }
@@ -603,11 +596,10 @@ public final class GetSamlResult {
     /**
      * @return Users associated with the application
      * 
-     * @deprecated
-     * The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
+     * @deprecated The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments`
      * 
      */
-    @Deprecated /* The `users` field is now deprecated for the data source `okta.app.Saml`, please replace all uses of this with: `okta.getAppUserAssignments` */
+    @Deprecated
     public List<String> users() {
         return this.users;
     }

@@ -276,6 +276,18 @@ class RequestSettingResource(pulumi.CustomResource):
         __props__.__dict__["risk_settings"] = risk_settings
         return RequestSettingResource(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            request_on_behalf_of_settings: pulumi.Input[Optional[Union['RequestSettingResourceRequestOnBehalfOfSettingsArgs', 'RequestSettingResourceRequestOnBehalfOfSettingsArgsDict', 'outputs.RequestSettingResourceRequestOnBehalfOfSettings']]] = None,
+            risk_settings: pulumi.Input[Optional[Union['RequestSettingResourceRiskSettingsArgs', 'RequestSettingResourceRiskSettingsArgsDict', 'outputs.RequestSettingResourceRiskSettings']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["idProperty"] = id_property
+        __props__["requestOnBehalfOfSettings"] = request_on_behalf_of_settings
+        __props__["riskSettings"] = risk_settings
+        return pulumi.runtime.exists_resource(None, 'okta:index/requestSettingResource:RequestSettingResource', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="idProperty")
     def id_property(self) -> pulumi.Output[_builtins.str]:

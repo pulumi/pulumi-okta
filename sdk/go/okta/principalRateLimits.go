@@ -122,6 +122,12 @@ func (PrincipalRateLimitsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*principalRateLimitsState)(nil)).Elem()
 }
 
+// PrincipalRateLimitsExists checks whether an existing PrincipalRateLimits resource with the given ID exists.
+func PrincipalRateLimitsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrincipalRateLimitsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/principalRateLimits:PrincipalRateLimits", id, state, "", opts...)
+}
+
 type principalRateLimitsArgs struct {
 	// The default percentage of a given concurrency limit threshold that the owning principal can consume.
 	DefaultConcurrencyPercentage *int `pulumi:"defaultConcurrencyPercentage"`

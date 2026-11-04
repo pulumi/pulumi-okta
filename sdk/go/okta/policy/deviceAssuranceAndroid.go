@@ -177,6 +177,12 @@ func (DeviceAssuranceAndroidState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceAssuranceAndroidState)(nil)).Elem()
 }
 
+// DeviceAssuranceAndroidExists checks whether an existing DeviceAssuranceAndroid resource with the given ID exists.
+func DeviceAssuranceAndroidExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceAssuranceAndroidState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid", id, state, "", opts...)
+}
+
 type deviceAssuranceAndroidArgs struct {
 	// List of disk encryption type, can be `FULL`, `USER`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`

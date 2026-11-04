@@ -331,6 +331,22 @@ class AppSignonPolicy(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         return AppSignonPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catch_all: pulumi.Input[Optional[_builtins.bool]] = None,
+            default_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catchAll"] = catch_all
+        __props__["defaultRuleId"] = default_rule_id
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["priority"] = priority
+        return pulumi.runtime.exists_resource(None, 'okta:index/appSignonPolicy:AppSignonPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catchAll")
     def catch_all(self) -> pulumi.Output[_builtins.bool]:

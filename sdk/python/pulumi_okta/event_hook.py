@@ -422,6 +422,24 @@ class EventHook(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return EventHook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            channel: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventHookHeaderArgs', 'EventHookHeaderArgsDict', 'outputs.EventHookHeader']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["auth"] = auth
+        __props__["channel"] = channel
+        __props__["events"] = events
+        __props__["headers"] = headers
+        __props__["name"] = name
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/eventHook:EventHook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def auth(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

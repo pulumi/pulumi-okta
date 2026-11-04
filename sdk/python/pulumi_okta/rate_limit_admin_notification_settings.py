@@ -176,6 +176,14 @@ class RateLimitAdminNotificationSettings(pulumi.CustomResource):
         __props__.__dict__["notifications_enabled"] = notifications_enabled
         return RateLimitAdminNotificationSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["notificationsEnabled"] = notifications_enabled
+        return pulumi.runtime.exists_resource(None, 'okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="notificationsEnabled")
     def notifications_enabled(self) -> pulumi.Output[_builtins.bool]:

@@ -173,6 +173,12 @@ func (PushProviderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pushProviderState)(nil)).Elem()
 }
 
+// PushProviderExists checks whether an existing PushProvider resource with the given ID exists.
+func PushProviderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PushProviderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/pushProvider:PushProvider", id, state, "", opts...)
+}
+
 type pushProviderArgs struct {
 	// Configuration block for the push provider. The configuration structure depends on the provider type.
 	Configuration *PushProviderConfiguration `pulumi:"configuration"`

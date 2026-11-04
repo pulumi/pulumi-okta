@@ -152,6 +152,12 @@ func (RuleMfaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleMfaState)(nil)).Elem()
 }
 
+// RuleMfaExists checks whether an existing RuleMfa resource with the given ID exists.
+func RuleMfaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleMfaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/ruleMfa:RuleMfa", id, state, "", opts...)
+}
+
 type ruleMfaArgs struct {
 	// Applications to exclude in discovery rule. **IMPORTANT**: this field is only available in Classic Organizations.
 	// 	- 'id' - (Optional) Use if 'type' is 'APP' to indicate the application id to include.

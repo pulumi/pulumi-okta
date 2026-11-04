@@ -610,6 +610,12 @@ func (OAuthState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthState)(nil)).Elem()
 }
 
+// OAuthExists checks whether an existing OAuth resource with the given ID exists.
+func OAuthExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OAuthState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/oAuth:OAuth", id, state, "", opts...)
+}
+
 type oauthArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

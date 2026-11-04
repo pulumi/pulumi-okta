@@ -115,6 +115,12 @@ func (UserGroupMembershipsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userGroupMembershipsState)(nil)).Elem()
 }
 
+// UserGroupMembershipsExists checks whether an existing UserGroupMemberships resource with the given ID exists.
+func UserGroupMembershipsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserGroupMembershipsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/userGroupMemberships:UserGroupMemberships", id, state, "", opts...)
+}
+
 type userGroupMembershipsArgs struct {
 	// The list of Okta group IDs which the user should have membership managed for.
 	Groups []string `pulumi:"groups"`

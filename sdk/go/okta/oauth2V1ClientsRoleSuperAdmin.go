@@ -138,6 +138,12 @@ func (Oauth2V1ClientsRoleSuperAdminState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauth2V1ClientsRoleSuperAdminState)(nil)).Elem()
 }
 
+// Oauth2V1ClientsRoleSuperAdminExists checks whether an existing Oauth2V1ClientsRoleSuperAdmin resource with the given ID exists.
+func Oauth2V1ClientsRoleSuperAdminExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Oauth2V1ClientsRoleSuperAdminState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin", id, state, "", opts...)
+}
+
 type oauth2V1ClientsRoleSuperAdminArgs struct {
 	// Role assignment type
 	AssignmentType *string `pulumi:"assignmentType"`

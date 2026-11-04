@@ -135,6 +135,12 @@ func (GroupAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupAssignmentState)(nil)).Elem()
 }
 
+// GroupAssignmentExists checks whether an existing GroupAssignment resource with the given ID exists.
+func GroupAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/groupAssignment:GroupAssignment", id, state, "", opts...)
+}
+
 type groupAssignmentArgs struct {
 	// App to associate group with
 	AppId string `pulumi:"appId"`

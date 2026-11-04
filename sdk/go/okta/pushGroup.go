@@ -182,6 +182,12 @@ func (PushGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pushGroupState)(nil)).Elem()
 }
 
+// PushGroupExists checks whether an existing PushGroup resource with the given ID exists.
+func PushGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PushGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/pushGroup:PushGroup", id, state, "", opts...)
+}
+
 type pushGroupArgs struct {
 	// Additional app configuration for group push mappings. Currently only required for Active Directory.
 	AppConfig *PushGroupAppConfig `pulumi:"appConfig"`

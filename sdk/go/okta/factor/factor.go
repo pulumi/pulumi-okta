@@ -98,6 +98,12 @@ func (FactorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*factorState)(nil)).Elem()
 }
 
+// FactorExists checks whether an existing Factor resource with the given ID exists.
+func FactorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FactorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:factor/factor:Factor", id, state, "", opts...)
+}
+
 type factorArgs struct {
 	// Whether to activate the provider, by default, it is set to `true`.
 	Active *bool `pulumi:"active"`

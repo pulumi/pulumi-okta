@@ -171,6 +171,12 @@ func (MappingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mappingState)(nil)).Elem()
 }
 
+// MappingExists checks whether an existing Mapping resource with the given ID exists.
+func MappingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MappingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:profile/mapping:Mapping", id, state, "", opts...)
+}
+
 type mappingArgs struct {
 	// Whether apply the changes to all users with this profile after updating or creating the these mappings.
 	// > **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.

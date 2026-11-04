@@ -159,6 +159,12 @@ func (LinkValueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkValueState)(nil)).Elem()
 }
 
+// LinkValueExists checks whether an existing LinkValue resource with the given ID exists.
+func LinkValueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkValueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/linkValue:LinkValue", id, state, "", opts...)
+}
+
 type linkValueArgs struct {
 	// Set of User IDs or login values of the users to be assigned the `associated` relationship.
 	AssociatedUserIds []string `pulumi:"associatedUserIds"`

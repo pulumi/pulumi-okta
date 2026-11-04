@@ -287,6 +287,12 @@ func (AdminRoleCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminRoleCustomState)(nil)).Elem()
 }
 
+// AdminRoleCustomExists checks whether an existing AdminRoleCustom resource with the given ID exists.
+func AdminRoleCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdminRoleCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/adminRoleCustom:AdminRoleCustom", id, state, "", opts...)
+}
+
 type adminRoleCustomArgs struct {
 	// A human-readable description of the new Role
 	Description string `pulumi:"description"`

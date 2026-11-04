@@ -261,6 +261,18 @@ class EmailTemplateSettings(pulumi.CustomResource):
         __props__.__dict__["template_name"] = template_name
         return EmailTemplateSettings(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            recipients: pulumi.Input[Optional[_builtins.str]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["brandId"] = brand_id
+        __props__["recipients"] = recipients
+        __props__["templateName"] = template_name
+        return pulumi.runtime.exists_resource(None, 'okta:index/emailTemplateSettings:EmailTemplateSettings', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[_builtins.str]:

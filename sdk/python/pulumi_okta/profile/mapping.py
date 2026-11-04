@@ -449,6 +449,30 @@ class Mapping(pulumi.CustomResource):
         __props__.__dict__["target_type"] = target_type
         return Mapping(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+            delete_when_absent: pulumi.Input[Optional[_builtins.bool]] = None,
+            mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MappingMappingArgs', 'MappingMappingArgsDict', 'outputs.MappingMapping']]]]] = None,
+            source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_name: pulumi.Input[Optional[_builtins.str]] = None,
+            source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_name: pulumi.Input[Optional[_builtins.str]] = None,
+            target_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alwaysApply"] = always_apply
+        __props__["deleteWhenAbsent"] = delete_when_absent
+        __props__["mappings"] = mappings
+        __props__["sourceId"] = source_id
+        __props__["sourceName"] = source_name
+        __props__["sourceType"] = source_type
+        __props__["targetId"] = target_id
+        __props__["targetName"] = target_name
+        __props__["targetType"] = target_type
+        return pulumi.runtime.exists_resource(None, 'okta:profile/mapping:Mapping', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
     def always_apply(self) -> pulumi.Output[Optional[_builtins.bool]]:

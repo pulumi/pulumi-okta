@@ -124,6 +124,12 @@ func (RoleSubscriptionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleSubscriptionState)(nil)).Elem()
 }
 
+// RoleSubscriptionExists checks whether an existing RoleSubscription resource with the given ID exists.
+func RoleSubscriptionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleSubscriptionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/roleSubscription:RoleSubscription", id, state, "", opts...)
+}
+
 type roleSubscriptionArgs struct {
 	// An array of sources send notifications to users.
 	Channels []string `pulumi:"channels"`

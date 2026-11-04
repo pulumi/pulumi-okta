@@ -539,6 +539,26 @@ class Role(pulumi.CustomResource):
         __props__.__dict__["target_group_lists"] = target_group_lists
         return Role(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            disable_notifications: pulumi.Input[Optional[_builtins.bool]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_id: pulumi.Input[Optional[_builtins.str]] = None,
+            role_type: pulumi.Input[Optional[_builtins.str]] = None,
+            target_app_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            target_group_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["disableNotifications"] = disable_notifications
+        __props__["groupId"] = group_id
+        __props__["resourceSetId"] = resource_set_id
+        __props__["roleId"] = role_id
+        __props__["roleType"] = role_type
+        __props__["targetAppLists"] = target_app_lists
+        __props__["targetGroupLists"] = target_group_lists
+        return pulumi.runtime.exists_resource(None, 'okta:group/role:Role', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="disableNotifications")
     def disable_notifications(self) -> pulumi.Output[Optional[_builtins.bool]]:

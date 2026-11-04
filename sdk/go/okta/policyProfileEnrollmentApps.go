@@ -134,6 +134,12 @@ func (PolicyProfileEnrollmentAppsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyProfileEnrollmentAppsState)(nil)).Elem()
 }
 
+// PolicyProfileEnrollmentAppsExists checks whether an existing PolicyProfileEnrollmentApps resource with the given ID exists.
+func PolicyProfileEnrollmentAppsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyProfileEnrollmentAppsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/policyProfileEnrollmentApps:PolicyProfileEnrollmentApps", id, state, "", opts...)
+}
+
 type policyProfileEnrollmentAppsArgs struct {
 	// List of app IDs to be added to this policy
 	Apps []string `pulumi:"apps"`

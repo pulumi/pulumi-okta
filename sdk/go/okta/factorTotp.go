@@ -133,6 +133,12 @@ func (FactorTotpState) ElementType() reflect.Type {
 	return reflect.TypeOf((*factorTotpState)(nil)).Elem()
 }
 
+// FactorTotpExists checks whether an existing FactorTotp resource with the given ID exists.
+func FactorTotpExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FactorTotpState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/factorTotp:FactorTotp", id, state, "", opts...)
+}
+
 type factorTotpArgs struct {
 	// Clock drift interval. This setting allows you to build in tolerance for any drift between the token's current time and the server's current time. Valid values: `3`, `5`, `10`. Default is `3`.
 	ClockDriftInterval *int `pulumi:"clockDriftInterval"`

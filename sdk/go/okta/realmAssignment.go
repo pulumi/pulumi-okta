@@ -149,6 +149,12 @@ func (RealmAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*realmAssignmentState)(nil)).Elem()
 }
 
+// RealmAssignmentExists checks whether an existing RealmAssignment resource with the given ID exists.
+func RealmAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RealmAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/realmAssignment:RealmAssignment", id, state, "", opts...)
+}
+
 type realmAssignmentArgs struct {
 	// Condition expression for the Realm Assignment in Okta Expression Language. Example: `user.profile.role =="Manager"` or `user.profile.state.contains("example")`.
 	ConditionExpression *string `pulumi:"conditionExpression"`

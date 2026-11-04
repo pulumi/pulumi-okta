@@ -1351,6 +1351,76 @@ class SecurePasswordStore(pulumi.CustomResource):
         __props__.__dict__["username_field"] = username_field
         return SecurePasswordStore(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            accessibility_error_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_login_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            accessibility_self_service: pulumi.Input[Optional[_builtins.bool]] = None,
+            admin_note: pulumi.Input[Optional[_builtins.str]] = None,
+            app_links_json: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_submit_toolbar: pulumi.Input[Optional[_builtins.bool]] = None,
+            credentials_scheme: pulumi.Input[Optional[_builtins.str]] = None,
+            enduser_note: pulumi.Input[Optional[_builtins.str]] = None,
+            hide_ios: pulumi.Input[Optional[_builtins.bool]] = None,
+            hide_web: pulumi.Input[Optional[_builtins.bool]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field1: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field1_value: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field2: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field2_value: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field3: pulumi.Input[Optional[_builtins.str]] = None,
+            optional_field3_value: pulumi.Input[Optional[_builtins.str]] = None,
+            password_field: pulumi.Input[Optional[_builtins.str]] = None,
+            reveal_password: pulumi.Input[Optional[_builtins.bool]] = None,
+            shared_password: pulumi.Input[Optional[_builtins.str]] = None,
+            shared_username: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_on_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_push_status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name_template_type: pulumi.Input[Optional[_builtins.str]] = None,
+            username_field: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessibilityErrorRedirectUrl"] = accessibility_error_redirect_url
+        __props__["accessibilityLoginRedirectUrl"] = accessibility_login_redirect_url
+        __props__["accessibilitySelfService"] = accessibility_self_service
+        __props__["adminNote"] = admin_note
+        __props__["appLinksJson"] = app_links_json
+        __props__["autoSubmitToolbar"] = auto_submit_toolbar
+        __props__["credentialsScheme"] = credentials_scheme
+        __props__["enduserNote"] = enduser_note
+        __props__["hideIos"] = hide_ios
+        __props__["hideWeb"] = hide_web
+        __props__["label"] = label
+        __props__["logo"] = logo
+        __props__["logoUrl"] = logo_url
+        __props__["name"] = name
+        __props__["optionalField1"] = optional_field1
+        __props__["optionalField1Value"] = optional_field1_value
+        __props__["optionalField2"] = optional_field2
+        __props__["optionalField2Value"] = optional_field2_value
+        __props__["optionalField3"] = optional_field3
+        __props__["optionalField3Value"] = optional_field3_value
+        __props__["passwordField"] = password_field
+        __props__["revealPassword"] = reveal_password
+        __props__["sharedPassword"] = shared_password
+        __props__["sharedUsername"] = shared_username
+        __props__["signOnMode"] = sign_on_mode
+        __props__["status"] = status
+        __props__["url"] = url
+        __props__["userNameTemplate"] = user_name_template
+        __props__["userNameTemplatePushStatus"] = user_name_template_push_status
+        __props__["userNameTemplateSuffix"] = user_name_template_suffix
+        __props__["userNameTemplateType"] = user_name_template_type
+        __props__["usernameField"] = username_field
+        return pulumi.runtime.exists_resource(None, 'okta:app/securePasswordStore:SecurePasswordStore', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessibilityErrorRedirectUrl")
     def accessibility_error_redirect_url(self) -> pulumi.Output[Optional[_builtins.str]]:

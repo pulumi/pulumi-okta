@@ -1433,6 +1433,78 @@ class Password(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return Password(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            breached_password_delegated_workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
+            breached_password_expire_after_days: pulumi.Input[Optional[_builtins.int]] = None,
+            breached_password_logout_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            call_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            email_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            password_auto_unlock_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            password_dictionary_lookup: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_exclude_first_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_exclude_last_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_exclude_username: pulumi.Input[Optional[_builtins.bool]] = None,
+            password_expire_warn_days: pulumi.Input[Optional[_builtins.int]] = None,
+            password_history_count: pulumi.Input[Optional[_builtins.int]] = None,
+            password_lockout_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password_max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            password_max_lockout_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_age_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_lowercase: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_number: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_symbol: pulumi.Input[Optional[_builtins.int]] = None,
+            password_min_uppercase: pulumi.Input[Optional[_builtins.int]] = None,
+            password_show_lockout_failures: pulumi.Input[Optional[_builtins.bool]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            question_min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            question_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            recovery_email_token: pulumi.Input[Optional[_builtins.int]] = None,
+            skip_unlock: pulumi.Input[Optional[_builtins.bool]] = None,
+            sms_recovery: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authProvider"] = auth_provider
+        __props__["breachedPasswordDelegatedWorkflowId"] = breached_password_delegated_workflow_id
+        __props__["breachedPasswordExpireAfterDays"] = breached_password_expire_after_days
+        __props__["breachedPasswordLogoutEnabled"] = breached_password_logout_enabled
+        __props__["callRecovery"] = call_recovery
+        __props__["description"] = description
+        __props__["emailRecovery"] = email_recovery
+        __props__["groupsIncluded"] = groups_included
+        __props__["name"] = name
+        __props__["passwordAutoUnlockMinutes"] = password_auto_unlock_minutes
+        __props__["passwordDictionaryLookup"] = password_dictionary_lookup
+        __props__["passwordExcludeFirstName"] = password_exclude_first_name
+        __props__["passwordExcludeLastName"] = password_exclude_last_name
+        __props__["passwordExcludeUsername"] = password_exclude_username
+        __props__["passwordExpireWarnDays"] = password_expire_warn_days
+        __props__["passwordHistoryCount"] = password_history_count
+        __props__["passwordLockoutNotificationChannels"] = password_lockout_notification_channels
+        __props__["passwordMaxAgeDays"] = password_max_age_days
+        __props__["passwordMaxLockoutAttempts"] = password_max_lockout_attempts
+        __props__["passwordMinAgeMinutes"] = password_min_age_minutes
+        __props__["passwordMinLength"] = password_min_length
+        __props__["passwordMinLowercase"] = password_min_lowercase
+        __props__["passwordMinNumber"] = password_min_number
+        __props__["passwordMinSymbol"] = password_min_symbol
+        __props__["passwordMinUppercase"] = password_min_uppercase
+        __props__["passwordShowLockoutFailures"] = password_show_lockout_failures
+        __props__["priority"] = priority
+        __props__["questionMinLength"] = question_min_length
+        __props__["questionRecovery"] = question_recovery
+        __props__["recoveryEmailToken"] = recovery_email_token
+        __props__["skipUnlock"] = skip_unlock
+        __props__["smsRecovery"] = sms_recovery
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:policy/password:Password', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authProvider")
     def auth_provider(self) -> pulumi.Output[Optional[_builtins.str]]:

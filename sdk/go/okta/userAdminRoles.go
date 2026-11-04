@@ -126,6 +126,12 @@ func (UserAdminRolesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userAdminRolesState)(nil)).Elem()
 }
 
+// UserAdminRolesExists checks whether an existing UserAdminRoles resource with the given ID exists.
+func UserAdminRolesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserAdminRolesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/userAdminRoles:UserAdminRoles", id, state, "", opts...)
+}
+
 type userAdminRolesArgs struct {
 	// The list of Okta user admin roles, e.g. `['APP_ADMIN', 'USER_ADMIN']` See [API Docs](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
 	AdminRoles []string `pulumi:"adminRoles"`

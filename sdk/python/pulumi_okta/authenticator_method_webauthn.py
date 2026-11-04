@@ -696,6 +696,40 @@ class AuthenticatorMethodWebauthn(pulumi.CustomResource):
         __props__.__dict__["user_verification_for_verify"] = user_verification_for_verify
         return AuthenticatorMethodWebauthn(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aaguid_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorMethodWebauthnAaguidGroupArgs', 'AuthenticatorMethodWebauthnAaguidGroupArgsDict', 'outputs.AuthenticatorMethodWebauthnAaguidGroup']]]]] = None,
+            allow_syncable_passkeys: pulumi.Input[Optional[_builtins.bool]] = None,
+            attachment: pulumi.Input[Optional[_builtins.str]] = None,
+            authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            cert_based_attestation_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_autofill_ui: pulumi.Input[Optional[_builtins.bool]] = None,
+            fips_compliant: pulumi.Input[Optional[_builtins.bool]] = None,
+            hardware_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+            resident_key_requirement: pulumi.Input[Optional[_builtins.str]] = None,
+            rp_id: pulumi.Input[Optional[Union['AuthenticatorMethodWebauthnRpIdArgs', 'AuthenticatorMethodWebauthnRpIdArgsDict', 'outputs.AuthenticatorMethodWebauthnRpId']]] = None,
+            show_sign_in_with_a_passkey_button: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_verification: pulumi.Input[Optional[_builtins.str]] = None,
+            user_verification_for_verify: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aaguidGroups"] = aaguid_groups
+        __props__["allowSyncablePasskeys"] = allow_syncable_passkeys
+        __props__["attachment"] = attachment
+        __props__["authenticatorId"] = authenticator_id
+        __props__["certBasedAttestationValidation"] = cert_based_attestation_validation
+        __props__["enableAutofillUi"] = enable_autofill_ui
+        __props__["fipsCompliant"] = fips_compliant
+        __props__["hardwareProtected"] = hardware_protected
+        __props__["residentKeyRequirement"] = resident_key_requirement
+        __props__["rpId"] = rp_id
+        __props__["showSignInWithAPasskeyButton"] = show_sign_in_with_a_passkey_button
+        __props__["status"] = status
+        __props__["userVerification"] = user_verification
+        __props__["userVerificationForVerify"] = user_verification_for_verify
+        return pulumi.runtime.exists_resource(None, 'okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aaguidGroups")
     def aaguid_groups(self) -> pulumi.Output[Optional[Sequence['outputs.AuthenticatorMethodWebauthnAaguidGroup']]]:

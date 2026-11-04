@@ -299,6 +299,12 @@ func (ThreeFieldState) ElementType() reflect.Type {
 	return reflect.TypeOf((*threeFieldState)(nil)).Elem()
 }
 
+// ThreeFieldExists checks whether an existing ThreeField resource with the given ID exists.
+func ThreeFieldExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThreeFieldState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/threeField:ThreeField", id, state, "", opts...)
+}
+
 type threeFieldArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

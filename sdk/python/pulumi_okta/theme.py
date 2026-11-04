@@ -762,6 +762,46 @@ class Theme(pulumi.CustomResource):
         __props__.__dict__["theme_id"] = theme_id
         return Theme(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            background_image: pulumi.Input[Optional[_builtins.str]] = None,
+            background_image_url: pulumi.Input[Optional[_builtins.str]] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            email_template_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            end_user_dashboard_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            error_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            favicon: pulumi.Input[Optional[_builtins.str]] = None,
+            favicon_url: pulumi.Input[Optional[_builtins.str]] = None,
+            links: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            logo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_color_contrast_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            secondary_color_hex: pulumi.Input[Optional[_builtins.str]] = None,
+            sign_in_page_touch_point_variant: pulumi.Input[Optional[_builtins.str]] = None,
+            theme_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["backgroundImage"] = background_image
+        __props__["backgroundImageUrl"] = background_image_url
+        __props__["brandId"] = brand_id
+        __props__["emailTemplateTouchPointVariant"] = email_template_touch_point_variant
+        __props__["endUserDashboardTouchPointVariant"] = end_user_dashboard_touch_point_variant
+        __props__["errorPageTouchPointVariant"] = error_page_touch_point_variant
+        __props__["favicon"] = favicon
+        __props__["faviconUrl"] = favicon_url
+        __props__["links"] = links
+        __props__["logo"] = logo
+        __props__["logoUrl"] = logo_url
+        __props__["primaryColorContrastHex"] = primary_color_contrast_hex
+        __props__["primaryColorHex"] = primary_color_hex
+        __props__["secondaryColorContrastHex"] = secondary_color_contrast_hex
+        __props__["secondaryColorHex"] = secondary_color_hex
+        __props__["signInPageTouchPointVariant"] = sign_in_page_touch_point_variant
+        __props__["themeId"] = theme_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/theme:Theme', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="backgroundImage")
     def background_image(self) -> pulumi.Output[Optional[_builtins.str]]:

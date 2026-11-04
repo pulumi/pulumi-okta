@@ -384,6 +384,26 @@ class Owner(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Owner(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            id_of_group_owner: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_id: pulumi.Input[Optional[_builtins.str]] = None,
+            origin_type: pulumi.Input[Optional[_builtins.str]] = None,
+            resolved: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["displayName"] = display_name
+        __props__["groupId"] = group_id
+        __props__["idOfGroupOwner"] = id_of_group_owner
+        __props__["originId"] = origin_id
+        __props__["originType"] = origin_type
+        __props__["resolved"] = resolved
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'okta:group/owner:Owner', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:

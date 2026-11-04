@@ -1023,6 +1023,60 @@ class DeviceAssuranceMacos(pulumi.CustomResource):
         __props__.__dict__["tpsp_site_isolation_enabled"] = tpsp_site_isolation_enabled
         return DeviceAssuranceMacos(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            last_update: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_version: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None,
+            third_party_signal_providers: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_browser_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_builtin_dns_client_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_chrome_remote_desktop_app_blocked: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_device_enrollment_domain: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_disk_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_key_trust_level: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_os_firewall: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_os_version: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_password_proctection_warning_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_realtime_url_check_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_safe_browsing_protection_level: pulumi.Input[Optional[_builtins.str]] = None,
+            tpsp_screen_lock_secured: pulumi.Input[Optional[_builtins.bool]] = None,
+            tpsp_site_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdBy"] = created_by
+        __props__["createdDate"] = created_date
+        __props__["diskEncryptionTypes"] = disk_encryption_types
+        __props__["lastUpdate"] = last_update
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["name"] = name
+        __props__["osVersion"] = os_version
+        __props__["platform"] = platform
+        __props__["screenlockTypes"] = screenlock_types
+        __props__["secureHardwarePresent"] = secure_hardware_present
+        __props__["thirdPartySignalProviders"] = third_party_signal_providers
+        __props__["tpspBrowserVersion"] = tpsp_browser_version
+        __props__["tpspBuiltinDnsClientEnabled"] = tpsp_builtin_dns_client_enabled
+        __props__["tpspChromeRemoteDesktopAppBlocked"] = tpsp_chrome_remote_desktop_app_blocked
+        __props__["tpspDeviceEnrollmentDomain"] = tpsp_device_enrollment_domain
+        __props__["tpspDiskEncrypted"] = tpsp_disk_encrypted
+        __props__["tpspKeyTrustLevel"] = tpsp_key_trust_level
+        __props__["tpspOsFirewall"] = tpsp_os_firewall
+        __props__["tpspOsVersion"] = tpsp_os_version
+        __props__["tpspPasswordProctectionWarningTrigger"] = tpsp_password_proctection_warning_trigger
+        __props__["tpspRealtimeUrlCheckMode"] = tpsp_realtime_url_check_mode
+        __props__["tpspSafeBrowsingProtectionLevel"] = tpsp_safe_browsing_protection_level
+        __props__["tpspScreenLockSecured"] = tpsp_screen_lock_secured
+        __props__["tpspSiteIsolationEnabled"] = tpsp_site_isolation_enabled
+        return pulumi.runtime.exists_resource(None, 'okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:

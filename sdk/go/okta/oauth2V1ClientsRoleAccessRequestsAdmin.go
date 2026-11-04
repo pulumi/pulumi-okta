@@ -150,6 +150,12 @@ func (Oauth2V1ClientsRoleAccessRequestsAdminState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauth2V1ClientsRoleAccessRequestsAdminState)(nil)).Elem()
 }
 
+// Oauth2V1ClientsRoleAccessRequestsAdminExists checks whether an existing Oauth2V1ClientsRoleAccessRequestsAdmin resource with the given ID exists.
+func Oauth2V1ClientsRoleAccessRequestsAdminExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Oauth2V1ClientsRoleAccessRequestsAdminState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/oauth2V1ClientsRoleAccessRequestsAdmin:Oauth2V1ClientsRoleAccessRequestsAdmin", id, state, "", opts...)
+}
+
 type oauth2V1ClientsRoleAccessRequestsAdminArgs struct {
 	// Role assignment type
 	AssignmentType *string `pulumi:"assignmentType"`

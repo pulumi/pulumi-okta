@@ -676,6 +676,36 @@ class PolicyRuleProfileEnrollment(pulumi.CustomResource):
         __props__.__dict__["unknown_user_action"] = unknown_user_action
         return PolicyRuleProfileEnrollment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access: pulumi.Input[Optional[_builtins.str]] = None,
+            email_verification: pulumi.Input[Optional[_builtins.bool]] = None,
+            enroll_authenticator_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PolicyRuleProfileEnrollmentProfileAttributeArgs', 'PolicyRuleProfileEnrollmentProfileAttributeArgsDict', 'outputs.PolicyRuleProfileEnrollmentProfileAttribute']]]]] = None,
+            progressive_profiling_action: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            ui_schema_id: pulumi.Input[Optional[_builtins.str]] = None,
+            unknown_user_action: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["access"] = access
+        __props__["emailVerification"] = email_verification
+        __props__["enrollAuthenticatorTypes"] = enroll_authenticator_types
+        __props__["inlineHookId"] = inline_hook_id
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["profileAttributes"] = profile_attributes
+        __props__["progressiveProfilingAction"] = progressive_profiling_action
+        __props__["status"] = status
+        __props__["targetGroupId"] = target_group_id
+        __props__["uiSchemaId"] = ui_schema_id
+        __props__["unknownUserAction"] = unknown_user_action
+        return pulumi.runtime.exists_resource(None, 'okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def access(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -125,6 +125,12 @@ func (CaptchaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*captchaState)(nil)).Elem()
 }
 
+// CaptchaExists checks whether an existing Captcha resource with the given ID exists.
+func CaptchaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaptchaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/captcha:Captcha", id, state, "", opts...)
+}
+
 type captchaArgs struct {
 	// Name of the CAPTCHA
 	Name *string `pulumi:"name"`

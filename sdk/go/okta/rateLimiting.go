@@ -138,6 +138,12 @@ func (RateLimitingState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateLimitingState)(nil)).Elem()
 }
 
+// RateLimitingExists checks whether an existing RateLimiting resource with the given ID exists.
+func RateLimitingExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RateLimitingState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/rateLimiting:RateLimiting", id, state, "", opts...)
+}
+
 type rateLimitingArgs struct {
 	DefaultMode string `pulumi:"defaultMode"`
 	// A map of Per-Client Rate Limit Use Case to the applicable PerClientRateLimitMode.Overrides the defaultMode property for the specified use cases.

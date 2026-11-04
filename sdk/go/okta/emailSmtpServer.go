@@ -139,6 +139,12 @@ func (EmailSmtpServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailSmtpServerState)(nil)).Elem()
 }
 
+// EmailSmtpServerExists checks whether an existing EmailSmtpServer resource with the given ID exists.
+func EmailSmtpServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailSmtpServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/emailSmtpServer:EmailSmtpServer", id, state, "", opts...)
+}
+
 type emailSmtpServerArgs struct {
 	// Human-readable name for your SMTP server
 	Alias string `pulumi:"alias"`

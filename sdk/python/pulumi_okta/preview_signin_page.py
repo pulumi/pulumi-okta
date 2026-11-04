@@ -448,6 +448,22 @@ class PreviewSigninPage(pulumi.CustomResource):
         __props__.__dict__["widget_version"] = widget_version
         return PreviewSigninPage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            content_security_policy_setting: pulumi.Input[Optional[Union['PreviewSigninPageContentSecurityPolicySettingArgs', 'PreviewSigninPageContentSecurityPolicySettingArgsDict', 'outputs.PreviewSigninPageContentSecurityPolicySetting']]] = None,
+            page_content: pulumi.Input[Optional[_builtins.str]] = None,
+            widget_customizations: pulumi.Input[Optional[Union['PreviewSigninPageWidgetCustomizationsArgs', 'PreviewSigninPageWidgetCustomizationsArgsDict', 'outputs.PreviewSigninPageWidgetCustomizations']]] = None,
+            widget_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["brandId"] = brand_id
+        __props__["contentSecurityPolicySetting"] = content_security_policy_setting
+        __props__["pageContent"] = page_content
+        __props__["widgetCustomizations"] = widget_customizations
+        __props__["widgetVersion"] = widget_version
+        return pulumi.runtime.exists_resource(None, 'okta:index/previewSigninPage:PreviewSigninPage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[_builtins.str]:

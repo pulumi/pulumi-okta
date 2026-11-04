@@ -337,6 +337,16 @@ class AppGroupAssignments(pulumi.CustomResource):
         __props__.__dict__["groups"] = groups
         return AppGroupAssignments(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppGroupAssignmentsGroupArgs', 'AppGroupAssignmentsGroupArgsDict', 'outputs.AppGroupAssignmentsGroup']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["groups"] = groups
+        return pulumi.runtime.exists_resource(None, 'okta:index/appGroupAssignments:AppGroupAssignments', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

@@ -215,6 +215,12 @@ func (ThemeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*themeState)(nil)).Elem()
 }
 
+// ThemeExists checks whether an existing Theme resource with the given ID exists.
+func ThemeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThemeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/theme:Theme", id, state, "", opts...)
+}
+
 type themeArgs struct {
 	// Path to local file
 	BackgroundImage *string `pulumi:"backgroundImage"`

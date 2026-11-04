@@ -167,6 +167,12 @@ func (UserBaseSchemaPropertyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userBaseSchemaPropertyState)(nil)).Elem()
 }
 
+// UserBaseSchemaPropertyExists checks whether an existing UserBaseSchemaProperty resource with the given ID exists.
+func UserBaseSchemaPropertyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserBaseSchemaPropertyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/userBaseSchemaProperty:UserBaseSchemaProperty", id, state, "", opts...)
+}
+
 type userBaseSchemaPropertyArgs struct {
 	// Subschema unique string identifier
 	Index string `pulumi:"index"`

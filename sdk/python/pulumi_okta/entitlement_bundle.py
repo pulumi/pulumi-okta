@@ -372,6 +372,24 @@ class EntitlementBundle(pulumi.CustomResource):
         __props__.__dict__["target_resource_orn"] = target_resource_orn
         return EntitlementBundle(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementBundleEntitlementArgs', 'EntitlementBundleEntitlementArgsDict', 'outputs.EntitlementBundleEntitlement']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target: pulumi.Input[Optional[Union['EntitlementBundleTargetArgs', 'EntitlementBundleTargetArgsDict', 'outputs.EntitlementBundleTarget']]] = None,
+            target_resource_orn: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["entitlements"] = entitlements
+        __props__["name"] = name
+        __props__["status"] = status
+        __props__["target"] = target
+        __props__["targetResourceOrn"] = target_resource_orn
+        return pulumi.runtime.exists_resource(None, 'okta:index/entitlementBundle:EntitlementBundle', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:

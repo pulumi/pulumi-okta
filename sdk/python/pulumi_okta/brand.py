@@ -559,6 +559,36 @@ class Brand(pulumi.CustomResource):
         __props__.__dict__["remove_powered_by_okta"] = remove_powered_by_okta
         return Brand(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agree_to_custom_privacy_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            custom_privacy_policy_url: pulumi.Input[Optional[_builtins.str]] = None,
+            default_app_app_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            default_app_app_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+            default_app_classic_application_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            email_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            links: pulumi.Input[Optional[_builtins.str]] = None,
+            locale: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remove_powered_by_okta: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agreeToCustomPrivacyPolicy"] = agree_to_custom_privacy_policy
+        __props__["brandId"] = brand_id
+        __props__["customPrivacyPolicyUrl"] = custom_privacy_policy_url
+        __props__["defaultAppAppInstanceId"] = default_app_app_instance_id
+        __props__["defaultAppAppLinkName"] = default_app_app_link_name
+        __props__["defaultAppClassicApplicationUri"] = default_app_classic_application_uri
+        __props__["emailDomainId"] = email_domain_id
+        __props__["isDefault"] = is_default
+        __props__["links"] = links
+        __props__["locale"] = locale
+        __props__["name"] = name
+        __props__["removePoweredByOkta"] = remove_powered_by_okta
+        return pulumi.runtime.exists_resource(None, 'okta:index/brand:Brand', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agreeToCustomPrivacyPolicy")
     def agree_to_custom_privacy_policy(self) -> pulumi.Output[_builtins.bool]:

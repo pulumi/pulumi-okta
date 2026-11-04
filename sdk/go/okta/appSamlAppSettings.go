@@ -135,6 +135,12 @@ func (AppSamlAppSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appSamlAppSettingsState)(nil)).Elem()
 }
 
+// AppSamlAppSettingsExists checks whether an existing AppSamlAppSettings resource with the given ID exists.
+func AppSamlAppSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppSamlAppSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appSamlAppSettings:AppSamlAppSettings", id, state, "", opts...)
+}
+
 type appSamlAppSettingsArgs struct {
 	// ID of the application.
 	AppId string `pulumi:"appId"`

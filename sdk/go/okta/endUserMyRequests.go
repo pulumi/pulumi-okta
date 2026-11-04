@@ -208,6 +208,12 @@ func (EndUserMyRequestsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*endUserMyRequestsState)(nil)).Elem()
 }
 
+// EndUserMyRequestsExists checks whether an existing EndUserMyRequests resource with the given ID exists.
+func EndUserMyRequestsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EndUserMyRequestsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/endUserMyRequests:EndUserMyRequests", id, state, "", opts...)
+}
+
 type endUserMyRequestsArgs struct {
 	// The ID of the catalog entry for which the request is being made.
 	EntryId string `pulumi:"entryId"`

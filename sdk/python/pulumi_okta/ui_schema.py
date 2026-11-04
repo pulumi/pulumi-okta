@@ -189,6 +189,14 @@ class UiSchema(pulumi.CustomResource):
         __props__.__dict__["ui_schema"] = ui_schema
         return UiSchema(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ui_schema: pulumi.Input[Optional[Union['UiSchemaUiSchemaArgs', 'UiSchemaUiSchemaArgsDict', 'outputs.UiSchemaUiSchema']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["uiSchema"] = ui_schema
+        return pulumi.runtime.exists_resource(None, 'okta:index/uiSchema:UiSchema', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="uiSchema")
     def ui_schema(self) -> pulumi.Output[Optional['outputs.UiSchemaUiSchema']]:

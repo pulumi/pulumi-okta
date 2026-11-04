@@ -343,6 +343,12 @@ func (RuleSignonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleSignonState)(nil)).Elem()
 }
 
+// RuleSignonExists checks whether an existing RuleSignon resource with the given ID exists.
+func RuleSignonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleSignonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/ruleSignon:RuleSignon", id, state, "", opts...)
+}
+
 type ruleSignonArgs struct {
 	// Allow or deny access based on the rule conditions: `ALLOW`, `DENY` or `CHALLENGE`. Default: `ALLOW`
 	Access *string `pulumi:"access"`

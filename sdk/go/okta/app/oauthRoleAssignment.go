@@ -108,6 +108,12 @@ func (OauthRoleAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthRoleAssignmentState)(nil)).Elem()
 }
 
+// OauthRoleAssignmentExists checks whether an existing OauthRoleAssignment resource with the given ID exists.
+func OauthRoleAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OauthRoleAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/oauthRoleAssignment:OauthRoleAssignment", id, state, "", opts...)
+}
+
 type oauthRoleAssignmentArgs struct {
 	// Client ID for the role to be assigned to
 	ClientId string `pulumi:"clientId"`

@@ -129,6 +129,12 @@ func (TemplateSmsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*templateSmsState)(nil)).Elem()
 }
 
+// TemplateSmsExists checks whether an existing TemplateSms resource with the given ID exists.
+func TemplateSmsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TemplateSmsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/templateSms:TemplateSms", id, state, "", opts...)
+}
+
 type templateSmsArgs struct {
 	// Human-readable name of the Template
 	Name *string `pulumi:"name"`

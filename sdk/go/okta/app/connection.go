@@ -208,6 +208,12 @@ func (ConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*connectionState)(nil)).Elem()
 }
 
+// ConnectionExists checks whether an existing Connection resource with the given ID exists.
+func ConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/connection:Connection", id, state, "", opts...)
+}
+
 type connectionArgs struct {
 	// The action to perform on the connection. Valid values are `activate` or `deactivate`.
 	Action string `pulumi:"action"`

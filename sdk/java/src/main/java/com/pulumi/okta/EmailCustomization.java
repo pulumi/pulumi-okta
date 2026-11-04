@@ -144,11 +144,10 @@ public class EmailCustomization extends com.pulumi.resources.CustomResource {
     /**
      * Force isDefault on the create and delete by deleting all email customizations. Comma separated string with values of &#39;create&#39; or &#39;destroy&#39; or both `create,destroy&#39;.
      * 
-     * @deprecated
-     * force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
+     * @deprecated force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template
      * 
      */
-    @Deprecated /* force_is_default is deprecated and now is a no-op in behavior. Rely upon the dependsOn meta argument to force dependency of secondary templates to the default template */
+    @Deprecated
     @Export(name="forceIsDefault", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forceIsDefault;
 

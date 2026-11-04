@@ -381,6 +381,28 @@ class AuthServerClaimDefault(pulumi.CustomResource):
         __props__.__dict__["value_type"] = value_type
         return AuthServerClaimDefault(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            always_include_in_token: pulumi.Input[Optional[_builtins.bool]] = None,
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            claim_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            value_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["alwaysIncludeInToken"] = always_include_in_token
+        __props__["authServerId"] = auth_server_id
+        __props__["claimType"] = claim_type
+        __props__["name"] = name
+        __props__["scopes"] = scopes
+        __props__["status"] = status
+        __props__["value"] = value
+        __props__["valueType"] = value_type
+        return pulumi.runtime.exists_resource(None, 'okta:index/authServerClaimDefault:AuthServerClaimDefault', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="alwaysIncludeInToken")
     def always_include_in_token(self) -> pulumi.Output[_builtins.bool]:

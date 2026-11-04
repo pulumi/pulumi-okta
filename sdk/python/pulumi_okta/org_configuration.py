@@ -770,6 +770,46 @@ class OrgConfiguration(pulumi.CustomResource):
         __props__.__dict__["website"] = website
         return OrgConfiguration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            address1: pulumi.Input[Optional[_builtins.str]] = None,
+            address2: pulumi.Input[Optional[_builtins.str]] = None,
+            billing_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+            city: pulumi.Input[Optional[_builtins.str]] = None,
+            company_name: pulumi.Input[Optional[_builtins.str]] = None,
+            country: pulumi.Input[Optional[_builtins.str]] = None,
+            end_user_support_help_url: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            logo: pulumi.Input[Optional[_builtins.str]] = None,
+            opt_out_communication_emails: pulumi.Input[Optional[_builtins.bool]] = None,
+            phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            postal_code: pulumi.Input[Optional[_builtins.str]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+            support_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
+            technical_contact_user: pulumi.Input[Optional[_builtins.str]] = None,
+            website: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["address1"] = address1
+        __props__["address2"] = address2
+        __props__["billingContactUser"] = billing_contact_user
+        __props__["city"] = city
+        __props__["companyName"] = company_name
+        __props__["country"] = country
+        __props__["endUserSupportHelpUrl"] = end_user_support_help_url
+        __props__["expiresAt"] = expires_at
+        __props__["logo"] = logo
+        __props__["optOutCommunicationEmails"] = opt_out_communication_emails
+        __props__["phoneNumber"] = phone_number
+        __props__["postalCode"] = postal_code
+        __props__["state"] = state
+        __props__["subdomain"] = subdomain
+        __props__["supportPhoneNumber"] = support_phone_number
+        __props__["technicalContactUser"] = technical_contact_user
+        __props__["website"] = website
+        return pulumi.runtime.exists_resource(None, 'okta:index/orgConfiguration:OrgConfiguration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def address1(self) -> pulumi.Output[Optional[_builtins.str]]:

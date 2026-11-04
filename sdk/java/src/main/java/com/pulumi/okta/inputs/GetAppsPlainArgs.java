@@ -63,22 +63,20 @@ public final class GetAppsPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      * 
-     * @deprecated
-     * Use `q` instead. This attribute will be removed in a future version.
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      * 
      */
-    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+    @Deprecated
     @Import(name="labelPrefix")
     private @Nullable String labelPrefix;
 
     /**
      * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      * 
-     * @deprecated
-     * Use `q` instead. This attribute will be removed in a future version.
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      * 
      */
-    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+    @Deprecated
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
     }
@@ -180,11 +178,10 @@ public final class GetAppsPlainArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use `q` instead. This attribute will be removed in a future version.
+         * @deprecated Use `q` instead. This attribute will be removed in a future version.
          * 
          */
-        @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+        @Deprecated
         public Builder labelPrefix(@Nullable String labelPrefix) {
             $.labelPrefix = labelPrefix;
             return this;

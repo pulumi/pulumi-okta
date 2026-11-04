@@ -171,6 +171,12 @@ func (BehaviourState) ElementType() reflect.Type {
 	return reflect.TypeOf((*behaviourState)(nil)).Elem()
 }
 
+// BehaviourExists checks whether an existing Behaviour resource with the given ID exists.
+func BehaviourExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BehaviourState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/behaviour:Behaviour", id, state, "", opts...)
+}
+
 type behaviourArgs struct {
 	// Determines the method and level of detail used to evaluate the behavior. Required for `ANOMALOUS_LOCATION` behavior type. Can be set to `LAT_LONG`, `CITY`, `COUNTRY` or `SUBDIVISION`.
 	LocationGranularityType *string `pulumi:"locationGranularityType"`

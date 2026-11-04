@@ -137,6 +137,12 @@ func (AccessPolicyAssignmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accessPolicyAssignmentState)(nil)).Elem()
 }
 
+// AccessPolicyAssignmentExists checks whether an existing AccessPolicyAssignment resource with the given ID exists.
+func AccessPolicyAssignmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccessPolicyAssignmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/accessPolicyAssignment:AccessPolicyAssignment", id, state, "", opts...)
+}
+
 type accessPolicyAssignmentArgs struct {
 	// The application ID; this value is immutable and can not be updated.
 	AppId string `pulumi:"appId"`

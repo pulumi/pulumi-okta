@@ -350,6 +350,24 @@ class EmailDomain(pulumi.CustomResource):
         __props__.__dict__["validation_status"] = validation_status
         return EmailDomain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailDomainDnsValidationRecordArgs', 'EmailDomainDnsValidationRecordArgsDict', 'outputs.EmailDomainDnsValidationRecord']]]]] = None,
+            domain: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["brandId"] = brand_id
+        __props__["displayName"] = display_name
+        __props__["dnsValidationRecords"] = dns_validation_records
+        __props__["domain"] = domain
+        __props__["userName"] = user_name
+        __props__["validationStatus"] = validation_status
+        return pulumi.runtime.exists_resource(None, 'okta:index/emailDomain:EmailDomain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[_builtins.str]:

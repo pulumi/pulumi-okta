@@ -189,6 +189,12 @@ func (AuthenticatorWebauthnCustomAaguidState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authenticatorWebauthnCustomAaguidState)(nil)).Elem()
 }
 
+// AuthenticatorWebauthnCustomAaguidExists checks whether an existing AuthenticatorWebauthnCustomAaguid resource with the given ID exists.
+func AuthenticatorWebauthnCustomAaguidExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthenticatorWebauthnCustomAaguidState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid", id, state, "", opts...)
+}
+
 type authenticatorWebauthnCustomAaguidArgs struct {
 	// The Authenticator Attestation Globally Unique Identifier (AAGUID). A 128-bit identifier indicating the authenticator model.
 	Aaguid string `pulumi:"aaguid"`

@@ -463,6 +463,26 @@ class PushGroup(pulumi.CustomResource):
         __props__.__dict__["target_group_name"] = target_group_name
         return PushGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_config: pulumi.Input[Optional[Union['PushGroupAppConfigArgs', 'PushGroupAppConfigArgsDict', 'outputs.PushGroupAppConfig']]] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            delete_target_group_on_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            source_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            target_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appConfig"] = app_config
+        __props__["appId"] = app_id
+        __props__["deleteTargetGroupOnDestroy"] = delete_target_group_on_destroy
+        __props__["sourceGroupId"] = source_group_id
+        __props__["status"] = status
+        __props__["targetGroupId"] = target_group_id
+        __props__["targetGroupName"] = target_group_name
+        return pulumi.runtime.exists_resource(None, 'okta:index/pushGroup:PushGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appConfig")
     def app_config(self) -> pulumi.Output[Optional['outputs.PushGroupAppConfig']]:

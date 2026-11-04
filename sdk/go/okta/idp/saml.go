@@ -311,6 +311,12 @@ func (SamlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlState)(nil)).Elem()
 }
 
+// SamlExists checks whether an existing Saml resource with the given ID exists.
+func SamlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:idp/saml:Saml", id, state, "", opts...)
+}
+
 type samlArgs struct {
 	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction *string `pulumi:"accountLinkAction"`

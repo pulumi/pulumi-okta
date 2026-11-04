@@ -123,6 +123,12 @@ func (AppOauthApiScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appOauthApiScopeState)(nil)).Elem()
 }
 
+// AppOauthApiScopeExists checks whether an existing AppOauthApiScope resource with the given ID exists.
+func AppOauthApiScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppOauthApiScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appOauthApiScope:AppOauthApiScope", id, state, "", opts...)
+}
+
 type appOauthApiScopeArgs struct {
 	// ID of the application.
 	AppId string `pulumi:"appId"`

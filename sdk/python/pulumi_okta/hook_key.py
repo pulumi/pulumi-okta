@@ -263,6 +263,22 @@ class HookKey(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return HookKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            is_used: pulumi.Input[Optional[_builtins.bool]] = None,
+            key_id: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["created"] = created
+        __props__["isUsed"] = is_used
+        __props__["keyId"] = key_id
+        __props__["lastUpdated"] = last_updated
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'okta:index/hookKey:HookKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:

@@ -1066,6 +1066,54 @@ class UserSchemaProperty(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         return UserSchemaProperty(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            array_enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            array_one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserSchemaPropertyArrayOneOfArgs', 'UserSchemaPropertyArrayOneOfArgsDict', 'outputs.UserSchemaPropertyArrayOneOf']]]]] = None,
+            array_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_name: pulumi.Input[Optional[_builtins.str]] = None,
+            external_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            index: pulumi.Input[Optional[_builtins.str]] = None,
+            master: pulumi.Input[Optional[_builtins.str]] = None,
+            master_override_priorities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserSchemaPropertyMasterOverridePriorityArgs', 'UserSchemaPropertyMasterOverridePriorityArgsDict', 'outputs.UserSchemaPropertyMasterOverridePriority']]]]] = None,
+            max_length: pulumi.Input[Optional[_builtins.int]] = None,
+            min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            one_ofs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserSchemaPropertyOneOfArgs', 'UserSchemaPropertyOneOfArgsDict', 'outputs.UserSchemaPropertyOneOf']]]]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            scope: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            unique: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arrayEnums"] = array_enums
+        __props__["arrayOneOfs"] = array_one_ofs
+        __props__["arrayType"] = array_type
+        __props__["description"] = description
+        __props__["enums"] = enums
+        __props__["externalName"] = external_name
+        __props__["externalNamespace"] = external_namespace
+        __props__["index"] = index
+        __props__["master"] = master
+        __props__["masterOverridePriorities"] = master_override_priorities
+        __props__["maxLength"] = max_length
+        __props__["minLength"] = min_length
+        __props__["oneOfs"] = one_ofs
+        __props__["pattern"] = pattern
+        __props__["permissions"] = permissions
+        __props__["required"] = required
+        __props__["scope"] = scope
+        __props__["title"] = title
+        __props__["type"] = type
+        __props__["unique"] = unique
+        __props__["userType"] = user_type
+        return pulumi.runtime.exists_resource(None, 'okta:index/userSchemaProperty:UserSchemaProperty', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="arrayEnums")
     def array_enums(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

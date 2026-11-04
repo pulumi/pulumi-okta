@@ -388,6 +388,12 @@ func (OidcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oidcState)(nil)).Elem()
 }
 
+// OidcExists checks whether an existing Oidc resource with the given ID exists.
+func OidcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OidcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:idp/oidc:Oidc", id, state, "", opts...)
+}
+
 type oidcArgs struct {
 	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction *string `pulumi:"accountLinkAction"`

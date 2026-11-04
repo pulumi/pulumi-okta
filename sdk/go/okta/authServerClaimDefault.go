@@ -143,6 +143,12 @@ func (AuthServerClaimDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authServerClaimDefaultState)(nil)).Elem()
 }
 
+// AuthServerClaimDefaultExists checks whether an existing AuthServerClaimDefault resource with the given ID exists.
+func AuthServerClaimDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthServerClaimDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/authServerClaimDefault:AuthServerClaimDefault", id, state, "", opts...)
+}
+
 type authServerClaimDefaultArgs struct {
 	// Specifies whether to include claims in token.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`

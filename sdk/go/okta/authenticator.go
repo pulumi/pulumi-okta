@@ -285,6 +285,12 @@ func (AuthenticatorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authenticatorState)(nil)).Elem()
 }
 
+// AuthenticatorExists checks whether an existing Authenticator resource with the given ID exists.
+func AuthenticatorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthenticatorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/authenticator:Authenticator", id, state, "", opts...)
+}
+
 type authenticatorArgs struct {
 	// A value of true indicates that the administrator accepts the terms for creating a new authenticator. Okta requires that you accept the terms when creating a new customApp authenticator. Other authenticators don't require this field.
 	AgreeToTerms *bool `pulumi:"agreeToTerms"`

@@ -242,6 +242,12 @@ func (RulePasswordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rulePasswordState)(nil)).Elem()
 }
 
+// RulePasswordExists checks whether an existing RulePassword resource with the given ID exists.
+func RulePasswordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RulePasswordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/rulePassword:RulePassword", id, state, "", opts...)
+}
+
 type rulePasswordArgs struct {
 	// Set of Group IDs to exclude from this rule.
 	GroupsExcluded []string `pulumi:"groupsExcluded"`

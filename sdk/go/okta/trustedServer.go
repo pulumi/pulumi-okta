@@ -139,6 +139,12 @@ func (TrustedServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*trustedServerState)(nil)).Elem()
 }
 
+// TrustedServerExists checks whether an existing TrustedServer resource with the given ID exists.
+func TrustedServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TrustedServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/trustedServer:TrustedServer", id, state, "", opts...)
+}
+
 type trustedServerArgs struct {
 	// Authorization server ID
 	AuthServerId string `pulumi:"authServerId"`

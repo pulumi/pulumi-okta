@@ -34,22 +34,20 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
     /**
      * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
-     * @deprecated
-     * Okta has fully support brand creation, this attribute is a no op and will be removed
+     * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
+    @Deprecated
     @Import(name="brandId")
     private @Nullable Output<String> brandId;
 
     /**
      * @return Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
-     * @deprecated
-     * Okta has fully support brand creation, this attribute is a no op and will be removed
+     * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Output<String>> brandId() {
         return Optional.ofNullable(this.brandId);
     }
@@ -265,11 +263,10 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Okta has fully support brand creation, this attribute is a no op and will be removed
+         * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder brandId(@Nullable Output<String> brandId) {
             $.brandId = brandId;
             return this;
@@ -280,11 +277,10 @@ public final class BrandState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Okta has fully support brand creation, this attribute is a no op and will be removed
+         * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder brandId(String brandId) {
             return brandId(Output.of(brandId));
         }

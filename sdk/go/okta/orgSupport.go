@@ -102,6 +102,12 @@ func (OrgSupportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgSupportState)(nil)).Elem()
 }
 
+// OrgSupportExists checks whether an existing OrgSupport resource with the given ID exists.
+func OrgSupportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgSupportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/orgSupport:OrgSupport", id, state, "", opts...)
+}
+
 type orgSupportArgs struct {
 	// Number of days the support should be extended by
 	ExtendBy *int `pulumi:"extendBy"`

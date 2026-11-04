@@ -308,6 +308,22 @@ class EmailSender(pulumi.CustomResource):
         __props__.__dict__["subdomain"] = subdomain
         return EmailSender(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            dns_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailSenderDnsRecordArgs', 'EmailSenderDnsRecordArgsDict', 'outputs.EmailSenderDnsRecord']]]]] = None,
+            from_address: pulumi.Input[Optional[_builtins.str]] = None,
+            from_name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subdomain: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dnsRecords"] = dns_records
+        __props__["fromAddress"] = from_address
+        __props__["fromName"] = from_name
+        __props__["status"] = status
+        __props__["subdomain"] = subdomain
+        return pulumi.runtime.exists_resource(None, 'okta:index/emailSender:EmailSender', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> pulumi.Output[Sequence['outputs.EmailSenderDnsRecord']]:

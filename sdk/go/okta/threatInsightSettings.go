@@ -135,6 +135,12 @@ func (ThreatInsightSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*threatInsightSettingsState)(nil)).Elem()
 }
 
+// ThreatInsightSettingsExists checks whether an existing ThreatInsightSettings resource with the given ID exists.
+func ThreatInsightSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ThreatInsightSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/threatInsightSettings:ThreatInsightSettings", id, state, "", opts...)
+}
+
 type threatInsightSettingsArgs struct {
 	// Specifies how Okta responds to authentication requests from suspicious IPs. Valid values are `none`, `audit`, or `block`. A value of `none` indicates that ThreatInsight is disabled. A value of `audit` indicates that Okta logs suspicious requests in the System Log. A value of `block` indicates that Okta logs suspicious requests in the System Log and blocks the requests.
 	Action string `pulumi:"action"`

@@ -224,6 +224,16 @@ class UserGroupMemberships(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return UserGroupMemberships(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groups"] = groups
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/userGroupMemberships:UserGroupMemberships', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Sequence[_builtins.str]]:

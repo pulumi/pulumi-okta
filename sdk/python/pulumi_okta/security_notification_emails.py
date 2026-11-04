@@ -347,6 +347,22 @@ class SecurityNotificationEmails(pulumi.CustomResource):
         __props__.__dict__["send_email_for_password_changed_enabled"] = send_email_for_password_changed_enabled
         return SecurityNotificationEmails(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            report_suspicious_activity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_factor_enrollment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_factor_reset_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_new_device_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            send_email_for_password_changed_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["reportSuspiciousActivityEnabled"] = report_suspicious_activity_enabled
+        __props__["sendEmailForFactorEnrollmentEnabled"] = send_email_for_factor_enrollment_enabled
+        __props__["sendEmailForFactorResetEnabled"] = send_email_for_factor_reset_enabled
+        __props__["sendEmailForNewDeviceEnabled"] = send_email_for_new_device_enabled
+        __props__["sendEmailForPasswordChangedEnabled"] = send_email_for_password_changed_enabled
+        return pulumi.runtime.exists_resource(None, 'okta:index/securityNotificationEmails:SecurityNotificationEmails', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="reportSuspiciousActivityEnabled")
     def report_suspicious_activity_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:

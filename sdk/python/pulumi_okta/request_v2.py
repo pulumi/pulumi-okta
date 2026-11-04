@@ -511,6 +511,42 @@ class RequestV2(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return RequestV2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_status: pulumi.Input[Optional[_builtins.str]] = None,
+            granted: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            requested: pulumi.Input[Optional[Union['RequestV2RequestedArgs', 'RequestV2RequestedArgsDict', 'outputs.RequestV2Requested']]] = None,
+            requested_for: pulumi.Input[Optional[Union['RequestV2RequestedForArgs', 'RequestV2RequestedForArgsDict', 'outputs.RequestV2RequestedFor']]] = None,
+            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestV2RequesterFieldValueArgs', 'RequestV2RequesterFieldValueArgsDict', 'outputs.RequestV2RequesterFieldValue']]]]] = None,
+            resolved: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_scheduled: pulumi.Input[Optional[_builtins.str]] = None,
+            revocation_status: pulumi.Input[Optional[_builtins.str]] = None,
+            revoked: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessDuration"] = access_duration
+        __props__["created"] = created
+        __props__["createdBy"] = created_by
+        __props__["grantStatus"] = grant_status
+        __props__["granted"] = granted
+        __props__["lastUpdated"] = last_updated
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["requested"] = requested
+        __props__["requestedFor"] = requested_for
+        __props__["requesterFieldValues"] = requester_field_values
+        __props__["resolved"] = resolved
+        __props__["revocationScheduled"] = revocation_scheduled
+        __props__["revocationStatus"] = revocation_status
+        __props__["revoked"] = revoked
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/requestV2:RequestV2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessDuration")
     def access_duration(self) -> pulumi.Output[_builtins.str]:

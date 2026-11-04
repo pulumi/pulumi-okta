@@ -130,6 +130,12 @@ func (ApiServiceIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiServiceIntegrationState)(nil)).Elem()
 }
 
+// ApiServiceIntegrationExists checks whether an existing ApiServiceIntegration resource with the given ID exists.
+func ApiServiceIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiServiceIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/apiServiceIntegration:ApiServiceIntegration", id, state, "", opts...)
+}
+
 type apiServiceIntegrationArgs struct {
 	// The list of Okta management scopes granted to the API Service Integration instance.
 	GrantedScopes []ApiServiceIntegrationGrantedScope `pulumi:"grantedScopes"`

@@ -87,6 +87,12 @@ func (LogStreamState) ElementType() reflect.Type {
 	return reflect.TypeOf((*logStreamState)(nil)).Elem()
 }
 
+// LogStreamExists checks whether an existing LogStream resource with the given ID exists.
+func LogStreamExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LogStreamState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/logStream:LogStream", id, state, "", opts...)
+}
+
 type logStreamArgs struct {
 	// Unique name for the Log Stream object
 	Name     *string            `pulumi:"name"`

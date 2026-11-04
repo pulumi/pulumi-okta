@@ -232,6 +232,12 @@ func (AutoLoginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*autoLoginState)(nil)).Elem()
 }
 
+// AutoLoginExists checks whether an existing AutoLogin resource with the given ID exists.
+func AutoLoginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AutoLoginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/autoLogin:AutoLogin", id, state, "", opts...)
+}
+
 type autoLoginArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

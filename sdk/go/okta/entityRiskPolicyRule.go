@@ -250,6 +250,12 @@ func (EntityRiskPolicyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entityRiskPolicyRuleState)(nil)).Elem()
 }
 
+// EntityRiskPolicyRuleExists checks whether an existing EntityRiskPolicyRule resource with the given ID exists.
+func EntityRiskPolicyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntityRiskPolicyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/entityRiskPolicyRule:EntityRiskPolicyRule", id, state, "", opts...)
+}
+
 type entityRiskPolicyRuleArgs struct {
 	// List of group IDs to exclude from this rule.
 	GroupsExcluded []string `pulumi:"groupsExcluded"`

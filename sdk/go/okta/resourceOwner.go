@@ -83,6 +83,12 @@ func (ResourceOwnerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceOwnerState)(nil)).Elem()
 }
 
+// ResourceOwnerExists checks whether an existing ResourceOwner resource with the given ID exists.
+func ResourceOwnerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceOwnerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/resourceOwner:ResourceOwner", id, state, "", opts...)
+}
+
 type resourceOwnerArgs struct {
 	// Owners of the resource.
 	PrincipalOrns []string `pulumi:"principalOrns"`

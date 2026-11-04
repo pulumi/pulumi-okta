@@ -123,6 +123,12 @@ func (SignonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signonState)(nil)).Elem()
 }
 
+// SignonExists checks whether an existing Signon resource with the given ID exists.
+func SignonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SignonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/signon:Signon", id, state, "", opts...)
+}
+
 type signonArgs struct {
 	// Policy Description
 	Description *string `pulumi:"description"`

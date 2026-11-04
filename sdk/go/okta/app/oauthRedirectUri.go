@@ -128,6 +128,12 @@ func (OAuthRedirectUriState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthRedirectUriState)(nil)).Elem()
 }
 
+// OAuthRedirectUriExists checks whether an existing OAuthRedirectUri resource with the given ID exists.
+func OAuthRedirectUriExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OAuthRedirectUriState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/oAuthRedirectUri:OAuthRedirectUri", id, state, "", opts...)
+}
+
 type oauthRedirectUriArgs struct {
 	// OAuth application ID.
 	AppId string `pulumi:"appId"`

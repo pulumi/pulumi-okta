@@ -158,6 +158,12 @@ func (ServerClaimState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverClaimState)(nil)).Elem()
 }
 
+// ServerClaimExists checks whether an existing ServerClaim resource with the given ID exists.
+func ServerClaimExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerClaimState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:auth/serverClaim:ServerClaim", id, state, "", opts...)
+}
+
 type serverClaimArgs struct {
 	// Specifies whether to include claims in token, by default it is set to `true`.
 	AlwaysIncludeInToken *bool `pulumi:"alwaysIncludeInToken"`

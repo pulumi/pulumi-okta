@@ -324,6 +324,22 @@ class UserFactorQuestion(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return UserFactorQuestion(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            answer: pulumi.Input[Optional[_builtins.str]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            text: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["answer"] = answer
+        __props__["key"] = key
+        __props__["status"] = status
+        __props__["text"] = text
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/userFactorQuestion:UserFactorQuestion', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def answer(self) -> pulumi.Output[_builtins.str]:

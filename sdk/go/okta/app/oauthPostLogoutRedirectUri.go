@@ -131,6 +131,12 @@ func (OAuthPostLogoutRedirectUriState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthPostLogoutRedirectUriState)(nil)).Elem()
 }
 
+// OAuthPostLogoutRedirectUriExists checks whether an existing OAuthPostLogoutRedirectUri resource with the given ID exists.
+func OAuthPostLogoutRedirectUriExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OAuthPostLogoutRedirectUriState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", id, state, "", opts...)
+}
+
 type oauthPostLogoutRedirectUriArgs struct {
 	// OAuth application ID.
 	AppId string `pulumi:"appId"`

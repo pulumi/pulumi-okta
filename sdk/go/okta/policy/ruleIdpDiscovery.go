@@ -288,6 +288,12 @@ func (RuleIdpDiscoveryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleIdpDiscoveryState)(nil)).Elem()
 }
 
+// RuleIdpDiscoveryExists checks whether an existing RuleIdpDiscovery resource with the given ID exists.
+func RuleIdpDiscoveryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleIdpDiscoveryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/ruleIdpDiscovery:RuleIdpDiscovery", id, state, "", opts...)
+}
+
 type ruleIdpDiscoveryArgs struct {
 	// Applications to exclude in discovery. See `appInclude` for details.
 	AppExcludes []RuleIdpDiscoveryAppExclude `pulumi:"appExcludes"`

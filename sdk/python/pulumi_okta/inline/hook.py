@@ -532,6 +532,28 @@ class Hook(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         return Hook(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            channel: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            channel_json: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HookHeaderArgs', 'HookHeaderArgsDict', 'outputs.HookHeader']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["auth"] = auth
+        __props__["channel"] = channel
+        __props__["channelJson"] = channel_json
+        __props__["headers"] = headers
+        __props__["name"] = name
+        __props__["status"] = status
+        __props__["type"] = type
+        __props__["version"] = version
+        return pulumi.runtime.exists_resource(None, 'okta:inline/hook:Hook', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def auth(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:

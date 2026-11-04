@@ -222,6 +222,12 @@ func (DeviceAssuranceChromeosState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceAssuranceChromeosState)(nil)).Elem()
 }
 
+// DeviceAssuranceChromeosExists checks whether an existing DeviceAssuranceChromeos resource with the given ID exists.
+func DeviceAssuranceChromeosExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceAssuranceChromeosState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/deviceAssuranceChromeos:DeviceAssuranceChromeos", id, state, "", opts...)
+}
+
 type deviceAssuranceChromeosArgs struct {
 	// Name of the device assurance policy.
 	Name *string `pulumi:"name"`

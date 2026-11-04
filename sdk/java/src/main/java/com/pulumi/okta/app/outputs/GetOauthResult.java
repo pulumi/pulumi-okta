@@ -67,7 +67,7 @@ public final class GetOauthResult {
     private @Nullable String id;
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			labelPrefix and id. Label uses the ?q=&#92;n&#92;n query parameter exposed by
      * 			Okta&#39;s List Apps API. The API will search both name and label using that
      * 			query. Therefore similarily named and labeled apps may be returned in the query
      * 			and have the unitended result of associating the wrong app with this data
@@ -140,20 +140,18 @@ public final class GetOauthResult {
     /**
      * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because groups has been removed, this attribute is a no op and will be removed
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     private @Nullable Boolean skipGroups;
     /**
      * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     private @Nullable Boolean skipUsers;
     /**
      * @return Status of application.
@@ -244,7 +242,7 @@ public final class GetOauthResult {
     }
     /**
      * @return The label of the app to retrieve, conflicts with
-     * 			labelPrefix and id. Label uses the ?q=\n\n query parameter exposed by
+     * 			labelPrefix and id. Label uses the ?q=&#92;n&#92;n query parameter exposed by
      * 			Okta&#39;s List Apps API. The API will search both name and label using that
      * 			query. Therefore similarily named and labeled apps may be returned in the query
      * 			and have the unitended result of associating the wrong app with this data
@@ -343,22 +341,20 @@ public final class GetOauthResult {
     /**
      * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because groups has been removed, this attribute is a no op and will be removed
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Boolean> skipGroups() {
         return Optional.ofNullable(this.skipGroups);
     }
     /**
      * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Boolean> skipUsers() {
         return Optional.ofNullable(this.skipUsers);
     }

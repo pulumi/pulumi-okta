@@ -143,6 +143,12 @@ func (RequestConditionsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestConditionsState)(nil)).Elem()
 }
 
+// RequestConditionsExists checks whether an existing RequestConditions resource with the given ID exists.
+func RequestConditionsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestConditionsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/requestConditions:RequestConditions", id, state, "", opts...)
+}
+
 type requestConditionsArgs struct {
 	// List of request conditions. Conditions are processed in priority order (the smaller the number, the higher the priority).
 	Conditions []RequestConditionsCondition `pulumi:"conditions"`

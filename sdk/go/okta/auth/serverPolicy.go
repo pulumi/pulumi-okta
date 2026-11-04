@@ -144,6 +144,12 @@ func (ServerPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverPolicyState)(nil)).Elem()
 }
 
+// ServerPolicyExists checks whether an existing ServerPolicy resource with the given ID exists.
+func ServerPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:auth/serverPolicy:ServerPolicy", id, state, "", opts...)
+}
+
 type serverPolicyArgs struct {
 	// The ID of the Auth Server.
 	AuthServerId string `pulumi:"authServerId"`

@@ -578,6 +578,30 @@ class IdentitySourceImport(pulumi.CustomResource):
         __props__.__dict__["upsert_users"] = upsert_users
         return IdentitySourceImport(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            delete_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupMembershipsArgs', 'IdentitySourceImportDeleteGroupMembershipsArgsDict', 'outputs.IdentitySourceImportDeleteGroupMemberships']]] = None,
+            delete_groups: pulumi.Input[Optional[Union['IdentitySourceImportDeleteGroupsArgs', 'IdentitySourceImportDeleteGroupsArgsDict', 'outputs.IdentitySourceImportDeleteGroups']]] = None,
+            delete_users: pulumi.Input[Optional[Union['IdentitySourceImportDeleteUsersArgs', 'IdentitySourceImportDeleteUsersArgsDict', 'outputs.IdentitySourceImportDeleteUsers']]] = None,
+            identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            session_id: pulumi.Input[Optional[_builtins.str]] = None,
+            session_status: pulumi.Input[Optional[_builtins.str]] = None,
+            upsert_group_memberships: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupMembershipsArgs', 'IdentitySourceImportUpsertGroupMembershipsArgsDict', 'outputs.IdentitySourceImportUpsertGroupMemberships']]] = None,
+            upsert_groups: pulumi.Input[Optional[Union['IdentitySourceImportUpsertGroupsArgs', 'IdentitySourceImportUpsertGroupsArgsDict', 'outputs.IdentitySourceImportUpsertGroups']]] = None,
+            upsert_users: pulumi.Input[Optional[Union['IdentitySourceImportUpsertUsersArgs', 'IdentitySourceImportUpsertUsersArgsDict', 'outputs.IdentitySourceImportUpsertUsers']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["deleteGroupMemberships"] = delete_group_memberships
+        __props__["deleteGroups"] = delete_groups
+        __props__["deleteUsers"] = delete_users
+        __props__["identitySourceId"] = identity_source_id
+        __props__["sessionId"] = session_id
+        __props__["sessionStatus"] = session_status
+        __props__["upsertGroupMemberships"] = upsert_group_memberships
+        __props__["upsertGroups"] = upsert_groups
+        __props__["upsertUsers"] = upsert_users
+        return pulumi.runtime.exists_resource(None, 'okta:index/identitySourceImport:IdentitySourceImport', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="deleteGroupMemberships")
     def delete_group_memberships(self) -> pulumi.Output[Optional['outputs.IdentitySourceImportDeleteGroupMemberships']]:

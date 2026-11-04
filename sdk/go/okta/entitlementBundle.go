@@ -124,6 +124,12 @@ func (EntitlementBundleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*entitlementBundleState)(nil)).Elem()
 }
 
+// EntitlementBundleExists checks whether an existing EntitlementBundle resource with the given ID exists.
+func EntitlementBundleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EntitlementBundleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/entitlementBundle:EntitlementBundle", id, state, "", opts...)
+}
+
 type entitlementBundleArgs struct {
 	// The description of an entitlement property.
 	Description *string `pulumi:"description"`

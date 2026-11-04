@@ -197,6 +197,12 @@ func (OrgConfigurationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgConfigurationState)(nil)).Elem()
 }
 
+// OrgConfigurationExists checks whether an existing OrgConfiguration resource with the given ID exists.
+func OrgConfigurationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgConfigurationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/orgConfiguration:OrgConfiguration", id, state, "", opts...)
+}
+
 type orgConfigurationArgs struct {
 	// Primary address of org
 	Address1 *string `pulumi:"address1"`

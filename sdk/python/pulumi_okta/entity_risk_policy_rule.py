@@ -649,6 +649,34 @@ class EntityRiskPolicyRule(pulumi.CustomResource):
         __props__.__dict__["workflow_id"] = workflow_id
         return EntityRiskPolicyRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            terminate_all_sessions: pulumi.Input[Optional[_builtins.bool]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workflow_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupsExcluded"] = groups_excluded
+        __props__["groupsIncluded"] = groups_included
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["riskLevel"] = risk_level
+        __props__["status"] = status
+        __props__["terminateAllSessions"] = terminate_all_sessions
+        __props__["usersExcluded"] = users_excluded
+        __props__["usersIncluded"] = users_included
+        __props__["workflowId"] = workflow_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/entityRiskPolicyRule:EntityRiskPolicyRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupsExcluded")
     def groups_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

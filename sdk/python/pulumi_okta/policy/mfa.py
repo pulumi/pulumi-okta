@@ -1066,6 +1066,72 @@ class Mfa(pulumi.CustomResource):
         __props__.__dict__["yubikey_token"] = yubikey_token
         return Mfa(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            custom_apps: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            duo: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            external_idp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            external_idps: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+            fido_u2f: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            fido_webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            google_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            hotp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            is_oie: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            okta_call: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_email: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_otp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_password: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_push: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_question: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_sms: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            okta_verify: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            onprem_mfa: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            phone_number: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            rsa_token: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            security_question: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            smart_card_idp: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            symantec_vip: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            webauthn: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            yubikey_token: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["customApps"] = custom_apps
+        __props__["description"] = description
+        __props__["duo"] = duo
+        __props__["externalIdp"] = external_idp
+        __props__["externalIdps"] = external_idps
+        __props__["fidoU2f"] = fido_u2f
+        __props__["fidoWebauthn"] = fido_webauthn
+        __props__["googleOtp"] = google_otp
+        __props__["groupsIncluded"] = groups_included
+        __props__["hotp"] = hotp
+        __props__["isOie"] = is_oie
+        __props__["name"] = name
+        __props__["oktaCall"] = okta_call
+        __props__["oktaEmail"] = okta_email
+        __props__["oktaOtp"] = okta_otp
+        __props__["oktaPassword"] = okta_password
+        __props__["oktaPush"] = okta_push
+        __props__["oktaQuestion"] = okta_question
+        __props__["oktaSms"] = okta_sms
+        __props__["oktaVerify"] = okta_verify
+        __props__["onpremMfa"] = onprem_mfa
+        __props__["phoneNumber"] = phone_number
+        __props__["priority"] = priority
+        __props__["rsaToken"] = rsa_token
+        __props__["securityQuestion"] = security_question
+        __props__["smartCardIdp"] = smart_card_idp
+        __props__["status"] = status
+        __props__["symantecVip"] = symantec_vip
+        __props__["webauthn"] = webauthn
+        __props__["yubikeyToken"] = yubikey_token
+        return pulumi.runtime.exists_resource(None, 'okta:policy/mfa:Mfa', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="customApps")
     def custom_apps(self) -> pulumi.Output[Optional[Sequence[Mapping[str, _builtins.str]]]]:

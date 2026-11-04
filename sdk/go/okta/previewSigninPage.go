@@ -197,6 +197,12 @@ func (PreviewSigninPageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*previewSigninPageState)(nil)).Elem()
 }
 
+// PreviewSigninPageExists checks whether an existing PreviewSigninPage resource with the given ID exists.
+func PreviewSigninPageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PreviewSigninPageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/previewSigninPage:PreviewSigninPage", id, state, "", opts...)
+}
+
 type previewSigninPageArgs struct {
 	// brand id of the preview signin page
 	BrandId                      string                                         `pulumi:"brandId"`

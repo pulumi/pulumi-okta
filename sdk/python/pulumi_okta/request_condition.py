@@ -611,6 +611,38 @@ class RequestCondition(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return RequestCondition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_duration_settings: pulumi.Input[Optional[Union['RequestConditionAccessDurationSettingsArgs', 'RequestConditionAccessDurationSettingsArgsDict', 'outputs.RequestConditionAccessDurationSettings']]] = None,
+            access_scope_settings: pulumi.Input[Optional[Union['RequestConditionAccessScopeSettingsArgs', 'RequestConditionAccessScopeSettingsArgsDict', 'outputs.RequestConditionAccessScopeSettings']]] = None,
+            approval_sequence_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            requester_settings: pulumi.Input[Optional[Union['RequestConditionRequesterSettingsArgs', 'RequestConditionRequesterSettingsArgsDict', 'outputs.RequestConditionRequesterSettings']]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessDurationSettings"] = access_duration_settings
+        __props__["accessScopeSettings"] = access_scope_settings
+        __props__["approvalSequenceId"] = approval_sequence_id
+        __props__["created"] = created
+        __props__["createdBy"] = created_by
+        __props__["description"] = description
+        __props__["lastUpdated"] = last_updated
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["requesterSettings"] = requester_settings
+        __props__["resourceId"] = resource_id
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/requestCondition:RequestCondition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessDurationSettings")
     def access_duration_settings(self) -> pulumi.Output[Optional['outputs.RequestConditionAccessDurationSettings']]:

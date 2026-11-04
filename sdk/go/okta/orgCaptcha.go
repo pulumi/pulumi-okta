@@ -154,6 +154,12 @@ func (OrgCaptchaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*orgCaptchaState)(nil)).Elem()
 }
 
+// OrgCaptchaExists checks whether an existing OrgCaptcha resource with the given ID exists.
+func OrgCaptchaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OrgCaptchaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/orgCaptcha:OrgCaptcha", id, state, "", opts...)
+}
+
 type orgCaptchaArgs struct {
 	// The unique key of the associated CAPTCHA instance
 	CaptchaId *string `pulumi:"captchaId"`

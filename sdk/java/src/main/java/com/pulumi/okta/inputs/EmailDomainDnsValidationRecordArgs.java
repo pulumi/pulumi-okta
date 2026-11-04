@@ -18,22 +18,20 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
     /**
      * DNS TXT record expiration
      * 
-     * @deprecated
-     * This field has been removed in the newest go sdk version and has become noop
+     * @deprecated This field has been removed in the newest go sdk version and has become noop
      * 
      */
-    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
+    @Deprecated
     @Import(name="expiration")
     private @Nullable Output<String> expiration;
 
     /**
      * @return DNS TXT record expiration
      * 
-     * @deprecated
-     * This field has been removed in the newest go sdk version and has become noop
+     * @deprecated This field has been removed in the newest go sdk version and has become noop
      * 
      */
-    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
+    @Deprecated
     public Optional<Output<String>> expiration() {
         return Optional.ofNullable(this.expiration);
     }
@@ -115,11 +113,10 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field has been removed in the newest go sdk version and has become noop
+         * @deprecated This field has been removed in the newest go sdk version and has become noop
          * 
          */
-        @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
+        @Deprecated
         public Builder expiration(@Nullable Output<String> expiration) {
             $.expiration = expiration;
             return this;
@@ -130,11 +127,10 @@ public final class EmailDomainDnsValidationRecordArgs extends com.pulumi.resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field has been removed in the newest go sdk version and has become noop
+         * @deprecated This field has been removed in the newest go sdk version and has become noop
          * 
          */
-        @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
+        @Deprecated
         public Builder expiration(String expiration) {
             return expiration(Output.of(expiration));
         }

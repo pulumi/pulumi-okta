@@ -20,7 +20,7 @@ public final class EventHookArgs extends com.pulumi.resources.ResourceArgs {
     public static final EventHookArgs Empty = new EventHookArgs();
 
     /**
-     * Details of the endpoint the event hook will hit.\
+     * Details of the endpoint the event hook will hit.&#92;
      * 	- &#39;version&#39; - (Required) The version of the channel. The currently-supported version is &#39;1.0.0&#39;.
      * 	- &#39;uri&#39; - (Required) The URI the hook will hit.
      * 	- &#39;type&#39; - (Optional) The type of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.
@@ -30,7 +30,7 @@ public final class EventHookArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> auth;
 
     /**
-     * @return Details of the endpoint the event hook will hit.\
+     * @return Details of the endpoint the event hook will hit.&#92;
      * 	- &#39;version&#39; - (Required) The version of the channel. The currently-supported version is &#39;1.0.0&#39;.
      * 	- &#39;uri&#39; - (Required) The URI the hook will hit.
      * 	- &#39;type&#39; - (Optional) The type of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.
@@ -145,7 +145,7 @@ public final class EventHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auth Details of the endpoint the event hook will hit.\
+         * @param auth Details of the endpoint the event hook will hit.&#92;
          * 	- &#39;version&#39; - (Required) The version of the channel. The currently-supported version is &#39;1.0.0&#39;.
          * 	- &#39;uri&#39; - (Required) The URI the hook will hit.
          * 	- &#39;type&#39; - (Optional) The type of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.
@@ -159,7 +159,7 @@ public final class EventHookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auth Details of the endpoint the event hook will hit.\
+         * @param auth Details of the endpoint the event hook will hit.&#92;
          * 	- &#39;version&#39; - (Required) The version of the channel. The currently-supported version is &#39;1.0.0&#39;.
          * 	- &#39;uri&#39; - (Required) The URI the hook will hit.
          * 	- &#39;type&#39; - (Optional) The type of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.

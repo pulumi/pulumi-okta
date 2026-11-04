@@ -168,6 +168,12 @@ func (BrandState) ElementType() reflect.Type {
 	return reflect.TypeOf((*brandState)(nil)).Elem()
 }
 
+// BrandExists checks whether an existing Brand resource with the given ID exists.
+func BrandExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BrandState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/brand:Brand", id, state, "", opts...)
+}
+
 type brandArgs struct {
 	// Is a required input flag with when changing custom*privacy*url, shouldn't be considered as a readable property
 	AgreeToCustomPrivacyPolicy *bool `pulumi:"agreeToCustomPrivacyPolicy"`

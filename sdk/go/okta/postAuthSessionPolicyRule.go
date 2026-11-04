@@ -148,6 +148,12 @@ func (PostAuthSessionPolicyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postAuthSessionPolicyRuleState)(nil)).Elem()
 }
 
+// PostAuthSessionPolicyRuleExists checks whether an existing PostAuthSessionPolicyRule resource with the given ID exists.
+func PostAuthSessionPolicyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostAuthSessionPolicyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/postAuthSessionPolicyRule:PostAuthSessionPolicyRule", id, state, "", opts...)
+}
+
 type postAuthSessionPolicyRuleArgs struct {
 	// List of group IDs to exclude from this rule.
 	GroupsExcluded []string `pulumi:"groupsExcluded"`

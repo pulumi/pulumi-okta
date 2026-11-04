@@ -213,6 +213,12 @@ func (BookmarkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*bookmarkState)(nil)).Elem()
 }
 
+// BookmarkExists checks whether an existing Bookmark resource with the given ID exists.
+func BookmarkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BookmarkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/bookmark:Bookmark", id, state, "", opts...)
+}
+
 type bookmarkArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

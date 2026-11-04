@@ -305,6 +305,18 @@ class GroupMemberships(pulumi.CustomResource):
         __props__.__dict__["users"] = users
         return GroupMemberships(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            track_all_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupId"] = group_id
+        __props__["trackAllUsers"] = track_all_users
+        __props__["users"] = users
+        return pulumi.runtime.exists_resource(None, 'okta:index/groupMemberships:GroupMemberships', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[_builtins.str]:

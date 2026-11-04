@@ -178,6 +178,12 @@ func (ReviewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*reviewState)(nil)).Elem()
 }
 
+// ReviewExists checks whether an existing Review resource with the given ID exists.
+func ReviewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ReviewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/review:Review", id, state, "", opts...)
+}
+
 type reviewArgs struct {
 	// The id of the campaign.
 	CampaignId string `pulumi:"campaignId"`

@@ -276,6 +276,12 @@ func (UserSchemaPropertyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSchemaPropertyState)(nil)).Elem()
 }
 
+// UserSchemaPropertyExists checks whether an existing UserSchemaProperty resource with the given ID exists.
+func UserSchemaPropertyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserSchemaPropertyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/userSchemaProperty:UserSchemaProperty", id, state, "", opts...)
+}
+
 type userSchemaPropertyArgs struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`

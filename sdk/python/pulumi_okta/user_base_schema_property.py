@@ -495,6 +495,28 @@ class UserBaseSchemaProperty(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         return UserBaseSchemaProperty(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            index: pulumi.Input[Optional[_builtins.str]] = None,
+            master: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["index"] = index
+        __props__["master"] = master
+        __props__["pattern"] = pattern
+        __props__["permissions"] = permissions
+        __props__["required"] = required
+        __props__["title"] = title
+        __props__["type"] = type
+        __props__["userType"] = user_type
+        return pulumi.runtime.exists_resource(None, 'okta:index/userBaseSchemaProperty:UserBaseSchemaProperty', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def index(self) -> pulumi.Output[_builtins.str]:

@@ -149,6 +149,12 @@ func (ServerScopeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serverScopeState)(nil)).Elem()
 }
 
+// ServerScopeExists checks whether an existing ServerScope resource with the given ID exists.
+func ServerScopeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServerScopeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:auth/serverScope:ServerScope", id, state, "", opts...)
+}
+
 type serverScopeArgs struct {
 	// Auth server ID
 	AuthServerId string `pulumi:"authServerId"`

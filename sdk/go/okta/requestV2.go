@@ -185,6 +185,12 @@ func (RequestV2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestV2State)(nil)).Elem()
 }
 
+// RequestV2Exists checks whether an existing RequestV2 resource with the given ID exists.
+func RequestV2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestV2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/requestV2:RequestV2", id, state, "", opts...)
+}
+
 type requestV2Args struct {
 	// A representation of a resource that can be requested for access.
 	Requested *RequestV2Requested `pulumi:"requested"`

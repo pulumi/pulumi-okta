@@ -287,22 +287,20 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
     /**
      * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
-     * @deprecated
-     * Attribute typo, switch to riskLevel instead. Default: `ANY`
+     * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      * 
      */
-    @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
+    @Deprecated
     @Import(name="riscLevel")
     private @Nullable Output<String> riscLevel;
 
     /**
      * @return Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
-     * @deprecated
-     * Attribute typo, switch to riskLevel instead. Default: `ANY`
+     * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      * 
      */
-    @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
+    @Deprecated
     public Optional<Output<String>> riscLevel() {
         return Optional.ofNullable(this.riscLevel);
     }
@@ -887,11 +885,10 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Attribute typo, switch to riskLevel instead. Default: `ANY`
+         * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
          * 
          */
-        @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
+        @Deprecated
         public Builder riscLevel(@Nullable Output<String> riscLevel) {
             $.riscLevel = riscLevel;
             return this;
@@ -902,11 +899,10 @@ public final class RuleSignonState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Attribute typo, switch to riskLevel instead. Default: `ANY`
+         * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
          * 
          */
-        @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
+        @Deprecated
         public Builder riscLevel(String riscLevel) {
             return riscLevel(Output.of(riscLevel));
         }

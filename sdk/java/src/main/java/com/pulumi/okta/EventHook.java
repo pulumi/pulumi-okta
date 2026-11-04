@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="okta:index/eventHook:EventHook")
 public class EventHook extends com.pulumi.resources.CustomResource {
     /**
-     * Details of the endpoint the event hook will hit.\
+     * Details of the endpoint the event hook will hit.&#92;
      * 	- &#39;version&#39; - (Required) The version of the channel. The currently-supported version is &#39;1.0.0&#39;.
      * 	- &#39;uri&#39; - (Required) The URI the hook will hit.
      * 	- &#39;type&#39; - (Optional) The type of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.
@@ -86,7 +86,7 @@ public class EventHook extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> auth;
 
     /**
-     * @return Details of the endpoint the event hook will hit.\
+     * @return Details of the endpoint the event hook will hit.&#92;
      * 	- &#39;version&#39; - (Required) The version of the channel. The currently-supported version is &#39;1.0.0&#39;.
      * 	- &#39;uri&#39; - (Required) The URI the hook will hit.
      * 	- &#39;type&#39; - (Optional) The type of hook to trigger. Currently, the only supported type is &#39;HTTP&#39;.

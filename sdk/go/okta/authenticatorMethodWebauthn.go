@@ -199,6 +199,12 @@ func (AuthenticatorMethodWebauthnState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authenticatorMethodWebauthnState)(nil)).Elem()
 }
 
+// AuthenticatorMethodWebauthnExists checks whether an existing AuthenticatorMethodWebauthn resource with the given ID exists.
+func AuthenticatorMethodWebauthnExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthenticatorMethodWebauthnState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/authenticatorMethodWebauthn:AuthenticatorMethodWebauthn", id, state, "", opts...)
+}
+
 type authenticatorMethodWebauthnArgs struct {
 	// List of AAGUID group configurations.
 	AaguidGroups []AuthenticatorMethodWebauthnAaguidGroup `pulumi:"aaguidGroups"`

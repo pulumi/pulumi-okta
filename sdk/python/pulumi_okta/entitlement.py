@@ -482,6 +482,30 @@ class Entitlement(pulumi.CustomResource):
         __props__.__dict__["values"] = values
         return Entitlement(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            external_value: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_value: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent: pulumi.Input[Optional[Union['EntitlementParentArgs', 'EntitlementParentArgsDict', 'outputs.EntitlementParent']]] = None,
+            parent_resource_orn: pulumi.Input[Optional[_builtins.str]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None,
+            values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementValueArgs', 'EntitlementValueArgsDict', 'outputs.EntitlementValue']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["dataType"] = data_type
+        __props__["description"] = description
+        __props__["externalValue"] = external_value
+        __props__["multiValue"] = multi_value
+        __props__["name"] = name
+        __props__["parent"] = parent
+        __props__["parentResourceOrn"] = parent_resource_orn
+        __props__["value"] = value
+        __props__["values"] = values
+        return pulumi.runtime.exists_resource(None, 'okta:index/entitlement:Entitlement', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[_builtins.str]:

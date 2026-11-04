@@ -206,6 +206,12 @@ func (EmailCustomizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailCustomizationState)(nil)).Elem()
 }
 
+// EmailCustomizationExists checks whether an existing EmailCustomization resource with the given ID exists.
+func EmailCustomizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailCustomizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/emailCustomization:EmailCustomization", id, state, "", opts...)
+}
+
 type emailCustomizationArgs struct {
 	// The body of the customization
 	Body *string `pulumi:"body"`

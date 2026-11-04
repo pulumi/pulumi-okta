@@ -282,6 +282,12 @@ func (FeaturesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*featuresState)(nil)).Elem()
 }
 
+// FeaturesExists checks whether an existing Features resource with the given ID exists.
+func FeaturesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeaturesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/features:Features", id, state, "", opts...)
+}
+
 type featuresArgs struct {
 	// The ID of the application to configure features for.
 	AppId string `pulumi:"appId"`

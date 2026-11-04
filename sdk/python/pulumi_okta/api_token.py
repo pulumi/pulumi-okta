@@ -409,6 +409,24 @@ class ApiToken(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return ApiToken(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_name: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network: pulumi.Input[Optional[Union['ApiTokenNetworkArgs', 'ApiTokenNetworkArgsDict', 'outputs.ApiTokenNetwork']]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["clientName"] = client_name
+        __props__["created"] = created
+        __props__["idProperty"] = id_property
+        __props__["name"] = name
+        __props__["network"] = network
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/apiToken:ApiToken', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="clientName")
     def client_name(self) -> pulumi.Output[_builtins.str]:

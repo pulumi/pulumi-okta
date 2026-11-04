@@ -279,6 +279,18 @@ class ApiServiceIntegration(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return ApiServiceIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            granted_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiServiceIntegrationGrantedScopeArgs', 'ApiServiceIntegrationGrantedScopeArgsDict', 'outputs.ApiServiceIntegrationGrantedScope']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["grantedScopes"] = granted_scopes
+        __props__["name"] = name
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'okta:index/apiServiceIntegration:ApiServiceIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="grantedScopes")
     def granted_scopes(self) -> pulumi.Output[Optional[Sequence['outputs.ApiServiceIntegrationGrantedScope']]]:

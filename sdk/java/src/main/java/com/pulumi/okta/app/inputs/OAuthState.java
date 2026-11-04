@@ -364,22 +364,20 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
     /**
      * **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
      * 
-     * @deprecated
-     * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
+     * @deprecated The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
      * 
      */
-    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
+    @Deprecated
     @Import(name="groupsClaim")
     private @Nullable Output<OAuthGroupsClaimArgs> groupsClaim;
 
     /**
      * @return **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
      * 
-     * @deprecated
-     * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
+     * @deprecated The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
      * 
      */
-    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
+    @Deprecated
     public Optional<Output<OAuthGroupsClaimArgs>> groupsClaim() {
         return Optional.ofNullable(this.groupsClaim);
     }
@@ -1509,11 +1507,10 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
+         * @deprecated The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
          * 
          */
-        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
+        @Deprecated
         public Builder groupsClaim(@Nullable Output<OAuthGroupsClaimArgs> groupsClaim) {
             $.groupsClaim = groupsClaim;
             return this;
@@ -1524,11 +1521,10 @@ public final class OAuthState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
+         * @deprecated The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
          * 
          */
-        @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
+        @Deprecated
         public Builder groupsClaim(OAuthGroupsClaimArgs groupsClaim) {
             return groupsClaim(Output.of(groupsClaim));
         }

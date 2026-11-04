@@ -857,6 +857,46 @@ class Authenticator(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Authenticator(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agree_to_terms: pulumi.Input[Optional[_builtins.bool]] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            legacy_ignore_name: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_auth_port: pulumi.Input[Optional[_builtins.int]] = None,
+            provider_host: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_integration_key: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_json: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_user_name_template: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agreeToTerms"] = agree_to_terms
+        __props__["key"] = key
+        __props__["legacyIgnoreName"] = legacy_ignore_name
+        __props__["name"] = name
+        __props__["providerAuthPort"] = provider_auth_port
+        __props__["providerHost"] = provider_host
+        __props__["providerHostname"] = provider_hostname
+        __props__["providerInstanceId"] = provider_instance_id
+        __props__["providerIntegrationKey"] = provider_integration_key
+        __props__["providerJson"] = provider_json
+        __props__["providerSecretKey"] = provider_secret_key
+        __props__["providerSharedSecret"] = provider_shared_secret
+        __props__["providerType"] = provider_type
+        __props__["providerUserNameTemplate"] = provider_user_name_template
+        __props__["settings"] = settings
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'okta:index/authenticator:Authenticator', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agreeToTerms")
     def agree_to_terms(self) -> pulumi.Output[Optional[_builtins.bool]]:

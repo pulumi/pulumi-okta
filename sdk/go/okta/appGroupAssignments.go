@@ -180,6 +180,12 @@ func (AppGroupAssignmentsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appGroupAssignmentsState)(nil)).Elem()
 }
 
+// AppGroupAssignmentsExists checks whether an existing AppGroupAssignments resource with the given ID exists.
+func AppGroupAssignmentsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppGroupAssignmentsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appGroupAssignments:AppGroupAssignments", id, state, "", opts...)
+}
+
 type appGroupAssignmentsArgs struct {
 	// The ID of the application to assign a group to.
 	AppId string `pulumi:"appId"`
