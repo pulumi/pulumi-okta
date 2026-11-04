@@ -199,6 +199,12 @@ func (FederatedClaimState) ElementType() reflect.Type {
 	return reflect.TypeOf((*federatedClaimState)(nil)).Elem()
 }
 
+// FederatedClaimExists checks whether an existing FederatedClaim resource with the given ID exists.
+func FederatedClaimExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FederatedClaimState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/federatedClaim:FederatedClaim", id, state, "", opts...)
+}
+
 type federatedClaimArgs struct {
 	// The ID of the application to add the federated claim to.
 	AppId string `pulumi:"appId"`

@@ -151,6 +151,12 @@ func (AuthServerDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authServerDefaultState)(nil)).Elem()
 }
 
+// AuthServerDefaultExists checks whether an existing AuthServerDefault resource with the given ID exists.
+func AuthServerDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthServerDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/authServerDefault:AuthServerDefault", id, state, "", opts...)
+}
+
 type authServerDefaultArgs struct {
 	// The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently Okta only supports a single value here.
 	Audiences []string `pulumi:"audiences"`

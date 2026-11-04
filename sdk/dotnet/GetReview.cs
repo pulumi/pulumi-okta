@@ -29,7 +29,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Required:
         /// 
         /// - `Email` (String) The Okta user's email address.
@@ -63,7 +62,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Required:
         /// 
         /// - `Email` (String) The Okta user's email address.
@@ -96,7 +94,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// 
         /// 
         /// ## Required:
         /// 

@@ -178,6 +178,12 @@ func (DomainCertificateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*domainCertificateState)(nil)).Elem()
 }
 
+// DomainCertificateExists checks whether an existing DomainCertificate resource with the given ID exists.
+func DomainCertificateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DomainCertificateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/domainCertificate:DomainCertificate", id, state, "", opts...)
+}
+
 type domainCertificateArgs struct {
 	// Certificate content
 	Certificate string `pulumi:"certificate"`

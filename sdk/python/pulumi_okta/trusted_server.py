@@ -244,6 +244,16 @@ class TrustedServer(pulumi.CustomResource):
         __props__.__dict__["trusted"] = trusted
         return TrustedServer(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            trusted: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authServerId"] = auth_server_id
+        __props__["trusted"] = trusted
+        return pulumi.runtime.exists_resource(None, 'okta:index/trustedServer:TrustedServer', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authServerId")
     def auth_server_id(self) -> pulumi.Output[_builtins.str]:

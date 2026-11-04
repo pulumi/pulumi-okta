@@ -134,6 +134,12 @@ func (IdentitySourceUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identitySourceUserState)(nil)).Elem()
 }
 
+// IdentitySourceUserExists checks whether an existing IdentitySourceUser resource with the given ID exists.
+func IdentitySourceUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentitySourceUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/identitySourceUser:IdentitySourceUser", id, state, "", opts...)
+}
+
 type identitySourceUserArgs struct {
 	// ID of the identity source. Forces replacement when changed.
 	IdentitySourceId string `pulumi:"identitySourceId"`

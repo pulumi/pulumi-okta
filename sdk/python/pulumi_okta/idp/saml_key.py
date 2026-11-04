@@ -346,6 +346,26 @@ class SamlKey(pulumi.CustomResource):
         __props__.__dict__["x5t_s256"] = x5t_s256
         return SamlKey(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+            kid: pulumi.Input[Optional[_builtins.str]] = None,
+            kty: pulumi.Input[Optional[_builtins.str]] = None,
+            use: pulumi.Input[Optional[_builtins.str]] = None,
+            x5cs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            x5t_s256: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["created"] = created
+        __props__["expiresAt"] = expires_at
+        __props__["kid"] = kid
+        __props__["kty"] = kty
+        __props__["use"] = use
+        __props__["x5cs"] = x5cs
+        __props__["x5tS256"] = x5t_s256
+        return pulumi.runtime.exists_resource(None, 'okta:idp/samlKey:SamlKey', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:

@@ -249,6 +249,16 @@ class RateLimiting(pulumi.CustomResource):
         __props__.__dict__["use_case_mode_overrides"] = use_case_mode_overrides
         return RateLimiting(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            use_case_mode_overrides: pulumi.Input[Optional[Union['RateLimitingUseCaseModeOverridesArgs', 'RateLimitingUseCaseModeOverridesArgsDict', 'outputs.RateLimitingUseCaseModeOverrides']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["defaultMode"] = default_mode
+        __props__["useCaseModeOverrides"] = use_case_mode_overrides
+        return pulumi.runtime.exists_resource(None, 'okta:index/rateLimiting:RateLimiting', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="defaultMode")
     def default_mode(self) -> pulumi.Output[_builtins.str]:

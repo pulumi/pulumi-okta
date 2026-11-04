@@ -170,6 +170,12 @@ func (SamlKeyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*samlKeyState)(nil)).Elem()
 }
 
+// SamlKeyExists checks whether an existing SamlKey resource with the given ID exists.
+func SamlKeyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SamlKeyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:idp/samlKey:SamlKey", id, state, "", opts...)
+}
+
 type samlKeyArgs struct {
 	// base64-encoded X.509 certificate chain with DER encoding
 	X5cs []string `pulumi:"x5cs"`

@@ -429,6 +429,26 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["users_excluded"] = users_excluded
         return Rule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            expression_type: pulumi.Input[Optional[_builtins.str]] = None,
+            expression_value: pulumi.Input[Optional[_builtins.str]] = None,
+            group_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            remove_assigned_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["expressionType"] = expression_type
+        __props__["expressionValue"] = expression_value
+        __props__["groupAssignments"] = group_assignments
+        __props__["name"] = name
+        __props__["removeAssignedUsers"] = remove_assigned_users
+        __props__["status"] = status
+        __props__["usersExcluded"] = users_excluded
+        return pulumi.runtime.exists_resource(None, 'okta:group/rule:Rule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="expressionType")
     def expression_type(self) -> pulumi.Output[Optional[_builtins.str]]:

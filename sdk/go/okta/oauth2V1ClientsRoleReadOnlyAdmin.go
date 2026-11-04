@@ -138,6 +138,12 @@ func (Oauth2V1ClientsRoleReadOnlyAdminState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauth2V1ClientsRoleReadOnlyAdminState)(nil)).Elem()
 }
 
+// Oauth2V1ClientsRoleReadOnlyAdminExists checks whether an existing Oauth2V1ClientsRoleReadOnlyAdmin resource with the given ID exists.
+func Oauth2V1ClientsRoleReadOnlyAdminExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Oauth2V1ClientsRoleReadOnlyAdminState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/oauth2V1ClientsRoleReadOnlyAdmin:Oauth2V1ClientsRoleReadOnlyAdmin", id, state, "", opts...)
+}
+
 type oauth2V1ClientsRoleReadOnlyAdminArgs struct {
 	// Role assignment type
 	AssignmentType *string `pulumi:"assignmentType"`

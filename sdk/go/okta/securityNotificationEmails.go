@@ -126,6 +126,12 @@ func (SecurityNotificationEmailsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securityNotificationEmailsState)(nil)).Elem()
 }
 
+// SecurityNotificationEmailsExists checks whether an existing SecurityNotificationEmails resource with the given ID exists.
+func SecurityNotificationEmailsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurityNotificationEmailsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/securityNotificationEmails:SecurityNotificationEmails", id, state, "", opts...)
+}
+
 type securityNotificationEmailsArgs struct {
 	// Notifies end users about suspicious or unrecognized activity from their account. Default is `true`.
 	ReportSuspiciousActivityEnabled *bool `pulumi:"reportSuspiciousActivityEnabled"`

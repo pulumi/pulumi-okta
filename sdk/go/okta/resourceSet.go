@@ -101,6 +101,12 @@ func (ResourceSetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceSetState)(nil)).Elem()
 }
 
+// ResourceSetExists checks whether an existing ResourceSet resource with the given ID exists.
+func ResourceSetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceSetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/resourceSet:ResourceSet", id, state, "", opts...)
+}
+
 type resourceSetArgs struct {
 	// A description of the Resource Set
 	Description string `pulumi:"description"`

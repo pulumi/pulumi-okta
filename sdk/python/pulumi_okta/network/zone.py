@@ -646,6 +646,40 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["usage"] = usage
         return Zone(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            asns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dynamic_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dynamic_locations_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            dynamic_proxy_type: pulumi.Input[Optional[_builtins.str]] = None,
+            gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_service_categories_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            ip_service_categories_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            proxies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            set_usage_as_exempt_list: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            usage: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["asns"] = asns
+        __props__["dynamicLocations"] = dynamic_locations
+        __props__["dynamicLocationsExcludes"] = dynamic_locations_excludes
+        __props__["dynamicProxyType"] = dynamic_proxy_type
+        __props__["gateways"] = gateways
+        __props__["ipServiceCategoriesExcludes"] = ip_service_categories_excludes
+        __props__["ipServiceCategoriesIncludes"] = ip_service_categories_includes
+        __props__["name"] = name
+        __props__["proxies"] = proxies
+        __props__["setUsageAsExemptList"] = set_usage_as_exempt_list
+        __props__["status"] = status
+        __props__["system"] = system
+        __props__["type"] = type
+        __props__["usage"] = usage
+        return pulumi.runtime.exists_resource(None, 'okta:network/zone:Zone', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def asns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

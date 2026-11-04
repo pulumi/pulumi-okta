@@ -115,6 +115,12 @@ func (UserTypeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userTypeState)(nil)).Elem()
 }
 
+// UserTypeExists checks whether an existing UserType resource with the given ID exists.
+func UserTypeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserTypeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:user/userType:UserType", id, state, "", opts...)
+}
+
 type userTypeArgs struct {
 	// Description of the User Type.
 	Description string `pulumi:"description"`

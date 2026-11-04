@@ -32,8 +32,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
-        /// 
         /// ## Required
         /// 
         /// - `Id` (String) The id of the API Service Integration instance.
@@ -71,8 +69,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
-        /// 
         /// ## Required
         /// 
         /// - `Id` (String) The id of the API Service Integration instance.
@@ -109,8 +105,6 @@ namespace Pulumi.Okta
         /// 
         /// });
         /// ```
-        /// 
-        /// 
         /// 
         /// ## Required
         /// 

@@ -48,7 +48,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			uses the ?q=&#92;n&#92;n query parameter exposed by Okta&#39;s API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
@@ -57,7 +57,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The label of the app to retrieve, conflicts with labelPrefix and id. Label
-     * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+     * 			uses the ?q=&#92;n&#92;n query parameter exposed by Okta&#39;s API. It should be noted that at this time
      * 			this searches both name and label. This is used to avoid paginating through all applications.
      * 
      */
@@ -100,22 +100,20 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because groups has been removed, this attribute is a no op and will be removed
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     @Import(name="skipGroups")
     private @Nullable Output<Boolean> skipGroups;
 
     /**
      * @return Ignore groups sync. This is a temporary solution until &#39;groups&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because groups has been removed, this attribute is a no op and will be removed
+     * @deprecated Because groups has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Output<Boolean>> skipGroups() {
         return Optional.ofNullable(this.skipGroups);
     }
@@ -123,22 +121,20 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     @Import(name="skipUsers")
     private @Nullable Output<Boolean> skipUsers;
 
     /**
      * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Output<Boolean>> skipUsers() {
         return Optional.ofNullable(this.skipUsers);
     }
@@ -217,7 +213,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param label The label of the app to retrieve, conflicts with labelPrefix and id. Label
-         * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+         * 			uses the ?q=&#92;n&#92;n query parameter exposed by Okta&#39;s API. It should be noted that at this time
          * 			this searches both name and label. This is used to avoid paginating through all applications.
          * 
          * @return builder
@@ -230,7 +226,7 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param label The label of the app to retrieve, conflicts with labelPrefix and id. Label
-         * 			uses the ?q=\n\n query parameter exposed by Okta&#39;s API. It should be noted that at this time
+         * 			uses the ?q=&#92;n&#92;n query parameter exposed by Okta&#39;s API. It should be noted that at this time
          * 			this searches both name and label. This is used to avoid paginating through all applications.
          * 
          * @return builder
@@ -289,11 +285,10 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Because groups has been removed, this attribute is a no op and will be removed
+         * @deprecated Because groups has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder skipGroups(@Nullable Output<Boolean> skipGroups) {
             $.skipGroups = skipGroups;
             return this;
@@ -304,11 +299,10 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Because groups has been removed, this attribute is a no op and will be removed
+         * @deprecated Because groups has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because groups has been removed, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder skipGroups(Boolean skipGroups) {
             return skipGroups(Output.of(skipGroups));
         }
@@ -318,11 +312,10 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Because users has been removed, this attribute is a no op and will be removed
+         * @deprecated Because users has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
             $.skipUsers = skipUsers;
             return this;
@@ -333,11 +326,10 @@ public final class GetSamlArgs extends com.pulumi.resources.InvokeArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Because users has been removed, this attribute is a no op and will be removed
+         * @deprecated Because users has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder skipUsers(Boolean skipUsers) {
             return skipUsers(Output.of(skipUsers));
         }

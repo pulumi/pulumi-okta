@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                 jsonObject(
  *                     jsonProperty("appFilter", "okta"),
  *                     jsonProperty("awsEnvironmentType", "aws.amazon"),
- *                     jsonProperty("groupFilter", "aws_(?}{{{@code accountid}}}{@code \\\\d+)_(?}{{{@code role}}}{@code [a-zA-Z0-9+=,.}{@literal @}{@code \\\\-_]+)"),
+ *                     jsonProperty("groupFilter", "aws_(?}{{{@code accountid}}}&#92;&#92;&#92;&#92;{@code d+)_(?}{{{@code role}}}{@code [a-zA-Z0-9+=,.}{@literal @}&#92;&#92;&#92;&#92;{@code -_]+)"),
  *                     jsonProperty("joinAllRoles", false),
  *                     jsonProperty("loginURL", "https://console.aws.amazon.com/ec2/home"),
  *                     jsonProperty("roleValuePattern", "arn:aws:iam::$}{{@code accountid}}{@code :saml-provider/OKTA,arn:aws:iam::$}{{@code accountid}}{@code :role/$}{{@code role}}{@code "),

@@ -454,6 +454,26 @@ class Behaviour(pulumi.CustomResource):
         __props__.__dict__["velocity"] = velocity
         return Behaviour(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            location_granularity_type: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            number_of_authentications: pulumi.Input[Optional[_builtins.int]] = None,
+            radius_from_location: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            velocity: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["locationGranularityType"] = location_granularity_type
+        __props__["name"] = name
+        __props__["numberOfAuthentications"] = number_of_authentications
+        __props__["radiusFromLocation"] = radius_from_location
+        __props__["status"] = status
+        __props__["type"] = type
+        __props__["velocity"] = velocity
+        return pulumi.runtime.exists_resource(None, 'okta:index/behaviour:Behaviour', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="locationGranularityType")
     def location_granularity_type(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -219,6 +219,16 @@ class RequestSettingOrganization(pulumi.CustomResource):
         __props__.__dict__["subprocessors_acknowledged"] = subprocessors_acknowledged
         return RequestSettingOrganization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            subprocessors_acknowledged: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["idProperty"] = id_property
+        __props__["subprocessorsAcknowledged"] = subprocessors_acknowledged
+        return pulumi.runtime.exists_resource(None, 'okta:index/requestSettingOrganization:RequestSettingOrganization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="idProperty")
     def id_property(self) -> pulumi.Output[_builtins.str]:

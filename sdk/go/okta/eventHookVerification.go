@@ -118,6 +118,12 @@ func (EventHookVerificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHookVerificationState)(nil)).Elem()
 }
 
+// EventHookVerificationExists checks whether an existing EventHookVerification resource with the given ID exists.
+func EventHookVerificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventHookVerificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/eventHookVerification:EventHookVerification", id, state, "", opts...)
+}
+
 type eventHookVerificationArgs struct {
 	// Event hook ID
 	EventHookId string `pulumi:"eventHookId"`

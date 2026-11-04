@@ -267,6 +267,20 @@ class LogStream(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return LogStream(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            settings: pulumi.Input[Optional[Union['LogStreamSettingsArgs', 'LogStreamSettingsArgsDict', 'outputs.LogStreamSettings']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["settings"] = settings
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'okta:index/logStream:LogStream', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

@@ -286,6 +286,20 @@ class IdentitySourceGroupMembership(pulumi.CustomResource):
         __props__.__dict__["member_external_ids"] = member_external_ids
         return IdentitySourceGroupMembership(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            group_or_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            member_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            member_external_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupOrExternalId"] = group_or_external_id
+        __props__["identitySourceId"] = identity_source_id
+        __props__["memberExternalId"] = member_external_id
+        __props__["memberExternalIds"] = member_external_ids
+        return pulumi.runtime.exists_resource(None, 'okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupOrExternalId")
     def group_or_external_id(self) -> pulumi.Output[_builtins.str]:

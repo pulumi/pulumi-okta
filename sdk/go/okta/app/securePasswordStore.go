@@ -302,6 +302,12 @@ func (SecurePasswordStoreState) ElementType() reflect.Type {
 	return reflect.TypeOf((*securePasswordStoreState)(nil)).Elem()
 }
 
+// SecurePasswordStoreExists checks whether an existing SecurePasswordStore resource with the given ID exists.
+func SecurePasswordStoreExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecurePasswordStoreState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/securePasswordStore:SecurePasswordStore", id, state, "", opts...)
+}
+
 type securePasswordStoreArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

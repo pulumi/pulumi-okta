@@ -77,6 +77,12 @@ func (CaptchaOrgWideSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*captchaOrgWideSettingsState)(nil)).Elem()
 }
 
+// CaptchaOrgWideSettingsExists checks whether an existing CaptchaOrgWideSettings resource with the given ID exists.
+func CaptchaOrgWideSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CaptchaOrgWideSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/captchaOrgWideSettings:CaptchaOrgWideSettings", id, state, "", opts...)
+}
+
 type captchaOrgWideSettingsArgs struct {
 	// Array of pages that have CAPTCHA enabled. Valid values: `SSR`, `SSPR` and `SIGN_IN`.
 	CaptchaId *string `pulumi:"captchaId"`

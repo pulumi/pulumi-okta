@@ -358,6 +358,28 @@ class Feature(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Feature(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            feature_id: pulumi.Input[Optional[_builtins.str]] = None,
+            life_cycle: pulumi.Input[Optional[_builtins.str]] = None,
+            mode: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            stage: pulumi.Input[Optional[Union['FeatureStageArgs', 'FeatureStageArgsDict', 'outputs.FeatureStage']]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["description"] = description
+        __props__["featureId"] = feature_id
+        __props__["lifeCycle"] = life_cycle
+        __props__["mode"] = mode
+        __props__["name"] = name
+        __props__["stage"] = stage
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'okta:index/feature:Feature', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:

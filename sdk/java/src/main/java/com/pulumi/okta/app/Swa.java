@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Swa("example", SwaArgs.builder()
  *             .label("example")
  *             .buttonField("btn-login")
@@ -60,45 +60,45 @@ import javax.annotation.Nullable;
  *             .label("Microsoft Office 365 SWA")
  *             .status("ACTIVE")
  *             .appSettingsJson("""
- *     {
- *       \"wsFedConfigureType\": \"AUTO\",
- *       \"windowsTransportEnabled\": false,
- *       \"domain\": \"example.com\",
- *       \"msftTenant\": \"exampletenant\",
- *       \"domains\": [],
- *       \"requireAdminConsent\": false
- *     }
+ *     }{{@code
+ *       }&#92;{@code "wsFedConfigureType}&#92;{@code ": }&#92;{@code "AUTO}&#92;{@code ",
+ *       }&#92;{@code "windowsTransportEnabled}&#92;{@code ": false,
+ *       }&#92;{@code "domain}&#92;{@code ": }&#92;{@code "example.com}&#92;{@code ",
+ *       }&#92;{@code "msftTenant}&#92;{@code ": }&#92;{@code "exampletenant}&#92;{@code ",
+ *       }&#92;{@code "domains}&#92;{@code ": [],
+ *       }&#92;{@code "requireAdminConsent}&#92;{@code ": false
+ *     }}{@code
  *             """)
  *             .appLinksJson("""
- *     {
- *       \"calendar\": false,
- *       \"crm\": false,
- *       \"delve\": false,
- *       \"excel\": false,
- *       \"forms\": false,
- *       \"mail\": false,
- *       \"newsfeed\": false,
- *       \"onedrive\": false,
- *       \"people\": false,
- *       \"planner\": false,
- *       \"powerbi\": false,
- *       \"powerpoint\": false,
- *       \"sites\": false,
- *       \"sway\": false,
- *       \"tasks\": false,
- *       \"teams\": false,
- *       \"video\": false,
- *       \"word\": false,
- *       \"yammer\": false,
- *       \"login\": true
- *     }
+ *     }{{@code
+ *       }&#92;{@code "calendar}&#92;{@code ": false,
+ *       }&#92;{@code "crm}&#92;{@code ": false,
+ *       }&#92;{@code "delve}&#92;{@code ": false,
+ *       }&#92;{@code "excel}&#92;{@code ": false,
+ *       }&#92;{@code "forms}&#92;{@code ": false,
+ *       }&#92;{@code "mail}&#92;{@code ": false,
+ *       }&#92;{@code "newsfeed}&#92;{@code ": false,
+ *       }&#92;{@code "onedrive}&#92;{@code ": false,
+ *       }&#92;{@code "people}&#92;{@code ": false,
+ *       }&#92;{@code "planner}&#92;{@code ": false,
+ *       }&#92;{@code "powerbi}&#92;{@code ": false,
+ *       }&#92;{@code "powerpoint}&#92;{@code ": false,
+ *       }&#92;{@code "sites}&#92;{@code ": false,
+ *       }&#92;{@code "sway}&#92;{@code ": false,
+ *       }&#92;{@code "tasks}&#92;{@code ": false,
+ *       }&#92;{@code "teams}&#92;{@code ": false,
+ *       }&#92;{@code "video}&#92;{@code ": false,
+ *       }&#92;{@code "word}&#92;{@code ": false,
+ *       }&#92;{@code "yammer}&#92;{@code ": false,
+ *       }&#92;{@code "login}&#92;{@code ": true
+ *     }}{@code
  *             """)
  *             .userNameTemplate("user.login")
  *             .userNameTemplateType("CUSTOM")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

@@ -290,6 +290,12 @@ func (SignonPolicyRulesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*signonPolicyRulesState)(nil)).Elem()
 }
 
+// SignonPolicyRulesExists checks whether an existing SignonPolicyRules resource with the given ID exists.
+func SignonPolicyRulesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SignonPolicyRulesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/signonPolicyRules:SignonPolicyRules", id, state, "", opts...)
+}
+
 type signonPolicyRulesArgs struct {
 	// ID of the policy to manage rules for.
 	PolicyId string `pulumi:"policyId"`

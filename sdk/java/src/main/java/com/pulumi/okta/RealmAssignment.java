@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .priority(55)
  *             .status("ACTIVE")
  *             .profileSourceId(testOktaIdpSaml.get("id"))
- *             .conditionExpression("user.profile.login.contains(\"}{@literal @}{@code example.com\")")
+ *             .conditionExpression("user.profile.login.contains(}&#92;{@code "}{@literal @}{@code example.com}&#92;{@code ")")
  *             .realmId(example.id())
  *             .build());
  * 

@@ -79,11 +79,10 @@ public class Brand extends com.pulumi.resources.CustomResource {
     /**
      * Brand ID - Note: Okta API for brands only reads and updates therefore the okta*brand resource needs to act as a quasi data source. Do this by setting brand*id. `DEPRECATED`: Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
-     * @deprecated
-     * Okta has fully support brand creation, this attribute is a no op and will be removed
+     * @deprecated Okta has fully support brand creation, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Okta has fully support brand creation, this attribute is a no op and will be removed */
+    @Deprecated
     @Export(name="brandId", refs={String.class}, tree="[0]")
     private Output<String> brandId;
 

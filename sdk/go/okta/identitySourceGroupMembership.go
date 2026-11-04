@@ -126,6 +126,12 @@ func (IdentitySourceGroupMembershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identitySourceGroupMembershipState)(nil)).Elem()
 }
 
+// IdentitySourceGroupMembershipExists checks whether an existing IdentitySourceGroupMembership resource with the given ID exists.
+func IdentitySourceGroupMembershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentitySourceGroupMembershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/identitySourceGroupMembership:IdentitySourceGroupMembership", id, state, "", opts...)
+}
+
 type identitySourceGroupMembershipArgs struct {
 	// External ID of the identity source group. Forces replacement when changed.
 	GroupOrExternalId string `pulumi:"groupOrExternalId"`

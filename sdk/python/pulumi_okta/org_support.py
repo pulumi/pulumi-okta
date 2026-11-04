@@ -207,6 +207,18 @@ class OrgSupport(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return OrgSupport(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            expiration: pulumi.Input[Optional[_builtins.str]] = None,
+            extend_by: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["expiration"] = expiration
+        __props__["extendBy"] = extend_by
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/orgSupport:OrgSupport', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def expiration(self) -> pulumi.Output[_builtins.str]:

@@ -14,11 +14,10 @@ public final class EmailDomainDnsValidationRecord {
     /**
      * @return DNS TXT record expiration
      * 
-     * @deprecated
-     * This field has been removed in the newest go sdk version and has become noop
+     * @deprecated This field has been removed in the newest go sdk version and has become noop
      * 
      */
-    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
+    @Deprecated
     private @Nullable String expiration;
     /**
      * @return DNS record name
@@ -40,11 +39,10 @@ public final class EmailDomainDnsValidationRecord {
     /**
      * @return DNS TXT record expiration
      * 
-     * @deprecated
-     * This field has been removed in the newest go sdk version and has become noop
+     * @deprecated This field has been removed in the newest go sdk version and has become noop
      * 
      */
-    @Deprecated /* This field has been removed in the newest go sdk version and has become noop */
+    @Deprecated
     public Optional<String> expiration() {
         return Optional.ofNullable(this.expiration);
     }

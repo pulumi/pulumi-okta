@@ -150,6 +150,12 @@ func (Oauth2V1ClientsRoleCustomState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauth2V1ClientsRoleCustomState)(nil)).Elem()
 }
 
+// Oauth2V1ClientsRoleCustomExists checks whether an existing Oauth2V1ClientsRoleCustom resource with the given ID exists.
+func Oauth2V1ClientsRoleCustomExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Oauth2V1ClientsRoleCustomState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/oauth2V1ClientsRoleCustom:Oauth2V1ClientsRoleCustom", id, state, "", opts...)
+}
+
 type oauth2V1ClientsRoleCustomArgs struct {
 	// Role assignment type
 	AssignmentType *string `pulumi:"assignmentType"`

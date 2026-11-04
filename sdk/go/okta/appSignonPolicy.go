@@ -114,6 +114,12 @@ func (AppSignonPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appSignonPolicyState)(nil)).Elem()
 }
 
+// AppSignonPolicyExists checks whether an existing AppSignonPolicy resource with the given ID exists.
+func AppSignonPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppSignonPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appSignonPolicy:AppSignonPolicy", id, state, "", opts...)
+}
+
 type appSignonPolicyArgs struct {
 	// If false, the default rule of the policy is set access to `DENY`. Otherwise default behavior of the default rule is to leave access at `ALLOW`.  **WARNING** setting this attribute to false changes policy rule's default behavior. Use at your own risk. This is only applied during creation and does not affect import or update.
 	CatchAll *bool `pulumi:"catchAll"`

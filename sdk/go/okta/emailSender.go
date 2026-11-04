@@ -132,6 +132,12 @@ func (EmailSenderState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailSenderState)(nil)).Elem()
 }
 
+// EmailSenderExists checks whether an existing EmailSender resource with the given ID exists.
+func EmailSenderExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailSenderState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/emailSender:EmailSender", id, state, "", opts...)
+}
+
 type emailSenderArgs struct {
 	// Email address to send from
 	FromAddress string `pulumi:"fromAddress"`

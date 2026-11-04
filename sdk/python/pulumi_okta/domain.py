@@ -295,6 +295,22 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["validation_status"] = validation_status
         return Domain(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            certificate_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+            dns_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainDnsRecordArgs', 'DomainDnsRecordArgsDict', 'outputs.DomainDnsRecord']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            validation_status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["brandId"] = brand_id
+        __props__["certificateSourceType"] = certificate_source_type
+        __props__["dnsRecords"] = dns_records
+        __props__["name"] = name
+        __props__["validationStatus"] = validation_status
+        return pulumi.runtime.exists_resource(None, 'okta:index/domain:Domain', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="brandId")
     def brand_id(self) -> pulumi.Output[_builtins.str]:

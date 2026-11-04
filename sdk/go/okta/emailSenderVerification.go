@@ -102,6 +102,12 @@ func (EmailSenderVerificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailSenderVerificationState)(nil)).Elem()
 }
 
+// EmailSenderVerificationExists checks whether an existing EmailSenderVerification resource with the given ID exists.
+func EmailSenderVerificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailSenderVerificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/emailSenderVerification:EmailSenderVerification", id, state, "", opts...)
+}
+
 type emailSenderVerificationArgs struct {
 	// Email sender ID
 	SenderId string `pulumi:"senderId"`

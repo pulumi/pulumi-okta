@@ -152,6 +152,12 @@ func (LinkDefinitionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*linkDefinitionState)(nil)).Elem()
 }
 
+// LinkDefinitionExists checks whether an existing LinkDefinition resource with the given ID exists.
+func LinkDefinitionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LinkDefinitionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/linkDefinition:LinkDefinition", id, state, "", opts...)
+}
+
 type linkDefinitionArgs struct {
 	// Description of the associated relationship.
 	AssociatedDescription string `pulumi:"associatedDescription"`

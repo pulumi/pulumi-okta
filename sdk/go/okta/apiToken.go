@@ -147,6 +147,12 @@ func (ApiTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiTokenState)(nil)).Elem()
 }
 
+// ApiTokenExists checks whether an existing ApiToken resource with the given ID exists.
+func ApiTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/apiToken:ApiToken", id, state, "", opts...)
+}
+
 type apiTokenArgs struct {
 	// The name of the API token client.
 	ClientName *string `pulumi:"clientName"`

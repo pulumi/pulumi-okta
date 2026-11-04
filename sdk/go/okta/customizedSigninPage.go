@@ -197,6 +197,12 @@ func (CustomizedSigninPageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*customizedSigninPageState)(nil)).Elem()
 }
 
+// CustomizedSigninPageExists checks whether an existing CustomizedSigninPage resource with the given ID exists.
+func CustomizedSigninPageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CustomizedSigninPageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/customizedSigninPage:CustomizedSigninPage", id, state, "", opts...)
+}
+
 type customizedSigninPageArgs struct {
 	// brand id of the preview signin page
 	BrandId                      string                                            `pulumi:"brandId"`

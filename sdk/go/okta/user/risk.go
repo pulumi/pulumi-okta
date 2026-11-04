@@ -108,6 +108,12 @@ func (RiskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*riskState)(nil)).Elem()
 }
 
+// RiskExists checks whether an existing Risk resource with the given ID exists.
+func RiskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RiskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:user/risk:Risk", id, state, "", opts...)
+}
+
 type riskArgs struct {
 	// Risk level of the user. Valid values: `HIGH`, `LOW`.
 	RiskLevel string `pulumi:"riskLevel"`

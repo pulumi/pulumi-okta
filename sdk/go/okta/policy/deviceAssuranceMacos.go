@@ -268,6 +268,12 @@ func (DeviceAssuranceMacosState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceAssuranceMacosState)(nil)).Elem()
 }
 
+// DeviceAssuranceMacosExists checks whether an existing DeviceAssuranceMacos resource with the given ID exists.
+func DeviceAssuranceMacosExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceAssuranceMacosState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/deviceAssuranceMacos:DeviceAssuranceMacos", id, state, "", opts...)
+}
+
 type deviceAssuranceMacosArgs struct {
 	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`

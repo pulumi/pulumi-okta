@@ -154,6 +154,12 @@ func (DeviceAssuranceIosState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceAssuranceIosState)(nil)).Elem()
 }
 
+// DeviceAssuranceIosExists checks whether an existing DeviceAssuranceIos resource with the given ID exists.
+func DeviceAssuranceIosExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceAssuranceIosState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/deviceAssuranceIos:DeviceAssuranceIos", id, state, "", opts...)
+}
+
 type deviceAssuranceIosArgs struct {
 	// Is the device jailbroken in the device assurance policy.
 	Jailbreak *bool `pulumi:"jailbreak"`

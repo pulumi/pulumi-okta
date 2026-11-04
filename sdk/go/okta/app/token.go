@@ -133,6 +133,12 @@ func (TokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tokenState)(nil)).Elem()
 }
 
+// TokenExists checks whether an existing Token resource with the given ID exists.
+func TokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/token:Token", id, state, "", opts...)
+}
+
 type tokenArgs struct {
 	// The unique Okta ID of the application associated with this token. This is typically the `clientId` of an refresh application.
 	ClientId string `pulumi:"clientId"`

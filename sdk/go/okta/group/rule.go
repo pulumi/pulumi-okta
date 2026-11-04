@@ -147,6 +147,12 @@ func (RuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ruleState)(nil)).Elem()
 }
 
+// RuleExists checks whether an existing Rule resource with the given ID exists.
+func RuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:group/rule:Rule", id, state, "", opts...)
+}
+
 type ruleArgs struct {
 	// The expression type to use to invoke the rule. The default is `urn:okta:expression:1.0`.
 	ExpressionType *string `pulumi:"expressionType"`

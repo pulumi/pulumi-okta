@@ -232,6 +232,12 @@ func (GroupSchemaPropertyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupSchemaPropertyState)(nil)).Elem()
 }
 
+// GroupSchemaPropertyExists checks whether an existing GroupSchemaProperty resource with the given ID exists.
+func GroupSchemaPropertyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupSchemaPropertyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/groupSchemaProperty:GroupSchemaProperty", id, state, "", opts...)
+}
+
 type groupSchemaPropertyArgs struct {
 	// Array of values that an array property's items can be set to.
 	ArrayEnums []string `pulumi:"arrayEnums"`

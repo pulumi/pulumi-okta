@@ -154,6 +154,12 @@ func (EventHookState) ElementType() reflect.Type {
 	return reflect.TypeOf((*eventHookState)(nil)).Elem()
 }
 
+// EventHookExists checks whether an existing EventHook resource with the given ID exists.
+func EventHookExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EventHookState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/eventHook:EventHook", id, state, "", opts...)
+}
+
 type eventHookArgs struct {
 	// Details of the endpoint the event hook will hit.\
 	// 	- 'version' - (Required) The version of the channel. The currently-supported version is '1.0.0'.

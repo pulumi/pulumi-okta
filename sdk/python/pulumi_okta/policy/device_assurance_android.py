@@ -490,6 +490,34 @@ class DeviceAssuranceAndroid(pulumi.CustomResource):
         __props__.__dict__["secure_hardware_present"] = secure_hardware_present
         return DeviceAssuranceAndroid(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            disk_encryption_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            jailbreak: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_update: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            os_version: pulumi.Input[Optional[_builtins.str]] = None,
+            platform: pulumi.Input[Optional[_builtins.str]] = None,
+            screenlock_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            secure_hardware_present: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdBy"] = created_by
+        __props__["createdDate"] = created_date
+        __props__["diskEncryptionTypes"] = disk_encryption_types
+        __props__["jailbreak"] = jailbreak
+        __props__["lastUpdate"] = last_update
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["name"] = name
+        __props__["osVersion"] = os_version
+        __props__["platform"] = platform
+        __props__["screenlockTypes"] = screenlock_types
+        __props__["secureHardwarePresent"] = secure_hardware_present
+        return pulumi.runtime.exists_resource(None, 'okta:policy/deviceAssuranceAndroid:DeviceAssuranceAndroid', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:

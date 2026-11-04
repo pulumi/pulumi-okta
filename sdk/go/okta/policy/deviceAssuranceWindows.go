@@ -310,6 +310,12 @@ func (DeviceAssuranceWindowsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceAssuranceWindowsState)(nil)).Elem()
 }
 
+// DeviceAssuranceWindowsExists checks whether an existing DeviceAssuranceWindows resource with the given ID exists.
+func DeviceAssuranceWindowsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DeviceAssuranceWindowsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/deviceAssuranceWindows:DeviceAssuranceWindows", id, state, "", opts...)
+}
+
 type deviceAssuranceWindowsArgs struct {
 	// List of disk encryption type, can be `ALL_INTERNAL_VOLUMES`
 	DiskEncryptionTypes []string `pulumi:"diskEncryptionTypes"`

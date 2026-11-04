@@ -43,7 +43,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Field Type Reference
         /// 
         /// ### Field Types and Values
@@ -107,7 +106,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Field Type Reference
         /// 
         /// ### Field Types and Values
@@ -170,7 +168,6 @@ namespace Pulumi.Okta
         ///     };
         /// });
         /// ```
-        /// 
         /// 
         /// ## Field Type Reference
         /// 

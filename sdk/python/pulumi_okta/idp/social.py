@@ -1399,6 +1399,84 @@ class Social(pulumi.CustomResource):
         __props__.__dict__["username_template"] = username_template
         return Social(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+            account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            apple_kid: pulumi.Input[Optional[_builtins.str]] = None,
+            apple_private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            apple_team_id: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+            token_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            token_url: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_audience: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_kid: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_revocation: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_revocation_cache_lifetime: pulumi.Input[Optional[_builtins.int]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            username_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountLinkAction"] = account_link_action
+        __props__["accountLinkGroupIncludes"] = account_link_group_includes
+        __props__["appleKid"] = apple_kid
+        __props__["applePrivateKey"] = apple_private_key
+        __props__["appleTeamId"] = apple_team_id
+        __props__["authorizationBinding"] = authorization_binding
+        __props__["authorizationUrl"] = authorization_url
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["clientSecretWo"] = client_secret_wo
+        __props__["clientSecretWoVersion"] = client_secret_wo_version
+        __props__["deprovisionedAction"] = deprovisioned_action
+        __props__["groupsAction"] = groups_action
+        __props__["groupsAssignments"] = groups_assignments
+        __props__["groupsAttribute"] = groups_attribute
+        __props__["groupsFilters"] = groups_filters
+        __props__["issuerMode"] = issuer_mode
+        __props__["maxClockSkew"] = max_clock_skew
+        __props__["name"] = name
+        __props__["profileMaster"] = profile_master
+        __props__["protocolType"] = protocol_type
+        __props__["provisioningAction"] = provisioning_action
+        __props__["scopes"] = scopes
+        __props__["status"] = status
+        __props__["subjectMatchAttribute"] = subject_match_attribute
+        __props__["subjectMatchType"] = subject_match_type
+        __props__["suspendedAction"] = suspended_action
+        __props__["tokenBinding"] = token_binding
+        __props__["tokenUrl"] = token_url
+        __props__["trustAudience"] = trust_audience
+        __props__["trustIssuer"] = trust_issuer
+        __props__["trustKid"] = trust_kid
+        __props__["trustRevocation"] = trust_revocation
+        __props__["trustRevocationCacheLifetime"] = trust_revocation_cache_lifetime
+        __props__["type"] = type
+        __props__["usernameTemplate"] = username_template
+        return pulumi.runtime.exists_resource(None, 'okta:idp/social:Social', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> pulumi.Output[Optional[_builtins.str]]:

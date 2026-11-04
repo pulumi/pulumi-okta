@@ -39,6 +39,17 @@ export class Oauth2V1ClientsRoleWorkflowsAdmin extends pulumi.CustomResource {
         return new Oauth2V1ClientsRoleWorkflowsAdmin(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing Oauth2V1ClientsRoleWorkflowsAdmin resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: Oauth2V1ClientsRoleWorkflowsAdminState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'okta:index/oauth2V1ClientsRoleWorkflowsAdmin:Oauth2V1ClientsRoleWorkflowsAdmin';
 

@@ -315,6 +315,12 @@ func (SwaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*swaState)(nil)).Elem()
 }
 
+// SwaExists checks whether an existing Swa resource with the given ID exists.
+func SwaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SwaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/swa:Swa", id, state, "", opts...)
+}
+
 type swaArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

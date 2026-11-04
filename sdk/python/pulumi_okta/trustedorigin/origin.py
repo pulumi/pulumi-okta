@@ -385,6 +385,28 @@ class Origin(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return Origin(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            origin: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginScopeArgs', 'OriginScopeArgsDict', 'outputs.OriginScope']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["created"] = created
+        __props__["createdBy"] = created_by
+        __props__["lastUpdated"] = last_updated
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["name"] = name
+        __props__["origin"] = origin
+        __props__["scopes"] = scopes
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:trustedorigin/origin:Origin', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def created(self) -> pulumi.Output[_builtins.str]:

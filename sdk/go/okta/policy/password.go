@@ -292,6 +292,12 @@ func (PasswordState) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordState)(nil)).Elem()
 }
 
+// PasswordExists checks whether an existing Password resource with the given ID exists.
+func PasswordExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PasswordState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:policy/password:Password", id, state, "", opts...)
+}
+
 type passwordArgs struct {
 	// Authentication Provider: `OKTA`, `ACTIVE_DIRECTORY` or `LDAP`. Default: `OKTA`
 	AuthProvider *string `pulumi:"authProvider"`

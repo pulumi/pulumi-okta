@@ -101,6 +101,12 @@ func (EmailDomainVerificationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailDomainVerificationState)(nil)).Elem()
 }
 
+// EmailDomainVerificationExists checks whether an existing EmailDomainVerification resource with the given ID exists.
+func EmailDomainVerificationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailDomainVerificationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/emailDomainVerification:EmailDomainVerification", id, state, "", opts...)
+}
+
 type emailDomainVerificationArgs struct {
 	// Email domain ID
 	EmailDomainId string `pulumi:"emailDomainId"`

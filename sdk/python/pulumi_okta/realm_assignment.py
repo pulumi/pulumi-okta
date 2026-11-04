@@ -410,6 +410,26 @@ class RealmAssignment(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return RealmAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            condition_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            profile_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            realm_id: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditionExpression"] = condition_expression
+        __props__["isDefault"] = is_default
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["profileSourceId"] = profile_source_id
+        __props__["realmId"] = realm_id
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/realmAssignment:RealmAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="conditionExpression")
     def condition_expression(self) -> pulumi.Output[Optional[_builtins.str]]:

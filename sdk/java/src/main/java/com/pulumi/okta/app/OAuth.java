@@ -509,11 +509,10 @@ public class OAuth extends com.pulumi.resources.CustomResource {
     /**
      * **DEPRECATED.** Groups claim for an OpenID Connect client application. **Requires SSWS API token authentication** — when the provider is configured with OAuth 2.0 credentials (`privateKey` or `accessToken`), this block is silently skipped and the claim is never written to the app. A Terraform-visible warning is emitted in this case. Not supported when `preconfiguredApp` is set. Use `okta.auth.ServerClaim` (requires Custom Authorization Server / API Access Management subscription) instead.
      * 
-     * @deprecated
-     * The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
+     * @deprecated The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead.
      * 
      */
-    @Deprecated /* The groupsClaim field is deprecated and will be removed in a future version. NOTE: This field requires SSWS API token authentication and is silently skipped when the provider is configured with OAuth 2.0 credentials (private_key or access_token). Use Authorization Server Claims (okta_auth_server_claim) instead. */
+    @Deprecated
     @Export(name="groupsClaim", refs={OAuthGroupsClaim.class}, tree="[0]")
     private Output</* @Nullable */ OAuthGroupsClaim> groupsClaim;
 

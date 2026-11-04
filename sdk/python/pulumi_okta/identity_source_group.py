@@ -273,6 +273,18 @@ class IdentitySourceGroup(pulumi.CustomResource):
         __props__.__dict__["profile"] = profile
         return IdentitySourceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+            profile: pulumi.Input[Optional[Union['IdentitySourceGroupProfileArgs', 'IdentitySourceGroupProfileArgsDict', 'outputs.IdentitySourceGroupProfile']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["externalId"] = external_id
+        __props__["identitySourceId"] = identity_source_id
+        __props__["profile"] = profile
+        return pulumi.runtime.exists_resource(None, 'okta:index/identitySourceGroup:IdentitySourceGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[_builtins.str]:

@@ -162,6 +162,12 @@ func (UserFactorQuestionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userFactorQuestionState)(nil)).Elem()
 }
 
+// UserFactorQuestionExists checks whether an existing UserFactorQuestion resource with the given ID exists.
+func UserFactorQuestionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserFactorQuestionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/userFactorQuestion:UserFactorQuestion", id, state, "", opts...)
+}
+
 type userFactorQuestionArgs struct {
 	// Security question answer. Note here that answer won't be set during the resource import.
 	Answer string `pulumi:"answer"`

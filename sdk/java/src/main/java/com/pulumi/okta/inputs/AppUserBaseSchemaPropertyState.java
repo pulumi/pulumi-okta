@@ -62,14 +62,14 @@ public final class AppUserBaseSchemaPropertyState extends com.pulumi.resources.R
     }
 
     /**
-     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
+     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&#92;n&#92;n]+&#39; if present.&#39;
      * 
      */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
     /**
-     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
+     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&#92;n&#92;n]+&#39; if present.&#39;
      * 
      */
     public Optional<Output<String>> pattern() {
@@ -247,7 +247,7 @@ public final class AppUserBaseSchemaPropertyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param pattern The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
+         * @param pattern The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&#92;n&#92;n]+&#39; if present.&#39;
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class AppUserBaseSchemaPropertyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param pattern The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
+         * @param pattern The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&#92;n&#92;n]+&#39; if present.&#39;
          * 
          * @return builder
          * 

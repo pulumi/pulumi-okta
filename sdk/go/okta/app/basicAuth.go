@@ -253,6 +253,12 @@ func (BasicAuthState) ElementType() reflect.Type {
 	return reflect.TypeOf((*basicAuthState)(nil)).Elem()
 }
 
+// BasicAuthExists checks whether an existing BasicAuth resource with the given ID exists.
+func BasicAuthExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *BasicAuthState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:app/basicAuth:BasicAuth", id, state, "", opts...)
+}
+
 type basicAuthArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

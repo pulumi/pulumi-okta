@@ -655,6 +655,38 @@ class AgentPoolUpdate(pulumi.CustomResource):
         __props__.__dict__["target_version"] = target_version
         return AgentPoolUpdate(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            agent_type: pulumi.Input[Optional[_builtins.str]] = None,
+            agents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentPoolUpdateAgentArgs', 'AgentPoolUpdateAgentArgsDict', 'outputs.AgentPoolUpdateAgent']]]]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            notify_on_completion: pulumi.Input[Optional[_builtins.bool]] = None,
+            pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+            reason: pulumi.Input[Optional[_builtins.str]] = None,
+            schedule: pulumi.Input[Optional[Union['AgentPoolUpdateScheduleArgs', 'AgentPoolUpdateScheduleArgsDict', 'outputs.AgentPoolUpdateSchedule']]] = None,
+            sort_order: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            target_version: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["agentType"] = agent_type
+        __props__["agents"] = agents
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["name"] = name
+        __props__["notifyAdmins"] = notify_admins
+        __props__["notifyOnCompletion"] = notify_on_completion
+        __props__["poolId"] = pool_id
+        __props__["reason"] = reason
+        __props__["schedule"] = schedule
+        __props__["sortOrder"] = sort_order
+        __props__["status"] = status
+        __props__["targetVersion"] = target_version
+        return pulumi.runtime.exists_resource(None, 'okta:index/agentPoolUpdate:AgentPoolUpdate', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="agentType")
     def agent_type(self) -> pulumi.Output[Optional[_builtins.str]]:

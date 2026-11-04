@@ -150,6 +150,12 @@ func (ZoneState) ElementType() reflect.Type {
 	return reflect.TypeOf((*zoneState)(nil)).Elem()
 }
 
+// ZoneExists checks whether an existing Zone resource with the given ID exists.
+func ZoneExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ZoneState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:network/zone:Zone", id, state, "", opts...)
+}
+
 type zoneArgs struct {
 	// List of asns included. Format of each array value: a string representation of an ASN numeric value. Use with type `DYNAMIC` or `DYNAMIC_V2`
 	Asns []string `pulumi:"asns"`

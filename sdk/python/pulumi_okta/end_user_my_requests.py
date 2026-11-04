@@ -403,6 +403,18 @@ class EndUserMyRequests(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return EndUserMyRequests(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            entry_id: pulumi.Input[Optional[_builtins.str]] = None,
+            requester_field_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndUserMyRequestsRequesterFieldValueArgs', 'EndUserMyRequestsRequesterFieldValueArgsDict', 'outputs.EndUserMyRequestsRequesterFieldValue']]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["entryId"] = entry_id
+        __props__["requesterFieldValues"] = requester_field_values
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/endUserMyRequests:EndUserMyRequests', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="entryId")
     def entry_id(self) -> pulumi.Output[_builtins.str]:

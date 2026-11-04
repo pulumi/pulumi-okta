@@ -992,6 +992,48 @@ class RuleIdpDiscovery(pulumi.CustomResource):
         __props__.__dict__["user_identifier_type"] = user_identifier_type
         return RuleIdpDiscovery(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppExcludeArgs', 'RuleIdpDiscoveryAppExcludeArgsDict', 'outputs.RuleIdpDiscoveryAppExclude']]]]] = None,
+            app_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryAppIncludeArgs', 'RuleIdpDiscoveryAppIncludeArgsDict', 'outputs.RuleIdpDiscoveryAppInclude']]]]] = None,
+            idp_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryIdpProviderArgs', 'RuleIdpDiscoveryIdpProviderArgsDict', 'outputs.RuleIdpDiscoveryIdpProvider']]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            platform_includes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryPlatformIncludeArgs', 'RuleIdpDiscoveryPlatformIncludeArgsDict', 'outputs.RuleIdpDiscoveryPlatformInclude']]]]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            property_name: pulumi.Input[Optional[_builtins.str]] = None,
+            provider_expression: pulumi.Input[Optional[_builtins.str]] = None,
+            selection_type: pulumi.Input[Optional[_builtins.str]] = None,
+            should_fall_back_to_okta: pulumi.Input[Optional[_builtins.bool]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identifier_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            user_identifier_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleIdpDiscoveryUserIdentifierPatternArgs', 'RuleIdpDiscoveryUserIdentifierPatternArgsDict', 'outputs.RuleIdpDiscoveryUserIdentifierPattern']]]]] = None,
+            user_identifier_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appExcludes"] = app_excludes
+        __props__["appIncludes"] = app_includes
+        __props__["idpProviders"] = idp_providers
+        __props__["name"] = name
+        __props__["networkConnection"] = network_connection
+        __props__["networkExcludes"] = network_excludes
+        __props__["networkIncludes"] = network_includes
+        __props__["platformIncludes"] = platform_includes
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["propertyName"] = property_name
+        __props__["providerExpression"] = provider_expression
+        __props__["selectionType"] = selection_type
+        __props__["shouldFallBackToOkta"] = should_fall_back_to_okta
+        __props__["status"] = status
+        __props__["userIdentifierAttribute"] = user_identifier_attribute
+        __props__["userIdentifierPatterns"] = user_identifier_patterns
+        __props__["userIdentifierType"] = user_identifier_type
+        return pulumi.runtime.exists_resource(None, 'okta:policy/ruleIdpDiscovery:RuleIdpDiscovery', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appExcludes")
     def app_excludes(self) -> pulumi.Output[Optional[Sequence['outputs.RuleIdpDiscoveryAppExclude']]]:

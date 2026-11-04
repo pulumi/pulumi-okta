@@ -142,6 +142,12 @@ func (GroupMembershipsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupMembershipsState)(nil)).Elem()
 }
 
+// GroupMembershipsExists checks whether an existing GroupMemberships resource with the given ID exists.
+func GroupMembershipsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GroupMembershipsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/groupMemberships:GroupMemberships", id, state, "", opts...)
+}
+
 type groupMembershipsArgs struct {
 	// ID of a Okta group.
 	GroupId string `pulumi:"groupId"`

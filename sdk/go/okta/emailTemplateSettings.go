@@ -115,6 +115,12 @@ func (EmailTemplateSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailTemplateSettingsState)(nil)).Elem()
 }
 
+// EmailTemplateSettingsExists checks whether an existing EmailTemplateSettings resource with the given ID exists.
+func EmailTemplateSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailTemplateSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/emailTemplateSettings:EmailTemplateSettings", id, state, "", opts...)
+}
+
 type emailTemplateSettingsArgs struct {
 	// The ID of the brand.
 	BrandId string `pulumi:"brandId"`

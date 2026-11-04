@@ -227,6 +227,12 @@ func (RoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*roleState)(nil)).Elem()
 }
 
+// RoleExists checks whether an existing Role resource with the given ID exists.
+func RoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:group/role:Role", id, state, "", opts...)
+}
+
 type roleArgs struct {
 	// When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
 	DisableNotifications *bool `pulumi:"disableNotifications"`

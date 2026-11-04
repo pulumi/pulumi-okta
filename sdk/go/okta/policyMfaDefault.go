@@ -223,6 +223,12 @@ func (PolicyMfaDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyMfaDefaultState)(nil)).Elem()
 }
 
+// PolicyMfaDefaultExists checks whether an existing PolicyMfaDefault resource with the given ID exists.
+func PolicyMfaDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyMfaDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/policyMfaDefault:PolicyMfaDefault", id, state, "", opts...)
+}
+
 type policyMfaDefaultArgs struct {
 	// List of custom authenticators, specify entry like {"enroll": "OPTIONAL", "id": "<id_of_custom_app>"} to mark specific custom app optional, list must contain at least 1 entry.
 	CustomApps []map[string]string `pulumi:"customApps"`

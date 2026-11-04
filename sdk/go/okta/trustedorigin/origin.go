@@ -146,6 +146,12 @@ func (OriginState) ElementType() reflect.Type {
 	return reflect.TypeOf((*originState)(nil)).Elem()
 }
 
+// OriginExists checks whether an existing Origin resource with the given ID exists.
+func OriginExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OriginState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:trustedorigin/origin:Origin", id, state, "", opts...)
+}
+
 type originArgs struct {
 	// Unique name for the trusted origin
 	Name *string `pulumi:"name"`

@@ -97,6 +97,12 @@ func (RateLimitWarningThresholdPercentageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateLimitWarningThresholdPercentageState)(nil)).Elem()
 }
 
+// RateLimitWarningThresholdPercentageExists checks whether an existing RateLimitWarningThresholdPercentage resource with the given ID exists.
+func RateLimitWarningThresholdPercentageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RateLimitWarningThresholdPercentageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/rateLimitWarningThresholdPercentage:RateLimitWarningThresholdPercentage", id, state, "", opts...)
+}
+
 type rateLimitWarningThresholdPercentageArgs struct {
 	// The threshold value (percentage) of a rate limit that, when exceeded, triggers a warning notification. By default, this value is 90 for Workforce orgs and 60 for CIAM orgs.
 	WarningThreshold int `pulumi:"warningThreshold"`

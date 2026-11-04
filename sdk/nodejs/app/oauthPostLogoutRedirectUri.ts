@@ -51,6 +51,17 @@ export class OAuthPostLogoutRedirectUri extends pulumi.CustomResource {
         return new OAuthPostLogoutRedirectUri(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing OAuthPostLogoutRedirectUri resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: OAuthPostLogoutRedirectUriState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'okta:app/oAuthPostLogoutRedirectUri:OAuthPostLogoutRedirectUri';
 

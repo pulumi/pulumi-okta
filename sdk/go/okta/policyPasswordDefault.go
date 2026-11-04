@@ -307,6 +307,12 @@ func (PolicyPasswordDefaultState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyPasswordDefaultState)(nil)).Elem()
 }
 
+// PolicyPasswordDefaultExists checks whether an existing PolicyPasswordDefault resource with the given ID exists.
+func PolicyPasswordDefaultExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyPasswordDefaultState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/policyPasswordDefault:PolicyPasswordDefault", id, state, "", opts...)
+}
+
 type policyPasswordDefaultArgs struct {
 	// The ID of the workflow to run when a breached password is found during a sign-in attempt.
 	BreachedPasswordDelegatedWorkflowId *string `pulumi:"breachedPasswordDelegatedWorkflowId"`

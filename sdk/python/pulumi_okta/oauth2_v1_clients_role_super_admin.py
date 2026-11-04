@@ -358,6 +358,26 @@ class Oauth2V1ClientsRoleSuperAdmin(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return Oauth2V1ClientsRoleSuperAdmin(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            assignment_type: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            created: pulumi.Input[Optional[_builtins.str]] = None,
+            label: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["assignmentType"] = assignment_type
+        __props__["clientId"] = client_id
+        __props__["created"] = created
+        __props__["label"] = label
+        __props__["lastUpdated"] = last_updated
+        __props__["status"] = status
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'okta:index/oauth2V1ClientsRoleSuperAdmin:Oauth2V1ClientsRoleSuperAdmin', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="assignmentType")
     def assignment_type(self) -> pulumi.Output[_builtins.str]:

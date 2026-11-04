@@ -1732,6 +1732,94 @@ class Oidc(pulumi.CustomResource):
         __props__.__dict__["username_template"] = username_template
         return Oidc(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+            account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            authorization_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            authorization_url: pulumi.Input[Optional[_builtins.str]] = None,
+            client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            client_secret_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+            deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+            filter: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            jwks_url: pulumi.Input[Optional[_builtins.str]] = None,
+            max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            participate_slo: pulumi.Input[Optional[_builtins.bool]] = None,
+            pkce_required: pulumi.Input[Optional[_builtins.bool]] = None,
+            profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+            protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
+            provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            slo_url: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+            token_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            token_url: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_info_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            user_info_url: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountLinkAction"] = account_link_action
+        __props__["accountLinkGroupIncludes"] = account_link_group_includes
+        __props__["authorizationBinding"] = authorization_binding
+        __props__["authorizationUrl"] = authorization_url
+        __props__["clientId"] = client_id
+        __props__["clientSecret"] = client_secret
+        __props__["clientSecretWo"] = client_secret_wo
+        __props__["clientSecretWoVersion"] = client_secret_wo_version
+        __props__["deprovisionedAction"] = deprovisioned_action
+        __props__["filter"] = filter
+        __props__["groupsAction"] = groups_action
+        __props__["groupsAssignments"] = groups_assignments
+        __props__["groupsAttribute"] = groups_attribute
+        __props__["groupsFilters"] = groups_filters
+        __props__["issuerMode"] = issuer_mode
+        __props__["issuerUrl"] = issuer_url
+        __props__["jwksBinding"] = jwks_binding
+        __props__["jwksUrl"] = jwks_url
+        __props__["maxClockSkew"] = max_clock_skew
+        __props__["name"] = name
+        __props__["participateSlo"] = participate_slo
+        __props__["pkceRequired"] = pkce_required
+        __props__["profileMaster"] = profile_master
+        __props__["protocolType"] = protocol_type
+        __props__["provisioningAction"] = provisioning_action
+        __props__["requestSignatureAlgorithm"] = request_signature_algorithm
+        __props__["requestSignatureScope"] = request_signature_scope
+        __props__["scopes"] = scopes
+        __props__["sloUrl"] = slo_url
+        __props__["status"] = status
+        __props__["subjectMatchAttribute"] = subject_match_attribute
+        __props__["subjectMatchType"] = subject_match_type
+        __props__["suspendedAction"] = suspended_action
+        __props__["tokenBinding"] = token_binding
+        __props__["tokenUrl"] = token_url
+        __props__["trustClaims"] = trust_claims
+        __props__["type"] = type
+        __props__["userInfoBinding"] = user_info_binding
+        __props__["userInfoUrl"] = user_info_url
+        __props__["userTypeId"] = user_type_id
+        __props__["usernameTemplate"] = username_template
+        return pulumi.runtime.exists_resource(None, 'okta:idp/oidc:Oidc', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> pulumi.Output[Optional[_builtins.str]]:

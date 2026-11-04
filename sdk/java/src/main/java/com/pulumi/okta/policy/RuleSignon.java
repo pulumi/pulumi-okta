@@ -395,11 +395,10 @@ public class RuleSignon extends com.pulumi.resources.CustomResource {
     /**
      * Risc level: ANY, LOW, MEDIUM or HIGH. Default: `ANY`
      * 
-     * @deprecated
-     * Attribute typo, switch to riskLevel instead. Default: `ANY`
+     * @deprecated Attribute typo, switch to riskLevel instead. Default: `ANY`
      * 
      */
-    @Deprecated /* Attribute typo, switch to riskLevel instead. Default: `ANY` */
+    @Deprecated
     @Export(name="riscLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> riscLevel;
 

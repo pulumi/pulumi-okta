@@ -83,46 +83,46 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Hook("example", HookArgs.builder()
  *             .name("example")
  *             .version("1.0.0")
  *             .type("com.okta.saml.tokens.transform")
  *             .status("ACTIVE")
  *             .channelJson("""
- * {
- *         \"type\": \"OAUTH\",
- *         \"version\": \"1.0.0\",
- *         \"config\": {
- *             \"headers\": [
- *                 {
- *                     \"key\": \"Field 1\",
- *                     \"value\": \"Value 1\"
- *                 },
- *                 {
- *                     \"key\": \"Field 2\",
- *                     \"value\": \"Value 2\"
- *                 }
+ * }{{@code
+ *         }&#92;{@code "type}&#92;{@code ": }&#92;{@code "OAUTH}&#92;{@code ",
+ *         }&#92;{@code "version}&#92;{@code ": }&#92;{@code "1.0.0}&#92;{@code ",
+ *         }&#92;{@code "config}&#92;{@code ": }{{@code
+ *             }&#92;{@code "headers}&#92;{@code ": [
+ *                 }{{@code
+ *                     }&#92;{@code "key}&#92;{@code ": }&#92;{@code "Field 1}&#92;{@code ",
+ *                     }&#92;{@code "value}&#92;{@code ": }&#92;{@code "Value 1}&#92;{@code "
+ *                 }}{@code ,
+ *                 }{{@code
+ *                     }&#92;{@code "key}&#92;{@code ": }&#92;{@code "Field 2}&#92;{@code ",
+ *                     }&#92;{@code "value}&#92;{@code ": }&#92;{@code "Value 2}&#92;{@code "
+ *                 }}{@code
  *             ],
- *             \"method\": \"POST\",
- *             \"authType\": \"client_secret_post\",
- *             \"uri\": \"https://example.com/service\",
- *             \"clientId\": \"abc123\",
- *             \"clientSecret\": \"fake-secret\",
- *             \"tokenUrl\": \"https://example.com/token\",
- *             \"scope\": \"api\"
- *         }
- * }
+ *             }&#92;{@code "method}&#92;{@code ": }&#92;{@code "POST}&#92;{@code ",
+ *             }&#92;{@code "authType}&#92;{@code ": }&#92;{@code "client_secret_post}&#92;{@code ",
+ *             }&#92;{@code "uri}&#92;{@code ": }&#92;{@code "https://example.com/service}&#92;{@code ",
+ *             }&#92;{@code "clientId}&#92;{@code ": }&#92;{@code "abc123}&#92;{@code ",
+ *             }&#92;{@code "clientSecret}&#92;{@code ": }&#92;{@code "fake-secret}&#92;{@code ",
+ *             }&#92;{@code "tokenUrl}&#92;{@code ": }&#92;{@code "https://example.com/token}&#92;{@code ",
+ *             }&#92;{@code "scope}&#92;{@code ": }&#92;{@code "api}&#92;{@code "
+ *         }}{@code
+ * }}{@code
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

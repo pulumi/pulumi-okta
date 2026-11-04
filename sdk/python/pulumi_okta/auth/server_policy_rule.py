@@ -812,6 +812,46 @@ class ServerPolicyRule(pulumi.CustomResource):
         __props__.__dict__["user_whitelists"] = user_whitelists
         return ServerPolicyRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            access_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            auth_server_id: pulumi.Input[Optional[_builtins.str]] = None,
+            grant_type_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            group_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            group_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            inline_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh_token_lifetime_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            refresh_token_window_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+            scope_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            system: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_blacklists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            user_whitelists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accessTokenLifetimeMinutes"] = access_token_lifetime_minutes
+        __props__["authServerId"] = auth_server_id
+        __props__["grantTypeWhitelists"] = grant_type_whitelists
+        __props__["groupBlacklists"] = group_blacklists
+        __props__["groupWhitelists"] = group_whitelists
+        __props__["inlineHookId"] = inline_hook_id
+        __props__["name"] = name
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["refreshTokenLifetimeMinutes"] = refresh_token_lifetime_minutes
+        __props__["refreshTokenWindowMinutes"] = refresh_token_window_minutes
+        __props__["scopeWhitelists"] = scope_whitelists
+        __props__["status"] = status
+        __props__["system"] = system
+        __props__["type"] = type
+        __props__["userBlacklists"] = user_blacklists
+        __props__["userWhitelists"] = user_whitelists
+        return pulumi.runtime.exists_resource(None, 'okta:auth/serverPolicyRule:ServerPolicyRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accessTokenLifetimeMinutes")
     def access_token_lifetime_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:

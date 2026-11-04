@@ -216,6 +216,16 @@ class EventHookVerification(pulumi.CustomResource):
         __props__.__dict__["verification_status"] = verification_status
         return EventHookVerification(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            event_hook_id: pulumi.Input[Optional[_builtins.str]] = None,
+            verification_status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["eventHookId"] = event_hook_id
+        __props__["verificationStatus"] = verification_status
+        return pulumi.runtime.exists_resource(None, 'okta:index/eventHookVerification:EventHookVerification', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="eventHookId")
     def event_hook_id(self) -> pulumi.Output[_builtins.str]:

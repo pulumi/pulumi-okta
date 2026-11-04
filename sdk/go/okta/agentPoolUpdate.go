@@ -185,6 +185,12 @@ func (AgentPoolUpdateState) ElementType() reflect.Type {
 	return reflect.TypeOf((*agentPoolUpdateState)(nil)).Elem()
 }
 
+// AgentPoolUpdateExists checks whether an existing AgentPoolUpdate resource with the given ID exists.
+func AgentPoolUpdateExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AgentPoolUpdateState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/agentPoolUpdate:AgentPoolUpdate", id, state, "", opts...)
+}
+
 type agentPoolUpdateArgs struct {
 	// Agent types that are being monitored (e.g., AD, IWA, LDAP, MFA, OPP, RUM, Radius).
 	AgentType *string `pulumi:"agentType"`

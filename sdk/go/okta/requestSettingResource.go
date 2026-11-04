@@ -119,6 +119,12 @@ func (RequestSettingResourceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestSettingResourceState)(nil)).Elem()
 }
 
+// RequestSettingResourceExists checks whether an existing RequestSettingResource resource with the given ID exists.
+func RequestSettingResourceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestSettingResourceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/requestSettingResource:RequestSettingResource", id, state, "", opts...)
+}
+
 type requestSettingResourceArgs struct {
 	// The id of the resource in Okta ID format.
 	IdProperty string `pulumi:"idProperty"`

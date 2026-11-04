@@ -187,6 +187,16 @@ class ResourceOwner(pulumi.CustomResource):
         __props__.__dict__["resource_orns"] = resource_orns
         return ResourceOwner(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            principal_orns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            resource_orns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["principalOrns"] = principal_orns
+        __props__["resourceOrns"] = resource_orns
+        return pulumi.runtime.exists_resource(None, 'okta:index/resourceOwner:ResourceOwner', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="principalOrns")
     def principal_orns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

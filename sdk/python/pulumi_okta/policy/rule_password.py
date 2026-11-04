@@ -836,6 +836,44 @@ class RulePassword(pulumi.CustomResource):
         __props__.__dict__["users_included"] = users_included
         return RulePassword(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            groups_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            password_change: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset_access_control: pulumi.Input[Optional[_builtins.str]] = None,
+            password_reset_requirement: pulumi.Input[Optional[Union['RulePasswordPasswordResetRequirementArgs', 'RulePasswordPasswordResetRequirementArgsDict', 'outputs.RulePasswordPasswordResetRequirement']]] = None,
+            password_unlock: pulumi.Input[Optional[_builtins.str]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            users_excluded: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            users_included: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["groupsExcluded"] = groups_excluded
+        __props__["groupsIncluded"] = groups_included
+        __props__["name"] = name
+        __props__["networkConnection"] = network_connection
+        __props__["networkExcludes"] = network_excludes
+        __props__["networkIncludes"] = network_includes
+        __props__["passwordChange"] = password_change
+        __props__["passwordReset"] = password_reset
+        __props__["passwordResetAccessControl"] = password_reset_access_control
+        __props__["passwordResetRequirement"] = password_reset_requirement
+        __props__["passwordUnlock"] = password_unlock
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["status"] = status
+        __props__["usersExcluded"] = users_excluded
+        __props__["usersIncluded"] = users_included
+        return pulumi.runtime.exists_resource(None, 'okta:policy/rulePassword:RulePassword', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="groupsExcluded")
     def groups_excluded(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

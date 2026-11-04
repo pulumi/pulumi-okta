@@ -247,6 +247,12 @@ func (AppSignonPolicyRuleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appSignonPolicyRuleState)(nil)).Elem()
 }
 
+// AppSignonPolicyRuleExists checks whether an existing AppSignonPolicyRule resource with the given ID exists.
+func AppSignonPolicyRuleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppSignonPolicyRuleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appSignonPolicyRule:AppSignonPolicyRule", id, state, "", opts...)
+}
+
 type appSignonPolicyRuleArgs struct {
 	// Allow or deny access based on the rule conditions: ALLOW or DENY
 	Access *string `pulumi:"access"`

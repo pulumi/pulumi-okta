@@ -41,7 +41,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Required:
         /// 
         /// - `ExternalId` (String) The Okta user's email address.
@@ -73,7 +72,6 @@ namespace Pulumi.Okta
         /// - `Required` (Boolean) Indicates if the entitlement is required.
         /// - `TargetPrincipalOrn` (String) The Okta user id, in ORN format.
         /// - `Values` (List of Objects) The values of the entitlement. (see below for nested schema)
-        /// 
         /// 
         /// &lt;a id="nestedblock--values"&gt;&lt;/a&gt;
         /// ### Nested Schema for `Values`
@@ -116,7 +114,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Required:
         /// 
         /// - `ExternalId` (String) The Okta user's email address.
@@ -148,7 +145,6 @@ namespace Pulumi.Okta
         /// - `Required` (Boolean) Indicates if the entitlement is required.
         /// - `TargetPrincipalOrn` (String) The Okta user id, in ORN format.
         /// - `Values` (List of Objects) The values of the entitlement. (see below for nested schema)
-        /// 
         /// 
         /// &lt;a id="nestedblock--values"&gt;&lt;/a&gt;
         /// ### Nested Schema for `Values`
@@ -191,7 +187,6 @@ namespace Pulumi.Okta
         /// });
         /// ```
         /// 
-        /// 
         /// ## Required:
         /// 
         /// - `ExternalId` (String) The Okta user's email address.
@@ -223,7 +218,6 @@ namespace Pulumi.Okta
         /// - `Required` (Boolean) Indicates if the entitlement is required.
         /// - `TargetPrincipalOrn` (String) The Okta user id, in ORN format.
         /// - `Values` (List of Objects) The values of the entitlement. (see below for nested schema)
-        /// 
         /// 
         /// &lt;a id="nestedblock--values"&gt;&lt;/a&gt;
         /// ### Nested Schema for `Values`

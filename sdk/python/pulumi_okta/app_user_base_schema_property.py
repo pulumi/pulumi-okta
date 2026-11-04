@@ -501,6 +501,30 @@ class AppUserBaseSchemaProperty(pulumi.CustomResource):
         __props__.__dict__["user_type"] = user_type
         return AppUserBaseSchemaProperty(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            index: pulumi.Input[Optional[_builtins.str]] = None,
+            master: pulumi.Input[Optional[_builtins.str]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            permissions: pulumi.Input[Optional[_builtins.str]] = None,
+            required: pulumi.Input[Optional[_builtins.bool]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["index"] = index
+        __props__["master"] = master
+        __props__["pattern"] = pattern
+        __props__["permissions"] = permissions
+        __props__["required"] = required
+        __props__["title"] = title
+        __props__["type"] = type
+        __props__["userType"] = user_type
+        return pulumi.runtime.exists_resource(None, 'okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

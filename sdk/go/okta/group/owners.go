@@ -139,6 +139,12 @@ func (OwnersState) ElementType() reflect.Type {
 	return reflect.TypeOf((*ownersState)(nil)).Elem()
 }
 
+// OwnersExists checks whether an existing Owners resource with the given ID exists.
+func OwnersExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OwnersState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:group/owners:Owners", id, state, "", opts...)
+}
+
 type ownersArgs struct {
 	// The ID of the Okta group.
 	GroupId string `pulumi:"groupId"`

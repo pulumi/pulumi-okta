@@ -63,7 +63,7 @@ namespace Pulumi.Okta.Profile
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
         /// &gt; **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        /// &gt; **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        /// **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         /// </summary>
         [Output("alwaysApply")]
         public Output<bool?> AlwaysApply { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Okta.Profile
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
         /// &gt; **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        /// &gt; **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        /// **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         /// </summary>
         [Input("alwaysApply")]
         public Input<bool>? AlwaysApply { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Okta.Profile
         /// <summary>
         /// Whether apply the changes to all users with this profile after updating or creating the these mappings.
         /// &gt; **WARNING:**: 'always*apply' is incompatible with OAuth 2.0 authentication and will be ignored when using that type of authentication.
-        /// &gt; **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
+        /// **WARNING:** 'always*apply' makes use of an internal/private Okta API endpoint that could change without notice rendering this resource inoperable.
         /// </summary>
         [Input("alwaysApply")]
         public Input<bool>? AlwaysApply { get; set; }

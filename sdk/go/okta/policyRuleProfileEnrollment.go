@@ -234,6 +234,12 @@ func (PolicyRuleProfileEnrollmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyRuleProfileEnrollmentState)(nil)).Elem()
 }
 
+// PolicyRuleProfileEnrollmentExists checks whether an existing PolicyRuleProfileEnrollment resource with the given ID exists.
+func PolicyRuleProfileEnrollmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyRuleProfileEnrollmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/policyRuleProfileEnrollment:PolicyRuleProfileEnrollment", id, state, "", opts...)
+}
+
 type policyRuleProfileEnrollmentArgs struct {
 	// Allow or deny access based on the rule conditions. Valid values are: `ALLOW`, `DENY`. Default: `ALLOW`.
 	Access *string `pulumi:"access"`

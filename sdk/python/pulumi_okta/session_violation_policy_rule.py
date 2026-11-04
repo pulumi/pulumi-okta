@@ -519,6 +519,30 @@ class SessionViolationPolicyRule(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         return SessionViolationPolicyRule(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            min_risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_connection: pulumi.Input[Optional[_builtins.str]] = None,
+            network_excludes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            network_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            policy_evaluation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["minRiskLevel"] = min_risk_level
+        __props__["name"] = name
+        __props__["networkConnection"] = network_connection
+        __props__["networkExcludes"] = network_excludes
+        __props__["networkIncludes"] = network_includes
+        __props__["policyEvaluationEnabled"] = policy_evaluation_enabled
+        __props__["policyId"] = policy_id
+        __props__["priority"] = priority
+        __props__["status"] = status
+        return pulumi.runtime.exists_resource(None, 'okta:index/sessionViolationPolicyRule:SessionViolationPolicyRule', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="minRiskLevel")
     def min_risk_level(self) -> pulumi.Output[_builtins.str]:

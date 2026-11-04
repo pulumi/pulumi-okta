@@ -41,22 +41,22 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Rule("example", RuleArgs.builder()
  *             .name("example")
  *             .status("ACTIVE")
  *             .groupAssignments("<group id>")
  *             .expressionType("urn:okta:expression:1.0")
- *             .expressionValue("String.startsWith(user.firstName,\"andy\")")
+ *             .expressionValue("String.startsWith(user.firstName,}&#92;{@code "andy}&#92;{@code ")")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

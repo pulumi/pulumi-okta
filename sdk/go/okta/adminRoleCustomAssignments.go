@@ -217,6 +217,12 @@ func (AdminRoleCustomAssignmentsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*adminRoleCustomAssignmentsState)(nil)).Elem()
 }
 
+// AdminRoleCustomAssignmentsExists checks whether an existing AdminRoleCustomAssignments resource with the given ID exists.
+func AdminRoleCustomAssignmentsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AdminRoleCustomAssignmentsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/adminRoleCustomAssignments:AdminRoleCustomAssignments", id, state, "", opts...)
+}
+
 type adminRoleCustomAssignmentsArgs struct {
 	// ID of the Custom Role
 	CustomRoleId string `pulumi:"customRoleId"`

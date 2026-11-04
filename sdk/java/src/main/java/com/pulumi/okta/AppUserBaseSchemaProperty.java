@@ -107,14 +107,14 @@ public class AppUserBaseSchemaProperty extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.master);
     }
     /**
-     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
+     * The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&#92;n&#92;n]+&#39; if present.&#39;
      * 
      */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pattern;
 
     /**
-     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[\n\n]+&#39; if present.&#39;
+     * @return The validation pattern to use for the subschema. Must be in form of &#39;.+&#39;, or &#39;[&#92;n&#92;n]+&#39; if present.&#39;
      * 
      */
     public Output<Optional<String>> pattern() {

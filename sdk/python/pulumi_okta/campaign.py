@@ -557,6 +557,34 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["skip_remediation"] = skip_remediation
         return Campaign(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            campaign_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            campaign_type: pulumi.Input[Optional[_builtins.str]] = None,
+            description: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_settings: pulumi.Input[Optional[Union['CampaignNotificationSettingsArgs', 'CampaignNotificationSettingsArgsDict', 'outputs.CampaignNotificationSettings']]] = None,
+            principal_scope_settings: pulumi.Input[Optional[Union['CampaignPrincipalScopeSettingsArgs', 'CampaignPrincipalScopeSettingsArgsDict', 'outputs.CampaignPrincipalScopeSettings']]] = None,
+            remediation_settings: pulumi.Input[Optional[Union['CampaignRemediationSettingsArgs', 'CampaignRemediationSettingsArgsDict', 'outputs.CampaignRemediationSettings']]] = None,
+            resource_settings: pulumi.Input[Optional[Union['CampaignResourceSettingsArgs', 'CampaignResourceSettingsArgsDict', 'outputs.CampaignResourceSettings']]] = None,
+            reviewer_settings: pulumi.Input[Optional[Union['CampaignReviewerSettingsArgs', 'CampaignReviewerSettingsArgsDict', 'outputs.CampaignReviewerSettings']]] = None,
+            schedule_settings: pulumi.Input[Optional[Union['CampaignScheduleSettingsArgs', 'CampaignScheduleSettingsArgsDict', 'outputs.CampaignScheduleSettings']]] = None,
+            skip_remediation: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["campaignTier"] = campaign_tier
+        __props__["campaignType"] = campaign_type
+        __props__["description"] = description
+        __props__["name"] = name
+        __props__["notificationSettings"] = notification_settings
+        __props__["principalScopeSettings"] = principal_scope_settings
+        __props__["remediationSettings"] = remediation_settings
+        __props__["resourceSettings"] = resource_settings
+        __props__["reviewerSettings"] = reviewer_settings
+        __props__["scheduleSettings"] = schedule_settings
+        __props__["skipRemediation"] = skip_remediation
+        return pulumi.runtime.exists_resource(None, 'okta:index/campaign:Campaign', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="campaignTier")
     def campaign_tier(self) -> pulumi.Output[Optional[_builtins.str]]:

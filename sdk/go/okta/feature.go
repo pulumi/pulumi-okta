@@ -146,6 +146,12 @@ func (FeatureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*featureState)(nil)).Elem()
 }
 
+// FeatureExists checks whether an existing Feature resource with the given ID exists.
+func FeatureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FeatureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/feature:Feature", id, state, "", opts...)
+}
+
 type featureArgs struct {
 	// Okta API for feature only reads and updates therefore the okta*feature resource needs to act as a quasi data source. Do this by setting feature*id
 	FeatureId string `pulumi:"featureId"`

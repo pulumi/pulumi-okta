@@ -409,6 +409,22 @@ class AuthenticatorWebauthnCustomAaguid(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return AuthenticatorWebauthnCustomAaguid(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aaguid: pulumi.Input[Optional[_builtins.str]] = None,
+            attestation_root_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgs', 'AuthenticatorWebauthnCustomAaguidAttestationRootCertificateArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAttestationRootCertificate']]]]] = None,
+            authenticator_characteristics: pulumi.Input[Optional[Union['AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgs', 'AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristicsArgsDict', 'outputs.AuthenticatorWebauthnCustomAaguidAuthenticatorCharacteristics']]] = None,
+            authenticator_id: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aaguid"] = aaguid
+        __props__["attestationRootCertificates"] = attestation_root_certificates
+        __props__["authenticatorCharacteristics"] = authenticator_characteristics
+        __props__["authenticatorId"] = authenticator_id
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'okta:index/authenticatorWebauthnCustomAaguid:AuthenticatorWebauthnCustomAaguid', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def aaguid(self) -> pulumi.Output[_builtins.str]:

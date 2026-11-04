@@ -105,6 +105,12 @@ func (RequestSettingOrganizationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestSettingOrganizationState)(nil)).Elem()
 }
 
+// RequestSettingOrganizationExists checks whether an existing RequestSettingOrganization resource with the given ID exists.
+func RequestSettingOrganizationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestSettingOrganizationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/requestSettingOrganization:RequestSettingOrganization", id, state, "", opts...)
+}
+
 type requestSettingOrganizationArgs struct {
 	// The internal identifier for this resource, required by Terraform to track state. This field does not exist in the Okta API response.
 	IdProperty string `pulumi:"idProperty"`

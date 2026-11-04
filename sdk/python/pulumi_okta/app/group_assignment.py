@@ -361,6 +361,22 @@ class GroupAssignment(pulumi.CustomResource):
         __props__.__dict__["retain_assignment"] = retain_assignment
         return GroupAssignment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            app_id: pulumi.Input[Optional[_builtins.str]] = None,
+            group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            priority: pulumi.Input[Optional[_builtins.int]] = None,
+            profile: pulumi.Input[Optional[_builtins.str]] = None,
+            retain_assignment: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appId"] = app_id
+        __props__["groupId"] = group_id
+        __props__["priority"] = priority
+        __props__["profile"] = profile
+        __props__["retainAssignment"] = retain_assignment
+        return pulumi.runtime.exists_resource(None, 'okta:app/groupAssignment:GroupAssignment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[_builtins.str]:

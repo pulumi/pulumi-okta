@@ -64,22 +64,20 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     @Import(name="skipUsers")
     private @Nullable Output<Boolean> skipUsers;
 
     /**
      * @return Ignore users sync. This is a temporary solution until &#39;users&#39; field is supported in all the app-like resources
      * 
-     * @deprecated
-     * Because users has been removed, this attribute is a no op and will be removed
+     * @deprecated Because users has been removed, this attribute is a no op and will be removed
      * 
      */
-    @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+    @Deprecated
     public Optional<Output<Boolean>> skipUsers() {
         return Optional.ofNullable(this.skipUsers);
     }
@@ -179,11 +177,10 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Because users has been removed, this attribute is a no op and will be removed
+         * @deprecated Because users has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder skipUsers(@Nullable Output<Boolean> skipUsers) {
             $.skipUsers = skipUsers;
             return this;
@@ -194,11 +191,10 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Because users has been removed, this attribute is a no op and will be removed
+         * @deprecated Because users has been removed, this attribute is a no op and will be removed
          * 
          */
-        @Deprecated /* Because users has been removed, this attribute is a no op and will be removed */
+        @Deprecated
         public Builder skipUsers(Boolean skipUsers) {
             return skipUsers(Output.of(skipUsers));
         }

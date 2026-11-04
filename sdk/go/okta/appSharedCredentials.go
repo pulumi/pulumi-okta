@@ -287,6 +287,12 @@ func (AppSharedCredentialsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appSharedCredentialsState)(nil)).Elem()
 }
 
+// AppSharedCredentialsExists checks whether an existing AppSharedCredentials resource with the given ID exists.
+func AppSharedCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppSharedCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appSharedCredentials:AppSharedCredentials", id, state, "", opts...)
+}
+
 type appSharedCredentialsArgs struct {
 	// Custom error page URL
 	AccessibilityErrorRedirectUrl *string `pulumi:"accessibilityErrorRedirectUrl"`

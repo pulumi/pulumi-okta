@@ -396,6 +396,24 @@ class LinkDefinition(pulumi.CustomResource):
         __props__.__dict__["primary_title"] = primary_title
         return LinkDefinition(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            associated_description: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_name: pulumi.Input[Optional[_builtins.str]] = None,
+            associated_title: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_description: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["associatedDescription"] = associated_description
+        __props__["associatedName"] = associated_name
+        __props__["associatedTitle"] = associated_title
+        __props__["primaryDescription"] = primary_description
+        __props__["primaryName"] = primary_name
+        __props__["primaryTitle"] = primary_title
+        return pulumi.runtime.exists_resource(None, 'okta:index/linkDefinition:LinkDefinition', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="associatedDescription")
     def associated_description(self) -> pulumi.Output[_builtins.str]:

@@ -220,6 +220,16 @@ class Risk(pulumi.CustomResource):
         __props__.__dict__["user_id"] = user_id
         return Risk(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            risk_level: pulumi.Input[Optional[_builtins.str]] = None,
+            user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["riskLevel"] = risk_level
+        __props__["userId"] = user_id
+        return pulumi.runtime.exists_resource(None, 'okta:user/risk:Risk', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="riskLevel")
     def risk_level(self) -> pulumi.Output[_builtins.str]:

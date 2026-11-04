@@ -313,6 +313,18 @@ class LinkValue(pulumi.CustomResource):
         __props__.__dict__["primary_user_id"] = primary_user_id
         return LinkValue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            associated_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            primary_name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_user_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["associatedUserIds"] = associated_user_ids
+        __props__["primaryName"] = primary_name
+        __props__["primaryUserId"] = primary_user_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/linkValue:LinkValue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="associatedUserIds")
     def associated_user_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

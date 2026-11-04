@@ -132,6 +132,12 @@ func (RequestSequenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestSequenceState)(nil)).Elem()
 }
 
+// RequestSequenceExists checks whether an existing RequestSequence resource with the given ID exists.
+func RequestSequenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestSequenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/requestSequence:RequestSequence", id, state, "", opts...)
+}
+
 type requestSequenceArgs struct {
 	// The id of the sequence.Must be of 24 characters length.
 	IdProperty string `pulumi:"idProperty"`

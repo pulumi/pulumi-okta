@@ -293,6 +293,16 @@ class RequestConditions(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = resource_id
         return RequestConditions(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RequestConditionsConditionArgs', 'RequestConditionsConditionArgsDict', 'outputs.RequestConditionsCondition']]]]] = None,
+            resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["conditions"] = conditions
+        __props__["resourceId"] = resource_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/requestConditions:RequestConditions', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.RequestConditionsCondition']]]:

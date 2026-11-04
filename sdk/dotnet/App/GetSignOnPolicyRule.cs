@@ -14,8 +14,8 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
         /// &gt; Inside the product a sign-on policy rule is referenced as an _authentication
@@ -52,8 +52,8 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
         /// &gt; Inside the product a sign-on policy rule is referenced as an _authentication
@@ -90,8 +90,8 @@ namespace Pulumi.Okta.App
         /// <summary>
         /// Retrieves an app sign-on (access) policy rule by `ruleId` from Okta.
         /// 
-        /// &gt; **WARNING:** This feature is only available as a part of the 
-        /// Identity Engine. Contact support 
+        /// &gt; **WARNING:** This feature is only available as a part of the
+        /// Identity Engine. Contact support
         /// for further information.
         /// 
         /// &gt; Inside the product a sign-on policy rule is referenced as an _authentication

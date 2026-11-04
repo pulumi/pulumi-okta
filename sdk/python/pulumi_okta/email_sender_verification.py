@@ -176,6 +176,14 @@ class EmailSenderVerification(pulumi.CustomResource):
         __props__.__dict__["sender_id"] = sender_id
         return EmailSenderVerification(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            sender_id: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["senderId"] = sender_id
+        return pulumi.runtime.exists_resource(None, 'okta:index/emailSenderVerification:EmailSenderVerification', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="senderId")
     def sender_id(self) -> pulumi.Output[_builtins.str]:

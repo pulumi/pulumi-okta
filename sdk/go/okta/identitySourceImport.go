@@ -238,6 +238,12 @@ func (IdentitySourceImportState) ElementType() reflect.Type {
 	return reflect.TypeOf((*identitySourceImportState)(nil)).Elem()
 }
 
+// IdentitySourceImportExists checks whether an existing IdentitySourceImport resource with the given ID exists.
+func IdentitySourceImportExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IdentitySourceImportState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/identitySourceImport:IdentitySourceImport", id, state, "", opts...)
+}
+
 type identitySourceImportArgs struct {
 	// Group memberships to delete in Okta.
 	DeleteGroupMemberships *IdentitySourceImportDeleteGroupMemberships `pulumi:"deleteGroupMemberships"`

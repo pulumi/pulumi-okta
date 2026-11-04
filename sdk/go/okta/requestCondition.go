@@ -212,6 +212,12 @@ func (RequestConditionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*requestConditionState)(nil)).Elem()
 }
 
+// RequestConditionExists checks whether an existing RequestCondition resource with the given ID exists.
+func RequestConditionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RequestConditionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/requestCondition:RequestCondition", id, state, "", opts...)
+}
+
 type requestConditionArgs struct {
 	// The access duration settings for the request condition
 	AccessDurationSettings *RequestConditionAccessDurationSettings `pulumi:"accessDurationSettings"`

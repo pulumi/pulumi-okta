@@ -401,6 +401,32 @@ class PrincipalRateLimits(pulumi.CustomResource):
         __props__.__dict__["principal_type"] = principal_type
         return PrincipalRateLimits(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            created_by: pulumi.Input[Optional[_builtins.str]] = None,
+            created_date: pulumi.Input[Optional[_builtins.str]] = None,
+            default_concurrency_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            default_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+            id_property: pulumi.Input[Optional[_builtins.str]] = None,
+            last_update: pulumi.Input[Optional[_builtins.str]] = None,
+            last_updated_by: pulumi.Input[Optional[_builtins.str]] = None,
+            org_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+            principal_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["createdBy"] = created_by
+        __props__["createdDate"] = created_date
+        __props__["defaultConcurrencyPercentage"] = default_concurrency_percentage
+        __props__["defaultPercentage"] = default_percentage
+        __props__["idProperty"] = id_property
+        __props__["lastUpdate"] = last_update
+        __props__["lastUpdatedBy"] = last_updated_by
+        __props__["orgId"] = org_id
+        __props__["principalId"] = principal_id
+        __props__["principalType"] = principal_type
+        return pulumi.runtime.exists_resource(None, 'okta:index/principalRateLimits:PrincipalRateLimits', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:

@@ -1467,6 +1467,84 @@ class Saml(pulumi.CustomResource):
         __props__.__dict__["username_template"] = username_template
         return Saml(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_link_action: pulumi.Input[Optional[_builtins.str]] = None,
+            account_link_group_includes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            acs_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            acs_type: pulumi.Input[Optional[_builtins.str]] = None,
+            audience: pulumi.Input[Optional[_builtins.str]] = None,
+            deprovisioned_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_action: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            groups_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            groups_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            honor_persistent_name_id: pulumi.Input[Optional[_builtins.bool]] = None,
+            issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            issuer_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            kid: pulumi.Input[Optional[_builtins.str]] = None,
+            max_clock_skew: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            name_format: pulumi.Input[Optional[_builtins.str]] = None,
+            profile_master: pulumi.Input[Optional[_builtins.bool]] = None,
+            provisioning_action: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            request_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            response_signature_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
+            response_signature_scope: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_binding: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_destination: pulumi.Input[Optional[_builtins.str]] = None,
+            sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_filter: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_formats: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            subject_match_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            subject_match_type: pulumi.Input[Optional[_builtins.str]] = None,
+            suspended_action: pulumi.Input[Optional[_builtins.str]] = None,
+            trust_claims: pulumi.Input[Optional[_builtins.bool]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            user_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+            username_template: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountLinkAction"] = account_link_action
+        __props__["accountLinkGroupIncludes"] = account_link_group_includes
+        __props__["acsBinding"] = acs_binding
+        __props__["acsType"] = acs_type
+        __props__["audience"] = audience
+        __props__["deprovisionedAction"] = deprovisioned_action
+        __props__["groupsAction"] = groups_action
+        __props__["groupsAssignments"] = groups_assignments
+        __props__["groupsAttribute"] = groups_attribute
+        __props__["groupsFilters"] = groups_filters
+        __props__["honorPersistentNameId"] = honor_persistent_name_id
+        __props__["issuer"] = issuer
+        __props__["issuerMode"] = issuer_mode
+        __props__["kid"] = kid
+        __props__["maxClockSkew"] = max_clock_skew
+        __props__["name"] = name
+        __props__["nameFormat"] = name_format
+        __props__["profileMaster"] = profile_master
+        __props__["provisioningAction"] = provisioning_action
+        __props__["requestSignatureAlgorithm"] = request_signature_algorithm
+        __props__["requestSignatureScope"] = request_signature_scope
+        __props__["responseSignatureAlgorithm"] = response_signature_algorithm
+        __props__["responseSignatureScope"] = response_signature_scope
+        __props__["ssoBinding"] = sso_binding
+        __props__["ssoDestination"] = sso_destination
+        __props__["ssoUrl"] = sso_url
+        __props__["status"] = status
+        __props__["subjectFilter"] = subject_filter
+        __props__["subjectFormats"] = subject_formats
+        __props__["subjectMatchAttribute"] = subject_match_attribute
+        __props__["subjectMatchType"] = subject_match_type
+        __props__["suspendedAction"] = suspended_action
+        __props__["trustClaims"] = trust_claims
+        __props__["type"] = type
+        __props__["userTypeId"] = user_type_id
+        __props__["usernameTemplate"] = username_template
+        return pulumi.runtime.exists_resource(None, 'okta:idp/saml:Saml', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountLinkAction")
     def account_link_action(self) -> pulumi.Output[Optional[_builtins.str]]:

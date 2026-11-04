@@ -104,6 +104,12 @@ func (PolicyProfileEnrollmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*policyProfileEnrollmentState)(nil)).Elem()
 }
 
+// PolicyProfileEnrollmentExists checks whether an existing PolicyProfileEnrollment resource with the given ID exists.
+func PolicyProfileEnrollmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PolicyProfileEnrollmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/policyProfileEnrollment:PolicyProfileEnrollment", id, state, "", opts...)
+}
+
 type policyProfileEnrollmentArgs struct {
 	// Name of the policy
 	Name *string `pulumi:"name"`

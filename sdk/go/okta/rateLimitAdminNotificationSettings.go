@@ -98,6 +98,12 @@ func (RateLimitAdminNotificationSettingsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rateLimitAdminNotificationSettingsState)(nil)).Elem()
 }
 
+// RateLimitAdminNotificationSettingsExists checks whether an existing RateLimitAdminNotificationSettings resource with the given ID exists.
+func RateLimitAdminNotificationSettingsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RateLimitAdminNotificationSettingsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/rateLimitAdminNotificationSettings:RateLimitAdminNotificationSettings", id, state, "", opts...)
+}
+
 type rateLimitAdminNotificationSettingsArgs struct {
 	// Enables or disables admin notifications for rate limiting events.
 	NotificationsEnabled bool `pulumi:"notificationsEnabled"`

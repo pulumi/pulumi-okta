@@ -102,6 +102,12 @@ func (UiSchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*uiSchemaState)(nil)).Elem()
 }
 
+// UiSchemaExists checks whether an existing UiSchema resource with the given ID exists.
+func UiSchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UiSchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/uiSchema:UiSchema", id, state, "", opts...)
+}
+
 type uiSchemaArgs struct {
 	// Properties of the UI schema.
 	UiSchema *UiSchemaUiSchema `pulumi:"uiSchema"`

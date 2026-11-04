@@ -338,6 +338,12 @@ func (SocialState) ElementType() reflect.Type {
 	return reflect.TypeOf((*socialState)(nil)).Elem()
 }
 
+// SocialExists checks whether an existing Social resource with the given ID exists.
+func SocialExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SocialState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:idp/social:Social", id, state, "", opts...)
+}
+
 type socialArgs struct {
 	// Specifies the account linking action for an IdP user. Default: `AUTO`
 	AccountLinkAction *string `pulumi:"accountLinkAction"`

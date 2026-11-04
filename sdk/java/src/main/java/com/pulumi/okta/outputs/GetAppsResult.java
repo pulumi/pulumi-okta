@@ -38,11 +38,10 @@ public final class GetAppsResult {
     /**
      * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      * 
-     * @deprecated
-     * Use `q` instead. This attribute will be removed in a future version.
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      * 
      */
-    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+    @Deprecated
     private @Nullable String labelPrefix;
     /**
      * @return Searches for apps with name or label properties that starts with the `q` value.
@@ -87,11 +86,10 @@ public final class GetAppsResult {
     /**
      * @return Searches for applications whose label or name property begins with this value. **Warning:** This might not work as intended and will be removed in the future release. Use `q` instead.
      * 
-     * @deprecated
-     * Use `q` instead. This attribute will be removed in a future version.
+     * @deprecated Use `q` instead. This attribute will be removed in a future version.
      * 
      */
-    @Deprecated /* Use `q` instead. This attribute will be removed in a future version. */
+    @Deprecated
     public Optional<String> labelPrefix() {
         return Optional.ofNullable(this.labelPrefix);
     }

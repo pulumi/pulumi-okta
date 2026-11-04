@@ -527,6 +527,28 @@ class EmailCustomization(pulumi.CustomResource):
         __props__.__dict__["template_name"] = template_name
         return EmailCustomization(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            brand_id: pulumi.Input[Optional[_builtins.str]] = None,
+            force_is_default: pulumi.Input[Optional[_builtins.str]] = None,
+            is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+            language: pulumi.Input[Optional[_builtins.str]] = None,
+            links: pulumi.Input[Optional[_builtins.str]] = None,
+            subject: pulumi.Input[Optional[_builtins.str]] = None,
+            template_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["body"] = body
+        __props__["brandId"] = brand_id
+        __props__["forceIsDefault"] = force_is_default
+        __props__["isDefault"] = is_default
+        __props__["language"] = language
+        __props__["links"] = links
+        __props__["subject"] = subject
+        __props__["templateName"] = template_name
+        return pulumi.runtime.exists_resource(None, 'okta:index/emailCustomization:EmailCustomization', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Output[Optional[_builtins.str]]:

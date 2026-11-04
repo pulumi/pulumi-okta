@@ -159,6 +159,12 @@ func (AppUserBaseSchemaPropertyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*appUserBaseSchemaPropertyState)(nil)).Elem()
 }
 
+// AppUserBaseSchemaPropertyExists checks whether an existing AppUserBaseSchemaProperty resource with the given ID exists.
+func AppUserBaseSchemaPropertyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AppUserBaseSchemaPropertyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("okta:index/appUserBaseSchemaProperty:AppUserBaseSchemaProperty", id, state, "", opts...)
+}
+
 type appUserBaseSchemaPropertyArgs struct {
 	// The Application's ID the user schema property should be assigned to.
 	AppId string `pulumi:"appId"`
