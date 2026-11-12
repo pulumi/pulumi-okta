@@ -228,8 +228,6 @@ Example currently unavailable in this language
 
 {{% /choosable %}}
 {{< /chooser >}}
-
-For the resources and functions examples, please check the examples directory.
 ## Authentication
 
 The Okta provider offers a flexible means of providing credentials for

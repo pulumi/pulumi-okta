@@ -19,6 +19,7 @@ import (
 	"context"
 	"fmt"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"unicode"
 
@@ -597,9 +598,22 @@ func Provider() tfbridge.ProviderInfo {
 	return prov
 }
 
+// The overview points readers at upstream's directory of HCL examples. The default edit rules strip the link
+// because its URL contains "terraform", which leaves a sentence pointing at nothing, so drop the sentence.
+// It runs before the defaults so it can match the link as upstream writes it.
+var dropExamplesDirSentence = tfbridge.DocsEdit{
+	Path: "index.md",
+	Edit: func(_ string, content []byte) ([]byte, error) {
+		return examplesDirSentence.ReplaceAll(content, nil), nil
+	},
+}
+
+var examplesDirSentence = regexp.MustCompile(
+	`For the resources and data sources examples, please check the \[examples\]\([^)]*\) directory\.\n\n`)
+
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(
-		defaults,
+		append([]tfbridge.DocsEdit{dropExamplesDirSentence}, defaults...),
 		tfbridge.DocsEdit{
 			Path: "*",
 			Edit: func(_ string, content []byte) ([]byte, error) {
